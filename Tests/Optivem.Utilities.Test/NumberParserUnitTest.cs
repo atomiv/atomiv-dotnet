@@ -14,8 +14,8 @@ namespace Optivem.Utilities.Test
         [TestInitialize]
         public void Initialize()
         {
-            this.americanParser = new NumberParser(NumberFormatUtilities.DecimalSeparatedNumberFormat);
-            this.europeanParser = new NumberParser(NumberFormatUtilities.CommaSeparatedNumberFormat);
+            this.americanParser = NumberParser.American;
+            this.europeanParser = NumberParser.European;
         }
 
         [TestCleanup]

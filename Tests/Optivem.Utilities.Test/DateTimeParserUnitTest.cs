@@ -19,9 +19,9 @@ namespace Optivem.Utilities.Test
         [TestMethod]
         public void TestParseDateTime1()
         {
-            DateTimeParser _parser = new DateTimeParser("yyyy-MM-dd");
+            DateTimeParser parser = new DateTimeParser("yyyy-MM-dd");
             string dateTimeString = "1996-04-01";
-            DateTime actual = _parser.ParseDateTime(dateTimeString);
+            DateTime actual = parser.ParseDateTime(dateTimeString);
             DateTime expected = new DateTime(1996, 4, 1);
             Assert.AreEqual(actual, expected);
 

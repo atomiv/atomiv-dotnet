@@ -12,6 +12,9 @@ namespace Optivem.Utilities
     /// </summary>
     public class NumberParser
     {
+        public static NumberParser American = new NumberParser(NumberFormatUtilities.DecimalSeparatedNumberFormat);
+        public static NumberParser European = new NumberParser(NumberFormatUtilities.CommaSeparatedNumberFormat);
+
         public NumberParser(NumberFormatInfo numberFormat)
         {
             this.NumberFormat = numberFormat;

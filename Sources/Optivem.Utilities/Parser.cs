@@ -11,9 +11,12 @@ namespace Optivem.Utilities
     /// </summary>
     public class Parser
     {
+        private static BooleanParser defaultBooleanParser = new BooleanParser();
+
         private static Dictionary<DataType, Convert> delegates = new Dictionary<DataType, Convert>()
         {
             { DataType.String, new Convert((parser, data) => data) },
+            { DataType.Boolean, new Convert((parser, data) => parser.BooleanParser.ParseBoolean(data)) },
             { DataType.Short, new Convert((parser, data) => parser.NumberParser.ParseShort(data)) },
             { DataType.Integer, new Convert((parser, data) => parser.NumberParser.ParseInteger(data)) },
             { DataType.Long, new Convert((parser, data) => parser.NumberParser.ParseLong(data)) },
@@ -24,15 +27,21 @@ namespace Optivem.Utilities
 
         private delegate object Convert(Parser parser, string data);
 
-        public Parser(NumberParser numberParser, DateTimeParser dateTimeParser)
+        public Parser(NumberParser numberParser, DateTimeParser dateTimeParser, BooleanParser booleanParser)
         {
             this.NumberParser = numberParser;
             this.DateTimeParser = dateTimeParser;
+            this.BooleanParser = booleanParser;
         }
+
+        public Parser(NumberParser numberParser, DateTimeParser dateTimeParser)
+            : this(numberParser, dateTimeParser, defaultBooleanParser) { }
 
         public NumberParser NumberParser { get; private set; }
 
         public DateTimeParser DateTimeParser { get; private set; }
+
+        public BooleanParser BooleanParser { get; private set; }
 
         public object Parse(string data, DataType dataType)
         {

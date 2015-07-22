@@ -12,6 +12,7 @@ namespace Optivem.Utilities
     public enum DataType
     {
         None,
+        Boolean,
         String,
         Short,
         Integer,
