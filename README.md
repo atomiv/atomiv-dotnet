@@ -1,4 +1,4 @@
-# Optivem utilities (C#)
+# Optivem Utilities (C#)
 
 This project is currently under development. It will include various utilities, such as:
 
