@@ -56,9 +56,9 @@
     <Compile Include="NumberParserUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Sources\Optivem.Utilities\Optivem.Utilities.csproj">
+    <ProjectReference Include="..\..\Sources\Optivem.Commons\Optivem.Commons.csproj">
       <Project>{09137d96-0daf-40c3-95cc-5f45117dcad5}</Project>
-      <Name>Optivem.Utilities</Name>
+      <Name>Optivem.Commons</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

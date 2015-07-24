@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Windows Desktop
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Utilities", "Sources\Optivem.Utilities\Optivem.Utilities.csproj", "{09137D96-0DAF-40C3-95CC-5F45117DCAD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Commons", "Sources\Optivem.Commons\Optivem.Commons.csproj", "{09137D96-0DAF-40C3-95CC-5F45117DCAD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Utilities.Test", "Tests\Optivem.Utilities.Test\Optivem.Utilities.Test.csproj", "{130B33CD-B737-470A-AD89-789747ADE13C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{03F9F963-62BD-463D-A962-971BC908901E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F51E696D-B2B5-404C-865F-0F4267312486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Commons.Test", "Tests\Optivem.Commons.Test\Optivem.Commons.Test.csproj", "{130B33CD-B737-470A-AD89-789747ADE13C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{09137D96-0DAF-40C3-95CC-5F45117DCAD5} = {03F9F963-62BD-463D-A962-971BC908901E}
+		{130B33CD-B737-470A-AD89-789747ADE13C} = {F51E696D-B2B5-404C-865F-0F4267312486}
 	EndGlobalSection
 EndGlobal
