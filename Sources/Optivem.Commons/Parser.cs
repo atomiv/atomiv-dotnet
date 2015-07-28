@@ -11,41 +11,21 @@ namespace Optivem.Utilities
     /// </summary>
     public class Parser
     {
-        private static BooleanParser defaultBooleanParser = new BooleanParser();
+        private Dictionary<Type, Converter> converters;
 
-        private static Dictionary<DataType, Convert> delegates = new Dictionary<DataType, Convert>()
+        public Parser(Dictionary<Type, Converter> converters)
         {
-            { DataType.String, new Convert((parser, data) => data) },
-            { DataType.Boolean, new Convert((parser, data) => parser.BooleanParser.ParseBoolean(data)) },
-            { DataType.Short, new Convert((parser, data) => parser.NumberParser.ParseShort(data)) },
-            { DataType.Integer, new Convert((parser, data) => parser.NumberParser.ParseInteger(data)) },
-            { DataType.Long, new Convert((parser, data) => parser.NumberParser.ParseLong(data)) },
-            { DataType.Float, new Convert((parser, data) => parser.NumberParser.ParseFloat(data)) },
-            { DataType.Double, new Convert((parser, data) => parser.NumberParser.ParseDouble(data)) },
-            { DataType.DateTime, new Convert((parser, data) => parser.DateTimeParser.ParseDateTime(data)) },
-        };
-
-        private delegate object Convert(Parser parser, string data);
-
-        public Parser(NumberParser numberParser, DateTimeParser dateTimeParser, BooleanParser booleanParser)
-        {
-            this.NumberParser = numberParser;
-            this.DateTimeParser = dateTimeParser;
-            this.BooleanParser = booleanParser;
+            this.converters = converters;
         }
 
-        public Parser(NumberParser numberParser, DateTimeParser dateTimeParser)
-            : this(numberParser, dateTimeParser, defaultBooleanParser) { }
-
-        public NumberParser NumberParser { get; private set; }
-
-        public DateTimeParser DateTimeParser { get; private set; }
-
-        public BooleanParser BooleanParser { get; private set; }
-
-        public object Parse(string data, DataType dataType)
+        public bool CanParse(Type type)
         {
-            if (!delegates.ContainsKey(dataType))
+            return converters.ContainsKey(type);
+        }
+
+        public object Parse(string data, Type type)
+        {
+            if (!CanParse(type))
             {
                 throw new NotSupportedException();
             }
@@ -55,7 +35,8 @@ namespace Optivem.Utilities
                 return null;
             }
 
-            return delegates[dataType](this, data);
+            return converters[type](data);
         }
+
     }
 }

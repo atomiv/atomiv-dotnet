@@ -40,11 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanParser.cs" />
+    <Compile Include="CommonTypes.cs" />
+    <Compile Include="Converter.cs" />
     <Compile Include="DataType.cs" />
     <Compile Include="DateTimeParser.cs" />
+    <Compile Include="EnumParser.cs" />
     <Compile Include="NumberFormatUtilities.cs" />
     <Compile Include="NumberParser.cs" />
     <Compile Include="Parser.cs" />
+    <Compile Include="ParserFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

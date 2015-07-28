@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Utilities
 {
+    // TODO: Consider deletion
+
     /// <summary>
     /// Represents basic (primitive) data types which are used to compose data records 
     /// </summary>
-    public enum DataType
+    internal enum DataType
     {
         None,
         Boolean,
