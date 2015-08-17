@@ -11,34 +11,20 @@ namespace Optivem.Immerest
     /// </summary>
     public class BooleanParser
     {
-        private static HashSet<string> empty = new HashSet<string>();
-
         /// <summary>
         /// Creates an instance of a boolean parser
         /// </summary>
         /// <param name="trueStrings">Set of custom strings representing the boolean "true" value</param>
         /// <param name="falseStrings">Set of custom strings representing the boolean "false" value</param>
-        public BooleanParser(HashSet<string> trueStrings, HashSet<string> falseStrings)
+        public BooleanParser(Dictionary<string, bool> mapping = null)
         {
-            this.TrueStrings = trueStrings;
-            this.FalseStrings = falseStrings;
+            this.Mapping = mapping;
         }
 
         /// <summary>
-        /// Creates an instance of a boolean parser
+        /// Mapping of strings to boolean values
         /// </summary>
-        public BooleanParser()
-            : this(empty, empty) { }
-
-        /// <summary>
-        /// Set of custom strings representing the "true" value
-        /// </summary>
-        public HashSet<string> TrueStrings { get; private set; }
-
-        /// <summary>
-        /// Set of custom strings representing the "false" value
-        /// </summary>
-        public HashSet<string> FalseStrings { get; private set; }
+        public Dictionary<string, bool> Mapping { get; private set; }
 
         /// <summary>
         /// Converts string data to boolean value
@@ -55,14 +41,9 @@ namespace Optivem.Immerest
                 return result;
             }
             
-            if(TrueStrings.Contains(data))
+            if(Mapping != null && Mapping.ContainsKey(data))
             {
-                return true;
-            }
-
-            if(FalseStrings.Contains(data))
-            {
-                return false;
+                return Mapping[data];
             }
 
             throw new ArgumentException("Failed to convert " + data + " to a boolean value");
