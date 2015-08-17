@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest", "Optivem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Tests", "Optivem.Immerest.Tests\Optivem.Immerest.Tests.csproj", "{130B33CD-B737-470A-AD89-789747ADE13C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Demo", "Optivem.Immerest.Demo\Optivem.Immerest.Demo.csproj", "{97E93C40-E4C4-4E7A-9749-8644118BF7E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,12 @@ Global
 		{130B33CD-B737-470A-AD89-789747ADE13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{130B33CD-B737-470A-AD89-789747ADE13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{130B33CD-B737-470A-AD89-789747ADE13C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{09137D96-0DAF-40C3-95CC-5F45117DCAD5} = {03F9F963-62BD-463D-A962-971BC908901E}
-		{130B33CD-B737-470A-AD89-789747ADE13C} = {F51E696D-B2B5-404C-865F-0F4267312486}
 	EndGlobalSection
 EndGlobal
