@@ -6,8 +6,8 @@
     <ProjectGuid>{130B33CD-B737-470A-AD89-789747ADE13C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Optivem.Utilities.Test</RootNamespace>
-    <AssemblyName>Optivem.Utilities.Test</AssemblyName>
+    <RootNamespace>Optivem.Immerest.Tests</RootNamespace>
+    <AssemblyName>Optivem.Immerest.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
