@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Utilities
+namespace Optivem.Immerest
 {
     /// <summary>
     /// Parser for converting from string into DateTime, using a given DateTime format

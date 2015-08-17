@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Utilities
+namespace Optivem.Immerest
 {
     /// <summary>
     /// Utilities for working with the NumberFormat class

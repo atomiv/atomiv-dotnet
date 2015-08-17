@@ -1,10 +1,14 @@
-# Optivem Commons (C#)
+# Immerest
 
-This project is currently under development. It will include various utilities, such as:
+Immerest is a C# library containing parsers for primitive data types.
 
-* Handling data types and conversions
-* Reading and writing common file formats
+The following are included:
+
+* Numeric types
+* Date types
+* Boolean types
+* Enum types
 
 # Licence
 
-This project is licenced under the Apache License Version 2.0, which means it can be freely redistributed / modified / used in both commercial and non-commercial projects.
+This project is licensed under the Apache License Version 2.0, which means it can be freely redistributed / modified / used in both commercial and non-commercial projects.

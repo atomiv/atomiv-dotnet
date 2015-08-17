@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Utilities
+namespace Optivem.Immerest
 {
     public static class ParserFactory
     {
