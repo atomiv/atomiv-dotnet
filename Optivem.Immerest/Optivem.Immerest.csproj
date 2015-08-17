@@ -42,7 +42,6 @@
     <Compile Include="BooleanParser.cs" />
     <Compile Include="CommonTypes.cs" />
     <Compile Include="Converter.cs" />
-    <Compile Include="DataType.cs" />
     <Compile Include="DateTimeParser.cs" />
     <Compile Include="EnumParser.cs" />
     <Compile Include="NumberFormatUtilities.cs" />

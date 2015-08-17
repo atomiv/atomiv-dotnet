@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Immerest
 {
+    /// <summary>
+    /// Container for common data types
+    /// </summary>
     public static class CommonTypes
     {
         public static readonly Type String = typeof(string);
