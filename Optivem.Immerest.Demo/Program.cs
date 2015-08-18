@@ -47,8 +47,8 @@ namespace Optivem.Immerest.Demo
         {
             // Use the default boolean parser
             BooleanParser parser = new BooleanParser();
-            bool result = parser.ParseBoolean("true"); // converts to true
-            bool result2 = parser.ParseBoolean("false"); // converts to false
+            bool result = parser.ParseBoolean("truE"); // converts to true
+            bool result2 = parser.ParseBoolean("FAlse"); // converts to false
 
             // Alternatively, we can set custom strings for conversion of boolean values
             Dictionary<string, bool> mapping = new Dictionary<string, bool>
