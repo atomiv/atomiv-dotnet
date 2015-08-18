@@ -84,4 +84,4 @@ Seasons autumn = parser.ParseEnum<Seasons>("summer"); // Converts to Seasons.Sum
 
 ## Licence
 
-This project is licensed under the Apache License Version 2.0, which means it can be freely redistributed / modified / used in both commercial and non-commercial projects.
+Copyright 2015 Optivem. Licensed under the Apache License, Version 2.0.
