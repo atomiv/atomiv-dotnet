@@ -15,36 +15,36 @@ namespace Optivem.Immerest
         public static NumberParser American = new NumberParser(NumberFormatUtilities.DecimalSeparatedNumberFormat);
         public static NumberParser European = new NumberParser(NumberFormatUtilities.CommaSeparatedNumberFormat);
 
-        public NumberParser(NumberFormatInfo numberFormat)
+        public NumberParser(IFormatProvider formatProvider = null)
         {
-            this.NumberFormat = numberFormat;
+            this.FormatProvider = formatProvider;
         }
 
-        public NumberFormatInfo NumberFormat { get; private set; }
+        public IFormatProvider FormatProvider { get; private set; }
 
         public int ParseInteger(string data)
         {
-            return int.Parse(data, NumberFormat);
+            return int.Parse(data, FormatProvider);
         }
 
         public double ParseDouble(string data)
         {
-            return double.Parse(data, NumberFormat);
+            return double.Parse(data, FormatProvider);
         }
 
         public float ParseFloat(string data)
         {
-            return float.Parse(data, NumberFormat);
+            return float.Parse(data, FormatProvider);
         }
 
         public long ParseLong(string data)
         {
-            return long.Parse(data, NumberFormat);
+            return long.Parse(data, FormatProvider);
         }
 
         public short ParseShort(string data)
         {
-            return short.Parse(data, NumberFormat);
+            return short.Parse(data, FormatProvider);
         }
     }
 }

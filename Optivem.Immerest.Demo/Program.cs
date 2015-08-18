@@ -25,7 +25,7 @@ namespace Optivem.Immerest.Demo
         private static void RunNumberParserDemo()
         {
             // We can set up custom parser by specifying the thousands and decimal separators
-            NumberFormatInfo format = new NumberFormatInfo { NumberGroupSeparator = ".", NumberDecimalSeparator = "," };
+            IFormatProvider format = new NumberFormatInfo { NumberGroupSeparator = ".", NumberDecimalSeparator = "," };
             NumberParser parser = new NumberParser(format);
             double result = parser.ParseDouble("5.300.199,20"); // converts to 5300199.20
 
