@@ -1,5 +1,7 @@
 # Immerest
 
+[![Build Status](https://travis-ci.org/optivem/immerest.svg?branch=master)](https://travis-ci.org/optivem/immerest)
+
 Immerest is a C# library containing parsers for basic data types:
 * Numeric types
 * Date types
