@@ -11,10 +11,14 @@ namespace Optivem.Immerest.Demo
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Running demo...");
+
             RunNumberParserDemo();
             RunDateTimeParserDemo();
             RunBooleanParserDemo();
+            RunEnumParserDemo();
 
+            Console.WriteLine("Finished. Press any key to continue...");
             Console.ReadKey();
         }
 
@@ -59,6 +63,17 @@ namespace Optivem.Immerest.Demo
             bool result3 = parser2.ParseBoolean("true"); // converts to true
             bool result4 = parser2.ParseBoolean("Yes"); // converts to true
             bool result5 = parser2.ParseBoolean("N"); // converts to false
+        }
+
+        enum Seasons {  Spring, Summer, Autumn, Winter }
+
+        private static void RunEnumParserDemo()
+        {
+            bool ignoreCase = true; // set whether case will be ignored when parsing enum
+            EnumParser parser = new EnumParser(ignoreCase);
+
+            Seasons season = parser.ParseEnum<Seasons>("winTER"); // Converts to Seasons.Winter
+            Seasons autumn = parser.ParseEnum<Seasons>("summer"); // Converts to Seasons.Summer
         }
     }
 }
