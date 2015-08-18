@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) Optivem.  Licensed under the Apache License, Version 2.0.
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Optivem.Immerest.Test
