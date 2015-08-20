@@ -74,8 +74,24 @@ namespace Optivem.Immerest.Demo
             bool ignoreCase = true; // set whether case will be ignored when parsing enum
             EnumParser parser = new EnumParser(ignoreCase);
 
-            Seasons season = parser.ParseEnum<Seasons>("winTER"); // Converts to Seasons.Winter
-            Seasons autumn = parser.ParseEnum<Seasons>("summer"); // Converts to Seasons.Summer
+            Seasons result1 = parser.ParseEnum<Seasons>("winTER"); // Converts to Seasons.Winter
+            Seasons result2 = parser.ParseEnum<Seasons>("summer"); // Converts to Seasons.Summer
+        }
+
+        private static void RunEnumStringParserDemo()
+        {
+            Dictionary<string, Seasons> map = new Dictionary<string, Seasons>
+                {
+                    { "sppringg", Seasons.Spring },
+                    { "Sptring", Seasons.Spring },
+                    { "Summer", Seasons.Summer },
+                    { "SSS", Seasons.Summer },
+                    { "suMMer", Seasons.Summer }
+                };
+
+            EnumStringParser<Seasons> parser = new EnumStringParser<Seasons>(map);
+            Seasons result1 = parser.ParseEnum("Sptring"); // Converts to Seasons.Spring
+            Seasons result2 = parser.ParseEnum("SSS"); // Converts to Seasons.Summer
         }
     }
 }
