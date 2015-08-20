@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DateTimeParserUnitTest.cs" />
     <Compile Include="NumberParserUnitTest.cs" />
+    <Compile Include="EnumStringParserUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Optivem.Immerest\Optivem.Immerest.csproj">

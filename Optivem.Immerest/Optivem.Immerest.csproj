@@ -44,6 +44,7 @@
     <Compile Include="Converter.cs" />
     <Compile Include="DateTimeParser.cs" />
     <Compile Include="EnumParser.cs" />
+    <Compile Include="EnumStringParser.cs" />
     <Compile Include="NumberFormatUtilities.cs" />
     <Compile Include="NumberParser.cs" />
     <Compile Include="Parser.cs" />

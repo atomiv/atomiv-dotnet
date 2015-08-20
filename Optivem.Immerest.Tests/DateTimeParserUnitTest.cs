@@ -26,7 +26,6 @@ namespace Optivem.Immerest.Test
             DateTime actual = parser.ParseDateTime(dateTimeString);
             DateTime expected = new DateTime(1996, 4, 1);
             Assert.AreEqual(actual, expected);
-
         }
     }
 }
