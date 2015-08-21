@@ -101,4 +101,4 @@ Seasons result2 = parser.ParseEnum("SSS"); // Converts to Seasons.Summer
 
 ## Licence
 
-Copyright (c) 2015 Optivem. Licensed under the Apache License, Version 2.0.
+Copyright (c) 2015 [Optivem](http://optivem.com/). Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
