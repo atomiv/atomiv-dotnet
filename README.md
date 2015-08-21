@@ -101,7 +101,7 @@ Seasons result2 = parser.ParseEnum("SSS"); // Converts to Seasons.Summer
 
 ## Website
 
-The main website page for the Immerest project is [optivem.github.io/immerest](http://optivem.github.io/immerest).
+The main website for this project on GitHub: [optivem.github.io/immerest](http://optivem.github.io/immerest).
 
 ## Issues
 
