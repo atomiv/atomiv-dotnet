@@ -99,6 +99,14 @@ Seasons result1 = parser.ParseEnum("Sptring"); // Converts to Seasons.Spring
 Seasons result2 = parser.ParseEnum("SSS"); // Converts to Seasons.Summer
 ```
 
+## Website
+
+The main website page for the Immerest project is [optivem.github.io/immerest](http://optivem.github.io/immerest).
+
+## Issues
+
+To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/immerest/issues](https://github.com/optivem/immerest/issues).
+
 ## Licence
 
-Copyright (c) 2015 [Optivem](http://optivem.com/). Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Copyright (c) 2015 [Optivem](http://optivem.com). Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
