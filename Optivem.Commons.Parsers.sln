@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Tests", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Demo", "Optivem.Immerest.Demo\Optivem.Immerest.Demo.csproj", "{97E93C40-E4C4-4E7A-9749-8644118BF7E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parsers", "Optivem.Commons.Parsers\Optivem.Commons.Parsers.csproj", "{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parser", "Optivem.Commons.Parsers\Optivem.Commons.Parser.csproj", "{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parsers.Standard", "Optivem.Commons.Parsers.Primitive\Optivem.Commons.Parsers.Standard.csproj", "{6F188A60-8C1B-4C90-9AD8-C837022A47E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parser.Standard", "Optivem.Commons.Parsers.Primitive\Optivem.Commons.Parser.Standard.csproj", "{6F188A60-8C1B-4C90-9AD8-C837022A47E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

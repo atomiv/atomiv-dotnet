@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Commons.Parser.Basic
+namespace Optivem.Commons.Parser.Standard
 {
     /// <summary>
     /// Parser for boolean (binary) values

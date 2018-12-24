@@ -5,6 +5,8 @@
     <Description />
     <Company>Optivem</Company>
     <RepositoryUrl>https://github.com/optivem/commons-parsers-csharp</RepositoryUrl>
+    <Authors>Optivem</Authors>
+    <PackageTags>parser</PackageTags>
   </PropertyGroup>
 
 </Project>
