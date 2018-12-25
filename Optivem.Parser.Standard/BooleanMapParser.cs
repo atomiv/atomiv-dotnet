@@ -1,9 +1,8 @@
-﻿using Optivem.Parser.Common.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Parser.Common
+namespace Optivem.Parser.Standard
 {
     // TODO: VC: Check if need map <string, boolean> for several true and several false values
 

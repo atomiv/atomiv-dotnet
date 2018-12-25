@@ -1,9 +1,8 @@
-﻿using Optivem.Parser.Common.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Parser.Common
+namespace Optivem.Parser.Standard
 {
     public class LongParser : BaseParser<long?>
     {

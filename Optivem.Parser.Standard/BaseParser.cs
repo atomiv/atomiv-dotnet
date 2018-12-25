@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Parser.Common.Base
+namespace Optivem.Parser.Standard
 {
     public abstract class BaseParser<T> : IParser<T>
     {
