@@ -12,10 +12,12 @@
     <PackageProjectUrl>http://optivem.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/parser-csharp</RepositoryUrl>
     <PackageTags>parser</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Optivem.Parser" Version="1.0.1" />
+    <PackageReference Include="Optivem.Parser.Base" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Optivem.Parser.Base;
+using System;
 
 namespace Optivem.Parser.Standard
 {
