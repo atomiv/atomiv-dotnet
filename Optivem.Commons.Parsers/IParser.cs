@@ -6,7 +6,7 @@ namespace Optivem.Parser
 {
     public interface IParser
     {
-        T Parse<T>(string value);
+        object Parse(string value);
     }
 
     public interface IParser<T>

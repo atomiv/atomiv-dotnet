@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Valentina Cupac</Authors>
+    <Company>Optivem</Company>
+    <Description>Base classes for parsing</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/optivem.github.io/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://optivem.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/parser-csharp</RepositoryUrl>
+    <PackageTags>parser</PackageTags>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Optivem.Parser" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -2,13 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Description />
+    <Description>Parser interfaces</Description>
     <Company>Optivem</Company>
     <RepositoryUrl>https://github.com/optivem/parser-csharp</RepositoryUrl>
     <Authors>Valentina Cupac</Authors>
     <PackageTags>parser</PackageTags>
     <PackageProjectUrl>http://optivem.com/</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/optivem/optivem.github.io/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.1</Version>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
   </PropertyGroup>
 
 </Project>
