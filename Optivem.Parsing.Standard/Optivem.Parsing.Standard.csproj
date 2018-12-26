@@ -16,8 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Parser" Version="1.0.1" />
-    <PackageReference Include="Optivem.Parser.Base" Version="1.0.0" />
+    <PackageReference Include="Optivem.Parsing.Base" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
