@@ -1,9 +1,9 @@
-﻿using Optivem.Parser.Base;
+﻿using Optivem.Parsing.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Parser.Standard
+namespace Optivem.Parsing.Standard
 {
     public class StringParser : BaseParser<string>
     {
