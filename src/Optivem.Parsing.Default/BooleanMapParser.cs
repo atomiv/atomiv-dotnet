@@ -1,34 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Parsing.Default
 {
-    // TODO: VC: Check if need map <string, boolean> for several true and several false values
-
-    public class BooleanMapParser : BaseParser<bool?>
+    public class BooleanMapParser : IParser<bool?>
     {
-        private BooleanMapParser(string trueString, string falseString)
+        private Dictionary<string, bool> mapping;
+
+        public BooleanMapParser(Dictionary<string, bool> mapping)
         {
-            TrueString = trueString;
-            FalseString = falseString;
+            this.mapping = mapping;
         }
 
-        public string TrueString { get; private set; }
-
-        public string FalseString { get; private set; }
-        
-        protected override bool? ParseInner(string value)
+        public bool? Parse(string value)
         {
-            if (value == TrueString)
-            {
-                return true;
-            }
+            // TODO: VC: Exception handling if not in map
 
-            if (value == FalseString)
-            {
-                return false;
-            }
-
-            throw new ArgumentOutOfRangeException();
+            return mapping[value];
         }
     }
 }

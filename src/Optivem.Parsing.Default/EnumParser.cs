@@ -6,11 +6,21 @@ namespace Optivem.Parsing.Default
 
     public class EnumParser<T> : BaseParser<T?> where T : struct
     {
+        public EnumParser(bool ignoreCase = false)
+        {
+            IgnoreCase = ignoreCase;
+            Type = typeof(T);
+        }
+        
+        public bool IgnoreCase { get; private set; }
+
+        public Type Type { get; private set; }
+
         protected override T? ParseInner(string value)
         {
-            var type = typeof(T);
-
-            return (T)Enum.Parse(type, value);
+            return (T)Enum.Parse(Type, value, IgnoreCase);
         }
+
+        // TODO: VC: for returning objects: return Enum.Parse(type, data, IgnoreCase);
     }
 }

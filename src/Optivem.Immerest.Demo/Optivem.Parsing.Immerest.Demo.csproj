@@ -48,9 +48,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Immerest\Optivem.Immerest.csproj">
-      <Project>{09137d96-0daf-40c3-95cc-5f45117dcad5}</Project>
-      <Name>Optivem.Immerest</Name>
+    <ProjectReference Include="..\Optivem.Parsing.Default\Optivem.Parsing.Default.csproj">
+      <Project>{89e2d4a9-0e73-41db-b54a-7cde93c33654}</Project>
+      <Name>Optivem.Parsing.Default</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

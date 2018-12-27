@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Optivem.  Licensed under the Apache License, Version 2.0. See the LICENSE file in the root of the project.
 
+using Optivem.Parsing.Default;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,32 +9,42 @@ using System.Threading.Tasks;
 
 namespace Optivem.Immerest
 {
-    public static class ParserFactory
+    // TODO: VC: Non-generic EnumParser, i.e. parsing any enum, like a service, i.e. parser.Parse<SomeEnum>
+
+    public static class ParserFactory<T>
     {
         public static Parser CreateParser(NumberParser numberParser, DateTimeParser dateTimeParser, IEnumerable<Type> enumTypes = null, 
-            BooleanParser booleanParser = null, EnumParser enumParser = null, Dictionary<Type, Converter> otherConverters = null)
+            BooleanParser booleanParser = null, /* TODO: VC: EnumParser<T> enumParser = null, */ Dictionary<Type, Converter> otherConverters = null)
         {
             if(booleanParser == null)
             {
                 booleanParser = new BooleanParser();
             }
 
+            // TODO: VC
+
+            /*
             if(enumParser == null)
             {
                 enumParser = new EnumParser();
             }
+            */
 
             Dictionary<Type, Converter> converters = new Dictionary<Type, Converter>
             {
                 { CommonTypes.String, data => data },
-                { CommonTypes.Bool, data => booleanParser.ParseBoolean(data) },
+                { CommonTypes.Bool, data => booleanParser.Parse(data) },
                 { CommonTypes.Short, data => numberParser.ParseShort(data) },
                 { CommonTypes.Int, data => numberParser.ParseInteger(data) },
                 { CommonTypes.Long, data => numberParser.ParseLong(data) },
                 { CommonTypes.Float, data => numberParser.ParseFloat(data) },
                 { CommonTypes.Double, data => numberParser.ParseDouble(data) },
-                { CommonTypes.DateTime, data => dateTimeParser.ParseDateTime(data) }
+                { CommonTypes.DateTime, data => dateTimeParser.Parse(data) }
             };
+
+            // TODO: VC
+
+            /*
 
             if(enumTypes != null)
             {
@@ -42,6 +53,8 @@ namespace Optivem.Immerest
                     converters.Add(enumType, data => enumParser.ParseEnum(data, enumType));
                 }
             }
+
+            */
 
             if(otherConverters != null)
             {

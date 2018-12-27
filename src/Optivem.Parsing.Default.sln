@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest", "Optivem.Immerest\Optivem.Immerest.csproj", "{09137D96-0DAF-40C3-95CC-5F45117DCAD5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Tests", "Optivem.Immerest.Tests\Optivem.Immerest.Tests.csproj", "{130B33CD-B737-470A-AD89-789747ADE13C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Demo", "Optivem.Immerest.Demo\Optivem.Immerest.Demo.csproj", "{97E93C40-E4C4-4E7A-9749-8644118BF7E0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing.Default", "Optivem.Parsing.Default\Optivem.Parsing.Default.csproj", "{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Parsing.Default.Test", "Optivem.Parsing.Default.Test\Optivem.Parsing.Default.Test.csproj", "{2BDEAC8A-1417-4351-88B4-F9AA5BC8FC7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Parsing.Default.Demo", "Optivem.Parsing.Default.Demo\Optivem.Parsing.Default.Demo.csproj", "{3ADEF3C7-7207-4DA5-A70E-DE1388E3831C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,26 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09137D96-0DAF-40C3-95CC-5F45117DCAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09137D96-0DAF-40C3-95CC-5F45117DCAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09137D96-0DAF-40C3-95CC-5F45117DCAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09137D96-0DAF-40C3-95CC-5F45117DCAD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{130B33CD-B737-470A-AD89-789747ADE13C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{130B33CD-B737-470A-AD89-789747ADE13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{130B33CD-B737-470A-AD89-789747ADE13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{130B33CD-B737-470A-AD89-789747ADE13C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97E93C40-E4C4-4E7A-9749-8644118BF7E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDEAC8A-1417-4351-88B4-F9AA5BC8FC7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDEAC8A-1417-4351-88B4-F9AA5BC8FC7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDEAC8A-1417-4351-88B4-F9AA5BC8FC7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDEAC8A-1417-4351-88B4-F9AA5BC8FC7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADEF3C7-7207-4DA5-A70E-DE1388E3831C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADEF3C7-7207-4DA5-A70E-DE1388E3831C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADEF3C7-7207-4DA5-A70E-DE1388E3831C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADEF3C7-7207-4DA5-A70E-DE1388E3831C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

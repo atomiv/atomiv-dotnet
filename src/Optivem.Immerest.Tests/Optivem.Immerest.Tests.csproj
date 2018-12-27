@@ -56,12 +56,6 @@
     <Compile Include="NumberParserUnitTest.cs" />
     <Compile Include="EnumStringParserUnitTest.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Optivem.Immerest\Optivem.Immerest.csproj">
-      <Project>{09137d96-0daf-40c3-95cc-5f45117dcad5}</Project>
-      <Name>Optivem.Immerest</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

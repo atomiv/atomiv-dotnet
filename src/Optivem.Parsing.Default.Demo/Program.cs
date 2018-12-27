@@ -1,14 +1,9 @@
-﻿// Copyright (c) Optivem.  Licensed under the Apache License, Version 2.0. See the LICENSE file in the root of the project.
-
-using Optivem.Parsing.Default;
+﻿using Optivem.Immerest;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Optivem.Immerest.Demo
+namespace Optivem.Parsing.Default.Demo
 {
     class Program
     {
@@ -68,7 +63,7 @@ namespace Optivem.Immerest.Demo
             var result5 = parser2.Parse("N"); // converts to false
         }
 
-        enum Seasons {  Spring, Summer, Autumn, Winter }
+        enum Seasons { Spring, Summer, Autumn, Winter }
 
         private static void RunEnumParserDemo()
         {
