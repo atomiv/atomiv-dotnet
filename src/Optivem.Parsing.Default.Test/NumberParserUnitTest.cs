@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Optivem.Immerest.Test
+namespace Optivem.Parsing.Default.Test
 {
     [TestClass]
     public class NumberParserUnitTest

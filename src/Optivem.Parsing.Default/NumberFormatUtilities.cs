@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
-namespace Optivem.Immerest
+namespace Optivem.Parsing.Default
 {
     /// <summary>
     /// Utilities for working with the NumberFormat class

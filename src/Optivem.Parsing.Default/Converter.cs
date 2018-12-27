@@ -1,12 +1,4 @@
-﻿// Copyright (c) Optivem.  Licensed under the Apache License, Version 2.0. See the LICENSE file in the root of the project.
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Optivem.Immerest
+﻿namespace Optivem.Parsing.Default
 {
     /// <summary>
     /// Converts string data into object of a certain type

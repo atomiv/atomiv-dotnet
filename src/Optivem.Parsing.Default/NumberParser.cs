@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Optivem.Immerest
+namespace Optivem.Parsing.Default
 {
     /// <summary>
     /// Parser for converting from string data into numbers, given a number format

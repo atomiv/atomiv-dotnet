@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Optivem.Parsing.Default;
 
 namespace Optivem.Parsing.Default.Test
 {
