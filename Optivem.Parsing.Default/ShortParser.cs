@@ -1,9 +1,4 @@
-﻿using Optivem.Parsing.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Parsing.Standard
+﻿namespace Optivem.Parsing.Default
 {
     public class ShortParser : BaseParser<short?>
     {

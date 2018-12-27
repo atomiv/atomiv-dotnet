@@ -1,9 +1,6 @@
-﻿using Optivem.Parsing.Base;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace Optivem.Parsing.Standard
+namespace Optivem.Parsing.Default
 {
     public class DateTimeParser : BaseParser<DateTime?>
     {

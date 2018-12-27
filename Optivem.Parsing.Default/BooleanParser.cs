@@ -1,7 +1,4 @@
-﻿using Optivem.Parsing.Base;
-using System;
-
-namespace Optivem.Parsing.Standard
+﻿namespace Optivem.Parsing.Default
 {
     public class BooleanParser : BaseParser<bool?>
     {

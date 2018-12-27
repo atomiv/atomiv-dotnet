@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Parsing
 {
-    public interface IMultiParser
+    public interface IParsingService
     {
         T Parse<T>(string value);
     }

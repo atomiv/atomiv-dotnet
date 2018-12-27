@@ -11,9 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Demo", "Op
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing", "Optivem.Parsing\Optivem.Parsing.csproj", "{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing.Standard", "Optivem.Parsing.Standard\Optivem.Parsing.Standard.csproj", "{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing.Base", "Optivem.Parsing.Base\Optivem.Parsing.Base.csproj", "{7894B495-8AA9-425F-BB62-6B67FD5F6FB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing.Default", "Optivem.Parsing.Default\Optivem.Parsing.Default.csproj", "{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7894B495-8AA9-425F-BB62-6B67FD5F6FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7894B495-8AA9-425F-BB62-6B67FD5F6FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7894B495-8AA9-425F-BB62-6B67FD5F6FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7894B495-8AA9-425F-BB62-6B67FD5F6FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

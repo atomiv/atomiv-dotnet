@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Optivem.Parsing.Base
+namespace Optivem.Parsing.Default
 {
     public abstract class BaseNumberParser<T> : BaseParser<T>
     {

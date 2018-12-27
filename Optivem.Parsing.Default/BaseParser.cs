@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Parsing.Base
+﻿namespace Optivem.Parsing.Default
 {
     public abstract class BaseParser<T> : IParser<T>
     {
