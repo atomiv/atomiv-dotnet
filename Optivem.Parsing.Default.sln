@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Tests", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Immerest.Demo", "Optivem.Immerest.Demo\Optivem.Immerest.Demo.csproj", "{97E93C40-E4C4-4E7A-9749-8644118BF7E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing", "Optivem.Parsing\Optivem.Parsing.csproj", "{6037C21C-8F25-4C33-A2DB-BC971DA72AAF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Parsing.Default", "Optivem.Parsing.Default\Optivem.Parsing.Default.csproj", "{89E2D4A9-0E73-41DB-B54A-7CDE93C33654}"
 EndProject
 Global
