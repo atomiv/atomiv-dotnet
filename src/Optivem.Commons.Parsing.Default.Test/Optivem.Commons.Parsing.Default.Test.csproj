@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Parsing.Default\Optivem.Parsing.Default.csproj" />
+    <ProjectReference Include="..\Optivem.Commons.Parsing.Default\Optivem.Commons.Parsing.Default.csproj" />
   </ItemGroup>
 
 </Project>

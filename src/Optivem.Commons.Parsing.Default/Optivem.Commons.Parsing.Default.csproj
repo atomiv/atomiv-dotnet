@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <PackageId>Optivem.Commons.Parsing.Default</PackageId>
+    <Product>Optivem.Commons.Parsing.Default</Product>
+    <Company>Optivem</Company>
+    <Authors>Optivem</Authors>
+    <Description>Default implementation of parsing for standard data types</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-parsing-default/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-parsing-default</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-parsing-default</RepositoryUrl>
+    <PackageTags>parser parse parsing</PackageTags>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Optivem.Parsing" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>

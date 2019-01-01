@@ -1,6 +1,6 @@
 ## Introduction
 
-[![Build Status](https://travis-ci.org/optivem/csharp-parsing-default.svg?branch=master)](https://travis-ci.org/optivem/csharp-parsing-default)
+[![Build Status](https://travis-ci.org/optivem/csharp-commons-parsing-default.svg?branch=master)](https://travis-ci.org/optivem/csharp-commons-parsing-default)
 
 Immerest is a C# library containing parsers for basic data types:
 * Numeric types
