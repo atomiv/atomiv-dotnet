@@ -11,12 +11,12 @@
     <PackageLicenseUrl>https://github.com/optivem/csharp-commons-parsing-default/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-parsing-default</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/csharp-commons-parsing-default</RepositoryUrl>
-    <PackageTags>parser parse parsing</PackageTags>
+    <PackageTags>Optivem Commons DotNetCore Parsing Parser StandardDataTypes</PackageTags>
     <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Parsing" Version="1.0.1" />
+    <PackageReference Include="Optivem.Commons.Parsing" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

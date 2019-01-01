@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Optivem.Parsing.Default.Demo
+namespace Optivem.Commons.Parsing.Default.Demo
 {
     class Program
     {

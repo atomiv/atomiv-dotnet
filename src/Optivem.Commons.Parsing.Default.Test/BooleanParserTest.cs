@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace Optivem.Parsing.Default.Test
+namespace Optivem.Commons.Parsing.Default.Test
 {
     [TestClass]
     public class BooleanParserTest

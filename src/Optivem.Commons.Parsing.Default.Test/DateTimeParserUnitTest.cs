@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Optivem.Parsing.Default.Test
+namespace Optivem.Commons.Parsing.Default.Test
 {
     [TestClass]
     public class DateTimeParserUnitTest

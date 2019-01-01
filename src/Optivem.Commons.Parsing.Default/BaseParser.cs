@@ -1,4 +1,4 @@
-﻿namespace Optivem.Parsing.Default
+﻿namespace Optivem.Commons.Parsing.Default
 {
     public abstract class BaseParser<T> : IParser<T>
     {

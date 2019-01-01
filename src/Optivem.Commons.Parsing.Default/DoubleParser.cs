@@ -1,4 +1,4 @@
-﻿namespace Optivem.Parsing.Default
+﻿namespace Optivem.Commons.Parsing.Default
 {
     public class DoubleParser : BaseParser<double?>
     {
