@@ -2,11 +2,25 @@
 
 [![Build Status](https://travis-ci.org/optivem/csharp-commons-parsing-default.svg?branch=master)](https://travis-ci.org/optivem/csharp-commons-parsing-default)
 
-Immerest is a C# library containing parsers for basic data types:
+[![Build Status](https://img.shields.io/appveyor/ci/optivem/csharp-commons-parsing-default.svg)](https://ci.appveyor.com/project/optivem/csharp-commons-parsing-default)
+[![NuGet Release](https://img.shields.io/nuget/v/Optivem.Commons.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Commons.Parsing.Default)
+[![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
+Optivem.Commons.Parsing.Default is a .NET Core 2.2 library providing default implementations for parsing.
+
+It contains parsers for basic data types:
 * Numeric types
 * Date types
 * Boolean types
 * Enum types
+
+## Installation
+
+To install this package via NuGet:
+
+```
+PM> Install-Package Optivem.Commons.Parsing.Default
+```
 
 ## Tutorial
 

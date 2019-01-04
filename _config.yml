@@ -1,5 +1,5 @@
-title: Optivem C# Commons - Parsing - Default
-description: C#.NET library for parsing primitive types
+title: Optivem.Commons.Parsing.Default
+description: Default implementation for parsing primitive types
 google_analytics: UA-63306472-4
 show_downloads: true
 theme: jekyll-theme-cayman
