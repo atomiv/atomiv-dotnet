@@ -11,7 +11,7 @@ namespace Optivem.Commons.Parsing.Default
             FormatProvider = formatProvider;
         }
 
-        public IFormatProvider FormatProvider { get; private set; }
+        publics IFormatProvider FormatProvider { get; private set; }
 
         public NumberStyles? NumberStyles { get; private set; }
 
