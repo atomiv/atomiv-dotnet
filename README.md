@@ -6,7 +6,7 @@
 [![NuGet Release](https://img.shields.io/nuget/v/Optivem.Commons.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Commons.Parsing.Default)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-Optivem.Commons.Parsing.Default is a .NET Core 2.2 library providing default implementations for parsing.
+Optivem .NET Commons Parsing Default is a .NET Core 2.2 library providing default implementations for parsing.
 
 It contains parsers for basic data types:
 * Numeric types
