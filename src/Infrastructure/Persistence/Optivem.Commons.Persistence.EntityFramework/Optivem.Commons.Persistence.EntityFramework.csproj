@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Company>Optivem</Company>
+    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-persistence-entityframework/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-persistence-entityframework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-persistence-entityframework</RepositoryUrl>
+    <PackageTags>Optivem Commons DotNetCore Persistence Database Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
+    <Version>1.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Optivem.Commons.Persistence" Version="1.0.2" />
+  </ItemGroup>
+
+</Project>

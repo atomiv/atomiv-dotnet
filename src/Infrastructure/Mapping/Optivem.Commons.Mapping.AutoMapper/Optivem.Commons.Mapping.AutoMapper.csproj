@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for Mapping using AutoMapper</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-mapping-automapper/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-mapping-automapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-mapping-automapper</RepositoryUrl>
+    <PackageTags>Optivem Commons DotNetCore Mapping Mapper AutoMapper</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Optivem.Commons.Mapping" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

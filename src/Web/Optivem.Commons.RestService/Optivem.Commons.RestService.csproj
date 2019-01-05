@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Description>Interfaces for RESTful Services</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice</RepositoryUrl>
+    <PackageTags>Optivem Commons DotNetCore REST RestService RestApi</PackageTags>
+  </PropertyGroup>
+
+</Project>

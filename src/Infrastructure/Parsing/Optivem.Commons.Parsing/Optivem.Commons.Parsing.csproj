@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Description>Interfaces for parsing</Description>
+    <Company>Optivem</Company>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-parsing</RepositoryUrl>
+    <Authors>Optivem</Authors>
+    <PackageTags>Optivem Commons DotNetCore Parsing Parser</PackageTags>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-parsing</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-parsing/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.0</Version>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageId>Optivem.Commons.Parsing</PackageId>
+    <Product>Optivem.Commons.Parsing</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+</Project>

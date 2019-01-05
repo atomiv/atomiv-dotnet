@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Company>Optivem</Company>
+    <Description>Interfaces for generic repository and generic unit of work patterns</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-persistence/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-persistence</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-persistence</RepositoryUrl>
+    <PackageTags>Optivem Commons DotNetCore Persistence Database Repository UnitOfWork UOW Transactions</PackageTags>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+  </PropertyGroup>
+
+</Project>
