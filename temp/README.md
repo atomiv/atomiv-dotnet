@@ -1,7 +1,5 @@
 # Vembridge
 
-[![Build Status](https://travis-ci.org/optivem/immerest.svg?branch=master)](https://travis-ci.org/optivem/vembridge)
-
 Vembridge is a general-purpose utility library for reading and writing delimiter-separated values (DSV) with support for internationalization and custom formats.
 
 ## Functionalities
