@@ -1,7 +1,6 @@
 ## Introduction
 
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/dotnet.svg)](https://ci.appveyor.com/project/optivem/dotnet)
-
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 ## Website
