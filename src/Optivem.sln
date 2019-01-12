@@ -41,19 +41,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.Rest", "Web\Opt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.Rest.AspNetCore", "Web\Optivem.Commons.RestService.AspNetCore\Optivem.Web.Rest.AspNetCore.csproj", "{D60AD074-4D59-4CB6-A28C-4397784978A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity", "Optivem.Domain.Entity\Optivem.Domain.Entity.csproj", "{559446BB-18C8-4DE3-8208-5050502112FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity", "Domain\Entity\Optivem.Domain.Entity\Optivem.Domain.Entity.csproj", "{559446BB-18C8-4DE3-8208-5050502112FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{9E4BB148-9FA6-4975-B386-B0D99594F52F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity.Default", "Optivem.Domain.Entity.Default\Optivem.Domain.Entity.Default.csproj", "{40DD753E-B9B5-4426-B244-36674BE8D795}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity.Default", "Domain\Entity\Optivem.Domain.Entity.Default\Optivem.Domain.Entity.Default.csproj", "{40DD753E-B9B5-4426-B244-36674BE8D795}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{CD720C5E-88A2-4D95-B178-4A162E0B9E30}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{8B6A48D3-B3D5-42CC-9DB9-BF9B22A3A4CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository", "Optivem.Domain.Repository\Optivem.Domain.Repository.csproj", "{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository", "Domain\Repository\Optivem.Domain.Repository\Optivem.Domain.Repository.csproj", "{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository.Default", "Optivem.Domain.Repository.Default\Optivem.Domain.Repository.Default.csproj", "{0C782966-4D6C-41DD-BFCF-32527FD3228E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository.Default", "Domain\Repository\Optivem.Domain.Repository.Default\Optivem.Domain.Repository.Default.csproj", "{0C782966-4D6C-41DD-BFCF-32527FD3228E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Soap", "Soap", "{9747A868-2ABE-4B1F-ADFB-5C08CD21DF54}"
 EndProject
