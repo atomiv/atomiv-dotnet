@@ -1,4 +1,4 @@
-﻿namespace Optivem.Commons.Parsing.Default
+﻿namespace Optivem.Infrastructure.Parsing.Default
 {
     public class FloatParser : BaseParser<float?>
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Commons.Service
+namespace Optivem.Application.Service
 {
     public interface IService
     {

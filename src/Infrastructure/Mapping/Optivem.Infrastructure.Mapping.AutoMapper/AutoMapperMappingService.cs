@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using System;
 
-namespace Optivem.Commons.Mapping.AutoMapper
+namespace Optivem.Infrastructure.Mapping.AutoMapper
 {
     public class AutoMapperMappingService : IMappingService
     {

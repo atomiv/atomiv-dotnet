@@ -13,9 +13,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
-    <PackageReference Include="Optivem.Commons.Persistence" Version="1.0.1" />
-    <PackageReference Include="Optivem.Commons.RestService" Version="1.0.0" />
-    <PackageReference Include="Optivem.Commons.Service" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Service\Optivem.Application.Service\Optivem.Application.Service.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Infrastructure.Repository\Optivem.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Optivem.Web.Rest\Optivem.Web.Rest.csproj" />
   </ItemGroup>
 
 </Project>

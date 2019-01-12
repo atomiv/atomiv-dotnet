@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Commons.Parsing.Default
+namespace Optivem.Infrastructure.Parsing.Default
 {
     public class BooleanMapParser : IParser<bool?>
     {

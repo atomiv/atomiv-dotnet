@@ -12,9 +12,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Commons.Mapping" Version="1.0.0" />
-    <PackageReference Include="Optivem.Commons.Persistence" Version="1.0.1" />
-    <PackageReference Include="Optivem.Commons.Service" Version="1.0.0" />
+    <ProjectReference Include="..\..\..\Infrastructure\Mapping\Optivem.Infrastructure.Mapping\Optivem.Infrastructure.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Infrastructure.Repository\Optivem.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Optivem.Application.Service\Optivem.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>

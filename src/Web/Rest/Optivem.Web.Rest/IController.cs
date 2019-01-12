@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Commons.RestService
+namespace Optivem.Web.Rest
 {
     public interface IController<TRequest, 
         TGetResourcesResponse, 

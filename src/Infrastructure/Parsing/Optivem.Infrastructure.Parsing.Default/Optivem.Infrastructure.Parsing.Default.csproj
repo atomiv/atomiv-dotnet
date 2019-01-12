@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Commons.Parsing" Version="1.0.0" />
+    <ProjectReference Include="..\Optivem.Infrastructure.Parsing\Optivem.Infrastructure.Parsing.csproj" />
   </ItemGroup>
 
 </Project>

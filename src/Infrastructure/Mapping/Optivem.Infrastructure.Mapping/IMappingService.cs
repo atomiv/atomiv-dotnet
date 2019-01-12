@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Commons.Mapping
+namespace Optivem.Infrastructure.Mapping
 {
     public interface IMappingService
     {

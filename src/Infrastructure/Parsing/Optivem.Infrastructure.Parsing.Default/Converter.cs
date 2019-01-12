@@ -1,4 +1,4 @@
-﻿namespace Optivem.Commons.Parsing.Default
+﻿namespace Optivem.Infrastructure.Parsing.Default
 {
     /// <summary>
     /// Converts string data into object of a certain type
