@@ -15,31 +15,55 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parsing", "Parsing", "{0C02
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{2F82036E-5CBB-4608-B623-A4AA5FA84C64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Service", "Application\Service\Optivem.Commons.Service\Optivem.Commons.Service.csproj", "{F6DF19A3-3880-49BF-936A-01F81A13D341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Application.Service", "Application\Service\Optivem.Commons.Service\Optivem.Application.Service.csproj", "{F6DF19A3-3880-49BF-936A-01F81A13D341}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Service.Default", "Application\Service\Optivem.Commons.Service.Default\Optivem.Commons.Service.Default.csproj", "{5009E4DF-FA47-46AD-9AA2-65400F0B7CEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Application.Service.Default", "Application\Service\Optivem.Commons.Service.Default\Optivem.Application.Service.Default.csproj", "{5009E4DF-FA47-46AD-9AA2-65400F0B7CEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mapping", "Mapping", "{A00318E8-4F68-4FBB-BC9B-608A43996ECA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{A81BFD64-26E7-4D88-B9E6-3135D2F2E3A7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{A81BFD64-26E7-4D88-B9E6-3135D2F2E3A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Mapping", "Infrastructure\Mapping\Optivem.Commons.Mapping\Optivem.Commons.Mapping.csproj", "{D3913B2A-937E-489A-A857-9EC860DB4297}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Mapping", "Infrastructure\Mapping\Optivem.Commons.Mapping\Optivem.Infrastructure.Mapping.csproj", "{D3913B2A-937E-489A-A857-9EC860DB4297}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Mapping.AutoMapper", "Infrastructure\Mapping\Optivem.Commons.Mapping.AutoMapper\Optivem.Commons.Mapping.AutoMapper.csproj", "{DF6D8CA4-BF20-4CB8-8A1C-A4EC3CB36BF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Mapping.AutoMapper", "Infrastructure\Mapping\Optivem.Commons.Mapping.AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj", "{DF6D8CA4-BF20-4CB8-8A1C-A4EC3CB36BF1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parsing", "Infrastructure\Parsing\Optivem.Commons.Parsing\Optivem.Commons.Parsing.csproj", "{7C2A6226-E826-47DE-AFA7-5FDDF9D821C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Parsing", "Infrastructure\Parsing\Optivem.Commons.Parsing\Optivem.Infrastructure.Parsing.csproj", "{7C2A6226-E826-47DE-AFA7-5FDDF9D821C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parsing.Default", "Infrastructure\Parsing\Optivem.Commons.Parsing.Default\Optivem.Commons.Parsing.Default.csproj", "{BC54B4DD-4642-412E-B48C-758FD4D6281E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Parsing.Default", "Infrastructure\Parsing\Optivem.Commons.Parsing.Default\Optivem.Infrastructure.Parsing.Default.csproj", "{BC54B4DD-4642-412E-B48C-758FD4D6281E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Persistence", "Infrastructure\Persistence\Optivem.Commons.Persistence\Optivem.Commons.Persistence.csproj", "{9737387B-932D-4BA4-8FC5-48D9D3687BC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Repository", "Infrastructure\Persistence\Optivem.Commons.Persistence\Optivem.Infrastructure.Repository.csproj", "{9737387B-932D-4BA4-8FC5-48D9D3687BC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Persistence.EntityFramework", "Infrastructure\Persistence\Optivem.Commons.Persistence.EntityFramework\Optivem.Commons.Persistence.EntityFramework.csproj", "{C53FB084-201F-4A31-82CA-6F7B73B58049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Repository.EntityFramework", "Infrastructure\Persistence\Optivem.Commons.Persistence.EntityFramework\Optivem.Infrastructure.Repository.EntityFramework.csproj", "{C53FB084-201F-4A31-82CA-6F7B73B58049}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestService", "RestService", "{BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rest", "Rest", "{BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.RestService", "Web\Optivem.Commons.RestService\Optivem.Commons.RestService.csproj", "{831DC98E-6C20-44C4-8EFD-828C72730346}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.Rest", "Web\Optivem.Commons.RestService\Optivem.Web.Rest.csproj", "{831DC98E-6C20-44C4-8EFD-828C72730346}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.RestService.AspNetCore", "Web\Optivem.Commons.RestService.AspNetCore\Optivem.Commons.RestService.AspNetCore.csproj", "{D60AD074-4D59-4CB6-A28C-4397784978A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.Rest.AspNetCore", "Web\Optivem.Commons.RestService.AspNetCore\Optivem.Web.Rest.AspNetCore.csproj", "{D60AD074-4D59-4CB6-A28C-4397784978A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity", "Optivem.Domain.Entity\Optivem.Domain.Entity.csproj", "{559446BB-18C8-4DE3-8208-5050502112FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{9E4BB148-9FA6-4975-B386-B0D99594F52F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Entity.Default", "Optivem.Domain.Entity.Default\Optivem.Domain.Entity.Default.csproj", "{40DD753E-B9B5-4426-B244-36674BE8D795}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{CD720C5E-88A2-4D95-B178-4A162E0B9E30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{8B6A48D3-B3D5-42CC-9DB9-BF9B22A3A4CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository", "Optivem.Domain.Repository\Optivem.Domain.Repository.csproj", "{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Domain.Repository.Default", "Optivem.Domain.Repository.Default\Optivem.Domain.Repository.Default.csproj", "{0C782966-4D6C-41DD-BFCF-32527FD3228E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Soap", "Soap", "{9747A868-2ABE-4B1F-ADFB-5C08CD21DF54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Web.Soap", "Optivem.Web.Soap\Optivem.Web.Soap.csproj", "{4B23F1F5-8B44-4353-8B6E-1E0438B96137}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Web.Soap.AspNetCore", "Optivem.Web.Soap.AspNetCore\Optivem.Web.Soap.AspNetCore.csproj", "{50056D48-C679-4E61-A002-757D20FBF066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Logging", "Optivem.Infrastructure.Logging\Optivem.Infrastructure.Logging.csproj", "{76467B0C-B363-4B55-86CD-9E9C2629E31D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Logging.Log4net", "Optivem.Logging.Log4net\Optivem.Infrastructure.Logging.Log4net.csproj", "{27C4B309-849C-486D-BE2B-A56BCE5F745C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +111,38 @@ Global
 		{D60AD074-4D59-4CB6-A28C-4397784978A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D60AD074-4D59-4CB6-A28C-4397784978A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D60AD074-4D59-4CB6-A28C-4397784978A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559446BB-18C8-4DE3-8208-5050502112FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559446BB-18C8-4DE3-8208-5050502112FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559446BB-18C8-4DE3-8208-5050502112FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559446BB-18C8-4DE3-8208-5050502112FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40DD753E-B9B5-4426-B244-36674BE8D795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40DD753E-B9B5-4426-B244-36674BE8D795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40DD753E-B9B5-4426-B244-36674BE8D795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40DD753E-B9B5-4426-B244-36674BE8D795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64F2C36-6928-4C80-BB7C-C6ADAA84C467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C782966-4D6C-41DD-BFCF-32527FD3228E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C782966-4D6C-41DD-BFCF-32527FD3228E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C782966-4D6C-41DD-BFCF-32527FD3228E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C782966-4D6C-41DD-BFCF-32527FD3228E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B23F1F5-8B44-4353-8B6E-1E0438B96137}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B23F1F5-8B44-4353-8B6E-1E0438B96137}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B23F1F5-8B44-4353-8B6E-1E0438B96137}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B23F1F5-8B44-4353-8B6E-1E0438B96137}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50056D48-C679-4E61-A002-757D20FBF066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50056D48-C679-4E61-A002-757D20FBF066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50056D48-C679-4E61-A002-757D20FBF066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50056D48-C679-4E61-A002-757D20FBF066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76467B0C-B363-4B55-86CD-9E9C2629E31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76467B0C-B363-4B55-86CD-9E9C2629E31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76467B0C-B363-4B55-86CD-9E9C2629E31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76467B0C-B363-4B55-86CD-9E9C2629E31D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C4B309-849C-486D-BE2B-A56BCE5F745C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C4B309-849C-486D-BE2B-A56BCE5F745C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C4B309-849C-486D-BE2B-A56BCE5F745C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C4B309-849C-486D-BE2B-A56BCE5F745C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +163,18 @@ Global
 		{BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F} = {58AEF876-B576-44F8-AD55-DA74818CD60E}
 		{831DC98E-6C20-44C4-8EFD-828C72730346} = {BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F}
 		{D60AD074-4D59-4CB6-A28C-4397784978A3} = {BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F}
+		{559446BB-18C8-4DE3-8208-5050502112FB} = {9E4BB148-9FA6-4975-B386-B0D99594F52F}
+		{9E4BB148-9FA6-4975-B386-B0D99594F52F} = {00971984-2BC4-4ED2-B9D7-7EC2AE5EC328}
+		{40DD753E-B9B5-4426-B244-36674BE8D795} = {9E4BB148-9FA6-4975-B386-B0D99594F52F}
+		{CD720C5E-88A2-4D95-B178-4A162E0B9E30} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
+		{8B6A48D3-B3D5-42CC-9DB9-BF9B22A3A4CD} = {00971984-2BC4-4ED2-B9D7-7EC2AE5EC328}
+		{A64F2C36-6928-4C80-BB7C-C6ADAA84C467} = {8B6A48D3-B3D5-42CC-9DB9-BF9B22A3A4CD}
+		{0C782966-4D6C-41DD-BFCF-32527FD3228E} = {8B6A48D3-B3D5-42CC-9DB9-BF9B22A3A4CD}
+		{9747A868-2ABE-4B1F-ADFB-5C08CD21DF54} = {58AEF876-B576-44F8-AD55-DA74818CD60E}
+		{4B23F1F5-8B44-4353-8B6E-1E0438B96137} = {9747A868-2ABE-4B1F-ADFB-5C08CD21DF54}
+		{50056D48-C679-4E61-A002-757D20FBF066} = {9747A868-2ABE-4B1F-ADFB-5C08CD21DF54}
+		{76467B0C-B363-4B55-86CD-9E9C2629E31D} = {CD720C5E-88A2-4D95-B178-4A162E0B9E30}
+		{27C4B309-849C-486D-BE2B-A56BCE5F745C} = {CD720C5E-88A2-4D95-B178-4A162E0B9E30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
