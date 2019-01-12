@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Domain.Repository.Default
+namespace Optivem.Infrastructure.Serialization.FixedWidth
 {
     public class Class1
     {
