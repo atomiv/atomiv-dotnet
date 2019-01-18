@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Company>Optivem</Company>
+    <Description>Default implementation for entities</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
+    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Optivem DotNetCore Domain Entity Entities Default</PackageTags>
   </PropertyGroup>
 
 </Project>

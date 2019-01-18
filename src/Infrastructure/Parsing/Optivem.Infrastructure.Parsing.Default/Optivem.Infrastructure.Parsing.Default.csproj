@@ -2,21 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageId>Optivem.Commons.Parsing.Default</PackageId>
-    <Product>Optivem.Commons.Parsing.Default</Product>
+    <PackageId>Optivem.Infrastructure.Parsing.Default</PackageId>
+    <Product>Optivem.Infrastructure.Parsing.Default</Product>
     <Company>Optivem</Company>
     <Authors>Optivem</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-parsing-default/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-parsing-default</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/csharp-commons-parsing-default</RepositoryUrl>
-    <PackageTags>Optivem Commons DotNetCore Parsing Parser StandardDataTypes</PackageTags>
+    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageTags>Optivem DotNetCore Infrastructure Parsing Parser StandardDataTypes</PackageTags>
     <Version>1.0.0</Version>
+    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Infrastructure.Parsing\Optivem.Infrastructure.Parsing.csproj" />
+    <PackageReference Include="Optivem.Infrastructure.Parsing" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

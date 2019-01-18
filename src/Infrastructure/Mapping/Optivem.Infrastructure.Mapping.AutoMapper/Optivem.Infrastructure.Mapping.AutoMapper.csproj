@@ -5,18 +5,17 @@
     <Authors>Optivem</Authors>
     <Description>Implementation for Mapping using AutoMapper</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-mapping-automapper/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-mapping-automapper</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/csharp-commons-mapping-automapper</RepositoryUrl>
-    <PackageTags>Optivem Commons DotNetCore Mapping Mapper AutoMapper</PackageTags>
+    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageTags>Optivem DotNetCore Infrastructure Mapping Mapper AutoMapper</PackageTags>
+    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Optivem.Infrastructure.Mapping\Optivem.Infrastructure.Mapping.csproj" />
+    <PackageReference Include="Optivem.Infrastructure.Mapping" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

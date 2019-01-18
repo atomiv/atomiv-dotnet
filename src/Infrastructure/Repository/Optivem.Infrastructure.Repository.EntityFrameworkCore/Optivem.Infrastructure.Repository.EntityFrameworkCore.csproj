@@ -3,19 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Description>Default implementation for Services</Description>
+    <Company>Optivem</Company>
+    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
-    <PackageTags>Optivem DotNetCore Application Service Services Default CRUD</PackageTags>
+    <PackageTags>Optivem DotNetCore Infrastructure Persistence Database Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
+    <Version>1.0.0</Version>
     <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Application.Service" Version="1.0.0" />
-    <PackageReference Include="Optivem.Infrastructure.Mapping" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Optivem.Infrastructure.Repository" Version="1.0.0" />
   </ItemGroup>
 

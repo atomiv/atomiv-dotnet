@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Pars
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Repository", "Infrastructure\Repository\Optivem.Infrastructure.Repository\Optivem.Infrastructure.Repository.csproj", "{9737387B-932D-4BA4-8FC5-48D9D3687BC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Repository.EntityFramework", "Infrastructure\Repository\Optivem.Infrastructure.Repository.EntityFramework\Optivem.Infrastructure.Repository.EntityFramework.csproj", "{C53FB084-201F-4A31-82CA-6F7B73B58049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Repository.EntityFrameworkCore", "Infrastructure\Repository\Optivem.Infrastructure.Repository.EntityFrameworkCore\Optivem.Infrastructure.Repository.EntityFrameworkCore.csproj", "{C53FB084-201F-4A31-82CA-6F7B73B58049}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rest", "Rest", "{BEA3AE49-B7DA-423E-89CD-26AF16CF9F6F}"
 EndProject
@@ -65,39 +65,39 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Logg
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clock", "Clock", "{907DDB1F-15EC-492C-88B8-7E6071D4C7D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Clock", "Infrastructure\Clock\Optivem.Infrastructure.Clock\Optivem.Infrastructure.Clock.csproj", "{62651D82-8DBB-40D2-BCCA-E9577E67EC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Clock", "Infrastructure\Clock\Optivem.Infrastructure.Clock\Optivem.Infrastructure.Clock.csproj", "{62651D82-8DBB-40D2-BCCA-E9577E67EC5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Clock.Default", "Infrastructure\Clock\Optivem.Infrastructure.Clock.Default\Optivem.Infrastructure.Clock.Default.csproj", "{7C52E82F-8EA7-4859-91C8-5A08F444288C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Clock.Default", "Infrastructure\Clock\Optivem.Infrastructure.Clock.Default\Optivem.Infrastructure.Clock.Default.csproj", "{7C52E82F-8EA7-4859-91C8-5A08F444288C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileSystem", "FileSystem", "{E732FDBD-0C00-4AD8-A077-5B859DA93D7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.FileSystem", "Infrastructure\FileSystem\Optivem.Infrastructure.FileSystem\Optivem.Infrastructure.FileSystem.csproj", "{592A7DA0-5C31-4E72-B197-D1004975DD2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FileSystem", "Infrastructure\FileSystem\Optivem.Infrastructure.FileSystem\Optivem.Infrastructure.FileSystem.csproj", "{592A7DA0-5C31-4E72-B197-D1004975DD2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.FileSystem.Default", "Infrastructure\FileSystem\Optivem.Infrastructure.FileSystem.Default\Optivem.Infrastructure.FileSystem.Default.csproj", "{7C19989A-9D6A-4E37-87E5-5389A8EEBD74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FileSystem.Default", "Infrastructure\FileSystem\Optivem.Infrastructure.FileSystem.Default\Optivem.Infrastructure.FileSystem.Default.csproj", "{7C19989A-9D6A-4E37-87E5-5389A8EEBD74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{2DDD6F9B-810F-4CC0-B2AA-5103D6AD16BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Email", "Infrastructure\Email\Optivem.Infrastructure.Email\Optivem.Infrastructure.Email.csproj", "{C7062506-C178-4E48-A31E-506BE4482234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Email", "Infrastructure\Email\Optivem.Infrastructure.Email\Optivem.Infrastructure.Email.csproj", "{C7062506-C178-4E48-A31E-506BE4482234}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Email.Gmail", "Infrastructure\Email\Optivem.Infrastructure.Email.Gmail\Optivem.Infrastructure.Email.Gmail.csproj", "{6329785B-D3A0-486B-B506-B82C262E9C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Email.Gmail", "Infrastructure\Email\Optivem.Infrastructure.Email.Gmail\Optivem.Infrastructure.Email.Gmail.csproj", "{6329785B-D3A0-486B-B506-B82C262E9C17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Email.MicrosoftExchange", "Infrastructure\Email\Optivem.Infrastructure.Email.MicrosoftExchange\Optivem.Infrastructure.Email.MicrosoftExchange.csproj", "{63F24419-5A9F-4D75-8B83-17DFE1A5FE55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Email.MicrosoftExchange", "Infrastructure\Email\Optivem.Infrastructure.Email.MicrosoftExchange\Optivem.Infrastructure.Email.MicrosoftExchange.csproj", "{63F24419-5A9F-4D75-8B83-17DFE1A5FE55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{C6A537EC-7ABD-449E-A0DC-17355FF7DD74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization\Optivem.Infrastructure.Serialization.csproj", "{58E4773E-257F-4471-B8E7-93DB5CF3700D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization\Optivem.Infrastructure.Serialization.csproj", "{58E4773E-257F-4471-B8E7-93DB5CF3700D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.Json", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Json\Optivem.Infrastructure.Serialization.Json.csproj", "{F618814A-436E-4F47-9E38-5B14D5F4614C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Json", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Json\Optivem.Infrastructure.Serialization.Json.csproj", "{F618814A-436E-4F47-9E38-5B14D5F4614C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.Xml", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Xml\Optivem.Infrastructure.Serialization.Xml.csproj", "{FEFBC574-1BAD-442C-8F3D-6CAE15D8F7CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Xml", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Xml\Optivem.Infrastructure.Serialization.Xml.csproj", "{FEFBC574-1BAD-442C-8F3D-6CAE15D8F7CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.FixedWidth", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.FixedWidth\Optivem.Infrastructure.Serialization.FixedWidth.csproj", "{61B3A176-FB84-4567-A554-A5AFF1022DFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.FixedWidth", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.FixedWidth\Optivem.Infrastructure.Serialization.FixedWidth.csproj", "{61B3A176-FB84-4567-A554-A5AFF1022DFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.Dsv", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Dsv\Optivem.Infrastructure.Serialization.Dsv.csproj", "{6512D567-B324-45E2-99E0-8DF5E39EAEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Dsv", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Dsv\Optivem.Infrastructure.Serialization.Dsv.csproj", "{6512D567-B324-45E2-99E0-8DF5E39EAEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.Csv", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Csv\Optivem.Infrastructure.Serialization.Csv.csproj", "{25C3DDBE-EF93-4055-8EFF-DE1EC6354699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Csv", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Csv\Optivem.Infrastructure.Serialization.Csv.csproj", "{25C3DDBE-EF93-4055-8EFF-DE1EC6354699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Infrastructure.Serialization.Excel", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Excel\Optivem.Infrastructure.Serialization.Excel.csproj", "{54E13736-3865-4059-BF5A-0D89118A71F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Excel", "Infrastructure\Serialization\Optivem.Infrastructure.Serialization.Excel\Optivem.Infrastructure.Serialization.Excel.csproj", "{54E13736-3865-4059-BF5A-0D89118A71F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

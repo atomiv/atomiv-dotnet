@@ -5,10 +5,12 @@
     <Authors>Optivem</Authors>
     <Description>Interfaces for RESTful Services</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice</RepositoryUrl>
-    <PackageTags>Optivem Commons DotNetCore REST RestService RestApi</PackageTags>
+    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageTags>Optivem DotNetCore Web REST RestService RestApi</PackageTags>
+    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>

@@ -5,10 +5,12 @@
     <Authors>Optivem</Authors>
     <Description>Interfaces for Mapping</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-mapping/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-mapping</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/csharp-commons-mapping</RepositoryUrl>
-    <PackageTags>Optivem Commons DotNetCore Mapping Mapper</PackageTags>
+    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageTags>Optivem DotNetCore Infrastructure Mapping Mapper</PackageTags>
+    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
