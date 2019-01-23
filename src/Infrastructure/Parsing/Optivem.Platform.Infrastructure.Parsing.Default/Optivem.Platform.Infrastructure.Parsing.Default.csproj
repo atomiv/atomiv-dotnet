@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <PackageId>Optivem.Infrastructure.Parsing.Default</PackageId>
-    <Product>Optivem.Infrastructure.Parsing.Default</Product>
+    <PackageId>Optivem.Platform.Infrastructure.Parsing.Default</PackageId>
+    <Product>Optivem.Platform.Infrastructure.Parsing.Default</Product>
     <Company>Optivem</Company>
     <Authors>Optivem</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Infrastructure.Parsing" Version="1.0.0" />
+    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Parsing\Optivem.Platform.Infrastructure.Parsing.csproj" />
   </ItemGroup>
 
 </Project>

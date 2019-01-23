@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.Parsing.Default
+﻿namespace Optivem.Platform.Infrastructure.Parsing.Default
 {
     public class IntegerParser : BaseParser<int?>
     {

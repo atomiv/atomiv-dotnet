@@ -17,7 +17,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
-    <PackageReference Include="Optivem.Infrastructure.Repository" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Repository\Optivem.Platform.Infrastructure.Repository.csproj" />
   </ItemGroup>
 
 </Project>

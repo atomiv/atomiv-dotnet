@@ -14,9 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Application.Service" Version="1.0.0" />
-    <PackageReference Include="Optivem.Infrastructure.Mapping" Version="1.0.0" />
-    <PackageReference Include="Optivem.Infrastructure.Repository" Version="1.0.0" />
+    <ProjectReference Include="..\..\..\Infrastructure\Mapping\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Infrastructure.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Platform.Infrastructure.Repository\Optivem.Platform.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Optivem.Platform.Application.Service\Optivem.Platform.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>

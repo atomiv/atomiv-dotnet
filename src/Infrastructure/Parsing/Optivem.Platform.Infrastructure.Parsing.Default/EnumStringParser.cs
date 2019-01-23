@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Parsing.Default
 {
     public class EnumStringParser<T> : IParser<T>
     {

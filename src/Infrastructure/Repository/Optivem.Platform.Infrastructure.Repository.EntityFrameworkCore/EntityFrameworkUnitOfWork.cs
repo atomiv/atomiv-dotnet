@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.Repository.EntityFramework
+namespace Optivem.Platform.Infrastructure.Repository.EntityFramework
 {
     public class EntityFrameworkUnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext

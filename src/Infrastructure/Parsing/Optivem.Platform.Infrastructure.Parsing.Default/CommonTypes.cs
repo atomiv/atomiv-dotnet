@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Parsing.Default
 {
     /// <summary>
     /// Container for common data types

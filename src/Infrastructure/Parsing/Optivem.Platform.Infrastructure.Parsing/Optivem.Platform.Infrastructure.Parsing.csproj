@@ -11,8 +11,8 @@
     <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <Version>1.0.0</Version>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageId>Optivem.Infrastructure.Parsing</PackageId>
-    <Product>Optivem.Infrastructure.Parsing</Product>
+    <PackageId>Optivem.Platform.Infrastructure.Parsing</PackageId>
+    <Product>Optivem.Platform.Infrastructure.Parsing</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>

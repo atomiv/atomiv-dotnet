@@ -1,10 +1,10 @@
-﻿using Optivem.Infrastructure.Mapping;
-using Optivem.Infrastructure.Repository;
+﻿using Optivem.Platform.Infrastructure.Mapping;
+using Optivem.Platform.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Application.Service.Default
+namespace Optivem.Platform.Application.Service.Default
 {
     public class CrudService<TMappingService, TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey> : ICrudService<TRequest, TResponse, TKey>
         where TMappingService : IMappingService

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Optivem.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Parsing.Default
 {
     /// <summary>
     /// Utilities for working with the NumberFormat class

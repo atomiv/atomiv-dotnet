@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Parsing.Default
 {
     public class BooleanLabelParser : BaseParser<bool?>
     {

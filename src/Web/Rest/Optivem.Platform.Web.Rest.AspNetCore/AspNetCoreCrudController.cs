@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Optivem.Infrastructure.Repository;
-using Optivem.Application.Service;
+using Optivem.Platform.Infrastructure.Repository;
+using Optivem.Platform.Application.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;

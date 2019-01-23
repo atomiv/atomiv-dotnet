@@ -15,7 +15,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
-    <PackageReference Include="Optivem.Infrastructure.Mapping" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Infrastructure.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
