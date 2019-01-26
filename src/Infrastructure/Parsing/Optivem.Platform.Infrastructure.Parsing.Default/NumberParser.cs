@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Platform.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Common.Parsing.Default
 {
     /// <summary>
     /// Parser for converting from string data into numbers, given a number format

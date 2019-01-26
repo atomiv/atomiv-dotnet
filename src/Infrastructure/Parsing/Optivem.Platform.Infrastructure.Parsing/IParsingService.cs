@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Platform.Infrastructure.Parsing
+namespace Optivem.Platform.Core.Common.Parsing
 {
     public interface IParsingService
     {

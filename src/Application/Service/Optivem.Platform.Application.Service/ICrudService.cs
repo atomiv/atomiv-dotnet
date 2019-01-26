@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Application.Service
+namespace Optivem.Platform.Core.Application.Service
 {
     public interface ICrudService<TRequest, TResponse, TKey> : IService
     {

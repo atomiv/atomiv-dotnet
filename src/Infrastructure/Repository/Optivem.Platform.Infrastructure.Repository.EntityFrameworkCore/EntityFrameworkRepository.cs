@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Platform.Core.Common.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Infrastructure.Repository.EntityFramework
+namespace Optivem.Platform.Infrastructure.Common.Repository.EntityFramework
 {
     public class EntityFrameworkRepository<TContext, TEntity> : IRepository<TEntity>
         where TContext : DbContext

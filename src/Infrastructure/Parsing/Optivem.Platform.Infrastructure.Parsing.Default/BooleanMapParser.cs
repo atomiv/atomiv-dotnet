@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Optivem.Platform.Core.Common.Parsing;
+using System.Collections.Generic;
 
-namespace Optivem.Platform.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Common.Parsing.Default
 {
     public class BooleanMapParser : IParser<bool?>
     {

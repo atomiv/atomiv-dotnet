@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Platform.Infrastructure.Parsing.Default
+namespace Optivem.Platform.Infrastructure.Common.Parsing.Default
 {
     /// <summary>
     /// Parses string data into objects, using specified data types

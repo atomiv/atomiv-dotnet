@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Platform.Core.Common.Repository;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Infrastructure.Repository.EntityFramework
+namespace Optivem.Platform.Infrastructure.Common.Repository.EntityFramework
 {
     public class EntityFrameworkUnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext
