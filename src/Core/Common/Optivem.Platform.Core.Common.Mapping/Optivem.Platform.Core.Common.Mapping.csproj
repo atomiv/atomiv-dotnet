@@ -6,10 +6,10 @@
     <Description>Interfaces for Mapping</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem DotNetCore Infrastructure Mapping Mapper</PackageTags>
-    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 

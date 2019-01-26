@@ -7,12 +7,12 @@
     <Description>Interfaces for generic repository and generic unit of work patterns</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem DotNetCore Infrastructure Persistence Database Repository UnitOfWork UOW Transactions</PackageTags>
     <Version>1.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
