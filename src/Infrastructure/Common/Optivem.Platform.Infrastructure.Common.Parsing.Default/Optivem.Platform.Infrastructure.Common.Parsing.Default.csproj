@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Parsing\Optivem.Platform.Core.Common.Parsing.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Optivem.Platform.Core.Common.Parsing\Optivem.Platform.Core.Common.Parsing.csproj" />
   </ItemGroup>
 
 </Project>

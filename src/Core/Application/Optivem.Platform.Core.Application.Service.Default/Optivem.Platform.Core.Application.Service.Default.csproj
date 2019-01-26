@@ -3,14 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Description>Interfaces for RESTful Services</Description>
+    <Description>Default implementation for Services</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
-    <PackageTags>Optivem DotNetCore Web REST RestService RestApi</PackageTags>
+    <PackageTags>Optivem DotNetCore Application Service Services Default CRUD</PackageTags>
     <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Optivem.Platform.Core.Common.Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\Common\Optivem.Platform.Core.Common.Repository\Optivem.Platform.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\Optivem.Platform.Core.Application.Service\Optivem.Platform.Core.Application.Service.csproj" />
+  </ItemGroup>
 
 </Project>
