@@ -14,9 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastructure\Mapping\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Infrastructure.Mapping.csproj" />
-    <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Platform.Infrastructure.Repository\Optivem.Platform.Infrastructure.Repository.csproj" />
-    <ProjectReference Include="..\Optivem.Platform.Application.Service\Optivem.Platform.Application.Service.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Mapping\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Platform.Infrastructure.Repository\Optivem.Platform.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\Optivem.Platform.Application.Service\Optivem.Platform.Core.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>

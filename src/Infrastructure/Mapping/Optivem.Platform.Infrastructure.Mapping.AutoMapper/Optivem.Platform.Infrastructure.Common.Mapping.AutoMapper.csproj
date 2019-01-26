@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Infrastructure.Mapping.csproj" />
+    <ProjectReference Include="..\Optivem.Platform.Infrastructure.Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
