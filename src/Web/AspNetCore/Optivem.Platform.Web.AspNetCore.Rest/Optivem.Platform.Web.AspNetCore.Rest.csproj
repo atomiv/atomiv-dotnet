@@ -8,7 +8,7 @@
     <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
-    <PackageTags>Optivem Commons DotNetCore REST RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
