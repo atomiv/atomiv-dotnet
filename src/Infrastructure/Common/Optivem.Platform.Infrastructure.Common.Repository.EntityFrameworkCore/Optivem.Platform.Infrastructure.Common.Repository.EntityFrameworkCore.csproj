@@ -6,7 +6,7 @@
     <Company>Optivem</Company>
     <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
     <PackageTags>Optivem DotNetCore Infrastructure Persistence Database Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>

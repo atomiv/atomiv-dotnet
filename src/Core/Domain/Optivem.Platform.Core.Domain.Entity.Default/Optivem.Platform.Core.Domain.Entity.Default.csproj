@@ -6,7 +6,7 @@
     <Company>Optivem</Company>
     <Description>Default implementation for entities</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
     <PackageIconUrl>http://optivem.com/img/logo_64_64.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>

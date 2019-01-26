@@ -5,7 +5,7 @@
     <Authors>Optivem</Authors>
     <Description>Implementation for Mapping using AutoMapper</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/dotnet</RepositoryUrl>
     <PackageTags>Optivem DotNetCore Infrastructure Mapping Mapper AutoMapper</PackageTags>
