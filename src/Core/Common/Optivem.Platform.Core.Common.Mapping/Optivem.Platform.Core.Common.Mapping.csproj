@@ -11,6 +11,7 @@
     <PackageTags>Optivem Platform DotNetCore Core Common Mapping Mapper</PackageTags>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
 </Project>
