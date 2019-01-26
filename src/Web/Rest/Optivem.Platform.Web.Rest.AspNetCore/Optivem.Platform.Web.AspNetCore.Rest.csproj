@@ -18,7 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Application\Service\Optivem.Platform.Application.Service\Optivem.Platform.Core.Application.Service.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\Repository\Optivem.Platform.Infrastructure.Repository\Optivem.Platform.Core.Common.Repository.csproj" />
-    <ProjectReference Include="..\Optivem.Platform.Web.Rest\Optivem.Platform.Web.Rest.csproj" />
   </ItemGroup>
 
 </Project>

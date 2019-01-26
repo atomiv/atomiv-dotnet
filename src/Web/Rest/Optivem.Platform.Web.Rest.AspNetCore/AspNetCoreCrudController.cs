@@ -10,13 +10,7 @@ using System.Threading.Tasks;
 namespace Optivem.Web.Rest.AspNetCore
 {
     public class AspNetCoreCrudController<TUnitOfWork, TService, TRequest, TResponse, TKey> 
-        : ControllerBase, IController<TRequest,
-            Task<ActionResult<IEnumerable<TResponse>>>,
-            Task<ActionResult<TResponse>>,
-            Task<IActionResult>,
-            Task<ActionResult<TResponse>>,
-            Task<IActionResult>,
-            TKey>
+        : ControllerBase
         where TUnitOfWork : IUnitOfWork
         where TService : ICrudService<TRequest, TResponse, TKey>
     {
