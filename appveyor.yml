@@ -8,4 +8,4 @@ before_build:
 
 build:
   verbosity: minimal
-  project: src/Optivem.sln
+  project: src/Optivem.Platform.sln
