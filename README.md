@@ -3,71 +3,84 @@
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/platform-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/platform-dotnetcore)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-## Website
+Welcome to the Optivem Platform (.NET Core 2.2). The Optivem Platform is founded upon Clean Architecture principles and supports:
+* Modularity & re-usability
+* Extensibility & flexibility
+* Maintainability & testibility
+* Scalability and portability
 
-The main website for this project on GitHub: [opensource.optivem.com/platform-dotnetcore](https://opensource.optivem.com/platform-dotnetcore).
+## Architecture
 
-### Architecture
+The Optivem Platform consists of the following:
+* Core (contains the Application Layer and the Domain Layer implementations)
+* Infrastructure (contains implementation of infrastructure to support the Core)
+* Web (contains the web presentation layer)
+* Test (contains base classes for testing)
 
-Each library is split into:
-* Interfaces
-* Abstract base classes
-* Concrete implementations
+## Optivem.Platform.Core
 
-This enables your software development team to appropriately choose to depend on interfaces and within IoC container to configure implementations and execute unit testing. Furthermore, it also enables development teams to either choose to use the default provided implementations or develop custom implementations.
+Optivem.Platform.Core.Common.Common:
 
-## Optivem Libraries
+* Optivem.Platform.Core.Common.All
+* Optivem.Platform.Core.Common.Clock
+* Optivem.Platform.Core.Common.Email
+* Optivem.Platform.Core.Common.FileSystem
+* Optivem.Platform.Core.Common.Logging
+* Optivem.Platform.Core.Common.Mapping
+* Optivem.Platform.Core.Common.Parsing
+* Optivem.Platform.Core.Common.Repository
+* Optivem.Platform.Core.Common.Serialization
 
-### Optivem .NET Core 2 Libraries
+Optivem.Platform.Core.Domain:
 
-Libraries for application core for business logic and data abstraction:
+* Optivem.Platform.Core.Domain.All
+* Optivem.Platform.Core.Domain.Entity
+* Optivem.Platform.Core.Domain.Entity.Default
+* Optivem.Platform.Core.Domain.Repository
+* Optivem.Platform.Core.Domain.Service
+* Optivem.Platform.Core.Domain.Service.Default
 
-| Interfaces | Implementations |
-| ------------- | ------------- |
-| Entity | Entity.Default |
-| Repository | Repository.EntityFramework <br> Repository.Dapper <br> Repository.AdoNet <br> Repository.MongoDb <br> Repository.Cassandra |
-| UnitOfWork | UnitOfWork.EntityFramework <br> UnitOfWork.Dapper <br> UnitOfWork.AdoNet <br> UnitOfWork.MongoDb <br> UnitOfWork.Cassandra |
-| Service | Service.Default |
-| Controller | Controller.Default |
+Optivem.Platform.Core.Application:
 
-Infrastructure libraries for cross-cutting concerns:
+* Optivem.Platform.Core.Application.All
+* Optivem.Platform.Core.Application.Service
+* Optivem.Platform.Core.Application.Service.Default
 
-| Interface | Implementations |
-| ------------- | ------------- |
-| Parsing | Parsing.Default |
-| Mapping | Mapping.Default |
-| Validation | Validation.Default |
-| Serialization | Serialization.Json <br> Serialization.Xml <br> Serialization.Csv <br> Serialization.Excel |
-| Logging | Logging.Log4Net <br> Logging.NLog |
-| Messaging | TBD |
-| Identity | Identity.AspNetIdentity |
-| Authentication | Authentication.OAuth  |
-| Authorization | Authorization.OAuth  |
-| Workflow | TBD  |
-| Queue | TBD  |
-| Process | Process.Default <br> Process.Remote  |
-| Notification | Notification.SignalR <br> Notification.Email |
-| Configuration | Configuration.Default  |
+## Optivem.Platform.Infrastructure
 
-Infrastructure libraries for integration with external systems:
+Optivem.Platform.Infrastructure.Common:
 
-| Interface | Implementations |
-| ------------- | ------------- |
-| Clock | Clock.Default |
-| FileSystem | FileSystem.Default <br> FileSystem.Ftp |
-| Email | Email.Gmail <br> Email.Outlook <br> Email.SendGrid |
-| Cloud | Cloud.Azure <br> Cloud.Aws <br> Email.Google |
-| RestClient | RestClient.RestSharp |
-| RestService | RestService.AspNetCore |
-| SoapClient | TBD |
-| SoapService | TBD |
+* Optivem.Platform.Infrastructure.Common.All
+* Optivem.Platform.Infrastructure.Common.Clock.Default
+* Optivem.Platform.Infrastructure.Common.Email.Gmail
+* Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange
+* Optivem.Platform.Infrastructure.Common.FileSystem.Default
+* Optivem.Platform.Infrastructure.Common.Logging.Log4net
+* Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
+* Optivem.Platform.Infrastructure.Common.Parsing.Default
+* Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
+* Optivem.Platform.Infrastructure.Common.Serialization.Csv
+* Optivem.Platform.Infrastructure.Common.Serialization.Dsv
+* Optivem.Platform.Infrastructure.Common.Serialization.Excel
+* Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth
+* Optivem.Platform.Infrastructure.Common.Serialization.Json
+* Optivem.Platform.Infrastructure.Common.Serialization.Xml
 
-<!-- TODO: VC: Check regarding PDF and also DSV, additionally UOW and also design patterns, e.g. factory and builder... azure.. amazon... configuration, testing, sql lite, NHibernate, DDD, CQRS, Domain... IoC -> AutoFac, Ninject, Unity, Kafka  -->
+Optivem.Platform.Infrastructure.Domain:
+* Optivem.Platform.Infrastructure.Domain.Repository.EntityFrameworkCore
 
+## Optivem.Platform.Web
 
-<!-- TODO: VC: Search infrastructure https://www.nuget.org/packages?page=8&q=infrastructure -->
+Optivem.Platform.Web.AspNetCore:
+* Optivem.Plaform.Web.AspNetCore.Common
+* Optivem.Plaform.Web.AspNetCore.Mvc
+* Optivem.Plaform.Web.AspNetCore.Rest
+* Optivem.Plaform.Web.AspNetCore.Soap
 
+## Optivem.Platform.Test
 
+* Optivem.Platform.Test.Unit
+* Optivem.Platform.Test.Integration
 
 ## Issues
 
@@ -75,4 +88,8 @@ To report any issues and bugs, or if you have any suggestions for improvements a
 
 ## License
 
-Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php). Copyright © 2019 [Optivem](https://www.optivem.com/) All Rights Reserved.
+Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php). 
+
+## Copyright
+
+Copyright © 2019 [Optivem](https://www.optivem.com/) All Rights Reserved.
