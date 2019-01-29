@@ -81,10 +81,10 @@ Optivem.Platform.Infrastructure.Domain:
 ## Optivem.Platform.Web
 
 Optivem.Platform.Web.AspNetCore:
-* Optivem.Plaform.Web.AspNetCore.Common
-* Optivem.Plaform.Web.AspNetCore.Mvc
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Plaform.Web.AspNetCore.Rest.svg)](https://www.nuget.org/packages/Optivem.Plaform.Web.AspNetCore.Rest) Optivem.Plaform.Web.AspNetCore.Rest
-* Optivem.Plaform.Web.AspNetCore.Soap
+* Optivem.Platform.Web.AspNetCore.Common
+* Optivem.Platform.Web.AspNetCore.Mvc
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Web.AspNetCore.Rest.svg)](https://www.nuget.org/packages/Optivem.Platform.Web.AspNetCore.Rest) Optivem.Platform.Web.AspNetCore.Rest
+* Optivem.Platform.Web.AspNetCore.Soap
 
 ## Optivem.Platform.Test
 
