@@ -17,6 +17,15 @@ The Optivem Platform consists of the following:
 * Web (contains the web presentation layer)
 * Test (contains base classes for testing)
 
+
+
+
+Optivem.Platform.Web.AspNetCore.Rest
+
+
+
+
+
 ## Optivem.Platform.Core
 
 Optivem.Platform.Core.Common.Common:
@@ -26,9 +35,9 @@ Optivem.Platform.Core.Common.Common:
 * Optivem.Platform.Core.Common.Email
 * Optivem.Platform.Core.Common.FileSystem
 * Optivem.Platform.Core.Common.Logging
-* Optivem.Platform.Core.Common.Mapping
-* Optivem.Platform.Core.Common.Parsing
-* Optivem.Platform.Core.Common.Repository
+* [https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Mapping.svg](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Mapping) Optivem.Platform.Core.Common.Mapping
+* [https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Parsing.svg](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Parsing) Optivem.Platform.Core.Common.Parsing
+* [https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Repository.svg](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Repository) Optivem.Platform.Core.Common.Repository
 * Optivem.Platform.Core.Common.Serialization
 
 Optivem.Platform.Core.Domain:
@@ -43,8 +52,8 @@ Optivem.Platform.Core.Domain:
 Optivem.Platform.Core.Application:
 
 * Optivem.Platform.Core.Application.All
-* Optivem.Platform.Core.Application.Service
-* Optivem.Platform.Core.Application.Service.Default
+* [https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.svg](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service) Optivem.Platform.Core.Application.Service
+* [https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.Default.svg](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service.Default) Optivem.Platform.Core.Application.Service.Default
 
 ## Optivem.Platform.Infrastructure
 
@@ -56,9 +65,9 @@ Optivem.Platform.Infrastructure.Common:
 * Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange
 * Optivem.Platform.Infrastructure.Common.FileSystem.Default
 * Optivem.Platform.Infrastructure.Common.Logging.Log4net
-* Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
-* Optivem.Platform.Infrastructure.Common.Parsing.Default
-* Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
+* [https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.svg](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper) Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
+* [https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Parsing.Default.svg](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Parsing.Default) Optivem.Platform.Infrastructure.Common.Parsing.Default
+* [https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.svg](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore) Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
 * Optivem.Platform.Infrastructure.Common.Serialization.Csv
 * Optivem.Platform.Infrastructure.Common.Serialization.Dsv
 * Optivem.Platform.Infrastructure.Common.Serialization.Excel
@@ -74,7 +83,7 @@ Optivem.Platform.Infrastructure.Domain:
 Optivem.Platform.Web.AspNetCore:
 * Optivem.Plaform.Web.AspNetCore.Common
 * Optivem.Plaform.Web.AspNetCore.Mvc
-* Optivem.Plaform.Web.AspNetCore.Rest
+* [https://img.shields.io/nuget/v/Optivem.Plaform.Web.AspNetCore.Rest.svg](https://www.nuget.org/packages/Optivem.Plaform.Web.AspNetCore.Rest) Optivem.Plaform.Web.AspNetCore.Rest
 * Optivem.Plaform.Web.AspNetCore.Soap
 
 ## Optivem.Platform.Test
