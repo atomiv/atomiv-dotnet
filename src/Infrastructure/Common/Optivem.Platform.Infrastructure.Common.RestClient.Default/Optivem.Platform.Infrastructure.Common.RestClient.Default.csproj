@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Common\Optivem.Platform.Core.Common.RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
+  </ItemGroup>
+
+</Project>
