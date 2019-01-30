@@ -3,21 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Description>Default implementation for Services</Description>
+    <Description>Implementation for Mapping using AutoMapper</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Core Application Service Services Default CRUD</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Mapping Mapper AutoMapper</PackageTags>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Optivem.Platform.Core.Common.Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
-    <ProjectReference Include="..\..\Common\Optivem.Platform.Core.Common.Repository\Optivem.Platform.Core.Common.Repository.csproj" />
-    <ProjectReference Include="..\Optivem.Platform.Core.Application.Service\Optivem.Platform.Core.Application.Service.csproj" />
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
   </ItemGroup>
 
 </Project>

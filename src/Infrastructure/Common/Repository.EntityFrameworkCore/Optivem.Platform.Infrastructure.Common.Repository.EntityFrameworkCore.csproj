@@ -3,23 +3,24 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Description>Implementation for Mapping using AutoMapper</Description>
+    <Company>Optivem</Company>
+    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Mapping Mapper AutoMapper</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
+    <Version>1.0.3</Version>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Optivem.Platform.Core.Common.Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj" />
   </ItemGroup>
 
 </Project>

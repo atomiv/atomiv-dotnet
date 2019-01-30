@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Optivem.Platform.Core.Common.RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
   </ItemGroup>
 
 </Project>

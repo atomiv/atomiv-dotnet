@@ -29,79 +29,79 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", "{D56ABCDF-D281-47C9-83D0-0A661CFA4A21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Application.Service", "Core\Application\Optivem.Platform.Core.Application.Service\Optivem.Platform.Core.Application.Service.csproj", "{964B2BD5-FF12-4219-84C5-036D7D871895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Application.Service", "Core\Application\Service\Optivem.Platform.Core.Application.Service.csproj", "{964B2BD5-FF12-4219-84C5-036D7D871895}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Application.Service.Default", "Core\Application\Optivem.Platform.Core.Application.Service.Default\Optivem.Platform.Core.Application.Service.Default.csproj", "{D33FEF43-28C1-423A-B73F-6022073A42C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Application.Service.Default", "Core\Application\Service.Default\Optivem.Platform.Core.Application.Service.Default.csproj", "{D33FEF43-28C1-423A-B73F-6022073A42C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.All", "Core\Common\Optivem.Platform.Core.Common.All\Optivem.Platform.Core.Common.All.csproj", "{7C6E9A44-B31D-4F93-8C67-1D924FA4C91F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.All", "Core\Common\All\Optivem.Platform.Core.Common.All.csproj", "{7C6E9A44-B31D-4F93-8C67-1D924FA4C91F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Clock", "Core\Common\Optivem.Platform.Core.Common.Clock\Optivem.Platform.Core.Common.Clock.csproj", "{80EB0E0C-2683-4578-9576-787137C39FC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Clock", "Core\Common\Clock\Optivem.Platform.Core.Common.Clock.csproj", "{80EB0E0C-2683-4578-9576-787137C39FC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Email", "Core\Common\Optivem.Platform.Core.Common.Email\Optivem.Platform.Core.Common.Email.csproj", "{340519B1-6D57-49FB-85CE-62155E04F85A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Email", "Core\Common\Email\Optivem.Platform.Core.Common.Email.csproj", "{340519B1-6D57-49FB-85CE-62155E04F85A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.FileSystem", "Core\Common\Optivem.Platform.Core.Common.FileSystem\Optivem.Platform.Core.Common.FileSystem.csproj", "{028F6C97-1566-49D9-8BD6-B495EDA8DFC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.FileSystem", "Core\Common\FileSystem\Optivem.Platform.Core.Common.FileSystem.csproj", "{028F6C97-1566-49D9-8BD6-B495EDA8DFC7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Logging", "Core\Common\Optivem.Platform.Core.Common.Logging\Optivem.Platform.Core.Common.Logging.csproj", "{D20261CE-CAAC-4F87-B8FC-E822C23FF8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Logging", "Core\Common\Logging\Optivem.Platform.Core.Common.Logging.csproj", "{D20261CE-CAAC-4F87-B8FC-E822C23FF8EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Mapping", "Core\Common\Optivem.Platform.Core.Common.Mapping\Optivem.Platform.Core.Common.Mapping.csproj", "{1EC6F596-91BE-4625-949C-749635B5E7E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Mapping", "Core\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj", "{1EC6F596-91BE-4625-949C-749635B5E7E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Parsing", "Core\Common\Optivem.Platform.Core.Common.Parsing\Optivem.Platform.Core.Common.Parsing.csproj", "{1DA65D8F-C8CD-48EF-AC55-38A5E21A94E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Parsing", "Core\Common\Parsing\Optivem.Platform.Core.Common.Parsing.csproj", "{1DA65D8F-C8CD-48EF-AC55-38A5E21A94E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Repository", "Core\Common\Optivem.Platform.Core.Common.Repository\Optivem.Platform.Core.Common.Repository.csproj", "{5BC7AD47-5336-46D0-AB76-01DD59F0663C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Repository", "Core\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj", "{5BC7AD47-5336-46D0-AB76-01DD59F0663C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Serialization", "Core\Common\Optivem.Platform.Core.Common.Serialization\Optivem.Platform.Core.Common.Serialization.csproj", "{D10D15BD-DA46-4DB2-89D5-7405FC59FE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Serialization", "Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj", "{D10D15BD-DA46-4DB2-89D5-7405FC59FE17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Entity", "Core\Domain\Optivem.Platform.Core.Domain.Entity\Optivem.Platform.Core.Domain.Entity.csproj", "{6866F06E-301B-4E6D-BDB8-3CF48D2D6F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Entity", "Core\Domain\Entity\Optivem.Platform.Core.Domain.Entity.csproj", "{6866F06E-301B-4E6D-BDB8-3CF48D2D6F3B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Entity.Default", "Core\Domain\Optivem.Platform.Core.Domain.Entity.Default\Optivem.Platform.Core.Domain.Entity.Default.csproj", "{CD51A80D-C915-4919-96E4-28BA674371BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Entity.Default", "Core\Domain\Entity.Default\Optivem.Platform.Core.Domain.Entity.Default.csproj", "{CD51A80D-C915-4919-96E4-28BA674371BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Repository", "Core\Domain\Optivem.Platform.Core.Domain.Repository\Optivem.Platform.Core.Domain.Repository.csproj", "{FB65AD9C-D52C-4C5B-ABE5-7F2C4FF086E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Repository", "Core\Domain\Repository\Optivem.Platform.Core.Domain.Repository.csproj", "{FB65AD9C-D52C-4C5B-ABE5-7F2C4FF086E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Service", "Core\Domain\Optivem.Platform.Core.Domain.Service\Optivem.Platform.Core.Domain.Service.csproj", "{43F968A3-A412-483E-9041-BB8D1640546C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Service", "Core\Domain\Service\Optivem.Platform.Core.Domain.Service.csproj", "{43F968A3-A412-483E-9041-BB8D1640546C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Service.Default", "Core\Domain\Optivem.Platform.Core.Domain.Service.Default\Optivem.Platform.Core.Domain.Service.Default.csproj", "{819BD487-B86B-402E-B250-6F775884DF5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Domain.Service.Default", "Core\Domain\Service.Default\Optivem.Platform.Core.Domain.Service.Default.csproj", "{819BD487-B86B-402E-B250-6F775884DF5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Clock.Default", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Clock.Default\Optivem.Platform.Infrastructure.Common.Clock.Default.csproj", "{6FC1241B-E4D0-4174-9313-3E8A7085B192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Clock.Default", "Infrastructure\Common\Clock.Default\Optivem.Platform.Infrastructure.Common.Clock.Default.csproj", "{6FC1241B-E4D0-4174-9313-3E8A7085B192}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Email.Gmail", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Email.Gmail\Optivem.Platform.Infrastructure.Common.Email.Gmail.csproj", "{DBC40834-7182-4D7A-8133-0F8372503048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Email.Gmail", "Infrastructure\Common\Email.Gmail\Optivem.Platform.Infrastructure.Common.Email.Gmail.csproj", "{DBC40834-7182-4D7A-8133-0F8372503048}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange\Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange.csproj", "{1DBABC90-1520-4B94-8747-1FF32C7E6C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange", "Infrastructure\Common\Email.MicrosoftExchange\Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange.csproj", "{1DBABC90-1520-4B94-8747-1FF32C7E6C3B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.FileSystem.Default", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.FileSystem.Default\Optivem.Platform.Infrastructure.Common.FileSystem.Default.csproj", "{20A6202F-4DD3-49CB-95F2-EFCB85C5BF8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.FileSystem.Default", "Infrastructure\Common\FileSystem.Default\Optivem.Platform.Infrastructure.Common.FileSystem.Default.csproj", "{20A6202F-4DD3-49CB-95F2-EFCB85C5BF8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Logging.Log4net", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Logging.Log4net\Optivem.Platform.Infrastructure.Common.Logging.Log4net.csproj", "{4577A580-458B-4937-BC9C-1E5D5865B8D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Logging.Log4net", "Infrastructure\Common\Logging.Log4net\Optivem.Platform.Infrastructure.Common.Logging.Log4net.csproj", "{4577A580-458B-4937-BC9C-1E5D5865B8D0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper\Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.csproj", "{48A24349-26DA-4B8E-8842-A52178968F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper", "Infrastructure\Common\Mapping.AutoMapper\Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.csproj", "{48A24349-26DA-4B8E-8842-A52178968F64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Parsing.Default", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Parsing.Default\Optivem.Platform.Infrastructure.Common.Parsing.Default.csproj", "{ACB07463-B0D8-4A32-A58A-957B49D4FE5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Parsing.Default", "Infrastructure\Common\Parsing.Default\Optivem.Platform.Infrastructure.Common.Parsing.Default.csproj", "{ACB07463-B0D8-4A32-A58A-957B49D4FE5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore\Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.csproj", "{3F078D3B-EFB6-460D-846D-BDDD5090A25D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore", "Infrastructure\Common\Repository.EntityFrameworkCore\Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.csproj", "{3F078D3B-EFB6-460D-846D-BDDD5090A25D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Csv", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.Csv\Optivem.Platform.Infrastructure.Common.Serialization.Csv.csproj", "{7603C951-AC31-4541-8A7E-F459D7AB04F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Csv", "Infrastructure\Common\Serialization.Csv\Optivem.Platform.Infrastructure.Common.Serialization.Csv.csproj", "{7603C951-AC31-4541-8A7E-F459D7AB04F3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Dsv", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.Dsv\Optivem.Platform.Infrastructure.Common.Serialization.Dsv.csproj", "{FDAA5DDB-00D2-4956-A118-59203A6CE5E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Dsv", "Infrastructure\Common\Serialization.Dsv\Optivem.Platform.Infrastructure.Common.Serialization.Dsv.csproj", "{FDAA5DDB-00D2-4956-A118-59203A6CE5E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Excel", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.Excel\Optivem.Platform.Infrastructure.Common.Serialization.Excel.csproj", "{D2667963-30F0-45AF-9520-9054C9FEA320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Excel", "Infrastructure\Common\Serialization.Excel\Optivem.Platform.Infrastructure.Common.Serialization.Excel.csproj", "{D2667963-30F0-45AF-9520-9054C9FEA320}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth\Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth.csproj", "{A7421B6E-34E5-4E13-B6A3-5634F9B8EDA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth", "Infrastructure\Common\Serialization.FixedWidth\Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth.csproj", "{A7421B6E-34E5-4E13-B6A3-5634F9B8EDA5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Json", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.Json\Optivem.Platform.Infrastructure.Common.Serialization.Json.csproj", "{45B96431-2182-4585-A464-D50A3ACDC336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Json", "Infrastructure\Common\Serialization.Json\Optivem.Platform.Infrastructure.Common.Serialization.Json.csproj", "{45B96431-2182-4585-A464-D50A3ACDC336}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Xml", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.Serialization.Xml\Optivem.Platform.Infrastructure.Common.Serialization.Xml.csproj", "{CF000F62-2D49-4BAF-94AF-59D5602BA093}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Xml", "Infrastructure\Common\Serialization.Xml\Optivem.Platform.Infrastructure.Common.Serialization.Xml.csproj", "{CF000F62-2D49-4BAF-94AF-59D5602BA093}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Domain.Repository", "Infrastructure\Domain\Optivem.Platform.Infrastructure.Domain.Repository\Optivem.Platform.Infrastructure.Domain.Repository.csproj", "{1CE9CF7E-E70A-40F9-A16C-986D833621BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Domain.Repository", "Infrastructure\Domain\Repository\Optivem.Platform.Infrastructure.Domain.Repository.csproj", "{1CE9CF7E-E70A-40F9-A16C-986D833621BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Common", "Web\AspNetCore\Optivem.Platform.Web.AspNetCore.Common\Optivem.Platform.Web.AspNetCore.Common.csproj", "{08B746BE-8E48-49EC-9066-15A19A9741B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Common", "Web\AspNetCore\Common\Optivem.Platform.Web.AspNetCore.Common.csproj", "{08B746BE-8E48-49EC-9066-15A19A9741B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Mvc", "Web\AspNetCore\Optivem.Platform.Web.AspNetCore.Mvc\Optivem.Platform.Web.AspNetCore.Mvc.csproj", "{D3E19C74-A885-4526-9824-7F3CA3E0E8C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Mvc", "Web\AspNetCore\Mvc\Optivem.Platform.Web.AspNetCore.Mvc.csproj", "{D3E19C74-A885-4526-9824-7F3CA3E0E8C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Rest", "Web\AspNetCore\Optivem.Platform.Web.AspNetCore.Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj", "{7BDA3998-EAB8-45B5-97B0-A95D507452F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Rest", "Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj", "{7BDA3998-EAB8-45B5-97B0-A95D507452F3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Soap", "Web\AspNetCore\Optivem.Platform.Web.AspNetCore.Soap\Optivem.Platform.Web.AspNetCore.Soap.csproj", "{2AF095F7-EBD6-41FE-AA5E-ED7974A37133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Web.AspNetCore.Soap", "Web\AspNetCore\Soap\Optivem.Platform.Web.AspNetCore.Soap.csproj", "{2AF095F7-EBD6-41FE-AA5E-ED7974A37133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Core.Common.RestClient", "Core\Common\Optivem.Platform.Core.Common.RestClient\Optivem.Platform.Core.Common.RestClient.csproj", "{E33CAD35-9624-4524-A7F5-664A51205D9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Core.Common.RestClient", "Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj", "{E33CAD35-9624-4524-A7F5-664A51205D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Infrastructure.Common.RestClient.Default", "Infrastructure\Common\Optivem.Platform.Infrastructure.Common.RestClient.Default\Optivem.Platform.Infrastructure.Common.RestClient.Default.csproj", "{F2FAEF2D-5D22-4070-A6B9-35F2190DA87A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Infrastructure.Common.RestClient.Default", "Infrastructure\Common\RestClient.Default\Optivem.Platform.Infrastructure.Common.RestClient.Default.csproj", "{F2FAEF2D-5D22-4070-A6B9-35F2190DA87A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

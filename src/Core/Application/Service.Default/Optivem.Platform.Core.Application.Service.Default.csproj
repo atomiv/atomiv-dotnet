@@ -3,24 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Company>Optivem</Company>
-    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
+    <Description>Default implementation for Services</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
-    <Version>1.0.3</Version>
+    <PackageTags>Optivem Platform DotNetCore Core Application Service Services Default CRUD</PackageTags>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Optivem.Platform.Core.Common.Repository\Optivem.Platform.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\..\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\Service\Optivem.Platform.Core.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>
