@@ -115,6 +115,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1234FFD2-90BF-4C2B-AD92-67D33695FB78}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.RestClient.Default.Test.Integration", "Test\Infrastructure\Common\RestClient.Default.Test.Integration\Optivem.Platform.Infrastructure.Common.RestClient.Default.Test.Integration.csproj", "{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -269,6 +271,10 @@ Global
 		{F2FAEF2D-5D22-4070-A6B9-35F2190DA87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2FAEF2D-5D22-4070-A6B9-35F2190DA87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2FAEF2D-5D22-4070-A6B9-35F2190DA87A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -326,6 +332,7 @@ Global
 		{9C3A1145-D846-4CCE-AF14-7E4A21F5B24F} = {E0C63A52-0D7C-4242-BE54-879DDF4E4BDC}
 		{B609C22D-E782-495A-879E-C52393A72517} = {44CCA906-B7B1-4A05-97B6-A93AA62FB006}
 		{1234FFD2-90BF-4C2B-AD92-67D33695FB78} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
+		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE} = {E3FDA467-86A9-4A17-945D-9FD6E0F4F720}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
