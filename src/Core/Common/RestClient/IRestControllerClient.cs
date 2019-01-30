@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.RestClient
 {
-    public interface IRestControllerClient
+    public interface IRestControllerClient : IDisposable
     {
     }
 }
