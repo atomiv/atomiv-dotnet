@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Common\Serialization.Json.Newtonsoft\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj" />
+  </ItemGroup>
+
+</Project>

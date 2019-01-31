@@ -1,9 +1,11 @@
-﻿namespace Optivem.Platform.Core.Common.Serialization
+﻿using System.Collections.Generic;
+
+namespace Optivem.Platform.Core.Common.Serialization
 {
     public interface ISerializationService
     {
-        string Serialize<T>(T obj);
-
-        T Deserialize<T>(string content);
+        string Serialize<T>(T record);
+        
+        T Deserialize<T>(string record);
     }
 }

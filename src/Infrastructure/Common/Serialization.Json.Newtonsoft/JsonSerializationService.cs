@@ -13,14 +13,14 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJs
 
         }
 
-        public T Deserialize<T>(string content)
-        {
-            return JsonConvert.DeserializeObject<T>(content);
-        }
-
         public string Serialize<T>(T obj)
         {
             return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
+
+        public T Deserialize<T>(string content)
+        {
+            return JsonConvert.DeserializeObject<T>(content);
         }
     }
 }

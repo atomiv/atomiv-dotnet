@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
 using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
+using Optivem.Platform.Test.Common;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -25,7 +26,7 @@ namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integrati
                 Completed = false,
             };
 
-            AssertEqual(expected, actual);
+            AssertUtilities.AssertEqual(expected, actual);
         }
 
         private class TodoDto
@@ -41,12 +42,6 @@ namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integrati
 
         // TODO: VC: Remove dependency on Newtonsoft.Json
 
-        private static void AssertEqual<T>(T expected, T actual)
-        {
-            var expectedString = jsonSerializationService.Serialize(expected);;
-            var actualString = jsonSerializationService.Serialize(actual);
 
-            Assert.Equal(expectedString, actualString);
-        }
     }
 }
