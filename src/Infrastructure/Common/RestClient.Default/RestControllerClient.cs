@@ -1,5 +1,5 @@
 ﻿using Optivem.Platform.Core.Common.RestClient;
-using Optivem.Platform.Core.Common.Serialization.Json;
+using Optivem.Platform.Core.Common.Serialization;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -8,10 +8,10 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
     public class RestControllerClient : IRestControllerClient
     {
         private readonly string _path;
-        private readonly IJsonSerializationService _jsonSerializationService;
+        private readonly ISerializationService _jsonSerializationService;
         private readonly HttpClient _client;
         
-        public RestControllerClient(string path, IJsonSerializationService jsonSerializationService)
+        public RestControllerClient(string path, ISerializationService jsonSerializationService)
         {
             _path = path;
             _jsonSerializationService = jsonSerializationService;

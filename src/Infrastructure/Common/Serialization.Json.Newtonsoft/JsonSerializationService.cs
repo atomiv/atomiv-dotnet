@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
-using Optivem.Platform.Core.Common.Serialization.Json;
+using Optivem.Platform.Core.Common.Serialization;
 
 namespace Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson
 {
-    public class JsonSerializationService : IJsonSerializationService
+    public class JsonSerializationService : ISerializationService
     {
         // TODO: VC: Consider JsonSerializer
         // private readonly JsonSerializer _serializer;

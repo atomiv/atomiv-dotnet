@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
-    <ProjectReference Include="..\..\..\Core\Common\Serialization.Json\Optivem.Platform.Core.Common.Serialization.Json.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

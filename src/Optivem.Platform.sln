@@ -109,9 +109,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1234FF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.RestClient.Default.Test.Integration", "Test\Infrastructure\Common\RestClient.Default.Test.Integration\Optivem.Platform.Infrastructure.Common.RestClient.Default.Test.Integration.csproj", "{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Serialization.Json", "Core\Common\Serialization.Json\Optivem.Platform.Core.Common.Serialization.Json.csproj", "{C51BE46C-4406-416B-B8FE-272679FE4146}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson", "Infrastructure\Common\Serialization.Json.Newtonsoft\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj", "{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.Serialization", "Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj", "{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -263,14 +263,14 @@ Global
 		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C51BE46C-4406-416B-B8FE-272679FE4146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C51BE46C-4406-416B-B8FE-272679FE4146}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C51BE46C-4406-416B-B8FE-272679FE4146}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C51BE46C-4406-416B-B8FE-272679FE4146}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -325,8 +325,8 @@ Global
 		{B609C22D-E782-495A-879E-C52393A72517} = {44CCA906-B7B1-4A05-97B6-A93AA62FB006}
 		{1234FFD2-90BF-4C2B-AD92-67D33695FB78} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
 		{F0FFC04F-2E59-4D78-9A20-EAF13E2664FE} = {E3FDA467-86A9-4A17-945D-9FD6E0F4F720}
-		{C51BE46C-4406-416B-B8FE-272679FE4146} = {324B2C2F-B7CA-4098-B056-A6E9C95F0EEC}
 		{BDB68382-CAC1-44DE-BFF0-FB4DD2519D53} = {955BAF69-F8BC-40A1-B04B-3E43CE78F353}
+		{7D8F4238-CED4-4C41-94BE-3FDBA1C2CAB4} = {324B2C2F-B7CA-4098-B056-A6E9C95F0EEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
