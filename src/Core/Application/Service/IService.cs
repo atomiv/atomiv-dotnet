@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.Platform.Core.Application.Service
+﻿namespace Optivem.Platform.Core.Application.Service
 {
     public interface IService
     {

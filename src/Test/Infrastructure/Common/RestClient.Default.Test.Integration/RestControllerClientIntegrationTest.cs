@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
-using System;
+using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -8,10 +8,12 @@ namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integrati
 {
     public class RestControllerClientIntegrationTest
     {
+        private static JsonSerializationService jsonSerializationService = new JsonSerializationService();
+
         [Fact]
         public async Task TestGetAsyncId()
         {
-            var client = new RestControllerClient("https://jsonplaceholder.typicode.com/todos");
+            var client = new RestControllerClient("https://jsonplaceholder.typicode.com/todos", jsonSerializationService);
 
             var actual = await client.GetAsync<TodoDto>(1);
 
@@ -41,8 +43,8 @@ namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integrati
 
         private static void AssertEqual<T>(T expected, T actual)
         {
-            var expectedString = JsonConvert.SerializeObject(expected, Formatting.Indented);
-            var actualString = JsonConvert.SerializeObject(actual, Formatting.Indented);
+            var expectedString = jsonSerializationService.Serialize(expected);;
+            var actualString = jsonSerializationService.Serialize(actual);
 
             Assert.Equal(expectedString, actualString);
         }

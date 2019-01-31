@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using Optivem.Platform.Core.Common.RestClient;
-using System;
-using System.Collections.Generic;
+﻿using Optivem.Platform.Core.Common.RestClient;
+using Optivem.Platform.Core.Common.Serialization.Json;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
@@ -11,11 +8,13 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
     public class RestControllerClient : IRestControllerClient
     {
         private readonly string _path;
+        private readonly IJsonSerializationService _jsonSerializationService;
         private readonly HttpClient _client;
         
-        public RestControllerClient(string path)
+        public RestControllerClient(string path, IJsonSerializationService jsonSerializationService)
         {
             _path = path;
+            _jsonSerializationService = jsonSerializationService;
             _client = new HttpClient();
         }
         
@@ -27,7 +26,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
                 EnsureSuccess(response);
 
                 var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<T>(content);
+                return _jsonSerializationService.Deserialize<T>(content);
             }
         }
 

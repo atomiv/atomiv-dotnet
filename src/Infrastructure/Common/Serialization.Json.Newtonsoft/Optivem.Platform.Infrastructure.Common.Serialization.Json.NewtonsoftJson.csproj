@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Common\Serialization.Json\Optivem.Platform.Core.Common.Serialization.Json.csproj" />
   </ItemGroup>
 
