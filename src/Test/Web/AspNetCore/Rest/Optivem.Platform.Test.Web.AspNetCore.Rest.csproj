@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Platform.Test.Web.AspNetCore.Common\Optivem.Platform.Test.Web.AspNetCore.Common.csproj" />
     <ProjectReference Include="..\Rest.Fake\Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.csproj" />
   </ItemGroup>
 
