@@ -17,8 +17,6 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
         private static IWebHostBuilder CreateWebHostBuilder()
         {
             return new WebHostBuilder()
-                .UseContentRoot(@"D:\Github\optivem\platform-dotnetcore\src\Test\Web\AspNetCore\Rest.Fake")
-                .UseEnvironment("Development")
                 .UseStartup<Startup>();
         }
     }

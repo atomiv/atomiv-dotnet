@@ -10,7 +10,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Common
     {
         public TestServerFixtureTest(TTestServerFixture testServerFixture)
         {
-            TestServerFixture = TestServerFixture;
+            TestServerFixture = testServerFixture;
         }
 
         protected TTestServerFixture TestServerFixture { get; private set; }

@@ -1,5 +1,6 @@
 using Optivem.Platform.Test.Web.AspNetCore.Common;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Optivem.Platform.Test.Web.AspNetCore.Rest
@@ -12,9 +13,10 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
         }
 
         [Fact]
-        public void Test1()
+        public async Task TestGetAsync()
         {
-
+            var response = await TestServerFixture.HttpClient.GetAsync("api/values");
+            Assert.True(response.IsSuccessStatusCode);
         }
     }
 }

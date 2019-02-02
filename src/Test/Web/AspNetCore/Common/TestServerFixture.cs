@@ -11,14 +11,6 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Common
     {
         public TestServerFixture(IWebHostBuilder webHostBuilder)
         {
-            // TODO: VC: Check exception
-            /*
-System.IO.FileNotFoundException: 'Could not load file or assembly 'Microsoft.AspNetCore.Mvc, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'. The system cannot find the file specified.'
-
-             * 
-             */
-
-
             TestServer = new TestServer(webHostBuilder);
             HttpClient = TestServer.CreateClient();
         }
