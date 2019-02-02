@@ -16,10 +16,10 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
             : base(CreateWebHostBuilder())
         {
             var jsonSerializationService = new JsonSerializationService();
-            ValuesControllerClient = new RestControllerClient<int>(HttpClient, "api/values", jsonSerializationService);
+            ValuesControllerClient = new RestControllerClient<int, string>(HttpClient, "api/values", jsonSerializationService);
         }
 
-        public IRestControllerClient<int> ValuesControllerClient { get; }
+        public IRestControllerClient<int, string> ValuesControllerClient { get; }
 
         private static IWebHostBuilder CreateWebHostBuilder()
         {

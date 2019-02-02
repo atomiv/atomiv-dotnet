@@ -20,7 +20,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
             var response = await TestServerFixture.HttpClient.GetAsync("api/values");
             Assert.True(response.IsSuccessStatusCode);
 
-            var actual = await TestServerFixture.ValuesControllerClient.GetResourcesAsync<List<string>>();
+            var actual = await TestServerFixture.ValuesControllerClient.GetAsync();
 
             var expected = new List<string>
             {

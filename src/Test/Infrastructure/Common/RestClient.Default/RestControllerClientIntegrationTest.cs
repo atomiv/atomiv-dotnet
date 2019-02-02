@@ -19,7 +19,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
         [Fact]
         public async Task TestGetAsyncId()
         {
-            var actual = await Fixture.TodosClient.GetResourceAsync<TodoDto>(1);
+            var actual = await Fixture.TodosClient.GetAsync(1);
 
             var expected = new TodoDto
             {
@@ -31,19 +31,6 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
             AssertUtilities.AssertEqual(expected, actual);
         }
-
-        private class TodoDto
-        {
-            public int Id { get; set; }
-
-            public int UserId { get; set; }
-
-            public string Title { get; set; }
-
-            public bool Completed { get; set; }
-        }
-
-        // TODO: VC: Remove dependency on Newtonsoft.Json
 
 
     }
