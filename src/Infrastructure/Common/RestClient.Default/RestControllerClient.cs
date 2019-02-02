@@ -1,41 +1,64 @@
 ﻿using Optivem.Platform.Core.Common.RestClient;
 using Optivem.Platform.Core.Common.Serialization;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 {
-    public class RestControllerClient : IRestControllerClient
+    public class RestControllerClient<TId> : IRestControllerClient<TId>
     {
-        private readonly string _path;
-        private readonly ISerializationService _jsonSerializationService;
         private readonly HttpClient _client;
-        
-        public RestControllerClient(string path, ISerializationService jsonSerializationService)
+        private readonly string _controllerPath;
+        private readonly ISerializationService _jsonSerializationService;
+
+        public RestControllerClient(HttpClient client, string controllerPath, ISerializationService jsonSerializationService)
         {
-            _path = path;
+            _client = client;
+            _controllerPath = controllerPath;
             _jsonSerializationService = jsonSerializationService;
-            _client = new HttpClient();
         }
-        
-        public async Task<T> GetAsync<T>(int id)
+
+        public async Task<TResponse> GetResourcesAsync<TResponse>()
         {
-            var requestUri = $"{_path}/{id}";
+            var requestUri = GetRequestPath();
             using (var response = await _client.GetAsync(requestUri))
             {
                 EnsureSuccess(response);
 
                 var content = await response.Content.ReadAsStringAsync();
-                return _jsonSerializationService.Deserialize<T>(content);
+                return _jsonSerializationService.Deserialize<TResponse>(content);
             }
         }
 
-        // TODO: VC: Remove dependency on Newtonsoft.Json
+        public async Task<TResponse> GetResourceAsync<TResponse>(TId id)
+        {
+            var requestUri = GetRequestPathById(id);
+            using (var response = await _client.GetAsync(requestUri))
+            {
+                EnsureSuccess(response);
+
+                var content = await response.Content.ReadAsStringAsync();
+                return _jsonSerializationService.Deserialize<TResponse>(content);
+            }
+        }
+
+        private string GetRequestPath()
+        {
+            return _controllerPath;
+        }
+
+        private string GetRequestPathById(TId id)
+        {
+            return $"{_controllerPath}/{id}";
+        }
 
         public void Dispose()
         {
-            _client.Dispose();
+            // No actions
         }
+
+
 
         private void EnsureSuccess(HttpResponseMessage response)
         {
@@ -47,5 +70,6 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
                 throw new RestClientException(statusCode, content);
             }
         }
+
     }
 }

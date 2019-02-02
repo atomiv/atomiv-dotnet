@@ -2,6 +2,8 @@ using Newtonsoft.Json;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
 using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using Optivem.Platform.Test.Common;
+using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -14,9 +16,16 @@ namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integrati
         [Fact]
         public async Task TestGetAsyncId()
         {
-            var client = new RestControllerClient("https://jsonplaceholder.typicode.com/todos", jsonSerializationService);
+            // TODO: VC: DELETE "https://jsonplaceholder.typicode.com/todos"
 
-            var actual = await client.GetAsync<TodoDto>(1);
+            var httpClient = new HttpClient()
+            {
+                BaseAddress = new Uri("https://jsonplaceholder.typicode.com"),
+            };
+
+            var client = new RestControllerClient<int>(httpClient, "todos", jsonSerializationService);
+
+            var actual = await client.GetResourceAsync<TodoDto>(1);
 
             var expected = new TodoDto
             {
