@@ -2,7 +2,7 @@
 
 namespace Optivem.Platform.Core.Common.Serialization
 {
-    public interface ISerializationService
+    public interface IDocumentSerializationService
     {
         string Serialize<T>(T record);
         

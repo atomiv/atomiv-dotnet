@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Optivem.Platform.Core.Common.Serialization;
+using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
+using Optivem.Platform.Web.AspNetCore.Rest;
 
 namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 {
@@ -25,7 +28,14 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            ICsvSerializationService csvSerializationService = new CsvSerializationService();
+
+            services
+                .AddMvc(options =>
+                {
+                    options.OutputFormatters.Add(new CsvOutputFormatter(csvSerializationService));
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Platform.Core.Common.Serialization
 {
@@ -8,8 +7,10 @@ namespace Optivem.Platform.Core.Common.Serialization
     {
         string Serialize<T>(IEnumerable<T> records);
 
-        IEnumerable<T> Deserialize<T>(IEnumerable<string> records);
+        string Serialize(IEnumerable<object> records, Type recordType);
 
         IEnumerable<T> Deserialize<T>(string records);
+
+        IEnumerable<object> Deserialize(string records, Type recordType);
     }
 }

@@ -27,7 +27,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
     public class JsonPlaceholderClient
     {
-        public JsonPlaceholderClient(HttpClient client, ISerializationService jsonSerializationService)
+        public JsonPlaceholderClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
         {
             Posts = new PostsControllerClient(client, jsonSerializationService);
             Todos = new TodosControllerClient(client, jsonSerializationService);
@@ -41,7 +41,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
     public class PostsControllerClient : RestControllerClient<int, Post>
     {
-        public PostsControllerClient(HttpClient client, ISerializationService jsonSerializationService)
+        public PostsControllerClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
             : base(client, "posts", jsonSerializationService)
         {
         }
@@ -49,7 +49,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
     public class TodosControllerClient : RestControllerClient<int, TodoDto>
     {
-        public TodosControllerClient(HttpClient client, ISerializationService jsonSerializationService)
+        public TodosControllerClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
             : base(client, "todos", jsonSerializationService)
         {
         }

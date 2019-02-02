@@ -8,6 +8,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\..\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj" />
   </ItemGroup>
 
 </Project>

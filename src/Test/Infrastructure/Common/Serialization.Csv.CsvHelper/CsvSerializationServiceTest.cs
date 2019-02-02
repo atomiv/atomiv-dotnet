@@ -12,22 +12,64 @@ namespace Optivem.Platform.Test.Common.Serialization
     public class CsvSerializationServiceTest
     {
         [Fact]
-        public void TestDeserializeLines()
+        public void TestSerializeGeneric()
         {
-            List<string> lines = new List<string>
-            {
-                "Id,FirstName,LastName",
-                "1,John,Smith",
-                "2,Mary,McDonald",
-            };
+            var csvSerializationService = new CsvSerializationService();
 
-            var csvReaderFactory = new CsvReaderFactory();
+            var records = CreateRecords();
 
-            var csvSerializationService = new CsvSerializationService(csvReaderFactory);
+            var expected = CreateContent();
 
-            var actual = csvSerializationService.Deserialize<Customer>(lines);
+            var actual = csvSerializationService.Serialize(records);
 
-            var expected = new List<Customer>
+            AssertUtilities.AssertEqual(expected, actual);
+        }
+
+        [Fact]
+        public void TestSerializeTyped()
+        {
+            var csvSerializationService = new CsvSerializationService();
+
+            var records = CreateRecords();
+
+            var expected = CreateContent();
+
+            var actual = csvSerializationService.Serialize(records, typeof(Customer));
+
+            AssertUtilities.AssertEqual(expected, actual);
+        }
+
+        [Fact]
+        public void TestDeserializeGeneric()
+        {
+            var csvSerializationService = new CsvSerializationService();
+
+            var content = CreateContent();
+
+            var expected = CreateRecords();
+
+            var actual = csvSerializationService.Deserialize<Customer>(content);
+
+            AssertUtilities.AssertEqual(expected, actual);
+        }
+
+        [Fact]
+        public void TestDeserializeTyped()
+        {
+            var csvSerializationService = new CsvSerializationService();
+
+            var content = CreateContent();
+
+            var expected = CreateRecords();
+
+            var actual = csvSerializationService.Deserialize(content, typeof(Customer));
+
+            AssertUtilities.AssertEqual(expected, actual);
+        }
+
+        private static List<Customer> CreateRecords()
+        {
+            return new List<Customer>
             {
                 new Customer
                 {
@@ -43,8 +85,22 @@ namespace Optivem.Platform.Test.Common.Serialization
                     LastName = "McDonald",
                 }
             };
+        }
 
-            AssertUtilities.AssertEqual(expected, actual);
+        private static string CreateContent()
+        {
+            List<string> lines = new List<string>
+            {
+                "Id,FirstName,LastName",
+                "1,John,Smith",
+                "2,Mary,McDonald",
+            };
+
+            var content = string.Join(Environment.NewLine, lines);
+
+            content += Environment.NewLine;
+
+            return content;
         }
 
         private class Customer
@@ -54,26 +110,6 @@ namespace Optivem.Platform.Test.Common.Serialization
             public string FirstName { get; set; }
 
             public string LastName { get; set; }
-        }
-
-        private class CsvReaderFactory : ICsvReaderFactory
-        {
-            public CsvReader Create(TextReader textReader)
-            {
-                return new CsvReader(textReader, true);
-            }
-
-            public CsvReader Create(string content)
-            {
-                var textReader = new StringReader(content);
-                return new CsvReader(textReader, false);
-            }
-
-            public CsvReader Create(IEnumerable<string> content)
-            {
-                var contentString = string.Join(Environment.NewLine, content);
-                return Create(contentString);
-            }
         }
     }
 }

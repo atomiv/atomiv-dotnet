@@ -1,39 +1,61 @@
 ﻿using CsvHelper;
 using Optivem.Platform.Core.Common.Serialization;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
 {
-    public class CsvSerializationService : IEnumerableSerializationService
+    public class CsvSerializationService : ICsvSerializationService
     {
-        private readonly ICsvReaderFactory _readerFactory;
+        // TODO: VC: Constructor enable type-based specific serializers that override reflection mechanism
 
-        public CsvSerializationService(ICsvReaderFactory readerFactory)
+        public string Serialize<T>(IEnumerable<T> records)
         {
-            _readerFactory = readerFactory;
+            using (var textWriter = new StringWriter())
+            {
+                using (var writer = new CsvWriter(textWriter, true))
+                {
+                    writer.WriteRecords(records);
+                    return textWriter.ToString();
+                }
+            }
         }
 
-        public IEnumerable<T> Deserialize<T>(IEnumerable<string> records)
+        public string Serialize(IEnumerable<object> records, Type recordType)
         {
-            using (var reader = _readerFactory.Create(records))
+            using (var textWriter = new StringWriter())
             {
-                return reader.GetRecords<T>().ToList();
+                using (var writer = new CsvWriter(textWriter))
+                {
+                    writer.WriteRecords(records);
+                    return textWriter.ToString();
+                }
             }
         }
 
         public IEnumerable<T> Deserialize<T>(string records)
         {
-            using (var reader = _readerFactory.Create(records))
+            using (var textReader = new StringReader(records))
             {
-                return reader.GetRecords<T>().ToList();
+                using (var reader = new CsvReader(textReader))
+                {
+                    return reader.GetRecords<T>().ToList();
+                }
             }
         }
 
-        public string Serialize<T>(IEnumerable<T> records)
+        public IEnumerable<object> Deserialize(string records, Type recordType)
         {
-            throw new NotImplementedException();
+            using (var textReader = new StringReader(records))
+            {
+                using (var reader = new CsvReader(textReader))
+                {
+                    return reader.GetRecords(recordType).ToList();
+                }
+            }
         }
     }
 }

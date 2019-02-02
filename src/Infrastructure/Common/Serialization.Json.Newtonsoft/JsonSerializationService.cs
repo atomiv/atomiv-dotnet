@@ -3,7 +3,7 @@ using Optivem.Platform.Core.Common.Serialization;
 
 namespace Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson
 {
-    public class JsonSerializationService : ISerializationService
+    public class JsonSerializationService : IJsonSerializationService
     {
         // TODO: VC: Consider JsonSerializer
         // private readonly JsonSerializer _serializer;
