@@ -58,8 +58,6 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             // No actions
         }
 
-
-
         private void EnsureSuccess(HttpResponseMessage response)
         {
             if (!response.IsSuccessStatusCode)

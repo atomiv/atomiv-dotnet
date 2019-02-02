@@ -7,25 +7,19 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Platform.Infrastructure.Core.RestClient.Default.Test.Integration
+namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 {
-    public class RestControllerClientIntegrationTest
+    public class RestControllerClientIntegrationTest : RestControllerClientFixtureTest
     {
-        private static JsonSerializationService jsonSerializationService = new JsonSerializationService();
+        public RestControllerClientIntegrationTest(RestControllerClientFixture fixture) 
+            : base(fixture)
+        {
+        }
 
         [Fact]
         public async Task TestGetAsyncId()
         {
-            // TODO: VC: DELETE "https://jsonplaceholder.typicode.com/todos"
-
-            var httpClient = new HttpClient()
-            {
-                BaseAddress = new Uri("https://jsonplaceholder.typicode.com"),
-            };
-
-            var client = new RestControllerClient<int>(httpClient, "todos", jsonSerializationService);
-
-            var actual = await client.GetResourceAsync<TodoDto>(1);
+            var actual = await Fixture.TodosClient.GetResourceAsync<TodoDto>(1);
 
             var expected = new TodoDto
             {
