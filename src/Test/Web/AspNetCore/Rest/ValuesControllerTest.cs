@@ -23,7 +23,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
                 "value2"
             };
 
-            var actual = await TestServerFixture.ValuesControllerClient.GetAsync();
+            var actual = await TestServerFixture.ValuesControllerClient.GetCollectionAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }

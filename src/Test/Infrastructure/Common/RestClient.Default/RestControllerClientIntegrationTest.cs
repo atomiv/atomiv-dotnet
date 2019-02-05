@@ -36,7 +36,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
         [Fact]
         public async Task TestGetCollectionAsync()
         {
-            var actual = await JsonPlaceholderClient.Posts.GetAsync();
+            var actual = await JsonPlaceholderClient.Posts.GetCollectionAsync();
             
             var expectedCount = 100;
             var actualCount = actual.Count;

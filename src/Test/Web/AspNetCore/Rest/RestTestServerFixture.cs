@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Optivem.Platform.Core.Common.RestClient;
+using Optivem.Platform.Core.Common.Serialization;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
+using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
+using Optivem.Platform.Infrastructure.Common.Serialization.Default;
 using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using Optivem.Platform.Test.Web.AspNetCore.Common;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;
@@ -16,9 +19,10 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
         public RestTestServerFixture() 
             : base(CreateWebHostBuilder())
         {
-            var jsonSerializationService = new JsonSerializationService();
-            ValuesControllerClient = new RestControllerClient<int, string>(HttpClient, "api/values", jsonSerializationService);
-            CustomersControllerClient = new RestControllerClient<int, CustomerDto>(HttpClient, "api/customers", jsonSerializationService);
+            var serializationService = new SerializationService();
+
+            ValuesControllerClient = new RestControllerClient<int, string>(HttpClient, "api/values", serializationService);
+            CustomersControllerClient = new RestControllerClient<int, CustomerDto>(HttpClient, "api/customers", serializationService);
         }
 
         public IRestControllerClient<int, string> ValuesControllerClient { get; }

@@ -11,17 +11,23 @@ namespace Optivem.Platform.Core.Common.RestClient
         TPatchRequest, TPatchResponse>
         : IDisposable
     {
-        Task<TGetCollectionResponse> GetAsync();
+        Task<TGetCollectionResponse> GetCollectionAsync();
 
-        Task<string> GetAsync(string mediaType);
+        Task<string> GetCollectionAsync(string acceptType);
 
         Task<TGetResponse> GetAsync(TId id);
         
         Task<TPostResponse> PostAsync(TPostRequest request);
 
+        Task PostCollectionAsync(string request, string contentType);
+
         Task<TPutResponse> PutAsync(TId id, TPutRequest request);
 
+        Task PutCollectionAsync(string request, string contentType);
+
         Task<TPatchResponse> PatchAsync(TId id, TPatchRequest request);
+
+        Task PatchCollectionAsync(string request, string contentType);
 
         Task DeleteAsync(TId id);
     }

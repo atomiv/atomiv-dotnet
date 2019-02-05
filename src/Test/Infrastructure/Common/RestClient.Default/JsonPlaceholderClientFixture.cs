@@ -1,5 +1,6 @@
 ﻿using Optivem.Platform.Core.Common.Serialization;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
+using Optivem.Platform.Infrastructure.Common.Serialization.Default;
 using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,14 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
     {
         public JsonPlaceholderClientFixture()
         {
-            var jsonSerializationService = new JsonSerializationService();
+            var serializationService = new SerializationService();
 
             var httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("https://jsonplaceholder.typicode.com"),
             };
 
-            JsonPlaceholderClient = new JsonPlaceholderClient(httpClient, jsonSerializationService);
+            JsonPlaceholderClient = new JsonPlaceholderClient(httpClient, serializationService);
         }
 
         public JsonPlaceholderClient JsonPlaceholderClient { get; }
@@ -27,10 +28,10 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
     public class JsonPlaceholderClient
     {
-        public JsonPlaceholderClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
+        public JsonPlaceholderClient(HttpClient client, ISerializationService serializationService)
         {
-            Posts = new PostsControllerClient(client, jsonSerializationService);
-            Todos = new TodosControllerClient(client, jsonSerializationService);
+            Posts = new PostsControllerClient(client, serializationService);
+            Todos = new TodosControllerClient(client, serializationService);
         }
 
         public PostsControllerClient Posts { get; }
@@ -41,16 +42,16 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 
     public class PostsControllerClient : RestControllerClient<int, Post>
     {
-        public PostsControllerClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
-            : base(client, "posts", jsonSerializationService)
+        public PostsControllerClient(HttpClient client, ISerializationService serializationService)
+            : base(client, "posts", serializationService)
         {
         }
     }
 
     public class TodosControllerClient : RestControllerClient<int, TodoDto>
     {
-        public TodosControllerClient(HttpClient client, IDocumentSerializationService jsonSerializationService)
-            : base(client, "todos", jsonSerializationService)
+        public TodosControllerClient(HttpClient client, ISerializationService serializationService)
+            : base(client, "todos", serializationService)
         {
         }
     }

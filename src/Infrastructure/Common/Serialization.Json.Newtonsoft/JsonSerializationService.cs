@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using Optivem.Platform.Core.Common.Serialization;
 
 namespace Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson
@@ -13,14 +15,34 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJs
 
         }
 
-        public string Serialize<T>(T obj)
+        public string Serialize(object data, Type type)
         {
-            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+            return JsonConvert.SerializeObject(data, type, Formatting.Indented, null);
         }
 
-        public T Deserialize<T>(string content)
+        public string Serialize<T>(T data)
         {
-            return JsonConvert.DeserializeObject<T>(content);
+            return JsonConvert.SerializeObject(data, Formatting.Indented);
+        }
+
+        public T Deserialize<T>(string data)
+        {
+            return JsonConvert.DeserializeObject<T>(data);
+        }
+        
+        public object Deserialize(string data, Type type)
+        {
+            return JsonConvert.DeserializeObject(data, type);
+        }
+
+        public string SerializeEnumerable<E>(IEnumerable<E> data)
+        {
+            return Serialize(data);
+        }
+
+        public IEnumerable<E> DeserializeEnumerable<E>(string data)
+        {
+            return Deserialize<IEnumerable<E>>(data);
         }
     }
 }

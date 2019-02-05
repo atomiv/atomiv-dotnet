@@ -20,7 +20,7 @@ namespace Optivem.Platform.Test.Common.Serialization
 
             var expected = CreateContent();
 
-            var actual = csvSerializationService.Serialize(records);
+            var actual = csvSerializationService.SerializeEnumerable(records);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -48,7 +48,7 @@ namespace Optivem.Platform.Test.Common.Serialization
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.Deserialize<Customer>(content);
+            var actual = csvSerializationService.DeserializeEnumerable<Customer>(content);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -62,7 +62,7 @@ namespace Optivem.Platform.Test.Common.Serialization
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.Deserialize(content, typeof(Customer));
+            var actual = csvSerializationService.Deserialize(content, typeof(List<Customer>));
 
             AssertUtilities.AssertEqual(expected, actual);
         }

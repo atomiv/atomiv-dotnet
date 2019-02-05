@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\RestClient.Default\Optivem.Platform.Infrastructure.Common.RestClient.Default.csproj" />
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\Serialization.Json.Newtonsoft\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\Optivem.Platform.Infrastructure.Common.Serialization.Default\Optivem.Platform.Infrastructure.Common.Serialization.Default.csproj" />
     <ProjectReference Include="..\..\..\Common\Optivem.Platform.Test.Common.csproj" />
   </ItemGroup>
 

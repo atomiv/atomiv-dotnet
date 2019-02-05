@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.Serialization
 {
-    public interface IJsonSerializationService : IDocumentSerializationService
+    public interface IJsonSerializationService : IFormatSerializationService
     {
     }
 }
