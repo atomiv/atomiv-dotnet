@@ -96,12 +96,15 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
 
         public string Serialize<T>(T data)
         {
-            throw new NotSupportedException("Can only serialize IEnumerable data");
+            var type = typeof(T);
+            return Serialize(data, type);
         }
 
         public T Deserialize<T>(string data)
         {
-            throw new NotSupportedException("Can only deserialize IEnumerable data");
+            // TODO: VC: Check that type is IEnumerable
+            var type = typeof(T);
+            return (T) Deserialize(data, type);
         }
 
         public string SerializeEnumerable<E>(IEnumerable<E> data)

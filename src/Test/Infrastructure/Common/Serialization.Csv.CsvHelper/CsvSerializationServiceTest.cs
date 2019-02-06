@@ -16,7 +16,7 @@ namespace Optivem.Platform.Test.Common.Serialization
 
             var expected = CreateContent();
 
-            var actual = csvSerializationService.SerializeEnumerable(records);
+            var actual = csvSerializationService.Serialize(records);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -36,6 +36,20 @@ namespace Optivem.Platform.Test.Common.Serialization
         }
 
         [Fact]
+        public void TestSerializeEnumerable()
+        {
+            var csvSerializationService = new CsvSerializationService();
+
+            var records = CreateRecords();
+
+            var expected = CreateContent();
+
+            var actual = csvSerializationService.SerializeEnumerable(records);
+
+            AssertUtilities.AssertEqual(expected, actual);
+        }
+
+        [Fact]
         public void TestDeserializeGeneric()
         {
             var csvSerializationService = new CsvSerializationService();
@@ -44,7 +58,7 @@ namespace Optivem.Platform.Test.Common.Serialization
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.DeserializeEnumerable<Customer>(content);
+            var actual = csvSerializationService.Deserialize<List<Customer>>(content);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -59,6 +73,22 @@ namespace Optivem.Platform.Test.Common.Serialization
             var expected = CreateRecords();
 
             var actual = csvSerializationService.Deserialize(content, typeof(List<Customer>));
+
+            AssertUtilities.AssertEqual(expected, actual);
+
+            Assert.IsType<List<Customer>>(actual);
+        }
+
+        [Fact]
+        public void TestDeserializeEnumerable()
+        {
+            var csvSerializationService = new CsvSerializationService();
+
+            var content = CreateContent();
+
+            var expected = CreateRecords();
+
+            var actual = csvSerializationService.DeserializeEnumerable<Customer>(content);
 
             AssertUtilities.AssertEqual(expected, actual);
 
