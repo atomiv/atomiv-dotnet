@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;
 
@@ -8,10 +10,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<CustomerDto> Get()
-        {
-            return new List<CustomerDto>
+        private static List<CustomerDto> data = new List<CustomerDto>
             {
                 new CustomerDto
                 {
@@ -27,41 +26,65 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
                     LastName = "McDonald",
                 }
             };
+
+        [HttpGet]
+        public ActionResult<IEnumerable<CustomerDto>> Get()
+        {
+            var results = data;
+
+            return Ok(results);
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public CustomerDto Get(int id)
+        [ProducesResponseType(typeof(CustomerDto), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public ActionResult<CustomerDto> Get(int id)
         {
-            return new CustomerDto
+            var result = data.SingleOrDefault(e => e.Id == id);
+
+            if(result == null)
             {
-                Id = 1,
-                FirstName = "John",
-                LastName = "Smith",
-            };
+                return NotFound();
+            }
+
+            return Ok(result);
         }
         
         [HttpPost]
-        public CustomerDto Post([FromBody] CustomerDto value)
+        [ProducesResponseType(typeof(CustomerDto), 201)]
+        [ProducesResponseType(typeof(IDictionary<string, string>), 422)]
+        [ProducesResponseType(500)]
+        public ActionResult<CustomerDto> Post([FromBody] CustomerDto value)
         {
-            value.Id = 3;
-            return value;
+            if(string.IsNullOrWhiteSpace(value.FirstName))
+            {
+                return BadRequest();
+            }
+
+            value.Id = data.Max(e => e.Id) + 1;
+
+            data.Add(value);
+
+            return CreatedAtAction("Get", new { id = value.Id }, value); ;
         }
 
         [HttpPost("imports")]
-        public IEnumerable<CustomerDto> Post([FromBody] List<CustomerDto> values)
+        public ActionResult<IEnumerable<CustomerDto>> Post([FromBody] List<CustomerDto> values)
         {
-            return values;
+            return Accepted(values);
         }
 
         [HttpPut("{id}")]
-        public CustomerDto Put(int id, [FromBody] CustomerDto value)
+        public ActionResult<CustomerDto> Put(int id, [FromBody] CustomerDto value)
         {
-            return value;
+            return Ok(value);
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            return NoContent();
         }
     }
 }
