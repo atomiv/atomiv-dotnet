@@ -1,11 +1,8 @@
 ﻿using Optivem.Platform.Core.Common.Serialization;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
 using Optivem.Platform.Infrastructure.Common.Serialization.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 
 namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
 {

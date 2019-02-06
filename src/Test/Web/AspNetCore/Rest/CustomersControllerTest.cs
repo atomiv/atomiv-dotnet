@@ -1,9 +1,7 @@
 ﻿using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Platform.Test.Common;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 

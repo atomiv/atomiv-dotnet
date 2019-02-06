@@ -1,6 +1,4 @@
 using Optivem.Platform.Test.Common;
-using Optivem.Platform.Test.Web.AspNetCore.Common;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;

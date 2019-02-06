@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.Http.Abstractions;
 using System.Text;
 using System.Threading.Tasks;
 using Optivem.Platform.Core.Common.Serialization;

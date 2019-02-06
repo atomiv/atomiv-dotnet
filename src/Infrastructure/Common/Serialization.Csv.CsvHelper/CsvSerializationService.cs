@@ -63,8 +63,6 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
             return result;
         }
 
-        // IList response3 = (IList)Activator.CreateInstance(typeof(List<CustomerDto>));
-
         private static Type GetElementType(Type type)
         {
             if (type.IsArray)

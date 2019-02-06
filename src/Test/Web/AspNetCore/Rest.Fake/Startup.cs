@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Optivem.Platform.Core.Common.Serialization;
 using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Platform.Web.AspNetCore.Rest;
@@ -33,7 +26,7 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
             services
                 .AddMvc(options =>
                 {
-                    options.InputFormatters.Add(new CustomerDtoCsvInputFormatter(csvSerializationService));
+                    options.InputFormatters.Add(new CsvInputFormatter(csvSerializationService));
                     options.OutputFormatters.Add(new CsvOutputFormatter(csvSerializationService));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

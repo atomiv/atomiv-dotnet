@@ -1,10 +1,6 @@
-using CsvHelper;
 using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 using Xunit;
-using System.Linq;
 using System;
 
 namespace Optivem.Platform.Test.Common.Serialization
@@ -67,10 +63,6 @@ namespace Optivem.Platform.Test.Common.Serialization
             AssertUtilities.AssertEqual(expected, actual);
 
             Assert.IsType<List<Customer>>(actual);
-
-            // var actualCast = (List<Customer>)actual;
-
-            // AssertUtilities.AssertEqual(expected, actualCast);
         }
 
         private static List<Customer> CreateRecords()

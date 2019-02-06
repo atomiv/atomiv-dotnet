@@ -2,7 +2,6 @@
 using Microsoft.Net.Http.Headers;
 using Optivem.Platform.Core.Common.Serialization;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 

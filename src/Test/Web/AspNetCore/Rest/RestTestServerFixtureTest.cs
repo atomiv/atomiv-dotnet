@@ -1,10 +1,4 @@
-﻿using Optivem.Platform.Core.Common.RestClient;
-using Optivem.Platform.Infrastructure.Common.RestClient.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
-using Optivem.Platform.Test.Web.AspNetCore.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Optivem.Platform.Test.Web.AspNetCore.Common;
 
 namespace Optivem.Platform.Test.Web.AspNetCore.Rest
 {

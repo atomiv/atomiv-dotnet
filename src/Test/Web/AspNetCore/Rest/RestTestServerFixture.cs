@@ -1,16 +1,10 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Optivem.Platform.Core.Common.RestClient;
-using Optivem.Platform.Core.Common.Serialization;
 using Optivem.Platform.Infrastructure.Common.RestClient.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Platform.Infrastructure.Common.Serialization.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using Optivem.Platform.Test.Web.AspNetCore.Common;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;
 using Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Platform.Test.Web.AspNetCore.Rest
 {

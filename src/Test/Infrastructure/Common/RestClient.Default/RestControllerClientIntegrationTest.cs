@@ -1,10 +1,5 @@
-using Newtonsoft.Json;
-using Optivem.Platform.Infrastructure.Common.RestClient.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using Optivem.Platform.Test.Common;
-using System;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
