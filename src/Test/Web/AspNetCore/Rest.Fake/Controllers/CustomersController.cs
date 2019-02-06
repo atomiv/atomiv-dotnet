@@ -39,20 +39,18 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
                 LastName = "Smith",
             };
         }
-
-        /*
+        
         [HttpPost]
         public CustomerDto Post([FromBody] CustomerDto value)
         {
             value.Id = 3;
             return value;
         }
-        */
 
-        [HttpPost]
-        public void Post([FromBody] List<CustomerDto> values)
+        [HttpPost("imports")]
+        public IEnumerable<CustomerDto> Post([FromBody] List<CustomerDto> values)
         {
-
+            return values;
         }
 
         [HttpPut("{id}")]

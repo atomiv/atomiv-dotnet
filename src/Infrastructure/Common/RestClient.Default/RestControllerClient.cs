@@ -46,9 +46,9 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             }
         }
 
-        public async Task<string> GetCollectionAsync(string accept)
+        public async Task<string> GetAsync(string uri, string accept)
         {
-            var requestUri = GetAbsolutePath();
+            var requestUri = GetAbsolutePath(uri);
 
             var requestMessage = new HttpRequestMessage
             {
@@ -95,9 +95,9 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             }
         }
 
-        public async Task PostCollectionAsync(string request, string contentType)
+        public async Task<string> PostAsync(string uri, string request, string contentType)
         {
-            var requestUri = GetAbsolutePath();
+            var requestUri = GetAbsolutePath(uri);
             var content = CreateContent(request, contentType);
 
             var requestMessage = new HttpRequestMessage
@@ -114,6 +114,10 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             using (var response = await _client.SendAsync(requestMessage))
             {
                 EnsureSuccess(response);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                return responseString;
             }
         }
 
@@ -155,15 +159,23 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             }
         }
 
-        private Uri GetAbsolutePath()
+        private Uri GetAbsolutePath(string uri)
         {
-            var relativePath = GetRelativePath();
+            var relativePath = GetRelativePath(uri);
             return new Uri(_client.BaseAddress, relativePath);
         }
 
-        private string GetRelativePath()
+        private string GetRelativePath(string uri = null)
         {
-            return _controllerPath;
+            if(uri == null)
+            {
+                return _controllerPath;
+            }
+            else
+            {
+                return $"{_controllerPath}/{uri}";
+            }
+
         }
 
         private string GetRelativePathById(TId id)

@@ -61,9 +61,9 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
                 }
             };
 
-            var expected = csvSerializationService.SerializeEnumerable(expectedDtos);
+            var expected = csvSerializationService.Serialize(expectedDtos);
 
-            var actual = await TestServerFixture.CustomersControllerClient.GetCollectionAsync("text/csv");
+            var actual = await TestServerFixture.CustomersControllerClient.GetAsync(null, "text/csv");
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -90,9 +90,17 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
                 }
             };
 
-            var expected = csvSerializationService.SerializeEnumerable(expectedDtos);
+            var serialized = csvSerializationService.Serialize(expectedDtos);
 
-            await TestServerFixture.CustomersControllerClient.PostCollectionAsync(expected, "text/csv");
+            var result = await TestServerFixture.CustomersControllerClient.PostAsync("imports", serialized, "text/csv");
+
+            // TODO: VC: Handle later
+
+            /*
+            var actualDtos = csvSerializationService.Deserialize<List<CustomerDto>>(result);
+
+            AssertUtilities.AssertEqual(expectedDtos, actualDtos);
+            */
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Optivem.Platform.Core.Common.RestClient
     {
         Task<TGetCollectionResponse> GetCollectionAsync();
 
-        Task<string> GetCollectionAsync(string acceptType);
+        Task<string> GetAsync(string uri, string acceptType);
 
         Task<TGetResponse> GetAsync(TId id);
         
         Task<TPostResponse> PostAsync(TPostRequest request);
 
-        Task PostCollectionAsync(string request, string contentType);
+        Task<string> PostAsync(string uri, string request, string contentType);
 
         Task<TPutResponse> PutAsync(TId id, TPutRequest request);
 
