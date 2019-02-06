@@ -28,13 +28,19 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
 
         public object Deserialize(string data, Type type)
         {
-            var recordType = GetElementType(type);
+            var elementType = GetElementType(type);
 
             using (var textReader = new StringReader(data))
             {
                 using (var reader = new CsvReader(textReader))
                 {
-                    return reader.GetRecords(recordType).ToList();
+                    // TODO: VC: Cleanup
+
+                    // return reader.GetRecords(recordType).ToList();
+                    var result = reader.GetRecords(elementType).ToList();
+                    // var changedType = ChangeElementType(result, elementType);
+                    var changedType = GetList(result, type, elementType);
+                    return changedType;
                 }
             }
         }
@@ -42,6 +48,22 @@ namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
         #region Helper
 
         // TODO: VC: Transfer to Reflection implementation, in Infrastructure create Reflection project
+
+        private static List<object> ChangeElementType(List<object> list, Type elementType)
+        {
+            return list.Select(e => Convert.ChangeType(e, elementType)).ToList();
+        }
+
+        private static IList GetList(List<object> list, Type type, Type elementType)
+        {
+            var result = (IList)Activator.CreateInstance(type);
+
+            list.ForEach(e => result.Add(e));
+
+            return result;
+        }
+
+        // IList response3 = (IList)Activator.CreateInstance(typeof(List<CustomerDto>));
 
         private static Type GetElementType(Type type)
         {

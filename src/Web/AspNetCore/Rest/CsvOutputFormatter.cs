@@ -30,11 +30,9 @@ namespace Optivem.Platform.Web.AspNetCore.Rest
         {
             var obj = context.Object;
             var type = context.ObjectType;
-
-            var records = (IEnumerable<object>)obj;
-
-            // TODO: VC: Check type
-            var response = _csvSerializationService.Serialize(records, type);
+            var data = (IEnumerable<object>)obj;
+            
+            var response = _csvSerializationService.Serialize(data, type);
 
             return context.HttpContext.Response.WriteAsync(response, selectedEncoding);
         }

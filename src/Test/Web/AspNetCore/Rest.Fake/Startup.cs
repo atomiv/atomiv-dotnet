@@ -33,6 +33,7 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
             services
                 .AddMvc(options =>
                 {
+                    options.InputFormatters.Add(new CustomerDtoCsvInputFormatter(csvSerializationService));
                     options.OutputFormatters.Add(new CsvOutputFormatter(csvSerializationService));
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

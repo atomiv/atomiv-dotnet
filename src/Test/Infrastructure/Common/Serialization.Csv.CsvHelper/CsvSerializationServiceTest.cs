@@ -65,6 +65,12 @@ namespace Optivem.Platform.Test.Common.Serialization
             var actual = csvSerializationService.Deserialize(content, typeof(List<Customer>));
 
             AssertUtilities.AssertEqual(expected, actual);
+
+            Assert.IsType<List<Customer>>(actual);
+
+            // var actualCast = (List<Customer>)actual;
+
+            // AssertUtilities.AssertEqual(expected, actualCast);
         }
 
         private static List<Customer> CreateRecords()

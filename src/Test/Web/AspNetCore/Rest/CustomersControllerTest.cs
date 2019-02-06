@@ -70,7 +70,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
             AssertUtilities.AssertEqual(expected, actual);
         }
 
-        [Fact(Skip = "Implementation not finished")]
+        [Fact]
         public async Task TestPostCsvAsync()
         {
             var csvSerializationService = new CsvSerializationService();

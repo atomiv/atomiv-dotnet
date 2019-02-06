@@ -44,11 +44,19 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
             };
         }
 
+        /*
         [HttpPost]
         public CustomerDto Post([FromBody] CustomerDto value)
         {
             value.Id = 3;
             return value;
+        }
+        */
+
+        [HttpPost]
+        public void Post([FromBody] List<CustomerDto> values)
+        {
+
         }
 
         [HttpPut("{id}")]
