@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 namespace Optivem.Platform.Core.Common.RestClient
 {
     public interface IRestControllerClient<TId,
-        TGetCollectionResponse, TGetResponse,
+        TGetCollectionResponse, 
+        TGetResponse,
         TPostRequest, TPostResponse,
         TPutRequest, TPutResponse,
         TPatchRequest, TPatchResponse>
         : IDisposable
     {
-        Task<TGetCollectionResponse> GetCollectionAsync();
+        Task<IEnumerable<TGetCollectionResponse>> GetCollectionAsync();
 
         Task<string> GetAsync(string uri, string acceptType);
 
@@ -32,9 +33,25 @@ namespace Optivem.Platform.Core.Common.RestClient
         Task DeleteAsync(TId id);
     }
 
+    public interface IRestControllerClient<TId,
+        TGetCollectionResponse, 
+        TGetResponse,
+        TPostRequest, TPostResponse,
+        TPutRequest, TPutResponse>
+        : IRestControllerClient<TId,
+            TGetCollectionResponse, 
+            TGetResponse,
+            TPostRequest, TPostResponse,
+            TPutRequest, TPutResponse,
+            TPutRequest, TPutResponse>
+    {
+
+    }
+
     public interface IRestControllerClient<TId, TRequest, TResponse>
         : IRestControllerClient<TId, 
-            List<TResponse>, TResponse,
+            TResponse, 
+            TResponse,
             TRequest, TResponse,
             TRequest, TResponse,
             TRequest, TResponse>

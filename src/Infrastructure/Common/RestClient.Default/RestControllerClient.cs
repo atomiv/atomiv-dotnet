@@ -12,7 +12,8 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
     // TODO: VC: This is for json, consider other types, e.g. content xml, csv, etc
 
     public class RestControllerClient<TId,
-        TGetCollectionResponse, TGetResponse,
+        TGetCollectionResponse, 
+        TGetResponse,
         TPostRequest, TPostResponse,
         TPutRequest, TPutResponse,
         TPatchRequest, TPatchResponse> 
@@ -34,7 +35,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             _serializationService = serializationService;
         }
 
-        public async Task<TGetCollectionResponse> GetCollectionAsync()
+        public async Task<IEnumerable<TGetCollectionResponse>> GetCollectionAsync()
         {
             var requestUri = GetRelativePath();
             using (var response = await _client.GetAsync(requestUri))
@@ -42,7 +43,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
                 EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                return _serializationService.Deserialize<TGetCollectionResponse>(responseString, SerializationFormatType.Json);
+                return _serializationService.Deserialize<IEnumerable<TGetCollectionResponse>>(responseString, SerializationFormatType.Json);
             }
         }
 
@@ -224,14 +225,34 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
         }
     }
 
+    public class RestControllerClient<TId,
+        TGetCollectionResponse,
+        TGetResponse,
+        TPostRequest, TPostResponse,
+        TPutRequest, TPutResponse>
+        : RestControllerClient<TId,
+            TGetCollectionResponse,
+            TGetResponse,
+            TPostRequest, TPostResponse,
+            TPutRequest, TPutResponse,
+            TPutRequest, TPutResponse>
+    {
+        public RestControllerClient(HttpClient client, string controllerPath, ISerializationService serializationService) 
+            : base(client, controllerPath, serializationService)
+        {
+        }
+    }
+
     public class RestControllerClient<TId, TRequest, TResponse>
         : RestControllerClient<TId,
-            List<TResponse>, TResponse,
+            TResponse, 
+            TResponse,
             TRequest, TResponse,
             TRequest, TResponse,
             TRequest, TResponse>,
         IRestControllerClient<TId,
-            List<TResponse>, TResponse,
+            TResponse, 
+            TResponse,
             TRequest, TResponse,
             TRequest, TResponse,
             TRequest, TResponse>

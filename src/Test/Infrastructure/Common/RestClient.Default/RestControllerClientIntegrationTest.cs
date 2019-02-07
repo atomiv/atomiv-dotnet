@@ -34,7 +34,7 @@ namespace Optivem.Platform.Test.Infrastructure.Common.RestClient.Default
             var actual = await JsonPlaceholderClient.Posts.GetCollectionAsync();
             
             var expectedCount = 100;
-            var actualCount = actual.Count;
+            var actualCount = actual.Count();
 
             Assert.Equal(expectedCount, actualCount);
 

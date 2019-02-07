@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Optivem.Platform.Core.Common.Mapping;
+using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers;
+using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
+using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Entities;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;
 
 namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
@@ -10,81 +15,218 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private static List<CustomerDto> data = new List<CustomerDto>
-            {
-                new CustomerDto
-                {
-                    Id = 1,
-                    FirstName = "John",
-                    LastName = "Smith",
-                },
 
-                new CustomerDto
-                {
-                    Id = 2,
-                    FirstName = "Mary",
-                    LastName = "McDonald",
-                }
-            };
+        private readonly IMappingService _mappingService;
+
+        public CustomersController(IMappingService mappingService)
+        {
+            _mappingService = mappingService;
+        }
 
         [HttpGet]
-        public ActionResult<IEnumerable<CustomerDto>> Get()
+        public ActionResult<IEnumerable<CustomerGetCollectionResponse>> Get()
         {
-            var results = data;
+            var entities = repository;
 
-            return Ok(results);
+            var responses = _mappingService.Map<List<Customer>, List<CustomerGetCollectionResponse>> (entities);
+
+            return Ok(responses);
         }
 
         [HttpGet("{id}", Name = "Get")]
-        [ProducesResponseType(typeof(CustomerDto), 200)]
+        [ProducesResponseType(typeof(CustomerGetResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public ActionResult<CustomerDto> Get(int id)
+        public ActionResult<CustomerGetResponse> Get(int id)
         {
-            var result = data.SingleOrDefault(e => e.Id == id);
+            var entity = repository.SingleOrDefault(e => e.Id == id);
 
-            if(result == null)
+            if(entity == null)
             {
                 return NotFound();
             }
 
-            return Ok(result);
+            var response = _mappingService.Map<Customer, CustomerGetResponse>(entity);
+
+            return Ok(entity);
         }
         
         [HttpPost]
-        [ProducesResponseType(typeof(CustomerDto), 201)]
+        [ProducesResponseType(typeof(CustomerPostResponse), 201)]
         [ProducesResponseType(typeof(IDictionary<string, string>), 422)]
         [ProducesResponseType(500)]
-        public ActionResult<CustomerDto> Post([FromBody] CustomerDto value)
+        public ActionResult<CustomerPostResponse> Post([FromBody] CustomerPostRequest request)
         {
-            if(string.IsNullOrWhiteSpace(value.FirstName))
+            // TODO: VC: Validation
+            if(string.IsNullOrWhiteSpace(request.FirstName))
             {
                 return BadRequest();
             }
 
-            value.Id = data.Max(e => e.Id) + 1;
+            var entity = new Customer
+            {
+                Id = repository.Max(e => e.Id) + 1,
+                UserName = request.UserName,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                CreatedDateTime = DateTime.Now,
+                ModifiedDateTime = DateTime.Now,
+                Cards = new List<Card>(),
+            };
 
-            data.Add(value);
+            repository.Add(entity);
 
-            return CreatedAtAction("Get", new { id = value.Id }, value); ;
+            var response = _mappingService.Map<Customer, CustomerPostResponse>(entity);
+
+            return CreatedAtAction("Get", new { id = response.Id }, request); ;
         }
 
-        [HttpPost("imports")]
-        public ActionResult<IEnumerable<CustomerDto>> Post([FromBody] List<CustomerDto> values)
-        {
-            return Accepted(values);
-        }
+
 
         [HttpPut("{id}")]
-        public ActionResult<CustomerDto> Put(int id, [FromBody] CustomerDto value)
+        [ProducesResponseType(typeof(CustomerPutResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public ActionResult<CustomerPutResponse> Put(int id, [FromBody] CustomerPutRequest request)
         {
-            return Ok(value);
+            var entity = repository.SingleOrDefault(e => e.Id == id);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            entity.FirstName = request.FirstName;
+            entity.LastName = request.LastName;
+
+            var response = _mappingService.Map<Customer, CustomerPutResponse>(entity);
+
+            return Ok(request);
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public IActionResult Delete(int id)
         {
+            var entity = repository.SingleOrDefault(e => e.Id == id);
+
+            if(entity == null)
+            {
+                return NotFound();
+            }
+
+            repository.Remove(entity);
+
             return NoContent();
         }
+
+
+        #region Cards
+
+
+        #endregion
+
+        #region Exports
+        
+        [HttpGet("exports")]
+        [ProducesResponseType(typeof(IEnumerable<CustomerExportGetCollectionResponse>), 200)]
+        public ActionResult<IEnumerable<CustomerExportGetCollectionResponse>> GetExports()
+        {
+            var entities = repository;
+
+            var responses = _mappingService.Map<List<Customer>, List<CustomerExportGetCollectionResponse>>(entities);
+
+            return Ok(responses);
+        }
+
+        #endregion
+
+        #region Imports
+
+        [HttpPost("imports")]
+        [ProducesResponseType(202)]
+        [ProducesResponseType(500)]
+        public IActionResult Post([FromBody] List<CustomerImportCollectionPostRequest> requests)
+        {
+            // TODO: VC: Simulate queue
+
+            foreach(var request in requests)
+            {
+                // TODO: VC: Statically typed mapper, just like for UnitOfWork typed repositories...
+
+                var entity = _mappingService.Map<CustomerImportCollectionPostRequest, Customer>(request);
+
+                repository.Add(entity);
+            }
+
+            return Accepted();
+        }
+
+        #endregion
+
+        #region Helper
+
+        private static List<Customer> repository = new List<Customer>
+            {
+                new Customer
+                {
+                    Id = 1,
+                    UserName = "jsmith",
+                    FirstName = "John",
+                    LastName = "Smith",
+                    CreatedDateTime = new DateTime(2019, 1, 1, 8, 20, 36),
+                    ModifiedDateTime = new DateTime(2019, 1, 2, 9, 30, 42),
+
+                    Cards = new List<Card>
+                    {
+                        new Card
+                        {
+                            Number = "12345678",
+                            Expiration = new CardExpiration
+                            {
+                                ExpirationYear = 2020,
+                                ExpirationMonth = 2
+                            },
+                        }
+                    },
+                },
+
+                new Customer
+                {
+                    Id = 2,
+                    UserName = "mcdonald",
+                    FirstName = "Mary",
+                    LastName = "McDonald",
+                    CreatedDateTime = new DateTime(2018, 7, 4, 14, 40, 12),
+                    ModifiedDateTime = new DateTime(2018, 9, 8, 18, 50, 18),
+
+                    Cards = new List<Card>
+                    {
+                        new Card
+                        {
+                            Number = "34235233",
+                            Expiration = new CardExpiration
+                            {
+                                ExpirationYear = 2015,
+                                ExpirationMonth = 2
+                            },
+                        },
+
+                        new Card
+                        {
+                            Number = "04232353",
+                            Expiration = new CardExpiration
+                            {
+                                ExpirationYear = 2014,
+                                ExpirationMonth = 3
+                            },
+                        },
+                    },
+                }
+            };
+
+        #endregion
     }
 }
