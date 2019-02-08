@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+// using Serilog.Extensions.Logging.File;
+using Serilog;
 
 namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 {
@@ -12,6 +15,9 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseSerilog((ctx, cfg) => 
+                    cfg.ReadFrom.Configuration(ctx.Configuration)
+                );
     }
 }

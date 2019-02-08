@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Optivem.Platform.Core.Common.Mapping;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
@@ -17,15 +18,21 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
     {
 
         private readonly IMappingService _mappingService;
+        private readonly ILogger<CustomersController> _logger;
 
-        public CustomersController(IMappingService mappingService)
+        public CustomersController(IMappingService mappingService, ILogger<CustomersController> logger)
         {
             _mappingService = mappingService;
+            _logger = logger;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<CustomerGetCollectionResponse>> Get()
         {
+            _logger.LogInformation("Hello world....");
+
+            _logger.LogError("Hello world.... This is an error!");
+
             var entities = repository;
 
             var responses = _mappingService.Map<List<Customer>, List<CustomerGetCollectionResponse>> (entities);

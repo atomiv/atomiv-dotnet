@@ -28,7 +28,8 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICsvSerializationService, CsvSerializationService>();
-            services.AddSingleton<IMappingService, AutoMapperMappingService>();
+
+            services.AddScoped<IMappingService, AutoMapperMappingService>();
 
             // Mapping
             // TODO: VC: DELETE
