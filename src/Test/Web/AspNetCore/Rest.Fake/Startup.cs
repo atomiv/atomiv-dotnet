@@ -26,10 +26,10 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 {
     public class Startup
     {
-        private static bool DefaultCanProvideExceptionInfo = true;
+        private const string ServerErrorDefaultTitle = "An unexpected error had occurred";
+        private const string ServerErrorDefaultDetail = "Please contact customer support and provide the instance identifier";
 
-        private const string DefaultTitle = "An error had occurred";
-        private const string DefaultDetail = "Please contact customer support and provide the instance identifier";
+        private const string ClientErrorDefaultTitle = "Invalid request";
 
         public Startup(IConfiguration configuration)
         {
@@ -152,37 +152,12 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 
         private static string GetTitle(HttpRequest request, Exception ex)
         {
-            var canProvideExceptionInfo = CanProvideExceptionInfo(request);
-
-            if (canProvideExceptionInfo)
-            {
-                return ex.Message;
-            }
-            else
-            {
-                return DefaultTitle;
-            }
+            return ServerErrorDefaultTitle;
         }
 
         private static string GetDetail(HttpRequest request, Exception ex)
         {
-            var canProvideExceptionInfo = CanProvideExceptionInfo(request);
-
-            if(canProvideExceptionInfo)
-            {
-                return ex.Demystify().ToString();
-            }
-            else
-            {
-                return DefaultDetail;
-            }
-        }
-
-        private static bool CanProvideExceptionInfo(HttpRequest request)
-        {
-            // TODO: VC: Implementing context.Request.IsTrusted() to determin whether to 
-
-            return DefaultCanProvideExceptionInfo;
+            return ServerErrorDefaultDetail;
         }
 
         private static int GetStatus(Exception exception)
@@ -191,7 +166,6 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
             {
                 return badHttpRequestException.StatusCode;
             }
-
 
             return (int)HttpStatusCode.InternalServerError;
         }
