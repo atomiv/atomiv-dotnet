@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Ben.Demystifier" Version="0.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1" />
@@ -23,6 +24,7 @@
     <ProjectReference Include="..\..\..\..\Core\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\Mapping.AutoMapper\Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\..\Infrastructure\Common\Serialization.Json.Newtonsoft\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\..\..\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj" />
   </ItemGroup>
 

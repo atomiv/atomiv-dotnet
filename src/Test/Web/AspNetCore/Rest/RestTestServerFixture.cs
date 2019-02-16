@@ -19,10 +19,13 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
             var serializationService = new SerializationService();
 
             ValuesControllerClient = new RestControllerClient<int, string>(HttpClient, "api/values", serializationService);
+            ExceptionsControllerClient = new RestControllerClient<int, string>(HttpClient, "api/exceptions", serializationService);
             CustomersControllerClient = new CustomersControllerClient(HttpClient, serializationService);
         }
 
         public IRestControllerClient<int, string> ValuesControllerClient { get; }
+
+        public IRestControllerClient<int, string> ExceptionsControllerClient { get; }
 
         public CustomersControllerClient CustomersControllerClient { get; }
 
