@@ -1,46 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {
-    public class ExceptionProblemDetailsFactory : BaseProblemDetailsFactory<Exception, ProblemDetails>
+    public class ExceptionProblemDetailsFactory : IExceptionProblemDetailsFactory
     {
-        private const string Title = "An unexpected error had occurred";
-        private const string Detail = "Please contact customer support and provide the instance identifier";
+        private readonly ExceptionProblemDetailsFactoryRegistry _registry;
 
-        private const int Status = (int)HttpStatusCode.InternalServerError;
-
-        protected override string GetTitle(Exception exception)
+        public ExceptionProblemDetailsFactory(ExceptionProblemDetailsFactoryRegistry registry)
         {
-            return Title;
+            _registry = registry;
         }
 
-        protected override string GetDetail(Exception exception)
+        public ProblemDetails Create(Exception exception)
         {
-            return Detail;
+            var factory = _registry.Get(exception);
+            return factory.Create(exception);
         }
-
-        protected override int GetStatus(Exception exception)
-        {
-            return Status;
-        }
-
-        protected override string GetProblemTypeUri(Exception exception)
-        {
-            // TODO: VC: #176: REST API - Exception Handling - Problem Details - Type
-            return null;
-        }
-
-        // TODO: VC: Move
-
-        /*
-        private IDictionary<string, object> GetExtensions(Exception exception)
-        {
-            return null;
-        }
-        */
     }
 }

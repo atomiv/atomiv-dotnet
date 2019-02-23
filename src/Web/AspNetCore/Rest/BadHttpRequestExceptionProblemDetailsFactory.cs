@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {
-    public class BadHttpRequestExceptionProblemDetailsFactory : BaseProblemDetailsFactory<BadHttpRequestException, ProblemDetails>
+    public class BadHttpRequestExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<BadHttpRequestException, ProblemDetails>
     {
         private const string Title = "Invalid request";
 

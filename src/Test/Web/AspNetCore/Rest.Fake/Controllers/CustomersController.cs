@@ -70,9 +70,11 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
                 return BadRequest();
             }
 
+            var id = repository.Max(e => e.Id) + 1;
+
             var entity = new Customer
             {
-                Id = repository.Max(e => e.Id) + 1,
+                Id = id,
                 UserName = request.UserName,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
@@ -85,7 +87,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
 
             var response = _mappingService.Map<Customer, CustomerPostResponse>(entity);
 
-            return CreatedAtAction("Get", new { id = response.Id }, request); ;
+            return CreatedAtAction("Get", new { id = response.Id }, response); ;
         }
 
 
@@ -108,7 +110,7 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
 
             var response = _mappingService.Map<Customer, CustomerPutResponse>(entity);
 
-            return Ok(request);
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]

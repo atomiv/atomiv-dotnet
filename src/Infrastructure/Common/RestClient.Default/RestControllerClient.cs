@@ -1,4 +1,5 @@
-﻿using Optivem.Platform.Core.Common.RestClient;
+﻿using Microsoft.AspNetCore.Mvc;
+using Optivem.Platform.Core.Common.RestClient;
 using Optivem.Platform.Core.Common.Serialization;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             var requestUri = GetRelativePath();
             using (var response = await _client.GetAsync(requestUri))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return _serializationService.Deserialize<IEnumerable<TGetCollectionResponse>>(responseString, SerializationFormatType.Json);
@@ -63,7 +64,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.SendAsync(requestMessage))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return responseString;
@@ -75,7 +76,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             var requestUri = GetRelativePathById(id);
             using (var response = await _client.GetAsync(requestUri))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return _serializationService.Deserialize<TGetResponse>(responseString, SerializationFormatType.Json);
@@ -89,7 +90,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.PostAsync(requestUri, requestContent))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return _serializationService.Deserialize<TPostResponse>(responseString, SerializationFormatType.Json);
@@ -114,7 +115,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.SendAsync(requestMessage))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
 
@@ -129,7 +130,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.PutAsync(requestUri, requestContent))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return _serializationService.Deserialize<TPutResponse>(responseString, SerializationFormatType.Json);
@@ -143,7 +144,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.PatchAsync(requestUri, requestContent))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
                 return _serializationService.Deserialize<TPatchResponse>(responseString, SerializationFormatType.Json);
@@ -156,7 +157,7 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
 
             using (var response = await _client.DeleteAsync(requestUri))
             {
-                EnsureSuccess(response);
+                await EnsureSuccess(response);
             }
         }
 
@@ -189,14 +190,36 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             // No actions
         }
 
-        private void EnsureSuccess(HttpResponseMessage response)
+        private async Task EnsureSuccess(HttpResponseMessage response)
         {
             if (!response.IsSuccessStatusCode)
             {
                 var statusCode = response.StatusCode;
-                var content = response.Content.ToString();
+                var content = await response.Content.ReadAsStringAsync();
 
-                throw new RestClientException(statusCode, content);
+                // TODO: VC: Also perhaps including content type in exception, so that client can do custom deserialization
+                // or pass in func for handling errors which will do the deserialization, therefore supporting not just problem details
+                // but instead others too? also, throwing exception vs returning object?
+
+                var problemDetails = GetProblemDetails(content);
+
+                throw new RestClientException(statusCode, content, problemDetails);
+            }
+        }
+
+        private IProblemDetails GetProblemDetails(string content)
+        {
+            // TODO: VC: Handling problem details in various formats, not just json
+            // TODO: VC: check if this works for API without problem details, but something else... otherwise null
+
+            try
+            {
+                var problemDetails = _serializationService.Deserialize<ProblemDetails>(content, SerializationFormatType.Json);
+                return new ProblemDetailsWrapper(problemDetails);
+            }
+            catch(Exception ex)
+            {
+                return null;
             }
         }
 

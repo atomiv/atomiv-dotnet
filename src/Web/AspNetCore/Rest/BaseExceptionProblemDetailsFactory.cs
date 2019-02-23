@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {
-    public abstract class BaseProblemDetailsFactory<TException, TProblemDetails>
-        : IProblemDetailsFactory<TException, TProblemDetails>
+    public abstract class BaseExceptionProblemDetailsFactory<TException, TProblemDetails>
+        : IExceptionProblemDetailsFactory<TException, TProblemDetails>
         where TException : Exception
         where TProblemDetails : ProblemDetails, new()
     {

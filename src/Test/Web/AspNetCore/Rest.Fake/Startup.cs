@@ -67,6 +67,15 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
+            var jsonSerializationService = new JsonSerializationService();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = ctx 
+                    => new ValidationProblemDetailsActionResult(validationProblemDetailsFactory, jsonSerializationService);
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My Fake API", Version = "v1" });
@@ -88,39 +97,13 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
                 app.UseHsts();
             }
 
-            var registry = new ProblemDetailsFactoryRegistry(new ExceptionProblemDetailsFactory());
+            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
             registry.Add(typeof(BadHttpRequestException), new BadHttpRequestExceptionProblemDetailsFactory());
 
-            var problemDetailsFactory = new ProblemDetailsFactory(registry);
+            var problemDetailsFactory = new ExceptionProblemDetailsFactory(registry);
+            IJsonSerializationService jsonSerializationService = new JsonSerializationService();
 
-            app.UseExceptionHandler(configure =>
-            {
-                configure.Run(async context =>
-                {
-                    var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    var exception = exceptionHandlerFeature.Error;
-
-                    var problemDetails = problemDetailsFactory.Create(exception);
-
-                    var instance = problemDetails.Instance;
-
-                    // TODO: VC: Fix logging
-                    // var logger = context.RequestServices.GetRequiredService<ILogger>();
-                    // logger.LogError(exception, exception.Message);
-
-
-                    context.Response.StatusCode = problemDetails.Status.Value;
-
-                    // TODO: VC: Lookup from services
-                    IJsonSerializationService jsonSerializationService = new JsonSerializationService();
-                    var json = jsonSerializationService.Serialize(problemDetails);
-
-                    // TODO: VC: make configurable
-                    context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync(json);
-                });
-
-            });
+            app.UseExceptionHandler(problemDetailsFactory, jsonSerializationService);
 
             app.UseSwagger();
             

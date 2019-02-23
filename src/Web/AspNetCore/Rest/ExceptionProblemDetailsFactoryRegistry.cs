@@ -5,26 +5,26 @@ using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {
-    public class ProblemDetailsFactoryRegistry
+    public class ExceptionProblemDetailsFactoryRegistry
     {
-        private readonly IProblemDetailsFactory _defaultFactory;
-        private readonly Dictionary<Type, IProblemDetailsFactory> _factories;
+        private readonly IExceptionProblemDetailsFactory _defaultFactory;
+        private readonly Dictionary<Type, IExceptionProblemDetailsFactory> _factories;
         private readonly List<Type> _types;
 
-        public ProblemDetailsFactoryRegistry(IProblemDetailsFactory defaultFactory)
+        public ExceptionProblemDetailsFactoryRegistry(IExceptionProblemDetailsFactory defaultFactory)
         {
             _defaultFactory = defaultFactory;
-            _factories = new Dictionary<Type, IProblemDetailsFactory>();
+            _factories = new Dictionary<Type, IExceptionProblemDetailsFactory>();
             _types = new List<Type>();
         }
 
-        public void Add(Type type, IProblemDetailsFactory factory)
+        public void Add(Type type, IExceptionProblemDetailsFactory factory)
         {
             _factories.Add(type, factory);
             _types.Add(type);
         }
 
-        public IProblemDetailsFactory Get(object exception)
+        public IExceptionProblemDetailsFactory Get(object exception)
         {
             var exceptionType = exception.GetType();
 

@@ -1,4 +1,5 @@
-﻿using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
+﻿using Optivem.Platform.Core.Common.RestClient;
+using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Platform.Test.Common;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
@@ -117,6 +118,46 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest
 
             AssertUtilities.AssertEqual(expectedDtos, actualDtos);
             */
+        }
+
+        [Fact]
+        public async Task TestPostAsyncValid()
+        {
+            var request = new CustomerPostRequest
+            {
+                UserName = "jsmith3",
+                FirstName = "John3",
+                LastName = "Smith3",
+            };
+
+            var result = await TestServerFixture.CustomersControllerClient.PostAsync(request);
+
+            Assert.Equal(request.UserName, result.UserName);
+            Assert.Equal(request.FirstName, result.FirstName);
+            Assert.Equal(request.LastName, result.LastName);
+            Assert.True(result.Id > 0);
+
+        }
+
+        [Fact]
+        public async Task TestPostAsyncInvalid()
+        {
+            var request = new CustomerPostRequest
+            {
+                UserName = null,
+                FirstName = null,
+                LastName = null,
+            };
+            
+            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await TestServerFixture.CustomersControllerClient.PostAsync(request));
+
+            var problemDetails = exception.ProblemDetails;
+
+            Assert.NotNull(problemDetails);
+
+            // TODO: VC: Supporting different custom problem details which do not conform to the standard
+
+            Assert.Equal(422, problemDetails.Status);
         }
     }
 }

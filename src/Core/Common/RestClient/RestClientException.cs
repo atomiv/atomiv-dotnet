@@ -22,16 +22,19 @@ namespace Optivem.Platform.Core.Common.RestClient
         {
         }
 
-        public RestClientException(HttpStatusCode statusCode, string content)
+        public RestClientException(HttpStatusCode statusCode, string content, IProblemDetails problemDetails)
             : this(GetMessage(statusCode, content))
         {
             StatusCode = statusCode;
             Content = content;
+            ProblemDetails = problemDetails;
         }
 
         public HttpStatusCode StatusCode { get; private set; }
 
         public string Content { get; private set; }
+
+        public IProblemDetails ProblemDetails { get; private set; }
 
         private static string GetMessage(HttpStatusCode statusCode, string content)
         {
