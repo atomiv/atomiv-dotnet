@@ -26,10 +26,7 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 {
     public class Startup
     {
-        private const string ServerErrorDefaultTitle = "An unexpected error had occurred";
-        private const string ServerErrorDefaultDetail = "Please contact customer support and provide the instance identifier";
 
-        private const string ClientErrorDefaultTitle = "Invalid request";
 
         public Startup(IConfiguration configuration)
         {
@@ -91,6 +88,11 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
                 app.UseHsts();
             }
 
+            var registry = new ProblemDetailsFactoryRegistry(new ExceptionProblemDetailsFactory());
+            registry.Add(typeof(BadHttpRequestException), new BadHttpRequestExceptionProblemDetailsFactory());
+
+            var problemDetailsFactory = new ProblemDetailsFactory(registry);
+
             app.UseExceptionHandler(configure =>
             {
                 configure.Run(async context =>
@@ -98,31 +100,14 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
                     var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var exception = exceptionHandlerFeature.Error;
 
-                    var instance = GetInstance();
+                    var problemDetails = problemDetailsFactory.Create(exception);
+
+                    var instance = problemDetails.Instance;
 
                     // TODO: VC: Fix logging
                     // var logger = context.RequestServices.GetRequiredService<ILogger>();
                     // logger.LogError(exception, exception.Message);
 
-                    // TODO: Condition whether to return stack trace, context.Request.IsTrusted()
-
-                    int status = GetStatus(exception);
-                    var title = GetTitle(context.Request, exception);
-                    var detail = GetDetail(context.Request, exception);
-                    var type = GetType(exception);
-
-                    // TODO: VC: Implement
-                    // var extensions = GetExtensions(exception);
-
-                    var problemDetails = new ProblemDetails
-                    {
-                        Title = exception.Message,
-                        Status = status,
-                        Detail = exception.StackTrace,
-                        Instance = instance,
-                        Type = type,
-                        // Extensions = extensions,
-                    };
 
                     context.Response.StatusCode = problemDetails.Status.Value;
 
@@ -150,45 +135,6 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 
         }
 
-        private static string GetTitle(HttpRequest request, Exception ex)
-        {
-            return ServerErrorDefaultTitle;
-        }
 
-        private static string GetDetail(HttpRequest request, Exception ex)
-        {
-            return ServerErrorDefaultDetail;
-        }
-
-        private static int GetStatus(Exception exception)
-        {
-            if (exception is BadHttpRequestException badHttpRequestException)
-            {
-                return badHttpRequestException.StatusCode;
-            }
-
-            return (int)HttpStatusCode.InternalServerError;
-        }
-
-        private static string GetInstance()
-        {
-            var guid = Guid.NewGuid();
-
-            // TODO: VC: #177: REST API - Exception Handling - Problem Details - Instance
-            var instance = $"urn:optivem:error:{guid}";
-
-            return instance;
-        }
-
-        private static string GetType(Exception exception)
-        {
-            // TODO: VC: #176: REST API - Exception Handling - Problem Details - Type
-            return null;
-        }
-
-        private static IDictionary<string, object> GetExtensions(Exception exception)
-        {
-            return null;
-        }
     }
 }
