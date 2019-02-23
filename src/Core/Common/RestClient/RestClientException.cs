@@ -6,9 +6,8 @@ namespace Optivem.Platform.Core.Common.RestClient
 {
     public class RestClientException : Exception
     {
-        public RestClientException()
+        public RestClientException() : base()
         {
-
         }
         
         public RestClientException(string message) : base(message)
@@ -26,7 +25,13 @@ namespace Optivem.Platform.Core.Common.RestClient
         public RestClientException(HttpStatusCode statusCode, string content)
             : this(GetMessage(statusCode, content))
         {
+            StatusCode = statusCode;
+            Content = content;
         }
+
+        public HttpStatusCode StatusCode { get; private set; }
+
+        public string Content { get; private set; }
 
         private static string GetMessage(HttpStatusCode statusCode, string content)
         {

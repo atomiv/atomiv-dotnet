@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,11 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
             if(id == 500)
             {
                 throw new Exception("This is some exception");
+            }
+
+            else if(id == 400)
+            {
+                BadHttpRequestException.Throw(RequestRejectionReason.InvalidContentLength, HttpMethod.Get);
             }
 
             return "value";
