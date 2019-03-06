@@ -65,10 +65,13 @@ namespace Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Controllers
         public ActionResult<CustomerPostResponse> Post([FromBody] CustomerPostRequest request)
         {
             // TODO: VC: Validation
+
+            /*
             if(string.IsNullOrWhiteSpace(request.FirstName))
             {
                 return BadRequest();
             }
+            */
 
             var id = repository.Max(e => e.Id) + 1;
 
