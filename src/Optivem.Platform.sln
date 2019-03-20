@@ -139,7 +139,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Test.Commo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Test.Common.Web", "Test\Common\Web\Optivem.Platform.Test.Common.Web.csproj", "{514DF5A0-5A1E-46B6-A4B9-F4777D0C95DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Core.Common.WebAutomation", "Core\Common\Optivem.Platform.Core.Common.WebAutomation\Optivem.Platform.Core.Common.WebAutomation.csproj", "{352462E4-F578-4BF5-90C7-F81367A883DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Core.Common.WebAutomation", "Core\Common\WebAutomation\Optivem.Platform.Core.Common.WebAutomation.csproj", "{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium", "Infrastructure\Common\WebAutomation.Selenium\Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.csproj", "{87B7266C-A84A-4103-B64D-BFD09A61800C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -327,10 +329,14 @@ Global
 		{514DF5A0-5A1E-46B6-A4B9-F4777D0C95DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{514DF5A0-5A1E-46B6-A4B9-F4777D0C95DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{514DF5A0-5A1E-46B6-A4B9-F4777D0C95DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{352462E4-F578-4BF5-90C7-F81367A883DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{352462E4-F578-4BF5-90C7-F81367A883DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{352462E4-F578-4BF5-90C7-F81367A883DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{352462E4-F578-4BF5-90C7-F81367A883DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B7266C-A84A-4103-B64D-BFD09A61800C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B7266C-A84A-4103-B64D-BFD09A61800C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B7266C-A84A-4103-B64D-BFD09A61800C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B7266C-A84A-4103-B64D-BFD09A61800C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -402,7 +408,8 @@ Global
 		{4B8C1442-37BB-4B69-BDF1-E097719AFD2F} = {1D4659FF-EB9D-4F66-B304-FEC1E95965E6}
 		{AA90FFAC-53F3-4AE5-ACEA-D09419475368} = {9C3A1145-D846-4CCE-AF14-7E4A21F5B24F}
 		{514DF5A0-5A1E-46B6-A4B9-F4777D0C95DC} = {9C3A1145-D846-4CCE-AF14-7E4A21F5B24F}
-		{352462E4-F578-4BF5-90C7-F81367A883DD} = {324B2C2F-B7CA-4098-B056-A6E9C95F0EEC}
+		{F5CB275E-A847-43F8-9A7D-D346F3BC2ED1} = {324B2C2F-B7CA-4098-B056-A6E9C95F0EEC}
+		{87B7266C-A84A-4103-B64D-BFD09A61800C} = {955BAF69-F8BC-40A1-B04B-3E43CE78F353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
