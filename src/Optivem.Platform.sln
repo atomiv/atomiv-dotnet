@@ -137,6 +137,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Test.Common.Utilities", "Test\Common\Utilities\Optivem.Platform.Test.Common.Utilities.csproj", "{AA90FFAC-53F3-4AE5-ACEA-D09419475368}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Platform.Test.Common.Web", "Test\Common\Optivem.Platform.Test.Common.Web\Optivem.Platform.Test.Common.Web.csproj", "{8E1400C5-369A-40CA-8D3E-3B70E4946233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -319,6 +321,10 @@ Global
 		{AA90FFAC-53F3-4AE5-ACEA-D09419475368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA90FFAC-53F3-4AE5-ACEA-D09419475368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA90FFAC-53F3-4AE5-ACEA-D09419475368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E1400C5-369A-40CA-8D3E-3B70E4946233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E1400C5-369A-40CA-8D3E-3B70E4946233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E1400C5-369A-40CA-8D3E-3B70E4946233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E1400C5-369A-40CA-8D3E-3B70E4946233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -389,6 +395,7 @@ Global
 		{63055543-6536-46A7-832F-97F50D5E0E21} = {E0C63A52-0D7C-4242-BE54-879DDF4E4BDC}
 		{4B8C1442-37BB-4B69-BDF1-E097719AFD2F} = {1D4659FF-EB9D-4F66-B304-FEC1E95965E6}
 		{AA90FFAC-53F3-4AE5-ACEA-D09419475368} = {9C3A1145-D846-4CCE-AF14-7E4A21F5B24F}
+		{8E1400C5-369A-40CA-8D3E-3B70E4946233} = {9C3A1145-D846-4CCE-AF14-7E4A21F5B24F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
