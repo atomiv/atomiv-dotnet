@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using Optivem.Platform.Core.Common.WebAutomation;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    class ITextBox
+    public interface ITextBox
     {
+        void SetText(string text);
+
+        string GetText();
     }
 }

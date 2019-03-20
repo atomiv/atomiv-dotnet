@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    class ICheckBox
+    public interface ICheckBox
     {
     }
 }
