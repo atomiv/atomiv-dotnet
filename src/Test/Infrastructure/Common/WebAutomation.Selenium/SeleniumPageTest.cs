@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium.Chrome;
-using Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium;
+using Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 {
-    public class SeleniumFinderTest
+    public class SeleniumPageTest
     {
         [Fact]
         public void TestFindTextBoxByName()
@@ -18,15 +18,15 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
             using (var driver = new ChromeDriver(currentDir))
             {
                 driver.Url = "https://www.toolsqa.com/automation-practice-form/";
+                
+                var page = new ToolsQAAutomationPracticeFormPage(driver);
 
-                var finder = new SeleniumFinder(driver);
+                page.SetFirstName("This is my name");
+                var firstName = page.GetFirstName();
 
-                var textbox = finder.FindTextBoxByName("firstname");
+                // TODO: VC: Check if this should be via textbox?
 
-                textbox.SetText("This is my name");
-                var text = textbox.GetText();
-
-                Assert.Equal("This is my name", text);
+                Assert.Equal("This is my name", firstName);
             }
         }
     }
