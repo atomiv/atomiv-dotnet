@@ -6,24 +6,21 @@ using System.Text;
 
 namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 {
-    public class SeleniumTextBox : ITextBox
+    public class SeleniumTextBox : BaseSeleniumElement, ITextBox
     {
-        private IWebElement _element;
-
-        public SeleniumTextBox(IWebElement element)
+        public SeleniumTextBox(IWebElement element) : base(element)
         {
-            _element = element;
         }
 
         public string GetText()
         {
-            return _element.GetAttribute("value");
+            return Element.GetAttribute("value");
         }
 
         public void SetText(string text)
         {
-            _element.Clear();
-            _element.SendKeys(text);
+            Element.Clear();
+            Element.SendKeys(text);
         }
 
         // TODO: VC: Protected --> IWebElement or public?

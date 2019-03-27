@@ -3,6 +3,7 @@ using Optivem.Platform.Core.Common.WebAutomation;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
@@ -22,13 +23,15 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
                 { FindType.XPath, e => By.XPath(e) },
             };
 
-        private IWebDriver _driver;
+
 
         public SeleniumPage(IWebDriver driver)
         {
-            _driver = driver;
+            Driver = driver;
             PageFactory.InitElements(driver, this);
         }
+
+        public IWebDriver Driver { get; private set; }
 
         public ICheckBox GetCheckBox(FindType findType, string findBy)
         {
@@ -46,7 +49,38 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
         {
             var byGetter = findTypeMap[findType];
             var by = byGetter(findBy);
-            return _driver.FindElement(by);
+            return Driver.FindElement(by);
+        }
+
+        protected IWebElement FindSingle(By by)
+        {
+            return Driver.FindElements(by).Single();
+        }
+
+        protected IWebElement FindSingleOrDefault(By by)
+        {
+            return Driver.FindElements(by).SingleOrDefault();
+        }
+
+        protected IWebElement FindFirst(By by)
+        {
+            return Driver.FindElements(by).First();
+        }
+
+        protected IWebElement FindFirstOrDefault(By by)
+        {
+            return Driver.FindElements(by).FirstOrDefault();
+        }
+
+        protected IReadOnlyCollection<IWebElement> FindAll(By by)
+        {
+            return Driver.FindElements(by);
+        }
+
+        protected ITextBox FindTextBox(By by)
+        {
+            var element = FindSingle(by);
+            return new SeleniumTextBox(element);
         }
     }
 }

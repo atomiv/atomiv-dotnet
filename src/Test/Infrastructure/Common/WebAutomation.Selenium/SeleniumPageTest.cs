@@ -18,16 +18,24 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
             using (var driver = new ChromeDriver(currentDir))
             {
                 driver.Url = "https://www.toolsqa.com/automation-practice-form/";
-                
+
                 var page = new ToolsQAAutomationPracticeFormPage(driver);
 
-                page.SetFirstName("This is my name");
-                var firstName = page.GetFirstName();
+                page.FirstNameTextBox.SetText("John");
+                var firstName = page.FirstNameTextBox.GetText();
 
                 // TODO: VC: Check if this should be via textbox?
 
-                Assert.Equal("This is my name", firstName);
+                Assert.Equal("John", firstName);
+
+                Assert.False(page.SexRadioGroup.HasSelected());
+
+                page.SexRadioGroup.Select(SexType.Male);
+
+                Assert.Equal(SexType.Male, page.SexRadioGroup.GetSelected());
             }
         }
+
+
     }
 }
