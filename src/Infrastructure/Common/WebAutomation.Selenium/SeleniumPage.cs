@@ -3,6 +3,7 @@ using Optivem.Platform.Core.Common.WebAutomation;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -72,15 +73,23 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
             return Driver.FindElements(by).FirstOrDefault();
         }
 
-        protected IReadOnlyCollection<IWebElement> FindAll(By by)
+        protected ReadOnlyCollection<IWebElement> FindAll(By by)
         {
             return Driver.FindElements(by);
         }
 
-        protected ITextBox FindTextBox(By by)
+        protected SeleniumTextBox FindTextBox(By by)
         {
             var element = FindSingle(by);
             return new SeleniumTextBox(element);
+        }
+
+        protected SeleniumRadioGroup<T> FindRadioGroup<T>(By by, Dictionary<string, T> map)
+        {
+            var elements = FindAll(by);
+            return new SeleniumRadioGroup<T>(elements, map);
+
+            // TODO: VC: Maped radio group without mapping, e.g. when want to access raw strings, or perhaps ints, where there is no fixed range in advance
         }
     }
 }

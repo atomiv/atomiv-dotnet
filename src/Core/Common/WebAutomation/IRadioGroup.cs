@@ -11,5 +11,9 @@ namespace Optivem.Platform.Core.Common.WebAutomation
         T GetSelected();
 
         bool HasSelected();
+
+        int Count { get; }
+
+        T GetValue(int index);
     }
 }
