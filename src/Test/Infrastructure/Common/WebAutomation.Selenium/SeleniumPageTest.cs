@@ -32,6 +32,8 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 
                 page.SexRadioGroup.Select(SexType.Male);
 
+                // TODO: VC: Automatic matching between name and enum
+
                 Assert.Equal(SexType.Male, page.SexRadioGroup.GetSelected());
             }
         }
