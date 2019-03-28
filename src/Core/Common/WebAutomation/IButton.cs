@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    public interface IFinder
+    public interface IButton : IElement
     {
-        ITextBox FindTextBoxByName(string name);
+        void Click();
     }
 }

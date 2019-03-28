@@ -71,12 +71,12 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 
                 // TODO: VC: Checkboxes
 
-                /*
-                // Assert.True(page.ContinentComboBox.HasSelected());
-                // Assert.Equal(Continent.Asia, page.ContinentComboBox.GetSelected());
+
+                Assert.True(page.ContinentComboBox.HasSelected());
+                Assert.Equal(Continent.Asia, page.ContinentComboBox.GetSelected());
                 page.ContinentComboBox.Select(Continent.Europe);
                 Assert.Equal(Continent.Europe, page.ContinentComboBox.GetSelected());
-                */
+
 
                 // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
                 // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty

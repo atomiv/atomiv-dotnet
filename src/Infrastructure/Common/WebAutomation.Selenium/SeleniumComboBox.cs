@@ -8,12 +8,12 @@ using System.Text;
 
 namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 {
-    public class SeleniumComboBox<T> : BaseSeleniumElementRange, IComboBox<T>
+    public class SeleniumComboBox<T> : BaseSeleniumElement, IComboBox<T>
     {
         private Dictionary<string, T> _map;
         private Dictionary<T, string> _reverseMap;
 
-        public SeleniumComboBox(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
+        public SeleniumComboBox(IWebElement element, Dictionary<string, T> map) : base(element)
         {
             _map = map;
             _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
@@ -23,13 +23,13 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
         {
             get
             {
-                return Elements.Count;
+                return Element.FindElements(By.TagName("option")).Count;
             }
         }
 
         public T GetSelected()
         {
-            var element = Elements.SingleOrDefault(e => e.Selected);
+            var element = Element.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
 
             if (element == null)
             {
@@ -43,7 +43,7 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 
         public T GetValue(int index)
         {
-            var element = Elements[index];
+            var element = Element.FindElements(By.TagName("option"))[index];
             var rawValue = element.GetAttribute("value");
             var mappedValue = _map[rawValue];
             return mappedValue;
@@ -53,14 +53,14 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 
         public bool HasSelected()
         {
-            var element = Elements.SingleOrDefault(e => e.Selected);
+            var element = Element.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
             return element != null;
         }
 
         public void Select(T key)
         {
             var mappedValue = _reverseMap[key];
-            var element = Elements.Single(e => e.GetAttribute("value") == mappedValue);
+            var element = Element.FindElements(By.TagName("option")).Single(e => e.GetAttribute("value") == mappedValue);
             element.Click();
         }
     }

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    public interface ICheckBox : IElement
+    public interface IElement
     {
+        bool Enabled { get; }
+
+        bool Visible { get; }
     }
 }

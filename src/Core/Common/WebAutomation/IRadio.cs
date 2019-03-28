@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    public interface IRadio
+    public interface IRadio : IElement
     {
         void Select();
 

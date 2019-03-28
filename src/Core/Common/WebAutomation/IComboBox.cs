@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Platform.Core.Common.WebAutomation
 {
-    public interface IComboBox<T>
+    public interface IComboBox<T> : IElement
     {
         void Select(T key);
 

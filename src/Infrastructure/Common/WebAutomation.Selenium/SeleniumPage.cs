@@ -102,8 +102,8 @@ namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 
         protected SeleniumComboBox<T> FindComboBox<T>(By by, Dictionary<string, T> map)
         {
-            var elements = FindAll(by);
-            return new SeleniumComboBox<T>(elements, map);
+            var element = FindSingle(by);
+            return new SeleniumComboBox<T>(element, map);
 
             // TODO: VC: Maped radio group without mapping, e.g. when want to access raw strings, or perhaps ints, where there is no fixed range in advance
         }
