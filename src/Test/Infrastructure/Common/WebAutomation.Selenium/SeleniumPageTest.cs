@@ -22,6 +22,8 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 
                 var page = new ToolsQAAutomationPracticeFormPage(driver);
 
+                // TODO: VC: Link text & partial link text
+
                 page.FirstNameTextBox.SetText("John");
                 var firstName = page.FirstNameTextBox.GetText();
 
@@ -31,11 +33,11 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 
                 Assert.False(page.SexRadioGroup.HasSelected());
 
-                page.SexRadioGroup.Select(SexType.Male);
+                page.SexRadioGroup.Select(Sex.Male);
 
                 // TODO: VC: Automatic matching between name and enum
 
-                Assert.Equal(SexType.Male, page.SexRadioGroup.GetSelected());
+                Assert.Equal(Sex.Male, page.SexRadioGroup.GetSelected());
 
                 Assert.False(page.YearsOfExperienceRadioGroup.HasSelected());
 
@@ -45,13 +47,41 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 
                 Assert.False(page.ProfessionCheckBoxGroup.HasSelected());
 
-                page.ProfessionCheckBoxGroup.Select(ProfessionType.AutomationTester);
+                page.ProfessionCheckBoxGroup.Select(Profession.AutomationTester);
 
                 Assert.Single(page.ProfessionCheckBoxGroup.GetSelected());
 
-                Assert.Equal(ProfessionType.AutomationTester, page.ProfessionCheckBoxGroup.GetSelected().Single());
+                Assert.Equal(Profession.AutomationTester, page.ProfessionCheckBoxGroup.GetSelected().Single());
+
+                // TODO: VC: Upload file
+
+                // TODO: VC: Download file
+
+                Assert.False(page.AutomationToolCheckBoxGroup.HasSelected());
+
+                page.AutomationToolCheckBoxGroup.Select(AutomationTool.SeleniumIde);
+
+                Assert.Single(page.AutomationToolCheckBoxGroup.GetSelected());
+
+                Assert.Equal(AutomationTool.SeleniumIde, page.AutomationToolCheckBoxGroup.GetSelected().Single());
+
+                // TODO: VC: Testing multi select
 
 
+
+                // TODO: VC: Checkboxes
+
+                /*
+                // Assert.True(page.ContinentComboBox.HasSelected());
+                // Assert.Equal(Continent.Asia, page.ContinentComboBox.GetSelected());
+                page.ContinentComboBox.Select(Continent.Europe);
+                Assert.Equal(Continent.Europe, page.ContinentComboBox.GetSelected());
+                */
+
+                // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
+                // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty
+
+                // TODO: VC: Assert messages
             }
         }
 

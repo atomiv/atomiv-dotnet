@@ -19,12 +19,11 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pag
 
         public ITextBox LastNameTextBox => FindTextBox(By.Name("lastname"));
 
-        public IRadioGroup<SexType?> SexRadioGroup => FindRadioGroup(By.Name("sex"), new Dictionary<string, SexType?>
-            {
-                { "Male", SexType.Male },
-                { "Female", SexType.Female },
-            });
-
+        public IRadioGroup<Sex?> SexRadioGroup => FindRadioGroup(By.Name("sex"), new Dictionary<string, Sex?>
+        {
+            { "Male", Sex.Male },
+            { "Female", Sex.Female },
+        });
 
         public IRadioGroup<int?> YearsOfExperienceRadioGroup => FindRadioGroup(By.Name("exp"), new Dictionary<string, int?>
         {
@@ -37,23 +36,62 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pag
             { "7", 7 },
         });
 
-        public ICheckBoxGroup<ProfessionType?> ProfessionCheckBoxGroup => FindCheckBoxGroup(By.Name("profession"), new Dictionary<string, ProfessionType?>
+        public ICheckBoxGroup<Profession?> ProfessionCheckBoxGroup => FindCheckBoxGroup(By.Name("profession"), new Dictionary<string, Profession?>
         {
-            { "Manual Tester", ProfessionType.ManualTester },
-            { "Automation Tester", ProfessionType.AutomationTester },
+            { "Manual Tester", Profession.ManualTester },
+            { "Automation Tester", Profession.AutomationTester },
         });
-        
+
+        public ICheckBoxGroup<AutomationTool?> AutomationToolCheckBoxGroup => FindCheckBoxGroup(By.Name("tool"), new Dictionary<string, AutomationTool?>
+        {
+            { "QTP", AutomationTool.Qtp },
+            { "Selenium IDE", AutomationTool.SeleniumIde },
+            { "Selenium Webdriver", AutomationTool.SeleniumWebDriver },
+        });
+
+        public IComboBox<Continent?> ContinentComboBox => FindComboBox(By.Name("continents"), new Dictionary<string, Continent?>
+        {
+            { "Asia", Continent.Asia },
+            { "Europe", Continent.Europe },
+            { "Africa", Continent.Africa },
+            { "Australia", Continent.Australia },
+            { "South America", Continent.SouthAmerica },
+            { "North America", Continent.NorthAmerica },
+            { "Antartica", Continent.Antartica },
+        });
+
+
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
 
-    public enum SexType
+    public enum Sex
     {
         Male, Female
     }
 
-    public enum ProfessionType
+    public enum Profession
     {
         ManualTester,
         AutomationTester
+    }
+
+    public enum AutomationTool
+    {
+        Qtp,
+        SeleniumIde,
+        SeleniumWebDriver
+    }
+
+    // TODO: VC: Verify contents of groups, i.e. matching the expected elements
+
+    public enum Continent
+    {
+        Asia,
+        Europe,
+        Africa,
+        Australia,
+        SouthAmerica,
+        NorthAmerica,
+        Antartica
     }
 }
