@@ -25,12 +25,35 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pag
                 { "Female", SexType.Female },
             });
 
-        public IRadioGroup<int> YearsOfExperienceRadioGroup { get; private set; }
+
+        public IRadioGroup<int?> YearsOfExperienceRadioGroup => FindRadioGroup(By.Name("exp"), new Dictionary<string, int?>
+        {
+            { "1", 1 },
+            { "2", 2 },
+            { "3", 3 },
+            { "4", 4 },
+            { "5", 5 },
+            { "6", 6 },
+            { "7", 7 },
+        });
+
+        public ICheckBoxGroup<ProfessionType?> ProfessionCheckBoxGroup => FindCheckBoxGroup(By.Name("profession"), new Dictionary<string, ProfessionType?>
+        {
+            { "Manual Tester", ProfessionType.ManualTester },
+            { "Automation Tester", ProfessionType.AutomationTester },
+        });
+        
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
 
     public enum SexType
     {
         Male, Female
+    }
+
+    public enum ProfessionType
+    {
+        ManualTester,
+        AutomationTester
     }
 }

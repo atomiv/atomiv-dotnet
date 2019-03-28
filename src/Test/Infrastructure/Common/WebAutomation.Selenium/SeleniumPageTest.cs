@@ -3,6 +3,7 @@ using Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Xunit;
@@ -35,6 +36,22 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
                 // TODO: VC: Automatic matching between name and enum
 
                 Assert.Equal(SexType.Male, page.SexRadioGroup.GetSelected());
+
+                Assert.False(page.YearsOfExperienceRadioGroup.HasSelected());
+
+                page.YearsOfExperienceRadioGroup.Select(3);
+
+                Assert.Equal(3, page.YearsOfExperienceRadioGroup.GetSelected());
+
+                Assert.False(page.ProfessionCheckBoxGroup.HasSelected());
+
+                page.ProfessionCheckBoxGroup.Select(ProfessionType.AutomationTester);
+
+                Assert.Single(page.ProfessionCheckBoxGroup.GetSelected());
+
+                Assert.Equal(ProfessionType.AutomationTester, page.ProfessionCheckBoxGroup.GetSelected().Single());
+
+
             }
         }
 
