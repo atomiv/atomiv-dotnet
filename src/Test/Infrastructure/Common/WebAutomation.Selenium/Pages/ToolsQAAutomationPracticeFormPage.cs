@@ -9,23 +9,26 @@ using SeleniumExtras.PageObjects;
 
 namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pages
 {
-    public class ToolsQAAutomationPracticeFormPage : SeleniumPage
+    public class ToolsQAAutomationPracticeFormPage
     {
-        public ToolsQAAutomationPracticeFormPage(IWebDriver driver) : base(driver)
+        public ToolsQAAutomationPracticeFormPage(IDriver driver)
         {
+            Driver = driver;
         }
 
-        public ITextBox FirstNameTextBox => FindTextBox(By.Name("firstname"));
+        public IDriver Driver { get; private set; }
 
-        public ITextBox LastNameTextBox => FindTextBox(By.Name("lastname"));
+        public ITextBox FirstNameTextBox => Driver.FindTextBox(FindType.Name, "firstname");
 
-        public IRadioGroup<Sex?> SexRadioGroup => FindRadioGroup(By.Name("sex"), new Dictionary<string, Sex?>
+        public ITextBox LastNameTextBox => Driver.FindTextBox(FindType.Name, "lastname");
+
+        public IRadioGroup<Sex?> SexRadioGroup => Driver.FindRadioGroup(FindType.Name, "sex", new Dictionary<string, Sex?>
         {
             { "Male", Sex.Male },
             { "Female", Sex.Female },
         });
 
-        public IRadioGroup<int?> YearsOfExperienceRadioGroup => FindRadioGroup(By.Name("exp"), new Dictionary<string, int?>
+        public IRadioGroup<int?> YearsOfExperienceRadioGroup => Driver.FindRadioGroup(FindType.Name, "exp", new Dictionary<string, int?>
         {
             { "1", 1 },
             { "2", 2 },
@@ -36,20 +39,20 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pag
             { "7", 7 },
         });
 
-        public ICheckBoxGroup<Profession?> ProfessionCheckBoxGroup => FindCheckBoxGroup(By.Name("profession"), new Dictionary<string, Profession?>
+        public ICheckBoxGroup<Profession?> ProfessionCheckBoxGroup => Driver.FindCheckBoxGroup(FindType.Name, "profession", new Dictionary<string, Profession?>
         {
             { "Manual Tester", Profession.ManualTester },
             { "Automation Tester", Profession.AutomationTester },
         });
 
-        public ICheckBoxGroup<AutomationTool?> AutomationToolCheckBoxGroup => FindCheckBoxGroup(By.Name("tool"), new Dictionary<string, AutomationTool?>
+        public ICheckBoxGroup<AutomationTool?> AutomationToolCheckBoxGroup => Driver.FindCheckBoxGroup(FindType.Name, "tool", new Dictionary<string, AutomationTool?>
         {
             { "QTP", AutomationTool.Qtp },
             { "Selenium IDE", AutomationTool.SeleniumIde },
             { "Selenium Webdriver", AutomationTool.SeleniumWebDriver },
         });
 
-        public IComboBox<Continent?> ContinentComboBox => FindComboBox(By.Name("continents"), new Dictionary<string, Continent?>
+        public IComboBox<Continent?> ContinentComboBox => Driver.FindComboBox(FindType.Name, "continents", new Dictionary<string, Continent?>
         {
             { "Asia", Continent.Asia },
             { "Europe", Continent.Europe },

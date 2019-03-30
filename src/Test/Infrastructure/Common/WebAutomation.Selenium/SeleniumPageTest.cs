@@ -13,14 +13,14 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 {
     public class SeleniumPageTest : SeleniumFixtureTest
     {
-        public SeleniumPageTest(SeleniumFixture seleniumFixture) : base(seleniumFixture)
+        public SeleniumPageTest(SeleniumDriverFixture seleniumFixture) : base(seleniumFixture)
         {
         }
 
         [Fact]
         public void TestFindTextBoxByName()
         {
-            var driver = SeleniumFixture.WebDriver;
+            var driver = SeleniumFixture.Driver;
 
             driver.Url = "https://www.toolsqa.com/automation-practice-form/";
 

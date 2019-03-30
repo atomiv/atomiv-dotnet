@@ -5,14 +5,14 @@ using Xunit;
 
 namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
 {
-    public class SeleniumFixtureTest : IClassFixture<SeleniumFixture>
+    public class SeleniumFixtureTest : IClassFixture<SeleniumDriverFixture>
     {
-        public SeleniumFixtureTest(SeleniumFixture seleniumFixture)
+        public SeleniumFixtureTest(SeleniumDriverFixture seleniumFixture)
         {
             SeleniumFixture = seleniumFixture;
         }
 
-        public SeleniumFixture SeleniumFixture { get; private set; }
+        public SeleniumDriverFixture SeleniumFixture { get; private set; }
 
     }
 }
