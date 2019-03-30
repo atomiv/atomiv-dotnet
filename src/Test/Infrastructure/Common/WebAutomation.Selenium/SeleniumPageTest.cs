@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using FluentAssertions;
+using OpenQA.Selenium.Chrome;
 using Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium.Pages;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,11 @@ namespace Optivem.Platform.Test.Infrastructure.Common.WebAutomation.Selenium
                 page.FirstNameTextBox.SetText("John");
                 var firstName = page.FirstNameTextBox.GetText();
 
+                firstName.Should().Be("John");
+
                 // TODO: VC: Check if this should be via textbox?
 
-                Assert.Equal("John", firstName);
+
 
                 Assert.False(page.SexRadioGroup.HasSelected());
 
