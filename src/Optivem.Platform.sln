@@ -145,6 +145,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{458795
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F68174D1-8909-44BD-A412-0525DF90D331}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Platform.Test.Common.Xunit.Selenium", "Test\Common\Selenium\Optivem.Platform.Test.Common.Xunit.Selenium.csproj", "{1C74F29D-29A1-43C2-9993-7274431E40A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -343,6 +345,10 @@ Global
 		{2E73A80A-1D3B-434A-9E56-BDDE4D455B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E73A80A-1D3B-434A-9E56-BDDE4D455B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E73A80A-1D3B-434A-9E56-BDDE4D455B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C74F29D-29A1-43C2-9993-7274431E40A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C74F29D-29A1-43C2-9993-7274431E40A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C74F29D-29A1-43C2-9993-7274431E40A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C74F29D-29A1-43C2-9993-7274431E40A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -417,6 +423,7 @@ Global
 		{B7965E4F-E974-492A-AC37-8616D9727361} = {FE7246A2-77D2-475A-A5B9-21EE739E58A2}
 		{458795C2-2E8F-41AB-987E-0025099BFB43} = {FE7246A2-77D2-475A-A5B9-21EE739E58A2}
 		{F68174D1-8909-44BD-A412-0525DF90D331} = {FE7246A2-77D2-475A-A5B9-21EE739E58A2}
+		{1C74F29D-29A1-43C2-9993-7274431E40A1} = {9C3A1145-D846-4CCE-AF14-7E4A21F5B24F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
