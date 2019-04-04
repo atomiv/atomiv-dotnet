@@ -2,6 +2,7 @@ using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using System.Collections.Generic;
 using Xunit;
 using System;
+using Optivem.Platform.Test.Common.Xunit;
 
 namespace Optivem.Platform.Test.Common.Serialization
 {

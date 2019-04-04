@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\RestClient.Default\Optivem.Platform.Infrastructure.Common.RestClient.Default.csproj" />
     <ProjectReference Include="..\..\..\..\Infrastructure\Common\Serialization.Default\Optivem.Platform.Infrastructure.Common.Serialization.Default.csproj" />
-    <ProjectReference Include="..\..\..\Common\Utilities\Optivem.Platform.Test.Common.Utilities.csproj" />
+    <ProjectReference Include="..\..\..\Common\Utilities\Optivem.Platform.Test.Common.Xunit.csproj" />
     <ProjectReference Include="..\Common\Optivem.Platform.Test.Web.AspNetCore.Common.csproj" />
     <ProjectReference Include="..\Rest.Fake\Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.csproj" />
   </ItemGroup>
