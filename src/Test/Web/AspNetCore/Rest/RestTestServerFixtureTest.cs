@@ -1,4 +1,4 @@
-﻿using Optivem.Platform.Test.Web.AspNetCore.Common;
+﻿using Optivem.Platform.Test.Common.Xunit.AspNetCore;
 
 namespace Optivem.Platform.Test.Web.AspNetCore.Rest
 {

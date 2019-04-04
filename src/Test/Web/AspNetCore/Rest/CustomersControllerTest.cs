@@ -2,6 +2,7 @@
 using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Platform.Test.Common;
 using Optivem.Platform.Test.Common.Xunit;
+using Optivem.Platform.Test.Common.Xunit.AspNetCore;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
 using Optivem.Platform.Test.Web.AspNetCore.Rest.Fake.Models;

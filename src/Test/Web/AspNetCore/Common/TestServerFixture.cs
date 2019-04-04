@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.TestHost;
 using System;
 using System.Net.Http;
 
-namespace Optivem.Platform.Test.Web.AspNetCore.Common
+namespace Optivem.Platform.Test.Common.Xunit.AspNetCore
 {
     public class TestServerFixture : IDisposable
     {
