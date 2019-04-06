@@ -2,6 +2,7 @@
 # $rootPath = 'D:\Github\optivem\pdn'
 $version = '1.0.4'
 
+dotnet build -c Release
 dotnet pack -c Release
 
 # TODO: VC: Transfer this list into txt file (nuget.config), then read list from file
