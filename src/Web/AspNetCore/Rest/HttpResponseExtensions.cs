@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Optivem.Platform.Core.Common.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest

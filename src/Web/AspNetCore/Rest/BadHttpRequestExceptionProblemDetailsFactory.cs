@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {

@@ -2,10 +2,9 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 before_build:
-- cmd: cd src
 - cmd: dotnet restore
 - cmd: nuget restore
 
 build:
   verbosity: minimal
-  project: src/Optivem.Platform.sln
+  project: Optivem.Platform.sln

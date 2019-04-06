@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
 using Optivem.Platform.Core.Common.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest
 {
