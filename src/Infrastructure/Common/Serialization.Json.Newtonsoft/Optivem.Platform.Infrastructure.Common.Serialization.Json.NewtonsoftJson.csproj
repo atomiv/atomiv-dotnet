@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Version>1.0.4</Version>
+    <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

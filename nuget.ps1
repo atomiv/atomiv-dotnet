@@ -4,6 +4,8 @@ $version = '1.0.4'
 
 dotnet pack -c Release
 
+# TODO: VC: Transfer this list into txt file, then read list from file
+
 $projects = @(
 
 	# ### ============================== CORE ============================== ###
@@ -78,7 +80,7 @@ $projects = @(
 	# ### Web - AspNetCore ###
 	
     'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj',
-    'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj',
+    'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj'
     # 'src\Test\Xunit\Web.Selenium\Optivem.Platform.Test.Xunit.Web.Selenium.csproj',
 )
 
