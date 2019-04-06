@@ -1,9 +1,15 @@
 ﻿$rootPath = Get-Location
 # $rootPath = 'D:\Github\optivem\pdn'
 $version = '1.0.4'
+$key = ''
+$nugetApi = 'https://api.nuget.org/v3/index.json'
+
+
 
 dotnet build -c Release
 dotnet pack -c Release
+
+
 
 # TODO: VC: Transfer this list into txt file (nuget.config), then read list from file
 
@@ -73,19 +79,21 @@ $projects = @(
 	
     # 'src\Web\AspNetCore\Common\Optivem.Platform.Web.AspNetCore.Common.csproj',
     # 'src\Web\AspNetCore\Mvc\Optivem.Platform.Web.AspNetCore.Mvc.csproj',
-    'src\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj',
+    'src\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj'
     # 'src\Web\AspNetCore\Soap\Optivem.Platform.Web.AspNetCore.Soap.csproj',
 	
 	# ### ============================== TEST ============================== ###
 	
 	# ### Web - AspNetCore ###
 	
-    'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj',
-    'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj'
+    # 'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
+    # 'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
     # 'src\Test\Xunit\Web.Selenium\Optivem.Platform.Test.Xunit.Web.Selenium.csproj',
 )
 
-$paths = @()
+# TODO: VC: Update all project files to the new version
+
+$nugetPaths = @()
 
 Foreach($project in  $projects)
 {
@@ -104,7 +112,7 @@ Foreach($project in  $projects)
 	
 	# D:\Github\optivem\pdn\src\Core\Common\Optivem.Platform.Core.Common.Mapping\bin\Release\Optivem.Platform.Core.Common.Mapping.1.0.3.nupkg
 	
-	$nugetPath = Join-Path -Path $projectDir -ChildPath "bin\Release\\$projectName.$version.nupkg"
+	$nugetPath = Join-Path -Path $projectDir -ChildPath "bin\Release\$projectName.$version.nupkg"
 
 	$nugetPathExists = Test-Path -Path $nugetPath
 	
@@ -113,9 +121,14 @@ Foreach($project in  $projects)
         Write-Error -Message "Nuget path not found: $nugetPath" -ErrorAction Stop
 	}
 
-    $paths += $path
+    $nugetPaths += $nugetPath
+	
+	Write-Host $nugetPath
 }
 
+# TODO: VC: Get success / failure and log into file so that we know the last published successful version, also useful later for retry
 
-
-
+Foreach($nugetPath in $nugetPaths)
+{
+	dotnet nuget push $nugetPath -k $key -s $nugetApi
+}
