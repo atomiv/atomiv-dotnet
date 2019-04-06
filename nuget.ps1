@@ -4,7 +4,7 @@ $version = '1.0.4'
 
 dotnet pack -c Release
 
-# TODO: VC: Transfer this list into txt file, then read list from file
+# TODO: VC: Transfer this list into txt file (nuget.config), then read list from file
 
 $projects = @(
 
