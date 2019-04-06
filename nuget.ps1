@@ -1,10 +1,7 @@
 ﻿$rootPath = Get-Location
-# $rootPath = 'D:\Github\optivem\pdn'
-$version = '1.0.4'
-$key = ''
+$version = '1.0.4' # TODO: VC: Perhaps pass via command line
+$key = '' # TODO: VC: Pass via command line
 $nugetApi = 'https://api.nuget.org/v3/index.json'
-
-
 
 dotnet build -c Release
 dotnet pack -c Release
@@ -12,6 +9,7 @@ dotnet pack -c Release
 
 
 # TODO: VC: Transfer this list into txt file (nuget.config), then read list from file
+# TODO: VC: The files could also be like json due to the hierarchy, perhaps more readable and verifying then the correct path
 
 $projects = @(
 
