@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for REST Client using default system implementation</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>� Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>

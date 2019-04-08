@@ -1,11 +1,39 @@
-﻿$rootPath = Get-Location
-$version = '1.0.4' # TODO: VC: Perhaps pass via command line
-$key = '' # TODO: VC: Pass via command line
-$nugetApi = 'https://api.nuget.org/v3/index.json'
+﻿# Parameters
+
+param (
+	[string]$rootPath = '',
+	[string]$oldVersion = '1.0.4',
+	[string]$version = '1.0.5', # TODO: VC: Perhaps pass via command line
+	[Parameter(Mandatory=$true)][string]$key = '', # TODO: VC: Pass via command line
+	[string]$nugetApi = 'https://api.nuget.org/v3/index.json'
+)
+
+if($rootPath == '')
+{
+	$rootPath = Get-Location
+}
+
+# $rootPath = Get-Location
+# $oldVersion = '1.0.4'
+# $version = '1.0.5' # TODO: VC: Perhaps pass via command line
+# $key = '' # TODO: VC: Pass via command line
+# $nugetApi = 'https://api.nuget.org/v3/index.json'
+
+
+# Upgrade project version
+
+$projectFiles = Get-ChildItem . *.csproj -rec
+foreach($projectFile in $projectFiles)
+{
+	(Get-Content $projectFile.PSPath) |
+	Foreach-Object { $_ -replace "<Version>$oldVersion</Version>", "<Version>$version</Version>" }
+	Set-Content $file.PSPath
+}
+
+# Build & Pack
 
 dotnet build -c Release
 dotnet pack -c Release
-
 
 
 # TODO: VC: Transfer this list into txt file (nuget.config), then read list from file

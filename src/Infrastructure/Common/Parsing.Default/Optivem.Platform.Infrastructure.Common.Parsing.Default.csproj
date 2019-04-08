@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem Platform DotNetCore Infrastructure Parsing Parser StandardDataTypes</PackageTags>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
