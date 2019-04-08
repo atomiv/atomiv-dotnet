@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Platform DotNetCore Test XUnit Common</PackageTags>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

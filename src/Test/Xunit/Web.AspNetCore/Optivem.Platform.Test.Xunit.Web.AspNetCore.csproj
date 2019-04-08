@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Platform DotNetCore Test XUnit Web AspNetCore</PackageTags>
+    <IsPackable>True</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
