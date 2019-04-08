@@ -212,15 +212,8 @@ namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
             // TODO: VC: Handling problem details in various formats, not just json
             // TODO: VC: check if this works for API without problem details, but something else... otherwise null
 
-            try
-            {
-                var problemDetails = _serializationService.Deserialize<ProblemDetails>(content, SerializationFormatType.Json);
-                return new ProblemDetailsWrapper(problemDetails);
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }
+            var problemDetails = _serializationService.Deserialize<ProblemDetails>(content, SerializationFormatType.Json);
+            return new ProblemDetailsWrapper(problemDetails);
         }
 
         private StringContent CreateContent(string content, string contentType)
