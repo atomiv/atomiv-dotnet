@@ -1,39 +1,28 @@
 ﻿# Parameters
 
 param (
-	[string]$rootPath = '',
-	[string]$oldVersion = '1.0.4',
-	[string]$version = '1.0.5', # TODO: VC: Perhaps pass via command line
-	[Parameter(Mandatory=$true)][string]$key = '', # TODO: VC: Pass via command line
-	[string]$nugetApi = 'https://api.nuget.org/v3/index.json'
+	[string]$rootPath = '.',
+	[Parameter(Mandatory=$true)][string]$version = '0.0.0',
+	[Parameter(Mandatory=$true)][string]$key = '',
+	[string]$nugetApi = 'https://api.nuget.org/v3/index.json',
+    [bool]$build = $true,
+    [bool]$pack = $true
 )
-
-if($rootPath == '')
-{
-	$rootPath = Get-Location
-}
-
-# $rootPath = Get-Location
-# $oldVersion = '1.0.4'
-# $version = '1.0.5' # TODO: VC: Perhaps pass via command line
-# $key = '' # TODO: VC: Pass via command line
-# $nugetApi = 'https://api.nuget.org/v3/index.json'
-
-
-# Upgrade project version
-
-$projectFiles = Get-ChildItem . *.csproj -rec
-foreach($projectFile in $projectFiles)
-{
-	(Get-Content $projectFile.PSPath) |
-	Foreach-Object { $_ -replace "<Version>$oldVersion</Version>", "<Version>$version</Version>" }
-	Set-Content $file.PSPath
-}
 
 # Build & Pack
 
-dotnet build -c Release
-dotnet pack -c Release
+# TODO: VC: Perhaps make conditional?
+
+if($build)
+{
+    dotnet build -c Release
+}
+
+if($pack)
+{
+    dotnet pack -c Release
+}
+
 
 
 # TODO: VC: Transfer this list into txt file (nuget.config), then read list from file
@@ -105,15 +94,15 @@ $projects = @(
 	
     # 'src\Web\AspNetCore\Common\Optivem.Platform.Web.AspNetCore.Common.csproj',
     # 'src\Web\AspNetCore\Mvc\Optivem.Platform.Web.AspNetCore.Mvc.csproj',
-    'src\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj'
+    'src\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj',
     # 'src\Web\AspNetCore\Soap\Optivem.Platform.Web.AspNetCore.Soap.csproj',
 	
 	# ### ============================== TEST ============================== ###
 	
 	# ### Web - AspNetCore ###
 	
-    # 'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
-    # 'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
+    'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
+    'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
     # 'src\Test\Xunit\Web.Selenium\Optivem.Platform.Test.Xunit.Web.Selenium.csproj',
 )
 
