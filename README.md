@@ -68,7 +68,7 @@ Optivem.Platform.Infrastructure.Common:
 * Optivem.Platform.Infrastructure.Common.Serialization.Dsv
 * Optivem.Platform.Infrastructure.Common.Serialization.Excel
 * Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson) Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson) Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson
 * Optivem.Platform.Infrastructure.Common.Serialization.Xml
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium) Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
 
