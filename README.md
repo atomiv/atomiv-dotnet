@@ -18,15 +18,7 @@ The Optivem Platform consists of the following:
 * Test (contains base classes for testing)
 
 
-
-
-Optivem.Platform.Web.AspNetCore.Rest
-
-
-
-
-
-## Optivem.Platform.Core
+## Core
 
 Optivem.Platform.Core.Common.Common:
 
@@ -38,7 +30,9 @@ Optivem.Platform.Core.Common.Common:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Mapping.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Mapping) Optivem.Platform.Core.Common.Mapping
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Parsing.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Parsing) Optivem.Platform.Core.Common.Parsing
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Repository.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Repository) Optivem.Platform.Core.Common.Repository
-* Optivem.Platform.Core.Common.Serialization
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.RestClient.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.RestClient) Optivem.Platform.Core.Common.RestClient
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Serialization.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Serialization) Optivem.Platform.Core.Common.Serialization
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.WebAutomation.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.WebAutomation) Optivem.Platform.Core.Common.WebAutomation
 
 Optivem.Platform.Core.Domain:
 
@@ -55,7 +49,7 @@ Optivem.Platform.Core.Application:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service) Optivem.Platform.Core.Application.Service
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service.Default) Optivem.Platform.Core.Application.Service.Default
 
-## Optivem.Platform.Infrastructure
+## Infrastructure
 
 Optivem.Platform.Infrastructure.Common:
 
@@ -68,17 +62,25 @@ Optivem.Platform.Infrastructure.Common:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper) Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Parsing.Default) Optivem.Platform.Infrastructure.Common.Parsing.Default
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore) Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
-* Optivem.Platform.Infrastructure.Common.Serialization.Csv
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.RestClient.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.RestClient.Default) Optivem.Platform.Infrastructure.Common.RestClient.Default
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper) Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Default) Optivem.Platform.Infrastructure.Common.Serialization.Default
 * Optivem.Platform.Infrastructure.Common.Serialization.Dsv
 * Optivem.Platform.Infrastructure.Common.Serialization.Excel
 * Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth
-* Optivem.Platform.Infrastructure.Common.Serialization.Json
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson) Optivem.Platform.Infrastructure.Common.Json.NewtonsoftJson
 * Optivem.Platform.Infrastructure.Common.Serialization.Xml
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium) Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
+
+
+<!-- TODO: VC: TEMP -->
+<!-- * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.XYZ.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.XYZ) Optivem.Platform.Infrastructure.Common.XYZ -->
+
 
 Optivem.Platform.Infrastructure.Domain:
 * Optivem.Platform.Infrastructure.Domain.Repository.EntityFrameworkCore
 
-## Optivem.Platform.Web
+## Web
 
 Optivem.Platform.Web.AspNetCore:
 * Optivem.Platform.Web.AspNetCore.Common
@@ -86,10 +88,11 @@ Optivem.Platform.Web.AspNetCore:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Web.AspNetCore.Rest.svg)](https://www.nuget.org/packages/Optivem.Platform.Web.AspNetCore.Rest) Optivem.Platform.Web.AspNetCore.Rest
 * Optivem.Platform.Web.AspNetCore.Soap
 
-## Optivem.Platform.Test
+## Test
 
-* Optivem.Platform.Test.Unit
-* Optivem.Platform.Test.Integration
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Common.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Common) Optivem.Platform.Test.Xunit.Common
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Web.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Web.AspNetCore) Optivem.Platform.Test.Xunit.Web.AspNetCore
+* Optivem.Platform.Test.Web.Selenium
 
 ## Issues
 
