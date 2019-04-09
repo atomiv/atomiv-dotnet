@@ -33,7 +33,8 @@ $projects = @(
 	# ### ============================== CORE ============================== ###
 
 	# ### Core - Common ###
-	
+
+    # 'src\Core\Common\All\Optivem.Platform.Core.Common.All.csproj',	
     # 'src\Core\Common\Clock\Optivem.Platform.Core.Common.Clock.csproj',
 	# 'src\Core\Common\Email\Optivem.Platform.Core.Common.Email.csproj',
 	# 'src\Core\Common\FileSystem\Optivem.Platform.Core.Common.FileSystem.csproj',
@@ -47,6 +48,7 @@ $projects = @(
 
 	# ### Core - Domain ###
 
+    # 'src\Core\Domain\All\Optivem.Platform.Core.Domain.All.csproj',
     # 'src\Core\Domain\Entity\Optivem.Platform.Core.Domain.Entity.csproj',
     # 'src\Core\Domain\Entity.Default\Optivem.Platform.Core.Domain.Entity.Default.csproj',
     # 'src\Core\Domain\Repository\Optivem.Platform.Core.Domain.Repository.csproj',
@@ -62,6 +64,7 @@ $projects = @(
 
 	# ### Infrastructure - Common ###
 	
+    # 'src\Infrastructure\Common\All\Optivem.Platform.Infrastructure.Common.Clock.All.csproj',
     # 'src\Infrastructure\Common\Clock.Default\Optivem.Platform.Infrastructure.Common.Clock.Default.csproj',
 	# 'src\Infrastructure\Common\Email.Gmail\Optivem.Platform.Infrastructure.Common.Email.Gmail.csproj',
 	# 'src\Infrastructure\Common\Email.MicrosoftExchange\Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange.csproj',
@@ -99,7 +102,7 @@ $projects = @(
 	
 	# ### ============================== TEST ============================== ###
 	
-	# ### Web - AspNetCore ###
+	# ### Test - Xunit ###
 	
     'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
     'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
