@@ -1,4 +1,4 @@
-## Web
+## Web Packages
 
 Optivem.Platform.Web.AspNetCore:
 * Optivem.Platform.Web.AspNetCore.Common
