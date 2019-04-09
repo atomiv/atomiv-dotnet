@@ -17,7 +17,7 @@ The Optivem Platform consists of the following:
 ## NuGet Packages
 
 NuGet packages are split by the architectural layer:
-* [Core Packages](docs/core.md)
-* [Infrastructure Packages](docs/infrastructure.md)
-* [Web Packages](docs/web.md)
-* [Test Packages](docs/test.md)
+* [Core Packages](core.md)
+* [Infrastructure Packages](infrastructure.md)
+* [Web Packages](web.md)
+* [Test Packages](test.md)
