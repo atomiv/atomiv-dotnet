@@ -1,7 +1,14 @@
-## Introduction
-
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/platform-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/platform-dotnetcore)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
+## Table of Contents
+
+[Introduction](#introduction)
+
+<a name="introduction" />
+## Introduction
+
+
 
 As teams and projects grow over time, a common situation that occurs is that code has to be copy pasted between projects. Examples include:
 * When creating a new project, frequently the structure is based on the structure of previous projects, e.g. for every new project, developers need to setup Repository, Service, Web projects.
