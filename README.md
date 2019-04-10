@@ -11,7 +11,7 @@ Welcome to the Optivem Platform! The Optivem Platform was created to help you in
 * [A story from the trenches](#story)
 * [What is the Optivem Platform?](#what)
 * [Why should I use the Optivem Platform?](#why)
-* [How can I get support?](#support)
+
 
 [Getting Started](#getting-started):
 * [Installation](#installation)
@@ -20,15 +20,24 @@ Welcome to the Optivem Platform! The Optivem Platform was created to help you in
 
 [Technical Reference](#technical-reference):
 
-* [Architecture](#architecture) describes the overall architectural approach behind the Optivem Platform, focusing on Clean Architecture principles and layers
-* [Packages](#packages) describes the overall architectural approach behind the Optivem Platform, focusing on Clean Architecture principles and layers, including: [Core Packages](#core-packages), [Infrastructure Packages](#infrastructure-packages), [Web Packages](#web-packages) and [Test Packages](#test-packages)
+* [Architecture](#architecture)
+* [Core Packages](#core-packages)
+* [Infrastructure Packages](#infrastructure-packages)
+* [Web Packages](#web-packages)
+* [Test Packages](#test-packages)
+
+[Further Information](#further-information)
+* [Getting support](#support)
+* [MIT License](#license)
 
 <a name="introduction" />
 ## Introduction
 
 <a name="story" />
 ### A story from the trenches
-At first, copy-paste is fine - it is faster in the short run. For example, let's say we started with some utility class for parsing text files. At first, it was all "simple", it was just reading a set of lines from the text file. This was developed in Project A. Then, Project B came along, where there was also the requirement for reading text files, so naturally the developer in Project B copied the code base from Project A. However, due to different requirements, parsing text files in Project B was a bit more complex, needed to handle different date formats depending on location settings, so the developer had to adapt the code. Then Project C came up, and there was also a requirement for reading from text files, but with the additional requirement that headers needed to be adjusted. Then a bug was found affecting base parsing functionality, and so then in all the projects A, B, C developers had to manually fix the bug. Afterwards, Project D came up and it had some requirements like Project A and some requirements like Project C, so then the developer copied some parts from Project A, some parts from Project C, and combined it together. Furthermore, some newcomers joined the team and when they had to implement text parsing, the other team members told them what was implemented on one project, was was on another, so the developers often had to search through multiple projects.
+At first, copy-paste is fine - it is faster in the short run. For example, let's say we started with some utility class for parsing text files. At first, it was all "simple", it was just reading a set of lines from the text file. This was developed in Project A. Then, Project B came along, where there was also the requirement for reading text files, so naturally the developer in Project B copied the code base from Project A. However, due to different requirements, parsing text files in Project B was a bit more complex, needed to handle different date formats depending on location settings, so the developer had to adapt the code. Then Project C came up, and there was also a requirement for reading from text files, but with the additional requirement that headers needed to be adjusted. 
+
+Then a bug was found affecting base parsing functionality, and so then in all the projects A, B, C developers had to manually fix the bug. Afterwards, Project D came up and it had some requirements like Project A and some requirements like Project C, so then the developer copied some parts from Project A, some parts from Project C, and combined it together. Furthermore, some newcomers joined the team and when they had to implement text parsing, the other team members told them what was implemented on one project, was was on another, so the developers often had to search through multiple projects.
 
 Now we see that, as the number of project grows and as the codebase grows, that the copy-paste solution is not really maintainable. Reasons are because when creating new projects, develoeprs have to search for older projects to copy the code from, and when bugs are found, it needs to be solved multiple times. This increases overall development cost, introduces risk and decreases quality. So with this in mind, it introduces the need for shared code, to ensure that common components are re-usable. However, at another level, we want not only to re-use components but also to re-use architecture. This means, setting up a standardized project architecture which relies on these standardized re-usable components.
 
@@ -52,10 +61,7 @@ Welcome to the Optivem Platform for .NET Core 2.2, which is designed to solve th
 2. At the higher level, it provides guidelines for project architecture
 3. Enables you to focus on your projects and products, deliver features faster to customers with high quality
 
-<a name="support" />
-## Support
 
-To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/platform-dotnetcore/issues](https://github.com/optivem/platform-dotnetcore/issues).
 
 
 <a name="getting-started" />
@@ -91,9 +97,6 @@ The Optivem Platform consists of the following:
 * Web (contains the web presentation layer)
 * Test (contains base classes for testing)
 
-<a name="packages" />
-### Packages
-
 NuGet packages are split by the architectural layer:
 * [Core Packages](#core-packages)
 * [Infrastructure Packages](#infrastructure-packages)
@@ -101,7 +104,7 @@ NuGet packages are split by the architectural layer:
 * [Test Packages](#test-packages)
 
 <a name="core-packages" />
-#### Core Packages
+### Core Packages
 
 Common:
 
@@ -133,7 +136,7 @@ Application:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service.Default) Optivem.Platform.Core.Application.Service.Default
 
 <a name="infrastructure-packages" />
-#### Infrastructure Packages
+### Infrastructure Packages
 
 Optivem.Platform.Infrastructure.Common:
 
@@ -165,7 +168,7 @@ Optivem.Platform.Infrastructure.Domain:
 * Optivem.Platform.Infrastructure.Domain.Repository.EntityFrameworkCore
 
 <a name="web-packages" />
-#### Web Packages
+### Web Packages
 
 Optivem.Platform.Web.AspNetCore:
 * Optivem.Platform.Web.AspNetCore.Common
@@ -174,14 +177,24 @@ Optivem.Platform.Web.AspNetCore:
 * Optivem.Platform.Web.AspNetCore.Soap
 
 <a name="test-packages" />
-#### Test Packages
+### Test Packages
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Common.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Common) Optivem.Platform.Test.Xunit.Common
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Web.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Web.AspNetCore) Optivem.Platform.Test.Xunit.Web.AspNetCore
 * Optivem.Platform.Test.Xunit.Web.Selenium
 
+
+
+<a name="further-information" />
+## Further Information
+
+<a name="support" />
+### Getting support
+
+To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/platform-dotnetcore/issues](https://github.com/optivem/platform-dotnetcore/issues).
+
 <a name="license" />
-## License
+### MIT License
 
 Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php). This means you're free to use it for commercial and non-commercial purposes.
 
