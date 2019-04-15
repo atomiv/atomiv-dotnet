@@ -8,43 +8,43 @@ namespace Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
     public class EntityFrameworkUnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext
     {
-        protected readonly TContext context;
-
         private bool disposedValue = false;
 
         public EntityFrameworkUnitOfWork(TContext context)
         {
-            this.context = context;
+            this.Context = context;
         }
+
+        protected TContext Context { get; private set; }
 
         public void BeginTransaction()
         {
-            context.Database.BeginTransaction();
+            Context.Database.BeginTransaction();
         }
 
         public async Task BeginTransactionAsync()
         {
-            await context.Database.BeginTransactionAsync();
+            await Context.Database.BeginTransactionAsync();
         }
 
         public void SaveChanges()
         {
-            context.SaveChanges();
+            Context.SaveChanges();
         }
 
         public async Task SaveChangesAsync()
         {
-            await context.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         public void CommitTransaction()
         {
-            context.Database.CommitTransaction();
+            Context.Database.CommitTransaction();
         }
 
         public void RollbackTransaction()
         {
-            context.Database.RollbackTransaction();
+            Context.Database.RollbackTransaction();
         }
 
         protected void Dispose(bool disposing)
@@ -53,7 +53,7 @@ namespace Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    Context.Dispose();
                 }
 
                 disposedValue = true;
@@ -63,6 +63,11 @@ namespace Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
         void IDisposable.Dispose()
         {
             Dispose(true);
+        }
+
+        public IRepository<T> GetRepository<T>() where T : class
+        {
+            return new EntityFrameworkRepository<TContext, T>(Context);
         }
     }
 }

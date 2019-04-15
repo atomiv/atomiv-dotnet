@@ -19,8 +19,6 @@ namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
 {
     public class Startup
     {
-
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

@@ -2,7 +2,7 @@
 
 namespace Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
 {
-    public class AutoMapperRequestProfile<TRequest, TEntity> : Profile
+    public abstract class AutoMapperRequestProfile<TRequest, TEntity> : Profile
     {
         protected IMappingExpression<TRequest, TEntity> map;
 

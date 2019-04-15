@@ -11,12 +11,16 @@ using Optivem.Platform.Web.AspNetCore.Rest.Fake.Models;
 
 namespace Optivem.Platform.Web.AspNetCore.Rest.Test
 {
+    // TODO: VC: Consider moving into Fixtures folder
+
     public class RestTestServerFixture : TestServerFixture
     {
         public RestTestServerFixture() 
             : base(CreateWebHostBuilder())
         {
             var serializationService = new SerializationService();
+
+            // TODO: VC: Consider factory for controllers, taking params client & serialization service
 
             ValuesControllerClient = new RestControllerClient<int, string>(HttpClient, "api/values", serializationService);
             ExceptionsControllerClient = new RestControllerClient<int, string>(HttpClient, "api/exceptions", serializationService);
