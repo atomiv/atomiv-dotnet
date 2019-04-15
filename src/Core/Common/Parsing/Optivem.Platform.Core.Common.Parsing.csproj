@@ -9,7 +9,7 @@
     <PackageTags>Optivem Platform DotNetCore Core Common Parsing Parser</PackageTags>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageId>Optivem.Platform.Core.Common.Parsing</PackageId>
     <Product>Optivem.Platform.Core.Common.Parsing</Product>
