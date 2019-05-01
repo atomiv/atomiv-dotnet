@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Service\Optivem.Platform.Core.Application.Service.csproj" />
-    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj" />
-    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Service\Optivem.Framework.Core.Application.Service.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,24 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.0.6</Version>
     <Authors>Optivem</Authors>
-    <Description>Implementation for automated testing using Xunit</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Version>1.0.6</Version>
+    <Description>Implementation for CSV Serialization using CsvHelper</Description>
+    <Copyright>Â© Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Platform DotNetCore Test XUnit Common</PackageTags>
-    <IsPackable>true</IsPackable>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Serialization CSV CsvHelper</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastructure\Common\Serialization.Json.NewtonsoftJson\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

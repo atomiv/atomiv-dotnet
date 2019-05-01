@@ -2,22 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageId>Optivem.Platform.Infrastructure.Common.Parsing.Default</PackageId>
+    <Product>Optivem.Platform.Infrastructure.Common.Parsing.Default</Product>
+    <Company>Optivem</Company>
     <Authors>Optivem</Authors>
-    <Description>Default implementation for Services</Description>
+    <Description>Default implementation of parsing for standard data types</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Core Application Service Services Default CRUD</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Parsing Parser StandardDataTypes</PackageTags>
+    <Version>1.0.6</Version>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.6</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj" />
-    <ProjectReference Include="..\..\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj" />
-    <ProjectReference Include="..\Service\Optivem.Platform.Core.Application.Service.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Parsing\Optivem.Framework.Core.Common.Parsing.csproj" />
   </ItemGroup>
 
 </Project>

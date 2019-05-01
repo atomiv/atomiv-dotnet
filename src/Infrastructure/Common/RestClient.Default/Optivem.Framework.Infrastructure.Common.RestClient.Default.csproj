@@ -5,7 +5,7 @@
     <Version>1.0.6</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for REST Client using default system implementation</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj" />
-    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\RestClient\Optivem.Framework.Core.Common.RestClient.csproj" />
+    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

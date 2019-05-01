@@ -2,23 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Authors>Optivem</Authors>
     <Version>1.0.6</Version>
-    <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for automated testing using Xunit</Description>
+    <Copyright>� Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Test XUnit Common</PackageTags>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Common\Serialization.Json.NewtonsoftJson\Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

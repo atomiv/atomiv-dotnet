@@ -1,24 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <PackageId>Optivem.Platform.Infrastructure.Common.Parsing.Default</PackageId>
-    <Product>Optivem.Platform.Infrastructure.Common.Parsing.Default</Product>
-    <Company>Optivem</Company>
     <Authors>Optivem</Authors>
-    <Description>Default implementation of parsing for standard data types</Description>
+    <Company>Optivem</Company>
+    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Parsing Parser StandardDataTypes</PackageTags>
+    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
     <Version>1.0.6</Version>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Parsing\Optivem.Platform.Core.Common.Parsing.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj" />
   </ItemGroup>
 
 </Project>
