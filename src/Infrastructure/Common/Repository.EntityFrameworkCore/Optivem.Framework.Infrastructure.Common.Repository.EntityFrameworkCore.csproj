@@ -5,7 +5,7 @@
     <Authors>Optivem</Authors>
     <Company>Optivem</Company>
     <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
