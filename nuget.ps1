@@ -41,7 +41,6 @@ $projects = @(
 	# 'src\Core\Common\Logging\Optivem.Framework.Core.Common.Logging.csproj',
     'src\Core\Common\Mapping\Optivem.Framework.Core.Common.Mapping.csproj',
     'src\Core\Common\Parsing\Optivem.Framework.Core.Common.Parsing.csproj',
-    'src\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj',
     'src\Core\Common\RestClient\Optivem.Framework.Core.Common.RestClient.csproj',
     'src\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj',
     'src\Core\Common\WebAutomation\Optivem.Framework.Core.Common.WebAutomation.csproj',
@@ -49,16 +48,14 @@ $projects = @(
 	# ### Core - Domain ###
 
     # 'src\Core\Domain\All\Optivem.Framework.Core.Domain.All.csproj',
-    # 'src\Core\Domain\Entity\Optivem.Framework.Core.Domain.Entity.csproj',
-    # 'src\Core\Domain\Entity.Default\Optivem.Framework.Core.Domain.Entity.Default.csproj',
-    # 'src\Core\Domain\Repository\Optivem.Framework.Core.Domain.Repository.csproj',
-    # 'src\Core\Domain\Service\Optivem.Framework.Core.Domain.Service.csproj',
-    # 'src\Core\Domain\Service.Default\Optivem.Framework.Core.Domain.Service.Default.csproj',
+    'src\Core\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj',
+    'src\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj',
+    # 'src\Core\Domain\Services\Optivem.Framework.Core.Domain.Services.csproj',
 
 	# ### Core - Application ###
 	
-    'src\Core\Application\Service\Optivem.Framework.Core.Application.Service.csproj',
-    'src\Core\Application\Service.Default\Optivem.Framework.Core.Application.Service.Default.csproj',
+    'src\Core\Application\Services\Optivem.Framework.Core.Application.Services.csproj',
+    'src\Core\Application\Services.Default\Optivem.Framework.Core.Application.Services.Default.csproj',
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
 
@@ -72,7 +69,6 @@ $projects = @(
 	# 'src\Infrastructure\Common\Logging.Log4net\Optivem.Framework.Infrastructure.Common.Logging.Log4net.csproj',
     'src\Infrastructure\Common\Mapping.AutoMapper\Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper.csproj',
     'src\Infrastructure\Common\Parsing.Default\Optivem.Framework.Infrastructure.Common.Parsing.Default.csproj',
-    'src\Infrastructure\Common\Repository.EntityFrameworkCore\Optivem.Framework.Infrastructure.Common.Repository.EntityFrameworkCore.csproj',
     'src\Infrastructure\Common\RestClient.Default\Optivem.Framework.Infrastructure.Common.RestClient.Default.csproj',
     'src\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj',
     'src\Infrastructure\Common\Serialization.Default\Optivem.Framework.Infrastructure.Common.Serialization.Default.csproj',
@@ -85,7 +81,7 @@ $projects = @(
 
 	# ### Infrastructure - Domain ###
 	
-    # 'src\Infrastructure\Domain\Repository\Optivem.Framework.Infrastructure.Domain.Repository.csproj',
+    'src\Infrastructure\Domain\Repositories.EntityFrameworkCore\Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore.csproj',
 
 	# ### Infrastructure - Application ###
 

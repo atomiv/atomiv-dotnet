@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
     <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>

@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Framework DotNetCore Core Common REST Client</PackageTags>
-    <Version>1.0.7</Version>
+    <Version>1.0.8</Version>
   </PropertyGroup>
 
 </Project>

@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Description>Interfaces for Domain Entities</Description>
-    <Copyright>Â© Optivem. All rights reserved.</Copyright>
+    <Description>Implementation for Domain Entities</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Framework DotNetCore Core Domain Entity Entities</PackageTags>
+    <Version>1.0.8</Version>
   </PropertyGroup>
 
 </Project>

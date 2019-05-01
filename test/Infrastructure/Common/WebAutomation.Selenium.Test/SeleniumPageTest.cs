@@ -5,6 +5,8 @@ using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
+    // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
+
     /*
     public class SeleniumPageTest : SeleniumFixtureTest
     {
