@@ -1,16 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
     <Company>Optivem</Company>
     <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>� Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem Framework DotNetCore Infrastructure Common Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
