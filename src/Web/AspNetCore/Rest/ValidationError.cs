@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Web.AspNetCore.Rest
+﻿namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public class ValidationError
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Optivem.Platform.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.Test.Pages
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages
 {
     public class ToolsQAAutomationPracticeFormPage
     {

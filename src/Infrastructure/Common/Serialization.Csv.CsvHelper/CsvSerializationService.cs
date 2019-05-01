@@ -1,12 +1,12 @@
 ﻿using CsvHelper;
-using Optivem.Platform.Core.Common.Serialization;
+using Optivem.Framework.Core.Common.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
+namespace Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper
 {
     public class CsvSerializationService : ICsvSerializationService
     {

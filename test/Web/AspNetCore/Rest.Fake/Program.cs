@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 // using Serilog.Extensions.Logging.File;
 using Serilog;
 
-namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
+namespace Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Core.Common.WebAutomation
+﻿namespace Optivem.Framework.Core.Common.WebAutomation
 {
     public interface IElement
     {

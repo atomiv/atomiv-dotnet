@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
+namespace Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper
 {
     // TODO: VC: Interfaces for entity and for response? to ensure people put it in correct sequence...
 

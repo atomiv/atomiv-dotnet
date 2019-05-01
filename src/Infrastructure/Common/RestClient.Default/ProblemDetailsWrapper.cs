@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Platform.Core.Common.RestClient;
+using Optivem.Framework.Core.Common.RestClient;
 using System.Collections.Generic;
 
-namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
+namespace Optivem.Framework.Infrastructure.Common.RestClient.Default
 {
     internal class ProblemDetailsWrapper : IProblemDetails
     {

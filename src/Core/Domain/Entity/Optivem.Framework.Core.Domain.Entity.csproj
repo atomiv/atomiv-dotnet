@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Platform DotNetCore Core Domain Entity Entities</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Core Domain Entity Entities</PackageTags>
   </PropertyGroup>
 
 </Project>

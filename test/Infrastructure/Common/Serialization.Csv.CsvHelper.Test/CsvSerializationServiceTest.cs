@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Xunit;
 using System;
-using Optivem.Platform.Test.Xunit.Common;
+using Optivem.Framework.Test.Xunit.Common;
 
-namespace Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.Test
+namespace Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.Test
 {
     public class CsvSerializationServiceTest
     {

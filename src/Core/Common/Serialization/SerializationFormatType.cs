@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Core.Common.Serialization
+﻿namespace Optivem.Framework.Core.Common.Serialization
 {
     public enum SerializationFormatType
     {

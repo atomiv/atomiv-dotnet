@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Optivem.Platform.Core.Application.Service;
+using Optivem.Framework.Core.Application.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Optivem.Platform.Core.Common.Repository;
+using Optivem.Framework.Core.Common.Repository;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest
+namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public class AspNetCoreCrudController<TUnitOfWork, TService, TRequest, TResponse, TKey> 
         : ControllerBase

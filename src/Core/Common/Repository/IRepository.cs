@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Core.Common.Repository
+namespace Optivem.Framework.Core.Common.Repository
 {
     public interface IRepository<TEntity> where TEntity : class
     {

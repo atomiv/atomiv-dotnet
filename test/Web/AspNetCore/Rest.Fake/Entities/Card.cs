@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Entities
+﻿namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities
 {
     public class Card
     {

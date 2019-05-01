@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Core.Common.Repository
+namespace Optivem.Framework.Core.Common.Repository
 {
     // TODO: VC: Include getting generic repository
 

@@ -34,58 +34,58 @@ $projects = @(
 
 	# ### Core - Common ###
 
-    # 'src\Core\Common\All\Optivem.Platform.Core.Common.All.csproj',	
-    # 'src\Core\Common\Clock\Optivem.Platform.Core.Common.Clock.csproj',
-	# 'src\Core\Common\Email\Optivem.Platform.Core.Common.Email.csproj',
-	# 'src\Core\Common\FileSystem\Optivem.Platform.Core.Common.FileSystem.csproj',
-	# 'src\Core\Common\Logging\Optivem.Platform.Core.Common.Logging.csproj',
-    'src\Core\Common\Mapping\Optivem.Platform.Core.Common.Mapping.csproj',
-    'src\Core\Common\Parsing\Optivem.Platform.Core.Common.Parsing.csproj',
-    'src\Core\Common\Repository\Optivem.Platform.Core.Common.Repository.csproj',
-    'src\Core\Common\RestClient\Optivem.Platform.Core.Common.RestClient.csproj',
-    'src\Core\Common\Serialization\Optivem.Platform.Core.Common.Serialization.csproj',
-    'src\Core\Common\WebAutomation\Optivem.Platform.Core.Common.WebAutomation.csproj',
+    # 'src\Core\Common\All\Optivem.Framework.Core.Common.All.csproj',	
+    # 'src\Core\Common\Clock\Optivem.Framework.Core.Common.Clock.csproj',
+	# 'src\Core\Common\Email\Optivem.Framework.Core.Common.Email.csproj',
+	# 'src\Core\Common\FileSystem\Optivem.Framework.Core.Common.FileSystem.csproj',
+	# 'src\Core\Common\Logging\Optivem.Framework.Core.Common.Logging.csproj',
+    'src\Core\Common\Mapping\Optivem.Framework.Core.Common.Mapping.csproj',
+    'src\Core\Common\Parsing\Optivem.Framework.Core.Common.Parsing.csproj',
+    'src\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj',
+    'src\Core\Common\RestClient\Optivem.Framework.Core.Common.RestClient.csproj',
+    'src\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj',
+    'src\Core\Common\WebAutomation\Optivem.Framework.Core.Common.WebAutomation.csproj',
 
 	# ### Core - Domain ###
 
-    # 'src\Core\Domain\All\Optivem.Platform.Core.Domain.All.csproj',
-    # 'src\Core\Domain\Entity\Optivem.Platform.Core.Domain.Entity.csproj',
-    # 'src\Core\Domain\Entity.Default\Optivem.Platform.Core.Domain.Entity.Default.csproj',
-    # 'src\Core\Domain\Repository\Optivem.Platform.Core.Domain.Repository.csproj',
-    # 'src\Core\Domain\Service\Optivem.Platform.Core.Domain.Service.csproj',
-    # 'src\Core\Domain\Service.Default\Optivem.Platform.Core.Domain.Service.Default.csproj',
+    # 'src\Core\Domain\All\Optivem.Framework.Core.Domain.All.csproj',
+    # 'src\Core\Domain\Entity\Optivem.Framework.Core.Domain.Entity.csproj',
+    # 'src\Core\Domain\Entity.Default\Optivem.Framework.Core.Domain.Entity.Default.csproj',
+    # 'src\Core\Domain\Repository\Optivem.Framework.Core.Domain.Repository.csproj',
+    # 'src\Core\Domain\Service\Optivem.Framework.Core.Domain.Service.csproj',
+    # 'src\Core\Domain\Service.Default\Optivem.Framework.Core.Domain.Service.Default.csproj',
 
 	# ### Core - Application ###
 	
-    'src\Core\Application\Service\Optivem.Platform.Core.Application.Service.csproj',
-    'src\Core\Application\Service.Default\Optivem.Platform.Core.Application.Service.Default.csproj',
+    'src\Core\Application\Service\Optivem.Framework.Core.Application.Service.csproj',
+    'src\Core\Application\Service.Default\Optivem.Framework.Core.Application.Service.Default.csproj',
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
 
 	# ### Infrastructure - Common ###
 	
-    # 'src\Infrastructure\Common\All\Optivem.Platform.Infrastructure.Common.Clock.All.csproj',
-    # 'src\Infrastructure\Common\Clock.Default\Optivem.Platform.Infrastructure.Common.Clock.Default.csproj',
-	# 'src\Infrastructure\Common\Email.Gmail\Optivem.Platform.Infrastructure.Common.Email.Gmail.csproj',
-	# 'src\Infrastructure\Common\Email.MicrosoftExchange\Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange.csproj',
-	# 'src\Infrastructure\Common\FileSystem.Default\Optivem.Platform.Infrastructure.Common.FileSystem.Default.csproj',
-	# 'src\Infrastructure\Common\Logging.Log4net\Optivem.Platform.Infrastructure.Common.Logging.Log4net.csproj',
-    'src\Infrastructure\Common\Mapping.AutoMapper\Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.csproj',
-    'src\Infrastructure\Common\Parsing.Default\Optivem.Platform.Infrastructure.Common.Parsing.Default.csproj',
-    'src\Infrastructure\Common\Repository.EntityFrameworkCore\Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.csproj',
-    'src\Infrastructure\Common\RestClient.Default\Optivem.Platform.Infrastructure.Common.RestClient.Default.csproj',
-    'src\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj',
-    'src\Infrastructure\Common\Serialization.Default\Optivem.Platform.Infrastructure.Common.Serialization.Default.csproj',
-    # 'src\Infrastructure\Common\Serialization.Dsv\Optivem.Platform.Infrastructure.Common.Serialization.Dsv.csproj',
-    # 'src\Infrastructure\Common\Serialization.Excel\Optivem.Platform.Infrastructure.Common.Serialization.Excel.csproj',
-    # 'src\Infrastructure\Common\Serialization.FixedWidth\Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth.csproj',
-    'src\Infrastructure\Common\Serialization.Json.NewtonsoftJson\Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj',
-    # 'src\Infrastructure\Common\Serialization.Xml\Optivem.Platform.Infrastructure.Common.Serialization.Xml.csproj',
-    'src\Infrastructure\Common\WebAutomation.Selenium\Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.csproj',
+    # 'src\Infrastructure\Common\All\Optivem.Framework.Infrastructure.Common.Clock.All.csproj',
+    # 'src\Infrastructure\Common\Clock.Default\Optivem.Framework.Infrastructure.Common.Clock.Default.csproj',
+	# 'src\Infrastructure\Common\Email.Gmail\Optivem.Framework.Infrastructure.Common.Email.Gmail.csproj',
+	# 'src\Infrastructure\Common\Email.MicrosoftExchange\Optivem.Framework.Infrastructure.Common.Email.MicrosoftExchange.csproj',
+	# 'src\Infrastructure\Common\FileSystem.Default\Optivem.Framework.Infrastructure.Common.FileSystem.Default.csproj',
+	# 'src\Infrastructure\Common\Logging.Log4net\Optivem.Framework.Infrastructure.Common.Logging.Log4net.csproj',
+    'src\Infrastructure\Common\Mapping.AutoMapper\Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper.csproj',
+    'src\Infrastructure\Common\Parsing.Default\Optivem.Framework.Infrastructure.Common.Parsing.Default.csproj',
+    'src\Infrastructure\Common\Repository.EntityFrameworkCore\Optivem.Framework.Infrastructure.Common.Repository.EntityFrameworkCore.csproj',
+    'src\Infrastructure\Common\RestClient.Default\Optivem.Framework.Infrastructure.Common.RestClient.Default.csproj',
+    'src\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj',
+    'src\Infrastructure\Common\Serialization.Default\Optivem.Framework.Infrastructure.Common.Serialization.Default.csproj',
+    # 'src\Infrastructure\Common\Serialization.Dsv\Optivem.Framework.Infrastructure.Common.Serialization.Dsv.csproj',
+    # 'src\Infrastructure\Common\Serialization.Excel\Optivem.Framework.Infrastructure.Common.Serialization.Excel.csproj',
+    # 'src\Infrastructure\Common\Serialization.FixedWidth\Optivem.Framework.Infrastructure.Common.Serialization.FixedWidth.csproj',
+    'src\Infrastructure\Common\Serialization.Json.NewtonsoftJson\Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj',
+    # 'src\Infrastructure\Common\Serialization.Xml\Optivem.Framework.Infrastructure.Common.Serialization.Xml.csproj',
+    'src\Infrastructure\Common\WebAutomation.Selenium\Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.csproj',
 
 	# ### Infrastructure - Domain ###
 	
-    # 'src\Infrastructure\Domain\Repository\Optivem.Platform.Infrastructure.Domain.Repository.csproj',
+    # 'src\Infrastructure\Domain\Repository\Optivem.Framework.Infrastructure.Domain.Repository.csproj',
 
 	# ### Infrastructure - Application ###
 
@@ -95,18 +95,18 @@ $projects = @(
 
 	# ### Web - AspNetCore ###
 	
-    # 'src\Web\AspNetCore\Common\Optivem.Platform.Web.AspNetCore.Common.csproj',
-    # 'src\Web\AspNetCore\Mvc\Optivem.Platform.Web.AspNetCore.Mvc.csproj',
-    'src\Web\AspNetCore\Rest\Optivem.Platform.Web.AspNetCore.Rest.csproj',
-    # 'src\Web\AspNetCore\Soap\Optivem.Platform.Web.AspNetCore.Soap.csproj',
+    # 'src\Web\AspNetCore\Common\Optivem.Framework.Web.AspNetCore.Common.csproj',
+    # 'src\Web\AspNetCore\Mvc\Optivem.Framework.Web.AspNetCore.Mvc.csproj',
+    'src\Web\AspNetCore\Rest\Optivem.Framework.Web.AspNetCore.Rest.csproj',
+    # 'src\Web\AspNetCore\Soap\Optivem.Framework.Web.AspNetCore.Soap.csproj',
 	
 	# ### ============================== TEST ============================== ###
 	
 	# ### Test - Xunit ###
 	
-    'src\Test\Xunit\Common\Optivem.Platform.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
-    'src\Test\Xunit\Web.AspNetCore\Optivem.Platform.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
-    # 'src\Test\Xunit\Web.Selenium\Optivem.Platform.Test.Xunit.Web.Selenium.csproj',
+    'src\Test\Xunit\Common\Optivem.Framework.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
+    'src\Test\Xunit\Web.AspNetCore\Optivem.Framework.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
+    # 'src\Test\Xunit\Web.Selenium\Optivem.Framework.Test.Xunit.Web.Selenium.csproj',
 )
 
 # TODO: VC: Update all project files to the new version
@@ -128,7 +128,7 @@ Foreach($project in  $projects)
 	
 	$projectDir = (Get-Item $projectPath).Directory
 	
-	# D:\Github\optivem\pdn\src\Core\Common\Optivem.Platform.Core.Common.Mapping\bin\Release\Optivem.Platform.Core.Common.Mapping.1.0.3.nupkg
+	# D:\Github\optivem\pdn\src\Core\Common\Optivem.Framework.Core.Common.Mapping\bin\Release\Optivem.Framework.Core.Common.Mapping.1.0.3.nupkg
 	
 	$nugetPath = Join-Path -Path $projectDir -ChildPath "bin\Release\$projectName.$version.nupkg"
 

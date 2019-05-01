@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Core.Common.Parsing
+﻿namespace Optivem.Framework.Core.Common.Parsing
 {
     public interface IParsingService
     {

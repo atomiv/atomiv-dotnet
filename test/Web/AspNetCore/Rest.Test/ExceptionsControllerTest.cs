@@ -1,9 +1,9 @@
-﻿using Optivem.Platform.Core.Common.RestClient;
+﻿using Optivem.Framework.Core.Common.RestClient;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Test
+namespace Optivem.Framework.Web.AspNetCore.Rest.Test
 {
     public class ExceptionsControllerTest : RestTestServerFixtureTest
     {

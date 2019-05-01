@@ -2,11 +2,11 @@
 using Microsoft.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Optivem.Platform.Core.Common.Serialization;
+using Optivem.Framework.Core.Common.Serialization;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest
+namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public class CsvOutputFormatter : TextOutputFormatter
     {

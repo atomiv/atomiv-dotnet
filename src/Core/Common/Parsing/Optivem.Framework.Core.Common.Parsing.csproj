@@ -6,13 +6,13 @@
     <Company>Optivem</Company>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <Authors>Optivem</Authors>
-    <PackageTags>Optivem Platform DotNetCore Core Common Parsing Parser</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Core Common Parsing Parser</PackageTags>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <Version>1.0.6</Version>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageId>Optivem.Platform.Core.Common.Parsing</PackageId>
-    <Product>Optivem.Platform.Core.Common.Parsing</Product>
+    <PackageId>Optivem.Framework.Core.Common.Parsing</PackageId>
+    <Product>Optivem.Framework.Core.Common.Parsing</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>

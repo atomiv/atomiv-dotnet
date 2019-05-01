@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Platform.Test.Xunit.Web.AspNetCore
+namespace Optivem.Framework.Test.Xunit.Web.AspNetCore
 {
     public class TestServerFixtureTest<TTestServerFixture> : IClassFixture<TTestServerFixture>
         where TTestServerFixture : TestServerFixture

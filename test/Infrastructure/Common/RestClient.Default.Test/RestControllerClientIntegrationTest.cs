@@ -1,9 +1,9 @@
-using Optivem.Platform.Test.Xunit.Common;
+using Optivem.Framework.Test.Xunit.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Platform.Infrastructure.Common.RestClient.Default.Test
+namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 {
     public class RestControllerClientIntegrationTest : JsonPlaceholderClientFixtureTest
     {

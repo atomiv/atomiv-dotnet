@@ -1,16 +1,16 @@
-## Optivem Platform
+## Optivem Framework
 
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/platform-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/platform-dotnetcore)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-Welcome to the Optivem Platform! The Optivem Platform was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Optivem Platform in your .NET Core 2.2 software projects. 
+Welcome to the Optivem Framework! The Optivem Framework was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Optivem Framework in your .NET Core 2.2 software projects. 
 
 ## Table of Contents
 
 [Introduction](#introduction):
 * [A story from the trenches](#story)
-* [What is the Optivem Platform?](#what)
-* [Why should I use the Optivem Platform?](#why)
+* [What is the Optivem Framework?](#what)
+* [Why should I use the Optivem Framework?](#why)
 
 
 [Getting Started](#getting-started):
@@ -41,22 +41,22 @@ Then a bug was found affecting base parsing functionality, and so then in all th
 
 Now we see that, as the number of project grows and as the codebase grows, that the copy-paste solution is not really maintainable. Reasons are because when creating new projects, develoeprs have to search for older projects to copy the code from, and when bugs are found, it needs to be solved multiple times. This increases overall development cost, introduces risk and decreases quality. So with this in mind, it introduces the need for shared code, to ensure that common components are re-usable. However, at another level, we want not only to re-use components but also to re-use architecture. This means, setting up a standardized project architecture which relies on these standardized re-usable components.
 
-Customer projects always higher priority, then Joe came across the Optivem Platform.
+Customer projects always higher priority, then Joe came across the Optivem Framework.
 
 <a name="what" />
-### What is the Optivem Platform?
+### What is the Optivem Framework?
 
 
 
 <a name="why" />
-### Why should I use the Optivem Platform?
+### Why should I use the Optivem Framework?
 
 As teams and projects grow over time, a common situation that occurs is that code has to be copy pasted between projects. Examples include:
 * When creating a new project, frequently the structure is based on the structure of previous projects, e.g. for every new project, developers need to setup Repository, Service, Web projects.
 * There are some common utilities that may be needed between projects, e.g. utility methods for working with text, working with files, working with dates, etc.
 * Other common elements, such as base repository classes, logging, validation may also be copied because it's needed across many projects
 
-Welcome to the Optivem Platform for .NET Core 2.2, which is designed to solve the problems above:
+Welcome to the Optivem Framework for .NET Core 2.2, which is designed to solve the problems above:
 1. At the lower level, it provides re-usable components
 2. At the higher level, it provides guidelines for project architecture
 3. Enables you to focus on your projects and products, deliver features faster to customers with high quality
@@ -85,13 +85,13 @@ Welcome to the Optivem Platform for .NET Core 2.2, which is designed to solve th
 <a name="architecture" />
 ### Architecture
 
-The Optivem Platform is founded upon Clean Architecture principles and supports:
+The Optivem Framework is founded upon Clean Architecture principles and supports:
 * Modularity & re-usability
 * Extensibility & flexibility
 * Maintainability & testibility
 * Scalability and portability
 
-The Optivem Platform consists of the following:
+The Optivem Framework consists of the following:
 * Core (contains the Application Layer and the Domain Layer implementations)
 * Infrastructure (contains implementation of infrastructure to support the Core)
 * Web (contains the web presentation layer)
@@ -108,80 +108,80 @@ NuGet packages are split by the architectural layer:
 
 Common:
 
-* Optivem.Platform.Core.Common.All
-* Optivem.Platform.Core.Common.Clock
-* Optivem.Platform.Core.Common.Email
-* Optivem.Platform.Core.Common.FileSystem
-* Optivem.Platform.Core.Common.Logging
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Mapping.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Mapping) Optivem.Platform.Core.Common.Mapping
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Parsing.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Parsing) Optivem.Platform.Core.Common.Parsing
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Repository.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Repository) Optivem.Platform.Core.Common.Repository
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.RestClient.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.RestClient) Optivem.Platform.Core.Common.RestClient
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.Serialization.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.Serialization) Optivem.Platform.Core.Common.Serialization
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Common.WebAutomation.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Common.WebAutomation) Optivem.Platform.Core.Common.WebAutomation
+* Optivem.Framework.Core.Common.All
+* Optivem.Framework.Core.Common.Clock
+* Optivem.Framework.Core.Common.Email
+* Optivem.Framework.Core.Common.FileSystem
+* Optivem.Framework.Core.Common.Logging
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Mapping.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Mapping) Optivem.Framework.Core.Common.Mapping
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Parsing.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Parsing) Optivem.Framework.Core.Common.Parsing
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Repository.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Repository) Optivem.Framework.Core.Common.Repository
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.RestClient.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.RestClient) Optivem.Framework.Core.Common.RestClient
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Serialization.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Serialization) Optivem.Framework.Core.Common.Serialization
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.WebAutomation.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.WebAutomation) Optivem.Framework.Core.Common.WebAutomation
 
 Domain:
 
-* Optivem.Platform.Core.Domain.All
-* Optivem.Platform.Core.Domain.Entity
-* Optivem.Platform.Core.Domain.Entity.Default
-* Optivem.Platform.Core.Domain.Repository
-* Optivem.Platform.Core.Domain.Service
-* Optivem.Platform.Core.Domain.Service.Default
+* Optivem.Framework.Core.Domain.All
+* Optivem.Framework.Core.Domain.Entity
+* Optivem.Framework.Core.Domain.Entity.Default
+* Optivem.Framework.Core.Domain.Repository
+* Optivem.Framework.Core.Domain.Service
+* Optivem.Framework.Core.Domain.Service.Default
 
 Application:
 
-* Optivem.Platform.Core.Application.All
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service) Optivem.Platform.Core.Application.Service
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Core.Application.Service.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Core.Application.Service.Default) Optivem.Platform.Core.Application.Service.Default
+* Optivem.Framework.Core.Application.All
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Application.Service.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Application.Service) Optivem.Framework.Core.Application.Service
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Application.Service.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Application.Service.Default) Optivem.Framework.Core.Application.Service.Default
 
 <a name="infrastructure-packages" />
 ### Infrastructure Packages
 
-Optivem.Platform.Infrastructure.Common:
+Optivem.Framework.Infrastructure.Common:
 
-* Optivem.Platform.Infrastructure.Common.All
-* Optivem.Platform.Infrastructure.Common.Clock.Default
-* Optivem.Platform.Infrastructure.Common.Email.Gmail
-* Optivem.Platform.Infrastructure.Common.Email.MicrosoftExchange
-* Optivem.Platform.Infrastructure.Common.FileSystem.Default
-* Optivem.Platform.Infrastructure.Common.Logging.Log4net
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper) Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Parsing.Default) Optivem.Platform.Infrastructure.Common.Parsing.Default
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore) Optivem.Platform.Infrastructure.Common.Repository.EntityFrameworkCore
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.RestClient.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.RestClient.Default) Optivem.Platform.Infrastructure.Common.RestClient.Default
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper) Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Default.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Default) Optivem.Platform.Infrastructure.Common.Serialization.Default
-* Optivem.Platform.Infrastructure.Common.Serialization.Dsv
-* Optivem.Platform.Infrastructure.Common.Serialization.Excel
-* Optivem.Platform.Infrastructure.Common.Serialization.FixedWidth
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson) Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson
-* Optivem.Platform.Infrastructure.Common.Serialization.Xml
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium) Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
+* Optivem.Framework.Infrastructure.Common.All
+* Optivem.Framework.Infrastructure.Common.Clock.Default
+* Optivem.Framework.Infrastructure.Common.Email.Gmail
+* Optivem.Framework.Infrastructure.Common.Email.MicrosoftExchange
+* Optivem.Framework.Infrastructure.Common.FileSystem.Default
+* Optivem.Framework.Infrastructure.Common.Logging.Log4net
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper) Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Parsing.Default) Optivem.Framework.Infrastructure.Common.Parsing.Default
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Repository.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Repository.EntityFrameworkCore) Optivem.Framework.Infrastructure.Common.Repository.EntityFrameworkCore
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.RestClient.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.RestClient.Default) Optivem.Framework.Infrastructure.Common.RestClient.Default
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper) Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Serialization.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Serialization.Default) Optivem.Framework.Infrastructure.Common.Serialization.Default
+* Optivem.Framework.Infrastructure.Common.Serialization.Dsv
+* Optivem.Framework.Infrastructure.Common.Serialization.Excel
+* Optivem.Framework.Infrastructure.Common.Serialization.FixedWidth
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson) Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson
+* Optivem.Framework.Infrastructure.Common.Serialization.Xml
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium) Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
 
 
 <!-- TODO: VC: TEMP -->
-<!-- * [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Infrastructure.Common.XYZ.svg)](https://www.nuget.org/packages/Optivem.Platform.Infrastructure.Common.XYZ) Optivem.Platform.Infrastructure.Common.XYZ -->
+<!-- * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.XYZ.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.XYZ) Optivem.Framework.Infrastructure.Common.XYZ -->
 
 
-Optivem.Platform.Infrastructure.Domain:
-* Optivem.Platform.Infrastructure.Domain.Repository.EntityFrameworkCore
+Optivem.Framework.Infrastructure.Domain:
+* Optivem.Framework.Infrastructure.Domain.Repository.EntityFrameworkCore
 
 <a name="web-packages" />
 ### Web Packages
 
-Optivem.Platform.Web.AspNetCore:
-* Optivem.Platform.Web.AspNetCore.Common
-* Optivem.Platform.Web.AspNetCore.Mvc
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Web.AspNetCore.Rest.svg)](https://www.nuget.org/packages/Optivem.Platform.Web.AspNetCore.Rest) Optivem.Platform.Web.AspNetCore.Rest
-* Optivem.Platform.Web.AspNetCore.Soap
+Optivem.Framework.Web.AspNetCore:
+* Optivem.Framework.Web.AspNetCore.Common
+* Optivem.Framework.Web.AspNetCore.Mvc
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Web.AspNetCore.Rest.svg)](https://www.nuget.org/packages/Optivem.Framework.Web.AspNetCore.Rest) Optivem.Framework.Web.AspNetCore.Rest
+* Optivem.Framework.Web.AspNetCore.Soap
 
 <a name="test-packages" />
 ### Test Packages
 
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Common.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Common) Optivem.Platform.Test.Xunit.Common
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Platform.Test.Xunit.Web.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Platform.Test.Xunit.Web.AspNetCore) Optivem.Platform.Test.Xunit.Web.AspNetCore
-* Optivem.Platform.Test.Xunit.Web.Selenium
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Test.Xunit.Common.svg)](https://www.nuget.org/packages/Optivem.Framework.Test.Xunit.Common) Optivem.Framework.Test.Xunit.Common
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Test.Xunit.Web.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Framework.Test.Xunit.Web.AspNetCore) Optivem.Framework.Test.Xunit.Web.AspNetCore
+* Optivem.Framework.Test.Xunit.Web.Selenium
 
 
 

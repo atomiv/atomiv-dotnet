@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Platform.Core.Common.RestClient;
-using Optivem.Platform.Core.Common.Serialization;
+using Optivem.Framework.Core.Common.RestClient;
+using Optivem.Framework.Core.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Platform.Infrastructure.Common.RestClient.Default
+namespace Optivem.Framework.Infrastructure.Common.RestClient.Default
 {
     // TODO: VC: This is for json, consider other types, e.g. content xml, csv, etc
 

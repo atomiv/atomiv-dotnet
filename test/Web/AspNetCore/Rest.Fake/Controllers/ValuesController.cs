@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Controllers
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
 {
     [Route("api/values")]
     [ApiController]

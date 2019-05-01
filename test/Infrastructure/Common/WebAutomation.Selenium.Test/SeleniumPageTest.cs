@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
+using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
 using System.Linq;
 using Xunit;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.Test
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     public class SeleniumPageTest : SeleniumFixtureTest
     {

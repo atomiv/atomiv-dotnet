@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using Optivem.Platform.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 using System;
 using System.IO;
 using System.Reflection;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.Test
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     public class SeleniumDriverFixture : IDisposable
     {

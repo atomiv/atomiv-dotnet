@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports
+﻿namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports
 {
     public class CustomerExportGetCollectionResponse
     {

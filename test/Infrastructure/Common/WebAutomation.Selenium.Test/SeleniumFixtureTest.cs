@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium.Test
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     public class SeleniumFixtureTest : IClassFixture<SeleniumDriverFixture>
     {

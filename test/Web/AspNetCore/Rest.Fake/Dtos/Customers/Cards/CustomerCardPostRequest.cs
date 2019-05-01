@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos
 {
     public class CustomerCardPostRequest
     {

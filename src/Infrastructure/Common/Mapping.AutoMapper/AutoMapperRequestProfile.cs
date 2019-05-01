@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper
+namespace Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper
 {
     public abstract class AutoMapperRequestProfile<TRequest, TEntity> : Profile
     {

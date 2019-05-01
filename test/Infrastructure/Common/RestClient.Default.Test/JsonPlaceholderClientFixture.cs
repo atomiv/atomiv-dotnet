@@ -1,9 +1,9 @@
-﻿using Optivem.Platform.Core.Common.Serialization;
-using Optivem.Platform.Infrastructure.Common.Serialization.Default;
+﻿using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Infrastructure.Common.Serialization.Default;
 using System;
 using System.Net.Http;
 
-namespace Optivem.Platform.Infrastructure.Common.RestClient.Default.Test
+namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 {
     public class JsonPlaceholderClientFixture
     {

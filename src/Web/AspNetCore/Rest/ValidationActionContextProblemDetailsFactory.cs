@@ -4,7 +4,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest
+namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public class ValidationActionContextProblemDetailsFactory : IActionContextProblemDetailsFactory<ValidationProblemDetails>
     {

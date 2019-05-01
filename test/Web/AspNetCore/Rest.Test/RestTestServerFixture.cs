@@ -1,15 +1,15 @@
 ﻿using System.Net.Http;
 using Microsoft.AspNetCore.Hosting;
-using Optivem.Platform.Core.Common.RestClient;
-using Optivem.Platform.Core.Common.Serialization;
-using Optivem.Platform.Infrastructure.Common.RestClient.Default;
-using Optivem.Platform.Infrastructure.Common.Serialization.Default;
-using Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake;
-using Optivem.Platform.Test.Xunit.Web.AspNetCore;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Models;
+using Optivem.Framework.Core.Common.RestClient;
+using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Infrastructure.Common.RestClient.Default;
+using Optivem.Framework.Infrastructure.Common.Serialization.Default;
+using Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake;
+using Optivem.Framework.Test.Xunit.Web.AspNetCore;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Test
+namespace Optivem.Framework.Web.AspNetCore.Rest.Test
 {
     // TODO: VC: Consider moving into Fixtures folder
 

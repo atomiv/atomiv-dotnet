@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Optivem.Platform.Infrastructure.Common.Parsing.Default
+namespace Optivem.Framework.Infrastructure.Common.Parsing.Default
 {
     public class DateTimeParser : BaseParser<DateTime?>
     {

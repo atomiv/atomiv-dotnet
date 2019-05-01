@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Optivem.Platform.Core.Common.Mapping;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Entities;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Models;
+using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Controllers
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
 {
     [Route("api/customers")]
     [ApiController]

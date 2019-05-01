@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest
+namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public interface IActionContextProblemDetailsFactory<TProblemDetails> where TProblemDetails : ProblemDetails
     {

@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Platform.Infrastructure.Common.RestClient.Default.Test
+namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 {
     public class JsonPlaceholderClientFixtureTest : IClassFixture<JsonPlaceholderClientFixture>
     {

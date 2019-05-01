@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Platform.Infrastructure.Common.Parsing.Default
+namespace Optivem.Framework.Infrastructure.Common.Parsing.Default
 {
     // TODO: VC: Non-generic EnumParser, i.e. parsing any enum, like a service, i.e. parser.Parse<SomeEnum>
 

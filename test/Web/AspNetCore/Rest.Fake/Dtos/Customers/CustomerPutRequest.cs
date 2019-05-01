@@ -1,4 +1,4 @@
-﻿namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Models
+﻿namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Models
 {
     public class CustomerPutRequest
     {

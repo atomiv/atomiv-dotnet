@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Platform.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
 {
     public class SeleniumComboBox<T> : BaseSeleniumElement, IComboBox<T>
     {

@@ -8,7 +8,7 @@
     <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Mapping Mapper AutoMapper</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Mapping Mapper AutoMapper</PackageTags>
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <Version>1.0.6</Version>

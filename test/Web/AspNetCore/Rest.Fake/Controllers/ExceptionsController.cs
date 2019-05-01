@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Controllers
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
 {
     [Route("api/exceptions")]
     public class ExceptionsController

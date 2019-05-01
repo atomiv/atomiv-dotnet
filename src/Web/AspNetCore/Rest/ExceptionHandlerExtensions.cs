@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Optivem.Platform.Core.Common.Serialization;
+using Optivem.Framework.Core.Common.Serialization;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest
+namespace Optivem.Framework.Web.AspNetCore.Rest
 {
     public static class ExceptionHandlerExtensions
     {

@@ -5,17 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Platform.Core.Common.Mapping;
-using Optivem.Platform.Core.Common.Serialization;
-using Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper;
-using Optivem.Platform.Infrastructure.Common.Serialization.Csv.CsvHelper;
-using Optivem.Platform.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Profiles.Customers;
-using Optivem.Platform.Web.AspNetCore.Rest;
+using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper;
+using Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper;
+using Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers;
+using Optivem.Framework.Web.AspNetCore.Rest;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
-namespace Optivem.Platform.Test.Wed.AspNetCore.Rest.Fake
+namespace Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake
 {
     public class Startup
     {

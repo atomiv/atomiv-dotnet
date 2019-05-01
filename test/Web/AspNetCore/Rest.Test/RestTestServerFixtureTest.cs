@@ -1,6 +1,6 @@
-﻿using Optivem.Platform.Test.Xunit.Web.AspNetCore;
+﻿using Optivem.Framework.Test.Xunit.Web.AspNetCore;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Test
+namespace Optivem.Framework.Web.AspNetCore.Rest.Test
 {
     // TODO: VC: This could be deleted and tests to directly inherit from TestServerFixtureTest
 

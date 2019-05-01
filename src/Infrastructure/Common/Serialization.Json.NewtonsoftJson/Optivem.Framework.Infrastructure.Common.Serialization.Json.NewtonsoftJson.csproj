@@ -10,7 +10,7 @@
     <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Platform DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

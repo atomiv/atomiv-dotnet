@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Platform.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 
-namespace Optivem.Platform.Infrastructure.Common.WebAutomation.Selenium
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
 {
     public class SeleniumRadio : BaseSeleniumElement, IRadio
     {

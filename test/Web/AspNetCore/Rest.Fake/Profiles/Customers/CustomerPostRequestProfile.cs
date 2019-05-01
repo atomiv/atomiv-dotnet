@@ -1,8 +1,8 @@
-﻿using Optivem.Platform.Infrastructure.Common.Mapping.AutoMapper;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Entities;
-using Optivem.Platform.Web.AspNetCore.Rest.Fake.Models;
+﻿using Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
+using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Profiles.Customers
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers
 {
     public class CustomerPostRequestProfile : AutoMapperRequestProfile<CustomerPostRequest, Customer>
     {

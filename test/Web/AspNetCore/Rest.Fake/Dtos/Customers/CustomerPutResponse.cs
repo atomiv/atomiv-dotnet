@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Platform.Web.AspNetCore.Rest.Fake.Dtos.Customers
+namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers
 {
     public class CustomerPutResponse
     {
