@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+ï»¿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Service\Optivem.Framework.Core.Application.Service.csproj" />
-    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Services\Optivem.Framework.Core.Application.Services.csproj" />
     <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

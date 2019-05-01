@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Application.Service;
+using Optivem.Framework.Core.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Optivem.Framework.Core.Common.Repository;
+using Optivem.Framework.Core.Domain.Repositories;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {

@@ -1,26 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <Authors>Optivem</Authors>
-    <Company>Optivem</Company>
-    <Description>Implementation for Generic Repository and Unit of Work using Entity Framework Core</Description>
+    <Description>Default implementation for Services</Description>
     <Copyright>� Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Repository UnitOfWork UOW Transactions EntityFrameworkCore</PackageTags>
-    <Version>1.0.7</Version>
+    <PackageTags>Optivem Framework DotNetCore Core Application Service Services Default CRUD</PackageTags>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Common\Repository\Optivem.Framework.Core.Common.Repository.csproj" />
+    <ProjectReference Include="..\..\Common\Mapping\Optivem.Framework.Core.Common.Mapping.csproj" />
+    <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Services.csproj" />
   </ItemGroup>
 
 </Project>
