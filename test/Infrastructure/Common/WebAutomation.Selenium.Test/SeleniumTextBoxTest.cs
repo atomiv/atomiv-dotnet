@@ -10,7 +10,7 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
         {
         }
 
-        [Fact]
+        [Fact(Skip = "Pending resolution of https://github.com/appveyor/ci/issues/2928")]
         public void TestSetGetText()
         {
             var driver = SeleniumFixture.Driver;
