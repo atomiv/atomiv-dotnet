@@ -6,9 +6,9 @@
     <Authors>Optivem</Authors>
     <Description>Implementation for automated testing using Xunit</Description>
     <Copyright>� Optivem. All rights reserved.</Copyright>
-    <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Framework DotNetCore Test XUnit Common</PackageTags>
     <IsPackable>true</IsPackable>

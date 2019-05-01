@@ -1,6 +1,6 @@
 Set-ExecutionPolicy RemoteSigned
 
-File D:\GitHub\optivem\platform-dotnetcore\nuget.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at 
+File D:\GitHub\optivem\framework-dotnetcore\nuget.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at 
 https:/go.microsoft.com/fwlink/?LinkID=135170.
     + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException
     + FullyQualifiedErrorId : UnauthorizedAccess

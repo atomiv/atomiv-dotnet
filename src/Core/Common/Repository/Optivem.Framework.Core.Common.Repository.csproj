@@ -6,13 +6,13 @@
     <Company>Optivem</Company>
     <Description>Interfaces for generic repository and generic unit of work patterns</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/platform-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/platform-dotnetcore</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/platform-dotnetcore</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem Framework DotNetCore Core Common Repository UnitOfWork UOW Transactions</PackageTags>
     <Version>1.0.6</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageIconUrl>https://github.com/optivem/platform-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
