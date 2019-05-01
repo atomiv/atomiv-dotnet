@@ -4,6 +4,9 @@ using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
+    // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
+
+    /*
     public class SeleniumTextBoxTest : SeleniumFixtureTest
     {
         public SeleniumTextBoxTest(SeleniumDriverFixture seleniumFixture) : base(seleniumFixture)
@@ -29,4 +32,6 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
     }
 
     // TODO: VC: Create base classes for testing, so that interfaces are tested and this means same test could be for Selenium or other implementations
+
+    */
 }
