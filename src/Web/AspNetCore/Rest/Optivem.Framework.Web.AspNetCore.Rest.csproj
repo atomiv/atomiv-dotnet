@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -13,11 +13,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Services\Optivem.Framework.Core.Application.Services.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\UseCases\Optivem.Framework.Core.Application.UseCases.csproj" />
     <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -15,9 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\Mapping\Optivem.Framework.Core.Common.Mapping.csproj" />
     <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
     <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Services.csproj" />
+    <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.UseCases.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,8 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using AutoMapper;
+using MediatR;
+using Optivem.Framework.Core.Application.UseCases;
+using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -6,64 +10,56 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services.Default
 {
-    public class CrudService<TMappingService, TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey> : ICrudService<TRequest, TResponse, TKey>
-        where TMappingService : IMappingService
-        where TUnitOfWork : IUnitOfWork
-        where TRepository : IRepository<TEntity, TKey>
-        where TEntity : class
+    public class CrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TEntity, TKey> 
+        : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TKey>
+        where TFindAllRequest : IRequest<IEnumerable<TFindAllResponse>>, new()
+        where TFindRequest : IIdentifiableRequest<TFindResponse, TKey>, new()
+        where TCreateRequest : IRequest<TCreateResponse>
+        where TUpdateRequest : IIdentifiableRequest<bool, TKey>, new()
+        where TDeleteRequest : IIdentifiableRequest<bool, TKey>, new()
+        where TEntity : class, IEntity<TKey>
     {
-        protected readonly TMappingService mappingService;
-        protected readonly TUnitOfWork unitOfWork;
-        protected readonly TRepository repository;
-
-        public CrudService(TMappingService mappingService, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+        public CrudService(IMediator mediator)
         {
-            this.mappingService = mappingService;
-            this.unitOfWork = unitOfWork;
-            this.repository = repositoryRetriever(unitOfWork);
+            Mediator = mediator;
         }
 
-        public virtual TResponse Add(TRequest request)
+        protected IMediator Mediator { get; private set; }
+
+        public Task<IEnumerable<TFindAllResponse>> FindAllAsync()
         {
-            var entity = mappingService.Map<TRequest, TEntity>(request);
-            repository.Add(entity);
-            unitOfWork.SaveChanges();
-            var response = mappingService.Map<TEntity, TResponse>(entity);
-            return response;
+            var request = new TFindAllRequest();
+            return Mediator.Send(request);
         }
 
-        public virtual void Delete(TKey id)
+        public Task<TFindResponse> FindAsync(TKey id)
         {
-            var entity = repository.GetSingleOrDefault(id);
-
-            if (entity != null)
+            var request = new TFindRequest()
             {
-                repository.Delete(entity);
-            }
+                Id = id,
+            };
+
+            return Mediator.Send(request);
         }
 
-        public virtual bool Exists(TKey id)
+        public Task<TCreateResponse> CreateAsync(TCreateRequest request)
         {
-            return repository.GetExists(id);
+            return Mediator.Send(request);
         }
 
-        public virtual async Task<IEnumerable<TResponse>> GetAsync()
+        public Task<bool> UpdateAsync(TUpdateRequest request)
         {
-            var entities = await repository.GetAsync();
-            return mappingService.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
+            return Mediator.Send(request);
         }
 
-        public virtual async Task<TResponse> GetAsync(TKey id)
+        public Task<bool> DeleteAsync(TKey id)
         {
-            var entity = await repository.GetSingleOrDefaultAsync(id);
-            return mappingService.Map<TEntity, TResponse>(entity);
-        }
+            var request = new TDeleteRequest
+            {
+                Id = id,
+            };
 
-        public virtual void Update(TRequest request)
-        {
-            var entity = mappingService.Map<TRequest, TEntity>(request);
-            repository.Update(entity);
+            return Mediator.Send(request);
         }
-
     }
 }

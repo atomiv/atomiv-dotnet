@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -153,17 +154,29 @@ namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCo
 
         public void Update(TEntity entity)
         {
-            set.Update(entity);
+            ExecuteUpdate(() => set.Update(entity));
         }
 
         public void UpdateRange(IEnumerable<TEntity> entities)
         {
-            set.UpdateRange(entities);
+            ExecuteUpdate(() => set.UpdateRange(entities));
         }
 
         public void UpdateRange(params TEntity[] entities)
         {
-            set.UpdateRange(entities);
+            ExecuteUpdate(() => set.UpdateRange(entities));
+        }
+
+        private void ExecuteUpdate(Action action)
+        {
+            try
+            {
+                action();
+            }
+            catch(DbUpdateConcurrencyException ex)
+            {
+                throw new ConcurrentUpdateException(ex.Message, ex);
+            }
         }
 
         #endregion
@@ -292,7 +305,7 @@ namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCo
 
     public class EntityFrameworkRepository<TContext, TEntity, TKey> : EntityFrameworkRepository<TContext, TEntity>, IRepository<TEntity, TKey>
         where TContext : DbContext
-        where TEntity : class
+        where TEntity : class, IEntity<TKey>
     {
         public EntityFrameworkRepository(TContext context) 
             : base(context)

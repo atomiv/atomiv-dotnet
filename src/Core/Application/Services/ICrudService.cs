@@ -3,18 +3,16 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services
 {
-    public interface ICrudService<TRequest, TResponse, TKey> : IService
+    public interface ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TKey> : IService
     {
-        Task<IEnumerable<TResponse>> GetAsync();
+        Task<IEnumerable<TFindAllResponse>> FindAllAsync();
 
-        Task<TResponse> GetAsync(TKey id);
+        Task<TFindResponse> FindAsync(TKey id);
 
-        TResponse Add(TRequest request);
+        Task<TCreateResponse> CreateAsync(TCreateRequest request);
 
-        void Update(TRequest request);
+        Task<bool> UpdateAsync(TUpdateRequest request);
 
-        void Delete(TKey id);
-
-        bool Exists(TKey id);
+        Task<bool> DeleteAsync(TKey id);
     }
 }

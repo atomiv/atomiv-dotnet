@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Optivem.Framework.Core.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -83,8 +84,8 @@ namespace Optivem.Framework.Core.Domain.Repositories
         #endregion
     }
     
-    public interface IRepository<TEntity, TKey> : IRepository<TEntity>
-        where TEntity : class
+    public interface IRepository<TEntity, TKey> : IRepository<TEntity> 
+        where TEntity : class, IEntity<TKey>
     {
         #region Read
 
