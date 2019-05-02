@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MediatR;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;

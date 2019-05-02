@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Mapping\Optivem.Framework.Core.Common.Mapping.csproj" />
     <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
     <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Services.csproj" />
     <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.UseCases.csproj" />

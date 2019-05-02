@@ -1,10 +1,6 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Optivem.Framework.Core.Application.UseCases;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

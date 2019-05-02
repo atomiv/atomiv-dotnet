@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
@@ -15,13 +15,12 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-
-        private readonly IMappingService _mappingService;
+        private readonly IMapper _mapper;
         private readonly ILogger<CustomersController> _logger;
 
-        public CustomersController(IMappingService mappingService, ILogger<CustomersController> logger)
+        public CustomersController(IMapper mapper, ILogger<CustomersController> logger)
         {
-            _mappingService = mappingService;
+            _mapper = mapper;
             _logger = logger;
         }
 
@@ -34,7 +33,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
 
             var entities = repository;
 
-            var responses = _mappingService.Map<List<Customer>, List<CustomerGetCollectionResponse>> (entities);
+            var responses = _mapper.Map<List<Customer>, List<CustomerGetCollectionResponse>> (entities);
 
             return Ok(responses);
         }
@@ -52,7 +51,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
                 return NotFound();
             }
 
-            var response = _mappingService.Map<Customer, CustomerGetResponse>(entity);
+            var response = _mapper.Map<Customer, CustomerGetResponse>(entity);
 
             return Ok(entity);
         }
@@ -87,7 +86,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
 
             repository.Add(entity);
 
-            var response = _mappingService.Map<Customer, CustomerPostResponse>(entity);
+            var response = _mapper.Map<Customer, CustomerPostResponse>(entity);
 
             return CreatedAtAction("Get", new { id = response.Id }, response); ;
         }
@@ -110,7 +109,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
             entity.FirstName = request.FirstName;
             entity.LastName = request.LastName;
 
-            var response = _mappingService.Map<Customer, CustomerPutResponse>(entity);
+            var response = _mapper.Map<Customer, CustomerPutResponse>(entity);
 
             return Ok(response);
         }
@@ -147,7 +146,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
         {
             var entities = repository;
 
-            var responses = _mappingService.Map<List<Customer>, List<CustomerExportGetCollectionResponse>>(entities);
+            var responses = _mapper.Map<List<Customer>, List<CustomerExportGetCollectionResponse>>(entities);
 
             return Ok(responses);
         }
@@ -167,7 +166,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Controllers
             {
                 // TODO: VC: Statically typed mapper, just like for UnitOfWork typed repositories...
 
-                var entity = _mappingService.Map<CustomerImportCollectionPostRequest, Customer>(request);
+                var entity = _mapper.Map<CustomerImportCollectionPostRequest, Customer>(request);
 
                 repository.Add(entity);
             }

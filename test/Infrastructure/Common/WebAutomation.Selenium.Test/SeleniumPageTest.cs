@@ -1,9 +1,4 @@
-﻿using FluentAssertions;
-using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
-using System.Linq;
-using Xunit;
-
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
+﻿namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 

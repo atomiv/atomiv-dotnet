@@ -5,9 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Common.Serialization;
-using Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper;
 using Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper;
 using Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers;
@@ -30,8 +28,6 @@ namespace Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICsvSerializationService, CsvSerializationService>();
-
-            services.AddScoped<IMappingService, AutoMapperMappingService>();
 
             // Mapping
             // TODO: VC: DELETE

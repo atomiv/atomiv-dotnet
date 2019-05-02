@@ -1,10 +1,10 @@
-﻿using Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper;
+﻿using Optivem.Framework.Core.Application.UseCases;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers
 {
-    public class CustomerPutRequestProfile : AutoMapperRequestProfile<CustomerPutRequest, Customer>
+    public class CustomerPutRequestProfile : BaseRequestProfile<CustomerPutRequest, Customer>
     {
     }
 }

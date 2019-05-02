@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Framework.Core.Domain.Entities
+﻿namespace Optivem.Framework.Core.Domain.Entities
 {
     public interface IEntity<TId>
     {

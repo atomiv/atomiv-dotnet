@@ -113,7 +113,6 @@ Common:
 * Optivem.Framework.Core.Common.Email
 * Optivem.Framework.Core.Common.FileSystem
 * Optivem.Framework.Core.Common.Logging
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Mapping.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Mapping) Optivem.Framework.Core.Common.Mapping
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Parsing.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Parsing) Optivem.Framework.Core.Common.Parsing
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.RestClient.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.RestClient) Optivem.Framework.Core.Common.RestClient
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Core.Common.Serialization.svg)](https://www.nuget.org/packages/Optivem.Framework.Core.Common.Serialization) Optivem.Framework.Core.Common.Serialization
@@ -143,7 +142,6 @@ Optivem.Framework.Infrastructure.Common:
 * Optivem.Framework.Infrastructure.Common.Email.MicrosoftExchange
 * Optivem.Framework.Infrastructure.Common.FileSystem.Default
 * Optivem.Framework.Infrastructure.Common.Logging.Log4net
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper) Optivem.Framework.Infrastructure.Common.Mapping.AutoMapper
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Parsing.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Parsing.Default) Optivem.Framework.Infrastructure.Common.Parsing.Default
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.RestClient.Default.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.RestClient.Default) Optivem.Framework.Infrastructure.Common.RestClient.Default
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.svg)](https://www.nuget.org/packages/Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper) Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper
