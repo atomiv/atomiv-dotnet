@@ -1,8 +1,8 @@
 ﻿namespace Optivem.Framework.Core.Domain.Entities
 {
-    public interface IEntity<TId>
+    public interface IEntity<TKey>
     {
         // TODO: VC: Refactor, only getter for Id
-        TId Id { get; set; }
+        TKey Id { get; set; }
     }
 }

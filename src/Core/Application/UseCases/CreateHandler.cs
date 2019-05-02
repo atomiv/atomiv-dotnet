@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class CreateHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey> 
-        : BaseHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
+    public class CreateHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse> 
+        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
         where TRequest : IRequest<TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
@@ -27,6 +27,18 @@ namespace Optivem.Framework.Core.Application.UseCases
             await UnitOfWork.SaveChangesAsync();
             var response = Mapper.Map<TEntity, TResponse>(entity);
             return response;
+        }
+    }
+
+    public class CreateHandler<TKey, TEntity, TRequest, TResponse>
+        : CreateHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
+        where TEntity : class, IEntity<TKey>
+    {
+        public CreateHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        {
+
         }
     }
 }

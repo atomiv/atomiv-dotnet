@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Optivem.Framework.Core.Domain.Entities;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Domain.Repositories
@@ -19,6 +20,6 @@ namespace Optivem.Framework.Core.Domain.Repositories
 
         void RollbackTransaction();
 
-        IRepository<T> GetRepository<T>() where T : class;
+        IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>;
     }
 }

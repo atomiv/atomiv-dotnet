@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Threading.Tasks;
@@ -65,9 +66,14 @@ namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCo
             Dispose(true);
         }
 
-        public IRepository<T> GetRepository<T>() where T : class
+        public IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>
         {
-            return new EntityFrameworkRepository<TContext, T>(Context);
+            // TODO: VC: Actually could we get the typed repository? 
+            // In case that there is specific implementation within the overridden version
+            // e.g. there could be a map of keyvalue pairs for entity and key, expressed as types, then do lookup from there
+            // therefore we ensure specific implementation is used, if exists, otherwise this new one
+
+            return new EntityFrameworkRepository<TContext, TEntity, TKey>(Context);
         }
     }
 }

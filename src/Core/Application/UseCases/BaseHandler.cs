@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public abstract class BaseHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
+    public abstract class BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
         : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
         where TUnitOfWork : IUnitOfWork
@@ -29,5 +29,16 @@ namespace Optivem.Framework.Core.Application.UseCases
         protected TRepository Repository { get; private set; }
 
         public abstract Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
+    }
+
+    public abstract class BaseHandler<TKey, TEntity, TRequest, TResponse>
+        : BaseHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
+        where TRequest : IRequest<TResponse>
+        where TEntity : class, IEntity<TKey>
+    {
+        public BaseHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        {
+        }
     }
 }

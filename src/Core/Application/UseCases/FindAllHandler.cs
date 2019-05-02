@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class FindAllHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
-        : BaseHandler<TUnitOfWork, TRepository, TRequest, IEnumerable<TResponse>, TEntity, TKey>
+    public class FindAllHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
+        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, IEnumerable<TResponse>>
         where TRequest : IIdentifiableRequest<IEnumerable<TResponse>, TKey>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
@@ -25,6 +25,18 @@ namespace Optivem.Framework.Core.Application.UseCases
             var entities = await Repository.GetAsync();
             var responses = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
             return responses;
+        }
+    }
+
+    public class FindAllHandler<TKey, TEntity, TRequest, TResponse>
+        : FindAllHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
+        where TRequest : IIdentifiableRequest<IEnumerable<TResponse>, TKey>
+        where TEntity : class, IEntity<TKey>
+    {
+        public FindAllHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        {
+
         }
     }
 }

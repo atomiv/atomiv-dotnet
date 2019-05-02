@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class DeleteHandler<TUnitOfWork, TRepository, TRequest, TEntity, TKey>
-        : BaseHandler<TUnitOfWork, TRepository, TRequest, bool, TEntity, TKey>
+    public class DeleteHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest>
+        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, bool>
         where TRequest : IIdentifiableRequest<bool, TKey>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
@@ -22,7 +22,7 @@ namespace Optivem.Framework.Core.Application.UseCases
         public override async Task<bool> Handle(TRequest request, CancellationToken cancellationToken)
         {
             var id = request.Id;
-            var entity = Repository.GetSingleOrDefault(id);
+            var entity = await Repository.GetSingleOrDefaultAsync(id);
 
             if(entity == null)
             {
@@ -32,6 +32,18 @@ namespace Optivem.Framework.Core.Application.UseCases
             Repository.Delete(entity);
             await UnitOfWork.SaveChangesAsync();
             return true;
+        }
+    }
+
+    public class DeleteHandler<TKey, TEntity, TRequest>
+        : DeleteHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest>
+        where TRequest : IIdentifiableRequest<bool, TKey>
+        where TEntity : class, IEntity<TKey>
+    {
+        public DeleteHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        {
+
         }
     }
 }

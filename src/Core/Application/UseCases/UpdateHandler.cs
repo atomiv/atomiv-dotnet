@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class UpdateHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
-        : BaseHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
+    public class UpdateHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
+        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
         where TRequest : IIdentifiableRequest<TResponse, TKey>
         where TResponse : class
         where TUnitOfWork : IUnitOfWork
@@ -59,6 +59,19 @@ namespace Optivem.Framework.Core.Application.UseCases
 
                 throw;
             }
+        }
+    }
+
+    public class UpdateHandler<TKey, TEntity, TRequest, TResponse>
+        : UpdateHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
+        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TResponse : class
+        where TEntity : class, IEntity<TKey>
+    {
+        public UpdateHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        {
+
         }
     }
 }
