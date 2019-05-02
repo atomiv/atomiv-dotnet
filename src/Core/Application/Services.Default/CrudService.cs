@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services.Default
 {
-    public class CrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TEntity, TKey> 
-        : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TKey>
+    public class CrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity, TKey> 
+        : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey>
         where TFindAllRequest : IRequest<IEnumerable<TFindAllResponse>>, new()
         where TFindRequest : IIdentifiableRequest<TFindResponse, TKey>, new()
         where TCreateRequest : IRequest<TCreateResponse>
-        where TUpdateRequest : IIdentifiableRequest<bool, TKey>, new()
+        where TUpdateRequest : IIdentifiableRequest<TUpdateResponse, TKey>, new()
         where TDeleteRequest : IIdentifiableRequest<bool, TKey>, new()
         where TEntity : class, IEntity<TKey>
     {
@@ -43,7 +43,7 @@ namespace Optivem.Framework.Core.Application.Services.Default
             return Mediator.Send(request);
         }
 
-        public Task<bool> UpdateAsync(TUpdateRequest request)
+        public Task<TUpdateResponse> UpdateAsync(TUpdateRequest request)
         {
             return Mediator.Send(request);
         }

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class UpdateHandler<TUnitOfWork, TRepository, TRequest, TEntity, TKey>
-        : BaseHandler<TUnitOfWork, TRepository, TRequest, bool, TEntity, TKey>
-        where TRequest : IIdentifiableRequest<bool, TKey>
+    public class UpdateHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
+        : BaseHandler<TUnitOfWork, TRepository, TRequest, TResponse, TEntity, TKey>
+        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TResponse : class
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
@@ -19,7 +20,7 @@ namespace Optivem.Framework.Core.Application.UseCases
         {
         }
 
-        public override async Task<bool> Handle(TRequest request, CancellationToken cancellationToken)
+        public override async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
         {
             var id = request.Id;
 
@@ -27,7 +28,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 
             if(!exists)
             {
-                return false;
+                return null;
             }
 
             var entity = Mapper.Map<TRequest, TEntity>(request);
@@ -36,7 +37,16 @@ namespace Optivem.Framework.Core.Application.UseCases
             {
                 Repository.Update(entity);
                 await UnitOfWork.SaveChangesAsync();
-                return true;
+
+                var retrieved = await Repository.GetSingleOrDefaultAsync(id);
+
+                if(retrieved == null)
+                {
+                    return null;
+                }
+
+                var response = Mapper.Map<TEntity, TResponse>(retrieved);
+                return response;
             }
             catch (ConcurrentUpdateException)
             {
@@ -44,7 +54,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 
                 if (!exists)
                 {
-                    return false;
+                    return null;
                 }
 
                 throw;

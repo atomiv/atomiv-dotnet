@@ -6,9 +6,9 @@ using Optivem.Framework.Core.Application.UseCases;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {
-    public class AspNetCoreCrudController<TService, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TKey> 
+    public class AspNetCoreCrudController<TService, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey> 
         : ControllerBase
-        where TService : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TKey>
+        where TService : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey>
         where TUpdateRequest : IIdentifiableRequest<bool, TKey>
         where TCreateResponse : IIdentifiableResponse<TKey>
     {
@@ -50,7 +50,7 @@ namespace Optivem.Framework.Web.AspNetCore.Rest
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutResource(TKey id, TUpdateRequest request)
+        public async Task<ActionResult<TUpdateResponse>> PutResource(TKey id, TUpdateRequest request)
         {
             var requestId = request.Id;
 
@@ -61,9 +61,9 @@ namespace Optivem.Framework.Web.AspNetCore.Rest
                 return BadRequest();
             }
 
-            var updated = await Service.UpdateAsync(request);
+            var response = await Service.UpdateAsync(request);
 
-            if(!updated)
+            if(response == null)
             {
                 return NotFound();
             }
