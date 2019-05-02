@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Domain.Entities;
+﻿using AutoMapper;
+using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Threading;
