@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services.Default
 {
-    public class CrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity, TKey> 
-        : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey>
+    public class CrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity> 
+        : ICrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         where TFindAllRequest : IRequest<IEnumerable<TFindAllResponse>>, new()
         where TFindRequest : IIdentifiableRequest<TFindResponse, TKey>, new()
         where TCreateRequest : IRequest<TCreateResponse>

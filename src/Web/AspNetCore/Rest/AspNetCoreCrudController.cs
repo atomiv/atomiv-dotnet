@@ -6,9 +6,9 @@ using Optivem.Framework.Core.Application.UseCases;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {
-    public class AspNetCoreCrudController<TService, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey> 
+    public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
         : ControllerBase
-        where TService : ICrudService<TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TKey>
+        where TService : ICrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         where TUpdateRequest : IIdentifiableRequest<bool, TKey>
         where TCreateResponse : IIdentifiableResponse<TKey>
     {
