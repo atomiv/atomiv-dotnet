@@ -139,6 +139,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Appl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore", "src\Infrastructure\Domain\Repositories.EntityFrameworkCore\Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore.csproj", "{B2E33DB2-F3BF-44C0-B2A3-E11114FC6407}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Framework.Core.Application.UseCases", "Optivem.Framework.Core.Application.UseCases\Optivem.Framework.Core.Application.UseCases.csproj", "{F1A55D19-1297-4C16-B933-3463D6F3FA51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,10 @@ Global
 		{B2E33DB2-F3BF-44C0-B2A3-E11114FC6407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2E33DB2-F3BF-44C0-B2A3-E11114FC6407}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2E33DB2-F3BF-44C0-B2A3-E11114FC6407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A55D19-1297-4C16-B933-3463D6F3FA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A55D19-1297-4C16-B933-3463D6F3FA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A55D19-1297-4C16-B933-3463D6F3FA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A55D19-1297-4C16-B933-3463D6F3FA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -392,6 +398,7 @@ Global
 		{C6CB6C49-D0BE-47D1-957C-6BE13C60A56E} = {E148F903-F4F1-419A-9FE2-FFD790F8478D}
 		{83E6E64E-4D5B-422F-AFEC-5E0C3721E951} = {E148F903-F4F1-419A-9FE2-FFD790F8478D}
 		{B2E33DB2-F3BF-44C0-B2A3-E11114FC6407} = {62AF2CB2-3B6A-4AD2-949C-DFE04A1FE632}
+		{F1A55D19-1297-4C16-B933-3463D6F3FA51} = {E148F903-F4F1-419A-9FE2-FFD790F8478D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
