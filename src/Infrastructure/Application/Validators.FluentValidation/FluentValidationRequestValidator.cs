@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Optivem.Framework.Core.Application.Ports.Out.Validators;
+using Optivem.Framework.Core.Application.Ports.Validators;
 
 namespace Optivem.Framework.Infrastructure.Application.Validators.FluentValidation
 {

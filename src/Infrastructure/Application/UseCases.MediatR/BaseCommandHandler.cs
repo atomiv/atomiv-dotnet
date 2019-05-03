@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Optivem.Framework.Core.Application.Ports.Out.Mappers;
+using Optivem.Framework.Core.Application.Ports.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Ports.Out.Repositories;
+using Optivem.Framework.Core.Domain.Ports.Repositories;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

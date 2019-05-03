@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Framework.Core.Application.Ports.In.Services;
+using Optivem.Framework.Core.Application.Ports.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Optivem.Framework.Core.Application.Ports.In.Dtos;
+using Optivem.Framework.Core.Application.Ports.Dtos;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {

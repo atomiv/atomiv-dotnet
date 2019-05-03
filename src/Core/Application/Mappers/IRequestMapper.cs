@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Ports.Out.Mappers
+﻿namespace Optivem.Framework.Core.Application.Ports.Mappers
 {
     public interface IRequestMapper<TRequest, TEntity>
     {

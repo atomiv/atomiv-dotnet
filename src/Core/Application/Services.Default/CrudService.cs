@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application.Ports.In.Services;
-using Optivem.Framework.Core.Application.Ports.In.UseCases;
+﻿using Optivem.Framework.Core.Application.Ports.Services;
+using Optivem.Framework.Core.Application.Ports.UseCases;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

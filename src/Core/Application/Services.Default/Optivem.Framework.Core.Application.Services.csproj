@@ -15,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Ports.In.Services.csproj" />
-    <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.Ports.In.UseCases.csproj" />
+    <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Ports.Services.csproj" />
+    <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.Ports.UseCases.csproj" />
   </ItemGroup>
 
 </Project>

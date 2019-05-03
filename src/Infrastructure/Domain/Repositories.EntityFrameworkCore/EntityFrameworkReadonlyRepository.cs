@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Ports.Out.Repositories;
+using Optivem.Framework.Core.Domain.Ports.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

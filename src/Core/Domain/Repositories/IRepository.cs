@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Domain.Ports.Out.Repositories
+namespace Optivem.Framework.Core.Domain.Ports.Repositories
 {
     public interface IRepository<TEntity, TKey> : IReadonlyRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>

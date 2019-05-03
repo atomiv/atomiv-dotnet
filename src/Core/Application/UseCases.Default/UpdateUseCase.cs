@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Core.Application.Ports.In.Dtos;
-using Optivem.Framework.Core.Application.Ports.Out.Mappers;
-using Optivem.Framework.Core.Application.Ports.In.UseCases;
+﻿using Optivem.Framework.Core.Application.Ports.Dtos;
+using Optivem.Framework.Core.Application.Ports.Mappers;
+using Optivem.Framework.Core.Application.Ports.UseCases;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Ports.Out.Repositories;
+using Optivem.Framework.Core.Domain.Ports.Repositories;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases

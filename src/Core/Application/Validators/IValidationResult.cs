@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Application.Ports.Out.Validators
+namespace Optivem.Framework.Core.Application.Ports.Validators
 {
     public interface IValidationResult
     {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Core.Application.Ports.Out.Mappers;
+using Optivem.Framework.Core.Application.Ports.Mappers;
 
 namespace Optivem.Framework.Infrastructure.Application.Mappers.AutoMapper
 {
