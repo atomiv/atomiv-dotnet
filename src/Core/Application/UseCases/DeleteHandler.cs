@@ -9,7 +9,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 {
     public class DeleteHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest>
         : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, bool>
-        where TRequest : IIdentifiableRequest<bool, TKey>
+        where TRequest : IIdentifiableCommand<TKey, bool>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
@@ -37,7 +37,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 
     public class DeleteHandler<TKey, TEntity, TRequest>
         : DeleteHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest>
-        where TRequest : IIdentifiableRequest<bool, TKey>
+        where TRequest : IIdentifiableCommand<TKey, bool>
         where TEntity : class, IEntity<TKey>
     {
         public DeleteHandler(IMapper mapper, IUnitOfWork unitOfWork)

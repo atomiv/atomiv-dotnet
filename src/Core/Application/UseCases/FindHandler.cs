@@ -9,7 +9,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 {
     public class FindHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
         : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TRequest : IIdentifiableCommand<TKey, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
@@ -30,7 +30,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 
     public class FindHandler<TKey, TEntity, TRequest, TResponse>
         : FindHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TRequest : IIdentifiableCommand<TKey, TResponse>
         where TEntity : class, IEntity<TKey>
     {
         public FindHandler(IMapper mapper, IUnitOfWork unitOfWork)

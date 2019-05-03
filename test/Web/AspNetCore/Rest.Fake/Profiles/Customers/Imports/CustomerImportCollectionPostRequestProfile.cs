@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Application.UseCases;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;

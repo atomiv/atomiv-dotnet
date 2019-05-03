@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Core.Application.Services.Default
 {
     public class CrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity> 
-        : ICrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
+        : ICrudService<TKey, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         where TFindAllRequest : IRequest<IEnumerable<TFindAllResponse>>, new()
-        where TFindRequest : IIdentifiableRequest<TFindResponse, TKey>, new()
+        where TFindRequest : IIdentifiableCommand<TKey, TFindResponse>, new()
         where TCreateRequest : IRequest<TCreateResponse>
-        where TUpdateRequest : IIdentifiableRequest<TUpdateResponse, TKey>, new()
-        where TDeleteRequest : IIdentifiableRequest<bool, TKey>, new()
+        where TUpdateRequest : IIdentifiableCommand<TKey, TUpdateResponse>, new()
+        where TDeleteRequest : IIdentifiableCommand<TKey, bool>, new()
         where TEntity : class, IEntity<TKey>
     {
         public CrudService(IMediator mediator)

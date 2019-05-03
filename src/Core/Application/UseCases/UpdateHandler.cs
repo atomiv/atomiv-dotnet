@@ -9,7 +9,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 {
     public class UpdateHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
         : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TRequest : IIdentifiableCommand<TKey, TResponse>
         where TResponse : class
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
@@ -64,7 +64,7 @@ namespace Optivem.Framework.Core.Application.UseCases
 
     public class UpdateHandler<TKey, TEntity, TRequest, TResponse>
         : UpdateHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableRequest<TResponse, TKey>
+        where TRequest : IIdentifiableCommand<TKey, TResponse>
         where TResponse : class
         where TEntity : class, IEntity<TKey>
     {
