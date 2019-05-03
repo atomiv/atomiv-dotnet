@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Repositories.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Out.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

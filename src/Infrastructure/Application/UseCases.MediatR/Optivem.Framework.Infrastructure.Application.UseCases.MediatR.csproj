@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -10,9 +10,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Dtos\Optivem.Framework.Core.Application.Ports.In.Dtos.csproj" />
-    <ProjectReference Include="..\..\..\Core\Application\Mappers\Optivem.Framework.Core.Application.Ports.Mappers.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Mappers\Optivem.Framework.Core.Application.Ports.Out.Mappers.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj" />
-    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Repositories.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Out.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

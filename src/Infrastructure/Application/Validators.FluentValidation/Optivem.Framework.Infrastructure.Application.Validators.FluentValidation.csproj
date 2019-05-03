@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Validators\Optivem.Framework.Core.Application.Ports.Validators.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Validators\Optivem.Framework.Core.Application.Ports.Out.Validators.csproj" />
   </ItemGroup>
 
 </Project>
