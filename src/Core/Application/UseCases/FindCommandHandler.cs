@@ -28,12 +28,12 @@ namespace Optivem.Framework.Core.Application.UseCases
         }
     }
 
-    public class FindHandler<TKey, TEntity, TCommand, TResponse>
+    public class FindCommandHandler<TKey, TEntity, TCommand, TResponse>
         : FindCommandHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TCommand, TResponse>
         where TCommand : ICommand<TKey, TResponse>
         where TEntity : class, IEntity<TKey>
     {
-        public FindHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public FindCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
