@@ -75,5 +75,11 @@ namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCo
 
             return new EntityFrameworkRepository<TContext, TEntity, TKey>(Context);
         }
+
+        public IReadonlyRepository<TEntity, TKey> GetReadonlyRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>
+        {
+            // TODO: VC: See above
+            return new EntityFrameworkReadonlyRepository<TContext, TEntity, TKey>(Context);
+        }
     }
 }

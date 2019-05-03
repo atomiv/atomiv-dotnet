@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Core.Application.Mappers;
-using Optivem.Framework.Core.Application.UseCases;
+using Optivem.Framework.Infrastructure.Application.Mappers.AutoMapper;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
 using System;
@@ -8,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers.Imports
 {
-    public class CustomerImportCollectionPostRequestProfile : BaseRequestProfile<CustomerImportCollectionPostRequest, Customer>
+    public class CustomerImportCollectionPostRequestProfile : AutoMapperRequestProfile<CustomerImportCollectionPostRequest, Customer>
     {
         protected override void Extend(IMappingExpression<CustomerImportCollectionPostRequest, Customer> map)
         {

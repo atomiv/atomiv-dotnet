@@ -15,11 +15,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.1.0" />
-    <PackageReference Include="MediatR" Version="7.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Services\Optivem.Framework.Core.Application.Services.csproj" />
     <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.UseCases.csproj" />
   </ItemGroup>

@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases
+namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public class DeleteCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand>
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TKey, bool>
@@ -14,8 +14,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public DeleteCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
-            : base(mapper, unitOfWork, repositoryRetriever)
+        public DeleteCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+            : base(requestMapper, responseMapper, unitOfWork, repositoryRetriever)
         {
         }
 
@@ -40,8 +40,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TRequest : ICommand<TKey, bool>
         where TEntity : class, IEntity<TKey>
     {
-        public DeleteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        public DeleteCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork)
+            : base(requestMapper, responseMapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
         }

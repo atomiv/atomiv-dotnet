@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
-namespace Optivem.Framework.Core.Application.Mappers
+namespace Optivem.Framework.Infrastructure.Application.Mappers.AutoMapper
 {
-    public abstract class BaseResponseProfile<TEntity, TResponse> : Profile
+    public class AutoMapperResponseProfile<TEntity, TResponse> : Profile
     {
-        public BaseResponseProfile()
+        public AutoMapperResponseProfile()
         {
             var map = CreateMap<TEntity, TResponse>();
             Extend(map);

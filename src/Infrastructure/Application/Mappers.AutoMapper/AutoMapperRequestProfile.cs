@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
-namespace Optivem.Framework.Core.Application.Mappers
+namespace Optivem.Framework.Infrastructure.Application.Mappers.AutoMapper
 {
-    public abstract class BaseRequestProfile<TRequest, TEntity> : Profile
+    public class AutoMapperRequestProfile<TRequest, TEntity> : Profile
     {
-        public BaseRequestProfile()
+        public AutoMapperRequestProfile()
         {
             var map = CreateMap<TRequest, TEntity>();
             Extend(map);

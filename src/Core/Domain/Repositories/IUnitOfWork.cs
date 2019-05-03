@@ -21,5 +21,7 @@ namespace Optivem.Framework.Core.Domain.Repositories
         void RollbackTransaction();
 
         IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>;
+
+        IReadonlyRepository<TEntity, TKey> GetReadonlyRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>;
     }
 }

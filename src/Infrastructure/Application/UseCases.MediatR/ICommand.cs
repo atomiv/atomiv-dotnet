@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Optivem.Framework.Core.Application.UseCases
+namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public interface ICommand<TRequest, TResponse> : IRequest<TResponse>
     {

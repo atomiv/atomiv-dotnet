@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.UseCases
+﻿namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public abstract class BaseCommand<TRequest, TResponse> : ICommand<TRequest, TResponse>
     {

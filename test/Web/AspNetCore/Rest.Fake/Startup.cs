@@ -13,7 +13,7 @@ using Optivem.Framework.Web.AspNetCore.Rest;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
-namespace Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake
+namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
 {
     public class Startup
     {

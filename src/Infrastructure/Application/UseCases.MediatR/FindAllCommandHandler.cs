@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases
+namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public class FindAllCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TResponse>
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, object, IEnumerable<TResponse>>
@@ -15,15 +15,15 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public FindAllCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
-            : base(mapper, unitOfWork, repositoryRetriever)
+        public FindAllCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+            : base(requestMapper, responseMapper, unitOfWork, repositoryRetriever)
         {
         }
 
         public override async Task<IEnumerable<TResponse>> Handle(TCommand command, CancellationToken cancellationToken)
         {
             var entities = await Repository.GetAsync();
-            var responses = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
+            var responses = ResponseMapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
             return responses;
         }
     }
@@ -33,8 +33,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TCommand : ICommand<object, IEnumerable<TResponse>>
         where TEntity : class, IEntity<TKey>
     {
-        public FindAllCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        public FindAllCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork)
+            : base(requestMapper, responseMapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
         }

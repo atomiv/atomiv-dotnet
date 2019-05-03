@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases
+namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public class CreateCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse> 
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse>
@@ -14,18 +14,18 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public CreateCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever) 
-            : base(mapper, unitOfWork, repositoryRetriever)
+        public CreateCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever) 
+            : base(requestMapper, responseMapper, unitOfWork, repositoryRetriever)
         {
         }
 
         public override async Task<TResponse> Handle(TCommand command, CancellationToken cancellationToken)
         {
             var request = command.Request;
-            var entity = Mapper.Map<TRequest, TEntity>(request);
+            var entity = RequestMapper.Map<TRequest, TEntity>(request);
             await Repository.AddAsync(entity);
             await UnitOfWork.SaveChangesAsync();
-            var response = Mapper.Map<TEntity, TResponse>(entity);
+            var response = ResponseMapper.Map<TEntity, TResponse>(entity);
             return response;
         }
     }
@@ -35,8 +35,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TCommand : ICommand<TRequest, TResponse>
         where TEntity : class, IEntity<TKey>
     {
-        public CreateHandler(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        public CreateHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork)
+            : base(requestMapper, responseMapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
         }

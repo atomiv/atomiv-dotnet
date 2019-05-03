@@ -20,9 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
     <ProjectReference Include="..\..\..\Core\Application\Services\Optivem.Framework.Core.Application.Services.csproj" />
-    <ProjectReference Include="..\..\..\Core\Application\UseCases\Optivem.Framework.Core.Application.UseCases.csproj" />
     <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,60 +1,59 @@
-﻿using MediatR;
-using Optivem.Framework.Core.Application.UseCases;
-using Optivem.Framework.Core.Domain.Entities;
+﻿using Optivem.Framework.Core.Application.UseCases;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services.Default
 {
-    public class CrudService<TKey, TFindAllCommand, TFindCommand, TCreateCommand, TUpdateCommand, TDeleteCommand, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity> 
+    public class CrudService<TKey, TFindAllUseCase, TFindUseCase, TCreateUseCase, TUpdateUseCase, TDeleteUseCase, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
         : ICrudService<TKey, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TFindAllCommand : ICommand<object, IEnumerable<TFindAllResponse>>, new()
-        where TFindCommand : ICommand<TKey, TFindResponse>, new()
-        where TCreateCommand : ICommand<TCreateRequest, TCreateResponse>, new()
-        where TUpdateCommand : ICommand<TUpdateRequest, TUpdateResponse>, new()
-        where TDeleteCommand : ICommand<TKey, bool>, new()
-        where TEntity : class, IEntity<TKey>
+        where TFindAllUseCase : IFindAllUseCase<TFindAllResponse>
+        where TFindUseCase : IFindUseCase<TKey, TFindResponse>
+        where TCreateUseCase : ICreateUseCase<TCreateRequest, TCreateResponse>
+        where TUpdateUseCase : IUpdateUseCase<TUpdateRequest, TUpdateResponse>
+        where TDeleteUseCase : IDeleteUseCase<TKey>
     {
-        public CrudService(IMediator mediator)
+        public CrudService(TFindAllUseCase findAllUseCase, 
+            TFindUseCase findUseCase, 
+            TCreateUseCase createUseCase,
+            TUpdateUseCase updateUseCase,
+            TDeleteUseCase deleteUseCase)
         {
-            Mediator = mediator;
+            FindAllUseCase = findAllUseCase;
+            FindUseCase = findUseCase;
+            CreateUseCase = createUseCase;
+            UpdateUseCase = updateUseCase;
+            DeleteUseCase = deleteUseCase;
         }
 
-        protected IMediator Mediator { get; private set; }
+        protected TFindAllUseCase FindAllUseCase;
+        protected TFindUseCase FindUseCase;
+        protected TCreateUseCase CreateUseCase;
+        protected TUpdateUseCase UpdateUseCase;
+        protected TDeleteUseCase DeleteUseCase;
 
         public Task<IEnumerable<TFindAllResponse>> FindAllAsync()
         {
-            return SendCommand<TFindAllCommand, object, IEnumerable<TFindAllResponse>>(null);
+            return FindAllUseCase.HandleAsync();
         }
 
         public Task<TFindResponse> FindAsync(TKey id)
         {
-            return SendCommand<TFindCommand, TKey, TFindResponse>(id);
+            return FindUseCase.HandleAsync(id);
         }
 
         public Task<TCreateResponse> CreateAsync(TCreateRequest request)
         {
-            return SendCommand<TCreateCommand, TCreateRequest, TCreateResponse>(request);
+            return CreateUseCase.HandleAsync(request);
         }
 
         public Task<TUpdateResponse> UpdateAsync(TUpdateRequest request)
         {
-            return SendCommand<TUpdateCommand, TUpdateRequest, TUpdateResponse>(request);
+            return UpdateUseCase.HandleAsync(request);
         }
 
         public Task<bool> DeleteAsync(TKey id)
         {
-            return SendCommand<TDeleteCommand, TKey, bool>(id);
-        }
-
-        protected Task<TResponse> SendCommand<TCommand, TRequest, TResponse>(TRequest request) where TCommand : ICommand<TRequest, TResponse>, new()
-        {
-            var command = new TCommand
-            {
-                Request = request,
-            };
-
-            return Mediator.Send(command);
+            return DeleteUseCase.HandleAsync(id);
         }
     }
 }

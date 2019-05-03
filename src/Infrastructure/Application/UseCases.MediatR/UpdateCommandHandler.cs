@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using Optivem.Framework.Core.Application.Dtos;
+﻿using Optivem.Framework.Core.Application.Dtos;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases
+namespace Optivem.Framework.Infrastructure.Application.UseCases.MediatR
 {
     public class UpdateCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse>
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse>
@@ -17,8 +17,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public UpdateCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
-            : base(mapper, unitOfWork, repositoryRetriever)
+        public UpdateCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+            : base(requestMapper, responseMapper, unitOfWork, repositoryRetriever)
         {
         }
 
@@ -34,7 +34,7 @@ namespace Optivem.Framework.Core.Application.UseCases
                 return null;
             }
 
-            var entity = Mapper.Map<TRequest, TEntity>(request);
+            var entity = RequestMapper.Map<TRequest, TEntity>(request);
 
             try
             {
@@ -48,7 +48,7 @@ namespace Optivem.Framework.Core.Application.UseCases
                     return null;
                 }
 
-                var response = Mapper.Map<TEntity, TResponse>(retrieved);
+                var response = ResponseMapper.Map<TEntity, TResponse>(retrieved);
                 return response;
             }
             catch (ConcurrentUpdateException)
@@ -72,8 +72,8 @@ namespace Optivem.Framework.Core.Application.UseCases
         where TResponse : class
         where TEntity : class, IEntity<TKey>
     {
-        public UpdateCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
+        public UpdateCommandHandler(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork)
+            : base(requestMapper, responseMapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
         }

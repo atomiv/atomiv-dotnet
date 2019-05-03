@@ -4,7 +4,7 @@ using Optivem.Framework.Core.Common.RestClient;
 using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.Common.RestClient.Default;
 using Optivem.Framework.Infrastructure.Common.Serialization.Default;
-using Optivem.Framework.Test.Wed.AspNetCore.Rest.Fake;
+using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Framework.Test.Xunit.Web.AspNetCore;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;

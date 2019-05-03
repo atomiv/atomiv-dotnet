@@ -2,7 +2,6 @@
 using Optivem.Framework.Core.Application.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Optivem.Framework.Core.Application.UseCases;
 using Optivem.Framework.Core.Application.Dtos;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
