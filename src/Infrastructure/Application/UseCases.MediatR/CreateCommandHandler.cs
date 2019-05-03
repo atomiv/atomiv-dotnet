@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Framework.Core.Application.Ports.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System;

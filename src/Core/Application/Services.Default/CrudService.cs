@@ -1,8 +1,9 @@
-﻿using Optivem.Framework.Core.Application.UseCases;
+﻿using Optivem.Framework.Core.Application.Ports.Services;
+using Optivem.Framework.Core.Application.Ports.UseCases;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.Services.Default
+namespace Optivem.Framework.Core.Application.Services
 {
     public class CrudService<TKey, TFindAllUseCase, TFindUseCase, TCreateUseCase, TUpdateUseCase, TDeleteUseCase, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
         : ICrudService<TKey, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>

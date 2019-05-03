@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Core\Application\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Core\Application\Mappers\Optivem.Framework.Core.Application.Mappers.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Core\Application\Mappers\Optivem.Framework.Core.Application.Ports.Mappers.csproj" />
     <ProjectReference Include="..\..\..\..\src\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Application\Mappers.AutoMapper\Optivem.Framework.Infrastructure.Application.Mappers.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj" />

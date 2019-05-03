@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
-    <ProjectReference Include="..\..\..\Core\Application\Mappers\Optivem.Framework.Core.Application.Mappers.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Mappers\Optivem.Framework.Core.Application.Ports.Mappers.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
   </ItemGroup>

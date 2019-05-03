@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Framework.Core.Application.Services;
+using Optivem.Framework.Core.Application.Ports.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Optivem.Framework.Core.Application.Dtos;

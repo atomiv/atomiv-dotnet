@@ -1,8 +1,9 @@
-﻿using Optivem.Framework.Core.Domain.Entities;
+﻿using Optivem.Framework.Core.Application.Ports.UseCases;
+using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases.Default
+namespace Optivem.Framework.Core.Application.UseCases
 {
     public class DeleteUseCase<TEntity, TKey> : IDeleteUseCase<TKey>
         where TEntity : class, IEntity<TKey>

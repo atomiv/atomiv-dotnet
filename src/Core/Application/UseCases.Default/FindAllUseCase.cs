@@ -1,10 +1,11 @@
-﻿using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Framework.Core.Application.Ports.Mappers;
+using Optivem.Framework.Core.Application.Ports.UseCases;
 using Optivem.Framework.Core.Domain.Entities;
 using Optivem.Framework.Core.Domain.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases.Default
+namespace Optivem.Framework.Core.Application.UseCases
 {
     class FindAllUseCase<TResponse, TEntity, TKey> : IFindAllUseCase<TResponse>
         where TEntity : class, IEntity<TKey>
