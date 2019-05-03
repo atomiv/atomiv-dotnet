@@ -6,10 +6,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj" />
-    <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
-    <ProjectReference Include="..\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Repositories.csproj" />
+    <ProjectReference Include="..\Dtos\Optivem.Framework.Core.Application.Ports.In.Dtos.csproj" />
     <ProjectReference Include="..\Mappers\Optivem.Framework.Core.Application.Ports.Mappers.csproj" />
-    <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.Ports.UseCases.csproj" />
+    <ProjectReference Include="..\UseCases\Optivem.Framework.Core.Application.Ports.In.UseCases.csproj" />
   </ItemGroup>
 
 </Project>

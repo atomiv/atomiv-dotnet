@@ -1,6 +1,6 @@
-﻿using Optivem.Framework.Core.Application.Ports.Mappers;
+﻿using Optivem.Framework.Core.Application.Ports.Out.Mappers;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Repositories;
+using Optivem.Framework.Core.Domain.Ports.Out.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading;

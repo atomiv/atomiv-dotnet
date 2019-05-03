@@ -1,6 +1,6 @@
-﻿using Optivem.Framework.Core.Application.Ports.UseCases;
+﻿using Optivem.Framework.Core.Application.Ports.In.UseCases;
 using Optivem.Framework.Core.Domain.Entities;
-using Optivem.Framework.Core.Domain.Repositories;
+using Optivem.Framework.Core.Domain.Ports.Repositories;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases

@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
-    <ProjectReference Include="..\..\..\Core\Application\Services\Optivem.Framework.Core.Application.Ports.Services.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Dtos\Optivem.Framework.Core.Application.Ports.In.Dtos.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Services\Optivem.Framework.Core.Application.Ports.In.Services.csproj" />
     <ProjectReference Include="..\..\..\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj" />
   </ItemGroup>
 

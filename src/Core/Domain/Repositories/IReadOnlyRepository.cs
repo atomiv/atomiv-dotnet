@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Domain.Repositories
+namespace Optivem.Framework.Core.Domain.Ports.Out.Repositories
 {
     public interface IReadonlyRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>

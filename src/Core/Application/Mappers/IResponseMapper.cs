@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Ports.Mappers
+﻿namespace Optivem.Framework.Core.Application.Ports.Out.Mappers
 {
     public interface IResponseMapper<TEntity, TResponse>
     {

@@ -5,7 +5,7 @@
     <Version>1.0.8</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for Domain Repositories</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Ports.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

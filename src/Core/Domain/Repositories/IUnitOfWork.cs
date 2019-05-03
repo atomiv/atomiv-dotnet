@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Domain.Repositories
+namespace Optivem.Framework.Core.Domain.Ports.Out.Repositories
 {
     // TODO: VC: Include getting generic repository
 
