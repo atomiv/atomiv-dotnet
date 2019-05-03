@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.Services.Default
 {
-    public class CrudService<TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity> 
+    public class CrudService<TKey, TFindAllCommand, TFindCommand, TCreateCommand, TUpdateCommand, TDeleteCommand, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TEntity> 
         : ICrudService<TKey, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TFindAllRequest : IRequest<IEnumerable<TFindAllResponse>>, new()
-        where TFindRequest : IIdentifiableCommand<TKey, TFindResponse>, new()
-        where TCreateRequest : IRequest<TCreateResponse>
-        where TUpdateRequest : IIdentifiableCommand<TKey, TUpdateResponse>, new()
-        where TDeleteRequest : IIdentifiableCommand<TKey, bool>, new()
+        where TFindAllCommand : ICommand<object, IEnumerable<TFindAllResponse>>, new()
+        where TFindCommand : ICommand<TKey, TFindResponse>, new()
+        where TCreateCommand : ICommand<TCreateRequest, TCreateResponse>, new()
+        where TUpdateCommand : ICommand<TUpdateRequest, TUpdateResponse>, new()
+        where TDeleteCommand : ICommand<TKey, bool>, new()
         where TEntity : class, IEntity<TKey>
     {
         public CrudService(IMediator mediator)
@@ -24,38 +24,37 @@ namespace Optivem.Framework.Core.Application.Services.Default
 
         public Task<IEnumerable<TFindAllResponse>> FindAllAsync()
         {
-            var request = new TFindAllRequest();
-            return Mediator.Send(request);
+            return SendCommand<TFindAllCommand, object, IEnumerable<TFindAllResponse>>(null);
         }
 
         public Task<TFindResponse> FindAsync(TKey id)
         {
-            var request = new TFindRequest()
-            {
-                Id = id,
-            };
-
-            return Mediator.Send(request);
+            return SendCommand<TFindCommand, TKey, TFindResponse>(id);
         }
 
         public Task<TCreateResponse> CreateAsync(TCreateRequest request)
         {
-            return Mediator.Send(request);
+            return SendCommand<TCreateCommand, TCreateRequest, TCreateResponse>(request);
         }
 
         public Task<TUpdateResponse> UpdateAsync(TUpdateRequest request)
         {
-            return Mediator.Send(request);
+            return SendCommand<TUpdateCommand, TUpdateRequest, TUpdateResponse>(request);
         }
 
         public Task<bool> DeleteAsync(TKey id)
         {
-            var request = new TDeleteRequest
+            return SendCommand<TDeleteCommand, TKey, bool>(id);
+        }
+
+        protected Task<TResponse> SendCommand<TCommand, TRequest, TResponse>(TRequest request) where TCommand : ICommand<TRequest, TResponse>, new()
+        {
+            var command = new TCommand
             {
-                Id = id,
+                Request = request,
             };
 
-            return Mediator.Send(request);
+            return Mediator.Send(command);
         }
     }
 }

@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj" />
     <ProjectReference Include="..\..\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\Dtos\Optivem.Framework.Core.Application.Dtos.csproj" />
   </ItemGroup>
 
 </Project>

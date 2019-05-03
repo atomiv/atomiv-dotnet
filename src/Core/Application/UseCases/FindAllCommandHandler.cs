@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class FindAllHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, IEnumerable<TResponse>>
-        where TRequest : IRequest<IEnumerable<TResponse>>
+    public class FindAllCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TResponse>
+        : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, object, IEnumerable<TResponse>>
+        where TCommand : ICommand<object, IEnumerable<TResponse>>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public FindAllHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+        public FindAllCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
             : base(mapper, unitOfWork, repositoryRetriever)
         {
         }
 
-        public override async Task<IEnumerable<TResponse>> Handle(TRequest request, CancellationToken cancellationToken)
+        public override async Task<IEnumerable<TResponse>> Handle(TCommand command, CancellationToken cancellationToken)
         {
             var entities = await Repository.GetAsync();
             var responses = Mapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
@@ -29,12 +29,12 @@ namespace Optivem.Framework.Core.Application.UseCases
         }
     }
 
-    public class FindAllHandler<TKey, TEntity, TRequest, TResponse>
-        : FindAllHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IRequest<IEnumerable<TResponse>>
+    public class FindAllCommandHandler<TKey, TEntity, TCommand, TResponse>
+        : FindAllCommandHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TCommand, TResponse>
+        where TCommand : ICommand<object, IEnumerable<TResponse>>
         where TEntity : class, IEntity<TKey>
     {
-        public FindAllHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public FindAllCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 

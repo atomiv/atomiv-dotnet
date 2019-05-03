@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public abstract class BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse>
+        : IRequestHandler<TCommand, TResponse>
+        where TCommand : ICommand<TRequest, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public BaseHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+        public BaseCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
         {
             Mapper = mapper;
             UnitOfWork = unitOfWork;
@@ -28,15 +28,15 @@ namespace Optivem.Framework.Core.Application.UseCases
 
         protected TRepository Repository { get; private set; }
 
-        public abstract Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
+        public abstract Task<TResponse> Handle(TCommand command, CancellationToken cancellationToken);
     }
 
-    public abstract class BaseHandler<TKey, TEntity, TRequest, TResponse>
-        : BaseHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class BaseCommandHandler<TKey, TEntity, TCommand, TRequest, TResponse>
+        : BaseCommandHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TCommand, TRequest, TResponse>
+        where TCommand : ICommand<TRequest, TResponse>
         where TEntity : class, IEntity<TKey>
     {
-        public BaseHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public BaseCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
         }

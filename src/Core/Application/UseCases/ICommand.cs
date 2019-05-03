@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public abstract class BaseCommand<TRequest, TResponse> : ICommand<TRequest, TResponse>
+    public interface ICommand<TRequest, TResponse> : IRequest<TResponse>
     {
-        public TRequest Request { get; set; }
+        TRequest Request { get; set; }
     }
 }

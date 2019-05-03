@@ -7,30 +7,30 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class FindHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableCommand<TKey, TResponse>
+    public class FindCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TResponse>
+        : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TKey, TResponse>
+        where TCommand : ICommand<TKey, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public FindHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+        public FindCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
             : base(mapper, unitOfWork, repositoryRetriever)
         {
         }
 
-        public override async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
+        public override async Task<TResponse> Handle(TCommand command, CancellationToken cancellationToken)
         {
-            var id = request.Id;
+            var id = command.Request;
             var entity = await Repository.GetSingleOrDefaultAsync(id);
             var response = Mapper.Map<TEntity, TResponse>(entity);
             return response;
         }
     }
 
-    public class FindHandler<TKey, TEntity, TRequest, TResponse>
-        : FindHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest, TResponse>
-        where TRequest : IIdentifiableCommand<TKey, TResponse>
+    public class FindHandler<TKey, TEntity, TCommand, TResponse>
+        : FindCommandHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TCommand, TResponse>
+        where TCommand : ICommand<TKey, TResponse>
         where TEntity : class, IEntity<TKey>
     {
         public FindHandler(IMapper mapper, IUnitOfWork unitOfWork)

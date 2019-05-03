@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application.UseCases
 {
-    public class DeleteHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest>
-        : BaseHandler<TUnitOfWork, TRepository, TKey, TEntity, TRequest, bool>
-        where TRequest : IIdentifiableCommand<TKey, bool>
+    public class DeleteCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand>
+        : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TKey, bool>
+        where TCommand : ICommand<TKey, bool>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>
     {
-        public DeleteHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
+        public DeleteCommandHandler(IMapper mapper, TUnitOfWork unitOfWork, Func<TUnitOfWork, TRepository> repositoryRetriever)
             : base(mapper, unitOfWork, repositoryRetriever)
         {
         }
 
-        public override async Task<bool> Handle(TRequest request, CancellationToken cancellationToken)
+        public override async Task<bool> Handle(TCommand command, CancellationToken cancellationToken)
         {
-            var id = request.Id;
+            var id = command.Request;
             var entity = await Repository.GetSingleOrDefaultAsync(id);
 
             if(entity == null)
@@ -35,12 +35,12 @@ namespace Optivem.Framework.Core.Application.UseCases
         }
     }
 
-    public class DeleteHandler<TKey, TEntity, TRequest>
-        : DeleteHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest>
-        where TRequest : IIdentifiableCommand<TKey, bool>
+    public class DeleteCommandHandler<TKey, TEntity, TRequest>
+        : DeleteCommandHandler<IUnitOfWork, IRepository<TEntity, TKey>, TKey, TEntity, TRequest>
+        where TRequest : ICommand<TKey, bool>
         where TEntity : class, IEntity<TKey>
     {
-        public DeleteHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public DeleteCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork, e => e.GetRepository<TEntity, TKey>())
         {
 
