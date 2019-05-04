@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.8</Version>
+    <Authors>Optivem</Authors>
+    <Description>Interfaces for Serialization</Description>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Optivem Framework DotNetCore Core Common Serialization Serializer</PackageTags>
+  </PropertyGroup>
+
+</Project>

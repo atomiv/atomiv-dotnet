@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Ports.Validators
+﻿namespace Optivem.Core.Application
 {
     public interface IRequestValidator<TRequest>
     {

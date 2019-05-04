@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Ports.Services
+﻿namespace Optivem.Core.Application
 {
     public interface IService
     {

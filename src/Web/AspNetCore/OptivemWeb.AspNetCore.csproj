@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Description>Implementation of RESTful Services using ASP.NET Core</Description>
+    <Copyright>? Optivem. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
+    <PackageTags>Optivem Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
+    <Version>1.0.8</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Optivem.Core.Application.csproj" />
+  </ItemGroup>
+
+</Project>

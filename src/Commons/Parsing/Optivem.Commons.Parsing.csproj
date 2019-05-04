@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Interfaces for parsing</Description>
+    <Company>Optivem</Company>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <Authors>Optivem</Authors>
+    <PackageTags>Optivem Framework DotNetCore Core Common Parsing Parser</PackageTags>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.8</Version>
+    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <PackageId>Optivem.Framework.Core.Common.Parsing</PackageId>
+    <Product>Optivem.Framework.Core.Common.Parsing</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+</Project>

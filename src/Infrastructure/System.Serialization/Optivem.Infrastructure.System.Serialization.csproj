@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Version>1.0.8</Version>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for Serialization using multiple serializers</Description>
+    <Copyright>� Optivem. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Serialization</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
+    <ProjectReference Include="..\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+  </ItemGroup>
+
+</Project>

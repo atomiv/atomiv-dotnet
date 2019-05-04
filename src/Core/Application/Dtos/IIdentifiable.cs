@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Ports.Dtos
+﻿namespace Optivem.Core.Application
 {
     public interface IIdentifiable<TKey>
     {

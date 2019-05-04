@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Domain.Entities
+﻿namespace Optivem.Core.Domain
 {
     public interface IEntity<TKey>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Application.Ports.UseCases
+namespace Optivem.Core.Application
 {
     public interface IFindAllUseCase<TResponse> : IUseCase<IEnumerable<TResponse>>
     {

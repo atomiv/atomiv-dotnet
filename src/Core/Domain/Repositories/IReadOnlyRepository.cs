@@ -1,11 +1,10 @@
-﻿using Optivem.Framework.Core.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Domain.Ports.Repositories
+namespace Optivem.Core.Domain
 {
     public interface IReadonlyRepository<TEntity, TKey>
         where TEntity : class, IEntity<TKey>

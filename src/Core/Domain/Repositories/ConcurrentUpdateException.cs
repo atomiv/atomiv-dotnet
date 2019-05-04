@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Framework.Core.Domain.Ports.Repositories
+namespace Optivem.Core.Domain
 {
     public class ConcurrentUpdateException : Exception
     {

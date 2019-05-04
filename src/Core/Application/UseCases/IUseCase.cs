@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.Ports.UseCases
+namespace Optivem.Core.Application
 {
     public interface IUseCase<TRequest, TResponse>
     {
