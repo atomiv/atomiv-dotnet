@@ -20,8 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

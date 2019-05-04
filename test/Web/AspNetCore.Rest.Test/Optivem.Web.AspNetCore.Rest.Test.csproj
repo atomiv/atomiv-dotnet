@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj" />
     <ProjectReference Include="..\..\Base\Xunit.AspNetCore\Optivem.Test.Xunit.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
     <ProjectReference Include="..\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.Rest.Fake.csproj" />

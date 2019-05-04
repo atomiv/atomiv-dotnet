@@ -63,11 +63,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serializat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAutomation", "WebAutomation", "{49B143F8-3CC1-4BB9-9D5C-373218FAB99F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Csv.CsvHelper", "src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj", "{5E212824-422D-419E-BE24-B92D8C5E4268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.CsvHelper", "src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj", "{5E212824-422D-419E-BE24-B92D8C5E4268}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Json.NewtonsoftJson", "src\Infrastructure\Serialization\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj", "{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.NewtonsoftJson", "src\Infrastructure\Serialization\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj", "{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Text.System", "src\Infrastructure\Serialization\Text.System\Optivem.Infrastructure.Serialization.Text.System.csproj", "{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\Text.System\Optivem.Infrastructure.Serialization.System.csproj", "{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{718276F5-9125-4681-9C32-9E34E2C64800}"
 EndProject
