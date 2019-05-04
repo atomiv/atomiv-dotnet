@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.Common.Parsing.Default
+﻿namespace Optivem.Infrastructure.Serialization.Text.System
 {
     /// <summary>
     /// Converts string data into object of a certain type

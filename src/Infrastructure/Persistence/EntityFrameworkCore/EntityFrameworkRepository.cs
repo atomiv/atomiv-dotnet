@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore
+namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
     public class EntityFrameworkRepository<TContext, TEntity, TKey> : EntityFrameworkReadonlyRepository<TContext, TEntity, TKey>, IRepository<TEntity, TKey>
         where TContext : DbContext

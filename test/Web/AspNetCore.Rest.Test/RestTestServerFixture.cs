@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Optivem.Common.Http;
 using Optivem.Common.Serialization;
-using Optivem.Framework.Infrastructure.Common.RestClient.Default;
-using Optivem.Framework.Infrastructure.Common.Serialization.Default;
+using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Serialization.All;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Framework.Test.Xunit.Web.AspNetCore;
 using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;

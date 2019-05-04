@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using Optivem.Core.Application;
 
-namespace Optivem.Framework.Infrastructure.Application.Validators.FluentValidation
+namespace Optivem.Infrastructure.Validation.FluentValidation
 {
     public class FluentValidationError : IValidationError
     {

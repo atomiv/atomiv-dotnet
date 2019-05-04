@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.Common.RestClient.Default
+namespace Optivem.Infrastructure.Http.System
 {
     // TODO: VC: This is for json, consider other types, e.g. content xml, csv, etc
 

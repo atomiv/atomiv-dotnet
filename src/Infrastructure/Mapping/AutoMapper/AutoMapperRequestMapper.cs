@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Optivem.Core.Application;
 
-namespace Optivem.Infrastructure.AutoMapper
+namespace Optivem.Infrastructure.Mapping.AutoMapper
 {
     public class AutoMapperRequestMapper<TRequest, TEntity> : IRequestMapper<TRequest, TEntity>
     {

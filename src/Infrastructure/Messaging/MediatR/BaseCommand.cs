@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.MediatR
+﻿namespace Optivem.Infrastructure.Messaging.MediatR
 {
     public abstract class BaseCommand<TRequest, TResponse> : ICommand<TRequest, TResponse>
     {

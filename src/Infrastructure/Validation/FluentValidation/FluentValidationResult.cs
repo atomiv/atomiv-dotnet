@@ -3,7 +3,7 @@ using Optivem.Core.Application;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Application.Validators.FluentValidation
+namespace Optivem.Infrastructure.Validation.FluentValidation
 {
     public class FluentValidationResult : IValidationResult
     {

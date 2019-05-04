@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.MediatR
+namespace Optivem.Infrastructure.Messaging.MediatR
 {
     public class FindAllCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TResponse>
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, object, IEnumerable<TResponse>>

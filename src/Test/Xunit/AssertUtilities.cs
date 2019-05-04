@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
+﻿using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using Xunit;
 
 namespace Optivem.Framework.Test.Xunit.Common

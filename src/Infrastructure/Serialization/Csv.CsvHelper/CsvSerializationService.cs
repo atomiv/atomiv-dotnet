@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper
+namespace Optivem.Infrastructure.Serialization.Csv.CsvHelper
 {
     public class CsvSerializationService : ICsvSerializationService
     {

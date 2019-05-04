@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Optivem.Common.Serialization;
 
-namespace Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson
+namespace Optivem.Infrastructure.Serialization.Json.NewtonsoftJson
 {
     public class JsonSerializationService : IJsonSerializationService
     {

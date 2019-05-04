@@ -2,7 +2,7 @@
 using Optivem.Common.Http;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.Common.RestClient.Default
+namespace Optivem.Infrastructure.Http.System
 {
     internal class ProblemDetailsWrapper : IProblemDetails
     {

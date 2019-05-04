@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore
+namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
     public class EntityFrameworkReadonlyRepository<TContext, TEntity, TKey> : IReadonlyRepository<TEntity, TKey>
         where TContext : DbContext

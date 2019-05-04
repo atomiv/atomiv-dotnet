@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Optivem.Framework.Infrastructure.Common.Parsing.Default</PackageId>
-    <Product>Optivem.Framework.Infrastructure.Common.Parsing.Default</Product>
+    <PackageId>Optivem.Infrastructure.Serialization.Text.System</PackageId>
+    <Product>Optivem.Infrastructure.Serialization.Text.System</Product>
     <Company>Optivem</Company>
     <Authors>Optivem</Authors>
     <Description>Default implementation of parsing for standard data types</Description>

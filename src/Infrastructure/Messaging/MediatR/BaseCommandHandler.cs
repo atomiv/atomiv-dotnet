@@ -5,7 +5,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.MediatR
+namespace Optivem.Infrastructure.Messaging.MediatR
 {
     public abstract class BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TRequest, TResponse>
         : IRequestHandler<TCommand, TResponse>

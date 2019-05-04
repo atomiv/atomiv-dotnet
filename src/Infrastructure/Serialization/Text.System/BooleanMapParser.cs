@@ -1,7 +1,7 @@
 ﻿using Optivem.Common.Serialization;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.Common.Parsing.Default
+namespace Optivem.Infrastructure.Serialization.Text.System
 {
     public class BooleanMapParser : IParser<bool?>
     {

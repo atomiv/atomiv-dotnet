@@ -3,7 +3,7 @@ using Optivem.Common.WebAutomation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
+namespace Optivem.Infrastructure.WebAutomation.Selenium
 {
     public class SeleniumComboBox<T> : BaseSeleniumElement, IComboBox<T>
     {

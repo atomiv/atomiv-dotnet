@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.MediatR
+namespace Optivem.Infrastructure.Messaging.MediatR
 {
     public class DeleteCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand>
         : BaseCommandHandler<TUnitOfWork, TRepository, TKey, TEntity, TCommand, TKey, bool>

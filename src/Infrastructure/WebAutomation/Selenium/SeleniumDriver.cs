@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
+namespace Optivem.Infrastructure.WebAutomation.Selenium
 {
     public class SeleniumDriver : IDriver
     {

@@ -1,9 +1,9 @@
 ﻿using Optivem.Common.Serialization;
-using Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper;
-using Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson;
+using Optivem.Infrastructure.Serialization.Csv.CsvHelper;
+using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.Common.Serialization.Default
+namespace Optivem.Infrastructure.Serialization.All
 {
     public class SerializationService : ISerializationService
     {
