@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\WebAutomation\Optivem.Commons.WebAutomation.csproj" />
+    <ProjectReference Include="..\..\..\Common\WebAutomation\Optivem.Common.WebAutomation.csproj" />
   </ItemGroup>
 
 </Project>

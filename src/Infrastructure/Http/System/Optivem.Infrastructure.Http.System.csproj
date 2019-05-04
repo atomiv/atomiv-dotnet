@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Commons\Http\Optivem.Commons.Http.csproj" />
-    <ProjectReference Include="..\..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Common\Http\Optivem.Common.Http.csproj" />
+    <ProjectReference Include="..\..\..\Common\Serialization\Optivem.Common.Serialization.csproj" />
   </ItemGroup>
 
 </Project>
