@@ -4,21 +4,21 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Optivem</Authors>
     <Version>1.0.8</Version>
-    <Description>Implementation for CSV Serialization using CsvHelper</Description>
+    <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
     <Copyright>© Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Serialization CSV CsvHelper</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

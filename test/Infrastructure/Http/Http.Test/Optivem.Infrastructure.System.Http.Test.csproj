@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="5.6.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="74.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Commons\WebAutomation\Optivem.Commons.WebAutomation.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\All\Optivem.Infrastructure.Serialization.All.csproj" />
+    <ProjectReference Include="..\..\..\src\Test\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 
 </Project>

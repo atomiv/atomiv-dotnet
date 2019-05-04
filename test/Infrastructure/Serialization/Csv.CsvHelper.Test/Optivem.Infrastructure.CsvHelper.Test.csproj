@@ -1,9 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\System.Http\Optivem.Infrastructure.Http.System.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\System.Serialization\Optivem.Infrastructure.Serialization.All.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
     <ProjectReference Include="..\..\..\src\Test\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 

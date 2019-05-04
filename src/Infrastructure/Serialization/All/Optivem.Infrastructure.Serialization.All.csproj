@@ -14,9 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
-    <ProjectReference Include="..\CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
-    <ProjectReference Include="..\NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\Csv.CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
+    <ProjectReference Include="..\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

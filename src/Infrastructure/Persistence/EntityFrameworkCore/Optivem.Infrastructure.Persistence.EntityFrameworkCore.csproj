@@ -2,23 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Optivem</Authors>
     <Version>1.0.8</Version>
-    <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for Domain Repositories</Description>
+    <Copyright>� Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Common Serialization JSON NewtonsoftJson</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Domain Repository Repositories EntityFrameworkCore</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Optivem.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>
