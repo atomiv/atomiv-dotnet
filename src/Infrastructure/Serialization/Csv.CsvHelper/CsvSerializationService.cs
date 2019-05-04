@@ -1,5 +1,5 @@
 ﻿using CsvHelper;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;

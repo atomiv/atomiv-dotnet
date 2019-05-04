@@ -2,7 +2,7 @@
 using System.Net;
 using System.Runtime.Serialization;
 
-namespace Optivem.Core.Common.RestClient
+namespace Optivem.Common.Http
 {
     public class RestClientException : Exception
     {

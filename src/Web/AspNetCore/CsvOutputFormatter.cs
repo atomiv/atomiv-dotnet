@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Serialization;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {

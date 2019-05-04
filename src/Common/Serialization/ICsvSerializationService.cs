@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Common.Serialization
+﻿namespace Optivem.Common.Serialization
 {
     public interface ICsvSerializationService : IFormatSerializationService
     {

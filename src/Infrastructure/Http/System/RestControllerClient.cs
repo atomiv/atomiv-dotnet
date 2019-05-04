@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Core.Common.RestClient;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Http;
+using Optivem.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net;

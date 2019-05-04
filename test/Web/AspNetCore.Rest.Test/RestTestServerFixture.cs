@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using Microsoft.AspNetCore.Hosting;
-using Optivem.Core.Common.RestClient;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Http;
+using Optivem.Common.Serialization;
 using Optivem.Framework.Infrastructure.Common.RestClient.Default;
 using Optivem.Framework.Infrastructure.Common.Serialization.Default;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;

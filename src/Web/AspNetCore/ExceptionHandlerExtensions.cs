@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Serialization;
 
 namespace Optivem.Framework.Web.AspNetCore.Rest
 {

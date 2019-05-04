@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Common.Parsing;
+﻿using Optivem.Common.Serialization;
 using System.Collections.Generic;
 
 namespace Optivem.Framework.Infrastructure.Common.Parsing.Default

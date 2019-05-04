@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Common.Parsing
+﻿namespace Optivem.Common.Serialization
 {
     public interface IParser
     {

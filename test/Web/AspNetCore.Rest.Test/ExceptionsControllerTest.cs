@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Common.RestClient;
+﻿using Optivem.Common.Http;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;

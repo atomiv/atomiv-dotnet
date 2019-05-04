@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Common.RestClient
+namespace Optivem.Common.Http
 {
     public interface IRestControllerClient<TId,
         TGetCollectionResponse, 

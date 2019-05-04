@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Core.Common.RestClient;
+using Optivem.Common.Http;
 using System.Collections.Generic;
 
 namespace Optivem.Framework.Infrastructure.Common.RestClient.Default

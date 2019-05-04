@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Common.WebAutomation
+namespace Optivem.Common.WebAutomation
 {
     public interface IDriver
     {

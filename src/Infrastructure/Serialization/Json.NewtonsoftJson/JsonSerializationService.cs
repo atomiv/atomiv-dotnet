@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Optivem.Core.Common.Serialization;
+using Optivem.Common.Serialization;
 
 namespace Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Common.RestClient
+namespace Optivem.Common.Http
 {
     public interface IProblemDetails
     {

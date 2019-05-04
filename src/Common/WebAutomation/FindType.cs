@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Common.WebAutomation
+﻿namespace Optivem.Common.WebAutomation
 {
     public enum FindType
     {

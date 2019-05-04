@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

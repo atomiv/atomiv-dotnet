@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Common.WebAutomation;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium
 {
