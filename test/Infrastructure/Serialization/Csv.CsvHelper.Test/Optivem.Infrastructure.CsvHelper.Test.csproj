@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj" />
     <ProjectReference Include="..\..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 

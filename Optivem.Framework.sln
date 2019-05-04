@@ -63,12 +63,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serializat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAutomation", "WebAutomation", "{49B143F8-3CC1-4BB9-9D5C-373218FAB99F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.CsvHelper", "src\Infrastructure\Serialization\Csv.CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj", "{5E212824-422D-419E-BE24-B92D8C5E4268}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.NewtonsoftJson", "src\Infrastructure\Serialization\Json.NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj", "{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\Text.System\Optivem.Infrastructure.Serialization.System.csproj", "{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{718276F5-9125-4681-9C32-9E34E2C64800}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Validation.FluentValidation", "src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj", "{11DC58A0-CBBF-4530-95A0-754C536442FA}"
@@ -98,6 +92,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper.Test", "test\Infrastructure\Serialization\Csv.CsvHelper.Test\Optivem.Infrastructure.CsvHelper.Test.csproj", "{169CA3E1-FEA4-42A3-8B4F-2E8E371013E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.Test", "test\Infrastructure\WebAutomation\Selenium.Test\Optivem.Infrastructure.Selenium.Test.csproj", "{9081957A-B2D0-44DB-B067-D777EE40F43D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.CsvHelper", "src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj", "{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.NewtonsoftJson", "src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj", "{A2FC768C-6D45-421A-9FB7-6A7578D667B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj", "{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,18 +141,6 @@ Global
 		{CCFB400E-D2FE-4281-A75E-890FF6D7833F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCFB400E-D2FE-4281-A75E-890FF6D7833F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCFB400E-D2FE-4281-A75E-890FF6D7833F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E212824-422D-419E-BE24-B92D8C5E4268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E212824-422D-419E-BE24-B92D8C5E4268}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E212824-422D-419E-BE24-B92D8C5E4268}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E212824-422D-419E-BE24-B92D8C5E4268}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{998AF7AB-D206-4EBA-A9E7-9F91D26243F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11DC58A0-CBBF-4530-95A0-754C536442FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11DC58A0-CBBF-4530-95A0-754C536442FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11DC58A0-CBBF-4530-95A0-754C536442FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -197,6 +185,18 @@ Global
 		{9081957A-B2D0-44DB-B067-D777EE40F43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9081957A-B2D0-44DB-B067-D777EE40F43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9081957A-B2D0-44DB-B067-D777EE40F43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FC768C-6D45-421A-9FB7-6A7578D667B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FC768C-6D45-421A-9FB7-6A7578D667B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FC768C-6D45-421A-9FB7-6A7578D667B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FC768C-6D45-421A-9FB7-6A7578D667B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -230,9 +230,6 @@ Global
 		{CCFB400E-D2FE-4281-A75E-890FF6D7833F} = {34BAC325-3D79-4AD5-83C4-E390A0EE8F23}
 		{4C3B1618-AD88-4877-94B5-326E29274E8C} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{49B143F8-3CC1-4BB9-9D5C-373218FAB99F} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
-		{5E212824-422D-419E-BE24-B92D8C5E4268} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
-		{A2FC7767-559F-4EE5-81D9-C3ECB10D1A27} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
-		{998AF7AB-D206-4EBA-A9E7-9F91D26243F4} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
 		{718276F5-9125-4681-9C32-9E34E2C64800} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{11DC58A0-CBBF-4530-95A0-754C536442FA} = {718276F5-9125-4681-9C32-9E34E2C64800}
 		{1522A122-F38F-4455-A346-D7E05E4EA348} = {49B143F8-3CC1-4BB9-9D5C-373218FAB99F}
@@ -248,6 +245,9 @@ Global
 		{7FF8FA52-C44A-43B4-A5DA-0AE5B833F1CB} = {F5053BB1-8311-42F9-ACF6-8A8C1607B10F}
 		{169CA3E1-FEA4-42A3-8B4F-2E8E371013E4} = {0B25A732-7438-4FFD-AE95-BDC72F99FDE7}
 		{9081957A-B2D0-44DB-B067-D777EE40F43D} = {57D17F2E-BD8F-4F3B-9E4E-69C72BB280CF}
+		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
+		{A2FC768C-6D45-421A-9FB7-6A7578D667B4} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
+		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
