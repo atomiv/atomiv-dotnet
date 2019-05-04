@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Models
+namespace Optivem.Web.AspNetCore.Fake.Models
 {
     public class CustomerPostRequest
     {

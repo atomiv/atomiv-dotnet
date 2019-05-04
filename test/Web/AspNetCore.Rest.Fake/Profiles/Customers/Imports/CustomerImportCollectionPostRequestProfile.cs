@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
+using Optivem.Web.AspNetCore.Fake.Entities;
+using Optivem.Web.AspNetCore.Fake.Models;
 using Optivem.Infrastructure.Mapping.AutoMapper;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers.Imports
+namespace Optivem.Web.AspNetCore.Fake.Profiles.Customers.Imports
 {
     public class CustomerImportCollectionPostRequestProfile : AutoMapperRequestProfile<CustomerImportCollectionPostRequest, Customer>
     {

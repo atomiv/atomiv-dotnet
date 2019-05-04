@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Optivem.Core.Application;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest
+namespace Optivem.Web.AspNetCore
 {
     public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
         : ControllerBase

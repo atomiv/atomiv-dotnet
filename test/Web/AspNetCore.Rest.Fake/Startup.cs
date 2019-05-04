@@ -8,8 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Serialization.Csv.CsvHelper;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
-using Optivem.Framework.Web.AspNetCore.Rest;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers;
+using Optivem.Web.AspNetCore;
+using Optivem.Web.AspNetCore.Fake.Profiles.Customers;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 

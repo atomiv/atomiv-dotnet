@@ -2,7 +2,7 @@
 using Optivem.Common.Serialization;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest
+namespace Optivem.Web.AspNetCore
 {
     public class ValidationProblemDetailsActionResult : IActionResult
     {

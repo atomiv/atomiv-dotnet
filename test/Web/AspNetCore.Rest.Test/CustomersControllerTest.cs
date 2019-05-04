@@ -1,16 +1,16 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Infrastructure.Serialization.Csv.CsvHelper;
-using Optivem.Framework.Test.Xunit.Common;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers.Exports;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
+using Optivem.Framework.Test.Xunit;
+using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;
+using Optivem.Web.AspNetCore.Fake.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Test
+namespace Optivem.Web.AspNetCore.Test
 {
     public class CustomersControllerTest : RestTestServerFixtureTest
     {

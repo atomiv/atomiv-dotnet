@@ -5,11 +5,11 @@ using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
 using Optivem.Infrastructure.Serialization.All;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
-using Optivem.Framework.Test.Xunit.Web.AspNetCore;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Models;
+using Optivem.Test.Xunit.AspNetCore;
+using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.Fake.Models;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Test
+namespace Optivem.Web.AspNetCore.Test
 {
     // TODO: VC: Consider moving into Fixtures folder
 

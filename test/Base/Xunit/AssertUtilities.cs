@@ -1,7 +1,7 @@
 ﻿using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using Xunit;
 
-namespace Optivem.Framework.Test.Xunit.Common
+namespace Optivem.Framework.Test.Xunit
 {
     public static class AssertUtilities
     {

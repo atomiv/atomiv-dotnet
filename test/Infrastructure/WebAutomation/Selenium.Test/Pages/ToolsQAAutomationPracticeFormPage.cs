@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Optivem.Core.Common.WebAutomation;
+﻿using Optivem.Common.WebAutomation;
+using System.Collections.Generic;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages
 {

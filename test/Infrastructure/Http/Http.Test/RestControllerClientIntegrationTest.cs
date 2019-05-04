@@ -1,4 +1,4 @@
-using Optivem.Framework.Test.Xunit.Common;
+using Optivem.Framework.Test.Xunit;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;

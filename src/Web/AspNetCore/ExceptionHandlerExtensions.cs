@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Optivem.Common.Serialization;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest
+namespace Optivem.Web.AspNetCore
 {
     public static class ExceptionHandlerExtensions
     {

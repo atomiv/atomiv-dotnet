@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using Optivem.Framework.Web.AspNetCore.Rest.Fake.Entities;
+﻿using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.Fake.Entities;
 using Optivem.Infrastructure.Mapping.AutoMapper;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Fake.Profiles.Customers
+namespace Optivem.Web.AspNetCore.Fake.Profiles.Customers
 {
     public class CustomerPostResponseProfile : AutoMapperResponseProfile<Customer, CustomerPostResponse>
     {

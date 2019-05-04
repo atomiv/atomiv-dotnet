@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using Optivem.Common.Serialization;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest
+namespace Optivem.Web.AspNetCore
 {
     public class CsvOutputFormatter : TextOutputFormatter
     {

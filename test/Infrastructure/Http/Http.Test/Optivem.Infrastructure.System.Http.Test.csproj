@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\All\Optivem.Infrastructure.Serialization.All.csproj" />
-    <ProjectReference Include="..\..\..\src\Test\Xunit\Optivem.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 
 </Project>

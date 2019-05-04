@@ -1,9 +1,9 @@
-using Optivem.Framework.Test.Xunit.Common;
+using Optivem.Framework.Test.Xunit;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Test
+namespace Optivem.Web.AspNetCore.Test
 {
     public class ValuesControllerTest : RestTestServerFixtureTest
     {

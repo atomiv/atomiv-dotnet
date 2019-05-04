@@ -1,5 +1,6 @@
-﻿using Optivem.Core.Common.Serialization;
-using Optivem.Framework.Infrastructure.Common.Serialization.Default;
+﻿using Optivem.Common.Serialization;
+using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Serialization.All;
 using System;
 using System.Net.Http;
 

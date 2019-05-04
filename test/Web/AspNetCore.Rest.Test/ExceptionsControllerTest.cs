@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Framework.Web.AspNetCore.Rest.Test
+namespace Optivem.Web.AspNetCore.Test
 {
     public class ExceptionsControllerTest : RestTestServerFixtureTest
     {
