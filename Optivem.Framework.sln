@@ -27,29 +27,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commons", "Commons", "{30B6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Http", "src\Commons\Http\Optivem.Commons.Http.csproj", "{E40EACB6-51EB-410B-8523-DA1A29F7DB06}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Parsing", "src\Commons\Parsing\Optivem.Commons.Parsing.csproj", "{93699BD3-51B5-4333-9E58-B1204FA4AC21}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.Serialization", "src\Commons\Serialization\Optivem.Commons.Serialization.csproj", "{34DFDE39-F674-4E68-A34F-077A50445528}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Commons.WebAutomation", "src\Commons\WebAutomation\Optivem.Commons.WebAutomation.csproj", "{A486A747-22BE-4B2A-9863-904209CF0291}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AutoMapper", "src\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj", "{03E23C0C-CC3E-456E-B0B5-FCDED0ED9DC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Mapping.AutoMapper", "src\Infrastructure\AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj", "{03E23C0C-CC3E-456E-B0B5-FCDED0ED9DC4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper", "src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj", "{F0F2D520-1D32-4131-BA3B-84ED12CD3D9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Csv.CsvHelper", "src\Infrastructure\CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj", "{F0F2D520-1D32-4131-BA3B-84ED12CD3D9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj", "{37DF4D2B-15C3-4BDA-93B7-E6F2367ECD82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Persistence.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj", "{37DF4D2B-15C3-4BDA-93B7-E6F2367ECD82}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj", "{429CD7A5-45D0-4592-9B5F-68AE5052292C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Validation.FluentValidation", "src\Infrastructure\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj", "{429CD7A5-45D0-4592-9B5F-68AE5052292C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.MediatR", "src\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.csproj", "{E99950FC-F9DB-47F1-AD41-6DCD918954B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Messaging.MediatR", "src\Infrastructure\MediatR\Optivem.Infrastructure.Messaging.MediatR.csproj", "{E99950FC-F9DB-47F1-AD41-6DCD918954B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj", "{582A26CA-2256-4BA8-99F4-2BB1A195A69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Json.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj", "{582A26CA-2256-4BA8-99F4-2BB1A195A69D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium", "src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj", "{27FB9733-2BAE-4443-8154-40D8D7C5129E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.WebAutomation.Selenium", "src\Infrastructure\Selenium\Optivem.Infrastructure.WebAutomation.Selenium.csproj", "{27FB9733-2BAE-4443-8154-40D8D7C5129E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System.Http", "src\Infrastructure\System.Http\Optivem.Infrastructure.System.Http.csproj", "{A305360D-13BD-4BEE-AE7C-D1B7FA576795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Http.System", "src\Infrastructure\System.Http\Optivem.Infrastructure.Http.System.csproj", "{A305360D-13BD-4BEE-AE7C-D1B7FA576795}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System.Parsing", "src\Infrastructure\System.Parsing\Optivem.Infrastructure.System.Parsing.csproj", "{BC98F82E-A553-4E24-B4BA-35C8BA194C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.Text.System", "src\Infrastructure\System.Parsing\Optivem.Infrastructure.Serialization.Text.System.csproj", "{BC98F82E-A553-4E24-B4BA-35C8BA194C41}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Xunit", "src\Test\Xunit\Optivem.Test.Xunit.csproj", "{665AF3C8-1988-4CEB-9DEB-429EC82A2AC8}"
 EndProject
@@ -69,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.Rest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.Rest.Test", "test\Web\AspNetCore.Rest.Test\Optivem.Web.AspNetCore.Rest.Test.csproj", "{5521E732-F5A2-49CE-91B5-FB4E1C401D42}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System.Serialization", "src\Infrastructure\System.Serialization\Optivem.Infrastructure.System.Serialization.csproj", "{D36CD2B0-A598-4E4D-BAE7-4864C4B4EAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.All", "src\Infrastructure\System.Serialization\Optivem.Infrastructure.Serialization.All.csproj", "{D36CD2B0-A598-4E4D-BAE7-4864C4B4EAE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,10 +87,6 @@ Global
 		{E40EACB6-51EB-410B-8523-DA1A29F7DB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E40EACB6-51EB-410B-8523-DA1A29F7DB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E40EACB6-51EB-410B-8523-DA1A29F7DB06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93699BD3-51B5-4333-9E58-B1204FA4AC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93699BD3-51B5-4333-9E58-B1204FA4AC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93699BD3-51B5-4333-9E58-B1204FA4AC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93699BD3-51B5-4333-9E58-B1204FA4AC21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34DFDE39-F674-4E68-A34F-077A50445528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34DFDE39-F674-4E68-A34F-077A50445528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34DFDE39-F674-4E68-A34F-077A50445528}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -192,7 +186,6 @@ Global
 		{7F68AEAC-EC61-4BD5-BF98-EE069981C3D4} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 		{30B6FB39-7F3F-4B3D-8263-A84DAF903A36} = {D014EF31-353F-486A-872C-9AD3674F185B}
 		{E40EACB6-51EB-410B-8523-DA1A29F7DB06} = {30B6FB39-7F3F-4B3D-8263-A84DAF903A36}
-		{93699BD3-51B5-4333-9E58-B1204FA4AC21} = {30B6FB39-7F3F-4B3D-8263-A84DAF903A36}
 		{34DFDE39-F674-4E68-A34F-077A50445528} = {30B6FB39-7F3F-4B3D-8263-A84DAF903A36}
 		{A486A747-22BE-4B2A-9863-904209CF0291} = {30B6FB39-7F3F-4B3D-8263-A84DAF903A36}
 		{03E23C0C-CC3E-456E-B0B5-FCDED0ED9DC4} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}

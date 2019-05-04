@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commons\Parsing\Optivem.Commons.Parsing.csproj" />
+    <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Infrastructure\System.Http\Optivem.Infrastructure.System.Http.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\System.Serialization\Optivem.Infrastructure.System.Serialization.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\System.Http\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\System.Serialization\Optivem.Infrastructure.Serialization.All.csproj" />
     <ProjectReference Include="..\..\..\src\Test\Xunit.AspNetCore\Optivem.Test.Xunit.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\src\Test\Xunit\Optivem.Test.Xunit.csproj" />
     <ProjectReference Include="..\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.Rest.Fake.csproj" />

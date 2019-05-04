@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Version>1.0.8</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for Serialization using multiple serializers</Description>
@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Commons\Serialization\Optivem.Commons.Serialization.csproj" />
-    <ProjectReference Include="..\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
-    <ProjectReference Include="..\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\CsvHelper\Optivem.Infrastructure.Serialization.Csv.CsvHelper.csproj" />
+    <ProjectReference Include="..\NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

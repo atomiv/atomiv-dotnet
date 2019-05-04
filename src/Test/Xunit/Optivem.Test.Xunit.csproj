@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.Serialization.Json.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>
