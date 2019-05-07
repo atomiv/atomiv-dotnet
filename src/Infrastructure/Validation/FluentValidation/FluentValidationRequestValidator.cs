@@ -1,9 +1,12 @@
 ﻿using FluentValidation;
 using Optivem.Core.Application;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Application.Validators;
 
 namespace Optivem.Infrastructure.Validation.FluentValidation
 {
     public class FluentValidationRequestValidator<TRequest> : IRequestValidator<TRequest>
+        where TRequest : IRequest
     {
         private IValidator<TRequest> _validator;
 

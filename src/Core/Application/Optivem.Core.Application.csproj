@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Optivem.Core.Application.Interface\Optivem.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Domain\Optivem.Core.Domain.csproj" />
   </ItemGroup>
 

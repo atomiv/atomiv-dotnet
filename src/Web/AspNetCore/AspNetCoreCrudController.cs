@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Optivem.Core.Application;
+using Optivem.Core.Application.Services;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Application.Responses;
 
 namespace Optivem.Web.AspNetCore
 {
     public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
         : ControllerBase
-        where TService : ICrudService<TKey, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TUpdateRequest : IIdentifiable<TKey>
-        where TCreateResponse : IIdentifiable<TKey>
+        where TService : ICrudService<TKey, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
+        where TUpdateRequest : IUpdateRequest<TKey>
+        where TCreateResponse : ICreateResponse<TKey>
     {
         public AspNetCoreCrudController(TService service)
         {
@@ -19,10 +22,10 @@ namespace Optivem.Web.AspNetCore
         protected TService Service { get; private set; }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TFindAllResponse>>> GetResources()
+        public async Task<ActionResult<TFindAllResponse>> GetResources(TFindAllRequest request)
         {
-            var responses = await Service.FindAllAsync();
-            return Ok(responses);
+            var response = await Service.FindAllAsync(request);
+            return Ok(response);
         }
 
         [HttpGet("{id}")]

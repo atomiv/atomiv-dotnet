@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
 using Optivem.Core.Application;
+using Optivem.Core.Application.Mappers;
+using Optivem.Core.Application.Responses;
+using Optivem.Core.Domain.Entities;
 
 namespace Optivem.Infrastructure.Mapping.AutoMapper
 {
     public class AutoMapperResponseMapper<TEntity, TResponse> : IResponseMapper<TEntity, TResponse>
+        where TEntity : IEntity
+        where TResponse : IResponse
     {
         public AutoMapperResponseMapper(IMapper mapper)
         {

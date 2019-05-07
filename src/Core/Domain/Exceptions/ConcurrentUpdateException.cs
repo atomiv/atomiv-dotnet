@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Core.Domain.Exceptions
 {
     public class ConcurrentUpdateException : Exception
     {

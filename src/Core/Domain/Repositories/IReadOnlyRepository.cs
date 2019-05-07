@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Optivem.Core.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Core.Domain.Repositories
 {
-    public interface IReadonlyRepository<TEntity, TKey>
-        where TEntity : class, IEntity<TKey>
+    public interface IReadonlyRepository<TEntity, TId>
+        where TEntity : class, IEntity<TId>
     {
         #region Read
 
@@ -45,13 +46,13 @@ namespace Optivem.Core.Domain
 
         Task<bool> GetExistsAsync(Expression<Func<TEntity, bool>> filter = null);
 
-        TEntity GetSingleOrDefault(TKey id);
+        TEntity GetSingleOrDefault(TId id);
 
-        Task<TEntity> GetSingleOrDefaultAsync(TKey id);
+        Task<TEntity> GetSingleOrDefaultAsync(TId id);
 
-        bool GetExists(TKey id);
+        bool GetExists(TId id);
 
-        Task<bool> GetExistsAsync(TKey id);
+        Task<bool> GetExistsAsync(TId id);
 
         #endregion
     }

@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Optivem.Core.Domain.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Core.Domain.Repositories
 {
-    public interface IRepository<TEntity, TKey> : IReadonlyRepository<TEntity, TKey>
-        where TEntity : class, IEntity<TKey>
+    public interface IRepository<TEntity, TId> : IReadonlyRepository<TEntity, TId>
+        where TEntity : class, IEntity<TId>
     {
         #region Create
 
@@ -40,9 +41,9 @@ namespace Optivem.Core.Domain
         
         void DeleteRange(params TEntity[] entities);
 
-        void DeleteRange(IEnumerable<TKey> ids);
+        void DeleteRange(IEnumerable<TId> ids);
 
-        void DeleteRange(params TKey[] ids);
+        void DeleteRange(params TId[] ids);
 
         #endregion
     }

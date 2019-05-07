@@ -97,6 +97,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Seri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj", "{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Core.Application.Interface", "Optivem.Core.Application.Interface\Optivem.Core.Application.Interface.csproj", "{845FC6B8-7968-420F-BD8C-04035D069501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,10 @@ Global
 		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845FC6B8-7968-420F-BD8C-04035D069501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845FC6B8-7968-420F-BD8C-04035D069501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845FC6B8-7968-420F-BD8C-04035D069501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845FC6B8-7968-420F-BD8C-04035D069501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +247,7 @@ Global
 		{7A516FB4-0ADD-4947-829B-214ACEB8EEC5} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
 		{A2FC768C-6D45-421A-9FB7-6A7578D667B4} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
 		{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0} = {4C3B1618-AD88-4877-94B5-326E29274E8C}
+		{845FC6B8-7968-420F-BD8C-04035D069501} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

@@ -1,14 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Core.Domain;
+using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Exceptions;
+using Optivem.Core.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
-    public class EntityFrameworkRepository<TContext, TEntity, TKey> : EntityFrameworkReadonlyRepository<TContext, TEntity, TKey>, IRepository<TEntity, TKey>
+    public class EntityFrameworkRepository<TContext, TEntity, TId> : EntityFrameworkReadonlyRepository<TContext, TEntity, TId>, IRepository<TEntity, TId>
         where TContext : DbContext
-        where TEntity : class, IEntity<TKey>
+        where TEntity : class, IEntity<TId>
     {
         public EntityFrameworkRepository(TContext context) : base(context)
         {
@@ -127,13 +130,13 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             DeleteRange(entities);
         }
 
-        public void DeleteRange(IEnumerable<TKey> ids)
+        public void DeleteRange(IEnumerable<TId> ids)
         {
             var entities = GetEntities(ids);
             set.RemoveRange(entities);
         }
 
-        public void DeleteRange(params TKey[] ids)
+        public void DeleteRange(params TId[] ids)
         {
             var entities = GetEntities(ids);
             set.RemoveRange(entities);

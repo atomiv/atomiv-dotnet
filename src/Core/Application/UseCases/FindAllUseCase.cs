@@ -1,13 +1,21 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Core.Application.Mappers;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Application.Responses;
+using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Core.Application.UseCases
 {
-    class FindAllUseCase<TResponse, TEntity, TKey> : IFindAllUseCase<TResponse>
-        where TEntity : class, IEntity<TKey>
+    class FindAllUseCase<TRequest, TResponse, TRecordResponse, TEntity, TId> : IFindAllUseCase<TRequest, TResponse>
+        where TRequest : IFindAllRequest
+        where TResponse : IFindAllResponse<TRecordResponse>, new()
+        where TRecordResponse : IFindAllRecordResponse
+        where TEntity : class, IEntity<TId>
     {
-        public FindAllUseCase(IResponseMapper responseMapper, IReadonlyRepository<TEntity, TKey> repository)
+        public FindAllUseCase(IResponseMapper responseMapper, IReadonlyRepository<TEntity, TId> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;
@@ -15,15 +23,19 @@ namespace Optivem.Core.Application
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IReadonlyRepository<TEntity, TKey> Repository { get; private set; }
+        protected IReadonlyRepository<TEntity, TId> Repository { get; private set; }
 
-        public async Task<IEnumerable<TResponse>> HandleAsync()
+        public async Task<TResponse> HandleAsync(TRequest request)
         {
             // TODO: VC: Later handling use case with pagination, need corresponding dto and also result not just list
 
             var entities = await Repository.GetAsync();
-            var responses = ResponseMapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
-            return responses;
+            var records = ResponseMapper.MapEnumerable<TEntity, TRecordResponse>(entities).ToList();
+
+            return new TResponse
+            {
+                Data = records,
+            };
         }
     }
 }

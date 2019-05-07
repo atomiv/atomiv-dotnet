@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Core.Domain;
+using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
-    public class EntityFrameworkReadonlyRepository<TContext, TEntity, TKey> : IReadonlyRepository<TEntity, TKey>
+    public class EntityFrameworkReadonlyRepository<TContext, TEntity, TId> : IReadonlyRepository<TEntity, TId>
         where TContext : DbContext
-        where TEntity : class, IEntity<TKey>
+        where TEntity : class, IEntity<TId>
     {
         protected readonly TContext context;
         protected readonly DbSet<TEntity> set;
@@ -113,23 +115,23 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return query.AnyAsync();
         }
 
-        public TEntity GetSingleOrDefault(TKey id)
+        public TEntity GetSingleOrDefault(TId id)
         {
             return GetSingleOrDefaultInner(id);
         }
 
-        public Task<TEntity> GetSingleOrDefaultAsync(TKey id)
+        public Task<TEntity> GetSingleOrDefaultAsync(TId id)
         {
             return GetSingleOrDefaultInnerAsync(id);
         }
 
-        public bool GetExists(TKey id)
+        public bool GetExists(TId id)
         {
             var entity = GetSingleOrDefault(id);
             return entity != null;
         }
 
-        public async Task<bool> GetExistsAsync(TKey id)
+        public async Task<bool> GetExistsAsync(TId id)
         {
             var entity = await GetSingleOrDefaultAsync(id);
             return entity != null;

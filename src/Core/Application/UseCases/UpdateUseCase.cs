@@ -1,14 +1,20 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Core.Application.Mappers;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Application.Responses;
+using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Exceptions;
+using Optivem.Core.Domain.Repositories;
+using Optivem.Core.Domain.UnitOfWork;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Core.Application.UseCases
 {
-    public class UpdateUseCase<TRequest, TResponse, TEntity, TKey> : IUpdateUseCase<TRequest, TResponse>
-        where TRequest : IIdentifiable<TKey>
-        where TResponse : class
-        where TEntity : class, IEntity<TKey>
+    public class UpdateUseCase<TRequest, TResponse, TEntity, TId> : IUpdateUseCase<TRequest, TResponse>
+        where TRequest : IUpdateRequest<TId>
+        where TResponse : class, IUpdateResponse<TId>
+        where TEntity : class, IEntity<TId>
     {
-        public UpdateUseCase(IRequestMapper<TRequest, TEntity> requestMapper, IResponseMapper<TEntity, TResponse> responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TKey> repository)
+        public UpdateUseCase(IRequestMapper<TRequest, TEntity> requestMapper, IResponseMapper<TEntity, TResponse> responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TId> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -22,7 +28,7 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected IRepository<TEntity, TKey> Repository { get; private set; }
+        protected IRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

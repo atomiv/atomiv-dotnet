@@ -1,12 +1,19 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Core.Application.Mappers;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Application.Responses;
+using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Repositories;
+using Optivem.Core.Domain.UnitOfWork;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Core.Application.UseCases
 {
-    public class CreateUseCase<TRequest, TResponse, TEntity, TKey> : ICreateUseCase<TRequest, TResponse>
-        where TEntity: class, IEntity<TKey>
+    public class CreateUseCase<TRequest, TResponse, TEntity, TId> : ICreateUseCase<TRequest, TResponse>
+        where TRequest : ICreateRequest
+        where TResponse : ICreateResponse<TId>
+        where TEntity: class, IEntity<TId>
     {
-        public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TKey> repository)
+        public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TId> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -20,7 +27,7 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected IRepository<TEntity, TKey> Repository { get; private set; }
+        protected IRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

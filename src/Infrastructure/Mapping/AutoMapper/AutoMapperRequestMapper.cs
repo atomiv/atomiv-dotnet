@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
 using Optivem.Core.Application;
+using Optivem.Core.Application.Mappers;
+using Optivem.Core.Application.Requests;
+using Optivem.Core.Domain.Entities;
 
 namespace Optivem.Infrastructure.Mapping.AutoMapper
 {
     public class AutoMapperRequestMapper<TRequest, TEntity> : IRequestMapper<TRequest, TEntity>
+        where TRequest : IRequest
+        where TEntity : IEntity
     {
         public AutoMapperRequestMapper(IMapper mapper)
         {

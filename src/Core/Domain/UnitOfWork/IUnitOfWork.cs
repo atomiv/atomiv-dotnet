@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain.Repositories;
+using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Core.Domain.UnitOfWork
 {
     // TODO: VC: Include getting generic repository
 
@@ -19,8 +21,8 @@ namespace Optivem.Core.Domain
 
         void RollbackTransaction();
 
-        IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>;
+        IRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
 
-        IReadonlyRepository<TEntity, TKey> GetReadonlyRepository<TEntity, TKey>() where TEntity : class, IEntity<TKey>;
+        IReadonlyRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
     }
 }

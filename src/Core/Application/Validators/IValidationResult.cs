@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Application
+namespace Optivem.Core.Application.Validators
 {
     public interface IValidationResult
     {
