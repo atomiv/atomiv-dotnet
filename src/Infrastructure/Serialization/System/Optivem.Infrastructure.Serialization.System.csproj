@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Optivem.Infrastructure.Serialization.Text.System</PackageId>
-    <Product>Optivem.Infrastructure.Serialization.Text.System</Product>
+    <PackageId>Optivem.Infrastructure.Serialization.System</PackageId>
+    <Product>Optivem.Infrastructure.Serialization.System</Product>
     <Company>Optivem</Company>
     <Authors>Optivem</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
@@ -11,8 +11,8 @@
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Parsing Parser StandardDataTypes</PackageTags>
-    <Version>1.0.8</Version>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Serialization System</PackageTags>
+    <Version>1.0.9</Version>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

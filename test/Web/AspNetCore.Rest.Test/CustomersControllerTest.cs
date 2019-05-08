@@ -1,5 +1,5 @@
 ﻿using Optivem.Common.Http;
-using Optivem.Infrastructure.Serialization.Csv.CsvHelper;
+using Optivem.Infrastructure.Serialization.CsvHelper;
 using Optivem.Framework.Test.Xunit;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;

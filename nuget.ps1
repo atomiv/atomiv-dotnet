@@ -30,75 +30,57 @@ if($pack)
 
 $projects = @(
 
+	# ### ============================== COMMON ============================== ###
+
+	# Common
+    'src\Common\Http\Optivem.Common.Http.csproj',
+    'src\Common\Serialization\Optivem.Common.Serialization.csproj',
+    'src\Common\WebAutomation\Optivem.Common.WebAutomation.csproj',
+
 	# ### ============================== CORE ============================== ###
 
-	# ### Core - Common ###
-
-    # 'src\Core\Common\All\Optivem.Framework.Core.Common.All.csproj',	
-    # 'src\Core\Common\Clock\Optivem.Framework.Core.Common.Clock.csproj',
-	# 'src\Core\Common\Email\Optivem.Framework.Core.Common.Email.csproj',
-	# 'src\Core\Common\FileSystem\Optivem.Framework.Core.Common.FileSystem.csproj',
-    'src\Core\Common\Parsing\Optivem.Framework.Core.Common.Parsing.csproj',
-    'src\Core\Common\RestClient\Optivem.Framework.Core.Common.RestClient.csproj',
-    'src\Core\Common\Serialization\Optivem.Framework.Core.Common.Serialization.csproj',
-    'src\Core\Common\WebAutomation\Optivem.Framework.Core.Common.WebAutomation.csproj',
-
-	# ### Core - Domain ###
-
-    # 'src\Core\Domain\All\Optivem.Framework.Core.Domain.All.csproj',
-    'src\Core\Domain\Entities\Optivem.Framework.Core.Domain.Entities.csproj',
-    'src\Core\Domain\Repositories\Optivem.Framework.Core.Domain.Repositories.csproj',
-    # 'src\Core\Domain\Services\Optivem.Framework.Core.Domain.Services.csproj',
-
-	# ### Core - Application ###
+	# Domain
+    'src\Core\Domain\Optivem.Core.Domain.csproj',
 	
-    'src\Core\Application\Services\Optivem.Framework.Core.Application.Services.csproj',
-    'src\Core\Application\Services.Default\Optivem.Framework.Core.Application.Services.Default.csproj',
+	# Application
+    'src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj',
+    'src\Core\Application\Optivem.Core.Application.csproj',
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
 
-	# ### Infrastructure - Common ###
+	# Http
+    'src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj',
 	
-    # 'src\Infrastructure\Common\All\Optivem.Framework.Infrastructure.Common.Clock.All.csproj',
-    # 'src\Infrastructure\Common\Clock.Default\Optivem.Framework.Infrastructure.Common.Clock.Default.csproj',
-	# 'src\Infrastructure\Common\Email.Gmail\Optivem.Framework.Infrastructure.Common.Email.Gmail.csproj',
-	# 'src\Infrastructure\Common\Email.MicrosoftExchange\Optivem.Framework.Infrastructure.Common.Email.MicrosoftExchange.csproj',
-	# 'src\Infrastructure\Common\FileSystem.Default\Optivem.Framework.Infrastructure.Common.FileSystem.Default.csproj',
-    'src\Infrastructure\Common\Parsing.Default\Optivem.Framework.Infrastructure.Common.Parsing.Default.csproj',
-    'src\Infrastructure\Common\RestClient.Default\Optivem.Framework.Infrastructure.Common.RestClient.Default.csproj',
-    'src\Infrastructure\Common\Serialization.Csv.CsvHelper\Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.csproj',
-    'src\Infrastructure\Common\Serialization.Default\Optivem.Framework.Infrastructure.Common.Serialization.Default.csproj',
-    # 'src\Infrastructure\Common\Serialization.Dsv\Optivem.Framework.Infrastructure.Common.Serialization.Dsv.csproj',
-    # 'src\Infrastructure\Common\Serialization.Excel\Optivem.Framework.Infrastructure.Common.Serialization.Excel.csproj',
-    # 'src\Infrastructure\Common\Serialization.FixedWidth\Optivem.Framework.Infrastructure.Common.Serialization.FixedWidth.csproj',
-    'src\Infrastructure\Common\Serialization.Json.NewtonsoftJson\Optivem.Framework.Infrastructure.Common.Serialization.Json.NewtonsoftJson.csproj',
-    # 'src\Infrastructure\Common\Serialization.Xml\Optivem.Framework.Infrastructure.Common.Serialization.Xml.csproj',
-    'src\Infrastructure\Common\WebAutomation.Selenium\Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.csproj',
-
-	# ### Infrastructure - Domain ###
+	# Mapping
+    'src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj',
 	
-    'src\Infrastructure\Domain\Repositories.EntityFrameworkCore\Optivem.Framework.Infrastructure.Domain.Repositories.EntityFrameworkCore.csproj',
+	# Messaging
+    'src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.Messaging.MediatR.csproj',
+	
+	# Persistence
+    'src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj',
+	
+	# Serialization
+    'src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj',
+	'src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj',
+	'src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj',
 
-	# ### Infrastructure - Application ###
+	# Validation
+    'src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj',
 
-	# None yet
+	# WebAutomation
+    'src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.WebAutomation.Selenium.csproj',
 
 	# ### ============================== WEB ============================== ###
 
-	# ### Web - AspNetCore ###
-	
-    # 'src\Web\AspNetCore\Common\Optivem.Framework.Web.AspNetCore.Common.csproj',
-    # 'src\Web\AspNetCore\Mvc\Optivem.Framework.Web.AspNetCore.Mvc.csproj',
-    'src\Web\AspNetCore\Rest\Optivem.Framework.Web.AspNetCore.Rest.csproj',
-    # 'src\Web\AspNetCore\Soap\Optivem.Framework.Web.AspNetCore.Soap.csproj',
+	# AspNetCore
+    'src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj',
 	
 	# ### ============================== TEST ============================== ###
 	
-	# ### Test - Xunit ###
-	
-    'src\Test\Xunit\Common\Optivem.Framework.Test.Xunit.Common.csproj', # TODO: VC: Packing did not work
-    'src\Test\Xunit\Web.AspNetCore\Optivem.Framework.Test.Xunit.Web.AspNetCore.csproj' # TODO: VC: Packing did not work
-    # 'src\Test\Xunit\Web.Selenium\Optivem.Framework.Test.Xunit.Web.Selenium.csproj',
+	# Base
+    'test\Base\Xunit\Optivem.Test.Xunit.csproj',
+    'test\Base\Xunit.AspNetCore\Optivem.Test.Xunit.AspNetCore.csproj'
 )
 
 # TODO: VC: Update all project files to the new version

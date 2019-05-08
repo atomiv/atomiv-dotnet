@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Common.Serialization;
-using Optivem.Infrastructure.Serialization.Csv.CsvHelper;
+using Optivem.Infrastructure.Serialization.CsvHelper;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using Optivem.Web.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Profiles.Customers;

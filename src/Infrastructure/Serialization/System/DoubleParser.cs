@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.Serialization.Text.System
+﻿namespace Optivem.Infrastructure.Serialization.System
 {
     public class DoubleParser : BaseParser<double?>
     {
