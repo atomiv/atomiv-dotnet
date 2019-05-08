@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    class FindAllUseCase<TRequest, TResponse, TRecordResponse, TEntity, TId> : IFindAllUseCase<TRequest, TResponse>
+    public class FindAllUseCase<TRequest, TResponse, TRecordResponse, TEntity, TId> : IFindAllUseCase<TRequest, TResponse>
         where TRequest : IFindAllRequest
         where TResponse : IFindAllResponse<TRecordResponse>, new()
         where TRecordResponse : IFindAllRecordResponse
