@@ -1,8 +1,7 @@
-﻿using Optivem.Core.Domain.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain.Repositories
+namespace Optivem.Core.Domain
 {
     public interface IRepository<TEntity, TId> : IReadonlyRepository<TEntity, TId>
         where TEntity : class, IEntity<TId>

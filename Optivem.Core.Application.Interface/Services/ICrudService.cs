@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.Services
+namespace Optivem.Core.Application
 {
     public interface ICrudService<TId, 
         TFindAllRequest, TCreateRequest, TUpdateRequest, 

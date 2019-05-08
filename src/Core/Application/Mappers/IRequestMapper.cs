@@ -1,7 +1,6 @@
-﻿using Optivem.Core.Application.Requests;
-using Optivem.Core.Domain.Entities;
+﻿using Optivem.Core.Domain;
 
-namespace Optivem.Core.Application.Mappers
+namespace Optivem.Core.Application
 {
     public interface IRequestMapper<TRequest, TEntity>
         where TRequest : IRequest

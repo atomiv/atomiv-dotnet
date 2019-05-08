@@ -1,6 +1,5 @@
 ﻿using FluentValidation.Results;
 using Optivem.Core.Application;
-using Optivem.Core.Application.Validators;
 
 namespace Optivem.Infrastructure.Validation.FluentValidation
 {

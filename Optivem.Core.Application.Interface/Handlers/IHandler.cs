@@ -1,8 +1,6 @@
-﻿using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.Handlers
+namespace Optivem.Core.Application
 {
     public interface IHandler<TRequest, TResponse>
         where TRequest : IRequest

@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Core.Application;
-using Optivem.Core.Application.Mappers;
-using Optivem.Core.Application.Requests;
-using Optivem.Core.Domain.Entities;
+using Optivem.Core.Domain;
 
 namespace Optivem.Infrastructure.Mapping.AutoMapper
 {

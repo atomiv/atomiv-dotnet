@@ -1,11 +1,7 @@
-﻿using Optivem.Core.Application.Mappers;
-using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-using Optivem.Core.Domain.Entities;
-using Optivem.Core.Domain.Repositories;
+﻿using Optivem.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.UseCases
+namespace Optivem.Core.Application
 {
     public class FindUseCase<TRequest, TResponse, TEntity, TId> : IFindUseCase<TRequest, TResponse>
         where TRequest : IFindRequest<TId>

@@ -1,8 +1,4 @@
-﻿using Optivem.Core.Application.Handlers;
-using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-
-namespace Optivem.Core.Application.UseCases
+﻿namespace Optivem.Core.Application
 {
     public interface IUseCase<TRequest, TResponse>
         : IHandler<TRequest, TResponse>

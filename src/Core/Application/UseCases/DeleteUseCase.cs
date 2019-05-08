@@ -1,11 +1,7 @@
-﻿using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-using Optivem.Core.Domain.Entities;
-using Optivem.Core.Domain.Repositories;
-using Optivem.Core.Domain.UnitOfWork;
+﻿using Optivem.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.UseCases
+namespace Optivem.Core.Application
 {
     public class DeleteUseCase<TRequest, TResponse, TEntity, TId> : IDeleteUseCase<TRequest, TResponse>
         where TRequest : IDeleteRequest<TId>

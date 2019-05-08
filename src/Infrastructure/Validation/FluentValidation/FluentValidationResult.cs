@@ -1,6 +1,5 @@
 ﻿using FluentValidation.Results;
 using Optivem.Core.Application;
-using Optivem.Core.Application.Validators;
 using System.Collections.Generic;
 using System.Linq;
 

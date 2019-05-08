@@ -1,9 +1,7 @@
-﻿using Optivem.Core.Domain.Entities;
-using Optivem.Core.Domain.Repositories;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain.UnitOfWork
+namespace Optivem.Core.Domain
 {
     // TODO: VC: Include getting generic repository
 

@@ -1,11 +1,6 @@
-﻿using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-using Optivem.Core.Application.Services;
-using Optivem.Core.Application.UseCases;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.Services
+namespace Optivem.Core.Application
 {
     public class CrudService<TId, TFindAllUseCase, TFindUseCase, TCreateUseCase, TUpdateUseCase, TDeleteUseCase, 
         TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, 

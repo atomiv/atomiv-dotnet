@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Application.Requests
+﻿namespace Optivem.Core.Application
 {
     public interface ICreateRequest : IRequest
     {

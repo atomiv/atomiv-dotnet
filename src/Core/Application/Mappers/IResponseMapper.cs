@@ -1,8 +1,7 @@
-﻿using Optivem.Core.Application.Responses;
-using Optivem.Core.Domain.Entities;
+﻿using Optivem.Core.Domain;
 using System.Collections.Generic;
 
-namespace Optivem.Core.Application.Mappers
+namespace Optivem.Core.Application
 {
     public interface IResponseMapper<TEntity, TResponse>
         where TEntity : IEntity

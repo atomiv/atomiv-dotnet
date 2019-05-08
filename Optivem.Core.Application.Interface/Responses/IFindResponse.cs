@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Application.Responses
+﻿namespace Optivem.Core.Application
 {
     public interface IFindResponse : IResponse
     {

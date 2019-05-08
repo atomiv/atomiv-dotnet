@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Application.Validators
+﻿namespace Optivem.Core.Application
 {
     public interface IValidationError
     {

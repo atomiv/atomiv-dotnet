@@ -1,6 +1,4 @@
-﻿using Optivem.Core.Application.Requests;
-
-namespace Optivem.Core.Application.Validators
+﻿namespace Optivem.Core.Application
 {
     public interface IRequestValidator<TRequest>
         where TRequest : IRequest

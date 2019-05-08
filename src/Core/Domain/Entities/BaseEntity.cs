@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Domain.Entities
+﻿namespace Optivem.Core.Domain
 {
     public abstract class BaseEntity
     {

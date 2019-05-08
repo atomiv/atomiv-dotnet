@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Core.Application.Responses
+﻿namespace Optivem.Core.Application
 {
     public interface IFindAllRecordResponse : IResponse
     {

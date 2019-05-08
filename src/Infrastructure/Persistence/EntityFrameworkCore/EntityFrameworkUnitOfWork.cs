@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Core.Domain;
-using Optivem.Core.Domain.Entities;
-using Optivem.Core.Domain.Repositories;
-using Optivem.Core.Domain.UnitOfWork;
 using System;
 using System.Threading.Tasks;
 

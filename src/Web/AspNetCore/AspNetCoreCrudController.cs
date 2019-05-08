@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Optivem.Core.Application;
-using Optivem.Core.Application.Services;
-using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
 
 namespace Optivem.Web.AspNetCore
 {

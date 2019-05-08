@@ -1,13 +1,8 @@
 ﻿using MediatR;
-using Optivem.Core.Application.Requests;
-using Optivem.Core.Application.Responses;
-using Optivem.Core.Application.UseCases;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Optivem.Core.Application;
 using System.Threading;
 using System.Threading.Tasks;
-using IRequest = Optivem.Core.Application.Requests.IRequest;
+using IRequest = Optivem.Core.Application.IRequest;
 
 namespace Optivem.Infrastructure.Messaging.MediatR
 {

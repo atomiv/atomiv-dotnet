@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Application.Responses
+namespace Optivem.Core.Application
 {
     public interface IFindAllResponse : IResponse
     {
