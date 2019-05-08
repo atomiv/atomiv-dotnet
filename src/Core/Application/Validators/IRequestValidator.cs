@@ -1,13 +1,15 @@
-﻿namespace Optivem.Core.Application
+﻿using System.Threading.Tasks;
+
+namespace Optivem.Core.Application
 {
     public interface IRequestValidator<TRequest>
         where TRequest : IRequest
     {
-        IValidationResult Validate(TRequest request);
+        Task<IValidationResult> ValidateAsync(TRequest request);
     }
 
     public interface IRequestValidator
     {
-        IValidationResult Validate<TRequest>(TRequest request) where TRequest : IRequest;
+        Task<IValidationResult> ValidateAsync<TRequest>(TRequest request) where TRequest : IRequest;
     }
 }

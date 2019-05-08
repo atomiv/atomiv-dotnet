@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Optivem.Core.Application;
+using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Validation.FluentValidation
 {
@@ -12,10 +13,9 @@ namespace Optivem.Infrastructure.Validation.FluentValidation
         {
             _validator = validator;
         }
-
-        public IValidationResult Validate(TRequest request)
+        public async Task<IValidationResult> ValidateAsync(TRequest request)
         {
-            var result = _validator.Validate(request);
+            var result = await _validator.ValidateAsync(request);
             return new FluentValidationResult(result);
         }
     }
