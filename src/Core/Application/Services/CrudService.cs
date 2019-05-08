@@ -2,15 +2,10 @@
 
 namespace Optivem.Core.Application
 {
-    public class CrudService<TId, TFindAllUseCase, TFindUseCase, TCreateUseCase, TUpdateUseCase, TDeleteUseCase, 
+    public class CrudService<TId,  
         TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, 
         TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TDeleteResponse> 
         : ICrudService<TId, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TFindAllUseCase : IFindAllUseCase<TFindAllRequest, TFindAllResponse>
-        where TFindUseCase : IFindUseCase<TFindRequest, TFindResponse>
-        where TCreateUseCase : ICreateUseCase<TCreateRequest, TCreateResponse>
-        where TUpdateUseCase : IUpdateUseCase<TUpdateRequest, TUpdateResponse>
-        where TDeleteUseCase : IDeleteUseCase<TDeleteRequest, TDeleteResponse>
         where TFindAllRequest : IFindAllRequest
         where TFindRequest : IFindRequest<TId>, new()
         where TCreateRequest : ICreateRequest
@@ -22,28 +17,16 @@ namespace Optivem.Core.Application
         where TUpdateResponse : IUpdateResponse
         where TDeleteResponse : IDeleteResponse
     {
-        public CrudService(TFindAllUseCase findAllUseCase, 
-            TFindUseCase findUseCase, 
-            TCreateUseCase createUseCase,
-            TUpdateUseCase updateUseCase,
-            TDeleteUseCase deleteUseCase)
-        {
-            FindAllUseCase = findAllUseCase;
-            FindUseCase = findUseCase;
-            CreateUseCase = createUseCase;
-            UpdateUseCase = updateUseCase;
-            DeleteUseCase = deleteUseCase;
-        }
+        private IUseCaseMediator _mediator;
 
-        protected TFindAllUseCase FindAllUseCase;
-        protected TFindUseCase FindUseCase;
-        protected TCreateUseCase CreateUseCase;
-        protected TUpdateUseCase UpdateUseCase;
-        protected TDeleteUseCase DeleteUseCase;
+        public CrudService(IUseCaseMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         public Task<TFindAllResponse> FindAllAsync(TFindAllRequest request)
         {
-            return FindAllUseCase.HandleAsync(request);
+            return _mediator.HandleAsync<TFindAllRequest, TFindAllResponse>(request);
         }
 
         public Task<TFindResponse> FindAsync(TId id)
@@ -53,17 +36,17 @@ namespace Optivem.Core.Application
                 Id = id,
             };
 
-            return FindUseCase.HandleAsync(request);
+            return _mediator.HandleAsync<TFindRequest, TFindResponse>(request);
         }
 
         public Task<TCreateResponse> CreateAsync(TCreateRequest request)
         {
-            return CreateUseCase.HandleAsync(request);
+            return _mediator.HandleAsync<TCreateRequest, TCreateResponse>(request);
         }
 
         public Task<TUpdateResponse> UpdateAsync(TUpdateRequest request)
         {
-            return UpdateUseCase.HandleAsync(request);
+            return _mediator.HandleAsync<TUpdateRequest, TUpdateResponse>(request);
         }
 
         public async Task<bool> DeleteAsync(TId id)
@@ -73,7 +56,7 @@ namespace Optivem.Core.Application
                 Id = id,
             };
 
-            var response = await DeleteUseCase.HandleAsync(request);
+            var response = await _mediator.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
 
             return response.Deleted;
         }
