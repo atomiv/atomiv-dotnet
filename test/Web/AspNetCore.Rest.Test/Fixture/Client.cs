@@ -7,8 +7,6 @@ using Optivem.Web.AspNetCore.Fake.Models;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    // TODO: VC: Consider moving into Fixtures folder
-
     public class Client : BaseClient<Startup>
     {
         public Client()
