@@ -3,7 +3,7 @@ using Optivem.Infrastructure.Serialization.CsvHelper;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using System.Collections.Generic;
 
-namespace Optivem.Infrastructure.Serialization.All
+namespace Optivem.Test.Xunit
 {
     public class SerializationService : ISerializationService
     {

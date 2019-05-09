@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Xunit;
 using System;
 using Optivem.Infrastructure.Serialization.CsvHelper;
-using Optivem.Framework.Test.Xunit;
+using Optivem.Test.Xunit;
 
 namespace Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.Test
 {

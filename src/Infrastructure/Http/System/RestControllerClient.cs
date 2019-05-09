@@ -22,27 +22,31 @@ namespace Optivem.Infrastructure.Http.System
             TPostRequest, TPostResponse,
             TPutRequest, TPutResponse>
     {
-        private readonly HttpClient _client;
-        private readonly string _controllerPath;
-        private readonly ISerializationService _serializationService;
 
-        public RestControllerClient(HttpClient client, string controllerPath, 
-            ISerializationService serializationService)
+        private readonly RestServiceClient _serviceClient;
+        private readonly string _controllerPath;
+
+        public RestControllerClient(RestServiceClient serviceClient, string controllerPath)
         {
-            _client = client;
+            _serviceClient = serviceClient;
             _controllerPath = controllerPath;
-            _serializationService = serializationService;
+
+            SerializationService = serviceClient.SerializationService;
+            Client = serviceClient.Client;
         }
+
+        protected ISerializationService SerializationService { get; private set; }
+        protected HttpClient Client { get; private set; }
 
         public async Task<IEnumerable<TGetCollectionResponse>> GetCollectionAsync()
         {
             var requestUri = GetRelativePath();
-            using (var response = await _client.GetAsync(requestUri))
+            using (var response = await Client.GetAsync(requestUri))
             {
                 await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                return _serializationService.Deserialize<IEnumerable<TGetCollectionResponse>>(responseString, SerializationFormatType.Json);
+                return SerializationService.Deserialize<IEnumerable<TGetCollectionResponse>>(responseString, SerializationFormatType.Json);
             }
         }
 
@@ -60,7 +64,7 @@ namespace Optivem.Infrastructure.Http.System
                 },
             };
 
-            using (var response = await _client.SendAsync(requestMessage))
+            using (var response = await Client.SendAsync(requestMessage))
             {
                 await EnsureSuccess(response);
 
@@ -72,12 +76,12 @@ namespace Optivem.Infrastructure.Http.System
         public async Task<TGetResponse> GetAsync(TId id)
         {
             var requestUri = GetRelativePathById(id);
-            using (var response = await _client.GetAsync(requestUri))
+            using (var response = await Client.GetAsync(requestUri))
             {
                 await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                return _serializationService.Deserialize<TGetResponse>(responseString, SerializationFormatType.Json);
+                return SerializationService.Deserialize<TGetResponse>(responseString, SerializationFormatType.Json);
             }
         }
 
@@ -86,12 +90,12 @@ namespace Optivem.Infrastructure.Http.System
             var requestUri = GetRelativePath();
             var requestContent = CreateContent(request);
 
-            using (var response = await _client.PostAsync(requestUri, requestContent))
+            using (var response = await Client.PostAsync(requestUri, requestContent))
             {
                 await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                return _serializationService.Deserialize<TPostResponse>(responseString, SerializationFormatType.Json);
+                return SerializationService.Deserialize<TPostResponse>(responseString, SerializationFormatType.Json);
             }
         }
 
@@ -111,7 +115,7 @@ namespace Optivem.Infrastructure.Http.System
                 Content = content,
             };
 
-            using (var response = await _client.SendAsync(requestMessage))
+            using (var response = await Client.SendAsync(requestMessage))
             {
                 await EnsureSuccess(response);
 
@@ -126,12 +130,12 @@ namespace Optivem.Infrastructure.Http.System
             var requestUri = GetRelativePathById(id);
             var requestContent = CreateContent(request);
 
-            using (var response = await _client.PutAsync(requestUri, requestContent))
+            using (var response = await Client.PutAsync(requestUri, requestContent))
             {
                 await EnsureSuccess(response);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                return _serializationService.Deserialize<TPutResponse>(responseString, SerializationFormatType.Json);
+                return SerializationService.Deserialize<TPutResponse>(responseString, SerializationFormatType.Json);
             }
         }
 
@@ -139,7 +143,7 @@ namespace Optivem.Infrastructure.Http.System
         {
             var requestUri = GetRelativePathById(id);
 
-            using (var response = await _client.DeleteAsync(requestUri))
+            using (var response = await Client.DeleteAsync(requestUri))
             {
                 await EnsureSuccess(response);
             }
@@ -148,7 +152,7 @@ namespace Optivem.Infrastructure.Http.System
         private Uri GetAbsolutePath(string uri)
         {
             var relativePath = GetRelativePath(uri);
-            return new Uri(_client.BaseAddress, relativePath);
+            return new Uri(Client.BaseAddress, relativePath);
         }
 
         private string GetRelativePath(string uri = null)
@@ -196,7 +200,7 @@ namespace Optivem.Infrastructure.Http.System
             // TODO: VC: Handling problem details in various formats, not just json
             // TODO: VC: check if this works for API without problem details, but something else... otherwise null
 
-            var problemDetails = _serializationService.Deserialize<ProblemDetails>(content, SerializationFormatType.Json);
+            var problemDetails = SerializationService.Deserialize<ProblemDetails>(content, SerializationFormatType.Json);
             return new ProblemDetailsWrapper(problemDetails);
         }
 
@@ -208,7 +212,7 @@ namespace Optivem.Infrastructure.Http.System
 
         private StringContent CreateContent<T>(T request)
         {
-            var content = _serializationService.Serialize(request, SerializationFormatType.Json);
+            var content = SerializationService.Serialize(request, SerializationFormatType.Json);
             return CreateContent(content, "application/json");
         }
 
@@ -237,8 +241,8 @@ namespace Optivem.Infrastructure.Http.System
             TRequest, TResponse,
             TRequest, TResponse>
     {
-        public RestControllerClient(HttpClient client, string controllerPath, ISerializationService serializationService) 
-            : base(client, controllerPath, serializationService)
+        public RestControllerClient(RestServiceClient serviceClient, string controllerPath) 
+            : base(serviceClient, controllerPath)
         {
         }
     }
@@ -247,8 +251,8 @@ namespace Optivem.Infrastructure.Http.System
             : RestControllerClient<TId, TDto, TDto>,
             IRestControllerClient<TId, TDto>
     {
-        public RestControllerClient(HttpClient client, string controllerPath, ISerializationService serializationService)
-            : base(client, controllerPath, serializationService)
+        public RestControllerClient(RestServiceClient serviceClient, string controllerPath)
+            : base(serviceClient, controllerPath)
         {
         }
     }

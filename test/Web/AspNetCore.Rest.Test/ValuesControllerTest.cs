@@ -1,4 +1,4 @@
-using Optivem.Framework.Test.Xunit;
+using Optivem.Test.Xunit;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -21,7 +21,7 @@ namespace Optivem.Web.AspNetCore.Test
                 "value2"
             };
 
-            var actual = await TestServerFixture.ValuesControllerClient.GetCollectionAsync();
+            var actual = await TestServerFixture.Client.Values.GetCollectionAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }

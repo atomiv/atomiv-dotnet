@@ -1,6 +1,6 @@
 ﻿using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
-using Optivem.Infrastructure.Serialization.All;
+using Optivem.Test.Xunit;
 using System;
 using System.Net.Http;
 
@@ -17,7 +17,9 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
                 BaseAddress = new Uri("https://jsonplaceholder.typicode.com"),
             };
 
-            JsonPlaceholderClient = new JsonPlaceholderClient(httpClient, serializationService);
+            var serviceClient = new RestServiceClient(serializationService, httpClient);
+
+            JsonPlaceholderClient = new JsonPlaceholderClient(serviceClient);
         }
 
         public JsonPlaceholderClient JsonPlaceholderClient { get; }
@@ -25,10 +27,10 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
     public class JsonPlaceholderClient
     {
-        public JsonPlaceholderClient(HttpClient client, ISerializationService serializationService)
+        public JsonPlaceholderClient(RestServiceClient serviceClient)
         {
-            Posts = new PostsControllerClient(client, serializationService);
-            Todos = new TodosControllerClient(client, serializationService);
+            Posts = new PostsControllerClient(serviceClient);
+            Todos = new TodosControllerClient(serviceClient);
         }
 
         public PostsControllerClient Posts { get; }
@@ -39,16 +41,16 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
     public class PostsControllerClient : RestControllerClient<int, Post>
     {
-        public PostsControllerClient(HttpClient client, ISerializationService serializationService)
-            : base(client, "posts", serializationService)
+        public PostsControllerClient(RestServiceClient serviceClient)
+            : base(serviceClient, "posts")
         {
         }
     }
 
     public class TodosControllerClient : RestControllerClient<int, TodoDto>
     {
-        public TodosControllerClient(HttpClient client, ISerializationService serializationService)
-            : base(client, "todos", serializationService)
+        public TodosControllerClient(RestServiceClient serviceClient)
+            : base(serviceClient, "todos")
         {
         }
     }

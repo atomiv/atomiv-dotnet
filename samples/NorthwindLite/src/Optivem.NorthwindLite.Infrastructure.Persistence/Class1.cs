@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.NorthwindLite.Infrastructure.Persistence
+﻿namespace Optivem.NorthwindLite.Infrastructure.Persistence
 {
     public class Class1
     {

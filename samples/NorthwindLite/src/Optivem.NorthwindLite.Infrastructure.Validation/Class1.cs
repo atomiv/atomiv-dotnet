@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.NorthwindLite.Infrastructure.Validation
+﻿namespace Optivem.NorthwindLite.Infrastructure.Validation
 {
     public class Class1
     {
