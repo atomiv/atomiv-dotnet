@@ -1,5 +1,4 @@
-﻿using Optivem.Common.Serialization;
-using Optivem.Infrastructure.Http.System;
+﻿using Optivem.Infrastructure.Http.System;
 using Optivem.Test.Xunit;
 using System;
 using System.Net.Http;

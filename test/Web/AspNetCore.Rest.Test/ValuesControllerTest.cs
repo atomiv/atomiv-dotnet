@@ -21,7 +21,7 @@ namespace Optivem.Web.AspNetCore.Test
                 "value2"
             };
 
-            var actual = await TestServerFixture.Client.Values.GetCollectionAsync();
+            var actual = await TestServerFixture.Values.GetCollectionAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }

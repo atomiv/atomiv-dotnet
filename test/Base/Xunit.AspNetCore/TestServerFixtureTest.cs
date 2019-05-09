@@ -3,7 +3,7 @@
 namespace Optivem.Test.Xunit.AspNetCore
 {
     public class TestServerFixtureTest<TTestServerFixture> : IClassFixture<TTestServerFixture>
-        where TTestServerFixture : TestServerFixture
+        where TTestServerFixture : class
     {
         public TestServerFixtureTest(TTestServerFixture testServerFixture)
         {

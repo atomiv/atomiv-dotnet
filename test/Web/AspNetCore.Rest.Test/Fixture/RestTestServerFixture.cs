@@ -1,23 +1,21 @@
 ﻿using Optivem.Common.Http;
-using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
+using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
+using Optivem.Test.Xunit.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace Optivem.Web.AspNetCore.Rest.Test
+namespace Optivem.Web.AspNetCore.Test
 {
-    public class RestTestServiceClient
+    // TODO: VC: Consider moving into Fixtures folder
+
+    public class RestTestServerFixture : BaseTestServerFixture<Startup>
     {
-        public RestTestServiceClient(RestServiceClient serviceClient)
+        public RestTestServerFixture()
         {
-            Values = new RestControllerClient<int, string>(serviceClient, "api/values");
-            Exceptions = new RestControllerClient<int, string>(serviceClient, "api/exceptions");
-            Customers = new CustomersControllerClient(serviceClient, "api/customers");
+            Values = new RestControllerClient<int, string>(RestServiceClient, "api/values");
+            Exceptions = new RestControllerClient<int, string>(RestServiceClient, "api/exceptions");
+            Customers = new CustomersControllerClient(RestServiceClient, "api/customers");
         }
 
         public IRestControllerClient<int, string> Values { get; }
@@ -38,4 +36,7 @@ namespace Optivem.Web.AspNetCore.Rest.Test
         {
         }
     }
+
+
+
 }

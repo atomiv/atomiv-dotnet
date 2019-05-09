@@ -1,4 +1,5 @@
-﻿using Optivem.Test.Xunit.AspNetCore;
+﻿using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
+using Optivem.Test.Xunit.AspNetCore;
 
 namespace Optivem.Web.AspNetCore.Test
 {
