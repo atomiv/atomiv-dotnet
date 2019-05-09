@@ -1,14 +1,15 @@
 using Optivem.Test.Xunit;
+using Optivem.Test.Xunit.AspNetCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class ValuesControllerTest : RestTestServerFixtureTest
+    public class ValuesControllerTest : ClientFixture<Client>
     {
-        public ValuesControllerTest(RestTestServerFixture testServerFixture) 
-            : base(testServerFixture)
+        public ValuesControllerTest(Client client) 
+            : base(client)
         {
         }
 
@@ -21,7 +22,7 @@ namespace Optivem.Web.AspNetCore.Test
                 "value2"
             };
 
-            var actual = await TestServerFixture.Values.GetCollectionAsync();
+            var actual = await Client.Values.GetCollectionAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }

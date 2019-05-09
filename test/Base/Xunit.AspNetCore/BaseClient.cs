@@ -7,9 +7,9 @@ using System.Net.Http;
 
 namespace Optivem.Test.Xunit.AspNetCore
 {
-    public abstract class BaseTestServerFixture<TStartup> : IDisposable where TStartup : class
+    public abstract class BaseClient<TStartup> : IDisposable where TStartup : class
     {
-        public BaseTestServerFixture()
+        public BaseClient()
         {
             var webHostBuilder = CreateWebHostBuilder();
             TestServer = new TestServer(webHostBuilder);

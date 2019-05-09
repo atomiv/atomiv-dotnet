@@ -1,6 +1,7 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Infrastructure.Serialization.CsvHelper;
 using Optivem.Test.Xunit;
+using Optivem.Test.Xunit.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;
 using Optivem.Web.AspNetCore.Fake.Models;
@@ -12,10 +13,10 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class CustomersControllerTest : RestTestServerFixtureTest
+    public class CustomersControllerTest : ClientFixture<Client>
     {
-        public CustomersControllerTest(RestTestServerFixture testServerFixture) 
-            : base(testServerFixture)
+        public CustomersControllerTest(Client client) 
+            : base(client)
         {
         }
 
@@ -45,7 +46,7 @@ namespace Optivem.Web.AspNetCore.Test
                 }
             };
 
-            var actual = await TestServerFixture.Customers.GetCollectionAsync();
+            var actual = await Client.Customers.GetCollectionAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -76,7 +77,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             var expected = csvSerializationService.Serialize(expectedDtos);
 
-            var actual = await TestServerFixture.Customers.GetAsync("exports", "text/csv");
+            var actual = await Client.Customers.GetAsync("exports", "text/csv");
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -105,9 +106,9 @@ namespace Optivem.Web.AspNetCore.Test
 
             var serialized = csvSerializationService.Serialize(request);
 
-            var result = await TestServerFixture.Customers.PostAsync("imports", serialized, "text/csv");
+            var result = await Client.Customers.PostAsync("imports", serialized, "text/csv");
 
-            var retrieved = await TestServerFixture.Customers.GetCollectionAsync();
+            var retrieved = await Client.Customers.GetCollectionAsync();
 
             Assert.Equal(4, retrieved.Count());
 
@@ -130,7 +131,7 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = "Smith3",
             };
 
-            var result = await TestServerFixture.Customers.PostAsync(request);
+            var result = await Client.Customers.PostAsync(request);
 
             Assert.Equal(request.UserName, result.UserName);
             Assert.Equal(request.FirstName, result.FirstName);
@@ -149,7 +150,7 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = null,
             };
             
-            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await TestServerFixture.Customers.PostAsync(request));
+            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await Client.Customers.PostAsync(request));
 
             var problemDetails = exception.ProblemDetails;
 

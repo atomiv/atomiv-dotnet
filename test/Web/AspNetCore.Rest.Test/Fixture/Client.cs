@@ -9,9 +9,9 @@ namespace Optivem.Web.AspNetCore.Test
 {
     // TODO: VC: Consider moving into Fixtures folder
 
-    public class RestTestServerFixture : BaseTestServerFixture<Startup>
+    public class Client : BaseClient<Startup>
     {
-        public RestTestServerFixture()
+        public Client()
         {
             Values = new RestControllerClient<int, string>(RestServiceClient, "api/values");
             Exceptions = new RestControllerClient<int, string>(RestServiceClient, "api/exceptions");
