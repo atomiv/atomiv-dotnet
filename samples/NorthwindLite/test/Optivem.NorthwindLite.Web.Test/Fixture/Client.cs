@@ -1,4 +1,5 @@
-﻿using Optivem.Infrastructure.Http.System;
+﻿using Optivem.Common.Http;
+using Optivem.Infrastructure.Http.System;
 using Optivem.Test.Xunit.AspNetCore;
 using System;
 using System.Collections.Generic;
@@ -8,23 +9,20 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
 {
     // TODO: VC
 
-    public class Client : BaseClient<Startup>
+    public class Client : BaseJsonClient<Startup>
     {
         public Client()
         {
-            // Customers = new CustomersControllerClient(RestServiceClient, "api/customers");
+            Customers = new CustomersControllerClient(ControllerClientFactory);
         }
 
-        // public CustomersControllerClient Customers { get; }
+        public CustomersControllerClient Customers { get; }
     }
 
-    public class CustomersControllerClient
-        : RestControllerClient<int,
-        BrowseCustomersRequest, CreateCustomerRequest, UpdateCustomerRequest,
-        BrowseCustomersResponse, RetrieveCustomerResponse, CreateCustomerResponse, UpdateCustomerResponse>
+    public class CustomersControllerClient : BaseControllerClient
     {
-        public CustomersControllerClient(RestServiceClient serviceClient, string controllerPath)
-            : base(serviceClient, controllerPath)
+        public CustomersControllerClient(IControllerClientFactory clientFactory) 
+            : base(clientFactory, "api/customers")
         {
         }
     }

@@ -7,7 +7,7 @@ namespace Optivem.Infrastructure.Http.System
 {
     public class BaseControllerClient
     {
-        public BaseControllerClient(IControllerClient client)
+        private BaseControllerClient(IControllerClient client)
         {
             Client = client;
         }
