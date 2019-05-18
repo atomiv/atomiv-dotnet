@@ -6,9 +6,9 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class ExceptionsControllerTest : ClientFixture<Client>
+    public class ExceptionsControllerTest : TestClientFixture<TestClient>
     {
-        public ExceptionsControllerTest(Client client)
+        public ExceptionsControllerTest(TestClient client)
             : base(client)
         {
         }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Web.AspNetCore.Fake.Profiles.Customers.Imports
 {
-    public class CustomerImportCollectionPostRequestProfile : AutoMapperRequestProfile<CustomerImportCollectionPostRequest, Customer>
+    public class CustomerImportCollectionPostRequestProfile : RequestProfile<CustomerImportCollectionPostRequest, Customer>
     {
         protected override void Extend(IMappingExpression<CustomerImportCollectionPostRequest, Customer> map)
         {

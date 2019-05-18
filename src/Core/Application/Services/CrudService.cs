@@ -6,12 +6,12 @@ namespace Optivem.Core.Application
         TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, 
         TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TDeleteResponse> 
         : ICrudService<TId, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TFindAllRequest : IFindAllRequest
+        where TFindAllRequest : IListRequest
         where TFindRequest : IFindRequest<TId>, new()
         where TCreateRequest : ICreateRequest
         where TUpdateRequest : IUpdateRequest
         where TDeleteRequest : IDeleteRequest<TId>, new()
-        where TFindAllResponse : IFindAllResponse
+        where TFindAllResponse : IListResponse
         where TFindResponse : IFindResponse
         where TCreateResponse : ICreateResponse
         where TUpdateResponse : IUpdateResponse

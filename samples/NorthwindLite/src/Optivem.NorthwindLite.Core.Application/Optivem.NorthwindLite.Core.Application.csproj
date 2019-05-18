@@ -8,6 +8,7 @@
     <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\..\..\src\Core\Application\Optivem.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Core.Domain.csproj" />
+    <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Domain\Optivem.NorthwindLite.Core.Domain.csproj" />
   </ItemGroup>
 

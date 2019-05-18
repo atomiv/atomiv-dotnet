@@ -7,7 +7,7 @@ using IRequest = Optivem.Core.Application.IRequest;
 namespace Optivem.Infrastructure.Messaging.MediatR
 {
     public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest, ICommandRequest<TResponse>
+        where TRequest : IRequest, IMediatorRequest<TResponse>
         where TResponse : IResponse
     {
         private IValidationFilter<TRequest> _validationHandler;

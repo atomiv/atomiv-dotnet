@@ -4,7 +4,7 @@ using Optivem.Infrastructure.Mapping.AutoMapper;
 
 namespace Optivem.Web.AspNetCore.Fake.Profiles.Customers
 {
-    public class CustomerPostRequestProfile : AutoMapperRequestProfile<CustomerPostRequest, Customer>
+    public class CustomerPostRequestProfile : RequestProfile<CustomerPostRequest, Customer>
     {
     }
 }

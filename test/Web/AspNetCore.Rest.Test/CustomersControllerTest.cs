@@ -13,9 +13,9 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class CustomersControllerTest : ClientFixture<Client>
+    public class CustomersControllerTest : TestClientFixture<TestClient>
     {
-        public CustomersControllerTest(Client client) 
+        public CustomersControllerTest(TestClient client) 
             : base(client)
         {
         }

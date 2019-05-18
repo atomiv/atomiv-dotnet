@@ -5,7 +5,7 @@
     <Version>1.0.10</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for Http using default system implementation</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>

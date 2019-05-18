@@ -25,6 +25,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(CustomerGetAllResponse), 200)]
         public ActionResult<CustomerGetAllResponse> Get()
         {
             _logger.LogInformation("Hello world....");

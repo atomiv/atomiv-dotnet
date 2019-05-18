@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore.Rest.Fake.Profiles.Customers
 {
-    public class CustomerGetSubsetResponseProfile : AutoMapperResponseProfile<Customer, CustomerGetSubsetResponse>
+    public class CustomerGetSubsetResponseProfile : ResponseProfile<Customer, CustomerGetSubsetResponse>
     {
     }
 }
