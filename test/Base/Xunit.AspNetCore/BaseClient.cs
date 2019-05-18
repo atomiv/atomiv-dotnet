@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using System;
 using System.Net.Http;
 
@@ -14,17 +16,17 @@ namespace Optivem.Test.Xunit.AspNetCore
             var webHostBuilder = CreateWebHostBuilder();
             TestServer = new TestServer(webHostBuilder);
             HttpClient = TestServer.CreateClient();
-            var serializationService = CreateSerializationService();
-            RestServiceClient = new RestServiceClient(serializationService, HttpClient);
+            Client = new Client(HttpClient);
+            ControllerClientFactory = CreateControllerClientFactory();
         }
 
         protected TestServer TestServer { get; }
 
-        protected RestServiceClient RestServiceClient { get; }
-
         protected HttpClient HttpClient { get; }
 
-        protected ISerializationService SerializationService { get; }
+        protected IClient Client { get; }
+
+        protected IControllerClientFactory ControllerClientFactory { get; private set; }
 
         public void Dispose()
         {
@@ -38,9 +40,8 @@ namespace Optivem.Test.Xunit.AspNetCore
                 .UseStartup<TStartup>();
         }
 
-        protected virtual ISerializationService CreateSerializationService()
-        {
-            return new SerializationService();
-        }
+        protected abstract IControllerClientFactory CreateControllerClientFactory();
+
+
     }
 }

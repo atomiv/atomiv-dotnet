@@ -21,32 +21,35 @@ namespace Optivem.Web.AspNetCore.Test
         }
 
         [Fact(Skip = "Fails on server, need to re-check")]
-        public async Task TestGetCollectionAsync()
+        public async Task TestGetAllAsync()
         {
-            var expected = new List<CustomerGetCollectionResponse>
+            var expected = new CustomerGetAllResponse
             {
-                new CustomerGetCollectionResponse
+                Results = new List<CustomerGetAllRecordResponse>
                 {
-                    Id = 1,
-                    UserName = "jsmith",
-                    FirstName = "John",
-                    LastName = "Smith",
-                    CreatedDateTime = new DateTime(2019, 1, 1, 8, 20, 36),
-                    ModifiedDateTime = new DateTime(2019, 1, 2, 9, 30, 42),
-                },
+                    new CustomerGetAllRecordResponse
+                    {
+                        Id = 1,
+                        UserName = "jsmith",
+                        FirstName = "John",
+                        LastName = "Smith",
+                        CreatedDateTime = new DateTime(2019, 1, 1, 8, 20, 36),
+                        ModifiedDateTime = new DateTime(2019, 1, 2, 9, 30, 42),
+                    },
 
-                new CustomerGetCollectionResponse
-                {
-                    Id = 2,
-                    UserName = "mcdonald",
-                    FirstName = "Mary",
-                    LastName = "McDonald",
-                    CreatedDateTime = new DateTime(2018, 7, 4, 14, 40, 12),
-                    ModifiedDateTime = new DateTime(2018, 9, 8, 18, 50, 18),
+                    new CustomerGetAllRecordResponse
+                    {
+                        Id = 2,
+                        UserName = "mcdonald",
+                        FirstName = "Mary",
+                        LastName = "McDonald",
+                        CreatedDateTime = new DateTime(2018, 7, 4, 14, 40, 12),
+                        ModifiedDateTime = new DateTime(2018, 9, 8, 18, 50, 18),
+                    }
                 }
             };
 
-            var actual = await Client.Customers.GetCollectionAsync();
+            var actual = await Client.Customers.GetAllAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -77,7 +80,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             var expected = csvSerializationService.Serialize(expectedDtos);
 
-            var actual = await Client.Customers.GetAsync("exports", "text/csv");
+            var actual = await Client.Customers.GetCsvExportsAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -106,11 +109,11 @@ namespace Optivem.Web.AspNetCore.Test
 
             var serialized = csvSerializationService.Serialize(request);
 
-            var result = await Client.Customers.PostAsync("imports", serialized, "text/csv");
+            var result = await Client.Customers.PostImportsAsync(serialized);
 
-            var retrieved = await Client.Customers.GetCollectionAsync();
+            var retrieved = await Client.Customers.GetAllAsync();
 
-            Assert.Equal(4, retrieved.Count());
+            Assert.Equal(4, retrieved.Results.Count());
 
             // TODO: VC: Handle later
 
@@ -150,7 +153,7 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = null,
             };
             
-            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await Client.Customers.PostAsync(request));
+            var exception = await Assert.ThrowsAsync<ProblemDetailsClientException>(async () => await Client.Customers.PostAsync(request));
 
             var problemDetails = exception.ProblemDetails;
 

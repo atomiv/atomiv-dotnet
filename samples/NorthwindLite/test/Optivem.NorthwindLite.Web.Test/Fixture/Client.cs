@@ -1,4 +1,5 @@
-﻿using Optivem.Test.Xunit.AspNetCore;
+﻿using Optivem.Infrastructure.Http.System;
+using Optivem.Test.Xunit.AspNetCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,17 +18,14 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
         // public CustomersControllerClient Customers { get; }
     }
 
-    /*
     public class CustomersControllerClient
-        : RestControllerClient<int, CustomerGetCollectionResponse,
-            CustomerGetResponse,
-            CustomerPostRequest, CustomerPostResponse,
-            CustomerPutRequest, CustomerPutResponse>
+        : RestControllerClient<int,
+        BrowseCustomersRequest, CreateCustomerRequest, UpdateCustomerRequest,
+        BrowseCustomersResponse, RetrieveCustomerResponse, CreateCustomerResponse, UpdateCustomerResponse>
     {
         public CustomersControllerClient(RestServiceClient serviceClient, string controllerPath)
             : base(serviceClient, controllerPath)
         {
         }
     }
-    */
 }

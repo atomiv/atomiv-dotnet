@@ -39,7 +39,7 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
             });
             */
 
-            services.AddAutoMapper(Assembly.GetAssembly(typeof(CustomerGetCollectionResponseProfile)));
+            services.AddAutoMapper(Assembly.GetAssembly(typeof(CustomerGetAllResponseProfile)));
 
             // TODO: VC: AutoMapper: AssertConfigurationIsValid (example error: Count field is not mapped)
 

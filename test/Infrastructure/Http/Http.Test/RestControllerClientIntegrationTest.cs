@@ -15,7 +15,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         [Fact]
         public async Task TestGetAsync()
         {
-            var expected = new Post
+            var expected = new PostDto
             {
                 Id = 1,
                 UserId = 1,
@@ -31,14 +31,14 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         [Fact]
         public async Task TestGetCollectionAsync()
         {
-            var actual = await JsonPlaceholderClient.Posts.GetCollectionAsync();
+            var actual = await JsonPlaceholderClient.Posts.GetAsync();
             
             var expectedCount = 100;
             var actualCount = actual.Count();
 
             Assert.Equal(expectedCount, actualCount);
 
-            var expectedFirst = new Post
+            var expectedFirst = new PostDto
             {
                 Id = 1,
                 UserId = 1,
@@ -50,7 +50,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             AssertUtilities.AssertEqual(expectedFirst, actualFirst);
 
-            var expectedLast = new Post
+            var expectedLast = new PostDto
             {
                 Id = 100,
                 UserId = 10,
@@ -66,14 +66,14 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         [Fact]
         public async Task TestPostAsync()
         {
-            var request = new Post
+            var request = new PostDto
             {
                 UserId = 2,
                 Title = "Some Title",
                 Body = "Some Body",
             };
 
-            var actual = await JsonPlaceholderClient.Posts.PostAsync(request);
+            var actual = await JsonPlaceholderClient.Posts.CreateAsync(request);
 
             Assert.True(actual.Id > 0);
 
@@ -101,7 +101,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
             var expected = await JsonPlaceholderClient.Posts.GetAsync(5);
             expected.Title = "Some Title";
 
-            var request = new Post
+            var request = new PostDto
             {
                 Title = "Some Title",
             };

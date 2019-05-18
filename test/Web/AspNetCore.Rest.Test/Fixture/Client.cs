@@ -4,37 +4,80 @@ using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Test.Xunit.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;
+using System.Collections.Generic;
+using Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers;
+using System;
+using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class Client : BaseClient<Startup>
+    public class Client : BaseValidatedJsonClient<Startup>
     {
         public Client()
         {
-            Values = new RestControllerClient<int, string>(RestServiceClient, "api/values");
-            Exceptions = new RestControllerClient<int, string>(RestServiceClient, "api/exceptions");
-            Customers = new CustomersControllerClient(RestServiceClient, "api/customers");
+            Values = new ValuesControllerClient(ControllerClientFactory);
+            Exceptions = new ExceptionsControllerClient(ControllerClientFactory);
+            Customers = new CustomersControllerClient(ControllerClientFactory);
         }
+        public ValuesControllerClient Values { get; }
 
-        public IRestControllerClient<int, string> Values { get; }
-
-        public IRestControllerClient<int, string> Exceptions { get; }
+        public ExceptionsControllerClient Exceptions { get; }
 
         public CustomersControllerClient Customers { get; }
     }
 
-    public class CustomersControllerClient
-        : RestControllerClient<int, CustomerGetCollectionResponse,
-            CustomerGetResponse,
-            CustomerPostRequest, CustomerPostResponse,
-            CustomerPutRequest, CustomerPutResponse>
+    public class ValuesControllerClient : BaseControllerClient
     {
-        public CustomersControllerClient(RestServiceClient serviceClient, string controllerPath)
-            : base(serviceClient, controllerPath)
+        public ValuesControllerClient(IControllerClientFactory clientFactory) 
+            : base(clientFactory, "api/values")
         {
+        }
+
+        public Task<List<string>> GetAllAsync()
+        {
+            return Client.GetAsync<List<string>>();
         }
     }
 
+    public class ExceptionsControllerClient : BaseControllerClient
+    {
+        public ExceptionsControllerClient(IControllerClientFactory clientFactory) 
+            : base(clientFactory, "api/exceptions")
+        {
+        }
 
+        public Task GetAsync(int id)
+        {
+            return Client.GetByIdAsync(id);
+        }
+    }
 
+    public class CustomersControllerClient : BaseControllerClient
+    {
+        public CustomersControllerClient(IControllerClientFactory clientFactory) 
+            : base(clientFactory, "api/customers")
+        {
+        }
+
+        public Task<CustomerGetAllResponse> GetAllAsync()
+        {
+            return Client.GetAsync<CustomerGetAllResponse>();
+        }
+
+        public Task<string> GetCsvExportsAsync()
+        {
+            // TODO: VC: Returning raw...
+            return Client.GetAsync("exports", "text/csv");
+        }
+
+        public Task<string> PostImportsAsync(string content)
+        {
+            return Client.PostAsync("imports", content, "text/csv", "application/json");
+        }
+
+        public Task<CustomerPostResponse> PostAsync(CustomerPostRequest request)
+        {
+            return Client.PostAsync<CustomerPostRequest, CustomerPostResponse>(request);
+        }
+    }
 }

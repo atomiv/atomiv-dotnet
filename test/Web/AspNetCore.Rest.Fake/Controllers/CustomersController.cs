@@ -25,7 +25,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<CustomerGetCollectionResponse>> Get()
+        public ActionResult<CustomerGetAllResponse> Get()
         {
             _logger.LogInformation("Hello world....");
 
@@ -33,7 +33,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
 
             var entities = repository;
 
-            var responses = _mapper.Map<List<Customer>, List<CustomerGetCollectionResponse>> (entities);
+            var responses = _mapper.Map<List<Customer>, List<CustomerGetAllResponse>> (entities);
 
             return Ok(responses);
         }

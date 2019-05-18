@@ -22,7 +22,7 @@ namespace Optivem.Web.AspNetCore.Test
                 "value2"
             };
 
-            var actual = await Client.Values.GetCollectionAsync();
+            var actual = await Client.Values.GetAllAsync();
 
             AssertUtilities.AssertEqual(expected, actual);
         }

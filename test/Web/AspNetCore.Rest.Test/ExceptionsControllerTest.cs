@@ -16,14 +16,14 @@ namespace Optivem.Web.AspNetCore.Test
         [Fact]
         public async Task TestGetAsyncReturnsInternalServerError()
         {
-            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await Client.Exceptions.GetAsync(500));
+            var exception = await Assert.ThrowsAsync<ProblemDetailsClientException>(async () => await Client.Exceptions.GetAsync(500));
             Assert.Equal(HttpStatusCode.InternalServerError, exception.StatusCode);
         }
 
         [Fact]
         public async Task TestGetAsyncReturnsBadRequestError()
         {
-            var exception = await Assert.ThrowsAsync<RestClientException>(async () => await Client.Exceptions.GetAsync(400));
+            var exception = await Assert.ThrowsAsync<ProblemDetailsClientException>(async () => await Client.Exceptions.GetAsync(400));
             Assert.Equal(HttpStatusCode.BadRequest, exception.StatusCode);
         }
     }
