@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
@@ -11,9 +12,11 @@ namespace Optivem.Test.Xunit.AspNetCore
 {
     public abstract class BaseTestClient<TStartup> : IDisposable where TStartup : class
     {
+        private const string JsonFileName = "appsettings.Test.json";
+
         public BaseTestClient()
         {
-            var webHostBuilder = CreateWebHostBuilder();
+            var webHostBuilder = GetWebHostBuilder();
             TestServer = new TestServer(webHostBuilder);
             HttpClient = TestServer.CreateClient();
             Client = new Client(HttpClient);
@@ -34,14 +37,30 @@ namespace Optivem.Test.Xunit.AspNetCore
             HttpClient.Dispose();
         }
 
-        protected virtual IWebHostBuilder CreateWebHostBuilder()
+        protected virtual IWebHostBuilder GetWebHostBuilder()
         {
+            var configurationBuilder = GetConfigurationBuilder();
+
+            var configuration = configurationBuilder.Build();
+
+            Setup(configuration);
+
             return new WebHostBuilder()
                 .UseStartup<TStartup>()
-                ; // TODO: VC: Use test configuration
+                .UseConfiguration(configuration);
 
             // TODO: VC: Check fill up test DB with standard test data
         }
+
+        protected virtual IConfigurationBuilder GetConfigurationBuilder()
+        {
+            var configurationBuilder = new ConfigurationBuilder()
+                .AddJsonFile(JsonFileName);
+
+            return configurationBuilder;
+        }
+
+        protected abstract void Setup(IConfigurationRoot configuration);
 
         protected abstract IControllerClientFactory CreateControllerClientFactory();
 

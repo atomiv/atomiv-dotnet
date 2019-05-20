@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Optivem.NorthwindLite.Infrastructure.Persistence
 {
-    public class CustomerRepository : Repository<Context, Customer, int>
+    public class CustomerRepository : Repository<DatabaseContext, Customer, int>
     {
-        public CustomerRepository(Context context) : base(context)
+        public CustomerRepository(DatabaseContext context) : base(context)
         {
         }
     }

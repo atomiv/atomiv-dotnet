@@ -30,7 +30,7 @@ namespace Optivem.NorthwindLite.Web
 {
     public class Startup
     {
-        private const string ContextConnectionStringKey = "Context";
+        public const string DatabaseContextConnectionStringKey = "Context";
 
         public Startup(IConfiguration configuration)
         {
@@ -58,9 +58,10 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<ICustomerService, CustomerService>();
 
             // Infrastructure - Repository
-            var connection = Configuration.GetConnectionString(ContextConnectionStringKey);
-            services.AddDbContext<Context>(options => options.UseSqlServer(connection));
-            services.AddScoped<IUnitOfWork, UnitOfWork<Context>>();
+            var connection = Configuration.GetConnectionString(DatabaseContextConnectionStringKey);
+
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+            services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
             services.AddScoped<IReadonlyRepository<Customer, int>, CustomerRepository>();
 
             // Infrastructure - Mapping

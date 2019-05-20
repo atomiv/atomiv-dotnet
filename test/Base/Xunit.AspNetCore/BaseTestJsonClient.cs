@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Optivem.Test.Xunit.AspNetCore
 {
-    public class BaseTestJsonClient<TStartup> : BaseTestClient<TStartup> where TStartup : class
+    public abstract class BaseTestJsonClient<TStartup> : BaseTestClient<TStartup> where TStartup : class
     {
         protected override IControllerClientFactory CreateControllerClientFactory()
         {

@@ -12,7 +12,7 @@ namespace Optivem.NorthwindLite.Web.Test
         {
         }
 
-        [Fact(Skip = "Implementation in progress")]
+        [Fact]
         public async Task TestListCustomersAsync()
         {
             var actual = await Client.Customers.ListCustomersAsync();
