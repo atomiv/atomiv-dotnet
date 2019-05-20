@@ -20,4 +20,21 @@ namespace Optivem.Infrastructure.Mapping.AutoMapper
             return Mapper.Map<TRequest, TEntity>(request);
         }
     }
+
+    public class RequestMapper : IRequestMapper
+    {
+        public RequestMapper(IMapper mapper)
+        {
+            Mapper = mapper;
+        }
+
+        protected IMapper Mapper { get; private set; }
+
+        public TEntity Map<TRequest, TEntity>(TRequest request)
+            where TRequest : IRequest
+            where TEntity : IEntity
+        {
+            return Mapper.Map<TRequest, TEntity>(request);
+        }
+    }
 }

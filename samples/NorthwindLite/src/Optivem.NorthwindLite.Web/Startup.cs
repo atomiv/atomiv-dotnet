@@ -19,9 +19,13 @@ using Optivem.Infrastructure.Mapping.AutoMapper;
 using Optivem.Infrastructure.Messaging.MediatR;
 using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application;
+using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
+using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
+using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Core.Application.Interface.Services;
+using Optivem.NorthwindLite.Core.Application.UseCases;
 using Optivem.NorthwindLite.Core.Application.UseCases.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
@@ -53,6 +57,9 @@ namespace Optivem.NorthwindLite.Web
 
             // Application - Use Cases
             services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
+            services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
+            services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
+
 
             // Application - Services
             services.AddScoped<ICustomerService, CustomerService>();
@@ -63,9 +70,11 @@ namespace Optivem.NorthwindLite.Web
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
             services.AddScoped<IReadonlyRepository<Customer, int>, CustomerRepository>();
+            services.AddScoped<IRepository<Customer, int>, CustomerRepository>();
 
             // Infrastructure - Mapping
             services.AddAutoMapper(autoMapperAssemblies);
+            services.AddScoped<IRequestMapper, RequestMapper>();
             services.AddScoped<IResponseMapper, ResponseMapper>();
 
 

@@ -21,6 +21,7 @@
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application\Optivem.NorthwindLite.Core.Application.csproj" />
+    <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Mapping\Optivem.NorthwindLite.Infrastructure.Mapping.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Messaging\Optivem.NorthwindLite.Infrastructure.Messaging.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Persistence\Optivem.NorthwindLite.Infrastructure.Persistence.csproj" />
   </ItemGroup>

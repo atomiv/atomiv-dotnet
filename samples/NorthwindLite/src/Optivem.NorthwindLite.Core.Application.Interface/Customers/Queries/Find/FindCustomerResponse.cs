@@ -1,8 +1,8 @@
 ﻿using Optivem.Core.Application;
 
-namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
+namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve
 {
-    public class CreateCustomerResponse : ICreateResponse<int>
+    public class FindCustomerResponse : IFindResponse<int>
     {
         public int Id { get; set; }
 

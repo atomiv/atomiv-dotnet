@@ -1,6 +1,11 @@
-﻿namespace Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers
+﻿using Optivem.Core.Application;
+
+namespace Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers
 {
-    class CreateCustomerRequest
+    public class CreateCustomerRequest : ICreateRequest
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
     }
 }

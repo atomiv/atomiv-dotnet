@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Optivem.Web.AspNetCore.Test
 {
@@ -24,6 +25,11 @@ namespace Optivem.Web.AspNetCore.Test
         public ExceptionsControllerClient Exceptions { get; }
 
         public CustomersControllerClient Customers { get; }
+
+        protected override void Setup(IConfigurationRoot configuration)
+        {
+            // NOTE: No startup actions
+        }
     }
 
     public class ValuesControllerClient : BaseControllerClient
