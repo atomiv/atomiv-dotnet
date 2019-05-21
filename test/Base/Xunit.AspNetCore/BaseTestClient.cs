@@ -12,7 +12,7 @@ namespace Optivem.Test.Xunit.AspNetCore
 {
     public abstract class BaseTestClient<TStartup> : IDisposable where TStartup : class
     {
-        private const string JsonFileName = "appsettings.Test.json";
+        private const string DefaultJsonFileName = "appsettings.Test.json";
 
         public BaseTestClient()
         {
@@ -39,23 +39,36 @@ namespace Optivem.Test.Xunit.AspNetCore
 
         protected virtual IWebHostBuilder GetWebHostBuilder()
         {
-            var configurationBuilder = GetConfigurationBuilder();
+            var webHostBuilder = new WebHostBuilder()
+                .UseStartup<TStartup>();
 
+            var configurationJsonFile = GetConfigurationJsonFile();
+
+            if(configurationJsonFile == null)
+            {
+                return webHostBuilder;
+            }
+
+            var configurationBuilder = GetConfigurationBuilder(configurationJsonFile);
             var configuration = configurationBuilder.Build();
 
             Setup(configuration);
 
-            return new WebHostBuilder()
-                .UseStartup<TStartup>()
+            return webHostBuilder
                 .UseConfiguration(configuration);
 
             // TODO: VC: Check fill up test DB with standard test data
         }
 
-        protected virtual IConfigurationBuilder GetConfigurationBuilder()
+        protected virtual string GetConfigurationJsonFile()
+        {
+            return DefaultJsonFileName;
+        }
+
+        protected virtual IConfigurationBuilder GetConfigurationBuilder(string file)
         {
             var configurationBuilder = new ConfigurationBuilder()
-                .AddJsonFile(JsonFileName);
+                .AddJsonFile(file);
 
             return configurationBuilder;
         }

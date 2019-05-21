@@ -11,6 +11,5 @@ namespace Optivem.Test.Xunit.AspNetCore
         }
 
         protected TClient Client { get; private set; }
-
     }
 }

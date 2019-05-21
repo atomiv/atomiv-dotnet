@@ -30,6 +30,11 @@ namespace Optivem.Web.AspNetCore.Test
         {
             // NOTE: No startup actions
         }
+
+        protected override string GetConfigurationJsonFile()
+        {
+            return null;
+        }
     }
 
     public class ValuesControllerClient : BaseControllerClient
