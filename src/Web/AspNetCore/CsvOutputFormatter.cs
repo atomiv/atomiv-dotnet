@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Formatters;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
+using Optivem.Common.Serialization;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
-using Optivem.Common.Serialization;
 
 namespace Optivem.Web.AspNetCore
 {
@@ -30,7 +30,7 @@ namespace Optivem.Web.AspNetCore
             var obj = context.Object;
             var type = context.ObjectType;
             var data = (IEnumerable<object>)obj;
-            
+
             var response = _csvSerializationService.Serialize(data, type);
 
             return context.HttpContext.Response.WriteAsync(response, selectedEncoding);

@@ -1,8 +1,5 @@
 ﻿using MediatR;
 using Optivem.Core.Application;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Messaging.MediatR

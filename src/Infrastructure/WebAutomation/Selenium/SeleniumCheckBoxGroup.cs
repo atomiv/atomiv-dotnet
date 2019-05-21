@@ -24,7 +24,7 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
                 return Elements.Count;
             }
         }
-        
+
         public List<T> GetSelected()
         {
             return Elements.Where(e => e.Selected).Select(e => _map[e.GetAttribute("value")]).ToList();
@@ -51,7 +51,7 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
             var mappedValue = _reverseMap[key];
             var element = Elements.Single(e => e.GetAttribute("value") == mappedValue);
 
-            if(!element.Selected)
+            if (!element.Selected)
             {
                 element.Click();
             }

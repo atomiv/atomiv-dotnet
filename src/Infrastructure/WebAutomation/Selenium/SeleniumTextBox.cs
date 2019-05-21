@@ -23,14 +23,13 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
         // TODO: VC: Protected --> IWebElement or public?
 
         /*
-         * 
+         *
             var element = driver.FindElement(By.Name("firstname"));
             element.Clear();
             element.SendKeys("This is my name");
 
-
             var value = element.GetAttribute("value");
-         * 
+         *
          */
     }
 }

@@ -7,7 +7,6 @@ namespace Optivem.NorthwindLite.Core.Domain.Test
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

@@ -27,8 +27,6 @@
 
             // TODO: VC: Check if this should be via textbox?
 
-
-
             Assert.False(page.SexRadioGroup.HasSelected());
 
             page.SexRadioGroup.Select(Sex.Male);
@@ -65,24 +63,18 @@
 
             // TODO: VC: Testing multi select
 
-
-
             // TODO: VC: Checkboxes
-
 
             Assert.True(page.ContinentComboBox.HasSelected());
             Assert.Equal(Continent.Asia, page.ContinentComboBox.GetSelected());
             page.ContinentComboBox.Select(Continent.Europe);
             Assert.Equal(Continent.Europe, page.ContinentComboBox.GetSelected());
 
-
             // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
             // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty
 
             // TODO: VC: Assert messages
         }
-
-
     }
     */
 }

@@ -32,7 +32,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         public async Task TestGetCollectionAsync()
         {
             var actual = await JsonPlaceholderClient.Posts.GetAsync();
-            
+
             var expectedCount = 100;
             var actualCount = actual.Count();
 
@@ -117,17 +117,15 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
             await JsonPlaceholderClient.Posts.DeleteAsync(8);
         }
 
-
         // TODO: VC: Requests
 
         /*
-         * 
-         * 
+         *
+         *
 GET	/posts/1/comments
 GET	/comments?postId=1
 GET	/posts?userId=1
-         * 
+         *
          */
-
     }
 }

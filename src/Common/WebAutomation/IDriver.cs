@@ -20,11 +20,7 @@ namespace Optivem.Common.WebAutomation
     // TODO: VC: Maped radio group without mapping, e.g. when want to access raw strings, or perhaps ints, where there is no fixed range in advance
 
     /*
-     * 
-
-
-
-
+     *
 
         protected SeleniumCheckBoxGroup<T> FindCheckBoxGroup<T>(By by, Dictionary<string, T> map)
         {
@@ -41,6 +37,6 @@ namespace Optivem.Common.WebAutomation
 
             // TODO: VC: Maped radio group without mapping, e.g. when want to access raw strings, or perhaps ints, where there is no fixed range in advance
         }
-     * 
+     *
      */
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Optivem.Common.Http;
+﻿using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 
 namespace Optivem.Infrastructure.Http.System
@@ -10,7 +7,7 @@ namespace Optivem.Infrastructure.Http.System
     {
         private const string MediaType = "application/json";
 
-        public JsonClient(IClient client, IJsonSerializationService serializationService) 
+        public JsonClient(IClient client, IJsonSerializationService serializationService)
             : base(client, serializationService, MediaType, MediaType)
         {
         }

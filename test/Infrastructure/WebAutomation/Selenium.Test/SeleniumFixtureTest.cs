@@ -10,6 +10,5 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
         }
 
         public SeleniumDriverFixture SeleniumFixture { get; private set; }
-
     }
 }

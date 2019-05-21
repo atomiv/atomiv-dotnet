@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Optivem.Common.Serialization;
+using System;
+using System.Collections.Generic;
 
 namespace Optivem.Infrastructure.Serialization.Json.NewtonsoftJson
 {
@@ -12,7 +12,6 @@ namespace Optivem.Infrastructure.Serialization.Json.NewtonsoftJson
 
         public JsonSerializationService()
         {
-
         }
 
         public string Serialize(object data, Type type)
@@ -29,7 +28,7 @@ namespace Optivem.Infrastructure.Serialization.Json.NewtonsoftJson
         {
             return JsonConvert.DeserializeObject<T>(data);
         }
-        
+
         public object Deserialize(string data, Type type)
         {
             return JsonConvert.DeserializeObject(data, type);

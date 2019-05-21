@@ -104,7 +104,7 @@ namespace Optivem.Infrastructure.Serialization.CsvHelper
         {
             // TODO: VC: Check that type is IEnumerable
             var type = typeof(T);
-            return (T) Deserialize(data, type);
+            return (T)Deserialize(data, type);
         }
 
         public string SerializeEnumerable<E>(IEnumerable<E> data)
@@ -130,7 +130,6 @@ namespace Optivem.Infrastructure.Serialization.CsvHelper
             }
         }
 
-        #endregion
-
+        #endregion Helper
     }
 }

@@ -9,7 +9,7 @@ namespace Optivem.Test.Xunit
 
         public static void AssertEqual<T>(T expected, T actual)
         {
-            if(expected == null && actual == null)
+            if (expected == null && actual == null)
             {
                 return;
             }

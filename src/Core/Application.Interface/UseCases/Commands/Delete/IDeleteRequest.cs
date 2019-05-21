@@ -2,10 +2,9 @@
 {
     public interface IDeleteRequest : IRequest
     {
-
     }
 
-    public interface IDeleteRequest<TId> : IDeleteRequest, IRequest<TId> 
+    public interface IDeleteRequest<TId> : IDeleteRequest, IRequest<TId>
     {
     }
 }

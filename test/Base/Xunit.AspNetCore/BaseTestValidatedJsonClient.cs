@@ -1,8 +1,5 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Infrastructure.Http.System;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.Xunit.AspNetCore
 {

@@ -1,6 +1,6 @@
 ﻿namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
 {
-    class UpdateCustomerResponse
+    internal class UpdateCustomerResponse
     {
     }
 }

@@ -11,7 +11,7 @@ namespace Optivem.Infrastructure.Serialization.System
             IgnoreCase = ignoreCase;
             Type = typeof(T);
         }
-        
+
         public bool IgnoreCase { get; private set; }
 
         public Type Type { get; private set; }

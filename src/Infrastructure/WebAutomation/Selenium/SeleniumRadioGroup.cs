@@ -29,7 +29,7 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
         {
             var element = Elements.SingleOrDefault(e => e.Selected);
 
-            if(element == null)
+            if (element == null)
             {
                 return default(T);
             }

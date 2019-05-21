@@ -17,17 +17,17 @@ namespace Optivem.Infrastructure.Serialization.System
 
         protected override T ParseInner(string value)
         {
-            if(NumberStyles != null && FormatProvider != null)
+            if (NumberStyles != null && FormatProvider != null)
             {
                 return ParseNumber(value, NumberStyles.Value, FormatProvider);
             }
 
-            if(NumberStyles != null)
+            if (NumberStyles != null)
             {
                 return ParseNumber(value, NumberStyles.Value);
             }
 
-            if(FormatProvider != null)
+            if (FormatProvider != null)
             {
                 return ParseNumber(value, FormatProvider);
             }
@@ -42,6 +42,5 @@ namespace Optivem.Infrastructure.Serialization.System
         protected abstract T ParseNumber(string value, NumberStyles numberStyles);
 
         protected abstract T ParseNumber(string value, NumberStyles numberStyles, IFormatProvider formatProvider);
-
     }
 }

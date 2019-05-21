@@ -9,7 +9,7 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
 {
     public class SeleniumDriver : IDriver
     {
-        private static Dictionary<FindType, Func<string, By>> findTypeMap 
+        private static Dictionary<FindType, Func<string, By>> findTypeMap
             = new Dictionary<FindType, Func<string, By>>
             {
                 { FindType.ClassName, e => By.ClassName(e) },
@@ -80,6 +80,6 @@ namespace Optivem.Infrastructure.WebAutomation.Selenium
             return elements.Single();
         }
 
-        #endregion
+        #endregion Helper
     }
 }

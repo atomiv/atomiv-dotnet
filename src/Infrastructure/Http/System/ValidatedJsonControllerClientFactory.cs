@@ -1,8 +1,5 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Common.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Infrastructure.Http.System
 {

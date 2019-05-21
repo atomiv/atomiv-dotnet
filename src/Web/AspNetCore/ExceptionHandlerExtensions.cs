@@ -23,13 +23,11 @@ namespace Optivem.Web.AspNetCore
                     // var logger = context.RequestServices.GetRequiredService<ILogger>();
                     // logger.LogError(exception, exception.Message);
 
-
                     context.Response.StatusCode = problemDetails.Status.Value;
 
                     // TODO: VC: Lookup json service from services
                     await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
                 });
-
             });
 
             return app;

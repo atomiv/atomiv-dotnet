@@ -1,7 +1,4 @@
 ﻿using Optivem.Common.Http;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Infrastructure.Http.System
 {

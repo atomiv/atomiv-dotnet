@@ -2,9 +2,6 @@
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.Xunit.AspNetCore
 {

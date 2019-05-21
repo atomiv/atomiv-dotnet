@@ -17,7 +17,6 @@ namespace Optivem.Test.Xunit
         public SerializationService()
             : this(CreateFormatSerializationServices())
         {
-
         }
 
         public string Serialize<T>(T data, SerializationFormatType format)
@@ -43,6 +42,6 @@ namespace Optivem.Test.Xunit
             };
         }
 
-        #endregion
+        #endregion Helper
     }
 }

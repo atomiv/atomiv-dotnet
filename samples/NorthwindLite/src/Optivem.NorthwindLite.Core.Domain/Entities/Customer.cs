@@ -14,7 +14,6 @@ namespace Optivem.NorthwindLite.Core.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-
         public virtual ICollection<Order> Order { get; set; }
     }
 }

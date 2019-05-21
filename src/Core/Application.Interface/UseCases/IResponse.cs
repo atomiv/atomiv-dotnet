@@ -2,7 +2,6 @@
 {
     public interface IResponse
     {
-
     }
 
     public interface IResponse<TId> : IResponse

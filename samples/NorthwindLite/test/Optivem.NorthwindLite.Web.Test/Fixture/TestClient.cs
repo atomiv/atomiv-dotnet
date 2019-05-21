@@ -8,9 +8,6 @@ using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
 using Optivem.Test.Xunit.AspNetCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture

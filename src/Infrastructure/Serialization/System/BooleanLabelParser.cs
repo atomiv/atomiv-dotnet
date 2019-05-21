@@ -13,7 +13,7 @@ namespace Optivem.Infrastructure.Serialization.System
         public string TrueString { get; private set; }
 
         public string FalseString { get; private set; }
-        
+
         protected override bool? ParseInner(string value)
         {
             if (value == TrueString)

@@ -8,7 +8,7 @@ namespace Optivem.Web.AspNetCore.Test
 {
     public class ValuesControllerTest : TestClientFixture<TestClient>
     {
-        public ValuesControllerTest(TestClient client) 
+        public ValuesControllerTest(TestClient client)
             : base(client)
         {
         }

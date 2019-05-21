@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Optivem.Infrastructure.Mapping.AutoMapper;
 using Optivem.Web.AspNetCore.Fake.Entities;
 using Optivem.Web.AspNetCore.Fake.Models;
-using Optivem.Infrastructure.Mapping.AutoMapper;
 using System;
 using System.Collections.Generic;
 

@@ -1,8 +1,6 @@
 ﻿using Optivem.Common.Http;
-using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
-using Optivem.Test.Xunit;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -42,10 +40,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         public PostsControllerClient Posts { get; }
 
         public TodosControllerClient Todos { get; }
-
     }
-
-
 
     public class PostsControllerClient : BaseControllerClient
     {
@@ -97,7 +92,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
     public class TodosControllerClient : BaseControllerClient
     {
-        public TodosControllerClient(IControllerClientFactory clientFactory) 
+        public TodosControllerClient(IControllerClientFactory clientFactory)
             : base(clientFactory, "todos")
         {
         }

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Optivem.Web.AspNetCore
 {

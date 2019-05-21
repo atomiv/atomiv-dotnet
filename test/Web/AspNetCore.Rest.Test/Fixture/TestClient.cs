@@ -5,8 +5,6 @@ using Optivem.Test.Xunit.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;
 using System.Collections.Generic;
-using Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers;
-using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 

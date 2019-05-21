@@ -2,7 +2,6 @@
 using Optivem.Infrastructure.Messaging.MediatR;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
-using System;
 
 namespace Optivem.NorthwindLite.Infrastructure.Messaging
 {

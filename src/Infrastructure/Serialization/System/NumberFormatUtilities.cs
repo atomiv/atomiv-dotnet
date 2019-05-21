@@ -25,6 +25,5 @@ namespace Optivem.Infrastructure.Serialization.System
                 NumberDecimalSeparator = numberDecimalSeparator
             };
         }
-
     }
 }

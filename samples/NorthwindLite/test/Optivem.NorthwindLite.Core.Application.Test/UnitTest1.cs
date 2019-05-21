@@ -7,7 +7,6 @@ namespace Optivem.NorthwindLite.Core.Application.Test
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

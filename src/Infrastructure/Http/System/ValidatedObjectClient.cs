@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Common.Http;
+﻿using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Http.System
@@ -144,6 +141,6 @@ namespace Optivem.Infrastructure.Http.System
             throw new NotImplementedException();
         }
 
-        #endregion
+        #endregion Helper
     }
 }

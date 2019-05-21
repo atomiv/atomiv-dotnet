@@ -14,7 +14,7 @@ namespace Optivem.Infrastructure.Serialization.System
 
         protected override DateTime? ParseInner(string value)
         {
-            if(Format != null)
+            if (Format != null)
             {
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 return DateTime.ParseExact(value, Format, provider);

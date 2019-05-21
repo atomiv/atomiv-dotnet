@@ -5,6 +5,5 @@
         where TRequest : IRequest
         where TResponse : IResponse
     {
-
     }
 }

@@ -27,7 +27,7 @@ namespace Optivem.Web.AspNetCore
         public override async Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
         {
             var stream = context.HttpContext.Request.Body;
-            
+
             string data = null;
 
             using (var reader = context.ReaderFactory(stream, encoding))
@@ -38,7 +38,7 @@ namespace Optivem.Web.AspNetCore
             // TODO: VC: Can also have PlainText reader, which just reads the entire string and then parses it
 
             Type type = context.ModelType;
-            
+
             var response = _csvSerializationService.Deserialize(data, type);
 
             return InputFormatterResult.Success(response);

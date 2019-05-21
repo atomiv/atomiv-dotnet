@@ -16,7 +16,7 @@ namespace Optivem.Core.Application
         {
             var result = await _validator.ValidateAsync(request);
 
-            if(!result.IsValid)
+            if (!result.IsValid)
             {
                 throw new ValidationException(result);
             }

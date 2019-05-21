@@ -57,7 +57,6 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pa
             { "Antartica", Continent.Antartica },
         });
 
-
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
 

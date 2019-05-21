@@ -6,9 +6,6 @@ using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Core.Application.Interface.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Core.Application

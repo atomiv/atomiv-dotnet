@@ -6,7 +6,7 @@ namespace Optivem.Infrastructure.Serialization.System
     {
         public T Parse(string value)
         {
-            if(value == null)
+            if (value == null)
             {
                 return default(T);
             }

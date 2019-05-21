@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Persistence.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.NorthwindLite.Infrastructure.Persistence
 {

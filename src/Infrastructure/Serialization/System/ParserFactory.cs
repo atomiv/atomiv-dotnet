@@ -7,10 +7,10 @@ namespace Optivem.Infrastructure.Serialization.System
 
     public static class ParserFactory<T>
     {
-        public static Parser CreateParser(NumberParser numberParser, DateTimeParser dateTimeParser, IEnumerable<Type> enumTypes = null, 
+        public static Parser CreateParser(NumberParser numberParser, DateTimeParser dateTimeParser, IEnumerable<Type> enumTypes = null,
             BooleanParser booleanParser = null, /* TODO: VC: EnumParser<T> enumParser = null, */ Dictionary<Type, Converter> otherConverters = null)
         {
-            if(booleanParser == null)
+            if (booleanParser == null)
             {
                 booleanParser = new BooleanParser();
             }
@@ -50,9 +50,9 @@ namespace Optivem.Infrastructure.Serialization.System
 
             */
 
-            if(otherConverters != null)
+            if (otherConverters != null)
             {
-                foreach(KeyValuePair<Type, Converter> entry in otherConverters)
+                foreach (KeyValuePair<Type, Converter> entry in otherConverters)
                 {
                     converters.Add(entry.Key, entry.Value);
                 }

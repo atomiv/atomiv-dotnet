@@ -27,10 +27,10 @@ namespace Optivem.Web.AspNetCore
         {
             var exceptionType = exception.GetType();
 
-            // TODO: VC: Check this, instead should ensure that Exception is set as last, or checking if can convert to... 
+            // TODO: VC: Check this, instead should ensure that Exception is set as last, or checking if can convert to...
             var type = _types.SingleOrDefault(e => e == exceptionType);
 
-            if(type == null)
+            if (type == null)
             {
                 return _defaultFactory;
             }

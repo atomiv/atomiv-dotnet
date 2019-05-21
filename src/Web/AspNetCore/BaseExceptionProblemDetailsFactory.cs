@@ -30,7 +30,7 @@ namespace Optivem.Web.AspNetCore
         protected abstract string GetDetail(TException exception);
 
         protected abstract int GetStatus(TException exception);
-        
+
         protected string GetInstance(TException exception)
         {
             // TODO: VC: handling errors that occurred relating to some resources, could have resource/{id}/errors/{errorid}
@@ -46,7 +46,5 @@ namespace Optivem.Web.AspNetCore
         }
 
         protected abstract string GetProblemTypeUri(TException exception);
-
-
     }
 }

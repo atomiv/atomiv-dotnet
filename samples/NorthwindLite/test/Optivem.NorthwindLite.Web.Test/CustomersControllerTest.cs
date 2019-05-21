@@ -1,6 +1,5 @@
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Web.Test.Fixture;
-using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.AspNetCore;
 using System.Threading.Tasks;
 using Xunit;

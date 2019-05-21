@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Optivem.Common.Http;
+﻿using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 
 namespace Optivem.Infrastructure.Http.System
 {
     public class ValidatedJsonControllerClient : ControllerClient
     {
-        public ValidatedJsonControllerClient(IClient client, IJsonSerializationService serializationService, string controllerUri) 
+        public ValidatedJsonControllerClient(IClient client, IJsonSerializationService serializationService, string controllerUri)
             : base(client, new ValidatedObjectClient(new JsonClient(client, serializationService), serializationService), controllerUri)
         {
         }

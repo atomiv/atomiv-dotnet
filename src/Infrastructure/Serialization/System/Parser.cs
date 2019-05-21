@@ -34,6 +34,5 @@ namespace Optivem.Infrastructure.Serialization.System
 
             return converters[type](data);
         }
-
     }
 }

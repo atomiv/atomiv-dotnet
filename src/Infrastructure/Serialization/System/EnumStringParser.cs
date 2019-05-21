@@ -11,7 +11,7 @@ namespace Optivem.Infrastructure.Serialization.System
         {
             this.map = map;
         }
-        
+
         public T Parse(string value)
         {
             return map[value];
