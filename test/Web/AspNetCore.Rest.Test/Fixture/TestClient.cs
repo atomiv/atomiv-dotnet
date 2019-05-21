@@ -1,12 +1,12 @@
-﻿using Optivem.Common.Http;
-using Optivem.Infrastructure.Http.System;
+﻿using Microsoft.Extensions.Configuration;
+using Optivem.Common.Http;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
+using Optivem.Infrastructure.Http.System;
 using Optivem.Test.Xunit.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 
 namespace Optivem.Web.AspNetCore.Test
 {
@@ -18,6 +18,7 @@ namespace Optivem.Web.AspNetCore.Test
             Exceptions = new ExceptionsControllerClient(ControllerClientFactory);
             Customers = new CustomersControllerClient(ControllerClientFactory);
         }
+
         public ValuesControllerClient Values { get; }
 
         public ExceptionsControllerClient Exceptions { get; }
@@ -37,7 +38,7 @@ namespace Optivem.Web.AspNetCore.Test
 
     public class ValuesControllerClient : BaseControllerClient
     {
-        public ValuesControllerClient(IControllerClientFactory clientFactory) 
+        public ValuesControllerClient(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/values")
         {
         }
@@ -50,7 +51,7 @@ namespace Optivem.Web.AspNetCore.Test
 
     public class ExceptionsControllerClient : BaseControllerClient
     {
-        public ExceptionsControllerClient(IControllerClientFactory clientFactory) 
+        public ExceptionsControllerClient(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/exceptions")
         {
         }
@@ -63,7 +64,7 @@ namespace Optivem.Web.AspNetCore.Test
 
     public class CustomersControllerClient : BaseControllerClient
     {
-        public CustomersControllerClient(IControllerClientFactory clientFactory) 
+        public CustomersControllerClient(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/customers")
         {
         }

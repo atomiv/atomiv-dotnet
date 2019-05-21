@@ -42,7 +42,7 @@ namespace Optivem.Test.Xunit.AspNetCore
 
             var configurationJsonFile = GetConfigurationJsonFile();
 
-            if(configurationJsonFile == null)
+            if (configurationJsonFile == null)
             {
                 return webHostBuilder;
             }
@@ -74,7 +74,5 @@ namespace Optivem.Test.Xunit.AspNetCore
         protected abstract void Setup(IConfigurationRoot configuration);
 
         protected abstract IControllerClientFactory CreateControllerClientFactory();
-
-
     }
 }

@@ -41,7 +41,6 @@ namespace Optivem.NorthwindLite.Web.Test
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createRequest.FirstName, findResponse.FirstName);
             Assert.Equal(createRequest.LastName, findResponse.LastName);
-
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Optivem.Core.Application
 {
-    public class CrudService<TId,  
-        TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, 
-        TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TDeleteResponse> 
+    public class CrudService<TId,
+        TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest,
+        TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TDeleteResponse>
         : ICrudService<TId, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         where TFindAllRequest : IListRequest
         where TFindRequest : IFindRequest<TId>, new()

@@ -20,7 +20,7 @@ namespace Optivem.Core.Domain
 
         Task AddRangeAsync(params TEntity[] entities);
 
-        #endregion
+        #endregion Create
 
         #region Update
 
@@ -30,20 +30,20 @@ namespace Optivem.Core.Domain
 
         void UpdateRange(params TEntity[] entities);
 
-        #endregion
+        #endregion Update
 
         #region Delete
 
         void Delete(TEntity entity);
-        
+
         void DeleteRange(IEnumerable<TEntity> entities);
-        
+
         void DeleteRange(params TEntity[] entities);
 
         void DeleteRange(IEnumerable<TId> ids);
 
         void DeleteRange(params TId[] ids);
 
-        #endregion
+        #endregion Delete
     }
 }

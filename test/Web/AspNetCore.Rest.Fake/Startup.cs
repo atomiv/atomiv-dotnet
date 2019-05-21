@@ -59,7 +59,7 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
-                options.InvalidModelStateResponseFactory = ctx 
+                options.InvalidModelStateResponseFactory = ctx
                     => new ValidationProblemDetailsActionResult(validationProblemDetailsFactory, jsonSerializationService);
             });
 
@@ -67,8 +67,6 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
             {
                 c.SwaggerDoc("v1", new Info { Title = "My Fake API", Version = "v1" });
             });
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,7 +91,7 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
             app.UseExceptionHandler(problemDetailsFactory, jsonSerializationService);
 
             app.UseSwagger();
-            
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Fake API V1");
@@ -101,10 +99,6 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
-
         }
-
-
     }
 }

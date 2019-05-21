@@ -10,7 +10,9 @@ namespace Optivem.NorthwindLite.Core.Application.Interface.Services
     public interface ICustomerService : IService
     {
         Task<ListCustomersResponse> ListCustomersAsync();
+
         Task<FindCustomerResponse> FindCustomerAsync(int id);
+
         Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request);
     }
 }

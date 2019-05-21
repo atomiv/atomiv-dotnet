@@ -53,6 +53,6 @@ namespace Optivem.Core.Domain
 
         Task<bool> GetExistsAsync(TId id);
 
-        #endregion
+        #endregion Read
     }
 }

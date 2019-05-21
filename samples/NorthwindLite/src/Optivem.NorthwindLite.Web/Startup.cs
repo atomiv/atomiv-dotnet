@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +22,7 @@ using Optivem.NorthwindLite.Core.Application.UseCases;
 using Optivem.NorthwindLite.Core.Application.UseCases.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
+using System;
 
 namespace Optivem.NorthwindLite.Web
 {
@@ -48,12 +48,10 @@ namespace Optivem.NorthwindLite.Web
             var mediatRAssemblies = allAssemblies; // TODO: VC
             var autoMapperAssemblies = allAssemblies; // TODO: VC
 
-
             // Application - Use Cases
             services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
             services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
             services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
-
 
             // Application - Services
             services.AddScoped<ICustomerService, CustomerService>();
@@ -71,12 +69,9 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<IRequestMapper, RequestMapper>();
             services.AddScoped<IResponseMapper, ResponseMapper>();
 
-
-
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);
             services.AddScoped<IUseCaseMediator, UseCaseMediator>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

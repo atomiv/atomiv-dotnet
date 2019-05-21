@@ -33,7 +33,7 @@ namespace Optivem.Infrastructure.Http.System
                 },
             };
 
-            if(content != null)
+            if (content != null)
             {
                 var requestContent = new StringContent(content, StringContentEncoding, contentType);
                 requestMessage.Content = requestContent;
@@ -114,13 +114,13 @@ namespace Optivem.Infrastructure.Http.System
                 var statusCode = response.StatusCode;
                 var content = await response.Content.ReadAsStringAsync();
 
-                if(!isSuccessStatusCode)
+                if (!isSuccessStatusCode)
                 {
                     throw new ClientException(statusCode, content);
                 }
 
                 // TODO: VC: Exception for null content
-                
+
                 /*
                 if (expectContent && content == null)
                 {
@@ -143,6 +143,6 @@ namespace Optivem.Infrastructure.Http.System
             return SendAsync(message, false);
         }
 
-        #endregion
+        #endregion Helper
     }
 }

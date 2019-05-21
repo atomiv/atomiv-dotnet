@@ -4,7 +4,6 @@ namespace Optivem.Core.Application
 {
     public interface IListResponse : IResponse
     {
-
     }
 
     public interface IListResponse<TElement, TElementId> : IListResponse, IResponse
@@ -15,7 +14,6 @@ namespace Optivem.Core.Application
 
     public interface IListElementResponse : IResponse
     {
-
     }
 
     public interface IListElementResponse<TId> : IListElementResponse, IResponse<TId>

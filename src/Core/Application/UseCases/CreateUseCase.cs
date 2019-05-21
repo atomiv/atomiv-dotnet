@@ -6,7 +6,7 @@ namespace Optivem.Core.Application
     public class CreateUseCase<TRequest, TResponse, TEntity, TId> : ICreateUseCase<TRequest, TResponse>
         where TRequest : ICreateRequest
         where TResponse : ICreateResponse<TId>
-        where TEntity: class, IEntity<TId>
+        where TEntity : class, IEntity<TId>
     {
         public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TId> repository)
         {

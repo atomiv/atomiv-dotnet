@@ -11,7 +11,7 @@ namespace Optivem.Core.Application
 
     public interface IRequestMapper
     {
-        TEntity Map<TRequest, TEntity>(TRequest request) 
+        TEntity Map<TRequest, TEntity>(TRequest request)
             where TRequest : IRequest
             where TEntity : IEntity;
     }

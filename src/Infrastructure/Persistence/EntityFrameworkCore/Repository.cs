@@ -46,7 +46,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return set.AddRangeAsync(entities);
         }
 
-        #endregion
+        #endregion Create
 
         #region Update
 
@@ -77,7 +77,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             }
         }
 
-        #endregion
+        #endregion Update
 
         #region Delete
 
@@ -91,14 +91,13 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             set.RemoveRange(entities);
         }
 
-
         public void DeleteRange(params TEntity[] entities)
         {
             set.RemoveRange(entities);
         }
 
+        #endregion Delete
 
-        #endregion
         #region Helper - Delete
 
         protected void DeleteInner(object[] id)
@@ -139,7 +138,6 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             set.RemoveRange(entities);
         }
 
-        #endregion
-
+        #endregion Helper - Delete
     }
 }

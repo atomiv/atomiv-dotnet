@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Optivem.Core.Application;
+using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore
 {
-    public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse> 
+    public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         : ControllerBase
         where TService : ICrudService<TKey, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         where TUpdateRequest : IUpdateRequest<TKey>
@@ -53,7 +53,7 @@ namespace Optivem.Web.AspNetCore
             var requestId = request.Id;
 
             var validId = id != null && requestId != null && id.Equals(requestId);
-            
+
             if (!validId)
             {
                 return BadRequest();
@@ -61,7 +61,7 @@ namespace Optivem.Web.AspNetCore
 
             var response = await Service.UpdateAsync(request);
 
-            if(response == null)
+            if (response == null)
             {
                 return NotFound();
             }
@@ -74,13 +74,12 @@ namespace Optivem.Web.AspNetCore
         {
             var deleted = await Service.DeleteAsync(id);
 
-            if(!deleted)
+            if (!deleted)
             {
                 return NotFound();
             }
 
             return NoContent();
         }
-
     }
 }

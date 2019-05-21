@@ -16,6 +16,6 @@ namespace Optivem.Test.Xunit.AspNetCore
         protected virtual IJsonSerializationService CreateSerializationService()
         {
             return new JsonSerializationService();
-        }   
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
 
     public class CustomersControllerClient : BaseControllerClient
     {
-        public CustomersControllerClient(IControllerClientFactory clientFactory) 
+        public CustomersControllerClient(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/customers")
         {
         }

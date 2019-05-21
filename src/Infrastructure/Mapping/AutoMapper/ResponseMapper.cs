@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Optivem.Core.Application;
 using Optivem.Core.Domain;
+using System.Collections.Generic;
 
 namespace Optivem.Infrastructure.Mapping.AutoMapper
 {

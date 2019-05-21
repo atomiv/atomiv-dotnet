@@ -15,7 +15,7 @@ namespace Optivem.Web.AspNetCore.Test
 {
     public class CustomersControllerTest : TestClientFixture<TestClient>
     {
-        public CustomersControllerTest(TestClient client) 
+        public CustomersControllerTest(TestClient client)
             : base(client)
         {
         }
@@ -140,7 +140,6 @@ namespace Optivem.Web.AspNetCore.Test
             Assert.Equal(request.FirstName, result.FirstName);
             Assert.Equal(request.LastName, result.LastName);
             Assert.True(result.Id > 0);
-
         }
 
         [Fact]
@@ -152,7 +151,7 @@ namespace Optivem.Web.AspNetCore.Test
                 FirstName = null,
                 LastName = null,
             };
-            
+
             var exception = await Assert.ThrowsAsync<ProblemDetailsClientException>(async () => await Client.Customers.PostAsync(request));
 
             var problemDetails = exception.ProblemDetails;

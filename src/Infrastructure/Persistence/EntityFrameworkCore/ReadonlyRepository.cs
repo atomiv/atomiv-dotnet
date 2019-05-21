@@ -135,7 +135,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return entity != null;
         }
 
-        #endregion
+        #endregion Read
 
         #region Helper - Read
 
@@ -208,6 +208,6 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return set.FindAsync(id);
         }
 
-        #endregion
+        #endregion Helper - Read
     }
 }

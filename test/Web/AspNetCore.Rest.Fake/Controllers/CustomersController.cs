@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;
 using Optivem.Web.AspNetCore.Fake.Entities;
 using Optivem.Web.AspNetCore.Fake.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Optivem.Web.AspNetCore.Fake.Controllers
 {
@@ -34,7 +34,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
 
             var entities = repository;
 
-            var responses = _mapper.Map<List<Customer>, List<CustomerGetAllResponse>> (entities);
+            var responses = _mapper.Map<List<Customer>, List<CustomerGetAllResponse>>(entities);
 
             return Ok(responses);
         }
@@ -47,7 +47,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         {
             var entity = repository.SingleOrDefault(e => e.Id == id);
 
-            if(entity == null)
+            if (entity == null)
             {
                 return NotFound();
             }
@@ -56,7 +56,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
 
             return Ok(entity);
         }
-        
+
         [HttpPost]
         [ProducesResponseType(typeof(CustomerPostResponse), 201)]
         [ProducesResponseType(typeof(IDictionary<string, string>), 422)]
@@ -92,8 +92,6 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
             return CreatedAtAction("Get", new { id = response.Id }, response); ;
         }
 
-
-
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(CustomerPutResponse), 200)]
         [ProducesResponseType(404)]
@@ -123,7 +121,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         {
             var entity = repository.SingleOrDefault(e => e.Id == id);
 
-            if(entity == null)
+            if (entity == null)
             {
                 return NotFound();
             }
@@ -134,13 +132,9 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         }
 
 
-        #region Cards
-
-
-        #endregion
 
         #region Exports
-        
+
         [HttpGet("exports")]
         [ProducesResponseType(typeof(IEnumerable<CustomerExportGetCollectionResponse>), 200)]
         public ActionResult<IEnumerable<CustomerExportGetCollectionResponse>> GetExports()
@@ -152,7 +146,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
             return Ok(responses);
         }
 
-        #endregion
+        #endregion Exports
 
         #region Imports
 
@@ -163,7 +157,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         {
             // TODO: VC: Simulate queue
 
-            foreach(var request in requests)
+            foreach (var request in requests)
             {
                 // TODO: VC: Statically typed mapper, just like for UnitOfWork typed repositories...
 
@@ -175,7 +169,7 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
             return Accepted();
         }
 
-        #endregion
+        #endregion Imports
 
         #region Helper
 
@@ -238,6 +232,6 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
                 }
             };
 
-        #endregion
+        #endregion Helper
     }
 }

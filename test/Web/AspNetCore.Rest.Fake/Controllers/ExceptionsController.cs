@@ -18,19 +18,18 @@ namespace Optivem.Web.AspNetCore.Fake.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            if(id == 500)
+            if (id == 500)
             {
                 throw new Exception("This is some exception");
             }
-
-            else if(id == 400)
+            else if (id == 400)
             {
                 BadHttpRequestException.Throw(RequestRejectionReason.InvalidContentLength, HttpMethod.Get);
             }
 
             return "value";
         }
-        
+
         [HttpPost]
         public void Post([FromBody] string value)
         {
