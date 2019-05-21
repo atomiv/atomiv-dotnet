@@ -45,17 +45,17 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
         {
         }
 
-        public Task<ListCustomersResponse> ListCustomersAsync()
+        public Task<IObjectClientResponse<ListCustomersResponse>> ListCustomersAsync()
         {
             return Client.GetAsync<ListCustomersResponse>();
         }
 
-        public Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<IObjectClientResponse<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
             return Client.PostAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
         }
 
-        public Task<FindCustomerResponse> FindCustomerAsync(int id)
+        public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(int id)
         {
             return Client.GetByIdAsync<int, FindCustomerResponse>(id);
         }

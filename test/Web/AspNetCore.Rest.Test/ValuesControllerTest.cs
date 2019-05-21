@@ -1,6 +1,7 @@
 using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.AspNetCore;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -24,7 +25,9 @@ namespace Optivem.Web.AspNetCore.Test
 
             var actual = await Client.Values.GetAllAsync();
 
-            AssertUtilities.AssertEqual(expected, actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            AssertUtilities.AssertEqual(expected, actual.Content);
         }
     }
 }

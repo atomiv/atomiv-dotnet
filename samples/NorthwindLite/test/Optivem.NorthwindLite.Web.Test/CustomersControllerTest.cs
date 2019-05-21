@@ -1,6 +1,7 @@
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Web.Test.Fixture;
 using Optivem.Test.Xunit.AspNetCore;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -17,7 +18,13 @@ namespace Optivem.NorthwindLite.Web.Test
         {
             var actual = await Client.Customers.ListCustomersAsync();
 
-            Assert.NotNull(actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            var actualContent = actual.Content;
+
+            Assert.NotNull(actualContent);
+
+            // TODO: Test status and header and body
         }
 
         [Fact]
@@ -31,16 +38,24 @@ namespace Optivem.NorthwindLite.Web.Test
 
             var createResponse = await Client.Customers.CreateCustomerAsync(createRequest);
 
-            Assert.True(createResponse.Id > 0);
+            Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
-            Assert.Equal(createRequest.FirstName, createResponse.FirstName);
-            Assert.Equal(createRequest.LastName, createResponse.LastName);
+            var createResponseContent = createResponse.Content;
 
-            var findResponse = await Client.Customers.FindCustomerAsync(createResponse.Id);
+            Assert.True(createResponseContent.Id > 0);
 
-            Assert.Equal(createResponse.Id, findResponse.Id);
-            Assert.Equal(createRequest.FirstName, findResponse.FirstName);
-            Assert.Equal(createRequest.LastName, findResponse.LastName);
+            Assert.Equal(createRequest.FirstName, createResponseContent.FirstName);
+            Assert.Equal(createRequest.LastName, createResponseContent.LastName);
+
+            var findResponse = await Client.Customers.FindCustomerAsync(createResponseContent.Id);
+
+            Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
+
+            var findResponseContent = findResponse.Content;
+
+            Assert.Equal(createResponseContent.Id, findResponseContent.Id);
+            Assert.Equal(createRequest.FirstName, findResponseContent.FirstName);
+            Assert.Equal(createRequest.LastName, findResponseContent.LastName);
         }
     }
 }

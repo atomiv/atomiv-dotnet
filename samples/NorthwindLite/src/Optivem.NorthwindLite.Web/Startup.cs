@@ -40,7 +40,21 @@ namespace Optivem.NorthwindLite.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2) // TODO: VC: Check if needed?
+                .AddHateoas(options =>
+                {
+                    options
+                        .AddLink<FindCustomerResponse>("find-customer", p => new { id = p.Id })
+                        .AddLink<FindCustomerResponse>("create-customer")
+                        ;
+                        // .AddLink<List<PersonDto>>("create-person")
+                        // .AddLink<PersonDto>("update-person", p => new { id = p.Id })
+                        // .AddLink<PersonDto>("delete-person", p => new { id = p.Id });
+                });
+
+            // TODO: VC: Test HATEOAS
 
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 

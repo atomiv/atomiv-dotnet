@@ -8,6 +8,7 @@ using Optivem.Web.AspNetCore.Fake.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -51,7 +52,9 @@ namespace Optivem.Web.AspNetCore.Test
 
             var actual = await Client.Customers.GetAllAsync();
 
-            AssertUtilities.AssertEqual(expected, actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            AssertUtilities.AssertEqual(expected, actual.Content);
         }
 
         [Fact(Skip = "Fails on server, need to re-check")]
@@ -82,7 +85,9 @@ namespace Optivem.Web.AspNetCore.Test
 
             var actual = await Client.Customers.GetCsvExportsAsync();
 
-            AssertUtilities.AssertEqual(expected, actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            AssertUtilities.AssertEqual(expected, actual.ContentString);
         }
 
         [Fact(Skip = "Sometimes fails locally, need to re-check")]
@@ -111,9 +116,13 @@ namespace Optivem.Web.AspNetCore.Test
 
             var result = await Client.Customers.PostImportsAsync(serialized);
 
+            Assert.Equal(HttpStatusCode.Created, result.StatusCode);
+
             var retrieved = await Client.Customers.GetAllAsync();
 
-            Assert.Equal(4, retrieved.Results.Count());
+            Assert.Equal(HttpStatusCode.OK, retrieved.StatusCode);
+
+            Assert.Equal(4, retrieved.Content.Results.Count());
 
             // TODO: VC: Handle later
 
@@ -136,10 +145,14 @@ namespace Optivem.Web.AspNetCore.Test
 
             var result = await Client.Customers.PostAsync(request);
 
-            Assert.Equal(request.UserName, result.UserName);
-            Assert.Equal(request.FirstName, result.FirstName);
-            Assert.Equal(request.LastName, result.LastName);
-            Assert.True(result.Id > 0);
+            Assert.Equal(HttpStatusCode.Created, result.StatusCode);
+
+            var resultContent = result.Content;
+
+            Assert.Equal(request.UserName, resultContent.UserName);
+            Assert.Equal(request.FirstName, resultContent.FirstName);
+            Assert.Equal(request.LastName, resultContent.LastName);
+            Assert.True(resultContent.Id > 0);
         }
 
         [Fact]
@@ -152,15 +165,17 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = null,
             };
 
-            var exception = await Assert.ThrowsAsync<ProblemDetailsClientException>(async () => await Client.Customers.PostAsync(request));
+            var response = await Client.Customers.PostAsync(request);
 
-            var problemDetails = exception.ProblemDetails;
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, response.StatusCode);
+
+            var problemDetails = response.ProblemDetails;
 
             Assert.NotNull(problemDetails);
 
             // TODO: VC: Supporting different custom problem details which do not conform to the standard
 
-            Assert.Equal(422, problemDetails.Status);
+            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
         }
     }
 }

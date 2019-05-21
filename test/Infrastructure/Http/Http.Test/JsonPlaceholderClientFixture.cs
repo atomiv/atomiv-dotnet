@@ -51,38 +51,38 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         {
         }
 
-        public Task<PostDto> GetAsync(int id)
+        public Task<IObjectClientResponse<PostDto>> GetAsync(int id)
         {
             return Client.GetByIdAsync<int, PostDto>(id);
         }
 
-        public Task<List<PostDto>> GetAsync()
+        public Task<IObjectClientResponse<List<PostDto>>> GetAsync()
         {
             return Client.GetAsync<List<PostDto>>();
         }
 
-        public Task<PostDto> CreateAsync(PostDto post)
+        public Task<IObjectClientResponse<PostDto>> CreateAsync(PostDto post)
         {
             return Client.PostAsync<PostDto, PostDto>(post);
         }
 
-        public Task<PostDto> PutAsync(int id, PostDto post)
+        public Task<IObjectClientResponse<PostDto>> PutAsync(int id, PostDto post)
         {
             return Client.PutByIdAsync<int, PostDto, PostDto>(id, post);
         }
 
-        public Task DeleteAsync(int id)
+        public Task<IClientResponse> DeleteAsync(int id)
         {
             return Client.DeleteByIdAsync(id);
         }
 
-        public Task<List<PostDto>> GetByUserIdAsync(int userId)
+        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdAsync(int userId)
         {
             // TODO: VC: Consider dto for filtering..
             return Client.GetAsync<List<PostDto>>($"?userId={userId}");
         }
 
-        public Task<List<CommentDto>> GetCommentsAsync(int id)
+        public Task<IObjectClientResponse<List<CommentDto>>> GetCommentsAsync(int id)
         {
             return Client.GetAsync<List<CommentDto>>($"{id}/comments");
         }

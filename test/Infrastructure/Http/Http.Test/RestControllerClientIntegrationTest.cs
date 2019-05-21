@@ -1,5 +1,6 @@
 using Optivem.Test.Xunit;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -25,7 +26,9 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             var actual = await JsonPlaceholderClient.Posts.GetAsync(1);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            AssertUtilities.AssertEqual(expected, actual.Content);
         }
 
         [Fact]
@@ -33,8 +36,10 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
         {
             var actual = await JsonPlaceholderClient.Posts.GetAsync();
 
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
             var expectedCount = 100;
-            var actualCount = actual.Count();
+            var actualCount = actual.Content.Count();
 
             Assert.Equal(expectedCount, actualCount);
 
@@ -46,7 +51,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
                 Body = "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
             };
 
-            var actualFirst = actual.First();
+            var actualFirst = actual.Content.First();
 
             AssertUtilities.AssertEqual(expectedFirst, actualFirst);
 
@@ -58,7 +63,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
                 Body = "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
             };
 
-            var actualLast = actual.Last();
+            var actualLast = actual.Content.Last();
 
             AssertUtilities.AssertEqual(expectedLast, actualLast);
         }
@@ -75,31 +80,49 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             var actual = await JsonPlaceholderClient.Posts.CreateAsync(request);
 
-            Assert.True(actual.Id > 0);
+            Assert.Equal(HttpStatusCode.Created, actual.StatusCode);
 
-            Assert.Equal(2, actual.UserId);
-            Assert.Equal("Some Title", actual.Title);
-            Assert.Equal("Some Body", actual.Body);
+            var actualContent = actual.Content;
+
+            Assert.True(actualContent.Id > 0);
+
+            Assert.Equal(2, actualContent.UserId);
+            Assert.Equal("Some Title", actualContent.Title);
+            Assert.Equal("Some Body", actualContent.Body);
         }
 
         [Fact]
         public async Task TestPutAsync()
         {
             var expected = await JsonPlaceholderClient.Posts.GetAsync(7);
-            expected.UserId = 10;
-            expected.Title = "Some Title";
-            expected.Body = "Some Body";
 
-            var actual = await JsonPlaceholderClient.Posts.PutAsync(7, expected);
+            Assert.Equal(HttpStatusCode.OK, expected.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            var expectedContent = expected.Content;
+
+            expectedContent.UserId = 10;
+            expectedContent.Title = "Some Title";
+            expectedContent.Body = "Some Body";
+
+            var actual = await JsonPlaceholderClient.Posts.PutAsync(7, expectedContent);
+
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            var actualContent = actual.Content;
+
+            AssertUtilities.AssertEqual(expectedContent, actualContent);
         }
 
         [Fact(Skip = "Checking test failure")]
         public async Task TestPatchAsync()
         {
             var expected = await JsonPlaceholderClient.Posts.GetAsync(5);
-            expected.Title = "Some Title";
+
+            Assert.Equal(HttpStatusCode.OK, expected.StatusCode);
+
+            var expectedContent = expected.Content;
+
+            expectedContent.Title = "Some Title";
 
             var request = new PostDto
             {
@@ -108,7 +131,11 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             var actual = await JsonPlaceholderClient.Posts.PutAsync(5, request);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+
+            var actualContent = actual.Content;
+
+            AssertUtilities.AssertEqual(expectedContent, actualContent);
         }
 
         [Fact]

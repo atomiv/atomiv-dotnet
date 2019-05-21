@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class TestClient : BaseTestValidatedJsonClient<Startup>
+    public class TestClient : BaseTestJsonClient<Startup>
     {
         public TestClient()
         {
@@ -43,7 +43,7 @@ namespace Optivem.Web.AspNetCore.Test
         {
         }
 
-        public Task<List<string>> GetAllAsync()
+        public Task<IObjectClientResponse<List<string>>> GetAllAsync()
         {
             return Client.GetAsync<List<string>>();
         }
@@ -56,7 +56,7 @@ namespace Optivem.Web.AspNetCore.Test
         {
         }
 
-        public Task GetAsync(int id)
+        public Task<IClientResponse> GetAsync(int id)
         {
             return Client.GetByIdAsync(id);
         }
@@ -69,23 +69,23 @@ namespace Optivem.Web.AspNetCore.Test
         {
         }
 
-        public Task<CustomerGetAllResponse> GetAllAsync()
+        public Task<IObjectClientResponse<CustomerGetAllResponse>> GetAllAsync()
         {
             return Client.GetAsync<CustomerGetAllResponse>();
         }
 
-        public Task<string> GetCsvExportsAsync()
+        public Task<IClientResponse> GetCsvExportsAsync()
         {
             // TODO: VC: Returning raw...
             return Client.GetAsync("exports", "text/csv");
         }
 
-        public Task<string> PostImportsAsync(string content)
+        public Task<IClientResponse> PostImportsAsync(string content)
         {
             return Client.PostAsync("imports", content, "text/csv", "application/json");
         }
 
-        public Task<CustomerPostResponse> PostAsync(CustomerPostRequest request)
+        public Task<IObjectClientResponse<CustomerPostResponse>> PostAsync(CustomerPostRequest request)
         {
             return Client.PostAsync<CustomerPostRequest, CustomerPostResponse>(request);
         }

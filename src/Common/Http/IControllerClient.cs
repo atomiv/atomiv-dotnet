@@ -4,24 +4,24 @@ namespace Optivem.Common.Http
 {
     public interface IControllerClient : IObjectClient, IClient
     {
-        Task<TResponse> GetAsync<TResponse>();
+        Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>();
 
-        Task GetAsync();
+        Task<IClientResponse> GetAsync();
 
-        Task<TResponse> GetByIdAsync<TId, TResponse>(TId id);
+        Task<IObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id);
 
-        Task GetByIdAsync<TId>(TId id);
+        Task<IClientResponse> GetByIdAsync<TId>(TId id);
 
-        Task<TResponse> PostAsync<TRequest, TResponse>(TRequest request);
+        Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request);
 
-        Task PostAsync<TRequest>(TRequest request);
+        Task<IClientResponse> PostAsync<TRequest>(TRequest request);
 
-        Task<TResponse> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request);
+        Task<IObjectClientResponse<TResponse>> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request);
 
-        Task PutByIdAsync<TId, TRequest>(TId id, TRequest request);
+        Task<IClientResponse> PutByIdAsync<TId, TRequest>(TId id, TRequest request);
 
-        Task<TResponse> DeleteByIdAsync<TId, TResponse>(TId id);
+        Task<IObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id);
 
-        Task DeleteByIdAsync<TId>(TId id);
+        Task<IClientResponse> DeleteByIdAsync<TId>(TId id);
     }
 }

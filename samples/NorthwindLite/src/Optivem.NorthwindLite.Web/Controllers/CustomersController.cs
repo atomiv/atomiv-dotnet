@@ -18,7 +18,7 @@ namespace Optivem.NorthwindLite.Web.Controllers
         {
         }
 
-        [HttpGet]
+        [HttpGet(Name ="list-customers")]
         [ProducesResponseType(typeof(ListCustomersResponse), 200)]
         public async Task<ActionResult<ListCustomersResponse>> ListCustomersAsync()
         {
@@ -26,7 +26,7 @@ namespace Optivem.NorthwindLite.Web.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "FindCustomerAsync")]
+        [HttpGet("{id}", Name = "find-customer")]
         [ProducesResponseType(typeof(FindCustomerResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -36,16 +36,16 @@ namespace Optivem.NorthwindLite.Web.Controllers
             return Ok(response);
         }
 
-        [HttpPost]
+        [HttpPost(Name ="create-customer")]
         [ProducesResponseType(typeof(CreateCustomerResponse), 201)]
         public async Task<ActionResult<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
             var response = await Service.CreateCustomerAsync(request);
 
-            return Ok(response);
+            // return Created(response);
 
             // TODO: VC: Fix
-            // return CreatedAtAction("FindCustomerAsync", new { id = response.Id }, response); ;
+            return CreatedAtRoute("find-customer", new { id = response.Id }, response); ;
         }
     }
 }

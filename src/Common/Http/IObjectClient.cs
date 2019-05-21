@@ -4,20 +4,20 @@ namespace Optivem.Common.Http
 {
     public interface IObjectClient
     {
-        Task<TResponse> GetAsync<TResponse>(string uri);
+        Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri);
 
-        Task GetAsync(string uri);
+        Task<IClientResponse> GetAsync(string uri);
 
-        Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request);
+        Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request);
 
-        Task PostAsync<TRequest>(string uri, TRequest request);
+        Task<IClientResponse> PostAsync<TRequest>(string uri, TRequest request);
 
-        Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request);
+        Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request);
 
-        Task PutAsync<TRequest>(string uri, TRequest request);
+        Task<IClientResponse> PutAsync<TRequest>(string uri, TRequest request);
 
-        Task<TResponse> DeleteAsync<TResponse>(string uri);
+        Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri);
 
-        Task DeleteAsync(string uri);
+        Task<IClientResponse> DeleteAsync(string uri);
     }
 }
