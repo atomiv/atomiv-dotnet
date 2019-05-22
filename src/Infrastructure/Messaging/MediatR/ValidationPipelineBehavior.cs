@@ -6,20 +6,20 @@ using IRequest = Optivem.Core.Application.IRequest;
 
 namespace Optivem.Infrastructure.Messaging.MediatR
 {
-    public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest, IMediatorRequest<TResponse>
+    public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TRequest, TResponse>, TResponse>
+        where TRequest : IRequest
         where TResponse : IResponse
     {
-        private IValidationFilter<TRequest> _validationHandler;
+        private IRequestValidationHandler<TRequest> _validationHandler;
 
-        public ValidationPipelineBehavior(IValidationFilter<TRequest> validationHandler)
+        public ValidationPipelineBehavior(IRequestValidationHandler<TRequest> validationHandler)
         {
             _validationHandler = validationHandler;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(MediatorRequest<TRequest, TResponse> request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            await _validationHandler.HandleAsync(request);
+            await _validationHandler.HandleAsync(request.Request);
             return await next();
         }
     }

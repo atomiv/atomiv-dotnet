@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,6 +22,14 @@ namespace Optivem.Web.AspNetCore
         {
             _factories.Add(type, factory);
             _types.Add(type);
+        }
+
+        public void Add<TException, TProblemDetails>(IExceptionProblemDetailsFactory<TException, TProblemDetails> factory)
+            where TException : Exception
+            where TProblemDetails : ProblemDetails
+        {
+            var type = typeof(TException);
+            Add(type, factory);
         }
 
         public IExceptionProblemDetailsFactory Get(object exception)

@@ -2,7 +2,13 @@
 
 namespace Optivem.Core.Application
 {
-    public interface IHandler<TRequest, TResponse>
+    public interface IRequestHandler<TRequest>
+        where TRequest : IRequest
+    {
+        Task HandleAsync(TRequest request);
+    }
+
+    public interface IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest
         where TResponse : IResponse
     {

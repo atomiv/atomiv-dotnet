@@ -14,7 +14,7 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
-        public async Task TestListCustomers_RequestValid_ResponseOk()
+        public async Task TestListCustomers_ResponseOK()
         {
             var actual = await Client.Customers.ListCustomersAsync();
 
@@ -57,5 +57,27 @@ namespace Optivem.NorthwindLite.Web.Test
             Assert.Equal(createRequest.FirstName, findResponseContent.FirstName);
             Assert.Equal(createRequest.LastName, findResponseContent.LastName);
         }
+
+        [Fact]
+        public async Task TestCreateCustomer_RequestInvalid_ResponseUnprocessableEntity()
+        {
+            var createRequest = new CreateCustomerRequest
+            {
+                FirstName = null,
+                LastName = "Last name 1",
+            };
+
+            var createResponse = await Client.Customers.CreateCustomerAsync(createRequest);
+
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
+
+            var createResponseContent = createResponse.Content;
+
+            var problemDetails = createResponse.ProblemDetails;
+
+            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
+        }
+
+
     }
 }

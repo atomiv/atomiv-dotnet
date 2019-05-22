@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Core.Application
 {
-    public interface IValidationFilter<TRequest> : IFilter<TRequest>
+    public interface IRequestValidationHandler<TRequest> : IRequestHandler<TRequest>
         where TRequest : IRequest
     {
     }

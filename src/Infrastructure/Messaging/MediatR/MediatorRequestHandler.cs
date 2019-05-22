@@ -6,7 +6,7 @@ using IRequest = Optivem.Core.Application.IRequest;
 
 namespace Optivem.Infrastructure.Messaging.MediatR
 {
-    public class MediatorRequestHandler<TRequest, TResponse> : IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
+    public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
         where TRequest : IRequest
         where TResponse : IResponse
     {

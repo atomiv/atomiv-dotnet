@@ -26,6 +26,8 @@ namespace Optivem.NorthwindLite.Web.Controllers
             return Ok(response);
         }
 
+        // TODO: VC: Check swagger global responses, e.g. for validation?
+
         [HttpGet("{id}", Name = "find-customer")]
         [ProducesResponseType(typeof(FindCustomerResponse), 200)]
         [ProducesResponseType(404)]
@@ -41,10 +43,6 @@ namespace Optivem.NorthwindLite.Web.Controllers
         public async Task<ActionResult<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
             var response = await Service.CreateCustomerAsync(request);
-
-            // return Created(response);
-
-            // TODO: VC: Fix
             return CreatedAtRoute("find-customer", new { id = response.Id }, response); ;
         }
     }

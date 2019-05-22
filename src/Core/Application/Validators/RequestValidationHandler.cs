@@ -2,12 +2,12 @@
 
 namespace Optivem.Core.Application
 {
-    public class ValidationFilter<TRequest> : IValidationFilter<TRequest>
+    public class RequestValidationHandler<TRequest> : IRequestValidationHandler<TRequest>
         where TRequest : IRequest
     {
         private IRequestValidator<TRequest> _validator;
 
-        public ValidationFilter(IRequestValidator<TRequest> validator)
+        public RequestValidationHandler(IRequestValidator<TRequest> validator)
         {
             _validator = validator;
         }
@@ -18,7 +18,7 @@ namespace Optivem.Core.Application
 
             if (!result.IsValid)
             {
-                throw new ValidationException(result);
+                throw new RequestValidationException(result);
             }
         }
     }

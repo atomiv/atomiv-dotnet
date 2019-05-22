@@ -14,7 +14,7 @@ namespace Optivem.Infrastructure.Validation.FluentValidation
             _validator = validator;
         }
 
-        public async Task<IValidationResult> ValidateAsync(TRequest request)
+        public async Task<IRequestValidationResult> ValidateAsync(TRequest request)
         {
             var result = await _validator.ValidateAsync(request);
             return new FluentValidationResult(result);

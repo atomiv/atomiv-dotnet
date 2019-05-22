@@ -2,10 +2,10 @@
 
 namespace Optivem.Core.Application
 {
-    public interface IValidationResult
+    public interface IRequestValidationResult
     {
         bool IsValid { get; }
 
-        IList<IValidationError> Errors { get; }
+        IList<IRequestValidationError> Errors { get; }
     }
 }

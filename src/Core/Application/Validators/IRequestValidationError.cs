@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Core.Application
 {
-    public interface IValidationError
+    public interface IRequestValidationError
     {
         string PropertyName { get; }
 

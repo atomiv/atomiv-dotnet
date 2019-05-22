@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Validation.FluentValidation
 {
-    public class FluentValidationResult : IValidationResult
+    public class FluentValidationResult : IRequestValidationResult
     {
         private ValidationResult _result;
 
@@ -16,9 +16,9 @@ namespace Optivem.Infrastructure.Validation.FluentValidation
 
         public bool IsValid => _result.IsValid;
 
-        public IList<IValidationError> Errors => _result.Errors.Select(GetValidationError).ToList();
+        public IList<IRequestValidationError> Errors => _result.Errors.Select(GetValidationError).ToList();
 
-        private static IValidationError GetValidationError(ValidationFailure failure)
+        private static IRequestValidationError GetValidationError(ValidationFailure failure)
         {
             return new FluentValidationError(failure);
         }

@@ -3,7 +3,7 @@ using Optivem.Core.Application;
 
 namespace Optivem.Infrastructure.Validation.FluentValidation
 {
-    public class FluentValidationError : IValidationError
+    public class FluentValidationError : IRequestValidationError
     {
         private ValidationFailure _failure;
 

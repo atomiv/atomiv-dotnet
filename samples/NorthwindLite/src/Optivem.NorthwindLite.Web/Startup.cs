@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,17 @@ using Optivem.NorthwindLite.Core.Application.Interface.Services;
 using Optivem.NorthwindLite.Core.Application.UseCases;
 using Optivem.NorthwindLite.Core.Application.UseCases.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
+using Optivem.NorthwindLite.Infrastructure.Mapping;
+using Optivem.NorthwindLite.Infrastructure.Messaging;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
+using Optivem.NorthwindLite.Infrastructure.Validation;
 using System;
+using FluentValidation;
+using Optivem.Infrastructure.Validation.FluentValidation;
+using Optivem.Web.AspNetCore;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Optivem.Common.Serialization;
+using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 
 namespace Optivem.NorthwindLite.Web
 {
@@ -40,6 +50,13 @@ namespace Optivem.NorthwindLite.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
+
+            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
+            var autoMapperAssemblies = typeof(CreateCustomerRequestProfile).Assembly; // allAssemblies; // TODO: VC
+            var fluentValidationAssemblies = typeof(CreateCustomerRequestValidator).Assembly;
+
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2) // TODO: VC: Check if needed?
@@ -52,15 +69,13 @@ namespace Optivem.NorthwindLite.Web
                         // .AddLink<List<PersonDto>>("create-person")
                         // .AddLink<PersonDto>("update-person", p => new { id = p.Id })
                         // .AddLink<PersonDto>("delete-person", p => new { id = p.Id });
-                });
+                })
+                // .AddFluentValidation(e => e.RegisterValidatorsFromAssembly(fluentValidationAssemblies))
+                ;
 
             // TODO: VC: Test HATEOAS
 
-            // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
-            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var mediatRAssemblies = allAssemblies; // TODO: VC
-            var autoMapperAssemblies = allAssemblies; // TODO: VC
 
             // Application - Use Cases
             services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
@@ -83,9 +98,26 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<IRequestMapper, RequestMapper>();
             services.AddScoped<IResponseMapper, ResponseMapper>();
 
+            // Infrastructure - Validation
+            services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
+            services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
+            services.AddScoped<IValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
+            // services.AddScoped<IRequestValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
+
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);
             services.AddScoped<IUseCaseMediator, UseCaseMediator>();
+            // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+            services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, ValidationPipelineBehavior<CreateCustomerRequest, CreateCustomerResponse>>();
+
+            var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
+            var jsonSerializationService = new JsonSerializationService();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = ctx
+                    => new ValidationProblemDetailsActionResult(validationProblemDetailsFactory, jsonSerializationService);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,6 +132,15 @@ namespace Optivem.NorthwindLite.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
+            registry.Add(new BadHttpRequestExceptionProblemDetailsFactory());
+            registry.Add(new RequestValidationExceptionProblemDetailsFactory());
+
+            var problemDetailsFactory = new ExceptionProblemDetailsFactory(registry);
+            IJsonSerializationService jsonSerializationService = new JsonSerializationService();
+
+            app.UseExceptionHandler(problemDetailsFactory, jsonSerializationService);
 
             app.UseHttpsRedirection();
             app.UseMvc();

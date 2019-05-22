@@ -2,7 +2,7 @@
 
 namespace Optivem.Infrastructure.Messaging.MediatR
 {
-    public class MediatorRequest<TRequest, TResponse> : IMediatorRequest<TResponse>
+    public class MediatorRequest<TRequest, TResponse> : IMediatorRequest<TRequest, TResponse>
         where TRequest : IRequest
         where TResponse : IResponse
     {
