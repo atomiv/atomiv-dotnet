@@ -1,9 +1,15 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 
+services:
+  - mssql2017
+
 before_build:
-- cmd: dotnet restore
-- cmd: nuget restore
+- ps: dotnet restore
+- ps: nuget restore
+- ps: Get-Location
+- ps: .\configure.ps1
+- ps: Get-Location
 
 build:
   verbosity: minimal

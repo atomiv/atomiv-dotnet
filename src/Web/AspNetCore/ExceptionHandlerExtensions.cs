@@ -13,30 +13,23 @@ namespace Optivem.Web.AspNetCore
             {
                 configure.Run(async context =>
                 {
-                    try
-                    {
-                        var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
-                        var exception = exceptionHandlerFeature.Error;
+                    var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    var exception = exceptionHandlerFeature.Error;
 
-                        var problemDetails = problemDetailsFactory.Create(exception);
+                    // TODO: VC: Consider if this fails, perhaps outer try-catch?
 
-                        var instance = problemDetails.Instance;
+                    var problemDetails = problemDetailsFactory.Create(exception);
 
-                        // TODO: VC: Fix logging
-                        // var logger = context.RequestServices.GetRequiredService<ILogger>();
-                        // logger.LogError(exception, exception.Message);
+                    var instance = problemDetails.Instance;
 
-                        context.Response.StatusCode = problemDetails.Status.Value;
+                    // TODO: VC: Fix logging
+                    // var logger = context.RequestServices.GetRequiredService<ILogger>();
+                    // logger.LogError(exception, exception.Message);
 
-                        // TODO: VC: Lookup json service from services
-                        await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
-                    }
-                    catch(Exception ex)
-                    {
-                        // TODO: VC: Remove
-                    }
+                    context.Response.StatusCode = problemDetails.Status.Value;
 
-
+                    // TODO: VC: Lookup json service from services
+                    await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
                 });
             });
 
