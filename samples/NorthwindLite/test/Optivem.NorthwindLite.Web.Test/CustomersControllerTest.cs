@@ -1,6 +1,10 @@
+using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
+using Optivem.NorthwindLite.Core.Domain.Entities;
+using Optivem.NorthwindLite.Infrastructure.Persistence;
 using Optivem.NorthwindLite.Web.Test.Fixture;
 using Optivem.Test.Xunit.AspNetCore;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
@@ -16,6 +20,30 @@ namespace Optivem.NorthwindLite.Web.Test
         [Fact]
         public async Task TestListCustomers_ResponseOK()
         {
+            /*
+            var samples = new List<Customer>
+            {
+                new Customer
+                {
+                    FirstName = "Mary",
+                    LastName = "Smith",                    
+                },
+
+                new Customer
+                {
+                    FirstName = "John",
+                    LastName = "McDonald",
+                }
+            };
+
+            Add();
+
+            using(var context = Client.CreateContext())
+            {
+                var repository = unitOfWork.GetRepository<>
+            }
+            */
+
             var actual = await Client.Customers.ListCustomersAsync();
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
@@ -77,7 +105,5 @@ namespace Optivem.NorthwindLite.Web.Test
 
             Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
         }
-
-
     }
 }

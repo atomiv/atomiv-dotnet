@@ -10,12 +10,15 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
     {
         private bool disposedValue = false;
 
-        public UnitOfWork(TContext context)
+        public UnitOfWork(TContext context, bool disposeContext = false)
         {
-            this.Context = context;
+            Context = context;
+            DisposeContext = disposeContext;
         }
 
-        protected TContext Context { get; private set; }
+        internal TContext Context { get; private set; }
+
+        protected bool DisposeContext { get; private set; }
 
         public void BeginTransaction()
         {
@@ -53,7 +56,10 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             {
                 if (disposing)
                 {
-                    Context.Dispose();
+                    if(DisposeContext)
+                    {
+                        Context.Dispose();
+                    }
                 }
 
                 disposedValue = true;

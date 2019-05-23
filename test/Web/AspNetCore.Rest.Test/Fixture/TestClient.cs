@@ -25,11 +25,6 @@ namespace Optivem.Web.AspNetCore.Test
 
         public CustomersControllerClient Customers { get; }
 
-        protected override void Setup(IConfigurationRoot configuration)
-        {
-            // NOTE: No startup actions
-        }
-
         protected override string GetConfigurationJsonFile()
         {
             return null;

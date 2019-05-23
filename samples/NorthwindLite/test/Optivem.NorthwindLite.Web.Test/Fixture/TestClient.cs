@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
 using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
@@ -19,23 +20,12 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
         public TestClient()
         {
             Customers = new CustomersControllerClient(ControllerClientFactory);
+            ConnectionString = Configuration.GetConnectionString(Startup.DatabaseContextConnectionStringKey);
         }
 
         public CustomersControllerClient Customers { get; }
 
-        protected override void Setup(IConfigurationRoot configuration)
-        {
-            // TODO: VC: Refactor with startup
-            var connection = configuration.GetConnectionString(Startup.DatabaseContextConnectionStringKey);
-
-            var builder = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseSqlServer(connection);
-
-            using (var context = new DatabaseContext(builder.Options))
-            {
-                context.Database.EnsureCreated();
-            }
-        }
+        public string ConnectionString { get; }
     }
 
     public class CustomersControllerClient : BaseControllerClient

@@ -29,6 +29,8 @@ namespace Optivem.Test.Xunit.AspNetCore
 
         protected IControllerClientFactory ControllerClientFactory { get; private set; }
 
+        protected IConfigurationRoot Configuration { get; private set; }
+
         public void Dispose()
         {
             TestServer.Dispose();
@@ -48,12 +50,10 @@ namespace Optivem.Test.Xunit.AspNetCore
             }
 
             var configurationBuilder = GetConfigurationBuilder(configurationJsonFile);
-            var configuration = configurationBuilder.Build();
-
-            Setup(configuration);
+            Configuration = configurationBuilder.Build();
 
             return webHostBuilder
-                .UseConfiguration(configuration);
+                .UseConfiguration(Configuration);
 
             // TODO: VC: Check fill up test DB with standard test data
         }
@@ -70,8 +70,6 @@ namespace Optivem.Test.Xunit.AspNetCore
 
             return configurationBuilder;
         }
-
-        protected abstract void Setup(IConfigurationRoot configuration);
 
         protected abstract IControllerClientFactory CreateControllerClientFactory();
     }

@@ -102,7 +102,6 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
             services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
             services.AddScoped<IValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
-            // services.AddScoped<IRequestValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
 
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);
