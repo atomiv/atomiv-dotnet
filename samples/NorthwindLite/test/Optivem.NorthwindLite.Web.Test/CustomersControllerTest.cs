@@ -15,6 +15,7 @@ namespace Optivem.NorthwindLite.Web.Test
     {
         public CustomersControllerTest(TestClient client) : base(client)
         {
+            Client.EnsureDatabaseCreated();
         }
 
         [Fact]

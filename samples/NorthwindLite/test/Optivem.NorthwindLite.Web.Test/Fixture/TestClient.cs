@@ -25,7 +25,25 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
 
         public CustomersControllerClient Customers { get; }
 
-        public string ConnectionString { get; }
+        // TODO: Move to AspNetCore.EntityFrameworkCore
+
+        protected string ConnectionString { get; }
+
+        protected DatabaseContext CreateContext()
+        {
+            var builder = new DbContextOptionsBuilder<DatabaseContext>()
+                .UseSqlServer(ConnectionString);
+
+            return new DatabaseContext(builder.Options);
+        }
+
+        public void EnsureDatabaseCreated()
+        {
+            using (var context = CreateContext())
+            {
+                context.Database.EnsureCreated();
+            }
+        }
     }
 
     public class CustomersControllerClient : BaseControllerClient
