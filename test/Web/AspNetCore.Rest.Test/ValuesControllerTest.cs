@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class ValuesControllerTest : TestClientFixture<TestClient>
+    public class ValuesControllerTest : BaseTestFixture<TestClient>
     {
         public ValuesControllerTest(TestClient client)
             : base(client)
@@ -23,7 +23,7 @@ namespace Optivem.Web.AspNetCore.Test
                 "value2"
             };
 
-            var actual = await Client.Values.GetAllAsync();
+            var actual = await Fixture.Values.GetAllAsync();
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 

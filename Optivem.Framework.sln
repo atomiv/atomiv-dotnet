@@ -137,7 +137,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.NorthwindLite.Web.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.NorthwindLite.Web", "samples\NorthwindLite\src\Optivem.NorthwindLite.Web\Optivem.NorthwindLite.Web.csproj", "{7286ABA1-B522-430A-83F7-E18EE2D1E377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.NorthwindLite.Infrastructure.Messaging", "samples\NorthwindLite\src\Optivem.NorthwindLite.Infrastructure.Messaging\Optivem.NorthwindLite.Infrastructure.Messaging.csproj", "{649D682C-302F-4594-84DB-75CBA8783131}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.NorthwindLite.Infrastructure.Messaging", "samples\NorthwindLite\src\Optivem.NorthwindLite.Infrastructure.Messaging\Optivem.NorthwindLite.Infrastructure.Messaging.csproj", "{649D682C-302F-4594-84DB-75CBA8783131}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore", "test\Base\Xunit.AspNetCore.EntityFrameworkCore\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj", "{A85DB7B8-782A-46E9-8A98-641F2A367719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -281,6 +283,10 @@ Global
 		{649D682C-302F-4594-84DB-75CBA8783131}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{649D682C-302F-4594-84DB-75CBA8783131}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{649D682C-302F-4594-84DB-75CBA8783131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85DB7B8-782A-46E9-8A98-641F2A367719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85DB7B8-782A-46E9-8A98-641F2A367719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85DB7B8-782A-46E9-8A98-641F2A367719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85DB7B8-782A-46E9-8A98-641F2A367719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -351,6 +357,7 @@ Global
 		{25FC4099-4784-48E0-9B9B-3BC608864743} = {C88214B0-09CE-47EC-A9E0-B851E698A4DE}
 		{7286ABA1-B522-430A-83F7-E18EE2D1E377} = {C401E35F-DB70-44AD-AAC1-CD2591AA6962}
 		{649D682C-302F-4594-84DB-75CBA8783131} = {A8171DFF-354F-4A56-916D-BF1050849C39}
+		{A85DB7B8-782A-46E9-8A98-641F2A367719} = {CC616C23-C57E-4FCA-9EE4-78A71F642FEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

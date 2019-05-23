@@ -19,7 +19,7 @@ $json = (Get-Content -Path $filePath) | ConvertFrom-Json
 
 Write-Host "JSON is: $json"
 
-$json.ConnectionStrings.Context = $connection
+$json.ConnectionStrings.DefaultConnection = $connection
 
 Write-Host "Updated JSON is $json"
 

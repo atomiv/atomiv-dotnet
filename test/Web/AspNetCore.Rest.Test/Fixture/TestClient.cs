@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class TestClient : BaseTestJsonClient<Startup>
+    public class TestClient : BaseTestClient<Startup>
     {
         public TestClient()
         {

@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
+using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using System;
 using System.Net.Http;
 
@@ -10,8 +12,6 @@ namespace Optivem.Test.Xunit.AspNetCore
 {
     public abstract class BaseTestClient<TStartup> : IDisposable where TStartup : class
     {
-        private const string DefaultJsonFileName = "appsettings.Test.json";
-
         public BaseTestClient()
         {
             var webHostBuilder = GetWebHostBuilder();
@@ -31,7 +31,7 @@ namespace Optivem.Test.Xunit.AspNetCore
 
         protected IConfigurationRoot Configuration { get; private set; }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             TestServer.Dispose();
             HttpClient.Dispose();
@@ -60,7 +60,7 @@ namespace Optivem.Test.Xunit.AspNetCore
 
         protected virtual string GetConfigurationJsonFile()
         {
-            return DefaultJsonFileName;
+            return TestFileNames.Configuration;
         }
 
         protected virtual IConfigurationBuilder GetConfigurationBuilder(string file)
@@ -71,6 +71,14 @@ namespace Optivem.Test.Xunit.AspNetCore
             return configurationBuilder;
         }
 
-        protected abstract IControllerClientFactory CreateControllerClientFactory();
+        protected virtual IControllerClientFactory CreateControllerClientFactory()
+        {
+            var serializationService = CreateSerializationService();
+            return new JsonControllerClientFactory(Client, serializationService);
+        }
+        protected virtual IJsonSerializationService CreateSerializationService()
+        {
+            return new JsonSerializationService();
+        }
     }
 }

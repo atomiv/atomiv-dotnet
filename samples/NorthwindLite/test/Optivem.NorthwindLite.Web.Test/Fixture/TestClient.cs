@@ -8,41 +8,25 @@ using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
-using Optivem.Test.Xunit.AspNetCore;
+using Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture
 {
     // TODO: VC
 
-    public class TestClient : BaseTestJsonClient<Startup>
+    public class TestClient : BaseTestClient<Startup, DatabaseContext>
     {
         public TestClient()
         {
             Customers = new CustomersControllerClient(ControllerClientFactory);
-            ConnectionString = Configuration.GetConnectionString(Startup.DatabaseContextConnectionStringKey);
         }
 
         public CustomersControllerClient Customers { get; }
 
-        // TODO: Move to AspNetCore.EntityFrameworkCore
-
-        protected string ConnectionString { get; }
-
-        protected DatabaseContext CreateContext()
+        protected override DatabaseContext CreateContext(DbContextOptions<DatabaseContext> options)
         {
-            var builder = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseSqlServer(ConnectionString);
-
-            return new DatabaseContext(builder.Options);
-        }
-
-        public void EnsureDatabaseCreated()
-        {
-            using (var context = CreateContext())
-            {
-                context.Database.EnsureCreated();
-            }
+            return new DatabaseContext(options);
         }
     }
 

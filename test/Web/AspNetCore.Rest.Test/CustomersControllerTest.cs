@@ -14,7 +14,7 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class CustomersControllerTest : TestClientFixture<TestClient>
+    public class CustomersControllerTest : BaseTestFixture<TestClient>
     {
         public CustomersControllerTest(TestClient client)
             : base(client)
@@ -50,7 +50,7 @@ namespace Optivem.Web.AspNetCore.Test
                 }
             };
 
-            var actual = await Client.Customers.GetAllAsync();
+            var actual = await Fixture.Customers.GetAllAsync();
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
@@ -83,7 +83,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             var expected = csvSerializationService.Serialize(expectedDtos);
 
-            var actual = await Client.Customers.GetCsvExportsAsync();
+            var actual = await Fixture.Customers.GetCsvExportsAsync();
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
@@ -114,11 +114,11 @@ namespace Optivem.Web.AspNetCore.Test
 
             var serialized = csvSerializationService.Serialize(request);
 
-            var result = await Client.Customers.PostImportsAsync(serialized);
+            var result = await Fixture.Customers.PostImportsAsync(serialized);
 
             Assert.Equal(HttpStatusCode.Created, result.StatusCode);
 
-            var retrieved = await Client.Customers.GetAllAsync();
+            var retrieved = await Fixture.Customers.GetAllAsync();
 
             Assert.Equal(HttpStatusCode.OK, retrieved.StatusCode);
 
@@ -143,7 +143,7 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = "Smith3",
             };
 
-            var result = await Client.Customers.PostAsync(request);
+            var result = await Fixture.Customers.PostAsync(request);
 
             Assert.Equal(HttpStatusCode.Created, result.StatusCode);
 
@@ -165,7 +165,7 @@ namespace Optivem.Web.AspNetCore.Test
                 LastName = null,
             };
 
-            var response = await Client.Customers.PostAsync(request);
+            var response = await Fixture.Customers.PostAsync(request);
 
             Assert.Equal(HttpStatusCode.UnprocessableEntity, response.StatusCode);
 
