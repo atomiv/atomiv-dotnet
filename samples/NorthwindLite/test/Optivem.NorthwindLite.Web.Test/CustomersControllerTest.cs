@@ -27,7 +27,7 @@ namespace Optivem.NorthwindLite.Web.Test
                 new Customer
                 {
                     FirstName = "Mary",
-                    LastName = "Smith",                    
+                    LastName = "Smith",
                 },
 
                 new Customer
@@ -96,6 +96,8 @@ namespace Optivem.NorthwindLite.Web.Test
         [Fact]
         public async Task TestCreateCustomer_RequestInvalid_ResponseUnprocessableEntity()
         {
+            // TODO: Request invlaid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
+
             var createRequest = new CreateCustomerRequest
             {
                 FirstName = null,
