@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Test.Xunit;
 using System;
+using System.Collections.Generic;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 {
-    public class BaseTestClientFixture<TClient, TStartup, TDbContext> : BaseTestFixture<TClient>, IDisposable
+    public abstract class BaseTestClientFixture<TClient, TStartup, TDbContext> : BaseTestFixture<TClient>, IDisposable
         where TClient : BaseTestClient<TStartup, TDbContext>
         where TStartup : class
         where TDbContext : DbContext
@@ -22,6 +23,10 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 
             // TODO: VC: Optimize
             // Fixture.Client.EnsureDatabaseDeleted();
+
+            Cleanup();
         }
+
+        protected abstract void Cleanup();
     }
 }

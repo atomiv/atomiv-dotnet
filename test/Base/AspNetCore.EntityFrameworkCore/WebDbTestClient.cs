@@ -31,25 +31,14 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 
         public TDbContext CreateDatabaseContext()
         {
-            return DatabaseTestClient.ContextFactory.Create();
-        }
-
-        public void EnsureDatabaseCreated()
-        {
-            DatabaseTestClient.EnsureDatabaseCreated();
-        }
-
-        public void EnsureDatabaseDeleted()
-        {
-            DatabaseTestClient.EnsureDatabaseDeleted();
+            return DatabaseTestClient.CreateContext();
         }
 
         public void Dispose()
         {
             WebTestClient.Dispose();
+
+            DatabaseTestClient.EnsureDatabaseDeleted();
         }
-
-
-
     }
 }

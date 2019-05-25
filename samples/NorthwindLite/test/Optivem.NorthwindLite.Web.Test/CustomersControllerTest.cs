@@ -1,8 +1,14 @@
+using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
+using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Web.Test.Fixture;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+
+// TODO: VC: Consider moving to base
+// [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace Optivem.NorthwindLite.Web.Test
 {
@@ -16,7 +22,6 @@ namespace Optivem.NorthwindLite.Web.Test
         [Fact]
         public async Task TestListCustomers_ResponseOK()
         {
-            /*
             var samples = new List<Customer>
             {
                 new Customer
@@ -32,13 +37,7 @@ namespace Optivem.NorthwindLite.Web.Test
                 }
             };
 
-            Add();
-
-            using(var context = Client.CreateContext())
-            {
-                var repository = unitOfWork.GetRepository<>
-            }
-            */
+            Fixture.AddRange(samples);
 
             var actual = await Fixture.Customers.ListCustomersAsync();
 
@@ -46,9 +45,21 @@ namespace Optivem.NorthwindLite.Web.Test
 
             var actualContent = actual.Content;
 
-            Assert.NotNull(actualContent);
+            Assert.Equal(2, actualContent.Data.Count);
 
-            // TODO: Test status and header and body
+            var expectedFirst = samples[0];
+            var actualFirst = actualContent.Data[0];
+
+            Assert.True(actualFirst.Id > 0);
+            Assert.Equal(expectedFirst.FirstName, actualFirst.FirstName);
+            Assert.Equal(expectedFirst.LastName, actualFirst.LastName);
+
+            var expectedSecond = samples[1];
+            var actualSecond = actualContent.Data[1];
+
+            Assert.True(actualSecond.Id > 0);
+            Assert.Equal(expectedSecond.FirstName, actualSecond.FirstName);
+            Assert.Equal(expectedSecond.LastName, actualSecond.LastName);
         }
 
         [Fact]

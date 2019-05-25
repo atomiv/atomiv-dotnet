@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Common;
+using System;
+using System.Collections.Generic;
 
 namespace Optivem.Test.EntityFrameworkCore
 {
@@ -12,9 +14,14 @@ namespace Optivem.Test.EntityFrameworkCore
 
         public IFactory<TContext> ContextFactory { get; }
 
+        public TContext CreateContext()
+        {
+            return ContextFactory.Create();
+        }
+
         public void EnsureDatabaseCreated()
         {
-            using (var context = ContextFactory.Create())
+            using (var context = CreateContext())
             {
                 context.Database.EnsureCreated();
             }
@@ -27,5 +34,31 @@ namespace Optivem.Test.EntityFrameworkCore
                 context.Database.EnsureDeleted();
             }
         }
+        public void Add<T>(T entity) where T : class
+        {
+            using (var context = CreateContext())
+            {
+                context.Set<T>().Add(entity);
+                context.SaveChanges();
+            }
+        }
+
+        public void AddRange<T>(IEnumerable<T> entities) where T : class
+        {
+            using (var context = CreateContext())
+            {
+                context.Set<T>().AddRange(entities);
+                context.SaveChanges();
+            }
+        }
+        public void RemoveRange<T>(IEnumerable<T> entities) where T : class
+        {
+            using (var context = CreateContext())
+            {
+                context.Set<T>().RemoveRange(entities);
+                context.SaveChanges();
+            }
+        }
+
     }
 }
