@@ -1,6 +1,4 @@
-﻿using Optivem.Common.Http;
-using Optivem.Test.Xunit;
-using Optivem.Test.Xunit.AspNetCore;
+﻿using Optivem.Test.Xunit;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;

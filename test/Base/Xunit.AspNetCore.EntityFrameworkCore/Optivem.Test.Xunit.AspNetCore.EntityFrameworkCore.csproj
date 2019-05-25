@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
-    <ProjectReference Include="..\Xunit.AspNetCore\Optivem.Test.Xunit.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>

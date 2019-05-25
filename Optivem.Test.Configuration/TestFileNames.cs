@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Test.Xunit.AspNetCore
+﻿namespace Optivem.Test.Configuration
 {
     public static class TestFileNames
     {

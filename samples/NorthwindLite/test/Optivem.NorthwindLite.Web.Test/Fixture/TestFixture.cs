@@ -1,14 +1,12 @@
 ﻿using Optivem.NorthwindLite.Infrastructure.Persistence;
+using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture
 {
-    public class TestClientFixture : BaseTestClientFixture<TestClient, Startup, DatabaseContext>
+    public class TestFixture : BaseTestClientFixture<TestClient, Startup, DatabaseContext>
     {
-        public TestClientFixture(TestClient fixture) 
+        public TestFixture(TestClient fixture)
             : base(fixture)
         {
         }

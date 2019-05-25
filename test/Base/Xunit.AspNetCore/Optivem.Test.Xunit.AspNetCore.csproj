@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Optivem.Common\Optivem.Common.csproj" />
     <ProjectReference Include="..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
     <ProjectReference Include="..\Xunit\Optivem.Test.Xunit.csproj" />

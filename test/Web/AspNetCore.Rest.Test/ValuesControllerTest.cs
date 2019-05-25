@@ -1,5 +1,4 @@
 using Optivem.Test.Xunit;
-using Optivem.Test.Xunit.AspNetCore;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;

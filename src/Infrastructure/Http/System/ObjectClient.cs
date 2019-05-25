@@ -122,7 +122,7 @@ namespace Optivem.Infrastructure.Http.System
             {
                 return SerializationService.Deserialize<ProblemDetailsResponse>(contentString);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return null;
                 // TODO: VC: Handle deserialization error, or perhaps throw?

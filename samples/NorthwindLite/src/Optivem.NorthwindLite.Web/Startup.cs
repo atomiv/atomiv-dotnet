@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +29,6 @@ using System;
 using FluentValidation;
 using Optivem.Infrastructure.Validation.FluentValidation;
 using Optivem.Web.AspNetCore;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 
@@ -38,6 +36,8 @@ namespace Optivem.NorthwindLite.Web
 {
     public class Startup
     {
+        public const string DatabaseConnectionKey = "DefaultConnection";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -84,7 +84,7 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<ICustomerService, CustomerService>();
 
             // Infrastructure - Repository
-            var connection = Configuration.GetConnectionString(ConfigurationKeys.DefaultConnection);
+            var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
 
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();

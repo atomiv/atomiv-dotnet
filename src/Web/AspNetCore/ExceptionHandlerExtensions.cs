@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Optivem.Common.Serialization;
-using System;
 
 namespace Optivem.Web.AspNetCore
 {

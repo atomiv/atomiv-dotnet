@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using Optivem.Common.Http;
+﻿using Optivem.Common.Http;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Infrastructure.Http.System;
-using Optivem.Test.Xunit.AspNetCore;
+using Optivem.Test.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;
 using System.Collections.Generic;
@@ -10,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class TestClient : BaseTestClient<Startup>
+    public class TestClient
     {
+        private readonly WebTestClient _client;
+
         public TestClient()
         {
-            Values = new ValuesControllerClient(ControllerClientFactory);
-            Exceptions = new ExceptionsControllerClient(ControllerClientFactory);
-            Customers = new CustomersControllerClient(ControllerClientFactory);
+            _client = WebTestClientFactory.Create<Startup>();
+            var controllerClientFactory = _client.ControllerClientFactory;
+
+            Values = new ValuesControllerClient(controllerClientFactory);
+            Exceptions = new ExceptionsControllerClient(controllerClientFactory);
+            Customers = new CustomersControllerClient(controllerClientFactory);
         }
 
         public ValuesControllerClient Values { get; }
@@ -24,11 +28,6 @@ namespace Optivem.Web.AspNetCore.Test
         public ExceptionsControllerClient Exceptions { get; }
 
         public CustomersControllerClient Customers { get; }
-
-        protected override string GetConfigurationJsonFile()
-        {
-            return null;
-        }
     }
 
     public class ValuesControllerClient : BaseControllerClient

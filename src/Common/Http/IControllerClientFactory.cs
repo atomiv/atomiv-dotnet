@@ -2,6 +2,6 @@
 {
     public interface IControllerClientFactory
     {
-        IControllerClient Create(string controllerPath);
+        IControllerClient Create(string controllerUri);
     }
 }

@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Optivem.Core.Application;
+﻿using Optivem.Core.Application;
 using System.Threading;
 using System.Threading.Tasks;
 using IRequest = Optivem.Core.Application.IRequest;

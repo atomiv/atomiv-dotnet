@@ -1,14 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Optivem.Common.Http;
+﻿using Optivem.Common.Http;
 using Optivem.Infrastructure.Http.System;
-using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
-using Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore;
+using Optivem.Test.AspNetCore.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture
@@ -18,16 +15,12 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
     public class TestClient : BaseTestClient<Startup, DatabaseContext>
     {
         public TestClient()
+            : base(Startup.DatabaseConnectionKey, e => new DatabaseContext(e))
         {
-            Customers = new CustomersControllerClient(ControllerClientFactory);
+            Customers = new CustomersControllerClient(Client.ControllerClientFactory);
         }
 
         public CustomersControllerClient Customers { get; }
-
-        protected override DatabaseContext CreateContext(DbContextOptions<DatabaseContext> options)
-        {
-            return new DatabaseContext(options);
-        }
     }
 
     public class CustomersControllerClient : BaseControllerClient
