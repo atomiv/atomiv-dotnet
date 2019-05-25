@@ -4,8 +4,6 @@ using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.Test.Configuration;
 using Optivem.Test.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 {

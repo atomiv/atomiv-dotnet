@@ -24,18 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Optivem.Common\Optivem.Common.csproj" />
-    <ProjectReference Include="..\..\..\..\Optivem.Test.AspNetCore.EntityFrameworkCore\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\Optivem.Test.AspNetCore\Optivem.Test.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\AspNetCore.EntityFrameworkCore.Xunit\Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\AspNetCore.EntityFrameworkCore\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Test.Xunit.csproj" />
     <ProjectReference Include="..\..\src\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\src\Optivem.NorthwindLite.Web\Optivem.NorthwindLite.Web.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Clients\" />
   </ItemGroup>
 
 </Project>

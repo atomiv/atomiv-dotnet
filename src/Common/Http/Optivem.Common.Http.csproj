@@ -14,8 +14,4 @@
     <Version>1.0.10</Version>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Optivem.Common\Optivem.Common.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Optivem.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {

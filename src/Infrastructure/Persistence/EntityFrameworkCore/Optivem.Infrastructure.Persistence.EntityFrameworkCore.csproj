@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Optivem.Common\Optivem.Common.csproj" />
+    <ProjectReference Include="..\..\..\Common\Base\Optivem.Common.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\Optivem.Core.Domain.csproj" />
   </ItemGroup>
 

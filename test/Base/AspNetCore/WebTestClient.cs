@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
+﻿using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Optivem.Common;
 using Optivem.Common.Http;
-using Optivem.Infrastructure.Http.System;
-using Optivem.Test.Configuration;
 using System;
 using System.Net.Http;
 

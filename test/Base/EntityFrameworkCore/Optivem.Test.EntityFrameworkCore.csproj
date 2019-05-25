@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Common\Optivem.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Common\Base\Optivem.Common.csproj" />
   </ItemGroup>
 
 </Project>

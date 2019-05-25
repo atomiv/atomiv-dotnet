@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
 using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using Optivem.Test.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.AspNetCore
 {
@@ -28,7 +27,8 @@ namespace Optivem.Test.AspNetCore
         {
             var webHostBuilder = WebHostBuilderFactory.Create<TStartup>(configurationRoot);
 
-            Func<IClient, IControllerClientFactory> createControllerClientFactory = e => new JsonControllerClientFactory(e);
+            var jsonSerializationService = new JsonSerializationService();
+            Func<IClient, IControllerClientFactory> createControllerClientFactory = e => new JsonControllerClientFactory(e, jsonSerializationService);
             return Create(configurationRoot, webHostBuilder, createControllerClientFactory);
         }
 

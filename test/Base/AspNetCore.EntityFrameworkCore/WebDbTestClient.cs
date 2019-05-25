@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
-using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.Test.EntityFrameworkCore;
 using System;
-using System.Net.Http;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 {
