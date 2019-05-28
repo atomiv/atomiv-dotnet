@@ -19,8 +19,8 @@ namespace Optivem.Core.Domain
 
         void RollbackTransaction();
 
-        IRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
+        ICrudRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
 
-        IReadonlyRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
+        IReadonlyCrudRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
     }
 }

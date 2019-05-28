@@ -88,8 +88,8 @@ namespace Optivem.NorthwindLite.Web
 
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
-            services.AddScoped<IReadonlyRepository<Customer, int>, CustomerRepository>();
-            services.AddScoped<IRepository<Customer, int>, CustomerRepository>();
+            services.AddScoped<IReadonlyCrudRepository<Customer, int>, CustomerRepository>();
+            services.AddScoped<ICrudRepository<Customer, int>, CustomerRepository>();
 
             // Infrastructure - Mapping
             services.AddAutoMapper(autoMapperAssemblies);

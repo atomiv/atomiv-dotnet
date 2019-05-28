@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Core.Domain
 {
-    public interface IRepository
+    public interface IValueObject
     {
     }
 }

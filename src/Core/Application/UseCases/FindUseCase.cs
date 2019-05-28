@@ -8,7 +8,7 @@ namespace Optivem.Core.Application
         where TResponse : IFindResponse<TId>
         where TEntity : class, IEntity<TId>
     {
-        public FindUseCase(IResponseMapper responseMapper, IReadonlyRepository<TEntity, TId> repository)
+        public FindUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TEntity, TId> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;
@@ -16,7 +16,7 @@ namespace Optivem.Core.Application
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IReadonlyRepository<TEntity, TId> Repository { get; private set; }
+        protected IReadonlyCrudRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

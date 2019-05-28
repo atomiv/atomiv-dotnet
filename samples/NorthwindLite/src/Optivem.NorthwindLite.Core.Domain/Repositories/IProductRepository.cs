@@ -3,7 +3,7 @@ using Optivem.NorthwindLite.Core.Domain.Entities;
 
 namespace Optivem.NorthwindLite.Core.Domain.Repositories
 {
-    public interface IProductRepository : IRepository<Product, int>
+    public interface IProductRepository : ICrudRepository<Product, int>
     {
     }
 }

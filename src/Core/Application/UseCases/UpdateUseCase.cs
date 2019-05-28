@@ -8,7 +8,7 @@ namespace Optivem.Core.Application
         where TResponse : class, IUpdateResponse<TId>
         where TEntity : class, IEntity<TId>
     {
-        public UpdateUseCase(IRequestMapper<TRequest, TEntity> requestMapper, IResponseMapper<TEntity, TResponse> responseMapper, IUnitOfWork unitOfWork, IRepository<TEntity, TId> repository)
+        public UpdateUseCase(IRequestMapper<TRequest, TEntity> requestMapper, IResponseMapper<TEntity, TResponse> responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TEntity, TId> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -22,7 +22,7 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected IRepository<TEntity, TId> Repository { get; private set; }
+        protected ICrudRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

@@ -8,7 +8,7 @@ namespace Optivem.NorthwindLite.Core.Application.UseCases.Customers
 {
     public class ListCustomersUseCase : ListUseCase<ListCustomersRequest, ListCustomersResponse, ListCustomersElementResponse, Customer, int>
     {
-        public ListCustomersUseCase(IResponseMapper responseMapper, IReadonlyRepository<Customer, int> repository) : base(responseMapper, repository)
+        public ListCustomersUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<Customer, int> repository) : base(responseMapper, repository)
         {
         }
     }

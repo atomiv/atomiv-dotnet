@@ -10,7 +10,7 @@ namespace Optivem.Core.Application
         where TRecordResponse : IListElementResponse<TId>
         where TEntity : class, IEntity<TId>
     {
-        public ListUseCase(IResponseMapper responseMapper, IReadonlyRepository<TEntity, TId> repository)
+        public ListUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TEntity, TId> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;
@@ -18,7 +18,7 @@ namespace Optivem.Core.Application
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IReadonlyRepository<TEntity, TId> Repository { get; private set; }
+        protected IReadonlyCrudRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

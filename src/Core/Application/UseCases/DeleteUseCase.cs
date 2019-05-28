@@ -8,7 +8,7 @@ namespace Optivem.Core.Application
         where TResponse : IDeleteResponse, new()
         where TEntity : class, IEntity<TId>
     {
-        public DeleteUseCase(IUnitOfWork unitOfWork, IRepository<TEntity, TId> repository)
+        public DeleteUseCase(IUnitOfWork unitOfWork, ICrudRepository<TEntity, TId> repository)
         {
             UnitOfWork = unitOfWork;
             Repository = repository;
@@ -16,7 +16,7 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected IRepository<TEntity, TId> Repository { get; private set; }
+        protected ICrudRepository<TEntity, TId> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

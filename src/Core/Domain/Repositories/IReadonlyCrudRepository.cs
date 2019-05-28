@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Domain
 {
-    public interface IReadonlyRepository<TEntity, TId>
+    public interface IReadonlyCrudRepository<TEntity, TId> : IRepository
         where TEntity : class, IEntity<TId>
     {
         #region Read

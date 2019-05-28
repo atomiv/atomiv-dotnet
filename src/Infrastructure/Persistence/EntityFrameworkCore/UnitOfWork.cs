@@ -71,7 +71,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             Dispose(true);
         }
 
-        public IRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
+        public ICrudRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
         {
             // TODO: VC: Actually could we get the typed repository?
             // In case that there is specific implementation within the overridden version
@@ -81,7 +81,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return new Repository<TContext, TEntity, TId>(Context);
         }
 
-        public IReadonlyRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
+        public IReadonlyCrudRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
         {
             // TODO: VC: See above
             return new ReadonlyRepository<TContext, TEntity, TId>(Context);

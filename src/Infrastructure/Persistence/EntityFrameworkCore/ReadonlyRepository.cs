@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
-    public class ReadonlyRepository<TContext, TEntity, TId> : IReadonlyRepository<TEntity, TId>
+    public class ReadonlyRepository<TContext, TEntity, TId> : IReadonlyCrudRepository<TEntity, TId>
         where TContext : DbContext
         where TEntity : class, IEntity<TId>
     {

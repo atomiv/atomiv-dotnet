@@ -3,7 +3,7 @@ using Optivem.NorthwindLite.Core.Domain.Entities;
 
 namespace Optivem.NorthwindLite.Core.Domain.Repositories
 {
-    public interface IOrderDetailStatusRepository : IRepository<OrderDetailStatus, byte>
+    public interface IOrderDetailStatusRepository : ICrudRepository<OrderDetailStatus, byte>
     {
     }
 }

@@ -8,7 +8,7 @@ namespace Optivem.NorthwindLite.Core.Application.UseCases
 {
     public class FindCustomerUseCase : FindUseCase<FindCustomerRequest, FindCustomerResponse, Customer, int>
     {
-        public FindCustomerUseCase(IResponseMapper responseMapper, IReadonlyRepository<Customer, int> repository)
+        public FindCustomerUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<Customer, int> repository)
             : base(responseMapper, repository)
         {
         }
