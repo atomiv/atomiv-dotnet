@@ -149,6 +149,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.EntityFramewor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit", "test\Base\AspNetCore.EntityFrameworkCore.Xunit\Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit.csproj", "{0CD131A1-A95A-4BE0-832C-1AA698667B60}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain.Test", "test\Core\Domain.Test\Optivem.Core.Domain.Test.csproj", "{54DC7B02-AF07-4F71-898D-E490A419BC9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -311,6 +315,10 @@ Global
 		{0CD131A1-A95A-4BE0-832C-1AA698667B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD131A1-A95A-4BE0-832C-1AA698667B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD131A1-A95A-4BE0-832C-1AA698667B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54DC7B02-AF07-4F71-898D-E490A419BC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DC7B02-AF07-4F71-898D-E490A419BC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DC7B02-AF07-4F71-898D-E490A419BC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DC7B02-AF07-4F71-898D-E490A419BC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -386,6 +394,8 @@ Global
 		{F35262E5-19AB-48D6-AFDE-52539077E089} = {CC616C23-C57E-4FCA-9EE4-78A71F642FEA}
 		{5F8B535B-730D-4134-A9AD-3178B5991B57} = {CC616C23-C57E-4FCA-9EE4-78A71F642FEA}
 		{0CD131A1-A95A-4BE0-832C-1AA698667B60} = {CC616C23-C57E-4FCA-9EE4-78A71F642FEA}
+		{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078} = {E0C63A52-0D7C-4242-BE54-879DDF4E4BDC}
+		{54DC7B02-AF07-4F71-898D-E490A419BC9A} = {B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

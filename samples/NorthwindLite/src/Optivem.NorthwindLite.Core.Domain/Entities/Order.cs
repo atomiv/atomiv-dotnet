@@ -1,21 +1,27 @@
 ﻿using Optivem.Core.Domain;
+using Optivem.NorthwindLite.Core.Domain.Identities;
+using Optivem.NorthwindLite.Core.Domain.ValueObjects;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Optivem.NorthwindLite.Core.Domain.Entities
 {
-    public class Order : IEntity<int>
+    public class Order : AggregateRoot<OrderIdentity>
     {
-        public Order()
+        // TODO: VC: Accept order details as IEnumerable
+
+        public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, ReadOnlyCollection<OrderDetail> orderDetails) 
+            : base(id)
         {
-            OrderDetail = new HashSet<OrderDetail>();
+            CustomerId = customerId;
+            Status = status;
+            OrderDetails = orderDetails;
         }
 
-        public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public byte StatusId { get; set; }
+        public CustomerIdentity CustomerId { get; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual OrderStatus Status { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public OrderStatus Status { get; }
+
+        public ReadOnlyCollection<OrderDetail> OrderDetails { get; }
     }
 }

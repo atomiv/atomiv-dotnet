@@ -1,14 +1,16 @@
 ﻿using Optivem.Core.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class FindUseCase<TRequest, TResponse, TEntity, TId> : IFindUseCase<TRequest, TResponse>
+    public abstract class FindUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IFindUseCase<TRequest, TResponse>
         where TRequest : IFindRequest<TId>
         where TResponse : IFindResponse<TId>
-        where TEntity : class, IEntity<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
     {
-        public FindUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TEntity, TId> repository)
+        public FindUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TAggregateRoot, TIdentity> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;
@@ -16,14 +18,19 @@ namespace Optivem.Core.Application
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IReadonlyCrudRepository<TEntity, TId> Repository { get; private set; }
+        protected IReadonlyCrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
-            var entity = await Repository.GetSingleOrDefaultAsync(id);
-            var response = ResponseMapper.Map<TEntity, TResponse>(entity);
+            var identity = GetIdentity(id);
+            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
+            var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
+
+            throw new NotImplementedException();
         }
+
+        protected abstract TIdentity GetIdentity(TId id);
     }
 }

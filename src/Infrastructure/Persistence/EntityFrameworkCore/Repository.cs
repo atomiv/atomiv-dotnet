@@ -2,13 +2,16 @@
 using Optivem.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
-    public class Repository<TContext, TEntity, TId> : ReadonlyRepository<TContext, TEntity, TId>, ICrudRepository<TEntity, TId>
+    public abstract class Repository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
-        where TEntity : class, IEntity<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
+        where TRecord : class
     {
         public Repository(TContext context) : base(context)
         {
@@ -16,56 +19,71 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 
         #region Create
 
-        public void Add(TEntity entity)
+        public TIdentity Add(TAggregateRoot aggregateRoot)
         {
-            set.Add(entity);
+            var record = GetRecord(aggregateRoot);
+            set.Add(record);
+            context.SaveChanges(); // TODO: VC: Check if correct here
+            var identity = GetIdentity(record);
+            return identity;
         }
 
-        public Task AddAsync(TEntity entity)
+        public async Task<TIdentity> AddAsync(TAggregateRoot aggregateRoot)
         {
-            return set.AddAsync(entity);
+            var record = GetRecord(aggregateRoot);
+            await set.AddAsync(record);
+            await context.SaveChangesAsync(); // TODO: VC: Check if correct here
+            var identity = GetIdentity(record);
+            return identity;
         }
 
-        public void AddRange(IEnumerable<TEntity> entities)
+        public void AddRange(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            set.AddRange(entities);
+            var records = GetRecords(aggregateRoots);
+            set.AddRange(records);
         }
 
-        public Task AddRangeAsync(IEnumerable<TEntity> entities)
+        public Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            return set.AddRangeAsync(entities);
+            var records = GetRecords(aggregateRoots);
+            return set.AddRangeAsync(records);
         }
 
-        public void AddRange(params TEntity[] entities)
+        public void AddRange(params TAggregateRoot[] aggregateRoots)
         {
-            set.AddRange(entities);
+            var records = GetRecords(aggregateRoots);
+            set.AddRange(records);
         }
 
-        public Task AddRangeAsync(params TEntity[] entities)
+        public Task AddRangeAsync(params TAggregateRoot[] aggregateRoots)
         {
-            return set.AddRangeAsync(entities);
+            var records = GetRecords(aggregateRoots);
+            return set.AddRangeAsync(records);
         }
 
         #endregion Create
 
         #region Update
 
-        public void Update(TEntity entity)
+        public void Update(TAggregateRoot aggregateRoot)
         {
-            ExecuteUpdate(() => set.Update(entity));
+            var record = GetRecord(aggregateRoot);
+            ExecuteConcurrentUpdate(() => set.Update(record));
         }
 
-        public void UpdateRange(IEnumerable<TEntity> entities)
+        public void UpdateRange(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            ExecuteUpdate(() => set.UpdateRange(entities));
+            var records = GetRecords(aggregateRoots);
+            ExecuteConcurrentUpdate(() => set.UpdateRange(records));
         }
 
-        public void UpdateRange(params TEntity[] entities)
+        public void UpdateRange(params TAggregateRoot[] aggregateRoots)
         {
-            ExecuteUpdate(() => set.UpdateRange(entities));
+            var records = GetRecords(aggregateRoots);
+            ExecuteConcurrentUpdate(() => set.UpdateRange(records));
         }
 
-        private void ExecuteUpdate(Action action)
+        private void ExecuteConcurrentUpdate(Action action)
         {
             try
             {
@@ -81,24 +99,56 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 
         #region Delete
 
-        public void Delete(TEntity entity)
+        // TODO: VC: DELETE
+
+        /*
+
+        public void Delete(TAggregateRoot aggregateRoot)
         {
             set.Remove(entity);
         }
 
-        public void DeleteRange(IEnumerable<TEntity> entities)
+        public void DeleteRange(IEnumerable<TAggregateRoot> entities)
         {
             set.RemoveRange(entities);
         }
 
-        public void DeleteRange(params TEntity[] entities)
+        public void DeleteRange(params TAggregateRoot[] entities)
         {
             set.RemoveRange(entities);
+        }
+
+    */
+
+        // TODO: VC: Should be named DELETE
+
+        public void Delete(TIdentity identity)
+        {
+            var record = GetRecord(identity);
+            set.Remove(record);
+        }
+
+        public void DeleteRange(IEnumerable<TIdentity> identities)
+        {
+            var records = GetRecords(identities);
+            set.RemoveRange(records);
+        }
+
+
+
+        public void DeleteRange(params TIdentity[] identities)
+        {
+            var records = GetRecords(identities);
+            set.RemoveRange(records);
         }
 
         #endregion Delete
 
         #region Helper - Delete
+
+        // TODO: VC: DELETE
+
+        /*
 
         protected void DeleteInner(object[] id)
         {
@@ -126,16 +176,15 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             DeleteRange(entities);
         }
 
-        public void DeleteRange(IEnumerable<TId> ids)
-        {
-            var entities = GetEntities(ids);
-            set.RemoveRange(entities);
-        }
+        */
 
-        public void DeleteRange(params TId[] ids)
+        protected abstract TRecord GetRecord(TIdentity identity);
+
+        protected abstract TIdentity GetIdentity(TRecord record);
+
+        protected IEnumerable<TRecord> GetRecords(IEnumerable<TIdentity> identities)
         {
-            var entities = GetEntities(ids);
-            set.RemoveRange(entities);
+            return identities.Select(GetRecord);
         }
 
         #endregion Helper - Delete

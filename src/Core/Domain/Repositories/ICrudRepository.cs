@@ -3,46 +3,54 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Domain
 {
-    public interface ICrudRepository<TEntity, TId> : IReadonlyCrudRepository<TEntity, TId>
-        where TEntity : class, IEntity<TId>
+    public interface ICrudRepository<TAggregateRoot, TIdentity> : IReadonlyCrudRepository<TAggregateRoot, TIdentity>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity
     {
         #region Create
 
-        void Add(TEntity entity);
+        TIdentity Add(TAggregateRoot aggregateRoot);
 
-        Task AddAsync(TEntity entity);
+        Task<TIdentity> AddAsync(TAggregateRoot aggregateRoot);
 
-        void AddRange(IEnumerable<TEntity> entities);
+        void AddRange(IEnumerable<TAggregateRoot> aggregateRoots);
 
-        Task AddRangeAsync(IEnumerable<TEntity> entities);
+        Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots);
 
-        void AddRange(params TEntity[] entities);
+        void AddRange(params TAggregateRoot[] aggregateRoots);
 
-        Task AddRangeAsync(params TEntity[] entities);
+        Task AddRangeAsync(params TAggregateRoot[] aggregateRoots);
 
         #endregion Create
 
         #region Update
 
-        void Update(TEntity entity);
+        void Update(TAggregateRoot aggregateRoot);
 
-        void UpdateRange(IEnumerable<TEntity> entities);
+        void UpdateRange(IEnumerable<TAggregateRoot> aggregateRoots);
 
-        void UpdateRange(params TEntity[] entities);
+        void UpdateRange(params TAggregateRoot[] aggregateRoots);
 
         #endregion Update
 
         #region Delete
 
-        void Delete(TEntity entity);
+        // TODO: VC: DELETE
 
-        void DeleteRange(IEnumerable<TEntity> entities);
+        /*
+        void Delete(TAggregateRoot aggregateRoot);
 
-        void DeleteRange(params TEntity[] entities);
+        void DeleteRange(IEnumerable<TAggregateRoot> aggregateRoots);
 
-        void DeleteRange(IEnumerable<TId> ids);
+        void DeleteRange(params TAggregateRoot[] aggregateRoots);
 
-        void DeleteRange(params TId[] ids);
+        */
+
+        void Delete(TIdentity identity);
+
+        void DeleteRange(IEnumerable<TIdentity> identities);
+
+        void DeleteRange(params TIdentity[] identities);
 
         #endregion Delete
     }

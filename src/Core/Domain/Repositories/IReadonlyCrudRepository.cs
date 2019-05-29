@@ -6,52 +6,63 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Domain
 {
-    public interface IReadonlyCrudRepository<TEntity, TId> : IRepository
-        where TEntity : class, IEntity<TId>
+    public interface IReadonlyCrudRepository<TAggregateRoot, TIdentity> : IRepository<TAggregateRoot, TIdentity>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity
     {
         #region Read
 
-        IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        // TODO: VC: RECHECK
+
+        /*
+        IEnumerable<TAggregateRoot> Get(Expression<Func<TAggregateRoot, bool>> filter = null,
+            Func<IQueryable<TAggregateRoot>, IOrderedQueryable<TAggregateRoot>> orderBy = null,
             int? skip = null, int? take = null,
-            params Expression<Func<TEntity, object>>[] includes);
+            params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        Task<IEnumerable<TAggregateRoot>> GetAsync(Expression<Func<TAggregateRoot, bool>> filter = null,
+            Func<IQueryable<TAggregateRoot>, IOrderedQueryable<TAggregateRoot>> orderBy = null,
             int? skip = null, int? take = null,
-            params Expression<Func<TEntity, object>>[] includes);
+            params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        TEntity GetSingle(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
 
-        Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        TAggregateRoot GetSingle(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        TEntity GetSingleOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        Task<TAggregateRoot> GetSingleAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        Task<TEntity> GetSingleOrDefaultAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        TAggregateRoot GetSingleOrDefault(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        TEntity GetFirst(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        Task<TAggregateRoot> GetSingleOrDefaultAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        Task<TEntity> GetFirstAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        TAggregateRoot GetFirst(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        Task<TAggregateRoot> GetFirstAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        Task<TEntity> GetFirstOrDefaultAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes);
+        TAggregateRoot GetFirstOrDefault(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        long GetCount(Expression<Func<TEntity, bool>> filter = null);
+        Task<TAggregateRoot> GetFirstOrDefaultAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes);
 
-        Task<long> GetCountAsync(Expression<Func<TEntity, bool>> filter = null);
+        long GetCount(Expression<Func<TAggregateRoot, bool>> filter = null);
 
-        bool GetExists(Expression<Func<TEntity, bool>> filter = null);
+        Task<long> GetCountAsync(Expression<Func<TAggregateRoot, bool>> filter = null);
 
-        Task<bool> GetExistsAsync(Expression<Func<TEntity, bool>> filter = null);
+        bool GetExists(Expression<Func<TAggregateRoot, bool>> filter = null);
 
-        TEntity GetSingleOrDefault(TId id);
+        Task<bool> GetExistsAsync(Expression<Func<TAggregateRoot, bool>> filter = null);
 
-        Task<TEntity> GetSingleOrDefaultAsync(TId id);
+        */
 
-        bool GetExists(TId id);
+        IEnumerable<TAggregateRoot> Get();
 
-        Task<bool> GetExistsAsync(TId id);
+        Task<IEnumerable<TAggregateRoot>> GetAsync();
+
+        TAggregateRoot GetSingleOrDefault(TIdentity id);
+
+        Task<TAggregateRoot> GetSingleOrDefaultAsync(TIdentity id);
+
+        bool GetExists(TIdentity id);
+
+        Task<bool> GetExistsAsync(TIdentity id);
 
         #endregion Read
     }

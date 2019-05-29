@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class CreateUseCase<TRequest, TResponse, TEntity, TId> : ICreateUseCase<TRequest, TResponse>
+    public abstract class CreateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : ICreateUseCase<TRequest, TResponse>
         where TRequest : ICreateRequest
         where TResponse : ICreateResponse<TId>
-        where TEntity : class, IEntity<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
     {
-        public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TEntity, TId> repository)
+        public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -22,15 +23,18 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected ICrudRepository<TEntity, TId> Repository { get; private set; }
+        protected ICrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
-            var entity = RequestMapper.Map<TRequest, TEntity>(request);
-            await Repository.AddAsync(entity);
+            var aggregateRoot = RequestMapper.Map<TRequest, TAggregateRoot>(request);
+            var identity = await Repository.AddAsync(aggregateRoot);
             await UnitOfWork.SaveChangesAsync();
-            var response = ResponseMapper.Map<TEntity, TResponse>(entity);
+            aggregateRoot = GetAggregateRoot(aggregateRoot, identity);
+            var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
         }
+
+        protected abstract TAggregateRoot GetAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
     }
 }

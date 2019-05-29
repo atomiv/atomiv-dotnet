@@ -1,6 +1,7 @@
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
+using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
 using Optivem.NorthwindLite.Web.Test.Fixture;
 using System.Collections.Generic;
 using System.Net;
@@ -22,15 +23,15 @@ namespace Optivem.NorthwindLite.Web.Test
         [Fact]
         public async Task TestListCustomers_ResponseOK()
         {
-            var samples = new List<Customer>
+            var samples = new List<CustomerRecord>
             {
-                new Customer
+                new CustomerRecord
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new Customer
+                new CustomerRecord
                 {
                     FirstName = "John",
                     LastName = "McDonald",

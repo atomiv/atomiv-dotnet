@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class DeleteUseCase<TRequest, TResponse, TEntity, TId> : IDeleteUseCase<TRequest, TResponse>
-        where TRequest : IDeleteRequest<TId>
+    public abstract class DeleteUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IDeleteUseCase<TRequest, TResponse>
+        where TRequest : IDeleteRequest<TIdentity>
         where TResponse : IDeleteResponse, new()
-        where TEntity : class, IEntity<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
     {
-        public DeleteUseCase(IUnitOfWork unitOfWork, ICrudRepository<TEntity, TId> repository)
+        public DeleteUseCase(IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
             UnitOfWork = unitOfWork;
             Repository = repository;
@@ -16,14 +17,14 @@ namespace Optivem.Core.Application
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected ICrudRepository<TEntity, TId> Repository { get; private set; }
+        protected ICrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
-            var entity = await Repository.GetSingleOrDefaultAsync(id);
+            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(id);
 
-            if (entity == null)
+            if (aggregateRoot == null)
             {
                 return new TResponse
                 {
@@ -31,7 +32,10 @@ namespace Optivem.Core.Application
                 };
             }
 
-            Repository.Delete(entity);
+            var identity = aggregateRoot.Id;
+
+            Repository.Delete(identity);
+
             await UnitOfWork.SaveChangesAsync();
 
             return new TResponse
@@ -39,5 +43,7 @@ namespace Optivem.Core.Application
                 Deleted = false,
             };
         }
+
+        protected abstract TIdentity GetIdentity(TId id);
     }
 }

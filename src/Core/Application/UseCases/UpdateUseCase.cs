@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class UpdateUseCase<TRequest, TResponse, TEntity, TId> : IUpdateUseCase<TRequest, TResponse>
-        where TRequest : IUpdateRequest<TId>
-        where TResponse : class, IUpdateResponse<TId>
-        where TEntity : class, IEntity<TId>
+    public class UpdateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity> : IUpdateUseCase<TRequest, TResponse>
+        where TRequest : IUpdateRequest<TIdentity>
+        where TResponse : class, IUpdateResponse<TIdentity>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity
     {
-        public UpdateUseCase(IRequestMapper<TRequest, TEntity> requestMapper, IResponseMapper<TEntity, TResponse> responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TEntity, TId> repository)
+        public UpdateUseCase(IRequestMapper<TRequest, TAggregateRoot> requestMapper, IResponseMapper<TAggregateRoot, TResponse> responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -16,13 +17,13 @@ namespace Optivem.Core.Application
             Repository = repository;
         }
 
-        protected IRequestMapper<TRequest, TEntity> RequestMapper { get; private set; }
+        protected IRequestMapper<TRequest, TAggregateRoot> RequestMapper { get; private set; }
 
-        protected IResponseMapper<TEntity, TResponse> ResponseMapper { get; private set; }
+        protected IResponseMapper<TAggregateRoot, TResponse> ResponseMapper { get; private set; }
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
-        protected ICrudRepository<TEntity, TId> Repository { get; private set; }
+        protected ICrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
@@ -35,11 +36,11 @@ namespace Optivem.Core.Application
                 return null;
             }
 
-            var entity = RequestMapper.Map(request);
+            var aggregateRoot = RequestMapper.Map(request);
 
             try
             {
-                Repository.Update(entity);
+                Repository.Update(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
 
                 var retrieved = await Repository.GetSingleOrDefaultAsync(id);

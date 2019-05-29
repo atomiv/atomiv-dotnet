@@ -1,19 +1,20 @@
 ﻿using Optivem.Core.Domain;
+using Optivem.NorthwindLite.Core.Domain.Identities;
 using System.Collections.Generic;
 
 namespace Optivem.NorthwindLite.Core.Domain.Entities
 {
-    public class Customer : IEntity<int>
+    public class Customer : AggregateRoot<CustomerIdentity>
     {
-        public Customer()
+        public Customer(CustomerIdentity id, string firstName, string lastName) 
+            : base(id)
         {
-            Order = new HashSet<Order>();
+            FirstName = firstName;
+            LastName = lastName;
         }
 
-        public int Id { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
 
-        public virtual ICollection<Order> Order { get; set; }
+        public string LastName { get; set; }
     }
 }

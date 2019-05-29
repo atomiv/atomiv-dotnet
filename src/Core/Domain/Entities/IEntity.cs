@@ -1,12 +1,15 @@
-﻿namespace Optivem.Core.Domain
+﻿using System;
+
+namespace Optivem.Core.Domain
 {
-    public interface IEntity
+    public interface IEntity : IEquatable<IEntity>
     {
     }
 
-    public interface IEntity<TId> : IEntity
+    public interface IEntity<TIdentity> : IEntity
+        where TIdentity : IIdentity
     {
         // TODO: VC: Refactor, only getter for Id
-        TId Id { get; set; }
+        TIdentity Id { get; }
     }
 }

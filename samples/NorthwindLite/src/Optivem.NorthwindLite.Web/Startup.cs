@@ -31,6 +31,7 @@ using Optivem.Infrastructure.Validation.FluentValidation;
 using Optivem.Web.AspNetCore;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
+using Optivem.NorthwindLite.Core.Domain.Identities;
 
 namespace Optivem.NorthwindLite.Web
 {
@@ -88,8 +89,8 @@ namespace Optivem.NorthwindLite.Web
 
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
-            services.AddScoped<IReadonlyCrudRepository<Customer, int>, CustomerRepository>();
-            services.AddScoped<ICrudRepository<Customer, int>, CustomerRepository>();
+            services.AddScoped<IReadonlyCrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
+            services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
 
             // Infrastructure - Mapping
             services.AddAutoMapper(autoMapperAssemblies);

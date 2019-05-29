@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Optivem.Common.Serialization;
+using System;
 
 namespace Optivem.Web.AspNetCore
 {
@@ -12,23 +13,31 @@ namespace Optivem.Web.AspNetCore
             {
                 configure.Run(async context =>
                 {
-                    var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    var exception = exceptionHandlerFeature.Error;
+                    try
+                    {
+                        var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+                        var exception = exceptionHandlerFeature.Error;
 
-                    // TODO: VC: Consider if this fails, perhaps outer try-catch?
+                        // TODO: VC: Consider if this fails, perhaps outer try-catch?
 
-                    var problemDetails = problemDetailsFactory.Create(exception);
+                        var problemDetails = problemDetailsFactory.Create(exception);
 
-                    var instance = problemDetails.Instance;
+                        var instance = problemDetails.Instance;
 
-                    // TODO: VC: Fix logging
-                    // var logger = context.RequestServices.GetRequiredService<ILogger>();
-                    // logger.LogError(exception, exception.Message);
+                        // TODO: VC: Fix logging
+                        // var logger = context.RequestServices.GetRequiredService<ILogger>();
+                        // logger.LogError(exception, exception.Message);
 
-                    context.Response.StatusCode = problemDetails.Status.Value;
+                        context.Response.StatusCode = problemDetails.Status.Value;
 
-                    // TODO: VC: Lookup json service from services
-                    await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
+                        // TODO: VC: Lookup json service from services
+                        await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
+                    }
+                    catch(Exception)
+                    {
+                        // TODO: VC: Attempt log
+                        throw;
+                    }
                 });
             });
 

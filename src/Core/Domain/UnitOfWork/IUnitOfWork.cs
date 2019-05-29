@@ -19,8 +19,19 @@ namespace Optivem.Core.Domain
 
         void RollbackTransaction();
 
-        ICrudRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
+        // TODO: VC: Remove class constraint
 
-        IReadonlyCrudRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>;
+        // TODO: VC: DELETE
+
+        /*
+        ICrudRepository<TAggregateRoot, TIdentity> GetRepository<TAggregateRoot, TIdentity>() 
+            where TAggregateRoot : IAggregateRoot<TIdentity>
+            where TIdentity : IIdentity;
+
+        IReadonlyCrudRepository<TAggregateRoot, TIdentity> GetReadonlyRepository<TAggregateRoot, TIdentity>() 
+            where TAggregateRoot : IAggregateRoot<TIdentity>
+            where TIdentity : IIdentity;
+
+        */
     }
 }

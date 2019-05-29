@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Optivem.NorthwindLite.Core.Domain.Entities;
+using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
 
 namespace Optivem.NorthwindLite.Infrastructure.Persistence.Configuration
 {
-    public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
+    public class CustomerRecordConfiguration : IEntityTypeConfiguration<CustomerRecord>
     {
-        public void Configure(EntityTypeBuilder<Customer> builder)
+        public void Configure(EntityTypeBuilder<CustomerRecord> builder)
         {
             builder.Property(e => e.FirstName)
                 .IsRequired()

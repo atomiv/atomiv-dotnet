@@ -1,20 +1,23 @@
 ﻿using Optivem.Core.Domain;
+using Optivem.NorthwindLite.Core.Domain.Identities;
 using System.Collections.Generic;
 
 namespace Optivem.NorthwindLite.Core.Domain.Entities
 {
-    public class Product : IEntity<int>
+    public class Product : AggregateRoot<ProductIdentity>
     {
-        public Product()
+        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice)
+            : base(id)
         {
-            OrderDetail = new HashSet<OrderDetail>();
+            ProductCode = productCode;
+            ProductName = productName;
+            ListPrice = listPrice;
         }
 
-        public int Id { get; set; }
         public string ProductCode { get; set; }
-        public string ProductName { get; set; }
-        public decimal ListPrice { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
+        public string ProductName { get; set; }
+
+        public decimal ListPrice { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Persistence.Configuration;
+using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
 
 namespace Optivem.NorthwindLite.Infrastructure.Persistence
 {
@@ -11,14 +12,14 @@ namespace Optivem.NorthwindLite.Infrastructure.Persistence
         {
         }
 
-        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<CustomerRecord> Customer { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // TODO: VC: Check if needed
             // modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
-            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerRecordConfiguration());
         }
     }
 }

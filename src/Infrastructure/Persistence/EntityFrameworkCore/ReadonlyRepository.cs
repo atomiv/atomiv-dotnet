@@ -8,128 +8,152 @@ using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
-    public class ReadonlyRepository<TContext, TEntity, TId> : IReadonlyCrudRepository<TEntity, TId>
+    public abstract class ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : IReadonlyCrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
-        where TEntity : class, IEntity<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
+        where TRecord : class
     {
         protected readonly TContext context;
-        protected readonly DbSet<TEntity> set;
+        protected readonly DbSet<TRecord> set;
 
         public ReadonlyRepository(TContext context)
         {
             this.context = context;
-            this.set = context.Set<TEntity>();
+            this.set = context.Set<TRecord>();
         }
 
         #region Read
 
-        public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        // TODO: VC: RECHECK
+
+        /*
+        public IEnumerable<TAggregateRoot> Get(Expression<Func<TAggregateRoot, bool>> filter = null,
+            Func<IQueryable<TAggregateRoot>, IOrderedQueryable<TAggregateRoot>> orderBy = null,
             int? skip = null, int? take = null,
-            params Expression<Func<TEntity, object>>[] includes)
+            params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, orderBy, skip, take, includes);
             return query.ToList();
         }
 
-        public async Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        public async Task<IEnumerable<TAggregateRoot>> GetAsync(Expression<Func<TAggregateRoot, bool>> filter = null,
+            Func<IQueryable<TAggregateRoot>, IOrderedQueryable<TAggregateRoot>> orderBy = null,
             int? skip = null, int? take = null,
-            params Expression<Func<TEntity, object>>[] includes)
+            params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, orderBy, skip, take, includes);
             return await query.ToListAsync();
         }
 
-        public TEntity GetSingle(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+
+        public TAggregateRoot GetSingle(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.Single();
         }
 
-        public Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public Task<TAggregateRoot> GetSingleAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.SingleAsync();
         }
 
-        public TEntity GetSingleOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public TAggregateRoot GetSingleOrDefault(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.SingleOrDefault();
         }
 
-        public Task<TEntity> GetSingleOrDefaultAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public Task<TAggregateRoot> GetSingleOrDefaultAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.SingleOrDefaultAsync();
         }
 
-        public TEntity GetFirst(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public TAggregateRoot GetFirst(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.First();
         }
 
-        public Task<TEntity> GetFirstAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public Task<TAggregateRoot> GetFirstAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.FirstAsync();
         }
 
-        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public TAggregateRoot GetFirstOrDefault(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.FirstOrDefault();
         }
 
-        public Task<TEntity> GetFirstOrDefaultAsync(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public Task<TAggregateRoot> GetFirstOrDefaultAsync(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = GetQuery(filter, includes);
             return query.FirstOrDefaultAsync();
         }
 
-        public long GetCount(Expression<Func<TEntity, bool>> filter = null)
+        public long GetCount(Expression<Func<TAggregateRoot, bool>> filter = null)
         {
             var query = GetQuery(filter);
             return query.LongCount();
         }
 
-        public Task<long> GetCountAsync(Expression<Func<TEntity, bool>> filter = null)
+        public Task<long> GetCountAsync(Expression<Func<TAggregateRoot, bool>> filter = null)
         {
             var query = GetQuery(filter);
             return query.LongCountAsync();
         }
 
-        public bool GetExists(Expression<Func<TEntity, bool>> filter = null)
+        public bool GetExists(Expression<Func<TAggregateRoot, bool>> filter = null)
         {
             var query = GetQuery(filter);
             return query.Any();
         }
 
-        public Task<bool> GetExistsAsync(Expression<Func<TEntity, bool>> filter = null)
+        public Task<bool> GetExistsAsync(Expression<Func<TAggregateRoot, bool>> filter = null)
         {
             var query = GetQuery(filter);
             return query.AnyAsync();
         }
 
-        public TEntity GetSingleOrDefault(TId id)
+        */
+
+        public IEnumerable<TAggregateRoot> Get()
         {
-            return GetSingleOrDefaultInner(id);
+            var records = set.ToList();
+            return GetAggregateRoots(records);
         }
 
-        public Task<TEntity> GetSingleOrDefaultAsync(TId id)
+        public async Task<IEnumerable<TAggregateRoot>> GetAsync()
         {
-            return GetSingleOrDefaultInnerAsync(id);
+            var records = await set.ToListAsync();
+            return GetAggregateRoots(records);
         }
 
-        public bool GetExists(TId id)
+        public TAggregateRoot GetSingleOrDefault(TIdentity identity)
+        {
+            var id = identity.Id;
+            var record = set.Find(id);
+            return GetAggregateRoot(record);
+        }
+
+        public async Task<TAggregateRoot> GetSingleOrDefaultAsync(TIdentity identity)
+        {
+            var id = identity.Id;
+            var record = await set.FindAsync(id);
+            return GetAggregateRoot(record);
+        }
+
+        public bool GetExists(TIdentity id)
         {
             var entity = GetSingleOrDefault(id);
             return entity != null;
         }
 
-        public async Task<bool> GetExistsAsync(TId id)
+        public async Task<bool> GetExistsAsync(TIdentity id)
         {
             var entity = await GetSingleOrDefaultAsync(id);
             return entity != null;
@@ -137,13 +161,16 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 
         #endregion Read
 
+        // TODO: VC: CHECK
+        /*
+
         #region Helper - Read
 
-        protected IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        protected IQueryable<TAggregateRoot> GetQuery(Expression<Func<TAggregateRoot, bool>> filter = null,
+            Func<IQueryable<TAggregateRoot>, IOrderedQueryable<TAggregateRoot>> orderBy = null,
             int? skip = null,
             int? take = null,
-            params Expression<Func<TEntity, object>>[] includes)
+            params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             var query = set.AsQueryable();
 
@@ -175,15 +202,15 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return query;
         }
 
-        protected IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> filter = null,
-            params Expression<Func<TEntity, object>>[] includes)
+        protected IQueryable<TAggregateRoot> GetQuery(Expression<Func<TAggregateRoot, bool>> filter = null,
+            params Expression<Func<TAggregateRoot, object>>[] includes)
         {
             return GetQuery(filter, null, null, null, includes);
         }
 
-        protected IEnumerable<TEntity> GetEntities<T>(IEnumerable<T> ids)
+        protected IEnumerable<TAggregateRoot> GetEntities<T>(IEnumerable<T> ids)
         {
-            var entities = new List<TEntity>();
+            var entities = new List<TAggregateRoot>();
 
             foreach (var id in ids)
             {
@@ -198,16 +225,26 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             return entities;
         }
 
-        protected TEntity GetSingleOrDefaultInner(params object[] id)
-        {
-            return set.Find(id);
-        }
 
-        protected Task<TEntity> GetSingleOrDefaultInnerAsync(params object[] id)
-        {
-            return set.FindAsync(id);
-        }
 
         #endregion Helper - Read
+
+        */
+
+        // TODO: VC: Consider auto mapper
+
+        protected abstract TAggregateRoot GetAggregateRoot(TRecord record);
+
+        protected abstract TRecord GetRecord(TAggregateRoot aggregateRoot);
+
+        protected IEnumerable<TAggregateRoot> GetAggregateRoots(IEnumerable<TRecord> records)
+        {
+            return records.Select(GetAggregateRoot);
+        }
+
+        protected IEnumerable<TRecord> GetRecords(IEnumerable<TAggregateRoot> aggregateRoots)
+        {
+            return aggregateRoots.Select(GetRecord);
+        }
     }
 }

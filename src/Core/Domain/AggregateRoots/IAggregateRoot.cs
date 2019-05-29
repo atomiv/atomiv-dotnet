@@ -8,7 +8,8 @@ namespace Optivem.Core.Domain
     {
     }
 
-    public interface IAggregateRoot<TId> : IAggregateRoot
+    public interface IAggregateRoot<TIdentity> : IEntity<TIdentity>, IAggregateRoot
+        where TIdentity : IIdentity
     {
 
     }

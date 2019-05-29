@@ -71,20 +71,30 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             Dispose(true);
         }
 
-        public ICrudRepository<TEntity, TId> GetRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
+        // TODO: VC: DELETE
+
+        /*
+
+        public ICrudRepository<TAggregateRoot, TIdentity> GetRepository<TAggregateRoot, TIdentity, TRecord, TId>() 
+            where TAggregateRoot : IAggregateRoot<TIdentity>
+            where TIdentity : IIdentity
         {
             // TODO: VC: Actually could we get the typed repository?
             // In case that there is specific implementation within the overridden version
             // e.g. there could be a map of keyvalue pairs for entity and key, expressed as types, then do lookup from there
             // therefore we ensure specific implementation is used, if exists, otherwise this new one
 
-            return new Repository<TContext, TEntity, TId>(Context);
+            return new Repository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(Context);
         }
 
-        public IReadonlyCrudRepository<TEntity, TId> GetReadonlyRepository<TEntity, TId>() where TEntity : class, IEntity<TId>
+        public IReadonlyCrudRepository<TAggregateRoot, TIdentity> GetReadonlyRepository<TAggregateRoot, TIdentity>() 
+            where TAggregateRoot : IAggregateRoot<TIdentity>
+            where TIdentity : IIdentity
         {
             // TODO: VC: See above
-            return new ReadonlyRepository<TContext, TEntity, TId>(Context);
+            return new ReadonlyRepository<TContext, TAggregateRoot, TIdentity>(Context);
         }
+
+        */
     }
 }
