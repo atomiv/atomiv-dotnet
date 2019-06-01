@@ -32,6 +32,8 @@ using Optivem.Web.AspNetCore;
 using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.NorthwindLite.Core.Domain.Identities;
+using Optivem.DependencyInjection.Core.Application;
+using System.Linq;
 
 namespace Optivem.NorthwindLite.Web
 {
@@ -55,6 +57,7 @@ namespace Optivem.NorthwindLite.Web
             var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
             var autoMapperAssemblies = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
             var fluentValidationAssemblies = typeof(CreateCustomerRequestValidator).Assembly;
+            var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
 
             services
                 .AddMvc()
@@ -78,11 +81,18 @@ namespace Optivem.NorthwindLite.Web
 
 
             // Application - Use Cases
+
+            var types = applicationAssembly.GetTypes();
+
+            services.AddApplicationCore(types);
+
+            /*
             services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
             services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
             services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
             services.AddScoped<IUseCase<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerUseCase>();
             services.AddScoped<IUseCase<DeleteCustomerRequest, DeleteCustomerResponse>, DeleteCustomerUseCase>();
+            */
 
             // Application - Services
             services.AddScoped<ICustomerService, CustomerService>();

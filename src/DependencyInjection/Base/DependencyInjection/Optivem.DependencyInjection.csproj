@@ -8,9 +8,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application.Interface\Optivem.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
-  </ItemGroup>
-
 </Project>
