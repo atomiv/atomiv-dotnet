@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve
 {
-    public class FindCustomerResponse : IFindResponse<int>
+    public class FindCustomerResponse : IResponse<int>
     {
         public int Id { get; set; }
 

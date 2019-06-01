@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers
 {
-    public class CreateCustomerRequest : ICreateRequest
+    public class CreateCustomerRequest : IRequest
     {
         public string FirstName { get; set; }
 

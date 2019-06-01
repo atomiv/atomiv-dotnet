@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
 {
-    public class UpdateCustomerRequest : IUpdateRequest<int>
+    public class UpdateCustomerRequest : IRequest<int>
     {
         public int Id { get; set; }
 

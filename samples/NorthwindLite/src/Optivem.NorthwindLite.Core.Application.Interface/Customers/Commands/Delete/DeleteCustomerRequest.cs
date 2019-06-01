@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
 {
-    public class DeleteCustomerRequest : IDeleteRequest<int>
+    public class DeleteCustomerRequest : IRequest<int>
     {
         public int Id { get; set; }
     }

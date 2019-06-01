@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class DeleteUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IDeleteUseCase<TRequest, TResponse>
-        where TRequest : IDeleteRequest<TId>
-        where TResponse : IDeleteResponse, new()
+    public abstract class DeleteUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+        where TRequest : IRequest<TId>
+        where TResponse : IResponse, new()
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {

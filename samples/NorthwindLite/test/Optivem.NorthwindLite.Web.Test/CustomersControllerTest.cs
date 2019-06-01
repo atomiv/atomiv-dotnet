@@ -70,6 +70,33 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
+        public async Task FindCustomer_Valid_OK()
+        {
+            var customerRecord = _customerRecords[0];
+            var id = customerRecord.Id;
+
+            var findResponse = await Fixture.Customers.FindCustomerAsync(id);
+
+            Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
+
+            var findResponseContent = findResponse.Content;
+
+            Assert.Equal(customerRecord.Id, findResponseContent.Id);
+            Assert.Equal(customerRecord.FirstName, findResponseContent.FirstName);
+            Assert.Equal(customerRecord.LastName, findResponseContent.LastName);
+        }
+
+        [Fact]
+        public async Task FindCustomer_NotExist_NotFound()
+        {
+            var id = 999;
+
+            var findResponse = await Fixture.Customers.FindCustomerAsync(id);
+
+            Assert.Equal(HttpStatusCode.NotFound, findResponse.StatusCode);
+        }
+
+        [Fact]
         public async Task CreateCustomer_Valid_Created()
         {
             var createRequest = new CreateCustomerRequest

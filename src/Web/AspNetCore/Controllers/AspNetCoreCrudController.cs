@@ -7,8 +7,8 @@ namespace Optivem.Web.AspNetCore
     public class AspNetCoreCrudController<TService, TKey, TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
         : ControllerBase
         where TService : ICrudService<TKey, TFindAllRequest, TCreateRequest, TUpdateRequest, TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        where TUpdateRequest : IUpdateRequest<TKey>
-        where TCreateResponse : ICreateResponse<TKey>
+        where TUpdateRequest : IRequest<TKey>
+        where TCreateResponse : IResponse<TKey>
     {
         public AspNetCoreCrudController(TService service)
         {

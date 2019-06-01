@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class FindUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IFindUseCase<TRequest, TResponse>
-        where TRequest : IFindRequest<TId>
-        where TResponse : IFindResponse<TId>
+    public abstract class FindUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+        where TRequest : IRequest<TId>
+        where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
@@ -25,10 +25,14 @@ namespace Optivem.Core.Application
             var id = request.Id;
             var identity = GetIdentity(id);
             var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
+
+            if(aggregateRoot == null)
+            {
+                throw new RequestNotFoundException();
+            }
+
             var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
-
-            throw new NotImplementedException();
         }
 
         protected abstract TIdentity GetIdentity(TId id);

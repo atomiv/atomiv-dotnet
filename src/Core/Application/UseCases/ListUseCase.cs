@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class ListUseCase<TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> : IListUseCase<TRequest, TResponse>
-        where TRequest : IListRequest
-        where TResponse : IListResponse<TRecordResponse, TId>, new()
-        where TRecordResponse : IListElementResponse<TId>
+    public class ListUseCase<TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+        where TRequest : IRequest
+        where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
+        where TRecordResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {

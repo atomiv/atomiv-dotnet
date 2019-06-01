@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class UpdateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUpdateUseCase<TRequest, TResponse>
-        where TRequest : IUpdateRequest<TId>
-        where TResponse : class, IUpdateResponse<TId>
+    public abstract class UpdateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+        where TRequest : IRequest<TId>
+        where TResponse : class, IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {

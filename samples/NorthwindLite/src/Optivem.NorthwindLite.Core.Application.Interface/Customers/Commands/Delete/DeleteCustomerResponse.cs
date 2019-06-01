@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
 {
-    public class DeleteCustomerResponse : IDeleteResponse
+    public class DeleteCustomerResponse : IResponse
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll
 {
-    public class ListCustomersRequest : IListRequest
+    public class ListCustomersRequest : IRequest
     {
     }
 }

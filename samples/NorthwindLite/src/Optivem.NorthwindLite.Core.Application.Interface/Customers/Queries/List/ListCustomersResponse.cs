@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List
 {
-    public class ListCustomersResponse : IListResponse<ListCustomersElementResponse, int>
+    public class ListCustomersResponse : ICollectionResponse<ListCustomersElementResponse, int>
     {
         public List<ListCustomersElementResponse> Data { get; set; }
     }
 
-    public class ListCustomersElementResponse : IListElementResponse<int>
+    public class ListCustomersElementResponse : IResponse<int>
     {
         public int Id { get; set; }
 
