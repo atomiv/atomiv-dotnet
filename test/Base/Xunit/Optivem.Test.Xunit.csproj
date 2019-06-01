@@ -21,7 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

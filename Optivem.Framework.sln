@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Sele
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper", "src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj", "{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.NewtonsoftJson", "src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj", "{A2FC768C-6D45-421A-9FB7-6A7578D667B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.NewtonsoftJson", "src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj", "{A2FC768C-6D45-421A-9FB7-6A7578D667B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj", "{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}"
 EndProject

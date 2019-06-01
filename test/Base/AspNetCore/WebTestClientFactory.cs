@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Optivem.Common.Http;
 using Optivem.Infrastructure.AspNetCore;
-using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
+using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.Test.Configuration;
 using System;
 

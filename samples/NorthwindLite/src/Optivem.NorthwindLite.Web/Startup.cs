@@ -30,7 +30,7 @@ using FluentValidation;
 using Optivem.Infrastructure.Validation.FluentValidation;
 using Optivem.Web.AspNetCore;
 using Optivem.Common.Serialization;
-using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
+using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 
 namespace Optivem.NorthwindLite.Web
