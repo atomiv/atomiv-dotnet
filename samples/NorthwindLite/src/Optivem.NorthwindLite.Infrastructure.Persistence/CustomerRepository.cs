@@ -1,4 +1,4 @@
-﻿using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
+﻿using Optivem.Infrastructure.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 using Optivem.NorthwindLite.Infrastructure.Persistence.Records;

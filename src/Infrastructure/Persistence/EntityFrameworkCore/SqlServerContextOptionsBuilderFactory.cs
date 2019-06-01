@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Common;
 
-namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
+namespace Optivem.Infrastructure.EntityFrameworkCore
 {
     public class SqlServerContextOptionsBuilderFactory<TContext> : IFactory<DbContextOptionsBuilder<TContext>>
         where TContext : DbContext

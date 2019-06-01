@@ -3,7 +3,7 @@ using Optivem.Core.Domain;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
+namespace Optivem.Infrastructure.EntityFrameworkCore
 {
     public class UnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext

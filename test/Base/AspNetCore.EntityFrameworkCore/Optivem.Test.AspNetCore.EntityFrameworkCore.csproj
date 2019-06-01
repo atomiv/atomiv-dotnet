@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Common\Http\Optivem.Common.Http.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\AspNetCore\Optivem.Test.AspNetCore.csproj" />
     <ProjectReference Include="..\Configuration\Optivem.Test.Configuration.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore\Optivem.Test.EntityFrameworkCore.csproj" />

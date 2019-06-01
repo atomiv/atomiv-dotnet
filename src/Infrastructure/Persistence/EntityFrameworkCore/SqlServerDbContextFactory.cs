@@ -2,7 +2,7 @@
 using Optivem.Common;
 using System;
 
-namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
+namespace Optivem.Infrastructure.EntityFrameworkCore
 {
     public class SqlServerDbContextFactory<TDbContext> : DbContextFactory<TDbContext>, IFactory<TDbContext>
         where TDbContext : DbContext

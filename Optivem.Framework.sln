@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Auto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.MediatR", "src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.MediatR.csproj", "{4D10C62F-3A9A-4831-BF87-D9EA8ACD4AD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Persistence.EntityFrameworkCore", "src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj", "{CCFB400E-D2FE-4281-A75E-890FF6D7833F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.EntityFrameworkCore", "src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj", "{CCFB400E-D2FE-4281-A75E-890FF6D7833F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Validation.FluentValidation", "src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj", "{11DC58A0-CBBF-4530-95A0-754C536442FA}"
 EndProject
@@ -63,7 +63,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.Test", "test\Infrastructure\WebAutomation\Selenium.Test\Optivem.Infrastructure.Selenium.Test.csproj", "{9081957A-B2D0-44DB-B067-D777EE40F43D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.CsvHelper", "src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj", "{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper", "src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj", "{7A516FB4-0ADD-4947-829B-214ACEB8EEC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.NewtonsoftJson", "src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj", "{A2FC768C-6D45-421A-9FB7-6A7578D667B4}"
 EndProject

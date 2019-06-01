@@ -10,7 +10,7 @@ using Optivem.Core.Application;
 using Optivem.Core.Domain;
 using Optivem.Infrastructure.AutoMapper;
 using Optivem.Infrastructure.MediatR;
-using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
+using Optivem.Infrastructure.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll;
