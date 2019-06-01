@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Optivem.Common.Serialization;
+using Optivem.Core.Common.Serialization;
 using Optivem.Core.Application;
 using System;
 using System.Net;

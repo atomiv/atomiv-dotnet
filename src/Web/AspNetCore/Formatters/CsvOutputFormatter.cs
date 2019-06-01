@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
-using Optivem.Common.Serialization;
+using Optivem.Core.Common.Serialization;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;

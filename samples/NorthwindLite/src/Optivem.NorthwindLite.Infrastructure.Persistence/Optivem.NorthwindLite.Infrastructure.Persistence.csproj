@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Domain\Optivem.NorthwindLite.Core.Domain.csproj" />
   </ItemGroup>
 

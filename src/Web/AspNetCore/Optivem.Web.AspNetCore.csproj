@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Serialization\Optivem.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\Core\Application\Optivem.Core.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Application.Interface\Optivem.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\Common\Optivem.Core.Common.csproj" />
   </ItemGroup>
 
 </Project>

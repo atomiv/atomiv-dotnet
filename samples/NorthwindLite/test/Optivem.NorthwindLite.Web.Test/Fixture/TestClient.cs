@@ -1,4 +1,4 @@
-﻿using Optivem.Common.Http;
+﻿using Optivem.Core.Common.Http;
 using Optivem.Infrastructure.AspNetCore;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;

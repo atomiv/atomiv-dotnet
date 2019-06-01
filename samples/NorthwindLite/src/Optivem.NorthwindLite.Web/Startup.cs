@@ -29,7 +29,7 @@ using System;
 using FluentValidation;
 using Optivem.Infrastructure.FluentValidation;
 using Optivem.Web.AspNetCore;
-using Optivem.Common.Serialization;
+using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 

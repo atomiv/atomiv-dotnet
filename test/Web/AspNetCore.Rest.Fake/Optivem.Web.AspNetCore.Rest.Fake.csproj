@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -21,10 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
   </ItemGroup>
 

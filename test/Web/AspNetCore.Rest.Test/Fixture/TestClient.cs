@@ -1,4 +1,4 @@
-﻿using Optivem.Common.Http;
+﻿using Optivem.Core.Common.Http;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Infrastructure.AspNetCore;
 using Optivem.Test.AspNetCore;

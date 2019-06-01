@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\All\Optivem.Test.All.csproj" />
+    <ProjectReference Include="..\Xunit.AspNetCore.EntityFrameworkCore\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Xunit.Common\Optivem.Test.Xunit.Common.csproj" />
+  </ItemGroup>
+
+</Project>

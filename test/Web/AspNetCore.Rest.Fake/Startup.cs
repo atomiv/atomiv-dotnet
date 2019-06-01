@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Common.Serialization;
+using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.CsvHelper;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.Web.AspNetCore;

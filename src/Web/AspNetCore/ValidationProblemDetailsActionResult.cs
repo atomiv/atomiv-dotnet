@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Common.Serialization;
+using Optivem.Core.Common.Serialization;
 using System.Threading.Tasks;
 
 namespace Optivem.Web.AspNetCore
