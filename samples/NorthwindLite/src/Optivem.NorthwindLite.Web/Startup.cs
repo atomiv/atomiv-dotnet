@@ -33,6 +33,7 @@ using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 using Optivem.DependencyInjection.Core.Application;
+using Optivem.DependencyInjection.Infrastructure.AutoMapper;
 using System.Linq;
 
 namespace Optivem.NorthwindLite.Web
@@ -80,22 +81,9 @@ namespace Optivem.NorthwindLite.Web
             // TODO: VC: Auto find use cases
 
 
-            // Application - Use Cases
+            // Application
 
-            var types = applicationAssembly.GetTypes();
-
-            services.AddApplicationCore(types);
-
-            /*
-            services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
-            services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
-            services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
-            services.AddScoped<IUseCase<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerUseCase>();
-            services.AddScoped<IUseCase<DeleteCustomerRequest, DeleteCustomerResponse>, DeleteCustomerUseCase>();
-            */
-
-            // Application - Services
-            // services.AddScoped<ICustomerService, CustomerService>();
+            services.AddApplicationCore(applicationAssembly);
 
             // Infrastructure - Repository
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
@@ -106,9 +94,14 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
 
             // Infrastructure - Mapping
+
+            services.AddAutoMapperInfrastructure(autoMapperAssemblies);
+
+            /*
             services.AddAutoMapper(autoMapperAssemblies);
             services.AddScoped<IRequestMapper, RequestMapper>();
             services.AddScoped<IResponseMapper, ResponseMapper>();
+            */
 
             // Infrastructure - Validation
             services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));

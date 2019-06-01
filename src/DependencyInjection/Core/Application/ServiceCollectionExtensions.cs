@@ -20,10 +20,16 @@ namespace Optivem.DependencyInjection.Core.Application
             return services;
         }
 
+        public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
+        {
+            var types = assemblies.GetTypes(); ;
+            return services.AddApplicationCore(types);
+        }
+
         private static IServiceCollection AddUseCases(this IServiceCollection services, IEnumerable<Type> types)
         {
             var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
-            services.AddTransientOpenType(UseCaseType, implementationTypes);
+            services.AddScopedOpenType(UseCaseType, implementationTypes);
 
             return services;
         }
@@ -31,7 +37,7 @@ namespace Optivem.DependencyInjection.Core.Application
         private static IServiceCollection AddApplicationServices(this IServiceCollection services, IEnumerable<Type> types)
         {
             var implementationTypes = types.GetConcreteImplementationsOfInterface(ApplicationServiceType);
-            services.AddTransientMarkedTypes(ApplicationServiceType, implementationTypes);
+            services.AddScopedMarkedTypes(ApplicationServiceType, implementationTypes);
 
             return services;
         }

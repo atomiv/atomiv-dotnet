@@ -9,20 +9,22 @@ namespace Optivem.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddTransientOpenType(this IServiceCollection services, Type openServiceType, IEnumerable<Type> implementationTypes)
+        // TODO: VC: Offer parameter lifetime type
+
+        public static IServiceCollection AddScopedOpenType(this IServiceCollection services, Type openServiceType, IEnumerable<Type> implementationTypes)
         {
             var openServiceTypeName = openServiceType.Name;
 
             foreach(var implementationType in implementationTypes)
             {
                 var serviceType = implementationType.GetTypeInfo().ImplementedInterfaces.Single(e => e.Name == openServiceTypeName);
-                services.AddTransient(serviceType, implementationType);
+                services.AddScoped(serviceType, implementationType);
             }
 
             return services;
         }
 
-        public static IServiceCollection AddTransientMarkedTypes(this IServiceCollection services, Type markerServiceType, IEnumerable<Type> implementationTypes)
+        public static IServiceCollection AddScopedMarkedTypes(this IServiceCollection services, Type markerServiceType, IEnumerable<Type> implementationTypes)
         {
             var markerServiceTypeName = markerServiceType.Name;
 
@@ -33,7 +35,7 @@ namespace Optivem.DependencyInjection
 
                 foreach(var serviceType in serviceTypes)
                 {
-                    services.AddTransient(serviceType, implementationType);
+                    services.AddScoped(serviceType, implementationType);
                 }
             }
 
