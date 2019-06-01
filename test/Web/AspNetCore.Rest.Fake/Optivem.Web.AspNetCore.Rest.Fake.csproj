@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />

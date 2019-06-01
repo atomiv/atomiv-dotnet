@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Optivem.Infrastructure.Mapping.AutoMapper
+namespace Optivem.Infrastructure.AutoMapper
 {
     public abstract class ResponseProfile<TEntity, TResponse> : Profile
     {

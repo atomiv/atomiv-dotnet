@@ -1,4 +1,4 @@
-﻿using Optivem.Infrastructure.Mapping.AutoMapper;
+﻿using Optivem.Infrastructure.AutoMapper;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Entities;
 

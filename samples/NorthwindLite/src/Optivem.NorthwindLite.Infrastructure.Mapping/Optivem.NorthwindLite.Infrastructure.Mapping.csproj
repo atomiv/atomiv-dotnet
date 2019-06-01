@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Domain\Optivem.NorthwindLite.Core.Domain.csproj" />
   </ItemGroup>

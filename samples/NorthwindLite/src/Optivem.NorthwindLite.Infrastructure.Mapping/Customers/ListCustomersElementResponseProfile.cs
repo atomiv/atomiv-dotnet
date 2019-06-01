@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Infrastructure.Mapping.AutoMapper;
+using Optivem.Infrastructure.AutoMapper;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 

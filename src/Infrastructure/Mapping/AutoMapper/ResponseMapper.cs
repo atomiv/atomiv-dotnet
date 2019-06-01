@@ -3,7 +3,7 @@ using Optivem.Core.Application;
 using Optivem.Core.Domain;
 using System.Collections.Generic;
 
-namespace Optivem.Infrastructure.Mapping.AutoMapper
+namespace Optivem.Infrastructure.AutoMapper
 {
     public class ResponseMapper<TEntity, TResponse> : IResponseMapper<TEntity, TResponse>
         where TEntity : IEntity

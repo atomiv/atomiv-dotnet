@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Core.Application;
 using Optivem.Core.Domain;
-using Optivem.Infrastructure.Mapping.AutoMapper;
+using Optivem.Infrastructure.AutoMapper;
 using Optivem.Infrastructure.Messaging.MediatR;
 using Optivem.Infrastructure.Persistence.EntityFrameworkCore;
 using Optivem.NorthwindLite.Core.Application;
