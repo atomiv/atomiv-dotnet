@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Optivem.Common.WebAutomation;
-using Optivem.Infrastructure.WebAutomation.Selenium;
+using Optivem.Infrastructure.Selenium;
 using System;
 using System.IO;
 using System.Reflection;

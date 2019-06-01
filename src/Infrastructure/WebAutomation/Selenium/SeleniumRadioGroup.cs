@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Optivem.Infrastructure.WebAutomation.Selenium
+namespace Optivem.Infrastructure.Selenium
 {
     public class SeleniumRadioGroup<T> : BaseSeleniumElementRange, IRadioGroup<T>
     {

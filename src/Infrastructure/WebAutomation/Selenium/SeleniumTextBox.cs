@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using Optivem.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.WebAutomation.Selenium
+namespace Optivem.Infrastructure.Selenium
 {
     public class SeleniumTextBox : BaseSeleniumElement, ITextBox
     {

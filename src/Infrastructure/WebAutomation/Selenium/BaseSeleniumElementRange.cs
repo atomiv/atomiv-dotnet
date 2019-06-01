@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 
-namespace Optivem.Infrastructure.WebAutomation.Selenium
+namespace Optivem.Infrastructure.Selenium
 {
     public class BaseSeleniumElementRange
     {
