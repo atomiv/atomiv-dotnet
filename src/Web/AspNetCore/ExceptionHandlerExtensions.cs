@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Optivem.Common.Serialization;
+using Optivem.Core.Application;
 using System;
+using System.Net;
 
 namespace Optivem.Web.AspNetCore
 {
@@ -20,18 +22,33 @@ namespace Optivem.Web.AspNetCore
 
                         // TODO: VC: Consider if this fails, perhaps outer try-catch?
 
+                        // NotFound
+
+                        // TODO: VC: Check if NotFound should be here or move below
+
+                        if(exception.GetType() == typeof(RequestNotFoundException))
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                            return;
+                        }
+
+                        // UnprocessableEntity
+
                         var problemDetails = problemDetailsFactory.Create(exception);
 
-                        var instance = problemDetails.Instance;
+                        if(problemDetails != null)
+                        {
+                            var instance = problemDetails.Instance;
 
-                        // TODO: VC: Fix logging
-                        // var logger = context.RequestServices.GetRequiredService<ILogger>();
-                        // logger.LogError(exception, exception.Message);
+                            // TODO: VC: Fix logging
+                            // var logger = context.RequestServices.GetRequiredService<ILogger>();
+                            // logger.LogError(exception, exception.Message);
 
-                        context.Response.StatusCode = problemDetails.Status.Value;
+                            context.Response.StatusCode = problemDetails.Status.Value;
 
-                        // TODO: VC: Lookup json service from services
-                        await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
+                            // TODO: VC: Lookup json service from services
+                            await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
+                        }
                     }
                     catch(Exception)
                     {

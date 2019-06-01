@@ -50,5 +50,10 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
         {
             return Client.PutByIdAsync<int, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
         }
+
+        public Task<IClientResponse> DeleteCustomerAsync(int id)
+        {
+            return Client.DeleteByIdAsync(id);
+        }
     }
 }

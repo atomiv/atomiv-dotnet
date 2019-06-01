@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Optivem.Core.Application
 {
     public abstract class DeleteUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IDeleteUseCase<TRequest, TResponse>
-        where TRequest : IDeleteRequest<TIdentity>
+        where TRequest : IDeleteRequest<TId>
         where TResponse : IDeleteResponse, new()
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
@@ -22,26 +22,22 @@ namespace Optivem.Core.Application
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
-            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(id);
+            var identity = GetIdentity(id);
+
+            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
 
             if (aggregateRoot == null)
             {
-                return new TResponse
-                {
-                    Deleted = false,
-                };
+                throw new RequestNotFoundException();
             }
 
-            var identity = aggregateRoot.Id;
+            // TODO: VC: Should delete check if exists?
 
             Repository.Delete(identity);
 
             await UnitOfWork.SaveChangesAsync();
 
-            return new TResponse
-            {
-                Deleted = false,
-            };
+            return new TResponse();
         }
 
         protected abstract TIdentity GetIdentity(TId id);

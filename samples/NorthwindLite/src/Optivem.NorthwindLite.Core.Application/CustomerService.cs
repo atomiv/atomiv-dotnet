@@ -6,6 +6,7 @@ using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Core.Application.Interface.Services;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Core.Application
@@ -35,5 +36,12 @@ namespace Optivem.NorthwindLite.Core.Application
         {
             return UpdateAsync<UpdateCustomerRequest, UpdateCustomerResponse>(request);
         }
+
+        public Task DeleteCustomerAsync(int id)
+        {
+            return DeleteAsync<int, DeleteCustomerRequest, DeleteCustomerResponse>(id);
+        }
+
+
     }
 }

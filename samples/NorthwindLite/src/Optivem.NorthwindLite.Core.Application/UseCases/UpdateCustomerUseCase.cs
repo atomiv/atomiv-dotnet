@@ -13,7 +13,8 @@ namespace Optivem.NorthwindLite.Core.Application.UseCases
 
     public class UpdateCustomerUseCase : UpdateUseCase<UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public UpdateCustomerUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) : base(requestMapper, responseMapper, unitOfWork, repository)
+        public UpdateCustomerUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) 
+            : base(responseMapper, unitOfWork, repository)
         {
         }
 

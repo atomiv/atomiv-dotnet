@@ -53,7 +53,7 @@ namespace Optivem.NorthwindLite.Web
 
             var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
-            var autoMapperAssemblies = typeof(CreateCustomerRequestProfile).Assembly; // allAssemblies; // TODO: VC
+            var autoMapperAssemblies = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
             var fluentValidationAssemblies = typeof(CreateCustomerRequestValidator).Assembly;
 
             services
@@ -82,6 +82,7 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
             services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
             services.AddScoped<IUseCase<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerUseCase>();
+            services.AddScoped<IUseCase<DeleteCustomerRequest, DeleteCustomerResponse>, DeleteCustomerUseCase>();
 
             // Application - Services
             services.AddScoped<ICustomerService, CustomerService>();
@@ -103,12 +104,14 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
             services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
             services.AddScoped<IValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
+            services.AddScoped<IValidator<UpdateCustomerRequest>, UpdateCustomerRequestValidator>();
 
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);
             services.AddScoped<IRequestHandler, MediatorRequestHandler>();
             // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
             services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, ValidationPipelineBehavior<CreateCustomerRequest, CreateCustomerResponse>>();
+            services.AddScoped<IPipelineBehavior<MediatorRequest<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerResponse>, ValidationPipelineBehavior<UpdateCustomerRequest, UpdateCustomerResponse>>();
 
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
             var jsonSerializationService = new JsonSerializationService();

@@ -10,7 +10,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
     public abstract class ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : IReadonlyCrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
-        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
         where TRecord : class, IIdentity<TId>
         where TId : IEquatable<TId>
@@ -151,6 +151,12 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             var id = identity.Id;
             // TODO: VC: Check equality handling and null
             var record = ReadonlySet.SingleOrDefault(e => e.Id.Equals(identity.Id));
+
+            if (record == null)
+            {
+                return null;
+            }
+
             return GetAggregateRoot(record);
         }
 
@@ -159,6 +165,12 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
             var id = identity.Id;
             // TODO: VC: Check equality handling and null
             var record = await ReadonlySet.SingleOrDefaultAsync(e => e.Id.Equals(identity.Id));
+
+            if (record == null)
+            {
+                return null;
+            }
+
             return GetAggregateRoot(record);
         }
 

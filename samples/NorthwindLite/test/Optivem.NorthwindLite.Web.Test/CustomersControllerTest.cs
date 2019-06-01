@@ -101,7 +101,7 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
-        public async Task CreateCustomer_MissingFirstName_UnprocessableEntity()
+        public async Task CreateCustomer_Invalid_MissingFirstName_UnprocessableEntity()
         {
             // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
@@ -145,6 +145,67 @@ namespace Optivem.NorthwindLite.Web.Test
             Assert.Equal(updateRequest.Id, updateResponseContent.Id);
             Assert.Equal(updateRequest.FirstName, updateResponseContent.FirstName);
             Assert.Equal(updateRequest.LastName, updateResponseContent.LastName);
+        }
+
+        [Fact]
+        public async Task UpdateCustomer_NotExist_NotFound()
+        {
+            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
+
+            var customerRecord = _customerRecords[0];
+
+            var updateRequest = new UpdateCustomerRequest
+            {
+                Id = 999,
+                FirstName = "New first name",
+                LastName = "New last name",
+            };
+
+            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
+
+            Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
+        }
+
+        [Fact]
+        public async Task UpdateCustomer_Invalid_MissingLastName_UnprocessableEntity()
+        {
+            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
+
+            var customerRecord = _customerRecords[0];
+
+            var updateRequest = new UpdateCustomerRequest
+            {
+                Id = customerRecord.Id,
+                FirstName = "New first name",
+                LastName = null,
+            };
+
+            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, updateResponse.StatusCode);
+
+            var problemDetails = updateResponse.ProblemDetails;
+            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
+        }
+
+        [Fact]
+        public async Task DeleteCustomer_Valid_OK()
+        {
+            var customerRecord = _customerRecords[0];
+            var id = customerRecord.Id;
+
+            var deleteResponse = await Fixture.Customers.DeleteCustomerAsync(id);
+
+            Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
+        }
+
+        [Fact]
+        public async Task DeleteCustomer_NotExist_NotFound()
+        {
+            var id = 999;
+
+            var deleteResponse = await Fixture.Customers.DeleteCustomerAsync(id);
+
+            Assert.Equal(HttpStatusCode.NotFound, deleteResponse.StatusCode);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 {
     public abstract class Repository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
-        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
         where TRecord : class, IIdentity<TId>
         where TId : IEquatable<TId>

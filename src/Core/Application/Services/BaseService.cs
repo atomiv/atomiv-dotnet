@@ -37,14 +37,23 @@ namespace Optivem.Core.Application.Services
             where TFindRequest : IFindRequest<TId>, new()
             where TFindResponse : IFindResponse<TId>
         {
-            // TODO: VC: Move to base class
-
             var request = new TFindRequest
             {
                 Id = id,
             };
 
             return RequestHandler.HandleAsync<TFindRequest, TFindResponse>(request);
+        }
+        protected Task<TDeleteResponse> DeleteAsync<TId, TDeleteRequest, TDeleteResponse>(TId id)
+            where TDeleteRequest : IDeleteRequest<TId>, new()
+            where TDeleteResponse : IDeleteResponse
+        {
+            var request = new TDeleteRequest
+            {
+                Id = id,
+            };
+
+            return RequestHandler.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
         }
     }
 }

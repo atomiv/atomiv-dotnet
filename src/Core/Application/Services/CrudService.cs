@@ -51,16 +51,14 @@ namespace Optivem.Core.Application
             return _requestHandler.HandleAsync<TUpdateRequest, TUpdateResponse>(request);
         }
 
-        public async Task<bool> DeleteAsync(TId id)
+        public Task DeleteAsync(TId id)
         {
             var request = new TDeleteRequest
             {
                 Id = id,
             };
 
-            var response = await _requestHandler.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
-
-            return response.Deleted;
+            return _requestHandler.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
         }
     }
 }

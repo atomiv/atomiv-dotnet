@@ -55,5 +55,12 @@ namespace Optivem.NorthwindLite.Web.Controllers
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
         }
+
+        [HttpDelete("{id}", Name = "delete-customer")]
+        public async Task<ActionResult> DeleteCustomerAsync(int id)
+        {
+            await Service.DeleteCustomerAsync(id);
+            return NoContent();
+        }
     }
 }

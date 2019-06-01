@@ -27,23 +27,15 @@ namespace Optivem.Web.AspNetCore
         [HttpGet("{id}")]
         public async Task<ActionResult<TFindResponse>> GetResource(TKey id)
         {
-            var supplier = await Service.FindAsync(id);
-
-            if (supplier == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(supplier);
+            var response = await Service.FindAsync(id);
+            return Ok(response);
         }
 
         [HttpPost]
         public async Task<ActionResult<TCreateResponse>> PostResource(TCreateRequest request)
         {
             var response = await Service.CreateAsync(request);
-
             var responseId = response.Id;
-
             return CreatedAtAction("GetResource", new { id = responseId }, response);
         }
 
@@ -60,25 +52,13 @@ namespace Optivem.Web.AspNetCore
             }
 
             var response = await Service.UpdateAsync(request);
-
-            if (response == null)
-            {
-                return NotFound();
-            }
-
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteResource(TKey id)
         {
-            var deleted = await Service.DeleteAsync(id);
-
-            if (!deleted)
-            {
-                return NotFound();
-            }
-
+            await Service.DeleteAsync(id);
             return NoContent();
         }
     }

@@ -9,15 +9,12 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public CreateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public CreateUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
-            RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
             UnitOfWork = unitOfWork;
             Repository = repository;
         }
-
-        protected IRequestMapper RequestMapper { get; private set; }
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
@@ -27,14 +24,16 @@ namespace Optivem.Core.Application
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
-            var aggregateRoot = RequestMapper.Map<TRequest, TAggregateRoot>(request);
+            var aggregateRoot = CreateAggregateRoot(request);
             var identity = await Repository.AddAsync(aggregateRoot);
             await UnitOfWork.SaveChangesAsync();
-            aggregateRoot = GetAggregateRoot(aggregateRoot, identity);
+            aggregateRoot = CreateAggregateRoot(aggregateRoot, identity);
             var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
         }
 
-        protected abstract TAggregateRoot GetAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
+        protected abstract TAggregateRoot CreateAggregateRoot(TRequest request);
+
+        protected abstract TAggregateRoot CreateAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
     }
 }

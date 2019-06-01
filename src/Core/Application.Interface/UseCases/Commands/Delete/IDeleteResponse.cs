@@ -2,6 +2,5 @@
 {
     public interface IDeleteResponse : IResponse
     {
-        bool Deleted { get; set; }
     }
 }

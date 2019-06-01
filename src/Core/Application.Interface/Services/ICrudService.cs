@@ -15,6 +15,6 @@ namespace Optivem.Core.Application
 
         Task<TUpdateResponse> UpdateAsync(TUpdateRequest request);
 
-        Task<bool> DeleteAsync(TId id);
+        Task DeleteAsync(TId id);
     }
 }

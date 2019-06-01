@@ -9,15 +9,12 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        public UpdateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public UpdateUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
-            RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
             UnitOfWork = unitOfWork;
             Repository = repository;
         }
-
-        protected IRequestMapper RequestMapper { get; private set; }
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
@@ -34,7 +31,7 @@ namespace Optivem.Core.Application
 
             if(aggregateRoot == null)
             {
-                return null;
+                throw new RequestNotFoundException();
             }
 
             Update(aggregateRoot, request);
