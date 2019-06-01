@@ -2,7 +2,7 @@
 using Optivem.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.Validation.FluentValidation
+namespace Optivem.Infrastructure.FluentValidation
 {
     public class FluentValidationRequestValidator<TRequest> : IRequestValidator<TRequest>
         where TRequest : IRequest

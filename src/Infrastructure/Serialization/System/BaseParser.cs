@@ -1,6 +1,6 @@
 ﻿using Optivem.Common.Serialization;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     public abstract class BaseParser<T> : IParser<T>
     {

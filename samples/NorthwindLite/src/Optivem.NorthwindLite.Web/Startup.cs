@@ -27,7 +27,7 @@ using Optivem.NorthwindLite.Infrastructure.Persistence;
 using Optivem.NorthwindLite.Infrastructure.Validation;
 using System;
 using FluentValidation;
-using Optivem.Infrastructure.Validation.FluentValidation;
+using Optivem.Infrastructure.FluentValidation;
 using Optivem.Web.AspNetCore;
 using Optivem.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;

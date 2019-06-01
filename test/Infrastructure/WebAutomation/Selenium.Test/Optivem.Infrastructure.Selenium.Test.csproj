@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Common\WebAutomation\Optivem.Common.WebAutomation.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.WebAutomation.Selenium.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.Selenium.csproj" />
   </ItemGroup>
 
 </Project>

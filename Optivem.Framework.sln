@@ -39,9 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Medi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.EntityFrameworkCore", "src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj", "{CCFB400E-D2FE-4281-A75E-890FF6D7833F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Validation.FluentValidation", "src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj", "{11DC58A0-CBBF-4530-95A0-754C536442FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FluentValidation", "src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj", "{11DC58A0-CBBF-4530-95A0-754C536442FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.WebAutomation.Selenium", "src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.WebAutomation.Selenium.csproj", "{1522A122-F38F-4455-A346-D7E05E4EA348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium", "src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.Selenium.csproj", "{1522A122-F38F-4455-A346-D7E05E4EA348}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Common.Http", "src\Common\Http\Optivem.Common.Http.csproj", "{934B2AF9-661B-48EF-A600-6949AA732D4C}"
 EndProject
@@ -67,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.NewtonsoftJson", "src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj", "{A2FC768C-6D45-421A-9FB7-6A7578D667B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Serialization.System", "src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj", "{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System", "src\Infrastructure\Serialization\System\Optivem.Infrastructure.System.csproj", "{124CF383-8CD7-4F5B-BF86-7F56AAA2B9E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application.Interface", "src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj", "{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}"
 EndProject
