@@ -1,6 +1,13 @@
-﻿namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
+﻿using Optivem.Core.Application;
+
+namespace Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands
 {
-    internal class UpdateCustomerResponse
+    public class UpdateCustomerResponse : IUpdateResponse<int>
     {
+        public int Id { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
     }
 }

@@ -12,31 +12,28 @@ namespace Optivem.NorthwindLite.Core.Application
 {
     public class CustomerService : BaseService, ICustomerService
     {
-        public CustomerService(IUseCaseMediator mediator) : base(mediator)
+        public CustomerService(IRequestHandler requestHandler) : base(requestHandler)
         {
         }
 
         public Task<ListCustomersResponse> ListCustomersAsync()
         {
-            var request = new ListCustomersRequest();
-            return Mediator.HandleAsync<ListCustomersRequest, ListCustomersResponse>(request);
+            return ListAsync<ListCustomersRequest, ListCustomersResponse>();
         }
 
         public Task<FindCustomerResponse> FindCustomerAsync(int id)
         {
-            // TODO: VC: Move to base class
-
-            var request = new FindCustomerRequest
-            {
-                Id = id,
-            };
-
-            return Mediator.HandleAsync<FindCustomerRequest, FindCustomerResponse>(request);
+            return FindAsync<int, FindCustomerRequest, FindCustomerResponse>(id);
         }
 
         public Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
         {
-            return Mediator.HandleAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+            return CreateAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+        }
+
+        public Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
+        {
+            return UpdateAsync<UpdateCustomerRequest, UpdateCustomerResponse>(request);
         }
     }
 }

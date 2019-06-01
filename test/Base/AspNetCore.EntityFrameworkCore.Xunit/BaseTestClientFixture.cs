@@ -12,7 +12,7 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
     {
         public BaseTestClientFixture(TClient fixture) : base(fixture)
         {
-
+            Startup();
         }
 
         // TODO: VC: Dispose - private and public
@@ -25,6 +25,11 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
             // Fixture.Client.EnsureDatabaseDeleted();
 
             Cleanup();
+        }
+
+        protected virtual void Startup()
+        {
+            // NOTE: By default nothing
         }
 
         protected abstract void Cleanup();

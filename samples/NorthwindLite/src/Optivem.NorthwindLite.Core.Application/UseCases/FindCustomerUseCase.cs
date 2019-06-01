@@ -14,6 +14,7 @@ namespace Optivem.NorthwindLite.Core.Application.UseCases
         {
         }
 
+        // TODO: VC: Common factory, optional, unless reflection
         protected override CustomerIdentity GetIdentity(int id)
         {
             // TODO: VC: Do this via reflection

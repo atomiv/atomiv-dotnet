@@ -12,15 +12,24 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         where TContext : DbContext
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class
+        where TRecord : class, IIdentity<TId>
+        where TId : IEquatable<TId>
     {
-        protected readonly TContext context;
-        protected readonly DbSet<TRecord> set;
+        // TODO: VC: DELETE
+
+        // protected readonly TContext context;
+        // protected readonly DbSet<TRecord> set;
+        // protected readonly DbSet<TRecord> setAsNoTracking;
 
         public ReadonlyRepository(TContext context)
         {
-            this.context = context;
-            this.set = context.Set<TRecord>();
+            // TODO: VC: DELETE
+
+            // this.context = context;
+            // this.set = context.Set<TRecord>();
+
+            Context = context;
+            ReadonlySet = context.Set<TRecord>().AsNoTracking();
         }
 
         #region Read
@@ -121,29 +130,35 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
 
         */
 
+        protected TContext Context { get; }
+
+        protected IQueryable<TRecord> ReadonlySet { get; }
+
         public IEnumerable<TAggregateRoot> Get()
         {
-            var records = set.ToList();
+            var records = ReadonlySet.ToList();
             return GetAggregateRoots(records);
         }
 
         public async Task<IEnumerable<TAggregateRoot>> GetAsync()
         {
-            var records = await set.ToListAsync();
+            var records = await ReadonlySet.ToListAsync();
             return GetAggregateRoots(records);
         }
 
         public TAggregateRoot GetSingleOrDefault(TIdentity identity)
         {
             var id = identity.Id;
-            var record = set.Find(id);
+            // TODO: VC: Check equality handling and null
+            var record = ReadonlySet.SingleOrDefault(e => e.Id.Equals(identity.Id));
             return GetAggregateRoot(record);
         }
 
         public async Task<TAggregateRoot> GetSingleOrDefaultAsync(TIdentity identity)
         {
             var id = identity.Id;
-            var record = await set.FindAsync(id);
+            // TODO: VC: Check equality handling and null
+            var record = await ReadonlySet.SingleOrDefaultAsync(e => e.Id.Equals(identity.Id));
             return GetAggregateRoot(record);
         }
 

@@ -2,6 +2,8 @@
 
 namespace Optivem.Core.Application
 {
+    // TODO: VC: Inherit from base service with all the methods filled up
+
     public class CrudService<TId,
         TFindAllRequest, TFindRequest, TCreateRequest, TUpdateRequest, TDeleteRequest,
         TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse, TDeleteResponse>
@@ -17,16 +19,16 @@ namespace Optivem.Core.Application
         where TUpdateResponse : IUpdateResponse
         where TDeleteResponse : IDeleteResponse
     {
-        private IUseCaseMediator _mediator;
+        private IRequestHandler _requestHandler;
 
-        public CrudService(IUseCaseMediator mediator)
+        public CrudService(IRequestHandler requestHandler)
         {
-            _mediator = mediator;
+            _requestHandler = requestHandler;
         }
 
         public Task<TFindAllResponse> FindAllAsync(TFindAllRequest request)
         {
-            return _mediator.HandleAsync<TFindAllRequest, TFindAllResponse>(request);
+            return _requestHandler.HandleAsync<TFindAllRequest, TFindAllResponse>(request);
         }
 
         public Task<TFindResponse> FindAsync(TId id)
@@ -36,17 +38,17 @@ namespace Optivem.Core.Application
                 Id = id,
             };
 
-            return _mediator.HandleAsync<TFindRequest, TFindResponse>(request);
+            return _requestHandler.HandleAsync<TFindRequest, TFindResponse>(request);
         }
 
         public Task<TCreateResponse> CreateAsync(TCreateRequest request)
         {
-            return _mediator.HandleAsync<TCreateRequest, TCreateResponse>(request);
+            return _requestHandler.HandleAsync<TCreateRequest, TCreateResponse>(request);
         }
 
         public Task<TUpdateResponse> UpdateAsync(TUpdateRequest request)
         {
-            return _mediator.HandleAsync<TUpdateRequest, TUpdateResponse>(request);
+            return _requestHandler.HandleAsync<TUpdateRequest, TUpdateResponse>(request);
         }
 
         public async Task<bool> DeleteAsync(TId id)
@@ -56,7 +58,7 @@ namespace Optivem.Core.Application
                 Id = id,
             };
 
-            var response = await _mediator.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
+            var response = await _requestHandler.HandleAsync<TDeleteRequest, TDeleteResponse>(request);
 
             return response.Deleted;
         }

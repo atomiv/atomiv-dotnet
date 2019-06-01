@@ -14,5 +14,7 @@ namespace Optivem.NorthwindLite.Core.Application.Interface.Services
         Task<FindCustomerResponse> FindCustomerAsync(int id);
 
         Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request);
+
+        Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request);
     }
 }

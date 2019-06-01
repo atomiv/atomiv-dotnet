@@ -5,7 +5,7 @@ namespace Optivem.NorthwindLite.Infrastructure.Persistence.Records
 {
     // TODO: VC: Transfer records to EF level
 
-    public class CustomerRecord
+    public class CustomerRecord : IIdentity<int>
     {
         public CustomerRecord()
         {

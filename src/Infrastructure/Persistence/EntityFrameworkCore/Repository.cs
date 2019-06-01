@@ -11,19 +11,23 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         where TContext : DbContext
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class
+        where TRecord : class, IIdentity<TId>
+        where TId : IEquatable<TId>
     {
         public Repository(TContext context) : base(context)
         {
+            Set = context.Set<TRecord>();
         }
+
+        protected DbSet<TRecord> Set { get; }
 
         #region Create
 
         public TIdentity Add(TAggregateRoot aggregateRoot)
         {
             var record = GetRecord(aggregateRoot);
-            set.Add(record);
-            context.SaveChanges(); // TODO: VC: Check if correct here
+            Set.Add(record);
+            Context.SaveChanges(); // TODO: VC: Check if correct here
             var identity = GetIdentity(record);
             return identity;
         }
@@ -31,8 +35,8 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         public async Task<TIdentity> AddAsync(TAggregateRoot aggregateRoot)
         {
             var record = GetRecord(aggregateRoot);
-            await set.AddAsync(record);
-            await context.SaveChangesAsync(); // TODO: VC: Check if correct here
+            await Set.AddAsync(record);
+            await Context.SaveChangesAsync(); // TODO: VC: Check if correct here
             var identity = GetIdentity(record);
             return identity;
         }
@@ -40,25 +44,25 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         public void AddRange(IEnumerable<TAggregateRoot> aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            set.AddRange(records);
+            Set.AddRange(records);
         }
 
         public Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            return set.AddRangeAsync(records);
+            return Set.AddRangeAsync(records);
         }
 
         public void AddRange(params TAggregateRoot[] aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            set.AddRange(records);
+            Set.AddRange(records);
         }
 
         public Task AddRangeAsync(params TAggregateRoot[] aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            return set.AddRangeAsync(records);
+            return Set.AddRangeAsync(records);
         }
 
         #endregion Create
@@ -68,19 +72,19 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         public void Update(TAggregateRoot aggregateRoot)
         {
             var record = GetRecord(aggregateRoot);
-            ExecuteConcurrentUpdate(() => set.Update(record));
+            ExecuteConcurrentUpdate(() => Set.Update(record));
         }
 
         public void UpdateRange(IEnumerable<TAggregateRoot> aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            ExecuteConcurrentUpdate(() => set.UpdateRange(records));
+            ExecuteConcurrentUpdate(() => Set.UpdateRange(records));
         }
 
         public void UpdateRange(params TAggregateRoot[] aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            ExecuteConcurrentUpdate(() => set.UpdateRange(records));
+            ExecuteConcurrentUpdate(() => Set.UpdateRange(records));
         }
 
         private void ExecuteConcurrentUpdate(Action action)
@@ -125,13 +129,13 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         public void Delete(TIdentity identity)
         {
             var record = GetRecord(identity);
-            set.Remove(record);
+            Set.Remove(record);
         }
 
         public void DeleteRange(IEnumerable<TIdentity> identities)
         {
             var records = GetRecords(identities);
-            set.RemoveRange(records);
+            Set.RemoveRange(records);
         }
 
 
@@ -139,7 +143,7 @@ namespace Optivem.Infrastructure.Persistence.EntityFrameworkCore
         public void DeleteRange(params TIdentity[] identities)
         {
             var records = GetRecords(identities);
-            set.RemoveRange(records);
+            Set.RemoveRange(records);
         }
 
         #endregion Delete

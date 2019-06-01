@@ -1,3 +1,4 @@
+using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
@@ -15,15 +16,16 @@ namespace Optivem.NorthwindLite.Web.Test
 {
     public class CustomersControllerTest : TestFixture
     {
+        private List<CustomerRecord> _customerRecords;
+
         public CustomersControllerTest(TestClient client) : base(client)
         {
 
         }
 
-        [Fact]
-        public async Task TestListCustomers_ResponseOK()
+        protected override void Startup()
         {
-            var samples = new List<CustomerRecord>
+            _customerRecords = new List<CustomerRecord>
             {
                 new CustomerRecord
                 {
@@ -38,8 +40,12 @@ namespace Optivem.NorthwindLite.Web.Test
                 }
             };
 
-            Fixture.AddRange(samples);
+            Fixture.AddRange(_customerRecords);
+        }
 
+        [Fact]
+        public async Task ListCustomers_OK()
+        {
             var actual = await Fixture.Customers.ListCustomersAsync();
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
@@ -48,14 +54,14 @@ namespace Optivem.NorthwindLite.Web.Test
 
             Assert.Equal(2, actualContent.Data.Count);
 
-            var expectedFirst = samples[0];
+            var expectedFirst = _customerRecords[0];
             var actualFirst = actualContent.Data[0];
 
             Assert.True(actualFirst.Id > 0);
             Assert.Equal(expectedFirst.FirstName, actualFirst.FirstName);
             Assert.Equal(expectedFirst.LastName, actualFirst.LastName);
 
-            var expectedSecond = samples[1];
+            var expectedSecond = _customerRecords[1];
             var actualSecond = actualContent.Data[1];
 
             Assert.True(actualSecond.Id > 0);
@@ -64,7 +70,7 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
-        public async Task TestCreateCustomer_RequestValid_ResponseCreated()
+        public async Task CreateCustomer_Valid_Created()
         {
             var createRequest = new CreateCustomerRequest
             {
@@ -95,9 +101,9 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
-        public async Task TestCreateCustomer_RequestInvalid_ResponseUnprocessableEntity()
+        public async Task CreateCustomer_MissingFirstName_UnprocessableEntity()
         {
-            // TODO: Request invlaid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
+            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
             var createRequest = new CreateCustomerRequest
             {
@@ -117,64 +123,28 @@ namespace Optivem.NorthwindLite.Web.Test
         }
 
         [Fact]
-        public async Task Test3()
+        public async Task UpdateCustomer_Valid_OK()
         {
-            await RunInner();
-        }
+            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
-        [Fact]
-        public async Task Test4()
-        {
-            await RunInner();
-        }
+            var customerRecord = _customerRecords[0];
 
-        [Fact]
-        public async Task Test5()
-        {
-            await RunInner();
-        }
-
-        [Fact]
-        public async Task Test6()
-        {
-            await RunInner();
-        }
-
-        [Fact]
-        public async Task Test7()
-        {
-            await RunInner();
-        }
-
-        private async Task RunInner()
-        {
-            var createRequest = new CreateCustomerRequest
+            var updateRequest = new UpdateCustomerRequest
             {
-                FirstName = "First name 1",
-                LastName = "Last name 1",
+                Id = customerRecord.Id,
+                FirstName = "New first name",
+                LastName = "New last name",
             };
 
-            var createResponse = await Fixture.Customers.CreateCustomerAsync(createRequest);
+            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
 
-            Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
-            var createResponseContent = createResponse.Content;
+            var updateResponseContent = updateResponse.Content;
 
-            Assert.True(createResponseContent.Id > 0);
-
-            Assert.Equal(createRequest.FirstName, createResponseContent.FirstName);
-            Assert.Equal(createRequest.LastName, createResponseContent.LastName);
-
-            var findResponse = await Fixture.Customers.FindCustomerAsync(createResponseContent.Id);
-
-            Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
-
-            var findResponseContent = findResponse.Content;
-
-            Assert.Equal(createResponseContent.Id, findResponseContent.Id);
-            Assert.Equal(createRequest.FirstName, findResponseContent.FirstName);
-            Assert.Equal(createRequest.LastName, findResponseContent.LastName);
+            Assert.Equal(updateRequest.Id, updateResponseContent.Id);
+            Assert.Equal(updateRequest.FirstName, updateResponseContent.FirstName);
+            Assert.Equal(updateRequest.LastName, updateResponseContent.LastName);
         }
-
     }
 }

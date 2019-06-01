@@ -6,6 +6,7 @@ using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
 using Optivem.NorthwindLite.Infrastructure.Persistence;
 using Optivem.Test.AspNetCore.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture
@@ -43,6 +44,11 @@ namespace Optivem.NorthwindLite.Web.Test.Fixture
         public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(int id)
         {
             return Client.GetByIdAsync<int, FindCustomerResponse>(id);
+        }
+
+        public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
+        {
+            return Client.PutByIdAsync<int, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
         }
     }
 }

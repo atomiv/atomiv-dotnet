@@ -5,7 +5,7 @@
     <Authors>Optivem</Authors>
     <Version>1.0.10</Version>
     <Description>Application layer implementation</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
@@ -16,6 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Interface\Optivem.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Domain\Optivem.Core.Domain.csproj" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Mediation\" />
   </ItemGroup>
 
 </Project>

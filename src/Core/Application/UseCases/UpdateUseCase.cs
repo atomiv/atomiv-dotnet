@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class UpdateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity> : IUpdateUseCase<TRequest, TResponse>
-        where TRequest : IUpdateRequest<TIdentity>
-        where TResponse : class, IUpdateResponse<TIdentity>
+    public abstract class UpdateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUpdateUseCase<TRequest, TResponse>
+        where TRequest : IUpdateRequest<TId>
+        where TResponse : class, IUpdateResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        public UpdateUseCase(IRequestMapper<TRequest, TAggregateRoot> requestMapper, IResponseMapper<TAggregateRoot, TResponse> responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public UpdateUseCase(IRequestMapper requestMapper, IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
             RequestMapper = requestMapper;
             ResponseMapper = responseMapper;
@@ -17,9 +17,9 @@ namespace Optivem.Core.Application
             Repository = repository;
         }
 
-        protected IRequestMapper<TRequest, TAggregateRoot> RequestMapper { get; private set; }
+        protected IRequestMapper RequestMapper { get; private set; }
 
-        protected IResponseMapper<TAggregateRoot, TResponse> ResponseMapper { get; private set; }
+        protected IResponseMapper ResponseMapper { get; private set; }
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
@@ -28,34 +28,27 @@ namespace Optivem.Core.Application
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
+            var identity = GetIdentity(id);
 
-            var exists = await Repository.GetExistsAsync(id);
+            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
 
-            if (!exists)
+            if(aggregateRoot == null)
             {
                 return null;
             }
 
-            var aggregateRoot = RequestMapper.Map(request);
+            Update(aggregateRoot, request);
 
             try
             {
                 Repository.Update(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
-
-                var retrieved = await Repository.GetSingleOrDefaultAsync(id);
-
-                if (retrieved == null)
-                {
-                    return null;
-                }
-
-                var response = ResponseMapper.Map(retrieved);
+                var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;
             }
             catch (ConcurrentUpdateException)
             {
-                exists = await Repository.GetExistsAsync(id);
+                var exists = await Repository.GetExistsAsync(identity);
 
                 if (!exists)
                 {
@@ -65,5 +58,9 @@ namespace Optivem.Core.Application
                 throw;
             }
         }
+
+        protected abstract TIdentity GetIdentity(TId id);
+
+        protected abstract void Update(TAggregateRoot aggregateRoot, TRequest request);
     }
 }

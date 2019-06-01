@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Optivem.Core.Domain
 {
-    public class ConcurrentUpdateException : Exception
+    public class ConcurrentUpdateException : RepositoryException
     {
         public ConcurrentUpdateException()
         {

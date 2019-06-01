@@ -74,12 +74,14 @@ namespace Optivem.NorthwindLite.Web
 
             // TODO: VC: Test HATEOAS
 
+            // TODO: VC: Auto find use cases
 
 
             // Application - Use Cases
             services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
             services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
             services.AddScoped<IUseCase<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerUseCase>();
+            services.AddScoped<IUseCase<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerUseCase>();
 
             // Application - Services
             services.AddScoped<ICustomerService, CustomerService>();
@@ -104,7 +106,7 @@ namespace Optivem.NorthwindLite.Web
 
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);
-            services.AddScoped<IUseCaseMediator, UseCaseMediator>();
+            services.AddScoped<IRequestHandler, MediatorRequestHandler>();
             // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
             services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, ValidationPipelineBehavior<CreateCustomerRequest, CreateCustomerResponse>>();
 

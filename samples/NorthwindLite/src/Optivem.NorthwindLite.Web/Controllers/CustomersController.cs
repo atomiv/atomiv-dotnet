@@ -45,5 +45,15 @@ namespace Optivem.NorthwindLite.Web.Controllers
             var response = await Service.CreateCustomerAsync(request);
             return CreatedAtRoute("find-customer", new { id = response.Id }, response); ;
         }
+
+        // TODO: VC: Global at request validation, not found, so that we don't have if statements here
+
+        [HttpPut("{id}", Name = "update-customer")]
+        [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]
+        public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(int id, UpdateCustomerRequest request)
+        {
+            var response = await Service.UpdateCustomerAsync(request);
+            return Ok(response);
+        }
     }
 }
