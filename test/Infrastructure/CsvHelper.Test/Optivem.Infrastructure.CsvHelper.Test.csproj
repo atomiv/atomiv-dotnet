@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\Xunit\Optivem.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj" />
   </ItemGroup>
 
 </Project>
