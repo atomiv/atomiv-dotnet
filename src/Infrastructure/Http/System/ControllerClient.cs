@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.Http.System
+namespace Optivem.Infrastructure.AspNetCore
 {
     public class ControllerClient : IControllerClient
     {

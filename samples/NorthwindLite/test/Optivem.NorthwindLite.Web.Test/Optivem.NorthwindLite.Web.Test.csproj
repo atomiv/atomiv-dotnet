@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\AspNetCore.EntityFrameworkCore.Xunit\Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\AspNetCore.EntityFrameworkCore\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Test.Xunit.csproj" />

@@ -1,7 +1,7 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Common.Serialization;
 
-namespace Optivem.Infrastructure.Http.System
+namespace Optivem.Infrastructure.AspNetCore
 {
     public class JsonClient : ObjectClient
     {

@@ -4,7 +4,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.Http.System
+namespace Optivem.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {

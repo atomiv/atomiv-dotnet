@@ -1,5 +1,5 @@
 ﻿using Optivem.Common.Http;
-using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.AspNetCore;
 using Optivem.Infrastructure.Serialization.Json.NewtonsoftJson;
 using System;
 using System.Collections.Generic;

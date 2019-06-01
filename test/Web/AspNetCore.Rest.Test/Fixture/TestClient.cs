@@ -1,6 +1,6 @@
 ﻿using Optivem.Common.Http;
 using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
-using Optivem.Infrastructure.Http.System;
+using Optivem.Infrastructure.AspNetCore;
 using Optivem.Test.AspNetCore;
 using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
 using Optivem.Web.AspNetCore.Fake.Models;

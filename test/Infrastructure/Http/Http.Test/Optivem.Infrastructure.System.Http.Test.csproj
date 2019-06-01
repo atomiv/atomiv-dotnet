@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Common\Serialization\Optivem.Common.Serialization.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 

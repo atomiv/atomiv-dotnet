@@ -12,7 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Common\Base\Optivem.Common.csproj" />
     <ProjectReference Include="..\..\..\src\Common\Http\Optivem.Common.Http.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Http\System\Optivem.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\Configuration\Optivem.Test.Configuration.csproj" />
   </ItemGroup>
