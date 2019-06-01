@@ -93,15 +93,8 @@ namespace Optivem.NorthwindLite.Web
             services.AddScoped<IReadonlyCrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
             services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
 
-            // Infrastructure - Mapping
-
+            // Infrastructure - AutoMapper
             services.AddAutoMapperInfrastructure(autoMapperAssemblies);
-
-            /*
-            services.AddAutoMapper(autoMapperAssemblies);
-            services.AddScoped<IRequestMapper, RequestMapper>();
-            services.AddScoped<IResponseMapper, ResponseMapper>();
-            */
 
             // Infrastructure - Validation
             services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
