@@ -1,43 +1,38 @@
 ﻿using Optivem.Core.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class DeleteUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+    public abstract class FindAggregateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
         where TRequest : IRequest<TId>
-        where TResponse : IResponse, new()
+        where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public DeleteUseCase(IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public FindAggregateUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TAggregateRoot, TIdentity> repository)
         {
-            UnitOfWork = unitOfWork;
+            ResponseMapper = responseMapper;
             Repository = repository;
         }
 
-        protected IUnitOfWork UnitOfWork { get; private set; }
+        protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected ICrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
+        protected IReadonlyCrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
             var identity = GetIdentity(id);
-
             var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
 
-            if (aggregateRoot == null)
+            if(aggregateRoot == null)
             {
                 throw new RequestNotFoundException();
             }
 
-            // TODO: VC: Should delete check if exists?
-
-            Repository.Delete(identity);
-
-            await UnitOfWork.SaveChangesAsync();
-
-            return new TResponse();
+            var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
+            return response;
         }
 
         protected abstract TIdentity GetIdentity(TId id);

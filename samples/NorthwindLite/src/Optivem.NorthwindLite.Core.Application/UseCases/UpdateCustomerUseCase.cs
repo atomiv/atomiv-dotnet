@@ -11,7 +11,7 @@ namespace Optivem.NorthwindLite.Core.Application.UseCases
 {
     // TODO: VC: Perhaps have shared responses?
 
-    public class UpdateCustomerUseCase : UpdateUseCase<UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
+    public class UpdateCustomerUseCase : UpdateAggregateUseCase<UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
         public UpdateCustomerUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) 
             : base(responseMapper, unitOfWork, repository)

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Optivem.NorthwindLite.Core.Application.UseCases
 {
-    public class DeleteCustomerUseCase : DeleteUseCase<DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
+    public class DeleteCustomerUseCase : DeleteAggregateCase<DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
     {
         public DeleteCustomerUseCase(IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) 
             : base(unitOfWork, repository)

@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public class ListUseCase<TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+    public class ListAggregatesUseCase<TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
         where TRecordResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TAggregateRoot, TIdentity> repository)
+        public ListAggregatesUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TAggregateRoot, TIdentity> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;

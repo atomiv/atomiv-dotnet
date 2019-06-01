@@ -7,7 +7,7 @@ using Optivem.NorthwindLite.Core.Domain.Identities;
 
 namespace Optivem.NorthwindLite.Core.Application.UseCases
 {
-    public class FindCustomerUseCase : FindUseCase<FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
+    public class FindCustomerUseCase : FindAggregateUseCase<FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
     {
         public FindCustomerUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<Customer, CustomerIdentity> repository)
             : base(responseMapper, repository)

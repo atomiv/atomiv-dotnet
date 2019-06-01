@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class CreateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+    public abstract class CreateAggregateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
         where TRequest : IRequest
         where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public CreateUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public CreateAggregateUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
             ResponseMapper = responseMapper;
             UnitOfWork = unitOfWork;

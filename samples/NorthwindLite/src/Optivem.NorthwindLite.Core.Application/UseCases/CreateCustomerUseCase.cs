@@ -7,7 +7,7 @@ using Optivem.NorthwindLite.Core.Domain.Identities;
 
 namespace Optivem.NorthwindLite.Core.Application.UseCases
 {
-    public class CreateCustomerUseCase : CreateUseCase<CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
+    public class CreateCustomerUseCase : CreateAggregateUseCase<CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
     {
         public CreateCustomerUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository)
             : base(responseMapper, unitOfWork, repository)
