@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     /// <summary>
     /// Parses string data into objects, using specified data types

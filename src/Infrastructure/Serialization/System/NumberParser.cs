@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     /// <summary>
     /// Parser for converting from string data into numbers, given a number format

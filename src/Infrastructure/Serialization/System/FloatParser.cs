@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.Serialization.System
+﻿namespace Optivem.Infrastructure.System
 {
     public class FloatParser : BaseParser<float?>
     {

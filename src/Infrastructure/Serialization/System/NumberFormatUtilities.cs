@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     /// <summary>
     /// Utilities for working with the NumberFormat class

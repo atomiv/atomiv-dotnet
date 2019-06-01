@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     // TODO: VC: Base enum constraint
 

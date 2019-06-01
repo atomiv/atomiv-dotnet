@@ -1,7 +1,7 @@
 ﻿using Optivem.Common.Serialization;
 using System.Collections.Generic;
 
-namespace Optivem.Infrastructure.Serialization.System
+namespace Optivem.Infrastructure.System
 {
     public class EnumStringParser<T> : IParser<T>
     {

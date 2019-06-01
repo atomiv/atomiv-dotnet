@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.Serialization.System
+﻿namespace Optivem.Infrastructure.System
 {
     /// <summary>
     /// Converts string data into object of a certain type
