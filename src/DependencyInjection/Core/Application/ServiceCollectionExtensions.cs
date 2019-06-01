@@ -10,23 +10,30 @@ namespace Optivem.DependencyInjection.Core.Application
     public static class ServiceCollectionExtensions
     {
         private static Type UseCaseType = typeof(IUseCase<,>);
+        private static Type ApplicationServiceType = typeof(IApplicationService);
 
         public static IServiceCollection AddApplicationCore(this IServiceCollection services, IEnumerable<Type> types)
         {
-            var classes = types.GetConcreteImplementingTypes(UseCaseType);
-
-            services.AddTransient(UseCaseType, classes);
+            services.AddUseCases(types);
+            services.AddApplicationServices(types);
 
             return services;
         }
 
-        /*
-         * 
-            services.AddScoped<IUseCase<ListCustomersRequest, ListCustomersResponse>, ListCustomersUseCase>();
-            services.AddScoped<IUseCase<FindCustomerRequest, FindCustomerResponse>, FindCustomerUseCase>();
-         * 
-         * 
-         */
+        private static IServiceCollection AddUseCases(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
+            services.AddTransientOpenType(UseCaseType, implementationTypes);
 
+            return services;
+        }
+
+        private static IServiceCollection AddApplicationServices(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfInterface(ApplicationServiceType);
+            services.AddTransientMarkedTypes(ApplicationServiceType, implementationTypes);
+
+            return services;
+        }
     }
 }

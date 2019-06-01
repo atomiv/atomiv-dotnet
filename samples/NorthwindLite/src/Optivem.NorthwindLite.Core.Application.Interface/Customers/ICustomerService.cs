@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.NorthwindLite.Core.Application.Interface.Services
 {
-    public interface ICustomerService : IService
+    public interface ICustomerService : IApplicationService
     {
         Task<ListCustomersResponse> ListCustomersAsync();
 

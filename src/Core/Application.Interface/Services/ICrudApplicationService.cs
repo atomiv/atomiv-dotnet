@@ -2,10 +2,10 @@
 
 namespace Optivem.Core.Application
 {
-    public interface ICrudService<TId,
+    public interface ICrudApplicationService<TId,
         TFindAllRequest, TCreateRequest, TUpdateRequest,
         TFindAllResponse, TFindResponse, TCreateResponse, TUpdateResponse>
-        : IService
+        : IApplicationService
     {
         Task<TFindAllResponse> FindAllAsync(TFindAllRequest request);
 

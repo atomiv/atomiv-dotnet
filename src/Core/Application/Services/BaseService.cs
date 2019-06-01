@@ -2,7 +2,7 @@
 
 namespace Optivem.Core.Application.Services
 {
-    public class BaseService : IService
+    public class BaseService : IApplicationService
     {
         public BaseService(IRequestHandler requestHandler)
         {

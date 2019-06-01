@@ -4,7 +4,7 @@ using Optivem.Core.Application;
 namespace Optivem.Web.AspNetCore
 {
     public class BaseController<TService> : ControllerBase
-        where TService : IService
+        where TService : IApplicationService
     {
         public BaseController(TService service)
         {

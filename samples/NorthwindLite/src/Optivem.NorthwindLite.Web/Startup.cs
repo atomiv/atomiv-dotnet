@@ -95,7 +95,7 @@ namespace Optivem.NorthwindLite.Web
             */
 
             // Application - Services
-            services.AddScoped<ICustomerService, CustomerService>();
+            // services.AddScoped<ICustomerService, CustomerService>();
 
             // Infrastructure - Repository
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
