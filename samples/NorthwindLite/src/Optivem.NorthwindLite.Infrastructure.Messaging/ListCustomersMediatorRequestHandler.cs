@@ -1,5 +1,5 @@
 ﻿using Optivem.Core.Application;
-using Optivem.Infrastructure.Messaging.MediatR;
+using Optivem.Infrastructure.MediatR;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 

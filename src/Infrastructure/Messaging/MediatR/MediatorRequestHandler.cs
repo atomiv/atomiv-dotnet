@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using IRequest = Optivem.Core.Application.IRequest;
 
-namespace Optivem.Infrastructure.Messaging.MediatR
+namespace Optivem.Infrastructure.MediatR
 {
     public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
         where TRequest : IRequest

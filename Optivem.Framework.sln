@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AutoMapper", "src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj", "{ECB32023-AB42-4E46-8D67-95A6FC32F323}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Messaging.MediatR", "src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.Messaging.MediatR.csproj", "{4D10C62F-3A9A-4831-BF87-D9EA8ACD4AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.MediatR", "src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.MediatR.csproj", "{4D10C62F-3A9A-4831-BF87-D9EA8ACD4AD4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Persistence.EntityFrameworkCore", "src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj", "{CCFB400E-D2FE-4281-A75E-890FF6D7833F}"
 EndProject

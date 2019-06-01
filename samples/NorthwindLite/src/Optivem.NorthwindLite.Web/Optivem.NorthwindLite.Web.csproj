@@ -18,7 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Core.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.Messaging.MediatR.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.MediatR.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj" />
