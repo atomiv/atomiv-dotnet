@@ -131,27 +131,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D39C4247-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1136EAB4-2929-4A65-BF00-AC90062E7A33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application.DependencyInjection", "src\DependencyInjection\Core\Application\Optivem.Core.Application.DependencyInjection.csproj", "{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Core.Application", "src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj", "{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain.DependencyInjection", "src\DependencyInjection\Core\Domain\Optivem.Core.Domain.DependencyInjection.csproj", "{4CCC7990-D46F-42D7-9BAB-388895A6FADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Core.Domain", "src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj", "{4CCC7990-D46F-42D7-9BAB-388895A6FADE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore.DependencyInjection", "src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Infrastructure.AspNetCore.DependencyInjection.csproj", "{0C17163B-7E91-4DD0-9CFC-B5CFBFB1F9B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.AspNetCore", "src\DependencyInjection\Infrastructure\AspNetCore\Optivem.DependencyInjection.Infrastructure.AspNetCore.csproj", "{0C17163B-7E91-4DD0-9CFC-B5CFBFB1F9B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AutoMapper.DependencyInjection", "src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.DependencyInjection.csproj", "{3EE81C3D-D221-453E-91E6-B9B69B3A6F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.AutoMapper", "src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj", "{3EE81C3D-D221-453E-91E6-B9B69B3A6F37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper.DependencyInjection", "src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.DependencyInjection.csproj", "{2D6623D7-5212-4EB4-ACAD-BD85E9338219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.CsvHelper", "src\DependencyInjection\Infrastructure\CsvHelper\Optivem.DependencyInjection.Infrastructure.CsvHelper.csproj", "{2D6623D7-5212-4EB4-ACAD-BD85E9338219}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.EntityFrameworkCore.DependencyInjecti", "src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.DependencyInjecti.csproj", "{7F553B47-1968-4F8F-9946-1D2F393E5F51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore", "src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj", "{7F553B47-1968-4F8F-9946-1D2F393E5F51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FluentValidation.DependencyInjection", "src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.DependencyInjection.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.FluentValidation", "src\DependencyInjection\Infrastructure\FluentValidation\Optivem.DependencyInjection.Infrastructure.FluentValidation.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.MediatR.DependencyInjection", "src\DependencyInjection\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.DependencyInjection.csproj", "{C5D3B8FB-AB99-442C-83CA-CF3E1B0630AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.MediatR", "src\DependencyInjection\Infrastructure\MediatR\Optivem.DependencyInjection.Infrastructure.MediatR.csproj", "{C5D3B8FB-AB99-442C-83CA-CF3E1B0630AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.NewtonsoftJson.Infrastructure", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.Infrastructure.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.NewtonsoftJson", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.DependencyInjection.Infrastructure.NewtonsoftJson.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.DependencyInjection", "src\DependencyInjection\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.DependencyInjection.csproj", "{329FDCE4-306A-4853-96A4-370FFAA5C4F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.Selenium", "src\DependencyInjection\Infrastructure\Selenium\Optivem.DependencyInjection.Infrastructure.Selenium.csproj", "{329FDCE4-306A-4853-96A4-370FFAA5C4F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System.DependencyInjection", "src\DependencyInjection\Infrastructure\System\Optivem.Infrastructure.System.DependencyInjection.csproj", "{E4AE6B52-2A65-42FD-8855-C2B62567B156}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.System", "src\DependencyInjection\Infrastructure\System\Optivem.DependencyInjection.Infrastructure.System.csproj", "{E4AE6B52-2A65-42FD-8855-C2B62567B156}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
