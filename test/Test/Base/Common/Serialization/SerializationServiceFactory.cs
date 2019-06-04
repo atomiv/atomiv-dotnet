@@ -1,9 +1,6 @@
 ﻿using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.CsvHelper;
 using Optivem.Infrastructure.NewtonsoftJson;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.Common.Serialization
 {

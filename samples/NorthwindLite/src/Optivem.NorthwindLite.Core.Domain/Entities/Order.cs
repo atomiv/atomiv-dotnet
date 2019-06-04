@@ -1,7 +1,6 @@
 ﻿using Optivem.Core.Domain;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 using Optivem.NorthwindLite.Core.Domain.ValueObjects;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Optivem.NorthwindLite.Core.Domain.Entities

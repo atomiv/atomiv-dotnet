@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Persistence.Configuration;
 using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
 

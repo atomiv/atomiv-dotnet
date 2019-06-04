@@ -1,5 +1,4 @@
-﻿using Optivem.Core.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Optivem.NorthwindLite.Infrastructure.Persistence.Records
 {

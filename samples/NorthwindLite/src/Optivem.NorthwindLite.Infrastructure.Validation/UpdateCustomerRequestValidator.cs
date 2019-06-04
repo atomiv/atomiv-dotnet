@@ -1,8 +1,5 @@
 ﻿using FluentValidation;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.NorthwindLite.Infrastructure.Validation
 {

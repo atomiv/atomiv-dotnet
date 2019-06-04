@@ -24,7 +24,7 @@ namespace Optivem.Infrastructure.Selenium
             }
         }
 
-        public T GetSelected()
+        public T ReadSelected()
         {
             var element = Element.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
 
@@ -38,7 +38,7 @@ namespace Optivem.Infrastructure.Selenium
             return mappedValue;
         }
 
-        public T GetValue(int index)
+        public T ReadValue(int index)
         {
             var element = Element.FindElements(By.TagName("option"))[index];
             var rawValue = element.GetAttribute("value");

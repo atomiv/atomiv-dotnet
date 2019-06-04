@@ -4,12 +4,12 @@
     {
         void Select(T key);
 
-        T GetSelected();
+        T ReadSelected();
 
         bool HasSelected();
 
         int Count { get; }
 
-        T GetValue(int index);
+        T ReadValue(int index);
     }
 }

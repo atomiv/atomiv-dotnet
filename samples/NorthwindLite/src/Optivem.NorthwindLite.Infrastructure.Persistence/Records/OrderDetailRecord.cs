@@ -1,6 +1,4 @@
-﻿using Optivem.Core.Domain;
-
-namespace Optivem.NorthwindLite.Infrastructure.Persistence.Records
+﻿namespace Optivem.NorthwindLite.Infrastructure.Persistence.Records
 {
     public class OrderDetailRecord
     {

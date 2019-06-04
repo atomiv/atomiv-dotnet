@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
+﻿using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
 using System.Linq;
 using Xunit;
 
@@ -13,7 +12,8 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
         {
         }
 
-        [Fact(Skip = "Need fix test")]
+        // [Fact(Skip = "Need fix test")]
+        [Fact]
         public void TestFindTextBoxByName()
         {
             var driver = SeleniumFixture.TestDriver;
@@ -24,8 +24,8 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
             // TODO: VC: Link text & partial link text
 
-            page.FirstNameTextBox.SetText("John");
-            page.FirstNameTextBox.TextShouldBe("John");
+            page.FirstName.EnterText("John");
+            page.FirstName.TextShouldBe("John");
 
 
             // TODO: VC: Check if this should be via textbox?
@@ -36,21 +36,21 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
             // TODO: VC: Automatic matching between name and enum
 
-            Assert.Equal(Sex.Male, page.SexRadioGroup.GetSelected());
+            Assert.Equal(Sex.Male, page.SexRadioGroup.ReadSelected());
 
             Assert.False(page.YearsOfExperienceRadioGroup.HasSelected());
 
             page.YearsOfExperienceRadioGroup.Select(3);
 
-            Assert.Equal(3, page.YearsOfExperienceRadioGroup.GetSelected());
+            Assert.Equal(3, page.YearsOfExperienceRadioGroup.ReadSelected());
 
             Assert.False(page.ProfessionCheckBoxGroup.HasSelected());
 
             page.ProfessionCheckBoxGroup.Select(Profession.AutomationTester);
 
-            Assert.Single(page.ProfessionCheckBoxGroup.GetSelected());
+            Assert.Single(page.ProfessionCheckBoxGroup.ReadSelected());
 
-            Assert.Equal(Profession.AutomationTester, page.ProfessionCheckBoxGroup.GetSelected().Single());
+            Assert.Equal(Profession.AutomationTester, page.ProfessionCheckBoxGroup.ReadSelected().Single());
 
             // TODO: VC: Upload file
 
@@ -60,18 +60,18 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
             page.AutomationToolCheckBoxGroup.Select(AutomationTool.SeleniumIde);
 
-            Assert.Single(page.AutomationToolCheckBoxGroup.GetSelected());
+            Assert.Single(page.AutomationToolCheckBoxGroup.ReadSelected());
 
-            Assert.Equal(AutomationTool.SeleniumIde, page.AutomationToolCheckBoxGroup.GetSelected().Single());
+            Assert.Equal(AutomationTool.SeleniumIde, page.AutomationToolCheckBoxGroup.ReadSelected().Single());
 
             // TODO: VC: Testing multi select
 
             // TODO: VC: Checkboxes
 
             Assert.True(page.ContinentComboBox.HasSelected());
-            Assert.Equal(Continent.Asia, page.ContinentComboBox.GetSelected());
+            Assert.Equal(Continent.Asia, page.ContinentComboBox.ReadSelected());
             page.ContinentComboBox.Select(Continent.Europe);
-            Assert.Equal(Continent.Europe, page.ContinentComboBox.GetSelected());
+            Assert.Equal(Continent.Europe, page.ContinentComboBox.ReadSelected());
 
             // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
             // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty

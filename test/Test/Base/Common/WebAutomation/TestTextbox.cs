@@ -1,14 +1,9 @@
 ﻿using FluentAssertions;
 using Optivem.Core.Common.WebAutomation;
-using Optivem.Infrastructure.Selenium;
-using Optivem.Test.Common.WebAutomation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Optivem.Test.Xunit.Selenium
+namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestTextBox : ITestTextBox
+    public class TestTextBox : ITextBox
     {
         private readonly ITextBox _textBox;
 
@@ -21,19 +16,19 @@ namespace Optivem.Test.Xunit.Selenium
 
         public bool Visible => _textBox.Visible;
 
-        public string GetText()
+        public string ReadText()
         {
-            return _textBox.GetText();
+            return _textBox.ReadText();
         }
 
-        public void SetText(string text)
+        public void EnterText(string text)
         {
-            _textBox.SetText(text);
+            _textBox.EnterText(text);
         }
 
         public void TextShouldBe(string expectedText)
         {
-            var actualText = GetText();
+            var actualText = ReadText();
             actualText.Should().Be(expectedText);
         }
     }

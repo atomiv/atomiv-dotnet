@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,18 +7,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Core.Application;
 using Optivem.Core.Domain;
-using Optivem.Infrastructure.AutoMapper;
 using Optivem.Infrastructure.MediatR;
 using Optivem.Infrastructure.EntityFrameworkCore;
-using Optivem.NorthwindLite.Core.Application;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
-using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.BrowseAll;
-using Optivem.NorthwindLite.Core.Application.Interface.Customers.Queries.List;
 using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
 using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
-using Optivem.NorthwindLite.Core.Application.Interface.Services;
 using Optivem.NorthwindLite.Core.Application.UseCases;
-using Optivem.NorthwindLite.Core.Application.UseCases.Customers;
 using Optivem.NorthwindLite.Core.Domain.Entities;
 using Optivem.NorthwindLite.Infrastructure.Mapping;
 using Optivem.NorthwindLite.Infrastructure.Messaging;
@@ -34,7 +27,6 @@ using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.NorthwindLite.Core.Domain.Identities;
 using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
-using System.Linq;
 
 namespace Optivem.NorthwindLite.Web
 {

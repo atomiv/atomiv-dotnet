@@ -14,7 +14,7 @@ namespace Optivem.Infrastructure.Selenium
             Element.Click();
         }
 
-        public bool Selected
+        public bool IsSelected
         {
             get
             {

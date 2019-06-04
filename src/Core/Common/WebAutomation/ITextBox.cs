@@ -2,8 +2,8 @@
 {
     public interface ITextBox : IElement
     {
-        void SetText(string text);
+        void EnterText(string text);
 
-        string GetText();
+        string ReadText();
     }
 }

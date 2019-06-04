@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Test.Xunit;
 using System;
-using System.Collections.Generic;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 {

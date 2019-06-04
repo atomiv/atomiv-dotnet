@@ -8,12 +8,12 @@ namespace Optivem.Core.Common.WebAutomation
 
         void Deselect(T key);
 
-        List<T> GetSelected();
+        List<T> ReadSelected();
 
         bool HasSelected();
 
         int Count { get; }
 
-        T GetValue(int index);
+        T ReadValue(int index);
     }
 }

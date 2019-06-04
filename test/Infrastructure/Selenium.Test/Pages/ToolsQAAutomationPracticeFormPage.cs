@@ -6,16 +6,16 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pa
 {
     public class ToolsQAAutomationPracticeFormPage
     {
-        public ToolsQAAutomationPracticeFormPage(IDriver driver)
+        public ToolsQAAutomationPracticeFormPage(TestDriver driver)
         {
             Driver = driver;
         }
 
-        public IDriver Driver { get; private set; }
+        public TestDriver Driver { get; private set; }
 
-        public ITextBox FirstNameTextBox => Driver.FindTextBox(FindType.Name, "firstname");
+        public TestTextBox FirstName => Driver.FindTextBox(FindType.Name, "firstname");
 
-        public ITextBox LastNameTextBox => Driver.FindTextBox(FindType.Name, "lastname");
+        public TestTextBox LastName => Driver.FindTextBox(FindType.Name, "lastname");
 
         public IRadioGroup<Sex?> SexRadioGroup => Driver.FindRadioGroup(FindType.Name, "sex", new Dictionary<string, Sex?>
         {

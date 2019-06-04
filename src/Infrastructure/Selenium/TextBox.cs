@@ -9,12 +9,12 @@ namespace Optivem.Infrastructure.Selenium
         {
         }
 
-        public string GetText()
+        public string ReadText()
         {
             return Element.GetAttribute("value");
         }
 
-        public void SetText(string text)
+        public void EnterText(string text)
         {
             Element.Clear();
             Element.SendKeys(text);

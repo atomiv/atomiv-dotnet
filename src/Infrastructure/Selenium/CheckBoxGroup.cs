@@ -25,12 +25,12 @@ namespace Optivem.Infrastructure.Selenium
             }
         }
 
-        public List<T> GetSelected()
+        public List<T> ReadSelected()
         {
             return Elements.Where(e => e.Selected).Select(e => _map[e.GetAttribute("value")]).ToList();
         }
 
-        public T GetValue(int index)
+        public T ReadValue(int index)
         {
             var element = Elements[index];
             var rawValue = element.GetAttribute("value");
