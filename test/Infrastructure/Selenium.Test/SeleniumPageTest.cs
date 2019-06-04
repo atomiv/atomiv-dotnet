@@ -29,20 +29,20 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
 
             page.Gender.ShouldNotHaveSelection();
-            page.Gender.Select(Gender.Male);
-            page.Gender.ShouldHaveSelection(Gender.Male);
+            page.Gender.SelectValue("Male");
+            page.Gender.ShouldHaveSelectedValue("Male");
 
             page.YearsOfExperience.ShouldNotHaveSelection();
-            page.YearsOfExperience.Select(3);
-            page.YearsOfExperience.ShouldHaveSelection(3);
+            page.YearsOfExperience.SelectValue("3");
+            page.YearsOfExperience.ShouldHaveSelectedValue("3");
 
             page.Profession.ShouldNotHaveSelection();
-            page.Profession.Select(Profession.AutomationTester);
+            page.Profession.SelectValue("Automation Tester");
             page.Profession.ShouldHaveOneSelectedItem();
 
-            Assert.Single(page.Profession.ReadSelected());
+            Assert.Single(page.Profession.ReadSelectedValues());
 
-            Assert.Equal(Profession.AutomationTester, page.Profession.ReadSelected().Single());
+            Assert.Equal("Automation Tester", page.Profession.ReadSelectedValues().Single());
 
             // TODO: VC: Upload file
 
@@ -50,25 +50,90 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
             Assert.False(page.AutomationTool.HasSelected());
 
-            page.AutomationTool.Select(AutomationTool.SeleniumIde);
+            page.AutomationTool.SelectValue("Selenium IDE");
 
-            Assert.Single(page.AutomationTool.ReadSelected());
+            Assert.Single(page.AutomationTool.ReadSelectedValues());
 
-            Assert.Equal(AutomationTool.SeleniumIde, page.AutomationTool.ReadSelected().Single());
+            Assert.Equal("Selenium IDE", page.AutomationTool.ReadSelectedValues().Single());
 
             // TODO: VC: Testing multi select
 
             // TODO: VC: Checkboxes
 
             Assert.True(page.Continent.HasSelected());
-            Assert.Equal(Continent.Asia, page.Continent.ReadSelected());
-            page.Continent.Select(Continent.Europe);
-            Assert.Equal(Continent.Europe, page.Continent.ReadSelected());
+            Assert.Equal("Asia", page.Continent.ReadSelectedValue());
+            page.Continent.SelectValue("Europe");
+            Assert.Equal("Europe", page.Continent.ReadSelectedValue());
 
             // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
             // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty
 
             // TODO: VC: Assert messages
         }
+
+
+        /*
+         * 
+         * 
+, new Dictionary<string, AutomationTool?>
+        {
+            { "QTP", Pages.AutomationTool.Qtp },
+            { "Selenium IDE", Pages.AutomationTool.SeleniumIde },
+            { "Selenium Webdriver", Pages.AutomationTool.SeleniumWebDriver },
+        })
+         * 
+         */
+
+        /*
+         * 
+        {
+            { "Asia", Pages.Continent.Asia },
+            { "Europe", Pages.Continent.Europe },
+            { "Africa", Pages.Continent.Africa },
+            { "Australia", Pages.Continent.Australia },
+            { "South America", Pages.Continent.SouthAmerica },
+            { "North America", Pages.Continent.NorthAmerica },
+            { "Antartica", Pages.Continent.Antartica },
+        }
+         * 
+         */
+
+        /*
+         * 
+         * 
+
+    public enum Gender
+    {
+        Male, Female
+    }
+
+    public enum Profession
+    {
+        ManualTester,
+        AutomationTester
+    }
+
+    public enum AutomationTool
+    {
+        Qtp,
+        SeleniumIde,
+        SeleniumWebDriver
+    }
+
+    // TODO: VC: Verify contents of groups, i.e. matching the expected elements
+
+    public enum Continent
+    {
+        Asia,
+        Europe,
+        Africa,
+        Australia,
+        SouthAmerica,
+        NorthAmerica,
+        Antartica
+    }
+         * 
+         * 
+         */
     }
 }

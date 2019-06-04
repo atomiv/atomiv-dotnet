@@ -25,16 +25,34 @@ namespace Optivem.Test.Common.WebAutomation
             return new TestCheckBox(checkBox);
         }
 
+        public TestCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
+        {
+            var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy);
+            return new TestCheckBoxGroup(checkBoxGroup);
+        }
+
         public TestCheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy, values);
             return new TestCheckBoxGroup<T>(checkBoxGroup);
         }
 
+        public TestComboBox FindComboBox(FindType findType, string findBy)
+        {
+            var comboBox = _driver.FindComboBox(findType, findBy);
+            return new TestComboBox(comboBox);
+        }
+
         public TestComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var comboBox = _driver.FindComboBox(findType, findBy, values);
             return new TestComboBox<T>(comboBox);
+        }
+
+        public TestRadioGroup FindRadioGroup(FindType findType, string findBy)
+        {
+            var radioGroup = _driver.FindRadioGroup(findType, findBy);
+            return new TestRadioGroup(radioGroup);
         }
 
         public TestRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
