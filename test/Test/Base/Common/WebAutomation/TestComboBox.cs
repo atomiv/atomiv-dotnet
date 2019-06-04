@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestComboBox<T> : IComboBox<T>
+    public class TestComboBox : IComboBox
     {
-        private readonly IComboBox<T> _comboBox;
+        private readonly IComboBox _comboBox;
 
-        public TestComboBox(IComboBox<T> comboBox)
+        public TestComboBox(IComboBox comboBox)
         {
             _comboBox = comboBox;
         }
@@ -35,6 +35,22 @@ namespace Optivem.Test.Common.WebAutomation
             return _comboBox.ReadValue(index);
         }
 
+        public bool HasSelected()
+        {
+            return _comboBox.HasSelected();
+        }
+    }
+
+    public class TestComboBox<T> : TestComboBox, IComboBox<T>
+    {
+        private readonly IComboBox<T> _comboBox;
+
+        public TestComboBox(IComboBox<T> comboBox)
+            : base(comboBox)
+        {
+            _comboBox = comboBox;
+        }
+
         public T ReadSelected()
         {
             return _comboBox.ReadSelected();
@@ -45,16 +61,9 @@ namespace Optivem.Test.Common.WebAutomation
             return _comboBox.Read(index);
         }
 
-        public bool HasSelected()
-        {
-            return _comboBox.HasSelected();
-        }
-
         public void Select(T key)
         {
             _comboBox.Select(key);
         }
-
-
     }
 }

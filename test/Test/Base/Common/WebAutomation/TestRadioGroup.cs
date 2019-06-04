@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestRadioGroup<T> : IRadioGroup<T>
+    public class TestRadioGroup : IRadioGroup
     {
-        private readonly IRadioGroup<T> _radioGroup;
+        private readonly IRadioGroup _radioGroup;
 
-        public TestRadioGroup(IRadioGroup<T> radioGroup)
+        public TestRadioGroup(IRadioGroup radioGroup)
         {
             _radioGroup = radioGroup;
         }
@@ -37,6 +37,28 @@ namespace Optivem.Test.Common.WebAutomation
             return _radioGroup.HasSelected();
         }
 
+        public void ShouldNotHaveSelection()
+        {
+            HasSelected().Should().BeFalse();
+        }
+
+        public void ShouldHaveSelectedValue(string key)
+        {
+            var selected = ReadSelectedValue();
+            selected.Should().Be(key);
+        }
+    }
+
+    public class TestRadioGroup<T> : TestRadioGroup, IRadioGroup<T>
+    {
+        private readonly IRadioGroup<T> _radioGroup;
+
+        public TestRadioGroup(IRadioGroup<T> radioGroup)
+            : base(radioGroup)
+        {
+            _radioGroup = radioGroup;
+        }
+
         public T ReadSelected()
         {
             return _radioGroup.ReadSelected();
@@ -52,17 +74,10 @@ namespace Optivem.Test.Common.WebAutomation
             _radioGroup.Select(key);
         }
 
-        public void ShouldNotHaveSelection()
-        {
-            HasSelected().Should().BeFalse();
-        }
-
         public void ShouldHaveSelection(T key)
         {
             var selected = ReadSelected();
             selected.Should().Be(key);
         }
-
-
     }
 }
