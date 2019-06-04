@@ -3,9 +3,9 @@ using Optivem.Core.Common.WebAutomation;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public abstract class BaseSeleniumElement : IElement
+    public abstract class BaseElement : IElement
     {
-        public BaseSeleniumElement(IWebElement element)
+        public BaseElement(IWebElement element)
         {
             Element = element;
         }

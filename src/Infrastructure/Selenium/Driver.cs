@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class SeleniumDriver : IDriver
+    public class Driver : IDriver
     {
         private static Dictionary<FindType, Func<string, By>> findTypeMap
             = new Dictionary<FindType, Func<string, By>>
@@ -22,47 +22,47 @@ namespace Optivem.Infrastructure.Selenium
                 { FindType.XPath, e => By.XPath(e) },
             };
 
-        public SeleniumDriver(IWebDriver driver)
+        public Driver(IWebDriver webDriver)
         {
-            Driver = driver;
+            WebDriver = webDriver;
         }
 
-        public IWebDriver Driver { get; private set; }
+        public IWebDriver WebDriver { get; private set; }
 
         public string Url
         {
-            get { return Driver.Url; }
-            set { Driver.Url = value; }
+            get { return WebDriver.Url; }
+            set { WebDriver.Url = value; }
         }
 
         public ICheckBox FindCheckBox(FindType findType, string findBy)
         {
             var element = FindElement(findType, findBy);
-            return new SeleniumCheckBox(element);
+            return new CheckBox(element);
         }
 
         public ITextBox FindTextBox(FindType findType, string findBy)
         {
             var element = FindElement(findType, findBy);
-            return new SeleniumTextBox(element);
+            return new TextBox(element);
         }
 
         public IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var elements = FindElements(findType, findBy);
-            return new SeleniumRadioGroup<T>(elements, values);
+            return new RadioGroup<T>(elements, values);
         }
 
         public ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var elements = FindElements(findType, findBy);
-            return new SeleniumCheckBoxGroup<T>(elements, values);
+            return new CheckBoxGroup<T>(elements, values);
         }
 
         public IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var element = FindElement(findType, findBy);
-            return new SeleniumComboBox<T>(element, values);
+            return new ComboBox<T>(element, values);
         }
 
         #region Helper
@@ -71,7 +71,7 @@ namespace Optivem.Infrastructure.Selenium
         {
             var byGetter = findTypeMap[findType];
             var by = byGetter(findBy);
-            return Driver.FindElements(by);
+            return WebDriver.FindElements(by);
         }
 
         private IWebElement FindElement(FindType findType, string findBy)

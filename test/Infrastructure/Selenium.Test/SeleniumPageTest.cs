@@ -1,18 +1,22 @@
-﻿namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
+﻿using FluentAssertions;
+using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
+using System.Linq;
+using Xunit;
+
+namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 
-    /*
     public class SeleniumPageTest : SeleniumFixtureTest
     {
         public SeleniumPageTest(SeleniumDriverFixture seleniumFixture) : base(seleniumFixture)
         {
         }
 
-        [Fact(Skip = "Pending resolution of https://github.com/appveyor/ci/issues/2928")]
+        [Fact(Skip = "Need fix test")]
         public void TestFindTextBoxByName()
         {
-            var driver = SeleniumFixture.Driver;
+            var driver = SeleniumFixture.TestDriver;
 
             driver.Url = "https://www.toolsqa.com/automation-practice-form/";
 
@@ -21,9 +25,8 @@
             // TODO: VC: Link text & partial link text
 
             page.FirstNameTextBox.SetText("John");
-            var firstName = page.FirstNameTextBox.GetText();
+            page.FirstNameTextBox.TextShouldBe("John");
 
-            firstName.Should().Be("John");
 
             // TODO: VC: Check if this should be via textbox?
 
@@ -76,5 +79,4 @@
             // TODO: VC: Assert messages
         }
     }
-    */
 }

@@ -3,9 +3,9 @@ using Optivem.Core.Common.WebAutomation;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class SeleniumRadio : BaseSeleniumElement, IRadio
+    public class Radio : BaseElement, IRadio
     {
-        public SeleniumRadio(IWebElement element) : base(element)
+        public Radio(IWebElement element) : base(element)
         {
         }
 

@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class BaseSeleniumElementRange
+    public class BaseElementRange
     {
-        public BaseSeleniumElementRange(ReadOnlyCollection<IWebElement> elements)
+        public BaseElementRange(ReadOnlyCollection<IWebElement> elements)
         {
             Elements = elements;
         }

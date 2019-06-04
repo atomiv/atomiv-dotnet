@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class SeleniumRadioGroup<T> : BaseSeleniumElementRange, IRadioGroup<T>
+    public class RadioGroup<T> : BaseElementRange, IRadioGroup<T>
     {
         private Dictionary<string, T> _map;
         private Dictionary<T, string> _reverseMap;
 
-        public SeleniumRadioGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
+        public RadioGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
         {
             _map = map;
             _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);

@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class SeleniumCheckBoxGroup<T> : BaseSeleniumElementRange, ICheckBoxGroup<T>
+    public class CheckBoxGroup<T> : BaseElementRange, ICheckBoxGroup<T>
     {
         private Dictionary<string, T> _map;
         private Dictionary<T, string> _reverseMap;
 
-        public SeleniumCheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
+        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
         {
             _map = map;
             _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);

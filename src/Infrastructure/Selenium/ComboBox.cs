@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class SeleniumComboBox<T> : BaseSeleniumElement, IComboBox<T>
+    public class ComboBox<T> : BaseElement, IComboBox<T>
     {
         private Dictionary<string, T> _map;
         private Dictionary<T, string> _reverseMap;
 
-        public SeleniumComboBox(IWebElement element, Dictionary<string, T> map) : base(element)
+        public ComboBox(IWebElement element, Dictionary<string, T> map) : base(element)
         {
             _map = map;
             _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
