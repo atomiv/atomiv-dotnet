@@ -4,6 +4,9 @@ image: Visual Studio 2017
 services:
   - mssql2017
 
+install:
+  - choco install googlechrome --version 74.0.3729.169
+
 before_build:
 - ps: dotnet restore
 - ps: nuget restore
