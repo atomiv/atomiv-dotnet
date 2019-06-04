@@ -5,7 +5,7 @@ services:
   - mssql2017
 
 install:
-  - choco install googlechrome
+  - choco install googlechrome --ignore-checksums
 
 before_build:
 - ps: dotnet restore
