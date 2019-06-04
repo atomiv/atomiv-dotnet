@@ -17,13 +17,13 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pa
 
         public TestTextBox LastName => Driver.FindTextBox(FindType.Name, "lastname");
 
-        public IRadioGroup<Sex?> SexRadioGroup => Driver.FindRadioGroup(FindType.Name, "sex", new Dictionary<string, Sex?>
+        public TestRadioGroup<Gender?> Gender => Driver.FindRadioGroup(FindType.Name, "sex", new Dictionary<string, Gender?>
         {
-            { "Male", Sex.Male },
-            { "Female", Sex.Female },
+            { "Male", Pages.Gender.Male },
+            { "Female", Pages.Gender.Female },
         });
 
-        public IRadioGroup<int?> YearsOfExperienceRadioGroup => Driver.FindRadioGroup(FindType.Name, "exp", new Dictionary<string, int?>
+        public TestRadioGroup<int?> YearsOfExperience => Driver.FindRadioGroup(FindType.Name, "exp", new Dictionary<string, int?>
         {
             { "1", 1 },
             { "2", 2 },
@@ -34,34 +34,34 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pa
             { "7", 7 },
         });
 
-        public ICheckBoxGroup<Profession?> ProfessionCheckBoxGroup => Driver.FindCheckBoxGroup(FindType.Name, "profession", new Dictionary<string, Profession?>
+        public TestCheckBoxGroup<Profession?> Profession => Driver.FindCheckBoxGroup(FindType.Name, "profession", new Dictionary<string, Profession?>
         {
-            { "Manual Tester", Profession.ManualTester },
-            { "Automation Tester", Profession.AutomationTester },
+            { "Manual Tester", Pages.Profession.ManualTester },
+            { "Automation Tester", Pages.Profession.AutomationTester },
         });
 
-        public ICheckBoxGroup<AutomationTool?> AutomationToolCheckBoxGroup => Driver.FindCheckBoxGroup(FindType.Name, "tool", new Dictionary<string, AutomationTool?>
+        public TestCheckBoxGroup<AutomationTool?> AutomationTool => Driver.FindCheckBoxGroup(FindType.Name, "tool", new Dictionary<string, AutomationTool?>
         {
-            { "QTP", AutomationTool.Qtp },
-            { "Selenium IDE", AutomationTool.SeleniumIde },
-            { "Selenium Webdriver", AutomationTool.SeleniumWebDriver },
+            { "QTP", Pages.AutomationTool.Qtp },
+            { "Selenium IDE", Pages.AutomationTool.SeleniumIde },
+            { "Selenium Webdriver", Pages.AutomationTool.SeleniumWebDriver },
         });
 
-        public IComboBox<Continent?> ContinentComboBox => Driver.FindComboBox(FindType.Name, "continents", new Dictionary<string, Continent?>
+        public TestComboBox<Continent?> Continent => Driver.FindComboBox(FindType.Name, "continents", new Dictionary<string, Continent?>
         {
-            { "Asia", Continent.Asia },
-            { "Europe", Continent.Europe },
-            { "Africa", Continent.Africa },
-            { "Australia", Continent.Australia },
-            { "South America", Continent.SouthAmerica },
-            { "North America", Continent.NorthAmerica },
-            { "Antartica", Continent.Antartica },
+            { "Asia", Pages.Continent.Asia },
+            { "Europe", Pages.Continent.Europe },
+            { "Africa", Pages.Continent.Africa },
+            { "Australia", Pages.Continent.Australia },
+            { "South America", Pages.Continent.SouthAmerica },
+            { "North America", Pages.Continent.NorthAmerica },
+            { "Antartica", Pages.Continent.Antartica },
         });
 
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
 
-    public enum Sex
+    public enum Gender
     {
         Male, Female
     }

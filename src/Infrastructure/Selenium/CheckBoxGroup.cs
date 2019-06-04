@@ -6,15 +6,11 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class CheckBoxGroup<T> : BaseElementRange, ICheckBoxGroup<T>
+    public class CheckBoxGroup : BaseElementRange, ICheckBoxGroup
     {
-        private Dictionary<string, T> _map;
-        private Dictionary<T, string> _reverseMap;
-
-        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
+        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements) 
+            : base(elements)
         {
-            _map = map;
-            _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
         }
 
         public int Count
@@ -25,19 +21,14 @@ namespace Optivem.Infrastructure.Selenium
             }
         }
 
-        public List<T> ReadSelected()
+        public void DeselectValue(string key)
         {
-            return Elements.Where(e => e.Selected).Select(e => _map[e.GetAttribute("value")]).ToList();
-        }
+            var element = Elements.Single(e => e.GetValueAttribute() == key);
 
-        public T ReadValue(int index)
-        {
-            var element = Elements[index];
-            var rawValue = element.GetAttribute("value");
-            var mappedValue = _map[rawValue];
-            return mappedValue;
-
-            // TODO: VC: Move getting common attributes into some element base
+            if (element.Selected)
+            {
+                element.Click();
+            }
         }
 
         public bool HasSelected()
@@ -46,26 +37,64 @@ namespace Optivem.Infrastructure.Selenium
             return element != null;
         }
 
-        public void Select(T key)
+        public List<string> ReadSelectedValues()
         {
-            var mappedValue = _reverseMap[key];
-            var element = Elements.Single(e => e.GetAttribute("value") == mappedValue);
+            return Elements.Where(e => e.Selected)
+                .Select(e => e.GetValueAttribute())
+                .ToList();
+        }
+
+        public string ReadValue(int index)
+        {
+            var element = Elements[index];
+            return element.GetValueAttribute();
+        }
+
+        public void SelectValue(string key)
+        {
+            var element = Elements.Single(e => e.GetValueAttribute() == key);
 
             if (!element.Selected)
             {
                 element.Click();
             }
         }
+    }
+
+    public class CheckBoxGroup<T> : CheckBoxGroup, ICheckBoxGroup<T>
+    {
+        private Dictionary<string, T> _map;
+        private Dictionary<T, string> _reverseMap;
+
+        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) 
+            : base(elements)
+        {
+            _map = map;
+            _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
+        }
+
+        public List<T> ReadSelected()
+        {
+            var values = ReadSelectedValues();
+            return values.Select(e => _map[e]).ToList();
+        }
+
+        public T Read(int index)
+        {
+            var value = ReadValue(index);
+            return _map[value];
+        }
+
+        public void Select(T key)
+        {
+            var value = _reverseMap[key];
+            SelectValue(value);
+        }
 
         public void Deselect(T key)
         {
-            var mappedValue = _reverseMap[key];
-            var element = Elements.Single(e => e.GetAttribute("value") == mappedValue);
-
-            if (element.Selected)
-            {
-                element.Click();
-            }
+            var value = _reverseMap[key];
+            DeselectValue(value);
         }
     }
 }

@@ -1,15 +1,26 @@
 ﻿namespace Optivem.Core.Common.WebAutomation
 {
-    public interface IRadioGroup<T>
+    public interface IRadioGroup
     {
-        void Select(T key);
+        void SelectValue(string key);
 
-        T ReadSelected();
+        string ReadSelectedValue();
 
         bool HasSelected();
 
         int Count { get; }
 
-        T ReadValue(int index);
+        string ReadValue(int index);
     }
+
+    public interface IRadioGroup<T> : IRadioGroup
+    {
+        void Select(T key);
+
+        T ReadSelected();
+
+        T Read(int index);
+    }
+
+
 }

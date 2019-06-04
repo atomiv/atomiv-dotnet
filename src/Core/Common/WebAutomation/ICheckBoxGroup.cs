@@ -2,7 +2,22 @@
 
 namespace Optivem.Core.Common.WebAutomation
 {
-    public interface ICheckBoxGroup<T>
+    public interface ICheckBoxGroup
+    {
+        void SelectValue(string key);
+
+        void DeselectValue(string key);
+
+        List<string> ReadSelectedValues();
+
+        bool HasSelected();
+
+        int Count { get; }
+
+        string ReadValue(int index);
+    }
+
+    public interface ICheckBoxGroup<T> : ICheckBoxGroup
     {
         void Select(T key);
 
@@ -10,10 +25,6 @@ namespace Optivem.Core.Common.WebAutomation
 
         List<T> ReadSelected();
 
-        bool HasSelected();
-
-        int Count { get; }
-
-        T ReadValue(int index);
+        T Read(int index);
     }
 }

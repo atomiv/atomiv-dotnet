@@ -1,4 +1,5 @@
-﻿using Optivem.Core.Common.WebAutomation;
+﻿using FluentAssertions;
+using Optivem.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,26 @@ namespace Optivem.Test.Common.WebAutomation
 
         public int Count => _checkBoxGroup.Count;
 
+        public void SelectValue(string key)
+        {
+            _checkBoxGroup.SelectValue(key);
+        }
+
+        public void DeselectValue(string key)
+        {
+            _checkBoxGroup.DeselectValue(key);
+        }
+
+        public List<string> ReadSelectedValues()
+        {
+            return _checkBoxGroup.ReadSelectedValues();
+        }
+
+        public string ReadValue(int index)
+        {
+            return _checkBoxGroup.ReadValue(index);
+        }
+
         public void Deselect(T key)
         {
             _checkBoxGroup.Deselect(key);
@@ -26,9 +47,9 @@ namespace Optivem.Test.Common.WebAutomation
             return _checkBoxGroup.ReadSelected();
         }
 
-        public T ReadValue(int index)
+        public T Read(int index)
         {
-            return _checkBoxGroup.ReadValue(index);
+            return _checkBoxGroup.Read(index);
         }
 
         public bool HasSelected()
@@ -40,5 +61,32 @@ namespace Optivem.Test.Common.WebAutomation
         {
             _checkBoxGroup.Select(key);
         }
+
+
+
+        public void ShouldNotHaveSelection()
+        {
+            HasSelected().Should().BeFalse();
+        }
+
+        public void ShouldHaveSelection(T key)
+        {
+            var selected = ReadSelected();
+            selected.Should().Contain(key);
+        }
+
+        public void ShouldHaveSelectionCount(int expectedCount)
+        {
+            var selected = ReadSelected();
+            selected.Count.Should().Be(expectedCount);
+        }
+
+        public void ShouldHaveOneSelectedItem()
+        {
+            var selected = ReadSelected();
+            selected.Count.Should().Be(1);
+        }
+
+
     }
 }

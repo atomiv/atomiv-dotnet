@@ -1,15 +1,24 @@
 ﻿namespace Optivem.Core.Common.WebAutomation
 {
-    public interface IComboBox<T> : IElement
+    public interface IComboBox : IElement
     {
-        void Select(T key);
+        void SelectValue(string key);
 
-        T ReadSelected();
+        string ReadSelectedValue();
 
         bool HasSelected();
 
         int Count { get; }
 
-        T ReadValue(int index);
+        string ReadValue(int index);
+    }
+
+    public interface IComboBox<T> : IComboBox
+    {
+        void Select(T key);
+
+        T ReadSelected();
+
+        T Read(int index);
     }
 }

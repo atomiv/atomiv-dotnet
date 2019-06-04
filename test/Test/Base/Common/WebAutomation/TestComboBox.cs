@@ -20,14 +20,29 @@ namespace Optivem.Test.Common.WebAutomation
 
         public bool Visible => _comboBox.Visible;
 
+        public void SelectValue(string key)
+        {
+            _comboBox.SelectValue(key);
+        }
+
+        public string ReadSelectedValue()
+        {
+            return _comboBox.ReadSelectedValue();
+        }
+
+        public string ReadValue(int index)
+        {
+            return _comboBox.ReadValue(index);
+        }
+
         public T ReadSelected()
         {
             return _comboBox.ReadSelected();
         }
 
-        public T ReadValue(int index)
+        public T Read(int index)
         {
-            return _comboBox.ReadValue(index);
+            return _comboBox.Read(index);
         }
 
         public bool HasSelected()
@@ -39,5 +54,7 @@ namespace Optivem.Test.Common.WebAutomation
         {
             _comboBox.Select(key);
         }
+
+
     }
 }

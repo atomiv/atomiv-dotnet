@@ -6,15 +6,14 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class RadioGroup<T> : BaseElementRange, IRadioGroup<T>
-    {
-        private Dictionary<string, T> _map;
-        private Dictionary<T, string> _reverseMap;
+    // TODO: VC: CONTINUE
 
-        public RadioGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) : base(elements)
+
+    public class RadioGroup : BaseElementRange, IRadioGroup
+    {
+        public RadioGroup(ReadOnlyCollection<IWebElement> elements) 
+            : base(elements)
         {
-            _map = map;
-            _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
         }
 
         public int Count
@@ -25,26 +24,24 @@ namespace Optivem.Infrastructure.Selenium
             }
         }
 
-        public T ReadSelected()
+        public string ReadSelectedValue()
         {
             var element = Elements.SingleOrDefault(e => e.Selected);
 
             if (element == null)
             {
-                return default(T);
+                return null;
             }
 
-            var rawValue = element.GetAttribute("value");
-            var mappedValue = _map[rawValue];
-            return mappedValue;
+            var value = element.GetValueAttribute();
+            return value;
         }
 
-        public T ReadValue(int index)
+        public string ReadValue(int index)
         {
             var element = Elements[index];
-            var rawValue = element.GetAttribute("value");
-            var mappedValue = _map[rawValue];
-            return mappedValue;
+            var value = element.GetValueAttribute();
+            return value;
 
             // TODO: VC: Move getting common attributes into some element base
         }
@@ -55,11 +52,48 @@ namespace Optivem.Infrastructure.Selenium
             return element != null;
         }
 
-        public void Select(T key)
+        public void SelectValue(string key)
         {
-            var mappedValue = _reverseMap[key];
-            var element = Elements.Single(e => e.GetAttribute("value") == mappedValue);
+            var element = Elements.Single(e => e.GetValueAttribute() == key);
             element.Click();
         }
     }
+
+    public class RadioGroup<T> : RadioGroup, IRadioGroup<T>
+    {
+        private Dictionary<string, T> _map;
+        private Dictionary<T, string> _reverseMap;
+
+        public RadioGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) 
+            : base(elements)
+        {
+            _map = map;
+            _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
+        }
+
+
+        public T ReadSelected()
+        {
+            var rawValue = ReadSelectedValue();
+            var mappedValue = _map[rawValue];
+            return mappedValue;
+        }
+
+        public T Read(int index)
+        {
+            var rawValue = ReadValue(index);
+            var mappedValue = _map[rawValue];
+            return mappedValue;
+
+            // TODO: VC: Move getting common attributes into some element base
+        }
+
+        public void Select(T key)
+        {
+            var mappedValue = _reverseMap[key];
+            SelectValue(mappedValue);
+        }
+    }
+
+
 }

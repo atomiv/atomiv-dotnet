@@ -37,7 +37,7 @@ namespace Optivem.Test.Common.WebAutomation
             return new TestComboBox<T>(comboBox);
         }
 
-        public IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        public TestRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var radioGroup = _driver.FindRadioGroup(findType, findBy, values);
             return new TestRadioGroup<T>(radioGroup);

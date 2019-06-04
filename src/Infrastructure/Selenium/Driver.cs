@@ -47,10 +47,21 @@ namespace Optivem.Infrastructure.Selenium
             return new TextBox(element);
         }
 
+        public IRadioGroup FindRadioGroup(FindType findType, string findBy)
+        {
+            var elements = FindElements(findType, findBy);
+            return new RadioGroup(elements);
+        }
+
         public IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var elements = FindElements(findType, findBy);
             return new RadioGroup<T>(elements, values);
+        }
+        public ICheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
+        {
+            var elements = FindElements(findType, findBy);
+            return new CheckBoxGroup(elements);
         }
 
         public ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
@@ -59,11 +70,18 @@ namespace Optivem.Infrastructure.Selenium
             return new CheckBoxGroup<T>(elements, values);
         }
 
+        public IComboBox FindComboBox(FindType findType, string findBy)
+        {
+            var element = FindElement(findType, findBy);
+            return new ComboBox(element);
+        }
+
         public IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
         {
             var element = FindElement(findType, findBy);
             return new ComboBox<T>(element, values);
         }
+
 
         #region Helper
 
@@ -79,6 +97,7 @@ namespace Optivem.Infrastructure.Selenium
             var elements = FindElements(findType, findBy);
             return elements.Single();
         }
+
 
         #endregion Helper
     }

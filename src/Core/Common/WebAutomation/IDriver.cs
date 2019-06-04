@@ -10,9 +10,15 @@ namespace Optivem.Core.Common.WebAutomation
 
         ICheckBox FindCheckBox(FindType findType, string findBy);
 
+        IRadioGroup FindRadioGroup(FindType findType, string findBy);
+
         IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
 
+        ICheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy);
+
         ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
+
+        IComboBox FindComboBox(FindType findType, string findBy);
 
         IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values);
     }
