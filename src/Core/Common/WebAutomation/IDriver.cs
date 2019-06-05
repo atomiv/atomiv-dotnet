@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Optivem.Core.Common.WebAutomation
 {
-    public interface IDriver
+    public interface IDriver : IDisposable
     {
         string Url { get; set; }
 

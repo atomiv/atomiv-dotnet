@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestDriver
+    public class TestDriver : IDisposable
     {
         private readonly IDriver _driver;
 
@@ -17,6 +17,11 @@ namespace Optivem.Test.Common.WebAutomation
         {
             get { return _driver.Url; }
             set { _driver.Url = value; }
+        }
+
+        public void Dispose()
+        {
+            _driver.Dispose();
         }
 
         public TestCheckBox FindCheckBox(FindType findType, string findBy)

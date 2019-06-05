@@ -1,9 +1,7 @@
 ﻿using FluentAssertions;
 using Optivem.Core.Common.WebAutomation;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Optivem.Test.Common.WebAutomation
 {

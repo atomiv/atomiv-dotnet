@@ -81,6 +81,10 @@ namespace Optivem.Infrastructure.Selenium
             var element = FindElement(findType, findBy);
             return new ComboBox<T>(element, values);
         }
+        public void Dispose()
+        {
+            WebDriver.Dispose();
+        }
 
 
         #region Helper
@@ -97,6 +101,8 @@ namespace Optivem.Infrastructure.Selenium
             var elements = FindElements(findType, findBy);
             return elements.Single();
         }
+
+
 
 
         #endregion Helper

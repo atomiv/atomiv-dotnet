@@ -1,14 +1,15 @@
 ﻿using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
-using System.Linq;
+using Optivem.Test.Xunit;
+using Optivem.Test.Xunit.Selenium;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 
-    public class SeleniumPageTest : SeleniumFixtureTest
+    public class SeleniumPageTest : TestFixture<ChromeDriverFixture>
     {
-        public SeleniumPageTest(SeleniumDriverFixture seleniumFixture) : base(seleniumFixture)
+        public SeleniumPageTest(ChromeDriverFixture fixture) : base(fixture)
         {
         }
 
@@ -16,7 +17,7 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
         [Fact]
         public void TestFindTextBoxByName()
         {
-            var driver = SeleniumFixture.TestDriver;
+            var driver = Fixture.TestDriver;
 
             driver.Url = "https://www.toolsqa.com/automation-practice-form/";
 

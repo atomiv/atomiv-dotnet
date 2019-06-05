@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Optivem.Web.AspNetCore.Test
 {
-    public class ValuesControllerTest : BaseTestFixture<TestClient>
+    public class ValuesControllerTest : TestFixture<TestClient>
     {
         public ValuesControllerTest(TestClient client)
             : base(client)

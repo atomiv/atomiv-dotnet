@@ -2,10 +2,10 @@
 
 namespace Optivem.Test.Xunit
 {
-    public abstract class BaseTestFixture<TFixture> : IClassFixture<TFixture>
+    public class TestFixture<TFixture> : IClassFixture<TFixture>
         where TFixture : class
     {
-        public BaseTestFixture(TFixture fixture)
+        public TestFixture(TFixture fixture)
         {
             Fixture = fixture;
         }

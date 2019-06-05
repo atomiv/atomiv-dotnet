@@ -1,17 +1,14 @@
 ﻿using Optivem.Core.Common.WebAutomation;
 using Optivem.Test.Common.WebAutomation;
-using System.Collections.Generic;
 
 namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages
 {
-    public class ToolsQAAutomationPracticeFormPage
+    public class ToolsQAAutomationPracticeFormPage : TestScreen
     {
-        public ToolsQAAutomationPracticeFormPage(TestDriver driver)
+        public ToolsQAAutomationPracticeFormPage(TestDriver driver) 
+            : base(driver)
         {
-            Driver = driver;
         }
-
-        public TestDriver Driver { get; private set; }
 
         public TestTextBox FirstName => Driver.FindTextBox(FindType.Name, "firstname");
 

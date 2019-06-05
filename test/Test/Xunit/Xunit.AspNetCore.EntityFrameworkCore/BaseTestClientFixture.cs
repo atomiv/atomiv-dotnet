@@ -4,7 +4,7 @@ using System;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 {
-    public abstract class BaseTestClientFixture<TClient, TStartup, TDbContext> : BaseTestFixture<TClient>, IDisposable
+    public abstract class BaseTestClientFixture<TClient, TStartup, TDbContext> : TestFixture<TClient>, IDisposable
         where TClient : BaseTestClient<TStartup, TDbContext>
         where TStartup : class
         where TDbContext : DbContext

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\..\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj" />
     <ProjectReference Include="..\..\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj" />
   </ItemGroup>
 
