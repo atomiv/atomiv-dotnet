@@ -27,7 +27,6 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
             page.FirstName.EnterText("John");
             page.FirstName.TextShouldBe("John");
 
-
             page.Gender.ShouldNotHaveSelection();
             page.Gender.SelectValue("Male");
             page.Gender.ShouldHaveSelectedValue("Male");
@@ -38,32 +37,23 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 
             page.Profession.ShouldNotHaveSelection();
             page.Profession.SelectValue("Automation Tester");
-            page.Profession.ShouldHaveOneSelectedItem();
-
-            Assert.Single(page.Profession.ReadSelectedValues());
-
-            Assert.Equal("Automation Tester", page.Profession.ReadSelectedValues().Single());
+            page.Profession.ShouldHaveOneSelectedValue("Automation Tester");
 
             // TODO: VC: Upload file
 
             // TODO: VC: Download file
 
-            Assert.False(page.AutomationTool.HasSelected());
-
+            page.AutomationTool.ShouldNotHaveSelection();
             page.AutomationTool.SelectValue("Selenium IDE");
-
-            Assert.Single(page.AutomationTool.ReadSelectedValues());
-
-            Assert.Equal("Selenium IDE", page.AutomationTool.ReadSelectedValues().Single());
+            page.AutomationTool.ShouldHaveOneSelectedValue("Selenium IDE");
 
             // TODO: VC: Testing multi select
 
             // TODO: VC: Checkboxes
 
-            Assert.True(page.Continent.HasSelected());
-            Assert.Equal("Asia", page.Continent.ReadSelectedValue());
+            page.Continent.ShouldHaveSelectedValue("Asia");
             page.Continent.SelectValue("Europe");
-            Assert.Equal("Europe", page.Continent.ReadSelectedValue());
+            page.Continent.ShouldHaveSelectedValue("Europe");
 
             // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)
             // TODO: VC: textBox - InputText(""), ShouldBeEmpty, ShouldHaveValue, ValueShouldBe(), ShouldBeNonEmpty

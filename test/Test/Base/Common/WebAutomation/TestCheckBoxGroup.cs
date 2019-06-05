@@ -2,6 +2,7 @@
 using Optivem.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Optivem.Test.Common.WebAutomation
@@ -63,6 +64,14 @@ namespace Optivem.Test.Common.WebAutomation
         {
             var selected = ReadSelectedValues();
             selected.Count.Should().Be(1);
+        }
+
+        public void ShouldHaveOneSelectedValue(string key)
+        {
+            var selected = ReadSelectedValues();
+            selected.Count.Should().Be(1);
+            var selectedValue = selected.Single();
+            selectedValue.Should().Be(key);
         }
     }
 

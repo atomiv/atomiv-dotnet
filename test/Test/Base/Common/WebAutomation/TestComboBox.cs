@@ -1,4 +1,5 @@
-﻿using Optivem.Core.Common.WebAutomation;
+﻿using FluentAssertions;
+using Optivem.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,6 +39,17 @@ namespace Optivem.Test.Common.WebAutomation
         public bool HasSelected()
         {
             return _comboBox.HasSelected();
+        }
+
+        public void ShouldNotHaveSelection()
+        {
+            HasSelected().Should().BeFalse();
+        }
+
+        public void ShouldHaveSelectedValue(string key)
+        {
+            var selected = ReadSelectedValue();
+            selected.Should().Be(key);
         }
     }
 
