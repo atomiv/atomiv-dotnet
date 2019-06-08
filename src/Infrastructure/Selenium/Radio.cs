@@ -3,7 +3,7 @@ using Optivem.Core.Common.WebAutomation;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class Radio : BaseElement, IRadio
+    public class Radio : Element, IRadioButton
     {
         public Radio(IWebElement element) : base(element)
         {
@@ -11,14 +11,14 @@ namespace Optivem.Infrastructure.Selenium
 
         public void Select()
         {
-            Element.Click();
+            WebElement.Click();
         }
 
         public bool IsSelected
         {
             get
             {
-                return Element.Selected;
+                return WebElement.Selected;
             }
         }
     }

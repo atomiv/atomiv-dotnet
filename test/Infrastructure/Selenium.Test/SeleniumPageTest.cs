@@ -53,7 +53,7 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
             // TODO: VC: Checkboxes
 
             page.Continent.ShouldHaveSelectedValue("Asia");
-            page.Continent.SelectValue("Europe");
+            page.Continent.SelectByValue("Europe");
             page.Continent.ShouldHaveSelectedValue("Europe");
 
             // TODO: VC: fluent assertions, e.g. pageProfessionCheckBox.SelectedValueShouldBe(), ShouldNotHaveSelection, ShouldHaveSingleSelection, ShouldHaveSelectedItems(items)

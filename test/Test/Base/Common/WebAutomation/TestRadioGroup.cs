@@ -3,11 +3,11 @@ using Optivem.Core.Common.WebAutomation;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestRadioGroup : IRadioGroup
+    public class TestRadioGroup : IRadioButtonGroup
     {
-        private readonly IRadioGroup _radioGroup;
+        private readonly IRadioButtonGroup _radioGroup;
 
-        public TestRadioGroup(IRadioGroup radioGroup)
+        public TestRadioGroup(IRadioButtonGroup radioGroup)
         {
             _radioGroup = radioGroup;
         }
@@ -46,6 +46,9 @@ namespace Optivem.Test.Common.WebAutomation
         }
     }
 
+    // TODO: VC: DELETE
+/*
+
     public class TestRadioGroup<T> : TestRadioGroup, IRadioGroup<T>
     {
         private readonly IRadioGroup<T> _radioGroup;
@@ -77,4 +80,7 @@ namespace Optivem.Test.Common.WebAutomation
             selected.Should().Be(key);
         }
     }
+
+    */
+
 }

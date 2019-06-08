@@ -3,26 +3,48 @@ using System.Collections.Generic;
 
 namespace Optivem.Core.Common.WebAutomation
 {
-    public interface IDriver : IDisposable
+    // TODO: VC: Check <TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioGroup, TCheckBoxGroup>
+
+    public interface IDriver<TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioGroup, TCheckBoxGroup> : IDisposable
+        where TElement : IElement
+        where TTextBox : ITextBox
+        where TCheckBox : ICheckBox
+        where TComboBox : IComboBox
+        where TButton : IButton
+        where TRadioGroup : IRadioButtonGroup
+        where TCheckBoxGroup : ICheckBoxGroup
     {
         string Url { get; set; }
 
-        ITextBox FindTextBox(FindType findType, string findBy);
+        TElement FindElement(FindType findType, string findBy);
 
-        ICheckBox FindCheckBox(FindType findType, string findBy);
+        TTextBox FindTextBox(FindType findType, string findBy);
 
-        IRadioGroup FindRadioGroup(FindType findType, string findBy);
+        TCheckBox FindCheckBox(FindType findType, string findBy);
 
-        IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
+        TComboBox FindComboBox(FindType findType, string findBy);
 
-        ICheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy);
+        TButton FindButton(FindType findType, string findBy);
 
-        ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
+        TRadioGroup FindRadioGroup(FindType findType, string findBy);
 
-        IComboBox FindComboBox(FindType findType, string findBy);
-
-        IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values);
+        TCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy);
     }
+
+    public interface IDriver : IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>
+    {
+
+    }
+
+
+    // TODO: VC: DELETE
+    /*
+
+    IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
+    ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values);
+    IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values);
+    */
+
 
     // TODO: VC: Maped radio group without mapping, e.g. when want to access raw strings, or perhaps ints, where there is no fixed range in advance
 

@@ -3,7 +3,7 @@ using Optivem.Core.Common.WebAutomation;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class TextBox : BaseElement, ITextBox
+    public class TextBox : Element, ITextBox
     {
         public TextBox(IWebElement element) : base(element)
         {
@@ -11,13 +11,13 @@ namespace Optivem.Infrastructure.Selenium
 
         public string ReadText()
         {
-            return Element.GetAttribute("value");
+            return WebElement.GetAttribute("value");
         }
 
         public void EnterText(string text)
         {
-            Element.Clear();
-            Element.SendKeys(text);
+            WebElement.Clear();
+            WebElement.SendKeys(text);
         }
     }
 }

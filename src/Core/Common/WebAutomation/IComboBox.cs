@@ -2,7 +2,9 @@
 {
     public interface IComboBox : IElement
     {
-        void SelectValue(string key);
+        void SelectByValue(string key);
+
+        void SelectByText(string text);
 
         string ReadSelectedValue();
 
@@ -13,6 +15,10 @@
         string ReadValue(int index);
     }
 
+    // TODO: VC: DELETE
+
+    /*
+
     public interface IComboBox<T> : IComboBox
     {
         void Select(T key);
@@ -21,4 +27,6 @@
 
         T Read(int index);
     }
+
+    */
 }

@@ -18,9 +18,13 @@ namespace Optivem.Test.Common.WebAutomation
 
         public bool Visible => _comboBox.Visible;
 
-        public void SelectValue(string key)
+        public void SelectByValue(string key)
         {
-            _comboBox.SelectValue(key);
+            _comboBox.SelectByValue(key);
+        }
+        public void SelectByText(string text)
+        {
+            _comboBox.SelectByText(text);
         }
 
         public string ReadSelectedValue()
@@ -48,8 +52,14 @@ namespace Optivem.Test.Common.WebAutomation
             var selected = ReadSelectedValue();
             selected.Should().Be(key);
         }
+
+
     }
 
+
+    // TODO: VC: DELETE
+
+    /*
     public class TestComboBox<T> : TestComboBox, IComboBox<T>
     {
         private readonly IComboBox<T> _comboBox;
@@ -75,4 +85,6 @@ namespace Optivem.Test.Common.WebAutomation
             _comboBox.Select(key);
         }
     }
+
+    */
 }

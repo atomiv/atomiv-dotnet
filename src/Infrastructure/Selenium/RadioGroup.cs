@@ -9,7 +9,7 @@ namespace Optivem.Infrastructure.Selenium
     // TODO: VC: CONTINUE
 
 
-    public class RadioGroup : BaseElementRange, IRadioGroup
+    public class RadioGroup : ElementCollection, IRadioButtonGroup
     {
         public RadioGroup(ReadOnlyCollection<IWebElement> elements) 
             : base(elements)
@@ -59,6 +59,10 @@ namespace Optivem.Infrastructure.Selenium
         }
     }
 
+    // TODO: VC: DELETE
+
+    /*
+
     public class RadioGroup<T> : RadioGroup, IRadioGroup<T>
     {
         private Dictionary<string, T> _map;
@@ -94,6 +98,8 @@ namespace Optivem.Infrastructure.Selenium
             SelectValue(mappedValue);
         }
     }
+
+    */
 
 
 }

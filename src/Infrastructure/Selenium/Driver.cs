@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class Driver : IDriver
+    public class Driver : IDriver<Element, TextBox, CheckBox, ComboBox, Button, RadioGroup, CheckBoxGroup>, IDriver
     {
         private static Dictionary<FindType, Func<string, By>> findTypeMap
             = new Dictionary<FindType, Func<string, By>>
@@ -35,52 +35,53 @@ namespace Optivem.Infrastructure.Selenium
             set { WebDriver.Url = value; }
         }
 
-        public ICheckBox FindCheckBox(FindType findType, string findBy)
+        public CheckBox FindCheckBox(FindType findType, string findBy)
         {
-            var element = FindElement(findType, findBy);
+            var element = FindWebElement(findType, findBy);
             return new CheckBox(element);
         }
 
-        public ITextBox FindTextBox(FindType findType, string findBy)
+        public TextBox FindTextBox(FindType findType, string findBy)
         {
-            var element = FindElement(findType, findBy);
+            var element = FindWebElement(findType, findBy);
             return new TextBox(element);
         }
 
-        public IRadioGroup FindRadioGroup(FindType findType, string findBy)
+        public RadioGroup FindRadioGroup(FindType findType, string findBy)
         {
-            var elements = FindElements(findType, findBy);
+            var elements = FindWebElements(findType, findBy);
             return new RadioGroup(elements);
         }
 
-        public IRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+
+        public CheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
         {
-            var elements = FindElements(findType, findBy);
-            return new RadioGroup<T>(elements, values);
-        }
-        public ICheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
-        {
-            var elements = FindElements(findType, findBy);
+            var elements = FindWebElements(findType, findBy);
             return new CheckBoxGroup(elements);
         }
 
-        public ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var elements = FindElements(findType, findBy);
-            return new CheckBoxGroup<T>(elements, values);
-        }
 
-        public IComboBox FindComboBox(FindType findType, string findBy)
+
+        public ComboBox FindComboBox(FindType findType, string findBy)
         {
-            var element = FindElement(findType, findBy);
+            var element = FindWebElement(findType, findBy);
             return new ComboBox(element);
         }
 
-        public IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
+
+
+        public Button FindButton(FindType findType, string findBy)
         {
-            var element = FindElement(findType, findBy);
-            return new ComboBox<T>(element, values);
+            var element = FindWebElement(findType, findBy);
+            return new Button(element);
         }
+
+        public Element FindElement(FindType findType, string findBy)
+        {
+            var element = FindWebElement(findType, findBy);
+            return new Element(element);
+        }
+
         public void Dispose()
         {
             WebDriver.Dispose();
@@ -89,22 +90,90 @@ namespace Optivem.Infrastructure.Selenium
 
         #region Helper
 
-        private ReadOnlyCollection<IWebElement> FindElements(FindType findType, string findBy)
+        private ReadOnlyCollection<IWebElement> FindWebElements(FindType findType, string findBy)
         {
             var byGetter = findTypeMap[findType];
             var by = byGetter(findBy);
             return WebDriver.FindElements(by);
         }
 
-        private IWebElement FindElement(FindType findType, string findBy)
+        private IWebElement FindWebElement(FindType findType, string findBy)
         {
-            var elements = FindElements(findType, findBy);
+            var elements = FindWebElements(findType, findBy);
             return elements.Single();
         }
+
+        IElement IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindElement(FindType findType, string findBy)
+        {
+            return FindElement(findType, findBy);
+        }
+
+        ITextBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindTextBox(FindType findType, string findBy)
+        {
+            return FindTextBox(findType, findBy);
+        }
+
+        ICheckBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindCheckBox(FindType findType, string findBy)
+        {
+            return FindCheckBox(findType, findBy);
+        }
+
+        IComboBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindComboBox(FindType findType, string findBy)
+        {
+            return FindComboBox(findType, findBy);
+        }
+
+        IButton IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindButton(FindType findType, string findBy)
+        {
+            return FindButton(findType, findBy);
+        }
+
+        IRadioButtonGroup IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindRadioGroup(FindType findType, string findBy)
+        {
+            return FindRadioGroup(findType, findBy);
+        }
+
+        ICheckBoxGroup IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindCheckBoxGroup(FindType findType, string findBy)
+        {
+            return FindCheckBoxGroup(findType, findBy);
+        }
+
+
+
+
 
 
 
 
         #endregion Helper
     }
+
+    // TODO: VC: DELETE
+
+    /*
+     * 
+     * 
+        public RadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var elements = FindWebElements(findType, findBy);
+            return new RadioGroup<T>(elements, values);
+        }
+     * 
+     * 
+        public ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var elements = FindWebElements(findType, findBy);
+            return new CheckBoxGroup<T>(elements, values);
+        }
+
+        public IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var element = FindWebElement(findType, findBy);
+            return new ComboBox<T>(element, values);
+        }
+
+     * 
+     * 
+     */
+
 }

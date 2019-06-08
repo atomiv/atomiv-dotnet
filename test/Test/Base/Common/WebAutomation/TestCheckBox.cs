@@ -2,17 +2,19 @@
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestCheckBox : ICheckBox
+    public class TestCheckBox<TCheckBox> : TestElement<TCheckBox>, ICheckBox
+        where TCheckBox : ICheckBox
     {
-        private readonly ICheckBox _checkBox;
-
-        public TestCheckBox(ICheckBox checkBox)
+        public TestCheckBox(TCheckBox element)
+            : base(element)
         {
-            _checkBox = checkBox;
         }
+    }
 
-        public bool Enabled => _checkBox.Enabled;
-
-        public bool Visible => _checkBox.Visible;
+    public class TestCheckBox : TestCheckBox<ICheckBox>
+    {
+        public TestCheckBox(ICheckBox element) : base(element)
+        {
+        }
     }
 }

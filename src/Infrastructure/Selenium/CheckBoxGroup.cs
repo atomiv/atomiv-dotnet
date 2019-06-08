@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class CheckBoxGroup : BaseElementRange, ICheckBoxGroup
+    public class CheckBoxGroup : ElementCollection, ICheckBoxGroup
     {
         public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements) 
             : base(elements)
@@ -61,6 +61,12 @@ namespace Optivem.Infrastructure.Selenium
         }
     }
 
+
+    // TODO: VC: DELETE
+
+
+    /*
+
     public class CheckBoxGroup<T> : CheckBoxGroup, ICheckBoxGroup<T>
     {
         private Dictionary<string, T> _map;
@@ -97,4 +103,6 @@ namespace Optivem.Infrastructure.Selenium
             DeselectValue(value);
         }
     }
+
+    */
 }

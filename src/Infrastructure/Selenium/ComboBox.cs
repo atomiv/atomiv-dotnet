@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Optivem.Infrastructure.Selenium
 {
-    public class ComboBox : BaseElement, IComboBox
+    public class ComboBox : Element, IComboBox
     {
         public ComboBox(IWebElement element) 
             : base(element)
@@ -16,19 +16,19 @@ namespace Optivem.Infrastructure.Selenium
         {
             get
             {
-                return Element.FindElements(By.TagName("option")).Count;
+                return WebElement.FindElements(By.TagName("option")).Count;
             }
         }
 
         public bool HasSelected()
         {
-            var element = Element.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
+            var element = WebElement.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
             return element != null;
         }
 
         public string ReadSelectedValue()
         {
-            var element = Element.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
+            var element = WebElement.FindElements(By.TagName("option")).SingleOrDefault(e => e.Selected);
 
             if (element == null)
             {
@@ -40,18 +40,36 @@ namespace Optivem.Infrastructure.Selenium
 
         public string ReadValue(int index)
         {
-            var element = Element.FindElements(By.TagName("option"))[index];
+            var element = WebElement.FindElements(By.TagName("option"))[index];
             return element.GetValueAttribute();
 
             // TODO: VC: Move getting common attributes into some element base
         }
 
-        public void SelectValue(string key)
+        public void SelectByText(string text)
         {
-            var element = Element.FindElements(By.TagName("option")).Single(e => e.GetValueAttribute() == key);
+            var options = GetOptions();
+            var element = options.Single(e => e.Text == text);
             element.Click();
         }
+
+        public void SelectByValue(string key)
+        {
+            var options = GetOptions();
+            var element = options.Single(e => e.GetValueAttribute() == key);
+            element.Click();
+        }
+
+        private IReadOnlyCollection<IWebElement> GetOptions()
+        {
+            return WebElement.FindElements(By.TagName("option"));
+        }
     }
+
+
+    // TODO: VC: DELETE
+
+    /*
 
     public class ComboBox<T> : ComboBox, IComboBox<T>
     {
@@ -79,7 +97,9 @@ namespace Optivem.Infrastructure.Selenium
         public void Select(T key)
         {
             var value = _reverseMap[key];
-            SelectValue(value);
+            SelectByValue(value);
         }
     }
+
+    */
 }

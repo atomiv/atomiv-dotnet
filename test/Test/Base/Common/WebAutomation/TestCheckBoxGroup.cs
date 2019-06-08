@@ -5,40 +5,39 @@ using System.Linq;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestCheckBoxGroup : ICheckBoxGroup
+    public class TestCheckBoxGroup<TCheckBoxGroup> : TestElement<TCheckBoxGroup>, ICheckBoxGroup
+        where TCheckBoxGroup : ICheckBoxGroup
     {
-        private readonly ICheckBoxGroup _checkBoxGroup;
-
-        public TestCheckBoxGroup(ICheckBoxGroup checkBoxGroup)
+        public TestCheckBoxGroup(TCheckBoxGroup element)
+            : base(element)
         {
-            _checkBoxGroup = checkBoxGroup;
         }
 
-        public int Count => _checkBoxGroup.Count;
+        public int Count => Element.Count;
 
         public void SelectValue(string key)
         {
-            _checkBoxGroup.SelectValue(key);
+            Element.SelectValue(key);
         }
 
         public void DeselectValue(string key)
         {
-            _checkBoxGroup.DeselectValue(key);
+            Element.DeselectValue(key);
         }
 
         public List<string> ReadSelectedValues()
         {
-            return _checkBoxGroup.ReadSelectedValues();
+            return Element.ReadSelectedValues();
         }
 
         public string ReadValue(int index)
         {
-            return _checkBoxGroup.ReadValue(index);
+            return Element.ReadValue(index);
         }
 
         public bool HasSelected()
         {
-            return _checkBoxGroup.HasSelected();
+            return Element.HasSelected();
         }
 
         public void ShouldNotHaveSelection()
@@ -46,61 +45,70 @@ namespace Optivem.Test.Common.WebAutomation
             HasSelected().Should().BeFalse();
         }
 
-        public void ShouldHaveSelectedValue(string key)
+        public void ShouldHaveSelectedValue(string expected)
         {
-            var selected = ReadSelectedValues();
-            selected.Should().Contain(key);
+            var actual = ReadSelectedValues();
+            actual.Should().Contain(expected);
         }
 
-        public void ShouldHaveSelectionCount(int expectedCount)
+        public void ShouldHaveSelectionCount(int expected)
         {
-            var selected = ReadSelectedValues();
-            selected.Count.Should().Be(expectedCount);
+            var actual = ReadSelectedValues();
+            actual.Count.Should().Be(expected);
         }
 
         public void ShouldHaveOneSelectedItem()
         {
-            var selected = ReadSelectedValues();
-            selected.Count.Should().Be(1);
+            var actual = ReadSelectedValues();
+            actual.Count.Should().Be(1);
         }
 
-        public void ShouldHaveOneSelectedValue(string key)
+        public void ShouldHaveOneSelectedValue(string expected)
         {
-            var selected = ReadSelectedValues();
-            selected.Count.Should().Be(1);
-            var selectedValue = selected.Single();
-            selectedValue.Should().Be(key);
+            var actualCount = ReadSelectedValues();
+            actualCount.Count.Should().Be(1);
+            var actualValue = actualCount.Single();
+            actualValue.Should().Be(expected);
         }
     }
 
-    public class TestCheckBoxGroup<T> : TestCheckBoxGroup, ICheckBoxGroup<T>
+    public class TestCheckBoxGroup : TestCheckBoxGroup<ICheckBoxGroup>
     {
-        private readonly ICheckBoxGroup<T> _checkBoxGroup;
-
-        public TestCheckBoxGroup(ICheckBoxGroup<T> checkBoxGroup)
-            : base(checkBoxGroup)
+        public TestCheckBoxGroup(ICheckBoxGroup element) : base(element)
         {
-            _checkBoxGroup = checkBoxGroup;
+        }
+    }
+
+    // TODO: VC: DELETE
+
+    /*
+
+    public class TestCheckBoxGroup<TCheckBoxGroup, T> : TestCheckBoxGroup<TCheckBoxGroup>, ICheckBoxGroup<T>
+        where TCheckBoxGroup : ICheckBoxGroup<T>
+    {
+        public TestCheckBoxGroup(TCheckBoxGroup element)
+            : base(element)
+        {
         }
 
         public void Deselect(T key)
         {
-            _checkBoxGroup.Deselect(key);
+            Element.Deselect(key);
         }
 
         public List<T> ReadSelected()
         {
-            return _checkBoxGroup.ReadSelected();
+            return Element.ReadSelected();
         }
 
         public T Read(int index)
         {
-            return _checkBoxGroup.Read(index);
+            return Element.Read(index);
         }
 
         public void Select(T key)
         {
-            _checkBoxGroup.Select(key);
+            Element.Select(key);
         }
 
         public void ShouldHaveSelection(T key)
@@ -109,4 +117,6 @@ namespace Optivem.Test.Common.WebAutomation
             selected.Should().Contain(key);
         }
     }
+
+    */
 }

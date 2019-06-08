@@ -4,11 +4,12 @@ using System.Collections.Generic;
 
 namespace Optivem.Test.Common.WebAutomation
 {
-    public class TestDriver : IDisposable
+    public class TestDriver<TDriver> : IDisposable
+        where TDriver : IDriver
     {
-        private readonly IDriver _driver;
+        private readonly TDriver _driver;
 
-        public TestDriver(IDriver driver)
+        public TestDriver(TDriver driver)
         {
             _driver = driver;
         }
@@ -18,6 +19,7 @@ namespace Optivem.Test.Common.WebAutomation
             get { return _driver.Url; }
             set { _driver.Url = value; }
         }
+
 
         public void Dispose()
         {
@@ -30,17 +32,26 @@ namespace Optivem.Test.Common.WebAutomation
             return new TestCheckBox(checkBox);
         }
 
+        public TestElement FindElement(FindType findType, string findBy)
+        {
+            var element = _driver.FindElement(findType, findBy);
+            return new TestElement(element);
+        }
+
+        public List<TestElement> FindElementCollection(FindType findType, string findBy)
+        {
+
+
+            throw new NotImplementedException();
+        }
+
         public TestCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
         {
             var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy);
             return new TestCheckBoxGroup(checkBoxGroup);
         }
 
-        public TestCheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy, values);
-            return new TestCheckBoxGroup<T>(checkBoxGroup);
-        }
+
 
         public TestComboBox FindComboBox(FindType findType, string findBy)
         {
@@ -48,10 +59,11 @@ namespace Optivem.Test.Common.WebAutomation
             return new TestComboBox(comboBox);
         }
 
-        public TestComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
+
+
+        public TestComboBox FindComboBoxByClass(string className)
         {
-            var comboBox = _driver.FindComboBox(findType, findBy, values);
-            return new TestComboBox<T>(comboBox);
+            return FindComboBox(FindType.ClassName, className);
         }
 
         public TestRadioGroup FindRadioGroup(FindType findType, string findBy)
@@ -60,16 +72,64 @@ namespace Optivem.Test.Common.WebAutomation
             return new TestRadioGroup(radioGroup);
         }
 
-        public TestRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var radioGroup = _driver.FindRadioGroup(findType, findBy, values);
-            return new TestRadioGroup<T>(radioGroup);
-        }
+
+
 
         public TestTextBox FindTextBox(FindType findType, string findBy)
         {
             var textBox = _driver.FindTextBox(findType, findBy);
             return new TestTextBox(textBox);
+        }
+
+        public TestTextBox FindTextBoxById(string id)
+        {
+            return FindTextBox(FindType.Id, id);
+        }
+
+        public TestButton FindButton(FindType findType, string findBy)
+        {
+            var button = _driver.FindButton(findType, findBy);
+            return new TestButton(button);
+        }
+        public TestButton FindButtonByClass(string type)
+        {
+            return FindButton(FindType.ClassName, type);
+        }
+
+
+
+        // TODO: VC: DELETE this and the associated classes
+
+        /*
+         * 
+         * 
+        public TestCheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy, values);
+            return new TestCheckBoxGroup<T>(checkBoxGroup);
+        }
+
+        public TestComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var comboBox = _driver.FindComboBox(findType, findBy, values);
+            return new TestComboBox<T>(comboBox);
+        }
+
+
+        public TestRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
+        {
+            var radioGroup = _driver.FindRadioGroup(findType, findBy, values);
+            return new TestRadioGroup<T>(radioGroup);
+        }
+         * 
+         */
+
+    }
+
+    public class TestDriver : TestDriver<IDriver>
+    {
+        public TestDriver(IDriver driver) : base(driver)
+        {
         }
     }
 }
