@@ -159,6 +159,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Xunit.Selenium", "test\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj", "{F7D8EC56-421C-411C-A0D2-BC5363084D76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Templates", "templates\All\Optivem.Templates\Optivem.Templates.csproj", "{13C06355-07FE-46A9-9021-424C5AF4F5F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -381,6 +383,10 @@ Global
 		{F7D8EC56-421C-411C-A0D2-BC5363084D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7D8EC56-421C-411C-A0D2-BC5363084D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7D8EC56-421C-411C-A0D2-BC5363084D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C06355-07FE-46A9-9021-424C5AF4F5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C06355-07FE-46A9-9021-424C5AF4F5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C06355-07FE-46A9-9021-424C5AF4F5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C06355-07FE-46A9-9021-424C5AF4F5F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -461,6 +467,7 @@ Global
 		{BAD5BAB7-4DBB-43B5-B315-EA5723D42E29} = {2D62DCFE-F085-4522-B19D-58FCE451AD9B}
 		{51BBACC2-8963-4607-8928-A77337373BE2} = {BAD5BAB7-4DBB-43B5-B315-EA5723D42E29}
 		{F7D8EC56-421C-411C-A0D2-BC5363084D76} = {D85E4925-75ED-49E6-AB92-07F13956D234}
+		{13C06355-07FE-46A9-9021-424C5AF4F5F4} = {F312512B-F9DF-4318-9FA5-B9600FA32E81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Optivem.Template.Web.Controllers
+namespace Optivem.Templates.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
