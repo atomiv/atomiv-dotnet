@@ -124,7 +124,7 @@ $projects = @(
     'test\Test\Xunit\Optivem.Test.Xunit.Common.csproj',
 	
 	# Selenium
-    'test\Test\Xunit\Optivem.Test.Xunit.Selenium.csproj',
+    'test\Test\Xunit\Optivem.Test.Xunit.Selenium.csproj'
 )
 
 # TODO: VC: Update all project files to the new version

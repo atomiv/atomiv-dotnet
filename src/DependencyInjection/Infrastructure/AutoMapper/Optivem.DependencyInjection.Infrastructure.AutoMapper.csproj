@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Version>1.0.10</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,7 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+
+    <Authors>Optivem</Authors>
+
+    <Version>1.0.10</Version>
   </PropertyGroup>
 
   <ItemGroup>
