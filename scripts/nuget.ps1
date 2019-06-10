@@ -30,14 +30,13 @@ if($pack)
 
 $projects = @(
 
-	# ### ============================== COMMON ============================== ###
+	# ### ============================== CORE ============================== ###
+	
+	# All
+    'src\Core\All\Optivem.Core.All.csproj',	
 
 	# Common
-    'src\Common\Http\Optivem.Common.Http.csproj',
-    'src\Common\Serialization\Optivem.Common.Serialization.csproj',
-    'src\Common\WebAutomation\Optivem.Common.WebAutomation.csproj',
-
-	# ### ============================== CORE ============================== ###
+    'src\Core\Common\Optivem.Core.Common.csproj',
 
 	# Domain
     'src\Core\Domain\Optivem.Core.Domain.csproj',
@@ -45,42 +44,87 @@ $projects = @(
 	# Application
     'src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj',
     'src\Core\Application\Optivem.Core.Application.csproj',
+	
+	# ### ============================== DEPENDENCY INJECTION ============================== ###
+	
+	# Base
+    'src\DependencyInjection\Base\DependencyInjection\Optivem.DependencyInjection.csproj',
+	
+	# Core
+    'src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj',	
+    'src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj',	
+	
+	# Infrastructure	
+    'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj',	
+	# TODO: VC: Add other infrastructure
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
+	
+	# All
+    'src\Infrastructure\All\Optivem.Infrastructure.All.csproj',
 
-	# Http
-    'src\Infrastructure\Http\System\Optivem.Infrastructure.Http.System.csproj',
+	# AspNetCore
+    'src\Infrastructure\AspNetCore\Optivem.Infrastructure.AspNetCore.csproj',
 	
-	# Mapping
-    'src\Infrastructure\Mapping\AutoMapper\Optivem.Infrastructure.Mapping.AutoMapper.csproj',
+	# AutoMapper
+    'src\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj',
 	
-	# Messaging
-    'src\Infrastructure\Messaging\MediatR\Optivem.Infrastructure.Messaging.MediatR.csproj',
+	# CsvHelper
+    'src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj',
 	
-	# Persistence
-    'src\Infrastructure\Persistence\EntityFrameworkCore\Optivem.Infrastructure.Persistence.EntityFrameworkCore.csproj',
+	# EntityFrameworkCore
+    'src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj',
 	
-	# Serialization
-    'src\Infrastructure\Serialization\CsvHelper\Optivem.Infrastructure.Serialization.CsvHelper.csproj',
-	'src\Infrastructure\Serialization\NewtonsoftJson\Optivem.Infrastructure.Serialization.NewtonsoftJson.csproj',
-	'src\Infrastructure\Serialization\System\Optivem.Infrastructure.Serialization.System.csproj',
-
-	# Validation
-    'src\Infrastructure\Validation\FluentValidation\Optivem.Infrastructure.Validation.FluentValidation.csproj',
-
-	# WebAutomation
-    'src\Infrastructure\WebAutomation\Selenium\Optivem.Infrastructure.WebAutomation.Selenium.csproj',
+	# FluentValidation
+    'src\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj',
+	
+	# MediatR
+    'src\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.csproj',
+	
+	# NewtonsoftJson
+    'src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj',	
+	
+	# Selenium
+    'src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj',
+	
+	# System
+    'src\Infrastructure\System\Optivem.Infrastructure.System.csproj',
 
 	# ### ============================== WEB ============================== ###
 
 	# AspNetCore
     'src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj',
 	
-	# ### ============================== TEST ============================== ###
+	# ### ============================== TEST - BASE ============================== ###
 	
-	# Base
-    'test\Base\Xunit\Optivem.Test.Xunit.csproj',
-    'test\Base\Xunit.AspNetCore\Optivem.Test.Xunit.AspNetCore.csproj'
+	# All
+    'test\Test\Base\Optivem.Test.All.csproj',
+	
+	# Common
+	'test\Test\Base\Optivem.Test.Common.csproj',
+	
+	# AspNetCore
+	'test\Test\Base\Optivem.Test.AspNetCore.csproj',
+	
+	# AspNetCore.EntityFrameworkCore
+	'test\Test\Base\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj',
+
+	# EntityFrameworkCore
+	'test\Test\Base\Optivem.Test.EntityFrameworkCore.csproj',	
+	
+	# ### ============================== TEST - XUNIT ============================== ###
+	
+	# All	
+    'test\Test\Xunit\Optivem.Test.Xunit.All.csproj',
+
+	# AspNetCore.EntityFrameworkCore	
+    'test\Test\Xunit\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj',
+	
+	# Common
+    'test\Test\Xunit\Optivem.Test.Xunit.Common.csproj',
+	
+	# Selenium
+    'test\Test\Xunit\Optivem.Test.Xunit.Selenium.csproj',
 )
 
 # TODO: VC: Update all project files to the new version
