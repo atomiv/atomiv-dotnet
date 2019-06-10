@@ -10,8 +10,12 @@ param (
 $projectFiles = Get-ChildItem $rootPath *.csproj -rec
 foreach($projectFile in $projectFiles)
 {
+	Write-Host $projectFile
+	
+	Write-Host $projectFile.PSPath
+
 	(Get-Content $projectFile.PSPath) |
-	Foreach-Object { $_ -replace "<Version>\d\.\d\.\d</Version>", "<Version>$version</Version>" } |
+	Foreach-Object { $_ -replace "<Version>\d\.\d\.\d+</Version>", "<Version>$version</Version>" } |
 	Set-Content $projectFile.PSPath
 }
 
