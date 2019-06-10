@@ -98,33 +98,33 @@ $projects = @(
 	# ### ============================== TEST - BASE ============================== ###
 	
 	# All
-    'test\Test\Base\Optivem.Test.All.csproj',
+    'test\Test\Base\All\Optivem.Test.All.csproj',
 	
 	# Common
-	'test\Test\Base\Optivem.Test.Common.csproj',
+	'test\Test\Base\Common\Optivem.Test.Common.csproj',
 	
 	# AspNetCore
-	'test\Test\Base\Optivem.Test.AspNetCore.csproj',
+	'test\Test\Base\AspNetCore\Optivem.Test.AspNetCore.csproj',
 	
 	# AspNetCore.EntityFrameworkCore
-	'test\Test\Base\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj',
+	'test\Test\Base\AspNetCore.EntityFrameworkCore\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj',
 
 	# EntityFrameworkCore
-	'test\Test\Base\Optivem.Test.EntityFrameworkCore.csproj',	
+	'test\Test\Base\EntityFrameworkCore\Optivem.Test.EntityFrameworkCore.csproj',	
 	
 	# ### ============================== TEST - XUNIT ============================== ###
 	
 	# All	
-    'test\Test\Xunit\Optivem.Test.Xunit.All.csproj',
+    'test\Test\Xunit\Xunit.All\Optivem.Test.Xunit.All.csproj',
 
 	# AspNetCore.EntityFrameworkCore	
-    'test\Test\Xunit\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj',
+    'test\Test\Xunit\Xunit.AspNetCore.EntityFrameworkCore\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj',
 	
 	# Common
-    'test\Test\Xunit\Optivem.Test.Xunit.Common.csproj',
+    'test\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj',
 	
 	# Selenium
-    'test\Test\Xunit\Optivem.Test.Xunit.Selenium.csproj'
+    'test\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj'
 )
 
 # TODO: VC: Update all project files to the new version
