@@ -4,7 +4,7 @@ using System.Threading;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
-namespace Optivem.Templates
+namespace Optivem.Template.Installer
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -25,12 +25,12 @@ namespace Optivem.Templates
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [Guid(PackageGuidString)]
-    public sealed class OptivemTemplatesPackage : AsyncPackage
+    public sealed class InstallerPackage : AsyncPackage
     {
          /// <summary>
-        /// Optivem.TemplatesPackage GUID string.
+        /// Optivem.Template.InstallerPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "638d4bf0-3d6f-4620-bd74-dd0234b17bfb";
+        public const string PackageGuidString = "a0b5ef04-b49c-48bb-a10d-e441ccb8c3c1";
 
     #region Package Members
 

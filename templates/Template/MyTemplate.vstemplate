@@ -1,0 +1,56 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+
+  <TemplateData>
+    <Name>Optivem Template</Name>
+    <Description>Optivem General purpose template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MyProject</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  
+  <TemplateContent>
+  
+	<CustomParameters>
+		<CustomParameter Name="$SolutionName$" Value="$safeprojectname$"></CustomParameter>
+	</CustomParameters>
+  
+	<ProjectCollection>
+	
+		<SolutionFolder Name="Src">
+		
+			<SolutionFolder Name="Core">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Domain">
+					Optivem.Template.Core.Domain\MyTemplate.vstemplate
+				</ProjectTemplateLink>	
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Application">
+					Optivem.Template.Core.Application\MyTemplate.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Application.Interface">
+					Optivem.Template.Core.Application.Interface\MyTemplate.vstemplate
+				</ProjectTemplateLink>	
+			</SolutionFolder>
+			
+			<SolutionFolder Name="Web">
+				<ProjectTemplateLink ProjectName="$projectname$.Web.RestApi">
+					Optivem.Template.Web.RestApi\MyTemplate.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			
+		</SolutionFolder>
+
+		<SolutionFolder Name="Test">
+			
+		</SolutionFolder>
+		
+	</ProjectCollection>
+	
+  </TemplateContent>
+  
+</VSTemplate>

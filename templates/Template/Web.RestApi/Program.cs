@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Optivem.Templates.WebApi
+namespace Optivem.Template.Web.RestApi
 {
     public class Program
     {

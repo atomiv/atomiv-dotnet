@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Optivem.Templates.WebApi
+namespace Optivem.Template.Web.RestApi
 {
     public class Startup
     {
