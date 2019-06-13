@@ -16,5 +16,6 @@
     </Prerequisites>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Optivem.Template.zip" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Optivem.Template.Installer.Wizard" Path="|Optivem.Template.Installer.Wizard|" AssemblyName="|Optivem.Template.Installer.Wizard;AssemblyName|" />
     </Assets>
 </PackageManifest>

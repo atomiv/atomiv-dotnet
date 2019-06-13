@@ -27,19 +27,19 @@
 		
 			<SolutionFolder Name="Core">
 				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Domain">
-					Optivem.Template.Core.Domain\MyTemplate.vstemplate
+					Core.Domain\MyTemplate.vstemplate
 				</ProjectTemplateLink>	
 				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Application">
-					Optivem.Template.Core.Application\MyTemplate.vstemplate
+					Core.Application\MyTemplate.vstemplate
 				</ProjectTemplateLink>
 				<ProjectTemplateLink ProjectName="$safeprojectname$.Core.Application.Interface">
-					Optivem.Template.Core.Application.Interface\MyTemplate.vstemplate
+					Core.Application.Interface\MyTemplate.vstemplate
 				</ProjectTemplateLink>	
 			</SolutionFolder>
 			
 			<SolutionFolder Name="Web">
 				<ProjectTemplateLink ProjectName="$projectname$.Web.RestApi">
-					Optivem.Template.Web.RestApi\MyTemplate.vstemplate
+					Web.RestApi\MyTemplate.vstemplate
 				</ProjectTemplateLink>
 			</SolutionFolder>
 			
@@ -52,5 +52,10 @@
 	</ProjectCollection>
 	
   </TemplateContent>
+  
+  <WizardExtension>
+    <Assembly>Optivem.Template.Installer.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c57f6c96181568e5</Assembly>
+    <FullClassName>Optivem.Template.Installer.Wizard.SolutionWizard</FullClassName>
+  </WizardExtension>
   
 </VSTemplate>

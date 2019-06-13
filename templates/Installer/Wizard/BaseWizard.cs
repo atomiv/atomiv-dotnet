@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Wizard
+namespace Optivem.Template.Installer.Wizard
 {
     public class BaseWizard : IWizard
     {
