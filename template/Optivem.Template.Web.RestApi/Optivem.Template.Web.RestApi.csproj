@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <Authors>Optivem</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
   </ItemGroup>
 
 </Project>
