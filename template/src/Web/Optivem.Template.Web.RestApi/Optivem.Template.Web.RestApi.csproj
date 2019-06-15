@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Core.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />

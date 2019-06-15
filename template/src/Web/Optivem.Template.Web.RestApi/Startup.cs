@@ -16,6 +16,7 @@ using Optivem.Web.AspNetCore;
 using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.DependencyInjection.Core.Application;
+using Optivem.DependencyInjection.Core.Domain;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
 using Optivem.Template.Infrastructure.MediatR.Customers;
 using Optivem.Template.Infrastructure.AutoMapper.Customers;
@@ -43,31 +44,31 @@ namespace Optivem.Template.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // TODO: VC: Lookup assembly by name
+            var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
+            var domainAssembly = typeof(Customer).Assembly;
+
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
             var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
             var autoMapperAssemblies = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
             var fluentValidationAssemblies = typeof(CreateCustomerRequestValidator).Assembly;
-            var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
+
+
 
             services
                 .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2) // TODO: VC: Check if needed?
-                ;
-
-            // TODO: VC: Test HATEOAS
-
-            // TODO: VC: Auto find use cases
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
-            // Application
-
+            // Core
             services.AddApplicationCore(applicationAssembly);
+            services.AddDomainCore(domainAssembly);
 
-            // Domain
+            // Infrastructure
 
-            services.AddScoped<IIdentityFactory<CustomerIdentity, int>, CustomerIdentityFactory>();
+
 
             // Infrastructure - Repository
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
