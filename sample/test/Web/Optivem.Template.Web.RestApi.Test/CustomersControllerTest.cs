@@ -1,6 +1,6 @@
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
-using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
-using Optivem.NorthwindLite.Web.Test.Fixture;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Web.Test.Fixture;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ using Xunit;
 // TODO: VC: Consider moving to base
 // [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
-namespace Optivem.NorthwindLite.Web.Test
+namespace Optivem.Template.Web.Test
 {
     public class CustomersControllerTest : TestFixture
     {

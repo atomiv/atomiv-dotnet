@@ -1,6 +1,6 @@
 ﻿using Optivem.Core.Domain;
 
-namespace Optivem.NorthwindLite.Core.Domain.Customers
+namespace Optivem.Template.Core.Domain.Customers
 {
     public class CustomerIdentity : Identity<int>
     {

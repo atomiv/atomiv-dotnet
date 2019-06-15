@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.NorthwindLite.Core.Application.Customers;
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
-using Optivem.NorthwindLite.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Customers;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Web.AspNetCore;
 using System.Threading.Tasks;
 
-namespace Optivem.NorthwindLite.Web.Controllers
+namespace Optivem.Template.Web.Controllers
 {
     [Route("api/customers")]
     [ApiController]

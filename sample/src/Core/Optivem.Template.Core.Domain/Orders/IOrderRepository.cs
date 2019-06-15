@@ -1,6 +1,6 @@
 ﻿using Optivem.Core.Domain;
 
-namespace Optivem.NorthwindLite.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders
 {
     public interface IOrderRepository : ICrudRepository<Order, OrderIdentity>
     {

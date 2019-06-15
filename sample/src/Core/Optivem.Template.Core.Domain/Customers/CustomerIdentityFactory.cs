@@ -1,4 +1,4 @@
-﻿namespace Optivem.NorthwindLite.Core.Domain.Customers
+﻿namespace Optivem.Template.Core.Domain.Customers
 {
     class CustomerIdentityFactory
     {

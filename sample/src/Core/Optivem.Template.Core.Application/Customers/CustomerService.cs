@@ -1,10 +1,10 @@
 ﻿using Optivem.Core.Application;
 using Optivem.Core.Application.Services;
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
-using Optivem.NorthwindLite.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.NorthwindLite.Core.Application.Customers
+namespace Optivem.Template.Core.Application.Customers
 {
     public class CustomerService : BaseService, ICustomerService
     {

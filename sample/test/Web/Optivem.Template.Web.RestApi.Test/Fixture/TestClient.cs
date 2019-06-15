@@ -1,12 +1,12 @@
 ﻿using Optivem.Core.Common.Http;
 using Optivem.Infrastructure.AspNetCore;
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
-using Optivem.NorthwindLite.Core.Application.Customers.Responses;
-using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Test.AspNetCore.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Optivem.NorthwindLite.Web.Test.Fixture
+namespace Optivem.Template.Web.Test.Fixture
 {
     // TODO: VC
 

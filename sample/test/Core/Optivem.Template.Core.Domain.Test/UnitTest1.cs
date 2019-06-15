@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Optivem.NorthwindLite.Core.Domain.Test
+namespace Optivem.Template.Core.Domain.Test
 {
     public class UnitTest1
     {

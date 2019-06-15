@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Optivem.NorthwindLite.Web
+namespace Optivem.Template.Web
 {
     public class Program
     {

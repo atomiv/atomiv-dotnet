@@ -1,6 +1,6 @@
 ﻿using Optivem.Core.Domain;
 
-namespace Optivem.NorthwindLite.Core.Domain.Products
+namespace Optivem.Template.Core.Domain.Products
 {
     public class Product : AggregateRoot<ProductIdentity>
     {

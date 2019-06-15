@@ -1,7 +1,7 @@
-﻿using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit;
 
-namespace Optivem.NorthwindLite.Web.Test.Fixture
+namespace Optivem.Template.Web.Test.Fixture
 {
     public class TestFixture : BaseTestClientFixture<TestClient, Startup, DatabaseContext>
     {

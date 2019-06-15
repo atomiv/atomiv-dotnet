@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 
-namespace Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
     public partial class DatabaseContext : DbContext
     {

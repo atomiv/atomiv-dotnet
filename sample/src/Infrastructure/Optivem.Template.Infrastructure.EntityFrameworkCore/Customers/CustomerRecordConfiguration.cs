@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
     public class CustomerRecordConfiguration : IEntityTypeConfiguration<CustomerRecord>
     {

@@ -1,7 +1,7 @@
 ﻿using Optivem.Core.Domain;
-using Optivem.NorthwindLite.Core.Domain.Products;
+using Optivem.Template.Core.Domain.Products;
 
-namespace Optivem.NorthwindLite.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders
 {
     public class OrderDetail : Entity<OrderDetailIdentity>
     {

@@ -1,8 +1,8 @@
 ﻿using Optivem.Core.Domain;
-using Optivem.NorthwindLite.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Customers;
 using System.Collections.ObjectModel;
 
-namespace Optivem.NorthwindLite.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders
 {
     public class Order : AggregateRoot<OrderIdentity>
     {

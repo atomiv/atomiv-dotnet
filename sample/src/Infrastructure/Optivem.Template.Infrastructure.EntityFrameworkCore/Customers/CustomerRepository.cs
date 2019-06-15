@@ -1,7 +1,7 @@
 ﻿using Optivem.Infrastructure.EntityFrameworkCore;
-using Optivem.NorthwindLite.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Customers;
 
-namespace Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
     public class CustomerRepository : Repository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {

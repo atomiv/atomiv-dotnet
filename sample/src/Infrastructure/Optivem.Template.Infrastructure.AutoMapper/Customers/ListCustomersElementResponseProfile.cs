@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Optivem.Infrastructure.AutoMapper;
-using Optivem.NorthwindLite.Core.Application.Customers.Responses;
-using Optivem.NorthwindLite.Core.Domain.Customers;
+using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Domain.Customers;
 
-namespace Optivem.NorthwindLite.Infrastructure.AutoMapper.Customers
+namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {
     public class ListCustomersElementResponseProfile : ResponseProfile<Customer, ListCustomersElementResponse>
     {

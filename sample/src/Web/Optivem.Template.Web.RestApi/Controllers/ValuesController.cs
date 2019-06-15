@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Optivem.NorthwindLite.Web.Controllers
+namespace Optivem.Template.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

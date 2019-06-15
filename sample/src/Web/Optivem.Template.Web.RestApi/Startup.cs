@@ -17,17 +17,17 @@ using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
-using Optivem.NorthwindLite.Infrastructure.MediatR.Customers;
-using Optivem.NorthwindLite.Infrastructure.AutoMapper.Customers;
-using Optivem.NorthwindLite.Infrastructure.FluentValidation.Customers;
-using Optivem.NorthwindLite.Core.Application.Customers.UseCases;
-using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore;
-using Optivem.NorthwindLite.Core.Domain.Customers;
-using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
-using Optivem.NorthwindLite.Core.Application.Customers.Responses;
+using Optivem.Template.Infrastructure.MediatR.Customers;
+using Optivem.Template.Infrastructure.AutoMapper.Customers;
+using Optivem.Template.Infrastructure.FluentValidation.Customers;
+using Optivem.Template.Core.Application.Customers.UseCases;
+using Optivem.Template.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
 
-namespace Optivem.NorthwindLite.Web
+namespace Optivem.Template.Web
 {
     public class Startup
     {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Optivem.NorthwindLite.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Requests;
 
-namespace Optivem.NorthwindLite.Infrastructure.FluentValidation.Customers
+namespace Optivem.Template.Infrastructure.FluentValidation.Customers
 {
     public class CreateCustomerRequestValidator : AbstractValidator<CreateCustomerRequest>
     {

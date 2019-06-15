@@ -1,6 +1,6 @@
-﻿using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Products;
+﻿using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 
-namespace Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
     public class OrderDetailRecord
     {
