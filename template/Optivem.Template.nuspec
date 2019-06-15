@@ -2,11 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Optivem.Template</id>
-    <version>1.0.11</version>
+    <version>1.0.11.2</version>
     <description>Optivem Template</description>
     <authors>Optivem</authors>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
   </metadata>
+  <files>
+	<file src="**" exclude="**\bin\**\*;**\obj\**\*;" />  
+  </files>
 </package>
