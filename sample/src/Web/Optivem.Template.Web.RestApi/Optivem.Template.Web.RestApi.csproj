@@ -20,12 +20,12 @@
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Core.Application\Optivem.NorthwindLite.Core.Application.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Mapping\Optivem.NorthwindLite.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Messaging\Optivem.NorthwindLite.Infrastructure.MediatR.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Persistence\Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\Optivem.NorthwindLite.Infrastructure.Validation\Optivem.NorthwindLite.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.AutoMapper\Optivem.Template.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.FluentValidation\Optivem.Template.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.MediatR\Optivem.Template.Infrastructure.MediatR.csproj" />
   </ItemGroup>
 
 </Project>

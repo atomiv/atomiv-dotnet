@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

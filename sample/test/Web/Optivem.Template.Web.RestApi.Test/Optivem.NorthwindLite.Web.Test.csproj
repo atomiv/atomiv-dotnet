@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -26,8 +26,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\..\test\Test\Xunit\Xunit.All\Optivem.Test.Xunit.All.csproj" />
-    <ProjectReference Include="..\..\src\Optivem.NorthwindLite.Core.Application.Interface\Optivem.NorthwindLite.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\..\src\Optivem.NorthwindLite.Web\Optivem.NorthwindLite.Web.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
   </ItemGroup>
 
 </Project>
