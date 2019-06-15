@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class FindCustomerUseCase : FindAggregateUseCase<FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public FindCustomerUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<Customer, CustomerIdentity> repository)
+        public FindCustomerUseCase(IResponseMapper responseMapper, IReadonlyRepository<Customer, CustomerIdentity> repository)
             : base(responseMapper, repository)
         {
         }

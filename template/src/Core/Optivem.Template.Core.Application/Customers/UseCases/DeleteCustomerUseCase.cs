@@ -8,14 +8,9 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class DeleteCustomerUseCase : DeleteAggregateCase<DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public DeleteCustomerUseCase(IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) 
-            : base(unitOfWork, repository)
+        public DeleteCustomerUseCase(IIdentityFactory<CustomerIdentity, int> identityFactory, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository) 
+            : base(identityFactory, unitOfWork, repository)
         {
-        }
-
-        protected override CustomerIdentity GetIdentity(int id)
-        {
-            return new CustomerIdentity(id);
         }
     }
 }

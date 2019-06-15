@@ -1,6 +1,12 @@
-﻿namespace Optivem.Template.Core.Domain.Customers
+﻿using Optivem.Core.Domain;
+
+namespace Optivem.Template.Core.Domain.Customers
 {
-    class CustomerIdentityFactory
+    public class CustomerIdentityFactory : IIdentityFactory<CustomerIdentity, int>
     {
+        public CustomerIdentity Create(int id)
+        {
+            return new CustomerIdentity(id);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListAggregatesUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<TAggregateRoot, TIdentity> repository)
+        public ListAggregatesUseCase(IResponseMapper responseMapper, IReadonlyRepository<TAggregateRoot, TIdentity> repository)
         {
             ResponseMapper = responseMapper;
             Repository = repository;
@@ -19,7 +19,7 @@ namespace Optivem.Core.Application
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IReadonlyCrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
+        protected IReadonlyRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
 
         public async Task<TResponse> HandleAsync(TRequest request)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.EntityFrameworkCore
 {
-    public abstract class ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : IReadonlyCrudRepository<TAggregateRoot, TIdentity>
+    public abstract class ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : IReadonlyRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>

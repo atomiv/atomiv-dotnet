@@ -9,11 +9,16 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public DeleteAggregateCase(IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public DeleteAggregateCase(IIdentityFactory<TIdentity, TId> identityFactory, 
+            IUnitOfWork unitOfWork, 
+            ICrudRepository<TAggregateRoot, TIdentity> repository)
         {
+            IdentityFactory = identityFactory;
             UnitOfWork = unitOfWork;
             Repository = repository;
         }
+
+        protected IIdentityFactory<TIdentity, TId> IdentityFactory { get; private set; }
 
         protected IUnitOfWork UnitOfWork { get; private set; }
 
@@ -22,7 +27,7 @@ namespace Optivem.Core.Application
         public async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
-            var identity = GetIdentity(id);
+            var identity = IdentityFactory.Create(id);
 
             var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
 
@@ -39,7 +44,5 @@ namespace Optivem.Core.Application
 
             return new TResponse();
         }
-
-        protected abstract TIdentity GetIdentity(TId id);
     }
 }

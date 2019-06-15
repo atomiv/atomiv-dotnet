@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class ListCustomersUseCase : ListAggregatesUseCase<ListCustomersRequest, ListCustomersResponse, ListCustomersElementResponse, Customer, CustomerIdentity, int>
     {
-        public ListCustomersUseCase(IResponseMapper responseMapper, IReadonlyCrudRepository<Customer, CustomerIdentity> repository) : base(responseMapper, repository)
+        public ListCustomersUseCase(IResponseMapper responseMapper, IReadonlyRepository<Customer, CustomerIdentity> repository) : base(responseMapper, repository)
         {
         }
     }

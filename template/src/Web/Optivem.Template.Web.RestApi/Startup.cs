@@ -70,7 +70,7 @@ namespace Optivem.Template.Web
 
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
-            services.AddScoped<IReadonlyCrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
+            services.AddScoped<IReadonlyRepository<Customer, CustomerIdentity>, CustomerRepository>();
             services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
 
             // Infrastructure - AutoMapper
