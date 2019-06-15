@@ -65,6 +65,10 @@ namespace Optivem.Template.Web
 
             services.AddApplicationCore(applicationAssembly);
 
+            // Domain
+
+            services.AddScoped<IIdentityFactory<CustomerIdentity, int>, CustomerIdentityFactory>();
+
             // Infrastructure - Repository
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
 
