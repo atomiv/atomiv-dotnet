@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.NorthwindLite.Infrastructure.Persistence.Configuration;
-using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
+using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
 
-namespace Optivem.NorthwindLite.Infrastructure.Persistence
+namespace Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore
 {
     public partial class DatabaseContext : DbContext
     {
@@ -19,6 +18,8 @@ namespace Optivem.NorthwindLite.Infrastructure.Persistence
             // modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
             modelBuilder.ApplyConfiguration(new CustomerRecordConfiguration());
+
+            // TODO: VC: Dynamically find everything implementing IEntityTypeConfiguration interface
         }
     }
 }

@@ -12,4 +12,9 @@
     <ProjectReference Include="..\Optivem.NorthwindLite.Core.Domain\Optivem.NorthwindLite.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>

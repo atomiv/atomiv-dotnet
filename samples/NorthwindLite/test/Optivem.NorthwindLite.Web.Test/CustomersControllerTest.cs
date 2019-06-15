@@ -1,6 +1,5 @@
-using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
-using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
-using Optivem.NorthwindLite.Infrastructure.Persistence.Records;
+using Optivem.NorthwindLite.Core.Application.Customers.Requests;
+using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.NorthwindLite.Web.Test.Fixture;
 using System.Collections.Generic;
 using System.Net;

@@ -1,4 +1,4 @@
-﻿using Optivem.NorthwindLite.Infrastructure.Persistence;
+﻿using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore;
 using Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit;
 
 namespace Optivem.NorthwindLite.Web.Test.Fixture

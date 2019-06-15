@@ -1,8 +1,5 @@
 ﻿using Optivem.Infrastructure.Selenium.Test.Screens;
 using Optivem.Test.Common.WebAutomation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Infrastructure.Selenium.Test.App
 {

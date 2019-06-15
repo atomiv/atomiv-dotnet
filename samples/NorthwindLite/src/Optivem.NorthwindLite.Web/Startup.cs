@@ -9,24 +9,23 @@ using Optivem.Core.Application;
 using Optivem.Core.Domain;
 using Optivem.Infrastructure.MediatR;
 using Optivem.Infrastructure.EntityFrameworkCore;
-using Optivem.NorthwindLite.Core.Application.Interface.Customers.Commands;
-using Optivem.NorthwindLite.Core.Application.Interface.Customers.Retrieve;
-using Optivem.NorthwindLite.Core.Application.Interface.Requests.Customers;
-using Optivem.NorthwindLite.Core.Application.UseCases;
-using Optivem.NorthwindLite.Core.Domain.Entities;
-using Optivem.NorthwindLite.Infrastructure.Mapping;
-using Optivem.NorthwindLite.Infrastructure.Messaging;
-using Optivem.NorthwindLite.Infrastructure.Persistence;
-using Optivem.NorthwindLite.Infrastructure.Validation;
 using System;
 using FluentValidation;
 using Optivem.Infrastructure.FluentValidation;
 using Optivem.Web.AspNetCore;
 using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
-using Optivem.NorthwindLite.Core.Domain.Identities;
 using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
+using Optivem.NorthwindLite.Infrastructure.MediatR.Customers;
+using Optivem.NorthwindLite.Infrastructure.AutoMapper.Customers;
+using Optivem.NorthwindLite.Infrastructure.FluentValidation.Customers;
+using Optivem.NorthwindLite.Core.Application.Customers.UseCases;
+using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore;
+using Optivem.NorthwindLite.Core.Domain.Customers;
+using Optivem.NorthwindLite.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.NorthwindLite.Core.Application.Customers.Requests;
+using Optivem.NorthwindLite.Core.Application.Customers.Responses;
 
 namespace Optivem.NorthwindLite.Web
 {
@@ -55,17 +54,6 @@ namespace Optivem.NorthwindLite.Web
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2) // TODO: VC: Check if needed?
-                .AddHateoas(options =>
-                {
-                    options
-                        .AddLink<FindCustomerResponse>("find-customer", p => new { id = p.Id })
-                        .AddLink<FindCustomerResponse>("create-customer")
-                        ;
-                        // .AddLink<List<PersonDto>>("create-person")
-                        // .AddLink<PersonDto>("update-person", p => new { id = p.Id })
-                        // .AddLink<PersonDto>("delete-person", p => new { id = p.Id });
-                })
-                // .AddFluentValidation(e => e.RegisterValidatorsFromAssembly(fluentValidationAssemblies))
                 ;
 
             // TODO: VC: Test HATEOAS

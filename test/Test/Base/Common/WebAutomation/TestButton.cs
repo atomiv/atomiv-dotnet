@@ -1,8 +1,5 @@
 ﻿using Optivem.Core.Common.WebAutomation;
 using Optivem.Core.Common.WebAutomation.Assertion;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Test.Common.WebAutomation
 {

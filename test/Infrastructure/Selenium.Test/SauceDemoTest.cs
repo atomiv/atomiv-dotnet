@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
-using Optivem.Infrastructure.Selenium.Test.App;
+﻿using Optivem.Infrastructure.Selenium.Test.App;
 using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.Selenium;
 using Xunit;

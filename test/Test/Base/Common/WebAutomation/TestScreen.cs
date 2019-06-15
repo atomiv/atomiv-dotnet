@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Test.Common.WebAutomation
+﻿namespace Optivem.Test.Common.WebAutomation
 {
     public class TestScreen
     {
