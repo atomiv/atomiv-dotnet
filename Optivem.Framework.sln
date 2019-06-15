@@ -121,7 +121,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Xunit.Selenium", "test\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj", "{F7D8EC56-421C-411C-A0D2-BC5363084D76}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "template", "template", "{E43A4277-A2B4-4ACE-92D1-4B62860E3C68}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{E43A4277-A2B4-4ACE-92D1-4B62860E3C68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3D617A9C-8C41-4CDE-9F5C-D83AE8412B08}"
 EndProject
