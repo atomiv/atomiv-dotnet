@@ -55,12 +55,12 @@ namespace Optivem.Template.Web
             var entityFrameworkCoreAssembly = typeof(CustomerRepository).Assembly;
             var autoMapperAssembly = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
             var fluentValidationAssembly = typeof(CreateCustomerRequestValidator).Assembly;
-            var mediatRAssembly = typeof(CreateCustomerMediatorRequestHandler).Assembly;
+            var mediatRAssembly = typeof(DeleteCustomerMediatorRequestHandler).Assembly;
 
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
             var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
+            var mediatRAssemblies = typeof(DeleteCustomerMediatorRequestHandler); // TODO: VC
 
             services
                 .AddMvc()

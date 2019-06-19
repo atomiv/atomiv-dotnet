@@ -17,6 +17,8 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
         private static Type PipelineBehaviorType = typeof(IPipelineBehavior<,>);
         private static Type MediatorRequestType = typeof(MediatorRequest<,>);
         private static Type ValidationPipelineBehaviorType = typeof(ValidationPipelineBehavior<,>);
+        private static Type MediatorRequestHandlerType = typeof(MediatorRequestHandler<,>);
+        private static Type MediatorRequestHandlerInterfaceType = typeof(global::MediatR.IRequestHandler<,>);
 
         public static IServiceCollection AddMediatRInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -24,28 +26,36 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
             services.AddScoped<IRequestHandler, MediatorRequestHandler>();
 
             var types = assemblies.GetTypes();
+            // services.AddRequestHandlers(types); // TODO: VC: Not working properly
             services.AddValidationPipelineBehaviors(types);
 
-            /*
-            services.AddMediatR(mediatRAssemblies);
-            services.AddScoped<IRequestHandler, MediatorRequestHandler>();
-            // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
-            services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, ValidationPipelineBehavior<CreateCustomerRequest, CreateCustomerResponse>>();
-            services.AddScoped<IPipelineBehavior<MediatorRequest<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerResponse>, ValidationPipelineBehavior<UpdateCustomerRequest, UpdateCustomerResponse>>();
-            */
-
             return services;
         }
 
-        /*
-        private static IServiceCollection AddPipelineBehaviors(this IServiceCollection services, IEnumerable<Type> types)
+        private static IServiceCollection AddRequestHandlers(this IServiceCollection services, IEnumerable<Type> types)
         {
-            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(PipelineBehaviorType);
-            services.AddScopedOpenType(PipelineBehaviorType, implementationTypes);
+            var useCaseImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
+
+            foreach (var useCaseImplementationType in useCaseImplementationTypes)
+            {
+                var useCaseInterfaceTypes = useCaseImplementationType.GetTypeInfo().ImplementedInterfaces;
+                var useCaseInterfaceType = useCaseInterfaceTypes.Single(e => e.Name == UseCaseType.Name);
+
+                var requestType = useCaseInterfaceType.GenericTypeArguments[0];
+                var responseType = useCaseInterfaceType.GenericTypeArguments[1];
+
+                var mediatorRequestImplementationType = MediatorRequestType.MakeGenericType(requestType, responseType);
+                var mediatorRequestHandlerImplementationType = MediatorRequestHandlerType.MakeGenericType(requestType, responseType);
+
+                var serviceType = MediatorRequestHandlerInterfaceType.MakeGenericType(mediatorRequestImplementationType, responseType);
+
+                services.AddScoped(serviceType, mediatorRequestHandlerImplementationType);
+
+                services.AddValidationPipelineBehavior(useCaseInterfaceType);
+            }
 
             return services;
         }
-        */
 
         private static IServiceCollection AddValidationPipelineBehaviors(this IServiceCollection services, IEnumerable<Type> types)
         {
@@ -95,33 +105,5 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
 
             return services;
         }
-
-
-        /*
-         * 
-
-
-            var useCaseImplementationType = typeof(CreateCustomerUseCase);
-
-            var useCaseInterfaceTypes = useCaseImplementationType.GetTypeInfo().ImplementedInterfaces;
-            
-
-            var useCaseInterfaceType = useCaseInterfaceTypes.Single(e => e.Name == typeof(IUseCase<,>).Name);
-
-            var requestType = useCaseInterfaceType.GenericTypeArguments[0];
-            var responseType = useCaseInterfaceType.GenericTypeArguments[1];
-
-            // var requestType = typeof(CreateCustomerRequest);
-            // var responseType = typeof(CreateCustomerResponse);
-
-            var mediatorRequestServiceType = mediatorRequestType.MakeGenericType(requestType, responseType);
-            var pipelineBehaviorServiceType = pipelineBehaviorType.MakeGenericType(mediatorRequestServiceType, responseType);
-            var validationPipelineBehaviorImplementationType = validationPipelineBehaviorType.MakeGenericType(requestType, responseType);
-
-            services.AddScoped(pipelineBehaviorServiceType, validationPipelineBehaviorImplementationType);
-         * 
-         * 
-         */
-
     }
 }
