@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Optivem.Core.Domain
+﻿namespace Optivem.Core.Domain
 {
     public interface ICrudRepository<TAggregateRoot, TIdentity> 
         : IReadonlyRepository<TAggregateRoot, TIdentity>,

@@ -6,4 +6,9 @@
     <Version>1.0.11</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
+  </ItemGroup>
+
 </Project>

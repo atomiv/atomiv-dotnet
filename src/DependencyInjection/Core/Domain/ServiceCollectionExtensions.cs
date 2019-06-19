@@ -3,7 +3,6 @@ using Optivem.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace Optivem.DependencyInjection.Core.Domain
 {

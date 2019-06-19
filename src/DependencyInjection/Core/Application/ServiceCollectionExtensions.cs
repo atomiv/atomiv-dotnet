@@ -21,7 +21,7 @@ namespace Optivem.DependencyInjection.Core.Application
 
         public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
         {
-            var types = assemblies.GetTypes(); ;
+            var types = assemblies.GetTypes();
             return services.AddApplicationCore(types);
         }
 

@@ -1,5 +1,4 @@
 ﻿using Optivem.Core.Domain;
-using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application

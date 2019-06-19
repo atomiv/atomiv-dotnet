@@ -6,12 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Core.Application;
-using Optivem.Core.Domain;
 using Optivem.Infrastructure.MediatR;
-using Optivem.Infrastructure.EntityFrameworkCore;
 using System;
-using FluentValidation;
-using Optivem.Infrastructure.FluentValidation;
 using Optivem.Web.AspNetCore;
 using Optivem.Core.Common.Serialization;
 using Optivem.Infrastructure.NewtonsoftJson;
@@ -19,6 +15,7 @@ using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Core.Domain;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
 using Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore;
+using Optivem.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Template.Infrastructure.MediatR.Customers;
 using Optivem.Template.Infrastructure.AutoMapper.Customers;
 using Optivem.Template.Infrastructure.FluentValidation.Customers;
@@ -28,7 +25,6 @@ using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Core.Domain;
 
 namespace Optivem.Template.Web
 {
@@ -54,44 +50,27 @@ namespace Optivem.Template.Web
 
             // Infrastructure assemblies
             var entityFrameworkCoreAssembly = typeof(CustomerRepository).Assembly;
+            var autoMapperAssembly = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
+            var fluentValidationAssembly = typeof(CreateCustomerRequestValidator).Assembly;
 
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
             var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             var mediatRAssemblies = typeof(CreateCustomerMediatorRequestHandler); // TODO: VC
-            var autoMapperAssemblies = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
-            var fluentValidationAssemblies = typeof(CreateCustomerRequestValidator).Assembly;
-
-
 
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
             // Core
             services.AddApplicationCore(applicationAssembly);
             services.AddDomainCore(domainAssembly);
 
-            // Infrastructure - EntityFrameworkCore
+            // Infrastructure
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
             services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection), entityFrameworkCoreAssembly);
-
-
-            /*
-            services.AddDbContext<DatabaseContext>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
-            */
-
-            // Infrastructure - AutoMapper
-            services.AddAutoMapperInfrastructure(autoMapperAssemblies);
-
-            // Infrastructure - Validation
-            services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
-            services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
-            services.AddScoped<IValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
-            services.AddScoped<IValidator<UpdateCustomerRequest>, UpdateCustomerRequestValidator>();
+            services.AddAutoMapperInfrastructure(autoMapperAssembly);
+            services.AddFluentValidationInfrastructure(fluentValidationAssembly);
 
             // Infrastructure - Messaging
             services.AddMediatR(mediatRAssemblies);

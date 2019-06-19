@@ -20,6 +20,7 @@
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Optivem.DependencyInjection.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />

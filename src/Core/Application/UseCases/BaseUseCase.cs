@@ -1,7 +1,4 @@
 ﻿using Optivem.Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
