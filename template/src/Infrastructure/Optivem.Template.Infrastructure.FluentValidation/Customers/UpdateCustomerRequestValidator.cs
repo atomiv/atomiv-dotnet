@@ -1,9 +1,10 @@
 ﻿using FluentValidation;
+using Optivem.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Customers.Requests;
 
 namespace Optivem.Template.Infrastructure.FluentValidation.Customers
 {
-    public class UpdateCustomerRequestValidator : AbstractValidator<UpdateCustomerRequest>
+    public class UpdateCustomerRequestValidator : FluentValidationAbstractValidator<UpdateCustomerRequest>
     {
         public UpdateCustomerRequestValidator()
         {

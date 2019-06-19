@@ -75,47 +75,7 @@ namespace Optivem.Template.Web
             services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection), entityFrameworkCoreAssembly);
             services.AddAutoMapperInfrastructure(autoMapperAssembly);
             services.AddFluentValidationInfrastructure(fluentValidationAssembly);
-
-            // Infrastructure - Messaging
-            services.AddMediatRInfrastructure(mediatRAssembly);
-            
-            /*
-
-            services.AddMediatR(mediatRAssemblies);
-            services.AddScoped<IRequestHandler, MediatorRequestHandler>();
-            // services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
-            // services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, ValidationPipelineBehavior<CreateCustomerRequest, CreateCustomerResponse>>();
-            // services.AddScoped<IPipelineBehavior<MediatorRequest<UpdateCustomerRequest, UpdateCustomerResponse>, UpdateCustomerResponse>, ValidationPipelineBehavior<UpdateCustomerRequest, UpdateCustomerResponse>>();
-
-            var pipelineBehaviorType = typeof(IPipelineBehavior<,>);
-            var mediatorRequestType = typeof(MediatorRequest<,>);
-            var validationPipelineBehaviorType = typeof(ValidationPipelineBehavior<,>);
-
-            var useCaseImplementationType = typeof(CreateCustomerUseCase);
-
-            var useCaseInterfaceTypes = useCaseImplementationType.GetTypeInfo().ImplementedInterfaces;
-            
-
-            var useCaseInterfaceType = useCaseInterfaceTypes.Single(e => e.Name == typeof(IUseCase<,>).Name);
-
-            var requestType = useCaseInterfaceType.GenericTypeArguments[0];
-            var responseType = useCaseInterfaceType.GenericTypeArguments[1];
-
-            // var requestType = typeof(CreateCustomerRequest);
-            // var responseType = typeof(CreateCustomerResponse);
-
-            var mediatorRequestServiceType = mediatorRequestType.MakeGenericType(requestType, responseType);
-            var pipelineBehaviorServiceType = pipelineBehaviorType.MakeGenericType(mediatorRequestServiceType, responseType);
-            var validationPipelineBehaviorImplementationType = validationPipelineBehaviorType.MakeGenericType(requestType, responseType);
-
-            services.AddScoped(pipelineBehaviorServiceType, validationPipelineBehaviorImplementationType);
-
-            // services.AddScoped<IPipelineBehavior<MediatorRequest<CreateCustomerRequest, CreateCustomerResponse>, CreateCustomerResponse>, CreateCustomerValidationPipelineBehavior>();
-
-            // TODO: VC: Loop through all the requests and their responses and register them in this way (perhaps loop through use cases and inspect request and response because it holds the pairs
-            // TODO: VC: SImilarly for mediator requests, loop thrugh use cases... also don't need to gnerate code just directly use MediatorRequestHandler<DeleteCustomerRequest, DeleteCustomerResponse>
-
-    */
+            services.AddMediatRInfrastructure(mediatRAssembly, applicationAssembly, fluentValidationAssembly);
 
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
             var jsonSerializationService = new JsonSerializationService();

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Core\Application\Optivem.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
   </ItemGroup>
 
