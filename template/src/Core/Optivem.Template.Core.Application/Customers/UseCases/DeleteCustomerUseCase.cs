@@ -7,10 +7,10 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class DeleteCustomerUseCase : DeleteAggregateCase<IUnitOfWork, ICustomerRepository, DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
+    public class DeleteCustomerUseCase : DeleteAggregateCase<ICustomerRepository, DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public DeleteCustomerUseCase(ITransactionalUnitOfWorkFactory<IUnitOfWork> unitOfWorkFactory, IIdentityFactory<CustomerIdentity, int> identityFactory) 
-            : base(unitOfWorkFactory, e => e.CustomerRepository, identityFactory)
+        public DeleteCustomerUseCase(IUnitOfWork unitOfWork, IIdentityFactory<CustomerIdentity, int> identityFactory) 
+            : base(unitOfWork, identityFactory)
         {
         }
     }

@@ -7,32 +7,36 @@ using System.Threading.Tasks;
 namespace Optivem.Core.Application
 {
     public abstract class BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse> : IUseCase<TRequest, TResponse>
-        where TUnitOfWork : ITransactionalUnitOfWork
+        where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository
         where TRequest : IRequest
         where TResponse : IResponse
     {
-        public BaseUseCase(ITransactionalUnitOfWorkFactory<TUnitOfWork> unitOfWorkFactory,
-            Func<TUnitOfWork, TRepository> repositoryGetter)
+        public BaseUseCase(IUnitOfWork unitOfWork)
         {
-            UnitOfWorkFactory = unitOfWorkFactory;
-            RepositoryGetter = repositoryGetter;
+            UnitOfWork = unitOfWork;
         }
 
         public abstract Task<TResponse> HandleAsync(TRequest request);
 
-        protected ITransactionalUnitOfWorkFactory<TUnitOfWork> UnitOfWorkFactory { get; }
+        protected IUnitOfWork UnitOfWork { get; }
 
-        protected Func<TUnitOfWork, TRepository> RepositoryGetter { get; }
-
-        protected TUnitOfWork CreateUnitOfWork()
+        protected TRepository GetRepository()
         {
-            return UnitOfWorkFactory.Create();
-        }
-
-        protected TRepository GetRepository(TUnitOfWork unitOfWork)
-        {
-            return RepositoryGetter(unitOfWork);
+            return UnitOfWork.GetRepository<TRepository>();
         }
     }
+
+    public abstract class BaseUseCase<TRepository, TRequest, TResponse> 
+        : BaseUseCase<IUnitOfWork, TRepository, TRequest, TResponse>
+        where TRepository : IRepository
+        where TRequest : IRequest
+        where TResponse : IResponse
+    {
+        public BaseUseCase(IUnitOfWork unitOfWork) 
+            : base(unitOfWork)
+        {
+        }
+    }
+
 }

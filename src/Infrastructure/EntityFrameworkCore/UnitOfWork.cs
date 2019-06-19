@@ -1,19 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Core.Domain;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.EntityFrameworkCore
 {
-    public abstract class TransactionalUnitOfWork<TContext> : ITransactionalUnitOfWork
+    public abstract class UnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext
     {
         private bool disposedValue = false;
 
-        public TransactionalUnitOfWork(TContext context, bool disposeContext = false)
+        private Dictionary<string, IRepository> _repositories;
+
+        public UnitOfWork(TContext context, bool disposeContext = false)
         {
             Context = context;
             DisposeContext = disposeContext;
+            _repositories = new Dictionary<string, IRepository>();
+        }
+
+        protected void AddRepository<TRepository>(TRepository repository) where TRepository : IRepository
+        {
+            var type = typeof(TRepository);
+            var typeName = type.AssemblyQualifiedName;
+            _repositories.Add(typeName, repository);
         }
 
         internal TContext Context { get; private set; }
@@ -69,6 +80,19 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
         void IDisposable.Dispose()
         {
             Dispose(true);
+        }
+
+        public TRepository GetRepository<TRepository>() where TRepository : IRepository
+        {
+            var type = typeof(TRepository);
+            var typeName = type.AssemblyQualifiedName;
+
+            if(!_repositories.ContainsKey(typeName))
+            {
+                throw new ArgumentException($"Repository type {typeName} has not been registered");
+            }
+
+            return (TRepository)_repositories[typeName];
         }
 
         // TODO: VC: DELETE

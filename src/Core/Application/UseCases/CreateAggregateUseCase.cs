@@ -6,15 +6,15 @@ namespace Optivem.Core.Application
 {
     public abstract class CreateAggregateUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
-        where TUnitOfWork : ITransactionalUnitOfWork
+        where TUnitOfWork : IUnitOfWork
         where TRepository : IAddAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public CreateAggregateUseCase(ITransactionalUnitOfWorkFactory<TUnitOfWork> unitOfWorkFactory, Func<TUnitOfWork, TRepository> repositoryGetter, IResponseMapper responseMapper)
-            : base(unitOfWorkFactory, repositoryGetter)
+        public CreateAggregateUseCase(TUnitOfWork unitOfWork, IResponseMapper responseMapper)
+            : base(unitOfWork)
         {
             ResponseMapper = responseMapper;
         }
@@ -25,14 +25,9 @@ namespace Optivem.Core.Application
         {
             var aggregateRoot = CreateAggregateRoot(request);
 
-            TIdentity identity;
-
-            using (var unitOfWork = CreateUnitOfWork())
-            {
-                var repository = GetRepository(unitOfWork);
-                identity = await repository.AddAsync(aggregateRoot);
-                await unitOfWork.SaveChangesAsync();
-            }
+            var repository = GetRepository();
+            var identity = await repository.AddAsync(aggregateRoot);
+            await UnitOfWork.SaveChangesAsync();
 
             aggregateRoot = CreateAggregateRoot(aggregateRoot, identity);
 
@@ -43,5 +38,19 @@ namespace Optivem.Core.Application
         protected abstract TAggregateRoot CreateAggregateRoot(TRequest request);
 
         protected abstract TAggregateRoot CreateAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
+    }
+
+    public abstract class CreateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        : CreateAggregateUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        where TRepository : IAddAggregateRepository<TAggregateRoot, TIdentity>
+        where TRequest : IRequest
+        where TResponse : IResponse<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
+    {
+        public CreateAggregateUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
+            : base(unitOfWork, responseMapper)
+        {
+        }
     }
 }

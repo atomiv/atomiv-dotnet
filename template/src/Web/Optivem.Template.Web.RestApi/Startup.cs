@@ -78,7 +78,7 @@ namespace Optivem.Template.Web
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             // services.AddScoped<IReadonlyRepository<Customer, CustomerIdentity>, CustomerRepository>();
             // services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
-            services.AddScoped<ITransactionalUnitOfWorkFactory<IUnitOfWork>, UnitOfWorkFactory>();
+            services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
 
             // Infrastructure - AutoMapper
             services.AddAutoMapperInfrastructure(autoMapperAssemblies);

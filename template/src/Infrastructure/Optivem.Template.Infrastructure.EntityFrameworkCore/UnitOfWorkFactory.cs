@@ -6,8 +6,10 @@ using System.Text;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
-    public class UnitOfWorkFactory : ITransactionalUnitOfWorkFactory<IUnitOfWork>
+    public class UnitOfWorkFactory : IUnitOfWorkFactory<IUnitOfWork>
     {
+        // TODO: VC: Check where context should be created
+
         public UnitOfWorkFactory(DatabaseContext context)
         {
             Context = context;

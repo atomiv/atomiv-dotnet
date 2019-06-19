@@ -6,17 +6,15 @@ namespace Optivem.Core.Application
 {
     public abstract class FindAggregateUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
-        where TUnitOfWork : ITransactionalUnitOfWork
+        where TUnitOfWork : IUnitOfWork
         where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public FindAggregateUseCase(ITransactionalUnitOfWorkFactory<TUnitOfWork> unitOfWorkFactory, 
-            Func<TUnitOfWork, TRepository> repositoryGetter, 
-            IResponseMapper responseMapper)
-            : base(unitOfWorkFactory, repositoryGetter)
+        public FindAggregateUseCase(TUnitOfWork unitOfWork, IResponseMapper responseMapper)
+            : base(unitOfWork)
         {
             ResponseMapper = responseMapper;
         }
@@ -28,15 +26,10 @@ namespace Optivem.Core.Application
             var id = request.Id;
             var identity = GetIdentity(id);
 
-            TAggregateRoot aggregateRoot;
+            var repository = GetRepository();
+            var aggregateRoot = await repository.GetSingleOrDefaultAsync(identity);
 
-            using(var unitOfWork = CreateUnitOfWork())
-            {
-                var repository = GetRepository(unitOfWork);
-                aggregateRoot = await repository.GetSingleOrDefaultAsync(identity);
-            }
-
-            if(aggregateRoot == null)
+            if (aggregateRoot == null)
             {
                 throw new RequestNotFoundException();
             }
@@ -46,5 +39,19 @@ namespace Optivem.Core.Application
         }
 
         protected abstract TIdentity GetIdentity(TId id);
+    }
+
+    public abstract class FindAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        : FindAggregateUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>
+        where TRequest : IRequest<TId>
+        where TResponse : IResponse<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
+    {
+        public FindAggregateUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
+            : base(unitOfWork, responseMapper)
+        {
+        }
     }
 }

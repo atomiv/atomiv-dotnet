@@ -7,10 +7,10 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class FindCustomerUseCase : FindAggregateUseCase<IUnitOfWork, ICustomerRepository, FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
+    public class FindCustomerUseCase : FindAggregateUseCase<ICustomerRepository, FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public FindCustomerUseCase(ITransactionalUnitOfWorkFactory<IUnitOfWork> unitOfWorkFactory, IResponseMapper responseMapper)
-            : base(unitOfWorkFactory, e => e.CustomerRepository, responseMapper)
+        public FindCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
+            : base(unitOfWork, responseMapper)
         {
         }
 

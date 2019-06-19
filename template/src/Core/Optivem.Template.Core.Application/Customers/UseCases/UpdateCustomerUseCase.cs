@@ -10,10 +10,10 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     // TODO: VC: Perhaps have shared responses?
 
-    public class UpdateCustomerUseCase : UpdateAggregateUseCase<IUnitOfWork, ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
+    public class UpdateCustomerUseCase : UpdateAggregateUseCase<ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public UpdateCustomerUseCase(ITransactionalUnitOfWorkFactory<IUnitOfWork> unitOfWorkFactory, IResponseMapper responseMapper) 
-            : base(unitOfWorkFactory, e => e.CustomerRepository, responseMapper)
+        public UpdateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
+            : base(unitOfWork, responseMapper)
         {
         }
 

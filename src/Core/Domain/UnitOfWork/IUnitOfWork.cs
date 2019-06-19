@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Core.Domain
 {
-    public interface ITransactionalUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         void BeginTransaction();
 
@@ -16,5 +16,7 @@ namespace Optivem.Core.Domain
         void CommitTransaction();
 
         void RollbackTransaction();
+
+        TRepository GetRepository<TRepository>() where TRepository : IRepository;
     }
 }

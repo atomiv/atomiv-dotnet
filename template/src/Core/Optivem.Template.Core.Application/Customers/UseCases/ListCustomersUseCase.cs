@@ -7,10 +7,10 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class ListCustomersUseCase : ListAggregatesUseCase<IUnitOfWork, ICustomerRepository, ListCustomersRequest, ListCustomersResponse, ListCustomersElementResponse, Customer, CustomerIdentity, int>
+    public class ListCustomersUseCase : ListAggregatesUseCase<ICustomerRepository, ListCustomersRequest, ListCustomersResponse, ListCustomersElementResponse, Customer, CustomerIdentity, int>
     {
-        public ListCustomersUseCase(ITransactionalUnitOfWorkFactory<IUnitOfWork> unitOfWorkFactory, IResponseMapper responseMapper) 
-            : base(unitOfWorkFactory, e => e.CustomerRepository, responseMapper)
+        public ListCustomersUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
+            : base(unitOfWork, responseMapper)
         {
         }
     }

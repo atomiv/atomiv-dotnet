@@ -10,7 +10,7 @@ namespace Optivem.Core.Application
 
     public class ListAggregatesUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
         : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
-        where TUnitOfWork : ITransactionalUnitOfWork
+        where TUnitOfWork : IUnitOfWork
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
@@ -18,9 +18,8 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListAggregatesUseCase(ITransactionalUnitOfWorkFactory<TUnitOfWork> unitOfWorkFactory,
-            Func<TUnitOfWork, TRepository> repositoryGetter, IResponseMapper responseMapper)
-            : base(unitOfWorkFactory, repositoryGetter)
+        public ListAggregatesUseCase(TUnitOfWork unitOfWork, IResponseMapper responseMapper)
+            : base(unitOfWork)
         {
             ResponseMapper = responseMapper;
         }
@@ -31,13 +30,8 @@ namespace Optivem.Core.Application
         {
             // TODO: VC: Later handling use case with pagination, need corresponding dto and also result not just list
 
-            IEnumerable<TAggregateRoot> aggregateRoots;
-
-            using(var unitOfWork = CreateUnitOfWork())
-            {
-                var repository = GetRepository(unitOfWork);
-                aggregateRoots = await repository.GetAsync();
-            }
+            var repository = GetRepository();
+            var aggregateRoots = await repository.GetAsync();
 
             var records = ResponseMapper.MapEnumerable<TAggregateRoot, TRecordResponse>(aggregateRoots).ToList();
 
@@ -45,6 +39,20 @@ namespace Optivem.Core.Application
             {
                 Data = records,
             };
+        }
+    }
+    public abstract class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
+        : ListAggregatesUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
+        where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
+        where TRequest : IRequest
+        where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
+        where TRecordResponse : IResponse<TId>
+        where TAggregateRoot : IAggregateRoot<TIdentity>
+        where TIdentity : IIdentity<TId>
+    {
+        public ListAggregatesUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
+            : base(unitOfWork, responseMapper)
+        {
         }
     }
 }

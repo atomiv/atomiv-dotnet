@@ -1,4 +1,5 @@
-﻿using Optivem.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Core.Domain;
+using Optivem.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
@@ -11,21 +12,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
-    public class UnitOfWork : TransactionalUnitOfWork<DatabaseContext>, IUnitOfWork
+    public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {
         public UnitOfWork(DatabaseContext context, bool disposeContext = false)
             : base(context, disposeContext)
         {
-            CustomerRepository = new CustomerRepository(context);
-            
-            // TODO: VC: Create other repositories
-
+            AddRepository<ICustomerRepository>(new CustomerRepository(context));
         }
-
-        public ICustomerRepository CustomerRepository { get; }
-
-        public IOrderRepository OrderRepository { get; }
-
-        public IProductRepository ProductRepository { get; }
     }
 }
