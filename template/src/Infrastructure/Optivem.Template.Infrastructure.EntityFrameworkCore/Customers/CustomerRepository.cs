@@ -3,7 +3,7 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
-    public class CustomerRepository : Repository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
+    public class CustomerRepository : Repository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>, ICustomerRepository
     {
         public CustomerRepository(DatabaseContext context) : base(context)
         {

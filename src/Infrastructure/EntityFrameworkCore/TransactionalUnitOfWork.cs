@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Infrastructure.EntityFrameworkCore
 {
-    public class UnitOfWork<TContext> : IUnitOfWork
+    public abstract class TransactionalUnitOfWork<TContext> : ITransactionalUnitOfWork
         where TContext : DbContext
     {
         private bool disposedValue = false;
 
-        public UnitOfWork(TContext context, bool disposeContext = false)
+        public TransactionalUnitOfWork(TContext context, bool disposeContext = false)
         {
             Context = context;
             DisposeContext = disposeContext;

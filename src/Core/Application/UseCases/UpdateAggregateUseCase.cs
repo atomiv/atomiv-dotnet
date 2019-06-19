@@ -1,59 +1,65 @@
 ﻿using Optivem.Core.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
-    public abstract class UpdateAggregateUseCase<TRequest, TResponse, TAggregateRoot, TIdentity, TId> : IUseCase<TRequest, TResponse>
+    public abstract class UpdateAggregateUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
+        where TUnitOfWork : ITransactionalUnitOfWork
+        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : class, IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        public UpdateAggregateUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<TAggregateRoot, TIdentity> repository)
+        public UpdateAggregateUseCase(ITransactionalUnitOfWorkFactory<TUnitOfWork> unitOfWorkFactory, Func<TUnitOfWork, TRepository> repositoryGetter, IResponseMapper responseMapper)
+            : base(unitOfWorkFactory, repositoryGetter)
         {
             ResponseMapper = responseMapper;
-            UnitOfWork = unitOfWork;
-            Repository = repository;
         }
 
         protected IResponseMapper ResponseMapper { get; private set; }
 
-        protected IUnitOfWork UnitOfWork { get; private set; }
-
-        protected ICrudRepository<TAggregateRoot, TIdentity> Repository { get; private set; }
-
-        public async Task<TResponse> HandleAsync(TRequest request)
+        public override async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
             var identity = GetIdentity(id);
 
-            var aggregateRoot = await Repository.GetSingleOrDefaultAsync(identity);
-
-            if(aggregateRoot == null)
+            using(var unitOfWork = CreateUnitOfWork())
             {
-                throw new RequestNotFoundException();
-            }
+                var repository = GetRepository(unitOfWork);
 
-            Update(aggregateRoot, request);
+                var aggregateRoot = await repository.GetSingleOrDefaultAsync(identity);
 
-            try
-            {
-                Repository.Update(aggregateRoot);
-                await UnitOfWork.SaveChangesAsync();
-                var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
-                return response;
-            }
-            catch (ConcurrentUpdateException)
-            {
-                var exists = await Repository.GetExistsAsync(identity);
-
-                if (!exists)
+                if (aggregateRoot == null)
                 {
-                    return null;
+                    throw new RequestNotFoundException();
                 }
 
-                throw;
+                Update(aggregateRoot, request);
+
+                try
+                {
+                    repository.Update(aggregateRoot);
+                    await unitOfWork.SaveChangesAsync();
+                    var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
+                    return response;
+                }
+                catch (ConcurrentUpdateException)
+                {
+                    var exists = await repository.GetExistsAsync(identity);
+
+                    if (!exists)
+                    {
+                        return null;
+                    }
+
+                    throw;
+                }
             }
+
+
         }
 
         protected abstract TIdentity GetIdentity(TId id);

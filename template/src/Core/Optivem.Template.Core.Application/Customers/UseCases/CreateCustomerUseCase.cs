@@ -2,14 +2,15 @@
 using Optivem.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class CreateCustomerUseCase : CreateAggregateUseCase<CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
+    public class CreateCustomerUseCase : CreateAggregateUseCase<IUnitOfWork, ICustomerRepository, CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public CreateCustomerUseCase(IResponseMapper responseMapper, IUnitOfWork unitOfWork, ICrudRepository<Customer, CustomerIdentity> repository)
-            : base(responseMapper, unitOfWork, repository)
+        public CreateCustomerUseCase(ITransactionalUnitOfWorkFactory<IUnitOfWork> unitOfWorkFactory, IResponseMapper responseMapper)
+            : base(unitOfWorkFactory, e => e.CustomerRepository, responseMapper)
         {
         }
 

@@ -27,6 +27,7 @@ using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Domain;
 
 namespace Optivem.Template.Web
 {
@@ -74,9 +75,10 @@ namespace Optivem.Template.Web
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
 
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<IUnitOfWork, UnitOfWork<DatabaseContext>>();
-            services.AddScoped<IReadonlyRepository<Customer, CustomerIdentity>, CustomerRepository>();
-            services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            // services.AddScoped<IReadonlyRepository<Customer, CustomerIdentity>, CustomerRepository>();
+            // services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
+            services.AddScoped<ITransactionalUnitOfWorkFactory<IUnitOfWork>, UnitOfWorkFactory>();
 
             // Infrastructure - AutoMapper
             services.AddAutoMapperInfrastructure(autoMapperAssemblies);
