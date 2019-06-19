@@ -18,6 +18,7 @@ using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Core.Domain;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
+using Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Infrastructure.MediatR.Customers;
 using Optivem.Template.Infrastructure.AutoMapper.Customers;
 using Optivem.Template.Infrastructure.FluentValidation.Customers;
@@ -46,8 +47,13 @@ namespace Optivem.Template.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // TODO: VC: Lookup assembly by name
+
+            // Core assemblies
             var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
             var domainAssembly = typeof(Customer).Assembly;
+
+            // Infrastructure assemblies
+            var entityFrameworkCoreAssembly = typeof(CustomerRepository).Assembly;
 
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
@@ -67,18 +73,16 @@ namespace Optivem.Template.Web
             services.AddApplicationCore(applicationAssembly);
             services.AddDomainCore(domainAssembly);
 
-            // Infrastructure
-
-
-
-            // Infrastructure - Repository
+            // Infrastructure - EntityFrameworkCore
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
+            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection), entityFrameworkCoreAssembly);
 
-            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+
+            /*
+            services.AddDbContext<DatabaseContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            // services.AddScoped<IReadonlyRepository<Customer, CustomerIdentity>, CustomerRepository>();
-            // services.AddScoped<ICrudRepository<Customer, CustomerIdentity>, CustomerRepository>();
             services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
+            */
 
             // Infrastructure - AutoMapper
             services.AddAutoMapperInfrastructure(autoMapperAssemblies);
