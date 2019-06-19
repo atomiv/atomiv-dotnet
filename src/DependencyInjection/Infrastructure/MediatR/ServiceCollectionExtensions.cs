@@ -26,7 +26,7 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
             services.AddScoped<IRequestHandler, MediatorRequestHandler>();
 
             var types = assemblies.GetTypes();
-            // services.AddRequestHandlers(types); // TODO: VC: Not working properly
+            services.AddRequestHandlers(types); // TODO: VC: Not working properly
             services.AddValidationPipelineBehaviors(types);
 
             return services;
@@ -50,8 +50,6 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
                 var serviceType = MediatorRequestHandlerInterfaceType.MakeGenericType(mediatorRequestImplementationType, responseType);
 
                 services.AddScoped(serviceType, mediatorRequestHandlerImplementationType);
-
-                services.AddValidationPipelineBehavior(useCaseInterfaceType);
             }
 
             return services;

@@ -60,7 +60,6 @@ namespace Optivem.Template.Web
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
             var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var mediatRAssemblies = typeof(DeleteCustomerMediatorRequestHandler); // TODO: VC
 
             services
                 .AddMvc()
