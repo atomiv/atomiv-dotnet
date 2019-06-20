@@ -60,12 +60,8 @@ namespace Optivem.Template.Web
                 app.UseHsts();
             }
 
-
-
-
             app.UseProblemDetailsExceptionHandler();
             
-
             app.UseHttpsRedirection();
             app.UseMvc();
         }
