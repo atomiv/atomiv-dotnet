@@ -40,7 +40,7 @@ namespace Optivem.Template.Web
 
             // Infrastructure
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
-            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection));
+            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext>(options => options.UseSqlServer(connection));
             services.AddAutoMapperInfrastructure();
             services.AddFluentValidationInfrastructure();
             services.AddMediatRInfrastructure();
