@@ -17,7 +17,7 @@ using Optivem.DependencyInjection.Infrastructure.AutoMapper;
 using Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.DependencyInjection.Infrastructure.MediatR;
-using Optivem.Template.Infrastructure.MediatR.Customers;
+// using Optivem.Template.Infrastructure.MediatR.Customers;
 using Optivem.Template.Infrastructure.AutoMapper.Customers;
 using Optivem.Template.Infrastructure.FluentValidation.Customers;
 using Optivem.Template.Core.Application.Customers.UseCases;
@@ -47,6 +47,8 @@ namespace Optivem.Template.Web
         {
             // TODO: VC: Lookup assembly by name
 
+            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
             // Core assemblies
             var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
             var domainAssembly = typeof(Customer).Assembly;
@@ -55,26 +57,26 @@ namespace Optivem.Template.Web
             var entityFrameworkCoreAssembly = typeof(CustomerRepository).Assembly;
             var autoMapperAssembly = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
             var fluentValidationAssembly = typeof(CreateCustomerRequestValidator).Assembly;
-            var mediatRAssembly = typeof(DeleteCustomerMediatorRequestHandler).Assembly;
+            // var mediatRAssembly = typeof(DeleteCustomerMediatorRequestHandler).Assembly;
 
             // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
 
-            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
 
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Core
-            services.AddApplicationCore(applicationAssembly);
-            services.AddDomainCore(domainAssembly);
+            services.AddApplicationCore(/* applicationAssembly */);
+            services.AddDomainCore(/* domainAssembly */);
 
             // Infrastructure
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
-            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection), entityFrameworkCoreAssembly);
-            services.AddAutoMapperInfrastructure(autoMapperAssembly);
-            services.AddFluentValidationInfrastructure(fluentValidationAssembly);
-            services.AddMediatRInfrastructure(mediatRAssembly, applicationAssembly, fluentValidationAssembly);
+            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection) /* ,  entityFrameworkCoreAssembly */);
+            services.AddAutoMapperInfrastructure(/* autoMapperAssembly */);
+            services.AddFluentValidationInfrastructure(/* fluentValidationAssembly */);
+            services.AddMediatRInfrastructure(/* mediatRAssembly, */ /* applicationAssembly, fluentValidationAssembly */);
 
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
             var jsonSerializationService = new JsonSerializationService();

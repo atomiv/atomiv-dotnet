@@ -10,17 +10,15 @@ namespace Optivem.DependencyInjection.Core.Domain
     {
         private static Type IdentityFactoryType = typeof(IIdentityFactory<,>);
 
-        public static IServiceCollection AddDomainCore(this IServiceCollection services, IEnumerable<Type> types)
+        public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
+            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Core.Domain);
+
+            var types = assemblies.GetTypes();
+
             services.AddIdentityFactories(types);
 
             return services;
-        }
-
-        public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
-        {
-            var types = assemblies.GetTypes(); ;
-            return services.AddDomainCore(types);
         }
 
         private static IServiceCollection AddIdentityFactories(this IServiceCollection services, IEnumerable<Type> types)

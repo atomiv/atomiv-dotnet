@@ -14,6 +14,8 @@ namespace Optivem.DependencyInjection.Infrastructure.FluentValidation
 
         public static IServiceCollection AddFluentValidationInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
+            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Infrastructure.FluentValidation);
+
             services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
             services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
 

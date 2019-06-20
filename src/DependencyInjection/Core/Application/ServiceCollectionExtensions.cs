@@ -11,18 +11,16 @@ namespace Optivem.DependencyInjection.Core.Application
         private static Type UseCaseType = typeof(IUseCase<,>);
         private static Type ApplicationServiceType = typeof(IApplicationService);
 
-        public static IServiceCollection AddApplicationCore(this IServiceCollection services, IEnumerable<Type> types)
+        public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
         {
+            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Core.Application);
+
+            var types = assemblies.GetTypes();
+
             services.AddUseCases(types);
             services.AddApplicationServices(types);
 
             return services;
-        }
-
-        public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
-        {
-            var types = assemblies.GetTypes();
-            return services.AddApplicationCore(types);
         }
 
         private static IServiceCollection AddUseCases(this IServiceCollection services, IEnumerable<Type> types)

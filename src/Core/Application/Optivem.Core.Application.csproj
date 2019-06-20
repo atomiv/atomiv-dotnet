@@ -12,14 +12,16 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Framework DotNetCore Core Application</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mediation\**" />
+    <EmbeddedResource Remove="Mediation\**" />
+    <None Remove="Mediation\**" />
+  </ItemGroup>
     
   <ItemGroup>
     <ProjectReference Include="..\Application.Interface\Optivem.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Domain\Optivem.Core.Domain.csproj" />
-  </ItemGroup>
-    
-  <ItemGroup>
-    <Folder Include="Mediation\" />
   </ItemGroup>
 
 </Project>

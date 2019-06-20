@@ -15,6 +15,8 @@ namespace Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore
             where TDbContext : DbContext
             where TUnitOfWork : UnitOfWork<TDbContext>
         {
+            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Infrastructure.EntityFrameworkCore);
+
             services.AddDbContext<TDbContext>(optionsAction);
             services.AddScoped<IUnitOfWork, TUnitOfWork>();
 
