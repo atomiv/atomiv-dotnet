@@ -45,39 +45,22 @@ namespace Optivem.Template.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // TODO: VC: Lookup assembly by name
-
-            var allAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-            // Core assemblies
-            var applicationAssembly = typeof(CreateCustomerUseCase).Assembly;
-            var domainAssembly = typeof(Customer).Assembly;
-
-            // Infrastructure assemblies
-            var entityFrameworkCoreAssembly = typeof(CustomerRepository).Assembly;
-            var autoMapperAssembly = typeof(CreateCustomerResponseProfile).Assembly; // allAssemblies; // TODO: VC
-            var fluentValidationAssembly = typeof(CreateCustomerRequestValidator).Assembly;
-            // var mediatRAssembly = typeof(DeleteCustomerMediatorRequestHandler).Assembly;
-
-            // TODO: VC: Move to base, automatic lookup of everything implementing IService, auto-DI
-
-
-
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Core
-            services.AddApplicationCore(/* applicationAssembly */);
-            services.AddDomainCore(/* domainAssembly */);
+            services.AddApplicationCore();
+            services.AddDomainCore();
 
             // Infrastructure
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
-            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection) /* ,  entityFrameworkCoreAssembly */);
-            services.AddAutoMapperInfrastructure(/* autoMapperAssembly */);
-            services.AddFluentValidationInfrastructure(/* fluentValidationAssembly */);
-            services.AddMediatRInfrastructure(/* mediatRAssembly, */ /* applicationAssembly, fluentValidationAssembly */);
+            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext, UnitOfWork>(options => options.UseSqlServer(connection));
+            services.AddAutoMapperInfrastructure();
+            services.AddFluentValidationInfrastructure();
+            services.AddMediatRInfrastructure();
 
+            /*
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
             var jsonSerializationService = new JsonSerializationService();
 
@@ -86,6 +69,7 @@ namespace Optivem.Template.Web
                 options.InvalidModelStateResponseFactory = ctx
                     => new ValidationProblemDetailsActionResult(validationProblemDetailsFactory, jsonSerializationService);
             });
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
