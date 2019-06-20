@@ -6,4 +6,9 @@
     <Authors>Optivem</Authors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
+  </ItemGroup>
+
 </Project>

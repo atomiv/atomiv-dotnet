@@ -4,12 +4,23 @@ using Optivem.Core.Common.Serialization;
 using Optivem.Core.Application;
 using System;
 using System.Net;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Optivem.Web.AspNetCore
 {
     public static class ExceptionHandlerExtensions
     {
-        public static IApplicationBuilder UseExceptionHandler(this IApplicationBuilder app, IExceptionProblemDetailsFactory problemDetailsFactory, IJsonSerializationService jsonSerializationService)
+        private static IExceptionProblemDetailsFactory GetDefaultProblemDetailsFactory()
+        {
+            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
+
+            registry.Add(new BadHttpRequestExceptionProblemDetailsFactory());
+            registry.Add(new RequestValidationExceptionProblemDetailsFactory());
+
+            return new ExceptionProblemDetailsFactory(registry);
+        }
+
+        public static IApplicationBuilder UseProblemDetailsExceptionHandler(this IApplicationBuilder app, IExceptionProblemDetailsFactory problemDetailsFactory = null)
         {
             app.UseExceptionHandler(configure =>
             {
@@ -17,6 +28,13 @@ namespace Optivem.Web.AspNetCore
                 {
                     try
                     {
+                        var jsonSerializationService = app.ApplicationServices.GetRequiredService<IJsonSerializationService>();
+
+                        if (problemDetailsFactory == null)
+                        {
+                            problemDetailsFactory = GetDefaultProblemDetailsFactory();
+                        }
+
                         var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                         var exception = exceptionHandlerFeature.Error;
 

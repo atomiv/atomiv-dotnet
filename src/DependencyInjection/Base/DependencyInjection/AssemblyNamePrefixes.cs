@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.DependencyInjection
+﻿namespace Optivem.DependencyInjection
 {
     public static class AssemblyNamePrefixes
     {

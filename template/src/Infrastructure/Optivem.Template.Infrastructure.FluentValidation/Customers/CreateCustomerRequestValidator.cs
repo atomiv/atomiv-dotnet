@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using FluentValidation;
-using Optivem.Core.Application;
+﻿using FluentValidation;
 using Optivem.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Customers.Requests;
 

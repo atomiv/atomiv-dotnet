@@ -1,33 +1,19 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Core.Application;
-using Optivem.Infrastructure.MediatR;
-using System;
 using Optivem.Web.AspNetCore;
 using Optivem.Core.Common.Serialization;
-using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.DependencyInjection.Core.Application;
 using Optivem.DependencyInjection.Core.Domain;
 using Optivem.DependencyInjection.Infrastructure.AutoMapper;
 using Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.DependencyInjection.Infrastructure.MediatR;
-// using Optivem.Template.Infrastructure.MediatR.Customers;
-using Optivem.Template.Infrastructure.AutoMapper.Customers;
-using Optivem.Template.Infrastructure.FluentValidation.Customers;
-using Optivem.Template.Core.Application.Customers.UseCases;
+using Optivem.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Customers;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
-using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
-using System.Linq;
-using System.Reflection;
 
 namespace Optivem.Template.Web
 {
@@ -45,8 +31,7 @@ namespace Optivem.Template.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddMvc()
+            services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Core
@@ -59,17 +44,7 @@ namespace Optivem.Template.Web
             services.AddAutoMapperInfrastructure();
             services.AddFluentValidationInfrastructure();
             services.AddMediatRInfrastructure();
-
-            /*
-            var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
-            var jsonSerializationService = new JsonSerializationService();
-
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = ctx
-                    => new ValidationProblemDetailsActionResult(validationProblemDetailsFactory, jsonSerializationService);
-            });
-            */
+            services.AddNewtonsoftJsonInfrastructure();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,14 +60,11 @@ namespace Optivem.Template.Web
                 app.UseHsts();
             }
 
-            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
-            registry.Add(new BadHttpRequestExceptionProblemDetailsFactory());
-            registry.Add(new RequestValidationExceptionProblemDetailsFactory());
 
-            var problemDetailsFactory = new ExceptionProblemDetailsFactory(registry);
-            IJsonSerializationService jsonSerializationService = new JsonSerializationService();
 
-            app.UseExceptionHandler(problemDetailsFactory, jsonSerializationService);
+
+            app.UseProblemDetailsExceptionHandler();
+            
 
             app.UseHttpsRedirection();
             app.UseMvc();
