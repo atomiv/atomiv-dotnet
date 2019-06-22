@@ -1,7 +1,7 @@
 ﻿using Optivem.Core.Common.Http;
 using Optivem.Infrastructure.AspNetCore;
-using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Interface.Customers.Requests;
+using Optivem.Template.Core.Application.Interface.Customers.Responses;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Test.AspNetCore.EntityFrameworkCore;
 using System.Threading.Tasks;

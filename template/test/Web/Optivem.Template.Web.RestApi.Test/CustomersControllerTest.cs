@@ -1,4 +1,4 @@
-using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Interface.Customers.Requests;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Web.Test.Fixture;
 using System.Collections.Generic;

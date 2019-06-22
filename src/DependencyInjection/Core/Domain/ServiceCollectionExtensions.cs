@@ -12,8 +12,6 @@ namespace Optivem.DependencyInjection.Core.Domain
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
-            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Core.Domain);
-
             var types = assemblies.GetTypes();
 
             services.AddIdentityFactories(types);

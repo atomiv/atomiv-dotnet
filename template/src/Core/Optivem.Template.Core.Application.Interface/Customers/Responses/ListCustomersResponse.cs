@@ -1,7 +1,7 @@
 ﻿using Optivem.Core.Application;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Core.Application.Customers.Responses
+namespace Optivem.Template.Core.Application.Interface.Customers.Responses
 {
     public class ListCustomersResponse : ICollectionResponse<ListCustomersElementResponse, int>
     {

@@ -1,6 +1,6 @@
 ﻿using Optivem.Core.Application;
 
-namespace Optivem.Template.Core.Application.Customers.Responses
+namespace Optivem.Template.Core.Application.Interface.Customers.Responses
 {
     public class CreateCustomerResponse : IResponse<int>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Template.Core.Application.Customers;
-using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Interface.Customers;
+using Optivem.Template.Core.Application.Interface.Customers.Requests;
+using Optivem.Template.Core.Application.Interface.Customers.Responses;
 using Optivem.Web.AspNetCore;
 using System.Threading.Tasks;
 

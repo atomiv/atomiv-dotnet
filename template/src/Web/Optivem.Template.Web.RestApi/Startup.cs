@@ -39,6 +39,7 @@ namespace Optivem.Template.Web
             var coreModules = new List<Type>
             {
                 typeof(Core.Application.Module),
+                typeof(Core.Application.Interface.Module),
                 typeof(Core.Domain.Module),
             };
 
@@ -59,8 +60,8 @@ namespace Optivem.Template.Web
             // var assemblies = null;
 
             // Core
-            services.AddApplicationCore();
-            services.AddDomainCore();
+            services.AddApplicationCore(assemblies);
+            services.AddDomainCore(assemblies);
 
             // Infrastructure
             var connection = Configuration.GetConnectionString(DatabaseConnectionKey);

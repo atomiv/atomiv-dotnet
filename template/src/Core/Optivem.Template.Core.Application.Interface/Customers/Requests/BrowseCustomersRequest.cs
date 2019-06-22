@@ -1,4 +1,4 @@
-﻿namespace Optivem.Template.Core.Application.Customers.Requests
+﻿namespace Optivem.Template.Core.Application.Interface.Customers.Requests
 {
     public class BrowseCustomersRequest
     {

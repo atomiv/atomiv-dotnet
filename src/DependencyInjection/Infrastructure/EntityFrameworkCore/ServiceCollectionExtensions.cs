@@ -17,8 +17,6 @@ namespace Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore
         public static IServiceCollection AddEntityFrameworkCoreInfrastructure<TDbContext>(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction = null, params Assembly[] assemblies)
             where TDbContext : DbContext
         {
-            assemblies = assemblies.GetCheckedAssemblies(AssemblyNameSuffixes.Infrastructure.EntityFrameworkCore);
-
             var types = assemblies.GetTypes();
 
             services.AddDbContext<TDbContext>(optionsAction);
