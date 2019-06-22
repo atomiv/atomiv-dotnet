@@ -35,7 +35,7 @@ namespace Optivem.Core.Application
 
             return new TResponse
             {
-                Data = records,
+                Records = records,
             };
         }
     }

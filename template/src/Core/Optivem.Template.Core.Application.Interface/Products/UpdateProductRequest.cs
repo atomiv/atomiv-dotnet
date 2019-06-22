@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Optivem.Template.Core.Application.Products
 {
-    public class CreateProductRequest : IRequest
+    public class UpdateProductRequest : IRequest<int>
     {
-        public string Code { get; set; }
+        public int Id { get; set; }
 
         public string Description { get; set; }
 

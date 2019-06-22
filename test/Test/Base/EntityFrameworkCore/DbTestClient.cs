@@ -33,6 +33,7 @@ namespace Optivem.Test.EntityFrameworkCore
                 context.Database.EnsureDeleted();
             }
         }
+
         public void Add<T>(T entity) where T : class
         {
             using (var context = CreateContext())

@@ -38,7 +38,8 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore
         {
             WebTestClient.Dispose();
 
-            DatabaseTestClient.EnsureDatabaseDeleted();
+            // TODO: VC: Check if need to delete
+            // DatabaseTestClient.EnsureDatabaseDeleted();
         }
     }
 }

@@ -16,8 +16,11 @@ namespace Optivem.Template.Web.Test.Fixture
             : base(Startup.DatabaseConnectionKey, e => new DatabaseContext(e))
         {
             Customers = new CustomersControllerClient(Client.ControllerClientFactory);
+            Products = new ProductsControllerClient(Client.ControllerClientFactory);
         }
 
         public CustomersControllerClient Customers { get; }
+
+        public ProductsControllerClient Products { get; }
     }
 }

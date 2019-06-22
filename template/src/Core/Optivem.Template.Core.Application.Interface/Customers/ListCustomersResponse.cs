@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Customers
 {
-    public class ListCustomersResponse : ICollectionResponse<ListCustomersElementResponse, int>
+    public class ListCustomersResponse : ICollectionResponse<ListCustomersRecordResponse, int>
     {
-        public List<ListCustomersElementResponse> Data { get; set; }
+        public List<ListCustomersRecordResponse> Records { get; set; }
+
+        public int Count { get; set; }
     }
 
-    public class ListCustomersElementResponse : IResponse<int>
+    public class ListCustomersRecordResponse : IResponse<int>
     {
         public int Id { get; set; }
 

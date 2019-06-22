@@ -17,6 +17,7 @@ namespace Optivem.Template.Web.Test.Fixture
             using (var context = Fixture.Client.CreateDatabaseContext())
             {
                 context.Customer.RemoveRange(context.Customer);
+                context.Product.RemoveRange(context.Product);
                 context.SaveChanges();
             }
         }

@@ -25,32 +25,29 @@ namespace Optivem.Template.Web.Test.Clients
             return Client.PostAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
-
-        /*
-        public Task<IObjectClientResponse<ListCustomersResponse>> ListCustomersAsync()
+        public Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(int id)
         {
-            return Client.GetAsync<ListCustomersResponse>();
+            return Client.GetByIdAsync<int, FindProductResponse>(id);
         }
 
-        public Task<IObjectClientResponse<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync()
         {
-            return Client.PostAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+            return Client.GetAsync<ListProductsResponse>();
         }
 
-        public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(int id)
+        public Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request)
         {
-            return Client.GetByIdAsync<int, FindCustomerResponse>(id);
+            return Client.PostAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request)
         {
-            return Client.PutByIdAsync<int, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
+            return Client.PostAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
-        public Task<IClientResponse> DeleteCustomerAsync(int id)
+        public Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request)
         {
-            return Client.DeleteByIdAsync(id);
+            return Client.PutByIdAsync<int, UpdateProductRequest, UpdateProductResponse>(request.Id, request);
         }
-        */
     }
 }

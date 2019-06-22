@@ -7,41 +7,17 @@ namespace Optivem.Core.Application
 
     }
 
-    public interface ICollectionResponse<TResponse> : ICollectionResponse
-        where TResponse : IResponse
+    public interface ICollectionResponse<TRecordResponse> : ICollectionResponse
+        where TRecordResponse : IResponse
     {
-        List<TResponse> Data { get; set; }
+        List<TRecordResponse> Records { get; set; }
+
+        int Count { get; set; }
     }
 
-    public interface ICollectionResponse<TResponse, TId> : ICollectionResponse<TResponse>
-        where TResponse : IResponse<TId>
+    public interface ICollectionResponse<TRecordResponse, TId> : ICollectionResponse<TRecordResponse>
+        where TRecordResponse : IResponse<TId>
     {
 
     }
-
-    // TODO: VC: DELETE
-
-    /*
-     * 
-    public interface IListResponse : IResponse
-    {
-    }
-
-    public interface IListResponse<TElement, TElementId> : IListResponse, IResponse
-        where TElement : IListElementResponse<TElementId>
-    {
-        List<TElement> Data { get; set; }
-    }
-
-    public interface IListElementResponse : IResponse
-    {
-    }
-
-    public interface IListElementResponse<TId> : IListElementResponse, IResponse<TId>
-    {
-    }
-     * 
-     * 
-     */
-
 }

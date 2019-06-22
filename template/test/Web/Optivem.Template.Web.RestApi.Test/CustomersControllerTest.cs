@@ -8,7 +8,6 @@ using Xunit;
 
 // TODO: VC: Consider moving to base
 // [assembly: CollectionBehavior(DisableTestParallelization = true)]
-
 namespace Optivem.Template.Web.Test
 {
     public class CustomersControllerTest : TestFixture
@@ -49,17 +48,17 @@ namespace Optivem.Template.Web.Test
 
             var actualContent = actual.Content;
 
-            Assert.Equal(2, actualContent.Data.Count);
+            Assert.Equal(2, actualContent.Records.Count);
 
             var expectedFirst = _customerRecords[0];
-            var actualFirst = actualContent.Data[0];
+            var actualFirst = actualContent.Records[0];
 
             Assert.True(actualFirst.Id > 0);
             Assert.Equal(expectedFirst.FirstName, actualFirst.FirstName);
             Assert.Equal(expectedFirst.LastName, actualFirst.LastName);
 
             var expectedSecond = _customerRecords[1];
-            var actualSecond = actualContent.Data[1];
+            var actualSecond = actualContent.Records[1];
 
             Assert.True(actualSecond.Id > 0);
             Assert.Equal(expectedSecond.FirstName, actualSecond.FirstName);

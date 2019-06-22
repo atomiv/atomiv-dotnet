@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
@@ -11,6 +12,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         }
 
         public virtual DbSet<CustomerRecord> Customer { get; set; }
+
+        public virtual DbSet<ProductRecord> Product { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
