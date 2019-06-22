@@ -9,8 +9,4 @@
     <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Products\" />
-  </ItemGroup>
-
 </Project>
