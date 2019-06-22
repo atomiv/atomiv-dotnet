@@ -1,6 +1,6 @@
 ﻿using Optivem.Core.Application;
 
-namespace Optivem.Template.Core.Application.Interface.Customers.Requests
+namespace Optivem.Template.Core.Application.Customers
 {
     public class ListCustomersRequest : IRequest
     {

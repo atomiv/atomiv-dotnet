@@ -1,8 +1,5 @@
 ﻿using Optivem.Core.Application;
 using Optivem.Core.Application.Services;
-using Optivem.Template.Core.Application.Interface.Customers;
-using Optivem.Template.Core.Application.Interface.Customers.Requests;
-using Optivem.Template.Core.Application.Interface.Customers.Responses;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers

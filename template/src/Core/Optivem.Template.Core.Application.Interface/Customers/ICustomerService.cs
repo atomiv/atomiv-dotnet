@@ -1,9 +1,7 @@
 ﻿using Optivem.Core.Application;
-using Optivem.Template.Core.Application.Interface.Customers.Requests;
-using Optivem.Template.Core.Application.Interface.Customers.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.Interface.Customers
+namespace Optivem.Template.Core.Application.Customers
 {
     public interface ICustomerService : IApplicationService
     {

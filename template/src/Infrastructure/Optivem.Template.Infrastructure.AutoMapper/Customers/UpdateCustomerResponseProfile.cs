@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Infrastructure.AutoMapper;
-using Optivem.Template.Core.Application.Interface.Customers.Responses;
+using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers

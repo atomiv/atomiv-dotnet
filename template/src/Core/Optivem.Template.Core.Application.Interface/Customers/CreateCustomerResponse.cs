@@ -1,8 +1,8 @@
 ﻿using Optivem.Core.Application;
 
-namespace Optivem.Template.Core.Application.Interface.Customers.Requests
+namespace Optivem.Template.Core.Application.Customers
 {
-    public class UpdateCustomerRequest : IRequest<int>
+    public class CreateCustomerResponse : IResponse<int>
     {
         public int Id { get; set; }
 
