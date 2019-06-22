@@ -27,7 +27,7 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
         {
             var record = GetRecord(aggregateRoot);
             Set.Add(record);
-            Context.SaveChanges(); // TODO: VC: Check if correct here
+            Context.SaveChanges();
             var identity = GetIdentity(record);
             return identity;
         }
@@ -45,24 +45,28 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
         {
             var records = GetRecords(aggregateRoots);
             Set.AddRange(records);
+            Context.SaveChanges();
         }
 
-        public Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots)
+        public async Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            return Set.AddRangeAsync(records);
+            await Set.AddRangeAsync(records);
+            await Context.SaveChangesAsync();
         }
 
         public void AddRange(params TAggregateRoot[] aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
             Set.AddRange(records);
+            Context.SaveChanges();
         }
 
-        public Task AddRangeAsync(params TAggregateRoot[] aggregateRoots)
+        public async Task AddRangeAsync(params TAggregateRoot[] aggregateRoots)
         {
             var records = GetRecords(aggregateRoots);
-            return Set.AddRangeAsync(records);
+            await Set.AddRangeAsync(records);
+            await Context.SaveChangesAsync();
         }
 
         #endregion Create
@@ -92,6 +96,7 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
             try
             {
                 action();
+                Context.SaveChanges();
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -103,84 +108,30 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
 
         #region Delete
 
-        // TODO: VC: DELETE
-
-        /*
-
-        public void Delete(TAggregateRoot aggregateRoot)
-        {
-            set.Remove(entity);
-        }
-
-        public void DeleteRange(IEnumerable<TAggregateRoot> entities)
-        {
-            set.RemoveRange(entities);
-        }
-
-        public void DeleteRange(params TAggregateRoot[] entities)
-        {
-            set.RemoveRange(entities);
-        }
-
-    */
-
-        // TODO: VC: Should be named DELETE
-
         public void Delete(TIdentity identity)
         {
             var record = GetRecord(identity);
             Set.Remove(record);
+            Context.SaveChanges();
         }
 
         public void DeleteRange(IEnumerable<TIdentity> identities)
         {
             var records = GetRecords(identities);
             Set.RemoveRange(records);
+            Context.SaveChanges();
         }
-
-
 
         public void DeleteRange(params TIdentity[] identities)
         {
             var records = GetRecords(identities);
             Set.RemoveRange(records);
+            Context.SaveChanges();
         }
 
         #endregion Delete
 
         #region Helper - Delete
-
-        // TODO: VC: DELETE
-
-        /*
-
-        protected void DeleteInner(object[] id)
-        {
-            var entity = GetSingleOrDefaultInner(id);
-
-            if (entity == null)
-            {
-                return;
-            }
-
-            Delete(entity);
-        }
-
-        protected void DeleteRangeInner(IEnumerable<object[]> ids)
-        {
-            var entities = GetEntities(ids);
-
-            DeleteRange(entities);
-        }
-
-        protected void DeleteRangeInner(params object[][] ids)
-        {
-            var entities = GetEntities(ids);
-
-            DeleteRange(entities);
-        }
-
-        */
 
         protected abstract TRecord GetRecord(TIdentity identity);
 
