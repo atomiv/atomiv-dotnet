@@ -39,7 +39,6 @@ namespace Optivem.Template.Web
             var coreModules = new List<Type>
             {
                 typeof(Core.Application.Module),
-                // typeof(Core.Application.Interface.Module),
                 typeof(Core.Domain.Module),
             };
 
