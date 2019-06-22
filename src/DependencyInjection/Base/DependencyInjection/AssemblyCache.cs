@@ -7,33 +7,78 @@ namespace Optivem.DependencyInjection
 {
     public static class AssemblyCache
     {
-        private static readonly Dictionary<string, List<Assembly>> FrameworkAssemblies;
+        private static readonly Dictionary<string, List<Assembly>> SuffixAssemblyMap;
+        private static readonly Dictionary<string, List<Assembly>> NameAssemblyMap;
+        private static readonly List<string> Names;
 
         static AssemblyCache()
         {
-            AllAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            FrameworkAssemblies = GetFrameworkAssemblies(AllAssemblies);
+            AllAssemblies = GetAllAssemblies();
+            NameAssemblyMap = GetNameAssemblyMap(AllAssemblies);
+            Names = GetNames(NameAssemblyMap);
+            SuffixAssemblyMap = GetSuffixAssemblyMap(NameAssemblyMap);
         }
 
         public static Assembly[] AllAssemblies { get; }
 
         public static Assembly[] GetAssembliesBySuffixes(params string[] suffixes)
         {
-            var assemblies = new List<Assembly>();
+            var matches = new List<Assembly>();
 
             foreach(var suffix in suffixes)
             {
-                if(FrameworkAssemblies.ContainsKey(suffix))
+                if(SuffixAssemblyMap.ContainsKey(suffix))
                 {
-                    var innerAssemblies = FrameworkAssemblies[suffix];
-                    assemblies.AddRange(innerAssemblies);
+                    var innerAssemblies = SuffixAssemblyMap[suffix];
+                    matches.AddRange(innerAssemblies);
                 }
             }
 
-            return assemblies.ToArray();
+            return matches.ToArray();
         }
 
-        private static Dictionary<string, List<Assembly>> GetFrameworkAssemblies(Assembly[] assemblies)
+        private static Assembly[] GetAllAssemblies()
+        {
+            var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            return appDomainAssemblies;
+        }
+
+        private static Dictionary<string, List<Assembly>> GetNameAssemblyMap(Assembly[] assemblies)
+        {
+            var nameAssemblyMap = new Dictionary<string, List<Assembly>>();
+
+            foreach (var assembly in assemblies)
+            {
+                var name = assembly.GetName().Name;
+
+                if(!nameAssemblyMap.ContainsKey(name))
+                {
+                    nameAssemblyMap.Add(name, new List<Assembly>());
+                }
+
+                nameAssemblyMap[name].Add(assembly);
+            }
+
+            return nameAssemblyMap;
+        }
+
+        private static List<string> GetNames(Dictionary<string, List<Assembly>> nameAssemblyMap)
+        {
+            var results = nameAssemblyMap.Keys.OrderBy(e => e).ToList();
+
+            // TODO: VC: Problem is that non-used assemblies are not loaded
+
+            foreach(var result in results)
+            {
+                System.Diagnostics.Trace.WriteLine(result);
+            }
+
+
+
+            return results;
+        }
+
+        private static Dictionary<string, List<Assembly>> GetSuffixAssemblyMap(Dictionary<string, List<Assembly>> nameAssemblyMap)
         {
             var prefixes = AssemblyNamePrefixes.All;
             var suffixes = AssemblyNameSuffixes.All;
@@ -42,9 +87,11 @@ namespace Optivem.DependencyInjection
 
             var excluded = GetExcludedAssemblyNames(prefixes, suffixes);
 
-            foreach(var assembly in assemblies)
+            foreach(var nameAssembly in nameAssemblyMap)
             {
-                var assemblyName = assembly.GetName().Name;
+                var assemblyName = nameAssembly.Key;
+                var assemblies = nameAssembly.Value;
+
                 var matchingSuffixes = GetMatchingSuffixes(assemblyName, suffixes, excluded);
 
                 foreach(var matchingSuffix in matchingSuffixes)
@@ -54,7 +101,7 @@ namespace Optivem.DependencyInjection
                         matches.Add(matchingSuffix, new List<Assembly>());
                     }
 
-                    matches[matchingSuffix].Add(assembly);
+                    matches[matchingSuffix].AddRange(assemblies);
                 }
             }
 

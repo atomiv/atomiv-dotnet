@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Core.Common.Serialization;
+using Optivem.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Infrastructure.CsvHelper;
 using Optivem.Infrastructure.NewtonsoftJson;
 using Optivem.Web.AspNetCore;
@@ -29,17 +30,9 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
         {
             services.AddSingleton<ICsvSerializationService, CsvSerializationService>();
 
-            // Mapping
-            // TODO: VC: DELETE
-
-            /*
-            services.AddAutoMapper(e =>
-            {
-                e.AddProfile<CustomerGetCollectionResponseProfile>();
-            });
-            */
-
             services.AddAutoMapper(Assembly.GetAssembly(typeof(CustomerGetAllResponseProfile)));
+
+            services.AddNewtonsoftJsonInfrastructure();
 
             // TODO: VC: AutoMapper: AssertConfigurationIsValid (example error: Count field is not mapped)
 
@@ -86,9 +79,8 @@ namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
             registry.Add(typeof(BadHttpRequestException), new BadHttpRequestExceptionProblemDetailsFactory());
 
             var problemDetailsFactory = new ExceptionProblemDetailsFactory(registry);
-            IJsonSerializationService jsonSerializationService = new JsonSerializationService();
 
-            app.UseExceptionHandler(problemDetailsFactory, jsonSerializationService);
+            app.UseProblemDetailsExceptionHandler(problemDetailsFactory);
 
             app.UseSwagger();
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Core.Domain;
-using Optivem.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

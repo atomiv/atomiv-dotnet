@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
   </ItemGroup>

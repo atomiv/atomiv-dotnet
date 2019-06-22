@@ -23,7 +23,7 @@ namespace Optivem.DependencyInjection
                 return assemblies;
             }
 
-            return AssemblyCache.GetAssembliesBySuffixes(suffixes);
+            return AssemblyCache.GetAssembliesBySuffixes( suffixes);
 
             /*
 
