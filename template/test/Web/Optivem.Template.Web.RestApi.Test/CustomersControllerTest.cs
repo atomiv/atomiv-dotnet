@@ -46,7 +46,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            var actualContent = actual.Content;
+            var actualContent = actual.Data;
 
             Assert.Equal(2, actualContent.Records.Count);
 
@@ -75,7 +75,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
-            var findResponseContent = findResponse.Content;
+            var findResponseContent = findResponse.Data;
 
             Assert.Equal(customerRecord.Id, findResponseContent.Id);
             Assert.Equal(customerRecord.FirstName, findResponseContent.FirstName);
@@ -105,7 +105,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
-            var createResponseContent = createResponse.Content;
+            var createResponseContent = createResponse.Data;
 
             Assert.True(createResponseContent.Id > 0);
 
@@ -116,7 +116,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
-            var findResponseContent = findResponse.Content;
+            var findResponseContent = findResponse.Data;
 
             Assert.Equal(createResponseContent.Id, findResponseContent.Id);
             Assert.Equal(createRequest.FirstName, findResponseContent.FirstName);
@@ -138,7 +138,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
 
-            var createResponseContent = createResponse.Content;
+            var createResponseContent = createResponse.Data;
 
             var problemDetails = createResponse.ProblemDetails;
 
@@ -163,7 +163,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
-            var updateResponseContent = updateResponse.Content;
+            var updateResponseContent = updateResponse.Data;
 
             Assert.Equal(updateRequest.Id, updateResponseContent.Id);
             Assert.Equal(updateRequest.FirstName, updateResponseContent.FirstName);

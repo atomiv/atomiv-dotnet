@@ -11,12 +11,18 @@ namespace Optivem.Core.Application.Services
 
         protected IRequestHandler RequestHandler { get; private set; }
 
+        protected Task<TListResponse> ListAsync<TListRequest, TListResponse>(TListRequest request)
+            where TListRequest : IRequest, new()
+            where TListResponse : ICollectionResponse
+        {
+            return RequestHandler.HandleAsync<TListRequest, TListResponse>(request);
+        }
         protected Task<TListResponse> ListAsync<TListRequest, TListResponse>()
             where TListRequest : IRequest, new()
             where TListResponse : ICollectionResponse
         {
             var request = new TListRequest();
-            return RequestHandler.HandleAsync<TListRequest, TListResponse>(request);
+            return ListAsync<TListRequest, TListResponse>(request);
         }
 
         protected Task<TCreateResponse> CreateAsync<TCreateRequest, TCreateResponse>(TCreateRequest request)

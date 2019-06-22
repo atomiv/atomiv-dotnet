@@ -6,6 +6,8 @@ using System.Reflection;
 
 namespace Optivem.DependencyInjection
 {
+    // TODO: VC: Strong checking that for each interface defined, that implementaiton exists, e.g. IProductService must have ProductService implementation
+
     public static class ServiceCollectionExtensions
     {
         // TODO: VC: Offer parameter lifetime type

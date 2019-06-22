@@ -26,7 +26,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.Content);
+            AssertUtilities.AssertEqual(expected, actual.Data);
         }
     }
 }

@@ -1,6 +1,11 @@
 ﻿using Optivem.Core.Common.Http;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Optivem.Infrastructure.AspNetCore
 {
@@ -21,7 +26,9 @@ namespace Optivem.Infrastructure.AspNetCore
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request)
         {
-            throw new NotImplementedException();
+            var queryString = GetQueryString(request);
+            var relativeUri = GetRelativeUri(null, queryString);
+            return GetAsync<TResponse>(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
@@ -179,16 +186,25 @@ namespace Optivem.Infrastructure.AspNetCore
             return $"{ControllerUri}/{id}";
         }
 
-        private string GetRelativeUri(string uri = null)
+        private string GetRelativeUri(string uri = null, string query = null)
         {
-            if (uri == null)
+            var stringBuilder = new StringBuilder();
+
+            stringBuilder.Append(ControllerUri);
+
+            if(uri != null)
             {
-                return ControllerUri;
+                stringBuilder.Append($"/{uri}");
             }
-            else
+
+            if(query != null)
             {
-                return $"{ControllerUri}/{uri}";
+                stringBuilder.Append($"?{query}");
             }
+
+            var str = stringBuilder.ToString();
+
+            return str;
         }
 
         public void Dispose()
@@ -196,8 +212,84 @@ namespace Optivem.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
+        private static string GetQueryString<TRequest>(TRequest request)
+        {
+            // TODO: VC: Make module for reflection helpers
+            var type = typeof(TRequest);
+            var properties = type.GetProperties();
 
+            var propertyValues = properties
+                .Select(e => Property.From(request, e))
+                .ToList();
 
+            var queryParameters = propertyValues
+                .Where(e => e.Value != null)
+                .Select(e => QueryParameter.From(e))
+                .ToList();
+
+            var queryString = QueryString.From(queryParameters);
+
+            return queryString;
+        }
+
+        private class Property
+        {
+            public Property(string name, object value)
+            {
+                Name = name;
+                Value = value;
+            }
+
+            public string Name { get; }
+
+            public object Value { get; }
+
+            public static Property From<T>(T obj, PropertyInfo propertyInfo)
+            {
+                var name = propertyInfo.Name;
+                var value = propertyInfo.GetValue(obj, null);
+
+                return new Property(name, value);
+            }
+        }
+
+        private class QueryParameter
+        {
+            public QueryParameter(string name, string value)
+            {
+                Name = name;
+                Value = value;
+            }
+
+            public string Name { get; set; }
+
+            public string Value { get; set; }
+
+            public override string ToString()
+            {
+                return $"{Name}={Value}";
+            }
+
+            public static QueryParameter From(Property property)
+            {
+                var name = property.Name;
+                var value = property.Value;
+                var stringValue = value.ToString();
+                var encodedValue = HttpUtility.UrlEncode(stringValue);
+
+                return new QueryParameter(name, encodedValue);
+            }
+        }
+
+        private class QueryString
+        {
+            public static string From(IEnumerable<QueryParameter> queryParameters)
+            {
+                var queryParameterStrings = queryParameters.Select(e => e.ToString()).ToList();
+                var queryString = string.Join("&", queryParameterStrings);
+                return queryString;
+            }
+        }
 
         #endregion Helper
     }

@@ -52,7 +52,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.Content);
+            AssertUtilities.AssertEqual(expected, actual.Data);
         }
 
         [Fact(Skip = "Fails on server, need to re-check")]
@@ -120,7 +120,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             Assert.Equal(HttpStatusCode.OK, retrieved.StatusCode);
 
-            Assert.Equal(4, retrieved.Content.Results.Count());
+            Assert.Equal(4, retrieved.Data.Results.Count());
 
             // TODO: VC: Handle later
 
@@ -145,7 +145,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             Assert.Equal(HttpStatusCode.Created, result.StatusCode);
 
-            var resultContent = result.Content;
+            var resultContent = result.Data;
 
             Assert.Equal(request.UserName, resultContent.UserName);
             Assert.Equal(request.FirstName, resultContent.FirstName);

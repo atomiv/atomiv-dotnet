@@ -28,7 +28,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.Content);
+            AssertUtilities.AssertEqual(expected, actual.Data);
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
             var expectedCount = 100;
-            var actualCount = actual.Content.Count();
+            var actualCount = actual.Data.Count();
 
             Assert.Equal(expectedCount, actualCount);
 
@@ -51,7 +51,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
                 Body = "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
             };
 
-            var actualFirst = actual.Content.First();
+            var actualFirst = actual.Data.First();
 
             AssertUtilities.AssertEqual(expectedFirst, actualFirst);
 
@@ -63,7 +63,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
                 Body = "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
             };
 
-            var actualLast = actual.Content.Last();
+            var actualLast = actual.Data.Last();
 
             AssertUtilities.AssertEqual(expectedLast, actualLast);
         }
@@ -82,7 +82,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.Created, actual.StatusCode);
 
-            var actualContent = actual.Content;
+            var actualContent = actual.Data;
 
             Assert.True(actualContent.Id > 0);
 
@@ -98,7 +98,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.OK, expected.StatusCode);
 
-            var expectedContent = expected.Content;
+            var expectedContent = expected.Data;
 
             expectedContent.UserId = 10;
             expectedContent.Title = "Some Title";
@@ -108,7 +108,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            var actualContent = actual.Content;
+            var actualContent = actual.Data;
 
             AssertUtilities.AssertEqual(expectedContent, actualContent);
         }
@@ -120,7 +120,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.OK, expected.StatusCode);
 
-            var expectedContent = expected.Content;
+            var expectedContent = expected.Data;
 
             expectedContent.Title = "Some Title";
 
@@ -133,7 +133,7 @@ namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            var actualContent = actual.Content;
+            var actualContent = actual.Data;
 
             AssertUtilities.AssertEqual(expectedContent, actualContent);
         }

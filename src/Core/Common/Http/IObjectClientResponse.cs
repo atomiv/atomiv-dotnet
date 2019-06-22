@@ -2,7 +2,7 @@
 {
     public interface IObjectClientResponse<T> : IClientResponse
     {
-        T Content { get; }
+        T Data { get; }
 
         IProblemDetails ProblemDetails { get; }
     }

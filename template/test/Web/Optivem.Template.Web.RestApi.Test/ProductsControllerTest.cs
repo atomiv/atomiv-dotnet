@@ -4,6 +4,7 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 using Optivem.Template.Web.Test.Fixture;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
@@ -46,6 +47,81 @@ namespace Optivem.Template.Web.Test
             Fixture.AddRange(_productRecords);
         }
 
+        // TODO: VC: Naming conventions for tests
+
+        [Fact]
+        public async Task BrowseProducts_OK()
+        {
+            for(int i = 0; i < 30; i++)
+            {
+                var productRecord = new ProductRecord
+                {
+                    ProductCode = $"P{i}",
+                    ProductName = $"Product {i}",
+                    ListPrice = 100 + i,
+                };
+
+                // TODO: VC: Check if valid
+                _productRecords.Add(productRecord);
+
+                Fixture.Add(productRecord);
+            }
+
+            var browseRequest = new BrowseProductsRequest
+            {
+                Page = 3,
+                Size = 5,
+            };
+
+            var browseResponse = await Fixture.Products.BrowseProductsAsync(browseRequest);
+
+            Assert.Equal(HttpStatusCode.OK, browseResponse.StatusCode);
+
+            var browseResponseContent = browseResponse.Data;
+
+            Assert.Equal(browseRequest.Size, browseResponseContent.Count);
+
+            var skip = browseRequest.Page * browseRequest.Size;
+            var take = browseRequest.Size;
+
+            var expected = _productRecords.Skip(skip).Take(take).ToList();
+
+            for(int i = 0; i < expected.Count; i++)
+            {
+                var expectedRecord = expected[i];
+                var actualRecord = browseResponseContent.Records[i];
+                Assert.Equal(expectedRecord.Id, actualRecord.Id);
+                Assert.Equal(expectedRecord.ProductCode, actualRecord.Code);
+                Assert.Equal(expectedRecord.Id, actualRecord.UnitPrice);
+            }
+        }
+
+
+        [Fact(Skip = "Pending implement")]
+        public async Task CreateProduct_Invalid_MissingCode_UnprocessableEntity()
+        {
+            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
+
+            var createRequest = new CreateProductRequest
+            {
+                Code = null,
+                Description = "My desc",
+                UnitPrice = 112,
+            };
+
+            var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
+
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
+
+            var createResponseContent = createResponse.Data;
+
+            var problemDetails = createResponse.ProblemDetails;
+
+            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
+        }
+
+
+
         [Fact(Skip = "Pending implement")]
         public async Task ListProducts_OK()
         {
@@ -53,7 +129,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            var actualContent = actual.Content;
+            var actualContent = actual.Data;
 
             Assert.Equal(2, actualContent.Records.Count);
 
@@ -80,7 +156,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
-            var findResponseContent = findResponse.Content;
+            var findResponseContent = findResponse.Data;
 
             Assert.Equal(productRecord.Id, findResponseContent.Id);
             Assert.Equal(productRecord.ProductCode, findResponseContent.Code);
@@ -112,7 +188,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
-            var createResponseContent = createResponse.Content;
+            var createResponseContent = createResponse.Data;
 
             Assert.True(createResponseContent.Id > 0);
 
@@ -124,7 +200,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
-            var findResponseContent = findResponse.Content;
+            var findResponseContent = findResponse.Data;
 
             Assert.Equal(createResponseContent.Id, findResponseContent.Id);
             Assert.Equal(createRequest.Code, findResponseContent.Code);
@@ -132,28 +208,7 @@ namespace Optivem.Template.Web.Test
             Assert.Equal(createRequest.UnitPrice, findResponseContent.UnitPrice);
         }
 
-        [Fact(Skip = "Pending implement")]
-        public async Task CreateProduct_Invalid_MissingCode_UnprocessableEntity()
-        {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
-            var createRequest = new CreateProductRequest
-            {
-                Code = null,
-                Description = "My desc",
-                UnitPrice = 112,
-            };
-
-            var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
-
-            Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
-
-            var createResponseContent = createResponse.Content;
-
-            var problemDetails = createResponse.ProblemDetails;
-
-            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
-        }
 
         [Fact(Skip = "Pending implement")]
         public async Task UpdateProduct_Valid_OK()
@@ -171,7 +226,7 @@ namespace Optivem.Template.Web.Test
 
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
-            var updateResponseContent = updateResponse.Content;
+            var updateResponseContent = updateResponse.Data;
 
             Assert.Equal(updateRequest.Id, updateResponseContent.Id);
             Assert.Equal(updateRequest.Description, updateResponseContent.Description);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Optivem.Template.Core.Application.Products
 {
-    public class ListProductsResponse : ICollectionResponse<ListProductsRecordResponse>
+    public class ListProductsResponse : ICollectionResponse<ListProductsRecordResponse, int>
     {
         public List<ListProductsRecordResponse> Records { get; set; }
 

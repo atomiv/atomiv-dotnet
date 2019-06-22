@@ -157,7 +157,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.Test", "template\test\Core\Optivem.Template.Core.Application.Test\Optivem.Template.Core.Application.Test.csproj", "{1FA7E719-C5CD-464D-B1BA-E6E54FB47A45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.Test", "template\test\Web\Optivem.Template.Web.RestApi.Test\Optivem.Template.Web.Test.csproj", "{E446595C-4BAC-4C78-8EB5-07286698F6FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.Test", "template\test\Web\Optivem.Template.Web.RestApi.Test\Optivem.Template.Web.RestApi.Test.csproj", "{E446595C-4BAC-4C78-8EB5-07286698F6FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

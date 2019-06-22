@@ -12,7 +12,7 @@ namespace Optivem.Core.Common.Http
             IsSuccessStatusCode = isSuccessStatusCode;
             StatusCode = statusCode;
             ContentString = contentString;
-            Content = content;
+            Data = content;
             ProblemDetails = problemDetails;
         }
 
@@ -22,7 +22,7 @@ namespace Optivem.Core.Common.Http
 
         public string ContentString { get; }
 
-        public T Content { get; }
+        public T Data { get; }
 
         public IProblemDetails ProblemDetails { get; }
     }
