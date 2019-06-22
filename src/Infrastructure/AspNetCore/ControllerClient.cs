@@ -19,6 +19,11 @@ namespace Optivem.Infrastructure.AspNetCore
 
         public string ControllerUri { get; private set; }
 
+        public Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
         {
             var relativeUri = GetRelativeUri();
@@ -186,6 +191,8 @@ namespace Optivem.Infrastructure.AspNetCore
         {
             throw new NotImplementedException();
         }
+
+
 
         #endregion Helper
     }

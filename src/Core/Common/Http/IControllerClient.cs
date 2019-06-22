@@ -4,6 +4,8 @@ namespace Optivem.Core.Common.Http
 {
     public interface IControllerClient : IObjectClient, IClient
     {
+        Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request);
+
         Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>();
 
         Task<IClientResponse> GetAsync();
