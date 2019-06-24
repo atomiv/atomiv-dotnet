@@ -1,4 +1,5 @@
 ﻿using Optivem.Core.Domain;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,12 +32,7 @@ namespace Optivem.Core.Application
             var repository = GetRepository();
             var aggregateRoots = await repository.GetAsync();
 
-            var records = ResponseMapper.MapEnumerable<TAggregateRoot, TRecordResponse>(aggregateRoots).ToList();
-
-            return new TResponse
-            {
-                Records = records,
-            };
+            return ResponseMapper.Map<IEnumerable<TAggregateRoot>, TResponse>(aggregateRoots);
         }
     }
     public abstract class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>

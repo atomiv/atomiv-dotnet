@@ -26,4 +26,8 @@
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Profiles\Customers\Imports\" />
+  </ItemGroup>
+
 </Project>

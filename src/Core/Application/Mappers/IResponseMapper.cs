@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Optivem.Core.Application
 {
+    // TODO: VC: DELETE
+
+
+    /*
     public interface IResponseMapper<TEntity, TResponse>
         where TEntity : IEntity
         where TResponse : IResponse
@@ -19,5 +23,18 @@ namespace Optivem.Core.Application
         IEnumerable<TResponse> MapEnumerable<TEntity, TResponse>(IEnumerable<TEntity> entities)
             where TEntity : IEntity
             where TResponse : IResponse;
+    }
+
+    */
+
+    public interface IResponseMapper
+    {
+        TResponse Map<T, TResponse>(T obj) where TResponse : IResponse;
+    }
+
+    public interface IResponseMapper<T, TResponse>
+        where TResponse : IResponse
+    {
+        TResponse Map(T obj);
     }
 }

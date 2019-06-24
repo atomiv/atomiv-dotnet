@@ -31,18 +31,11 @@ namespace Optivem.Infrastructure.AutoMapper
 
         protected IMapper Mapper { get; private set; }
 
-        public TResponse Map<TEntity, TResponse>(TEntity entity)
-            where TEntity : IEntity
+        public TResponse Map<T, TResponse>(T obj)
             where TResponse : IResponse
         {
-            return Mapper.Map<TEntity, TResponse>(entity);
+            return Mapper.Map<T, TResponse>(obj);
         }
 
-        public IEnumerable<TResponse> MapEnumerable<TEntity, TResponse>(IEnumerable<TEntity> entities)
-            where TEntity : IEntity
-            where TResponse : IResponse
-        {
-            return Mapper.Map<IEnumerable<TEntity>, IEnumerable<TResponse>>(entities);
-        }
     }
 }
