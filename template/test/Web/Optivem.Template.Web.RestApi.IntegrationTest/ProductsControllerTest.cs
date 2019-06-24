@@ -10,7 +10,7 @@ using Xunit;
 // TODO: VC: Consider moving to base
 // [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
-namespace Optivem.Template.Web.Test
+namespace Optivem.Template.Web.IntegrationTest
 {
     public class ProductsControllerTest : ControllerTest
     {

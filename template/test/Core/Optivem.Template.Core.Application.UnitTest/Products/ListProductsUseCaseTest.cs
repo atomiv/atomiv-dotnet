@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Template.Core.Application.Test.Products
+namespace Optivem.Template.Core.Application.UnitTest.Products
 {
     public class ListProductsUseCaseTest
     {

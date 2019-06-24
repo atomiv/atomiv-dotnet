@@ -6,9 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-// TODO: VC: Consider moving to base
-// [assembly: CollectionBehavior(DisableTestParallelization = true)]
-namespace Optivem.Template.Web.Test
+namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
     public class CustomersControllerTest : ControllerTest
     {

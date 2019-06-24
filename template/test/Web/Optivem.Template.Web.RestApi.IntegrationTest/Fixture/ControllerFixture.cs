@@ -1,6 +1,6 @@
 ﻿using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Web.Test.Clients;
+using Optivem.Template.Web.IntegrationTest.Clients;
 using Optivem.Test.AspNetCore;
 using Optivem.Test.EntityFrameworkCore;
 

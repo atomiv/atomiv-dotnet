@@ -3,7 +3,7 @@ using Optivem.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.Test.Clients
+namespace Optivem.Template.Web.IntegrationTest.Clients
 {
     public class CustomersControllerClient : BaseControllerClient
     {
