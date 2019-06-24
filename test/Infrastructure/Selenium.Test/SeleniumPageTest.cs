@@ -7,7 +7,7 @@ namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 
-    public class SeleniumPageTest : TestFixture<ChromeDriverFixture>
+    public class SeleniumPageTest : FixtureTest<ChromeDriverFixture>
     {
         public SeleniumPageTest(ChromeDriverFixture fixture) : base(fixture)
         {

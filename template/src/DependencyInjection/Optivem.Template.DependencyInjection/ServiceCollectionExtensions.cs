@@ -1,5 +1,4 @@
-﻿using AutoMapper.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.DependencyInjection.Core.Application;
@@ -13,15 +12,12 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Optivem.Template.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        private const string DatabaseConnectionKey = "DefaultConnection";
-
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
         {
             var coreModules = new List<Type>
@@ -51,7 +47,8 @@ namespace Optivem.Template.DependencyInjection
             services.AddDomainCore(assemblies);
 
             // Infrastructure
-            var connection = configuration.GetConnectionString(DatabaseConnectionKey);
+            var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
+            var connection = configuration.GetConnectionString(connectionKey);
             services.AddEntityFrameworkCoreInfrastructure<DatabaseContext>(options => options.UseSqlServer(connection), assemblies);
             services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);

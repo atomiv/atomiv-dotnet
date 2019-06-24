@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 {
+    // TODO: VC: DELETE
+
+    /*
     public abstract class BaseTestClient<TStartup, TDbContext> : IDisposable
         where TStartup : class
         where TDbContext : DbContext
@@ -35,4 +38,6 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore
             Client.Dispose();
         }
     }
+
+    */
 }

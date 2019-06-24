@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Test.Xunit;
-using System;
-
-namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
+﻿namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 {
+    // TODO: VC: Avoid combination and consider splitting and then deleting this, leaving only AspNetCore
+
+    // TODO: VC: DELETE
+
+    /*
+
     public abstract class BaseTestClientFixture<TClient, TStartup, TDbContext> : TestFixture<TClient>, IDisposable
         where TClient : BaseTestClient<TStartup, TDbContext>
         where TStartup : class
@@ -33,4 +35,6 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit
 
         protected abstract void Cleanup();
     }
+
+    */
 }

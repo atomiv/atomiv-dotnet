@@ -1,20 +1,21 @@
 ﻿using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using Optivem.Test.AspNetCore.EntityFrameworkCore.Xunit;
+using Optivem.Test.Xunit;
+using System;
 
 namespace Optivem.Template.Web.Test.Fixture
 {
-    public class TestFixture : BaseTestClientFixture<TestClient, Startup, DatabaseContext>
+    public class ControllerTest : FixtureTest<ControllerFixture>, IDisposable
     {
-        public TestFixture(TestClient fixture)
+        public ControllerTest(ControllerFixture fixture)
             : base(fixture)
         {
         }
 
-        protected override void Cleanup()
+        public void Dispose()
         {
             // TODO: VC: Optimize, use truncate, also generic truncate for all DB contexts, but only the operational tables
 
-            using (var context = Fixture.Client.CreateDatabaseContext())
+            using (var context = Fixture.Db.CreateContext())
             {
                 context.Customer.RemoveRange(context.Customer);
                 context.Product.RemoveRange(context.Product);

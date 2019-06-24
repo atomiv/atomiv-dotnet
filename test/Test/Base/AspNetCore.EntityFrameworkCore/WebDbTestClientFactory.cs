@@ -1,12 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Optivem.Infrastructure.EntityFrameworkCore;
-using Optivem.Test.Common.Configuration;
-using Optivem.Test.EntityFrameworkCore;
-using System;
-
-namespace Optivem.Test.AspNetCore.EntityFrameworkCore
+﻿namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 {
+    // TODO: VC: DELETE
+
+    /*
     public static class WebDbTestClientFactory
     {
         public static WebDbTestClient<TDbContext> Create<TStartup, TDbContext>(string connectionStringKey, Func<DbContextOptions<TDbContext>, TDbContext> createDbContext)
@@ -27,4 +23,5 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 
 
     }
+    */
 }

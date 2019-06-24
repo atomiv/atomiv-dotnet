@@ -10,16 +10,11 @@ using Xunit;
 // [assembly: CollectionBehavior(DisableTestParallelization = true)]
 namespace Optivem.Template.Web.Test
 {
-    public class CustomersControllerTest : TestFixture
+    public class CustomersControllerTest : ControllerTest
     {
         private List<CustomerRecord> _customerRecords;
 
-        public CustomersControllerTest(TestClient client) : base(client)
-        {
-
-        }
-
-        protected override void Startup()
+        public CustomersControllerTest(ControllerFixture fixture) : base(fixture)
         {
             _customerRecords = new List<CustomerRecord>
             {
@@ -36,7 +31,7 @@ namespace Optivem.Template.Web.Test
                 }
             };
 
-            Fixture.AddRange(_customerRecords);
+            Fixture.Db.AddRange(_customerRecords);
         }
 
         [Fact]

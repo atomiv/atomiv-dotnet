@@ -1,7 +1,4 @@
-﻿using Optivem.Core.Domain;
-using System.Collections.Generic;
-
-namespace Optivem.Core.Application
+﻿namespace Optivem.Core.Application
 {
     // TODO: VC: DELETE
 
@@ -37,4 +34,6 @@ namespace Optivem.Core.Application
     {
         TResponse Map(T obj);
     }
+
+    // TODO: VC: Implement these mappers and do early testing that they exist
 }

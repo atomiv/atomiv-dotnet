@@ -6,6 +6,10 @@ using System;
 
 namespace Optivem.Test.AspNetCore.EntityFrameworkCore
 {
+    // TODO: VC: DELETE
+
+
+    /*
     public class WebDbTestClient<TDbContext> : IDisposable
         where TDbContext : DbContext
     {
@@ -42,4 +46,5 @@ namespace Optivem.Test.AspNetCore.EntityFrameworkCore
             // DatabaseTestClient.EnsureDatabaseDeleted();
         }
     }
+    */
 }

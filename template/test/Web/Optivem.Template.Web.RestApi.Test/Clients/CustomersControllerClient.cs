@@ -1,9 +1,6 @@
 ﻿using Optivem.Core.Common.Http;
 using Optivem.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.Test.Clients

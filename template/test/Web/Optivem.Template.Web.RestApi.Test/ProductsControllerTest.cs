@@ -1,6 +1,4 @@
-using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Products;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 using Optivem.Template.Web.Test.Fixture;
 using System.Collections.Generic;
@@ -14,16 +12,11 @@ using Xunit;
 
 namespace Optivem.Template.Web.Test
 {
-    public class ProductsControllerTest : TestFixture
+    public class ProductsControllerTest : ControllerTest
     {
         private List<ProductRecord> _productRecords;
 
-        public ProductsControllerTest(TestClient client) : base(client)
-        {
-
-        }
-
-        protected override void Startup()
+        public ProductsControllerTest(ControllerFixture fixture) : base(fixture)
         {
             _productRecords = new List<ProductRecord>
             {
@@ -44,7 +37,7 @@ namespace Optivem.Template.Web.Test
                 },
             };
 
-            Fixture.AddRange(_productRecords);
+            Fixture.Db.AddRange(_productRecords);
         }
 
         // TODO: VC: Naming conventions for tests
@@ -64,7 +57,7 @@ namespace Optivem.Template.Web.Test
                 // TODO: VC: Check if valid
                 _productRecords.Add(productRecord);
 
-                Fixture.Add(productRecord);
+                Fixture.Db.Add(productRecord);
             }
 
             var browseRequest = new BrowseProductsRequest
@@ -122,7 +115,7 @@ namespace Optivem.Template.Web.Test
 
 
 
-        [Fact(Skip = "Pending implement")]
+        [Fact]
         public async Task ListProducts_OK()
         {
             var actual = await Fixture.Products.ListProductsAsync();

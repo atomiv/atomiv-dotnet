@@ -1,15 +1,16 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Core.Application.UseCases.Base;
+using Optivem.Core.Domain;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application
 {
     // TODO: VC: Make optimized version for retriving all
 
-    public class ListAggregatesUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
-        : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
-        where TUnitOfWork : IUnitOfWork
+    // TODO: Move response mapper to base
+
+    public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
+        : RepositoryUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
@@ -17,8 +18,8 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListAggregatesUseCase(TUnitOfWork unitOfWork, IResponseMapper responseMapper)
-            : base(unitOfWork)
+        public ListAggregatesUseCase(TRepository repository, IResponseMapper responseMapper)
+            : base(repository)
         {
             ResponseMapper = responseMapper;
         }
@@ -29,12 +30,15 @@ namespace Optivem.Core.Application
         {
             // TODO: VC: Later handling use case with pagination, need corresponding dto and also result not just list
 
-            var repository = GetRepository();
-            var aggregateRoots = await repository.GetAsync();
+            var aggregateRoots = await Repository.GetAsync();
 
             return ResponseMapper.Map<IEnumerable<TAggregateRoot>, TResponse>(aggregateRoots);
         }
     }
+
+    // TODO: VC: DELETE
+
+    /*
     public abstract class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         : ListAggregatesUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
@@ -49,4 +53,5 @@ namespace Optivem.Core.Application
         {
         }
     }
+    */
 }

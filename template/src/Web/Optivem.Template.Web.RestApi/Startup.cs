@@ -1,21 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Web.AspNetCore;
-using Optivem.DependencyInjection.Core.Application;
-using Optivem.DependencyInjection.Core.Domain;
-using Optivem.DependencyInjection.Infrastructure.AutoMapper;
-using Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore;
-using Optivem.DependencyInjection.Infrastructure.FluentValidation;
-using Optivem.DependencyInjection.Infrastructure.MediatR;
-using Optivem.DependencyInjection.Infrastructure.NewtonsoftJson;
-using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 using Optivem.Template.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 

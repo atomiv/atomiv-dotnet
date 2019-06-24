@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Template.Core.Application.Orders
+﻿namespace Optivem.Template.Core.Application.Orders
 {
     public interface IOrderService
     {
