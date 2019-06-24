@@ -12,8 +12,11 @@ namespace Optivem.Template.Web.Test.Fixture
 
     public class TestClient : BaseTestClient<Startup, DatabaseContext>
     {
+        // TOD: VS: Check if connection key should be centralized? perhaps strongly typed configuration
+        private const string DatabaseConnectionKey = "DefaultConnection";
+
         public TestClient()
-            : base(Startup.DatabaseConnectionKey, e => new DatabaseContext(e))
+            : base(DatabaseConnectionKey, e => new DatabaseContext(e))
         {
             Customers = new CustomersControllerClient(Client.ControllerClientFactory);
             Products = new ProductsControllerClient(Client.ControllerClientFactory);
