@@ -159,6 +159,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Appli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.Test", "template\test\Web\Optivem.Template.Web.RestApi.Test\Optivem.Template.Web.RestApi.Test.csproj", "{E446595C-4BAC-4C78-8EB5-07286698F6FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{62FF9D8B-9229-403B-863F-D65ABDF3BA7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.DependencyInjection", "template\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj", "{596FB780-05AA-45B9-B8E0-950116B80682}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -381,6 +385,10 @@ Global
 		{E446595C-4BAC-4C78-8EB5-07286698F6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E446595C-4BAC-4C78-8EB5-07286698F6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E446595C-4BAC-4C78-8EB5-07286698F6FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{596FB780-05AA-45B9-B8E0-950116B80682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{596FB780-05AA-45B9-B8E0-950116B80682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{596FB780-05AA-45B9-B8E0-950116B80682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{596FB780-05AA-45B9-B8E0-950116B80682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -462,6 +470,8 @@ Global
 		{A0273CD6-B99A-4388-80DC-49D5A796125F} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{1FA7E719-C5CD-464D-B1BA-E6E54FB47A45} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{E446595C-4BAC-4C78-8EB5-07286698F6FF} = {04BFF208-657F-4024-8725-BD473BD76F44}
+		{62FF9D8B-9229-403B-863F-D65ABDF3BA7D} = {3D617A9C-8C41-4CDE-9F5C-D83AE8412B08}
+		{596FB780-05AA-45B9-B8E0-950116B80682} = {62FF9D8B-9229-403B-863F-D65ABDF3BA7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

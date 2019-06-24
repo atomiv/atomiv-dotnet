@@ -16,13 +16,13 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Optivem.Template.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Optivem.Template.Web
 {
     public class Startup
     {
-        public const string DatabaseConnectionKey = "DefaultConnection";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,47 +36,12 @@ namespace Optivem.Template.Web
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var coreModules = new List<Type>
-            {
-                typeof(Core.Application.Module),
-                typeof(Core.Domain.Module),
-            };
+            services.AddModules(Configuration);
 
-            var infrastructureModules = new List<Type>
-            {
-                typeof(Infrastructure.AutoMapper.Module),
-                typeof(Infrastructure.EntityFrameworkCore.Module),
-                typeof(Infrastructure.FluentValidation.Module),
-                typeof(Infrastructure.MediatR.Module),
-            };
-
-            var modules = new List<Type>();
-            modules.AddRange(coreModules);
-            modules.AddRange(infrastructureModules);
-
-            var assemblies = modules.Select(e => e.Assembly).ToArray();
-
-            // var assemblies = null;
-
-            // Core
-            services.AddApplicationCore(assemblies);
-            services.AddDomainCore(assemblies);
-
-            // Infrastructure
-            var connection = Configuration.GetConnectionString(DatabaseConnectionKey);
-            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext>(options => options.UseSqlServer(connection), assemblies);
-            services.AddAutoMapperInfrastructure(assemblies);
-            services.AddFluentValidationInfrastructure(assemblies);
-            services.AddMediatRInfrastructure(assemblies);
-            services.AddNewtonsoftJsonInfrastructure(assemblies);
-
-            // Additional
-            /*
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "REST API", Version = "v1" });
             });
-            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,7 +58,14 @@ namespace Optivem.Template.Web
             }
 
             app.UseProblemDetailsExceptionHandler();
-            
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "REST API V1");
+            });
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }

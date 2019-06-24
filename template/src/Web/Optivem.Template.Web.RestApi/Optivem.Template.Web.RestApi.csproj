@@ -16,22 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Optivem.DependencyInjection.Infrastructure.FluentValidation.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\MediatR\Optivem.DependencyInjection.Infrastructure.MediatR.csproj" />
-    <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.AutoMapper\Optivem.Template.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.FluentValidation\Optivem.Template.Infrastructure.FluentValidation.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.MediatR\Optivem.Template.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>
