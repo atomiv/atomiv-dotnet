@@ -1,5 +1,4 @@
-﻿using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using Optivem.Test.Xunit;
+﻿using Optivem.Test.Xunit;
 using System;
 
 namespace Optivem.Template.Web.Test.Fixture

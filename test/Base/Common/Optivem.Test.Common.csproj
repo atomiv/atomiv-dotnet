@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Core\Common\Optivem.Core.Common.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Common\Optivem.Core.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
-﻿using Optivem.Core.Common;
-using Optivem.Template.DependencyInjection;
+﻿using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Test.EntityFrameworkCore;
 

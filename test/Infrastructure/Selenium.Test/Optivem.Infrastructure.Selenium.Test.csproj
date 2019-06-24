@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -17,8 +17,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj" />
-    <ProjectReference Include="..\..\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj" />
-    <ProjectReference Include="..\..\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj" />
+    <ProjectReference Include="..\..\Base\Common\Optivem.Test.Common.csproj" />
+    <ProjectReference Include="..\..\Base\Selenium\Optivem.Test.Selenium.csproj" />
+    <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
   </ItemGroup>
 
 </Project>

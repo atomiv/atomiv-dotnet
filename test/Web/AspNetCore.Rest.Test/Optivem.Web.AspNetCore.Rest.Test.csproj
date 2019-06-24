@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\Base\AspNetCore\Optivem.Test.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj" />
+    <ProjectReference Include="..\..\Base\AspNetCore\Optivem.Test.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
     <ProjectReference Include="..\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.Rest.Fake.csproj" />
   </ItemGroup>
 
