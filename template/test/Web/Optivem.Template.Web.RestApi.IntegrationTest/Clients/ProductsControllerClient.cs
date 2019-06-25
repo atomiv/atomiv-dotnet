@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Infrastructure.AspNetCore;
-using Optivem.Template.Core.Application.Products;
+using Optivem.Template.Core.Application.Products.Requests;
+using Optivem.Template.Core.Application.Products.Responses;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.IntegrationTest.Clients

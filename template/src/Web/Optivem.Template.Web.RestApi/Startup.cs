@@ -7,7 +7,7 @@ using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace Optivem.Template.Web
+namespace Optivem.Template.Web.RestApi
 {
     public class Startup
     {

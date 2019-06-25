@@ -1,7 +1,8 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Domain.Orders.ValueObjects;
+using Optivem.Template.Core.Domain.Products.ValueObjects;
 
-namespace Optivem.Template.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders.Entities
 {
     public class OrderDetail : Entity<OrderDetailIdentity>
     {

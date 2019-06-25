@@ -1,9 +1,11 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Services;
+using Optivem.Template.Core.Application.Products.Requests;
+using Optivem.Template.Core.Application.Products.Responses;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.Products
+namespace Optivem.Template.Core.Application.Products.Services
 {
     public class ProductService : BaseService, IProductService
     {

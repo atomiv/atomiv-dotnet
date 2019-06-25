@@ -1,8 +1,9 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Customers.ValueObjects;
+using Optivem.Template.Core.Domain.Orders.ValueObjects;
 using System.Collections.ObjectModel;
 
-namespace Optivem.Template.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders.Entities
 {
     public class Order : AggregateRoot<OrderIdentity>
     {

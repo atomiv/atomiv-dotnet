@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
 
-namespace Optivem.Template.Core.Domain.Customers
+namespace Optivem.Template.Core.Domain.Customers.ValueObjects
 {
     public class CustomerIdentity : Identity<int>
     {

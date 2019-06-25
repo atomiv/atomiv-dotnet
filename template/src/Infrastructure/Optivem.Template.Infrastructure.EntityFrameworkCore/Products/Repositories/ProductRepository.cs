@@ -1,7 +1,10 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Domain.Products.Entities;
+using Optivem.Template.Core.Domain.Products.Repositories;
+using Optivem.Template.Core.Domain.Products.ValueObjects;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositories
 {
     public class ProductRepository : Repository<DatabaseContext, Product, ProductIdentity, ProductRecord, int>, IProductRepository
     {

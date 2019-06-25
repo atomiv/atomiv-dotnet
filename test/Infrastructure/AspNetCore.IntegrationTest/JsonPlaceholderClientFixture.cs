@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Framework.Test.Common.Serialization;
 using System;
 using System.Collections.Generic;

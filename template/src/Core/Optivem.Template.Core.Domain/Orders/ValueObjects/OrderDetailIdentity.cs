@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
 
-namespace Optivem.Template.Core.Domain.Orders
+namespace Optivem.Template.Core.Domain.Orders.ValueObjects
 {
     public class OrderDetailIdentity : Identity<int>
     {

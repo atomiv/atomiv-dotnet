@@ -1,8 +1,10 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Services;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.Customers
+namespace Optivem.Template.Core.Application.Customers.Services
 {
     public class CustomerService : BaseService, ICustomerService
     {

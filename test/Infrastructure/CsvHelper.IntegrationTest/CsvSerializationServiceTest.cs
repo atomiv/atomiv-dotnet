@@ -1,4 +1,3 @@
-using Optivem.Framework.Infrastructure.CsvHelper;
 using Optivem.Framework.Test.Xunit;
 using System;
 using System.Collections.Generic;

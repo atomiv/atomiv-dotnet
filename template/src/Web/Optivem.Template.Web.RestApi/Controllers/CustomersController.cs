@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Template.Core.Application.Customers;
 using Optivem.Framework.Web.AspNetCore;
+using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Customers.Services;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.Controllers
+namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/customers")]
     [ApiController]

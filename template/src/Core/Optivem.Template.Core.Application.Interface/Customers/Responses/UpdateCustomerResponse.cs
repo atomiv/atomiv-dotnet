@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Core.Application;
 
-namespace Optivem.Template.Core.Application.Customers
+namespace Optivem.Template.Core.Application.Customers.Responses
 {
     public class UpdateCustomerResponse : IResponse<int>
     {

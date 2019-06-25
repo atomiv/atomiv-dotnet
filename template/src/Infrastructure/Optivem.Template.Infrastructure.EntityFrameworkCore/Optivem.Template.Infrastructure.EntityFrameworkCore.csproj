@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,6 +7,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Orders\Configurations\" />
+    <Folder Include="Orders\Repositories\" />
+    <Folder Include="Products\Configurations\" />
   </ItemGroup>
 
 </Project>

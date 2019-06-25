@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Records
 {
     public class OrderDetailStatusRecord
     {

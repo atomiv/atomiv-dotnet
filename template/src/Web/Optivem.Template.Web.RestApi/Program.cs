@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Optivem.Template.Web
+namespace Optivem.Template.Web.RestApi
 {
     public class Program
     {

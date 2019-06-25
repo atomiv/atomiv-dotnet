@@ -1,6 +1,6 @@
 using Optivem.Template.Core.Application.IntegrationTest.Fixture;
-using Optivem.Template.Core.Application.Products;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using Optivem.Template.Core.Application.Products.Requests;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;

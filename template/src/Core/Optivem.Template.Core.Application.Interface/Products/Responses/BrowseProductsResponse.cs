@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Core.Application.Products
+namespace Optivem.Template.Core.Application.Products.Responses
 {
     public class BrowseProductsResponse : ICollectionResponse<BrowseProductsRecordResponse>
     {

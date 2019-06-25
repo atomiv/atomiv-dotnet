@@ -1,8 +1,8 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Records;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records
 {
     // TODO: VC: Transfer records to EF level
 

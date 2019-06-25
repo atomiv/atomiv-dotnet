@@ -1,7 +1,7 @@
-﻿using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+﻿using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Records
 {
     public class OrderRecord
     {

@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Domain.Products;
+﻿using Optivem.Template.Core.Domain.Products.Entities;
+using Optivem.Template.Core.Domain.Products.ValueObjects;
 using Xunit;
 
 namespace Optivem.Template.Core.Domain.UnitTest.Products

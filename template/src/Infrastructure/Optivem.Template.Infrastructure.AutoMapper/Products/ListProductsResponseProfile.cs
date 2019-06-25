@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Optivem.Framework.Infrastructure.AutoMapper;
-using Optivem.Template.Core.Application.Products;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Application.Products.Responses;
+using Optivem.Template.Core.Domain.Products.Entities;
 using System.Collections.Generic;
 using System.Linq;
 

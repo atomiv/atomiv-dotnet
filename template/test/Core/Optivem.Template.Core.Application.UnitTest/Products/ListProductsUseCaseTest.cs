@@ -1,7 +1,11 @@
 ﻿using Moq;
 using Optivem.Framework.Core.Application;
-using Optivem.Template.Core.Application.Products;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Application.Products.Requests;
+using Optivem.Template.Core.Application.Products.Responses;
+using Optivem.Template.Core.Application.Products.UseCases;
+using Optivem.Template.Core.Domain.Products.Entities;
+using Optivem.Template.Core.Domain.Products.Repositories;
+using Optivem.Template.Core.Domain.Products.ValueObjects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

@@ -3,6 +3,7 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Web.IntegrationTest.Clients;
 using Optivem.Framework.Test.AspNetCore;
 using Optivem.Framework.Test.EntityFrameworkCore;
+using Optivem.Template.Web.RestApi;
 
 namespace Optivem.Template.Web.Test.Fixture
 {

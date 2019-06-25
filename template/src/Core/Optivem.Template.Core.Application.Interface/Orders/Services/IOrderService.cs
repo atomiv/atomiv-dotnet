@@ -1,4 +1,7 @@
-﻿namespace Optivem.Template.Core.Application.Orders
+﻿using Optivem.Template.Core.Application.Orders.Requests;
+using Optivem.Template.Core.Application.Orders.Responses;
+
+namespace Optivem.Template.Core.Application.Orders.Services
 {
     public interface IOrderService
     {
