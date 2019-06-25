@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Orders\Mappers\" />
     <Folder Include="Orders\UseCases\" />
     <Folder Include="Orders\Services\" />
   </ItemGroup>

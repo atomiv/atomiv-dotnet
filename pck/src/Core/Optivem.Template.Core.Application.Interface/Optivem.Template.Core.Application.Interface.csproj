@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Customers\Services\" />
+    <Folder Include="Customers\Responses\" />
+    <Folder Include="Customers\Requests\" />
+    <Folder Include="Orders\Requests\" />
+    <Folder Include="Orders\Responses\" />
+    <Folder Include="Orders\Services\" />
+    <Folder Include="Products\Requests\" />
+    <Folder Include="Products\Responses\" />
+    <Folder Include="Products\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.12" />
+  </ItemGroup>
+
+</Project>

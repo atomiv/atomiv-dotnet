@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Customers\" />
+    <Folder Include="Orders\" />
+    <Folder Include="Products\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

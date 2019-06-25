@@ -1,16 +1,13 @@
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
-using Optivem.Template.Web.Test.Fixture;
+using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-// TODO: VC: Consider moving to base
-// [assembly: CollectionBehavior(DisableTestParallelization = true)]
-
-namespace Optivem.Template.Web.IntegrationTest
+namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
     public class ProductsControllerTest : ControllerTest
     {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,6 +11,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Orders\" />
+    <Folder Include="Products\" />
   </ItemGroup>
 
 </Project>

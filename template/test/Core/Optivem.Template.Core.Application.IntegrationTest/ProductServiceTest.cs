@@ -1,4 +1,4 @@
-using Optivem.Template.Core.Application.IntegrationTest.Fixture;
+using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
 using System.Collections.Generic;
