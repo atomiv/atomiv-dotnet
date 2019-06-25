@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Framework.Core.Domain
 {
     public interface IRemoveAggregatesRepository<TAggregateRoot, TIdentity>
         : IRepository<TAggregateRoot, TIdentity>

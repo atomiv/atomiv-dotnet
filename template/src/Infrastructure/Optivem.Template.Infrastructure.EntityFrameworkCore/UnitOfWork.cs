@@ -1,5 +1,5 @@
-﻿using Optivem.Core.Domain;
-using Optivem.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Framework.Core.Domain;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 

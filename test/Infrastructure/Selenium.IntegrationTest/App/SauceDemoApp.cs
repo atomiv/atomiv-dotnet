@@ -1,7 +1,7 @@
-﻿using Optivem.Infrastructure.Selenium.IntegrationTest.Screens;
-using Optivem.Test.Common.WebAutomation;
+﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens;
+using Optivem.Framework.Test.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.Selenium.IntegrationTest.App
+namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 {
     public class SauceDemoApp : TestScreen
     {

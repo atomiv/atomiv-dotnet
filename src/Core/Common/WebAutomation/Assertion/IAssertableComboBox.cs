@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Common.WebAutomation.Assertion
+﻿namespace Optivem.Framework.Core.Common.WebAutomation.Assertion
 {
     public interface IAssertableComboBox : IAssertableElement, IComboBox
     {

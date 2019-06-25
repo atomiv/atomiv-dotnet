@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.FluentValidation
+﻿namespace Optivem.Framework.Infrastructure.FluentValidation
 {
     public interface IModule
     {

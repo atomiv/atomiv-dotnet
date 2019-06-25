@@ -1,7 +1,7 @@
-﻿using Optivem.Core.Common.WebAutomation;
-using Optivem.Infrastructure.Selenium;
+﻿using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Infrastructure.Selenium;
 
-namespace Optivem.Test.Xunit.Selenium
+namespace Optivem.Framework.Test.Xunit.Selenium
 {
     public class ChromeDriverFixture : DriverFixture
     {

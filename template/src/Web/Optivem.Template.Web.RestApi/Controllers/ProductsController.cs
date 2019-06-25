@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Template.Core.Application.Products;
-using Optivem.Web.AspNetCore;
+using Optivem.Framework.Web.AspNetCore;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.Controllers

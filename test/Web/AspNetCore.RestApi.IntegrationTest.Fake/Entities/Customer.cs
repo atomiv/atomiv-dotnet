@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities
+namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities
 {
     public class Customer
     {

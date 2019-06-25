@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public class ExceptionProblemDetailsFactoryRegistry
     {

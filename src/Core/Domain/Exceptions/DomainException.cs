@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Framework.Core.Domain
 {
     public class DomainException : Exception
     {

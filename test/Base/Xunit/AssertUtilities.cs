@@ -1,8 +1,8 @@
-﻿using Optivem.Core.Common.Serialization;
-using Optivem.Test.Common.Serialization;
+﻿using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Test.Common.Serialization;
 using Xunit;
 
-namespace Optivem.Test.Xunit
+namespace Optivem.Framework.Test.Xunit
 {
     public static class AssertUtilities
     {

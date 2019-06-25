@@ -1,7 +1,7 @@
-﻿using Optivem.Core.Common.WebAutomation;
-using Optivem.Core.Common.WebAutomation.Assertion;
+﻿using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 
-namespace Optivem.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.Common.WebAutomation
 {
     public class TestButton<TButton> : TestElement<TButton>, IAssertableButton
         where TButton : IButton

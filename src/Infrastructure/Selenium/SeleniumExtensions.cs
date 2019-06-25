@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Optivem.Infrastructure.Selenium
+namespace Optivem.Framework.Infrastructure.Selenium
 {
     public static class SeleniumExtensions
     {

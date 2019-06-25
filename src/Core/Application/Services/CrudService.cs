@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     // TODO: VC: Inherit from base service with all the methods filled up
 

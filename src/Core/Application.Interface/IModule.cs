@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Application.Interface
+﻿namespace Optivem.Framework.Core.Application.Interface
 {
     public interface IModule
     {

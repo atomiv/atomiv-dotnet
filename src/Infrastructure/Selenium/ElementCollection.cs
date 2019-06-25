@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 using System.Collections.ObjectModel;
 
-namespace Optivem.Infrastructure.Selenium
+namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class ElementCollection: IElement
     {

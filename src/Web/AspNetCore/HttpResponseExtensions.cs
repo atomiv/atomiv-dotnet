@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Optivem.Core.Common.Serialization;
+using Optivem.Framework.Core.Common.Serialization;
 using System.Threading.Tasks;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public static class HttpResponseExtensions
     {

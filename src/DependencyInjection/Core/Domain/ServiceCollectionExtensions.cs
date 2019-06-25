@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Core.Domain;
+using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Optivem.DependencyInjection.Core.Domain
+namespace Optivem.Framework.DependencyInjection.Core.Domain
 {
     public static class ServiceCollectionExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public interface IExceptionProblemDetailsFactory<TException, TProblemDetails> : IExceptionProblemDetailsFactory
         where TException : Exception

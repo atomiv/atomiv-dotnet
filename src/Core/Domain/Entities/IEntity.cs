@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Framework.Core.Domain
 {
     public interface IEntity : IEquatable<IEntity>
     {

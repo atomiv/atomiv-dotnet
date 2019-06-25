@@ -1,12 +1,12 @@
-﻿using Optivem.Core.Common.Http;
-using Optivem.Infrastructure.AspNetCore;
-using Optivem.Test.Common.Serialization;
+﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Framework.Test.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.AspNetCore.IntegrationTest
+namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 {
     public class JsonPlaceholderClientFixture
     {

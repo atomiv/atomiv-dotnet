@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Optivem.Core.Common;
+using Optivem.Framework.Core.Common;
 
-namespace Optivem.Test.Common.Configuration
+namespace Optivem.Framework.Test.Common.Configuration
 {
     // TODO: VC: Consider moving this into Startup / Composition Root section
 

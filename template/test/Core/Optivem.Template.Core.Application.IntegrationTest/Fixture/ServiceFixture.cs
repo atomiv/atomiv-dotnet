@@ -3,8 +3,8 @@ using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Products;
 using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
-using Optivem.Test.Common.Configuration;
-using Optivem.Test.EntityFrameworkCore;
+using Optivem.Framework.Test.Common.Configuration;
+using Optivem.Framework.Test.EntityFrameworkCore;
 using System;
 
 namespace Optivem.Template.Core.Application.IntegrationTest.Fixture

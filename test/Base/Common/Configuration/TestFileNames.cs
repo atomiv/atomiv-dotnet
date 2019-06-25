@@ -1,4 +1,4 @@
-﻿namespace Optivem.Test.Common.Configuration
+﻿namespace Optivem.Framework.Test.Common.Configuration
 {
     public static class TestFileNames
     {

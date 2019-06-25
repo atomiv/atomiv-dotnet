@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Domain
+namespace Optivem.Framework.Core.Domain
 {
     public interface IFindAllAggregatesRepository<TAggregateRoot, TIdentity> 
         : IRepository<TAggregateRoot, TIdentity>

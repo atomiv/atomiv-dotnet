@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Core.Domain;
+using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.EntityFrameworkCore
+namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
     public abstract class UnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext

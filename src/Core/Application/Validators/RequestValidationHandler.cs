@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public class RequestValidationHandler<TRequest> : IRequestValidationHandler<TRequest>
         where TRequest : IRequest

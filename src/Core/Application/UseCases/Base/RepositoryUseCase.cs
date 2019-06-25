@@ -1,7 +1,7 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.UseCases.Base
+namespace Optivem.Framework.Core.Application.UseCases.Base
 {
     public abstract class RepositoryUseCase<TRepository, TRequest, TResponse> : IUseCase<TRequest, TResponse>
         where TRepository : IRepository

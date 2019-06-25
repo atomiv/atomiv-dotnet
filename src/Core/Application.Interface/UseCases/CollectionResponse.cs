@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public abstract class CollectionResponse<TRecordResponse> : Response, ICollectionResponse<TRecordResponse>
         where TRecordResponse : IResponse

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports
+﻿namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports
 {
     public class CustomerExportGetCollectionResponse
     {

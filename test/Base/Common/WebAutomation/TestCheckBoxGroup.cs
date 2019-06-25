@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.Common.WebAutomation
 {
     public class TestCheckBoxGroup<TCheckBoxGroup> : TestElement<TCheckBoxGroup>, ICheckBoxGroup
         where TCheckBoxGroup : ICheckBoxGroup

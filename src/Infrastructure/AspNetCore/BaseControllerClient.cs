@@ -1,6 +1,6 @@
-﻿using Optivem.Core.Common.Http;
+﻿using Optivem.Framework.Core.Common.Http;
 
-namespace Optivem.Infrastructure.AspNetCore
+namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class BaseControllerClient
     {

@@ -1,10 +1,10 @@
-﻿using Optivem.Core.Common.Http;
-using Optivem.Core.Common.Serialization;
+﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Core.Common.Serialization;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.AspNetCore
+namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {

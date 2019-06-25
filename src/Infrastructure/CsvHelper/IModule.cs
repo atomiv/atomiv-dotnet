@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.CsvHelper
+﻿namespace Optivem.Framework.Infrastructure.CsvHelper
 {
     public interface IModule
     {

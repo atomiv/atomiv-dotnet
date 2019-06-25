@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Core.Common;
+using Optivem.Framework.Core.Common;
 using System;
 
-namespace Optivem.Infrastructure.EntityFrameworkCore
+namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
     public class SqlServerDbContextFactory<TDbContext> : DbContextFactory<TDbContext>, IFactory<TDbContext>
         where TDbContext : DbContext

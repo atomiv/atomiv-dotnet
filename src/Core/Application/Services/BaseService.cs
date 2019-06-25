@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application.Services
+namespace Optivem.Framework.Core.Application.Services
 {
     public class BaseService : IApplicationService
     {

@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Framework.Core.Domain;
 
 namespace Optivem.Template.Core.Domain
 {

@@ -1,7 +1,7 @@
-﻿using Optivem.Core.Domain;
+﻿using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public abstract class CreateAggregateUseCase<TUnitOfWork, TResponseMapper, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>

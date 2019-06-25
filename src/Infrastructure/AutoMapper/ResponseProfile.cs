@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 
-namespace Optivem.Infrastructure.AutoMapper
+namespace Optivem.Framework.Infrastructure.AutoMapper
 {
     public abstract class ResponseProfile<T, TResponse> : Profile
         where TResponse : IResponse

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 using System.Net;
 
-namespace Optivem.Web.AspNetCore.ExceptionProblemDetailsFactories
+namespace Optivem.Framework.Web.AspNetCore.ExceptionProblemDetailsFactories
 {
     public class RequestNotFoundExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<NotFoundRequestException, ProblemDetails>
     {

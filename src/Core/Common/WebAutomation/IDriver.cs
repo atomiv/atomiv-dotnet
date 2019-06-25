@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Core.Common.WebAutomation
+namespace Optivem.Framework.Core.Common.WebAutomation
 {
     // TODO: VC: Check <TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioGroup, TCheckBoxGroup>
 

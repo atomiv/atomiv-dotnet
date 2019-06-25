@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Optivem.Core.Common.Serialization;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Core.Application;
 using System;
 using System.Net;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public static class ExceptionHandlerExtensions
     {

@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
-using Optivem.Test.Common.WebAutomation;
+using Optivem.Framework.Test.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.Selenium.IntegrationTest.Screens
+namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 {
     public class SauceDemoInventoryScreen : TestScreen
     {

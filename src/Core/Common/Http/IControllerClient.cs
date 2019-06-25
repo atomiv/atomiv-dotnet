@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Common.Http
+namespace Optivem.Framework.Core.Common.Http
 {
     // TODO: VC: Sub-resources for all operations, enabling additional uri, also enabling fully custom uri in case no patterns match
 

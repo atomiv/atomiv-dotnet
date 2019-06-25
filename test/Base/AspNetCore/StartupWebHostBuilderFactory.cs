@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Optivem.Core.Common;
+using Optivem.Framework.Core.Common;
 
-namespace Optivem.Test.AspNetCore
+namespace Optivem.Framework.Test.AspNetCore
 {
     public class StartupWebHostBuilderFactory<TStartup> : IFactory<IWebHostBuilder> where TStartup : class
     {

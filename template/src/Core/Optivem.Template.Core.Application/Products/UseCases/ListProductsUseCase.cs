@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Application;
+﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products

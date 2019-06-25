@@ -1,4 +1,4 @@
-﻿namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
+﻿namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
 {
     public class CustomerPutRequest
     {

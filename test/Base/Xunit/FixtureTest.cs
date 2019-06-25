@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Test.Xunit
+namespace Optivem.Framework.Test.Xunit
 {
     public class FixtureTest<TFixture> : IClassFixture<TFixture>
         where TFixture : class

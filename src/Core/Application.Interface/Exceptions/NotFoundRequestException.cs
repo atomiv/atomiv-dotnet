@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public class NotFoundRequestException : RequestHandlerException
     {

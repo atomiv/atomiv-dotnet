@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public interface IRequestValidator<TRequest>
         where TRequest : IRequest

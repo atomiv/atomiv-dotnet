@@ -1,4 +1,4 @@
-﻿using Optivem.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products

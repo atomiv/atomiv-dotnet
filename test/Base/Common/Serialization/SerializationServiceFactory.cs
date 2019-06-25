@@ -1,8 +1,8 @@
-﻿using Optivem.Core.Common.Serialization;
-using Optivem.Infrastructure.CsvHelper;
-using Optivem.Infrastructure.NewtonsoftJson;
+﻿using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Infrastructure.CsvHelper;
+using Optivem.Framework.Infrastructure.NewtonsoftJson;
 
-namespace Optivem.Test.Common.Serialization
+namespace Optivem.Framework.Test.Common.Serialization
 {
     public static class SerializationServiceFactory
     {

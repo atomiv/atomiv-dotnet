@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Application;
+﻿using Optivem.Framework.Core.Application;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Customers

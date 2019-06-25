@@ -1,11 +1,11 @@
-﻿using Optivem.Core.Common.Http;
+﻿using Optivem.Framework.Core.Common.Http;
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.AspNetCore
+namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class Client : IClient
     {

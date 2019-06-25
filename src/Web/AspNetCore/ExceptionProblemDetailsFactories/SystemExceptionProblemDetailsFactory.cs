@@ -2,7 +2,7 @@
 using System;
 using System.Net;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public class SystemExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<Exception, ProblemDetails>
     {

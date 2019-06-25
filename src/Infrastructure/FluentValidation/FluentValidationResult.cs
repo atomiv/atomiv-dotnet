@@ -1,9 +1,9 @@
 ﻿using FluentValidation.Results;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Infrastructure.FluentValidation
+namespace Optivem.Framework.Infrastructure.FluentValidation
 {
     public class FluentValidationResult : IRequestValidationResult
     {

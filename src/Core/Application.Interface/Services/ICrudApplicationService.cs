@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public interface ICrudApplicationService<TId,
         TFindAllRequest, TCreateRequest, TUpdateRequest,

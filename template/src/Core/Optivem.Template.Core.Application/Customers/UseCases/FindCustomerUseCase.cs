@@ -1,5 +1,5 @@
-﻿using Optivem.Core.Application;
-using Optivem.Core.Domain;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Core.Domain;
+using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.EntityFrameworkCore
+namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
     public abstract class Repository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext

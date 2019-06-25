@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Infrastructure.FluentValidation
+namespace Optivem.Framework.Infrastructure.FluentValidation
 {
     public abstract class BaseValidator<TRequest> : AbstractValidator<TRequest>, IRequestValidator<TRequest>
         where TRequest : IRequest

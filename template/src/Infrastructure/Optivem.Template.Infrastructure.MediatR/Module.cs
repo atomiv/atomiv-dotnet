@@ -1,6 +1,6 @@
 ﻿
 
-using Optivem.Infrastructure.MediatR;
+using Optivem.Framework.Infrastructure.MediatR;
 
 namespace Optivem.Template.Infrastructure.MediatR
 {

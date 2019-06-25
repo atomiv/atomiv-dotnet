@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Optivem.Core.Common.Http;
-using Optivem.Infrastructure.AspNetCore;
-using Optivem.Test.Common.Configuration;
-using Optivem.Test.Common.Serialization;
+using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Framework.Test.Common.Configuration;
+using Optivem.Framework.Test.Common.Serialization;
 using System;
 
-namespace Optivem.Test.AspNetCore
+namespace Optivem.Framework.Test.AspNetCore
 {
     public static class WebTestClientFactory
     {

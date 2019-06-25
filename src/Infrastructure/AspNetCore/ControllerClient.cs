@@ -1,4 +1,4 @@
-﻿using Optivem.Core.Common.Http;
+﻿using Optivem.Framework.Core.Common.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Optivem.Infrastructure.AspNetCore
+namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class ControllerClient : IControllerClient
     {

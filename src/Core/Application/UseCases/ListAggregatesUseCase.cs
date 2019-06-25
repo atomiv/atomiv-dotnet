@@ -1,8 +1,8 @@
-﻿using Optivem.Core.Application.UseCases.Base;
-using Optivem.Core.Domain;
+﻿using Optivem.Framework.Core.Application.UseCases.Base;
+using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     // TODO: VC: Make optimized version for retriving all
 

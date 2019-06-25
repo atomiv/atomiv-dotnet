@@ -1,8 +1,8 @@
 ﻿using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Web.IntegrationTest.Clients;
-using Optivem.Test.AspNetCore;
-using Optivem.Test.EntityFrameworkCore;
+using Optivem.Framework.Test.AspNetCore;
+using Optivem.Framework.Test.EntityFrameworkCore;
 
 namespace Optivem.Template.Web.Test.Fixture
 {

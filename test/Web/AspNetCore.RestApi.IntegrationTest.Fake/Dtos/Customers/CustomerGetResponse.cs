@@ -1,9 +1,9 @@
-﻿using Optivem.Core.Application;
-using Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
+namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
 {
     public class CustomerGetResponse : IResponse<int>
     {

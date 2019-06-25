@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Core.Application
+namespace Optivem.Framework.Core.Application
 {
     public interface ICollectionResponseMapper<T, TResponse> : IResponseMapper<IEnumerable<T>, TResponse>
         where TResponse : ICollectionResponse

@@ -1,4 +1,4 @@
-﻿using Optivem.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {

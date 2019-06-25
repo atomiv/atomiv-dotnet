@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public abstract class BaseExceptionProblemDetailsFactory<TException, TProblemDetails>
         : IExceptionProblemDetailsFactory<TException, TProblemDetails>

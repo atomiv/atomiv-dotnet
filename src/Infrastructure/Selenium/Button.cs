@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.Selenium
+namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class Button : Element, IButton
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.DependencyInjection
+namespace Optivem.Framework.DependencyInjection
 {
     public static class TypeExtensions
     {

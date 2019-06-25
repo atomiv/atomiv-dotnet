@@ -1,6 +1,6 @@
-﻿using Optivem.Core.Common;
+﻿using Optivem.Framework.Core.Common;
 
-namespace Optivem.Infrastructure.Selenium
+namespace Optivem.Framework.Infrastructure.Selenium
 {
     public static class DriverFactory
     {

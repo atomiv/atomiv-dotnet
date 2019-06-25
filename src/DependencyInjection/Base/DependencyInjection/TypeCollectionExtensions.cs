@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.DependencyInjection
+namespace Optivem.Framework.DependencyInjection
 {
     public static class TypeCollectionExtensions
     {

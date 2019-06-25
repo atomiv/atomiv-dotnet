@@ -1,5 +1,5 @@
-﻿using Optivem.Core.Application;
-using Optivem.Core.Application.Services;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Services;
 using System;
 using System.Threading.Tasks;
 

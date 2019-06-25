@@ -1,5 +1,5 @@
-﻿using Optivem.Core.Common.Http;
-using Optivem.Infrastructure.AspNetCore;
+﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products;
 using System.Threading.Tasks;
 

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.AspNetCore
+﻿namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public interface IModule
     {

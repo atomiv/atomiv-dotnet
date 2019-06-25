@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public abstract class BaseValueObject : IValueObject
     {

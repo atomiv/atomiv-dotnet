@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Optivem.Infrastructure.Selenium
+namespace Optivem.Framework.Infrastructure.Selenium
 {
     // TODO: VC: CONTINUE
 

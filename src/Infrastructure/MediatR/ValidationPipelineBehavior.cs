@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 using System.Threading;
 using System.Threading.Tasks;
-using IRequest = Optivem.Core.Application.IRequest;
+using IRequest = Optivem.Framework.Core.Application.IRequest;
 
-namespace Optivem.Infrastructure.MediatR
+namespace Optivem.Framework.Infrastructure.MediatR
 {
     public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TRequest, TResponse>, TResponse>
         where TRequest : IRequest

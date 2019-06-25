@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public class ValidationActionContextProblemDetailsFactory : IActionContextProblemDetailsFactory<ValidationProblemDetails>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Core.Application;
+using Optivem.Framework.Core.Application;
 
-namespace Optivem.Web.AspNetCore
+namespace Optivem.Framework.Web.AspNetCore
 {
     public class BaseController<TService> : ControllerBase
         where TService : IApplicationService

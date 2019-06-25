@@ -1,8 +1,8 @@
-﻿using Optivem.Core.Common.WebAutomation;
-using Optivem.Test.Common.WebAutomation;
+﻿using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Test.Common.WebAutomation;
 using System;
 
-namespace Optivem.Test.Xunit.Selenium
+namespace Optivem.Framework.Test.Xunit.Selenium
 {
     public abstract class DriverFixture : IDisposable
     {

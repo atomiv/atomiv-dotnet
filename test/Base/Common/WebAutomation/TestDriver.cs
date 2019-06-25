@@ -1,8 +1,8 @@
-﻿using Optivem.Core.Common.WebAutomation;
+﻿using Optivem.Framework.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.Common.WebAutomation
 {
     public class TestDriver<TDriver> : IDisposable
         where TDriver : IDriver

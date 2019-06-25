@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Optivem.Infrastructure.MediatR
+namespace Optivem.Framework.Infrastructure.MediatR
 {
     public interface IMediatorRequest<TResponse> : IRequest<TResponse>
     {

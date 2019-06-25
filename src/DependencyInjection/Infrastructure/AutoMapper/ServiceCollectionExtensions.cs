@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Core.Application;
-using Optivem.Infrastructure.AutoMapper;
+using Optivem.Framework.Core.Application;
+using Optivem.Framework.Infrastructure.AutoMapper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Optivem.DependencyInjection.Infrastructure.AutoMapper
+namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
 {
     public static class ServiceCollectionExtensions
     {

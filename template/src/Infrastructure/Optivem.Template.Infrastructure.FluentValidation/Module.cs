@@ -1,4 +1,4 @@
-﻿using Optivem.Infrastructure.FluentValidation;
+﻿using Optivem.Framework.Infrastructure.FluentValidation;
 
 namespace Optivem.Template.Infrastructure.FluentValidation
 {

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.System
+﻿namespace Optivem.Framework.Infrastructure.System
 {
     /// <summary>
     /// Converts string data into object of a certain type

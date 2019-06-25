@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Infrastructure.AspNetCore.IntegrationTest
+namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 {
     public class JsonPlaceholderClientFixtureTest : IClassFixture<JsonPlaceholderClientFixture>
     {

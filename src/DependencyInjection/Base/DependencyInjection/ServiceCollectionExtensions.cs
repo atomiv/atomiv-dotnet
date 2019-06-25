@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.DependencyInjection
+namespace Optivem.Framework.DependencyInjection
 {
     // TODO: VC: Strong checking that for each interface defined, that implementaiton exists, e.g. IProductService must have ProductService implementation
 

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Test.Common.WebAutomation
+﻿namespace Optivem.Framework.Test.Common.WebAutomation
 {
     public class TestScreen
     {

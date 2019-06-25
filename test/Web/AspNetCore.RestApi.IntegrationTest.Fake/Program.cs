@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 // using Serilog.Extensions.Logging.File;
 using Serilog;
 
-namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake
+namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake
 {
     public class Program
     {

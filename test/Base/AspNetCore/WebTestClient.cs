@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Optivem.Core.Common.Http;
+using Optivem.Framework.Core.Common.Http;
 using System;
 using System.Net.Http;
 
-namespace Optivem.Test.AspNetCore
+namespace Optivem.Framework.Test.AspNetCore
 {
     public class WebTestClient : IDisposable
     {

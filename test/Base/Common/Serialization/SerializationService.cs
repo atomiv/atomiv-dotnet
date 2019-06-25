@@ -1,7 +1,7 @@
-﻿using Optivem.Core.Common.Serialization;
+﻿using Optivem.Framework.Core.Common.Serialization;
 using System.Collections.Generic;
 
-namespace Optivem.Test.Common.Serialization
+namespace Optivem.Framework.Test.Common.Serialization
 {
     // TODO: VC: Check to delete this
 

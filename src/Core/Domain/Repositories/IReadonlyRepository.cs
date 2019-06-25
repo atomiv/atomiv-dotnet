@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public interface IReadonlyRepository<TAggregateRoot, TIdentity> 
         : IRepository<TAggregateRoot, TIdentity>,

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Optivem.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation;
 
-namespace Optivem.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.Common.WebAutomation
 {
     public class TestRadioGroup : IRadioButtonGroup
     {

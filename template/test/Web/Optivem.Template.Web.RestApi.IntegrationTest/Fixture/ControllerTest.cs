@@ -1,4 +1,4 @@
-﻿using Optivem.Test.Xunit;
+﻿using Optivem.Framework.Test.Xunit;
 using System;
 
 namespace Optivem.Template.Web.Test.Fixture

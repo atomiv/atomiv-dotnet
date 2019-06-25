@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.AutoMapper
+﻿namespace Optivem.Framework.Infrastructure.AutoMapper
 {
     // TODO: VC: DELETE
 

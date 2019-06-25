@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Common.WebAutomation
+﻿namespace Optivem.Framework.Core.Common.WebAutomation
 {
     public interface IButton : IElement
     {

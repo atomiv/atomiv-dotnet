@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Core.Application;
-using Optivem.Infrastructure.MediatR;
+using Optivem.Framework.Core.Application;
+using Optivem.Framework.Infrastructure.MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.DependencyInjection.Infrastructure.MediatR
+namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 {
     public static class ServiceCollectionExtensions
     {

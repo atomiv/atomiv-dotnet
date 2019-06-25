@@ -1,4 +1,4 @@
-﻿namespace Optivem.Core.Application
+﻿namespace Optivem.Framework.Core.Application
 {
     // TODO: VC
 

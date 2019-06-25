@@ -1,4 +1,4 @@
-﻿namespace Optivem.Infrastructure.System
+﻿namespace Optivem.Framework.Infrastructure.System
 {
     public class BooleanParser : BaseParser<bool?>
     {
