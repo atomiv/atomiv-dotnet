@@ -41,7 +41,7 @@ $projects = @(
 	# ### ============================== DEPENDENCY INJECTION ============================== ###
 	
 	# Base
-    'src\DependencyInjection\Base\DependencyInjection\Optivem.Framework.DependencyInjection.csproj',
+    'src\DependencyInjection\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj', # TODO: VC: Rename
 	
 	# Core
     'src\DependencyInjection\Core\Application\Optivem.Framework.DependencyInjection.Core.Application.csproj',	
@@ -72,11 +72,11 @@ $projects = @(
 	
 	# ### ============================== TEST ============================== ###
 
-	'test\Test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj',
-	'test\Test\Base\Common\Optivem.Framework.Test.Common.csproj',
-	'test\Test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj',	
-    'test\Test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj'	
-    'test\Test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj'
+	'test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj',
+	'test\Base\Common\Optivem.Framework.Test.Common.csproj',
+	'test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj',	
+    'test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj'	
+    'test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj'
 
 )
 
