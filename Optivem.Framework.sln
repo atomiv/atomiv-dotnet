@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Comm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.All", "src\Core\All\Optivem.Framework.Core.All.csproj", "{93AAEDCF-8744-418E-BE99-775F4AC34C6E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{531EE9B1-F71A-4D55-A695-91D122163D57}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{531EE9B1-F71A-4D55-A695-91D122163D57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{2D62DCFE-F085-4522-B19D-58FCE451AD9B}"
 EndProject
@@ -81,7 +81,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Dependenc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.System", "src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj", "{E4AE6B52-2A65-42FD-8855-C2B62567B156}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BAD5BAB7-4DBB-43B5-B315-EA5723D42E29}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{BAD5BAB7-4DBB-43B5-B315-EA5723D42E29}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Common", "src\DependencyInjection\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj", "{51BBACC2-8963-4607-8928-A77337373BE2}"
 EndProject

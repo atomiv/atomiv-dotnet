@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.DependencyInjection.Common;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

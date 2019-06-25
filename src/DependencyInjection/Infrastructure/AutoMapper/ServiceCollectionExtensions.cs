@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using System;
 using System.Collections;

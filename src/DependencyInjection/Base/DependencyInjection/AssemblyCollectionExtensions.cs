@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.Framework.DependencyInjection
+namespace Optivem.Framework.DependencyInjection.Common
 {
     public static class AssemblyCollectionExtensions
     {

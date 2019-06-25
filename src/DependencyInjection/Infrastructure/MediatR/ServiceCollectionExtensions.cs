@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.MediatR;
 using System;
 using System.Collections.Generic;

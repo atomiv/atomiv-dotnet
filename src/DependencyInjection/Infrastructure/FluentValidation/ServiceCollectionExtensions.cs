@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.FluentValidation;
 using System;
 using System.Collections.Generic;
