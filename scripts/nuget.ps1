@@ -32,99 +32,52 @@ $projects = @(
 
 	# ### ============================== CORE ============================== ###
 	
-	# All
-    'src\Core\All\Optivem.Core.All.csproj',	
-
-	# Common
-    'src\Core\Common\Optivem.Core.Common.csproj',
-
-	# Domain
-    'src\Core\Domain\Optivem.Core.Domain.csproj',
-	
-	# Application
-    'src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj',
-    'src\Core\Application\Optivem.Core.Application.csproj',
+    'src\Core\All\Optivem.Framework.Core.All.csproj',	
+    'src\Core\Application\Optivem.Framework.Core.Application.csproj',
+    'src\Core\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj',
+    'src\Core\Common\Optivem.Framework.Core.Common.csproj',
+    'src\Core\Domain\Optivem.Framework.Core.Domain.csproj',
 	
 	# ### ============================== DEPENDENCY INJECTION ============================== ###
 	
 	# Base
-    'src\DependencyInjection\Base\DependencyInjection\Optivem.DependencyInjection.csproj',
+    'src\DependencyInjection\Base\DependencyInjection\Optivem.Framework.DependencyInjection.csproj',
 	
 	# Core
-    'src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj',	
-    'src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj',	
+    'src\DependencyInjection\Core\Application\Optivem.Framework.DependencyInjection.Core.Application.csproj',	
+    'src\DependencyInjection\Core\Domain\Optivem.Framework.DependencyInjection.Core.Domain.csproj',	
 	
 	# Infrastructure	
-    'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj',	
-	# TODO: VC: Add other infrastructure
+    'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper.csproj',	
+    'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',	
+    'src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation.csproj',	
+    'src\DependencyInjection\Infrastructure\MediatR\Optivem.Framework.DependencyInjection.Infrastructure.MediatR.csproj',	
+    'src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',	
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
 	
-	# All
-    'src\Infrastructure\All\Optivem.Infrastructure.All.csproj',
-
-	# AspNetCore
-    'src\Infrastructure\AspNetCore\Optivem.Infrastructure.AspNetCore.csproj',
-	
-	# AutoMapper
-    'src\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj',
-	
-	# CsvHelper
-    'src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj',
-	
-	# EntityFrameworkCore
-    'src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj',
-	
-	# FluentValidation
-    'src\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj',
-	
-	# MediatR
-    'src\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.csproj',
-	
-	# NewtonsoftJson
-    'src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj',	
-	
-	# Selenium
-    'src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj',
-	
-	# System
-    'src\Infrastructure\System\Optivem.Infrastructure.System.csproj',
+    'src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj',
+    'src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj',
+    'src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj',
+    'src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj',
+    'src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj',
+    'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
+    'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
+    'src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj',
+    'src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj',
 
 	# ### ============================== WEB ============================== ###
 
-	# AspNetCore
-    'src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj',
+    'src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj',
 	
-	# ### ============================== TEST - BASE ============================== ###
-	
-	# All
-    'test\Test\Base\All\Optivem.Test.All.csproj',
-	
-	# Common
-	'test\Test\Base\Common\Optivem.Test.Common.csproj',
-	
-	# AspNetCore
-	'test\Test\Base\AspNetCore\Optivem.Test.AspNetCore.csproj',
-	
-	# AspNetCore.EntityFrameworkCore
-	'test\Test\Base\AspNetCore.EntityFrameworkCore\Optivem.Test.AspNetCore.EntityFrameworkCore.csproj',
+	# ### ============================== TEST ============================== ###
 
-	# EntityFrameworkCore
-	'test\Test\Base\EntityFrameworkCore\Optivem.Test.EntityFrameworkCore.csproj',	
-	
-	# ### ============================== TEST - XUNIT ============================== ###
-	
-	# All	
-    'test\Test\Xunit\Xunit.All\Optivem.Test.Xunit.All.csproj',
+	'test\Test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj',
+	'test\Test\Base\Common\Optivem.Framework.Test.Common.csproj',
+	'test\Test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj',	
+    'test\Test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj'	
+    'test\Test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj'
 
-	# AspNetCore.EntityFrameworkCore	
-    'test\Test\Xunit\Xunit.AspNetCore.EntityFrameworkCore\Optivem.Test.Xunit.AspNetCore.EntityFrameworkCore.csproj',
-	
-	# Common
-    'test\Test\Xunit\Xunit.Common\Optivem.Test.Xunit.Common.csproj',
-	
-	# Selenium
-    'test\Test\Xunit\Xunit.Selenium\Optivem.Test.Xunit.Selenium.csproj'
 )
 
 # TODO: VC: Update all project files to the new version
