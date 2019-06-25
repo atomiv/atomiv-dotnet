@@ -1,9 +1,9 @@
 ﻿using Optivem.Core.Application;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Cards;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers.Cards;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Web.AspNetCore.Fake.Models
+namespace Optivem.Web.AspNetCore.RestApi.Fake.Models
 {
     public class CustomerGetResponse : IResponse<int>
     {

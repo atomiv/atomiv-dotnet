@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;
-using Optivem.Web.AspNetCore.Fake.Entities;
-using Optivem.Web.AspNetCore.Fake.Models;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers.Exports;
+using Optivem.Web.AspNetCore.RestApi.Fake.Entities;
+using Optivem.Web.AspNetCore.RestApi.Fake.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Web.AspNetCore.Fake.Controllers
+namespace Optivem.Web.AspNetCore.RestApi.Fake.Controllers
 {
     [Route("api/customers")]
     [ApiController]

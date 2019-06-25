@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.Common.RestClient.Default.Test
+namespace Optivem.Infrastructure.AspNetCore.IntegrationTest
 {
     public class JsonPlaceholderClientFixture
     {

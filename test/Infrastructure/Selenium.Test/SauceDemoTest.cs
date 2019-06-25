@@ -1,9 +1,9 @@
-﻿using Optivem.Infrastructure.Selenium.Test.App;
+﻿using Optivem.Infrastructure.Selenium.IntegrationTest.App;
 using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.Selenium;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
+namespace Optivem.Infrastructure.Selenium.IntegrationTest
 {
     public class SauceDemoTest : FixtureTest<ChromeDriverFixture>
     {

@@ -30,7 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Base\AspNetCore\Optivem.Test.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
-    <ProjectReference Include="..\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.Rest.Fake.csproj" />
+    <ProjectReference Include="..\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.RestApi.Fake.csproj" />
   </ItemGroup>
 
 </Project>

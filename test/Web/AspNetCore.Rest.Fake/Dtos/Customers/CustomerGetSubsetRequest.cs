@@ -1,4 +1,4 @@
-﻿namespace Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers
+﻿namespace Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers
 {
     public class CustomerGetSubsetRequest
     {

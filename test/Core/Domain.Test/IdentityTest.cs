@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Optivem.Core.Domain.Test
+namespace Optivem.Core.Domain.UnitTest
 {
     public class IdentityTest
     {

@@ -1,7 +1,7 @@
 ﻿using Optivem.Core.Application;
 using System;
 
-namespace Optivem.Web.AspNetCore.Fake.Dtos.Customers
+namespace Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers
 {
     public class CustomerPostResponse : IResponse<int>
     {

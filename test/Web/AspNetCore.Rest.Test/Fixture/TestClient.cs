@@ -1,13 +1,13 @@
 ﻿using Optivem.Core.Common.Http;
-using Optivem.Framework.Test.Web.AspNetCore.Rest.Fake;
 using Optivem.Infrastructure.AspNetCore;
 using Optivem.Test.AspNetCore;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
-using Optivem.Web.AspNetCore.Fake.Models;
+using Optivem.Web.AspNetCore.RestApi.Fake;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.RestApi.Fake.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Web.AspNetCore.Test
+namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fixture
 {
     public class TestClient
     {

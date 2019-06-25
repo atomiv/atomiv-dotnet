@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers
+namespace Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers
 {
     public class CustomerGetSubsetResponse : ICollectionResponse<CustomerGetSubsetRecordResponse, int>
     {

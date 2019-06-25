@@ -1,4 +1,4 @@
-﻿namespace Optivem.Web.AspNetCore.Fake.Entities
+﻿namespace Optivem.Web.AspNetCore.RestApi.Fake.Entities
 {
     public class CardExpiration
     {

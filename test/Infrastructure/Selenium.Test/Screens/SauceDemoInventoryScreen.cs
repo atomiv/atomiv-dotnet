@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using Optivem.Test.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.Selenium.Test.Screens
+namespace Optivem.Infrastructure.Selenium.IntegrationTest.Screens
 {
     public class SauceDemoInventoryScreen : TestScreen
     {

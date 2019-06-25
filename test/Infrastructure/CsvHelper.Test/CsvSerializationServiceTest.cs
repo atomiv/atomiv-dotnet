@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.Common.Serialization.Csv.CsvHelper.Test
+namespace Optivem.Infrastructure.CsvHelper.IntegrationTest
 {
     public class CsvSerializationServiceTest
     {

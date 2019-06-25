@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Optivem.Test.Common.WebAutomation;
 
-namespace Optivem.Infrastructure.Selenium.Test.Screens
+namespace Optivem.Infrastructure.Selenium.IntegrationTest.Screens
 {
     public class SauceDemoLoginScreen : TestScreen
     {

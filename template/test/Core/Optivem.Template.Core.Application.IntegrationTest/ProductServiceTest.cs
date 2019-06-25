@@ -1,9 +1,6 @@
-using Microsoft.Extensions.DependencyInjection;
 using Optivem.Template.Core.Application.IntegrationTest.Fixture;
 using Optivem.Template.Core.Application.Products;
-using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
-using Optivem.Test.Common.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;

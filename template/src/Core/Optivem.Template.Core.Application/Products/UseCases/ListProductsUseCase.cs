@@ -1,6 +1,5 @@
 ﻿using Optivem.Core.Application;
 using Optivem.Template.Core.Domain.Products;
-using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Products
 {

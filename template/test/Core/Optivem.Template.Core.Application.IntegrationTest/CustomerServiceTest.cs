@@ -2,9 +2,7 @@
 using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.IntegrationTest.Fixture;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

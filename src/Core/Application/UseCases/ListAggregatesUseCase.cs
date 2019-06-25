@@ -1,6 +1,5 @@
 ﻿using Optivem.Core.Application.UseCases.Base;
 using Optivem.Core.Domain;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Core.Application

@@ -1,7 +1,7 @@
 ﻿using Optivem.Core.Common.WebAutomation;
 using Optivem.Test.Common.WebAutomation;
 
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages
+namespace Optivem.Infrastructure.Selenium.IntegrationTest.Pages
 {
     public class ToolsQAAutomationPracticeFormPage : TestScreen
     {

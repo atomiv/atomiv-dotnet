@@ -9,12 +9,11 @@ using Optivem.Core.Common.Serialization;
 using Optivem.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Infrastructure.CsvHelper;
 using Optivem.Infrastructure.NewtonsoftJson;
-using Optivem.Web.AspNetCore;
-using Optivem.Web.AspNetCore.Fake.Profiles.Customers;
+using Optivem.Web.AspNetCore.RestApi.Fake.Profiles.Customers;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
-namespace Optivem.Framework.Test.Web.AspNetCore.Rest.Fake
+namespace Optivem.Web.AspNetCore.RestApi.Fake
 {
     public class Startup
     {

@@ -1,8 +1,9 @@
 ﻿using Optivem.Infrastructure.CsvHelper;
 using Optivem.Test.Xunit;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers;
-using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Exports;
-using Optivem.Web.AspNetCore.Fake.Models;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers;
+using Optivem.Web.AspNetCore.RestApi.Fake.Dtos.Customers.Exports;
+using Optivem.Web.AspNetCore.RestApi.Fake.Models;
+using Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fixture;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Web.AspNetCore.Test
+namespace Optivem.Web.AspNetCore.RestApi.IntegrationTest
 {
     public class CustomersControllerTest : FixtureTest<TestClient>
     {

@@ -1,9 +1,9 @@
-﻿using Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test.Pages;
+﻿using Optivem.Infrastructure.Selenium.IntegrationTest.Pages;
 using Optivem.Test.Xunit;
 using Optivem.Test.Xunit.Selenium;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.Common.WebAutomation.Selenium.Test
+namespace Optivem.Infrastructure.Selenium.IntegrationTest
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 

@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore", "src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj", "{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.Rest.Fake", "test\Web\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.Rest.Fake.csproj", "{FE54D6A6-6C87-4184-9634-37BD5101655B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.RestApi.Fake", "test\Web\AspNetCore.Rest.Fake\Optivem.Web.AspNetCore.RestApi.Fake.csproj", "{FE54D6A6-6C87-4184-9634-37BD5101655B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.Rest.Test", "test\Web\AspNetCore.Rest.Test\Optivem.Web.AspNetCore.Rest.Test.csproj", "{5521E732-F5A2-49CE-91B5-FB4E1C401D42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.RestApi.IntegrationTest", "test\Web\AspNetCore.Rest.Test\Optivem.Web.AspNetCore.RestApi.IntegrationTest.csproj", "{5521E732-F5A2-49CE-91B5-FB4E1C401D42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application.Interface", "src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj", "{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}"
 EndProject
@@ -33,7 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain.Test", "test\Core\Domain.Test\Optivem.Core.Domain.Test.csproj", "{54DC7B02-AF07-4F71-898D-E490A419BC9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain.UnitTest", "test\Core\Domain.Test\Optivem.Core.Domain.UnitTest.csproj", "{54DC7B02-AF07-4F71-898D-E490A419BC9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore", "src\Infrastructure\AspNetCore\Optivem.Infrastructure.AspNetCore.csproj", "{911B3FC0-C9D6-4793-B60D-25225398A93B}"
 EndProject
@@ -61,11 +61,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.All"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{531EE9B1-F71A-4D55-A695-91D122163D57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore.Test", "test\Infrastructure\AspNetCore.Test\Optivem.Infrastructure.AspNetCore.Test.csproj", "{6708F5A8-6CB3-4143-8583-83BD8F39C8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore.IntegrationTest", "test\Infrastructure\AspNetCore.Test\Optivem.Infrastructure.AspNetCore.IntegrationTest.csproj", "{6708F5A8-6CB3-4143-8583-83BD8F39C8F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper.Test", "test\Infrastructure\CsvHelper.Test\Optivem.Infrastructure.CsvHelper.Test.csproj", "{E9FD4831-52E6-4C74-9B97-EA92C0E08B8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper.IntegrationTest", "test\Infrastructure\CsvHelper.Test\Optivem.Infrastructure.CsvHelper.IntegrationTest.csproj", "{E9FD4831-52E6-4C74-9B97-EA92C0E08B8A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.Test", "test\Infrastructure\Selenium.Test\Optivem.Infrastructure.Selenium.Test.csproj", "{D19550AE-EBD3-42F0-B59F-E00F2319076A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.IntegrationTest", "test\Infrastructure\Selenium.Test\Optivem.Infrastructure.Selenium.IntegrationTest.csproj", "{D19550AE-EBD3-42F0-B59F-E00F2319076A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{2D62DCFE-F085-4522-B19D-58FCE451AD9B}"
 EndProject
