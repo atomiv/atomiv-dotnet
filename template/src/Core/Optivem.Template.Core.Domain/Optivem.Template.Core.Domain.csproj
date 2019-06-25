@@ -5,15 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Core.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Customers\Events\" />
     <Folder Include="Orders\Factories\" />
     <Folder Include="Orders\Events\" />
     <Folder Include="Products\Factories\" />
     <Folder Include="Products\Events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Core\Domain\Optivem.Framework.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

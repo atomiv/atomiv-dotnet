@@ -21,9 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\All\Optivem.Infrastructure.All.csproj" />
-    <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

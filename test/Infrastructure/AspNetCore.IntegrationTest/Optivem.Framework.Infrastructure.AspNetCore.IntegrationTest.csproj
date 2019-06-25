@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Base\Common\Optivem.Framework.Test.Common.csproj" />
+    <ProjectReference Include="..\..\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
   </ItemGroup>
 
 </Project>

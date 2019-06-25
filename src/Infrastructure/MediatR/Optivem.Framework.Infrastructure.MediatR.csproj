@@ -1,25 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>1.0.11</Version>
     <Authors>Optivem</Authors>
-    <Description>Implementation for persistence using Entity Framework Core</Description>
+    <Description>Implementation for messaging using MediatR</Description>
     <Copyright>? Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Persistence EntityFrameworkCore</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Messaging MediatR</PackageTags>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Core.All.csproj" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Framework.Core.All.csproj" />
   </ItemGroup>
 
 </Project>

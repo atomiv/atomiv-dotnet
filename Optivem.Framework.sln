@@ -17,43 +17,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{44CCA906-B7B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{D014EF31-353F-486A-872C-9AD3674F185B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain", "src\Core\Domain\Optivem.Core.Domain.csproj", "{ECAEA188-398F-4096-8F4B-F6A7A5BAA525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Domain", "src\Core\Domain\Optivem.Framework.Core.Domain.csproj", "{ECAEA188-398F-4096-8F4B-F6A7A5BAA525}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application", "src\Core\Application\Optivem.Core.Application.csproj", "{7F68AEAC-EC61-4BD5-BF98-EE069981C3D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Application", "src\Core\Application\Optivem.Framework.Core.Application.csproj", "{7F68AEAC-EC61-4BD5-BF98-EE069981C3D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore", "src\Web\AspNetCore\Optivem.Web.AspNetCore.csproj", "{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Web.AspNetCore", "src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj", "{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Application.Interface", "src\Core\Application.Interface\Optivem.Core.Application.Interface.csproj", "{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Application.Interface", "src\Core\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj", "{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{A2C44B47-7AFE-4978-9308-F5431129B1DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore", "src\Infrastructure\AspNetCore\Optivem.Infrastructure.AspNetCore.csproj", "{911B3FC0-C9D6-4793-B60D-25225398A93B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.AspNetCore", "src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj", "{911B3FC0-C9D6-4793-B60D-25225398A93B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AutoMapper", "src\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj", "{22973DDB-AFCB-4982-8CD0-178DC341CDA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.AutoMapper", "src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj", "{22973DDB-AFCB-4982-8CD0-178DC341CDA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper", "src\Infrastructure\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj", "{E87BF0FE-21A9-40D8-86D1-3A494A7AC2CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.CsvHelper", "src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj", "{E87BF0FE-21A9-40D8-86D1-3A494A7AC2CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj", "{51DFD5A5-7FBB-4934-A4DC-793CAAFD44DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj", "{51DFD5A5-7FBB-4934-A4DC-793CAAFD44DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj", "{13F8A1DA-8E96-4A7A-8158-659F89503132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj", "{13F8A1DA-8E96-4A7A-8158-659F89503132}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.MediatR", "src\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.csproj", "{7F222407-6A4B-4449-A1F1-D00815EBB4F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.MediatR", "src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj", "{7F222407-6A4B-4449-A1F1-D00815EBB4F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj", "{E7B18A00-073F-4576-9764-2E3CD9A2A51E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj", "{E7B18A00-073F-4576-9764-2E3CD9A2A51E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium", "src\Infrastructure\Selenium\Optivem.Infrastructure.Selenium.csproj", "{3E63C428-A67A-4475-915A-5D70F660E4E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.Selenium", "src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj", "{3E63C428-A67A-4475-915A-5D70F660E4E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.System", "src\Infrastructure\System\Optivem.Infrastructure.System.csproj", "{B5E2A71A-E3D0-4732-9C88-8AE471847977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.System", "src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj", "{B5E2A71A-E3D0-4732-9C88-8AE471847977}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Common", "src\Core\Common\Optivem.Core.Common.csproj", "{D152E05C-EFD6-4A80-89DF-77A0B7CE9E20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Common", "src\Core\Common\Optivem.Framework.Core.Common.csproj", "{D152E05C-EFD6-4A80-89DF-77A0B7CE9E20}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.All", "src\Core\All\Optivem.Core.All.csproj", "{93AAEDCF-8744-418E-BE99-775F4AC34C6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.All", "src\Core\All\Optivem.Framework.Core.All.csproj", "{93AAEDCF-8744-418E-BE99-775F4AC34C6E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.All", "src\Infrastructure\All\Optivem.Infrastructure.All.csproj", "{43989762-8EA3-4C4F-8FC3-884AA1D41B9E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{531EE9B1-F71A-4D55-A695-91D122163D57}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{531EE9B1-F71A-4D55-A695-91D122163D57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{2D62DCFE-F085-4522-B19D-58FCE451AD9B}"
 EndProject
@@ -61,31 +59,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D39C4247-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1136EAB4-2929-4A65-BF00-AC90062E7A33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Core.Application", "src\DependencyInjection\Core\Application\Optivem.DependencyInjection.Core.Application.csproj", "{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Core.Application", "src\DependencyInjection\Core\Application\Optivem.Framework.DependencyInjection.Core.Application.csproj", "{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Core.Domain", "src\DependencyInjection\Core\Domain\Optivem.DependencyInjection.Core.Domain.csproj", "{4CCC7990-D46F-42D7-9BAB-388895A6FADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Core.Domain", "src\DependencyInjection\Core\Domain\Optivem.Framework.DependencyInjection.Core.Domain.csproj", "{4CCC7990-D46F-42D7-9BAB-388895A6FADE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.AspNetCore", "src\DependencyInjection\Infrastructure\AspNetCore\Optivem.DependencyInjection.Infrastructure.AspNetCore.csproj", "{0C17163B-7E91-4DD0-9CFC-B5CFBFB1F9B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore", "src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore.csproj", "{0C17163B-7E91-4DD0-9CFC-B5CFBFB1F9B4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.AutoMapper", "src\DependencyInjection\Infrastructure\AutoMapper\Optivem.DependencyInjection.Infrastructure.AutoMapper.csproj", "{3EE81C3D-D221-453E-91E6-B9B69B3A6F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper", "src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper.csproj", "{3EE81C3D-D221-453E-91E6-B9B69B3A6F37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.CsvHelper", "src\DependencyInjection\Infrastructure\CsvHelper\Optivem.DependencyInjection.Infrastructure.CsvHelper.csproj", "{2D6623D7-5212-4EB4-ACAD-BD85E9338219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.CsvHelper", "src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Framework.DependencyInjection.Infrastructure.CsvHelper.csproj", "{2D6623D7-5212-4EB4-ACAD-BD85E9338219}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore", "src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj", "{7F553B47-1968-4F8F-9946-1D2F393E5F51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore", "src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj", "{7F553B47-1968-4F8F-9946-1D2F393E5F51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.FluentValidation", "src\DependencyInjection\Infrastructure\FluentValidation\Optivem.DependencyInjection.Infrastructure.FluentValidation.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation", "src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.MediatR", "src\DependencyInjection\Infrastructure\MediatR\Optivem.DependencyInjection.Infrastructure.MediatR.csproj", "{C5D3B8FB-AB99-442C-83CA-CF3E1B0630AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.MediatR", "src\DependencyInjection\Infrastructure\MediatR\Optivem.Framework.DependencyInjection.Infrastructure.MediatR.csproj", "{C5D3B8FB-AB99-442C-83CA-CF3E1B0630AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.NewtonsoftJson", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.DependencyInjection.Infrastructure.NewtonsoftJson.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.Selenium", "src\DependencyInjection\Infrastructure\Selenium\Optivem.DependencyInjection.Infrastructure.Selenium.csproj", "{329FDCE4-306A-4853-96A4-370FFAA5C4F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.Selenium", "src\DependencyInjection\Infrastructure\Selenium\Optivem.Framework.DependencyInjection.Infrastructure.Selenium.csproj", "{329FDCE4-306A-4853-96A4-370FFAA5C4F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection.Infrastructure.System", "src\DependencyInjection\Infrastructure\System\Optivem.DependencyInjection.Infrastructure.System.csproj", "{E4AE6B52-2A65-42FD-8855-C2B62567B156}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.System", "src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj", "{E4AE6B52-2A65-42FD-8855-C2B62567B156}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{BAD5BAB7-4DBB-43B5-B315-EA5723D42E29}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BAD5BAB7-4DBB-43B5-B315-EA5723D42E29}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.DependencyInjection", "src\DependencyInjection\Base\DependencyInjection\Optivem.DependencyInjection.csproj", "{51BBACC2-8963-4607-8928-A77337373BE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Common", "src\DependencyInjection\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj", "{51BBACC2-8963-4607-8928-A77337373BE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{E43A4277-A2B4-4ACE-92D1-4B62860E3C68}"
 EndProject
@@ -125,15 +123,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Dependency
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.IntegrationTest", "template\test\Core\Optivem.Template.Core.Application.IntegrationTest\Optivem.Template.Core.Application.IntegrationTest.csproj", "{D289FE53-B26B-4F9C-9EE3-2C193B1615AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Common", "test\Base\Common\Optivem.Test.Common.csproj", "{4B85C849-ED45-4D60-B79A-A928EF3F4830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Common", "test\Base\Common\Optivem.Framework.Test.Common.csproj", "{4B85C849-ED45-4D60-B79A-A928EF3F4830}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.AspNetCore", "test\Base\AspNetCore\Optivem.Test.AspNetCore.csproj", "{602277AE-5329-4EB8-BE93-EF1FEC70E51D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.AspNetCore", "test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj", "{602277AE-5329-4EB8-BE93-EF1FEC70E51D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.EntityFrameworkCore", "test\Base\EntityFrameworkCore\Optivem.Test.EntityFrameworkCore.csproj", "{CEC597D7-DADC-40C9-83DD-91C905F2D14E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.EntityFrameworkCore", "test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj", "{CEC597D7-DADC-40C9-83DD-91C905F2D14E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Selenium", "test\Base\Selenium\Optivem.Test.Selenium.csproj", "{341EA06E-9D19-4406-83D8-DCEF04D0D1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Selenium", "test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj", "{341EA06E-9D19-4406-83D8-DCEF04D0D1C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Test.Xunit", "test\Base\Xunit\Optivem.Test.Xunit.csproj", "{722BE726-7E03-4938-A703-22DEBE94BABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Xunit", "test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj", "{722BE726-7E03-4938-A703-22DEBE94BABC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.UnitTest", "template\test\Core\Optivem.Template.Core.Application.UnitTest\Optivem.Template.Core.Application.UnitTest.csproj", "{DA1F4A79-8779-4DE1-9E75-C00191FE45EF}"
 EndProject
@@ -141,17 +139,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.IntegrationTest", "template\test\Web\Optivem.Template.Web.RestApi.IntegrationTest\Optivem.Template.Web.RestApi.IntegrationTest.csproj", "{E15109BA-AF07-4667-B730-AE55D51F0B00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Core.Domain.UnitTest", "test\Core\Domain.UnitTest\Optivem.Core.Domain.UnitTest.csproj", "{42E74F40-562D-446C-B99E-B4D910116248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Core.Domain.UnitTest", "test\Core\Domain.UnitTest\Optivem.Framework.Core.Domain.UnitTest.csproj", "{42E74F40-562D-446C-B99E-B4D910116248}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.AspNetCore.IntegrationTest", "test\Infrastructure\AspNetCore.IntegrationTest\Optivem.Infrastructure.AspNetCore.IntegrationTest.csproj", "{D1441EFA-781C-4090-9682-788BD30EAAC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest", "test\Infrastructure\AspNetCore.IntegrationTest\Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest.csproj", "{D1441EFA-781C-4090-9682-788BD30EAAC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.CsvHelper.IntegrationTest", "test\Infrastructure\CsvHelper.IntegrationTest\Optivem.Infrastructure.CsvHelper.IntegrationTest.csproj", "{30C4B8E3-952C-4EC1-A8A3-00F4055942DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest", "test\Infrastructure\CsvHelper.IntegrationTest\Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest.csproj", "{30C4B8E3-952C-4EC1-A8A3-00F4055942DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Infrastructure.Selenium.IntegrationTest", "test\Infrastructure\Selenium.IntegrationTest\Optivem.Infrastructure.Selenium.IntegrationTest.csproj", "{D7E58923-622C-4B5E-8240-AEA16DCCC0E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.Selenium.IntegrationTest", "test\Infrastructure\Selenium.IntegrationTest\Optivem.Framework.Infrastructure.Selenium.IntegrationTest.csproj", "{D7E58923-622C-4B5E-8240-AEA16DCCC0E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.RestApi.IntegrationTest", "test\Web\AspNetCore.RestApi.IntegrationTest\Optivem.Web.AspNetCore.RestApi.IntegrationTest.csproj", "{A4284937-9554-4522-B390-14126711CB36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest", "test\Web\AspNetCore.RestApi.IntegrationTest\Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.csproj", "{A4284937-9554-4522-B390-14126711CB36}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake", "test\Web\AspNetCore.RestApi.IntegrationTest.Fake\Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.csproj", "{BE951865-1391-4204-A444-E52F1638781D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake", "test\Web\AspNetCore.RestApi.IntegrationTest.Fake\Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.csproj", "{BE951865-1391-4204-A444-E52F1638781D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,10 +217,6 @@ Global
 		{93AAEDCF-8744-418E-BE99-775F4AC34C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93AAEDCF-8744-418E-BE99-775F4AC34C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93AAEDCF-8744-418E-BE99-775F4AC34C6E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43989762-8EA3-4C4F-8FC3-884AA1D41B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43989762-8EA3-4C4F-8FC3-884AA1D41B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43989762-8EA3-4C4F-8FC3-884AA1D41B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43989762-8EA3-4C4F-8FC3-884AA1D41B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCF00CA5-A1DD-4C57-987C-B7F622B38C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -395,7 +389,6 @@ Global
 		{B5E2A71A-E3D0-4732-9C88-8AE471847977} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{D152E05C-EFD6-4A80-89DF-77A0B7CE9E20} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 		{93AAEDCF-8744-418E-BE99-775F4AC34C6E} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
-		{43989762-8EA3-4C4F-8FC3-884AA1D41B9E} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{531EE9B1-F71A-4D55-A695-91D122163D57} = {E0C63A52-0D7C-4242-BE54-879DDF4E4BDC}
 		{2D62DCFE-F085-4522-B19D-58FCE451AD9B} = {D014EF31-353F-486A-872C-9AD3674F185B}
 		{D39C4247-5AD7-4392-851C-877E9FBD7A09} = {2D62DCFE-F085-4522-B19D-58FCE451AD9B}

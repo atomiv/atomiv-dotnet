@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastructure\MediatR\Optivem.Infrastructure.MediatR.csproj" />
-    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,23 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Optivem</Authors>
     <Version>1.0.11</Version>
-    <Description>Implementation for CSV Serialization using CsvHelper</Description>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for mapping using AutoMapper</Description>
     <Copyright>? Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Serialization CSV CsvHelper</PackageTags>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Mapping AutoMapper</PackageTags>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Core.All.csproj" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Framework.Core.All.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,7 @@
     <Company>Optivem</Company>
     <Authors>Optivem</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
-    <Copyright>© Optivem. All rights reserved.</Copyright>
+    <Copyright>ï¿½ Optivem. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Core.All.csproj" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Framework.Core.All.csproj" />
   </ItemGroup>
 
 </Project>

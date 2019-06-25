@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Application\Optivem.Core.Application.csproj" />
-    <ProjectReference Include="..\..\..\Infrastructure\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Optivem.Framework.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj" />
   </ItemGroup>
 
 </Project>

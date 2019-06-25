@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Domain\Optivem.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Optivem.Framework.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.Framework.DependencyInjection.Common.csproj" />
   </ItemGroup>
 
 </Project>

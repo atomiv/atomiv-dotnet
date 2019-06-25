@@ -28,9 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Base\AspNetCore\Optivem.Test.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Base\Xunit\Optivem.Test.Xunit.csproj" />
-    <ProjectReference Include="..\AspNetCore.RestApi.IntegrationTest.Fake\Optivem.Web.AspNetCore.RestApi.IntegrationTest.Fake.csproj" />
+    <ProjectReference Include="..\..\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
+    <ProjectReference Include="..\AspNetCore.RestApi.IntegrationTest.Fake\Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.csproj" />
   </ItemGroup>
 
 </Project>

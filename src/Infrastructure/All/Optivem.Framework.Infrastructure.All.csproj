@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,7 +10,7 @@
     <ProjectReference Include="..\AspNetCore\Optivem.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\AutoMapper\Optivem.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\CsvHelper\Optivem.Infrastructure.CsvHelper.csproj" />
-    <ProjectReference Include="..\EntityFrameworkCore\Optivem.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\FluentValidation\Optivem.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\MediatR\Optivem.Infrastructure.MediatR.csproj" />
     <ProjectReference Include="..\NewtonsoftJson\Optivem.Infrastructure.NewtonsoftJson.csproj" />
