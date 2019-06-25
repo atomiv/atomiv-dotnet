@@ -1,11 +1,12 @@
 ﻿using Optivem.Core.Application;
 using Optivem.Template.Core.Domain.Products;
+using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Products
 {
     public class ListProductsUseCase : ListAggregatesUseCase<IProductRepository, ListProductsRequest, ListProductsResponse, ListProductsRecordResponse, Product, ProductIdentity, int>
     {
-        public ListProductsUseCase(IProductRepository repository, IResponseMapper responseMapper)
+        public ListProductsUseCase(IProductRepository repository, ICollectionResponseMapper<Product, ListProductsResponse> responseMapper)
             : base(repository, responseMapper)
         {
         }

@@ -9,22 +9,23 @@ namespace Optivem.Core.Application
 
     // TODO: Move response mapper to base
 
-    public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
+    public class ListAggregatesUseCase<TResponseMapper, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
         : RepositoryUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
+        where TResponseMapper : ICollectionResponseMapper<TAggregateRoot, TResponse>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
         where TRecordResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListAggregatesUseCase(TRepository repository, IResponseMapper responseMapper)
+        public ListAggregatesUseCase(TRepository repository, TResponseMapper responseMapper)
             : base(repository)
         {
             ResponseMapper = responseMapper;
         }
 
-        protected IResponseMapper ResponseMapper { get; private set; }
+        protected TResponseMapper ResponseMapper { get; private set; }
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
@@ -32,15 +33,11 @@ namespace Optivem.Core.Application
 
             var aggregateRoots = await Repository.GetAsync();
 
-            return ResponseMapper.Map<IEnumerable<TAggregateRoot>, TResponse>(aggregateRoots);
+            return ResponseMapper.Map(aggregateRoots);
         }
     }
-
-    // TODO: VC: DELETE
-
-    /*
-    public abstract class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
-        : ListAggregatesUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
+    public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
+        : ListAggregatesUseCase<ICollectionResponseMapper<TAggregateRoot, TResponse>, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
@@ -48,10 +45,8 @@ namespace Optivem.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public ListAggregatesUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
-            : base(unitOfWork, responseMapper)
+        public ListAggregatesUseCase(TRepository repository, ICollectionResponseMapper<TAggregateRoot, TResponse> responseMapper) : base(repository, responseMapper)
         {
         }
     }
-    */
 }

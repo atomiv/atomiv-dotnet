@@ -25,7 +25,7 @@ namespace Optivem.DependencyInjection.Infrastructure.MediatR
             services.AddScoped<IRequestHandler, MediatorRequestHandler>();
 
             var types = assemblies.GetTypes();
-            services.AddRequestHandlers(types); // TODO: VC: Not working properly
+            services.AddRequestHandlers(types);
             services.AddValidationPipelineBehaviors(types);
 
             return services;

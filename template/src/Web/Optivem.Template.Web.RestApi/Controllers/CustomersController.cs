@@ -18,7 +18,8 @@ namespace Optivem.Template.Web.Controllers
         [ProducesResponseType(typeof(ListCustomersResponse), 200)]
         public async Task<ActionResult<ListCustomersResponse>> ListCustomersAsync()
         {
-            var response = await Service.ListCustomersAsync();
+            var request = new ListCustomersRequest();
+            var response = await Service.ListCustomersAsync(request);
             return Ok(response);
         }
 
@@ -30,7 +31,8 @@ namespace Optivem.Template.Web.Controllers
         [ProducesResponseType(500)]
         public async Task<ActionResult<FindCustomerResponse>> FindCustomerAsync(int id)
         {
-            var response = await Service.FindCustomerAsync(id);
+            var request = new FindCustomerRequest { Id = id };
+            var response = await Service.FindCustomerAsync(request);
             return Ok(response);
         }
 
@@ -48,6 +50,8 @@ namespace Optivem.Template.Web.Controllers
         [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]
         public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(int id, UpdateCustomerRequest request)
         {
+            // TODO: VC: API validation regarding id matching
+
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
         }
@@ -55,7 +59,8 @@ namespace Optivem.Template.Web.Controllers
         [HttpDelete("{id}", Name = "delete-customer")]
         public async Task<ActionResult> DeleteCustomerAsync(int id)
         {
-            await Service.DeleteCustomerAsync(id);
+            var request = new DeleteCustomerRequest { Id = id };
+            var response = await Service.DeleteCustomerAsync(request);
             return NoContent();
         }
     }

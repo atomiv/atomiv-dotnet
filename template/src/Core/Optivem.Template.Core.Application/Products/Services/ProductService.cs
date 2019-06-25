@@ -29,12 +29,7 @@ namespace Optivem.Template.Core.Application.Products
 
         public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
         {
-            return ListAsync<ListProductsRequest, ListProductsResponse>(request);
-        }
-
-        public Task<ListProductsResponse> ListProductsAsync()
-        {
-            return ListAsync<ListProductsRequest, ListProductsResponse>();
+            return HandleAsync<ListProductsRequest, ListProductsResponse>(request);
         }
 
         public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)

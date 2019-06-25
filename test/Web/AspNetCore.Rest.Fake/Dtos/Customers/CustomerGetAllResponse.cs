@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Optivem.Core.Application;
+using System;
 using System.Collections.Generic;
 
 namespace Optivem.Web.AspNetCore.Fake.Dtos.Customers
 {
-    public class CustomerGetAllResponse
+    public class CustomerGetAllResponse : ICollectionResponse<CustomerGetAllRecordResponse, int>
     {
-        public List<CustomerGetAllRecordResponse> Results { get; set; }
+        public List<CustomerGetAllRecordResponse> Records { get; set; }
+        public int Count { get; set; }
     }
 
-    public class CustomerGetAllRecordResponse
+    public class CustomerGetAllRecordResponse : IResponse<int>
     {
         public int Id { get; set; }
 

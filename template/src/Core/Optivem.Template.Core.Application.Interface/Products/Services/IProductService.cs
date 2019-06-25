@@ -13,8 +13,6 @@ namespace Optivem.Template.Core.Application.Products
 
         Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request);
 
-        Task<ListProductsResponse> ListProductsAsync();
-
         Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request);
 
         Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request);

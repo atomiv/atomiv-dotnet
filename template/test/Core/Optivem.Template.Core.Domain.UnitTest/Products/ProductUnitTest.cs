@@ -1,8 +1,4 @@
 ﻿using Optivem.Template.Core.Domain.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Optivem.Template.Core.Domain.UnitTest.Products

@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Optivem.Core.Application;
+using System;
 using System.Collections.Generic;
 
 namespace Optivem.Web.AspNetCore.Rest.Fake.Dtos.Customers
 {
-    public class CustomerGetSubsetResponse
+    public class CustomerGetSubsetResponse : ICollectionResponse<CustomerGetSubsetRecordResponse, int>
     {
-        public List<CustomerGetSubsetRecordResponse> Results { get; set; }
+        public List<CustomerGetSubsetRecordResponse> Records { get; set; }
+
+        public int Count { get; set; }
     }
 
-    public class CustomerGetSubsetRecordResponse
+    public class CustomerGetSubsetRecordResponse : IResponse<int>
     {
         public int Id { get; set; }
 

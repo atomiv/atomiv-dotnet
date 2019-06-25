@@ -30,7 +30,7 @@ namespace Optivem.Core.Application
 
             if (aggregateRoot == null)
             {
-                throw new RequestNotFoundException();
+                throw new NotFoundRequestException();
             }
 
             var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);

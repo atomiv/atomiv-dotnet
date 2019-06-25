@@ -24,7 +24,7 @@ namespace Optivem.Web.AspNetCore.Test
         {
             var expected = new CustomerGetAllResponse
             {
-                Results = new List<CustomerGetAllRecordResponse>
+                Records = new List<CustomerGetAllRecordResponse>
                 {
                     new CustomerGetAllRecordResponse
                     {
@@ -120,7 +120,7 @@ namespace Optivem.Web.AspNetCore.Test
 
             Assert.Equal(HttpStatusCode.OK, retrieved.StatusCode);
 
-            Assert.Equal(4, retrieved.Data.Results.Count());
+            Assert.Equal(4, retrieved.Data.Records.Count());
 
             // TODO: VC: Handle later
 

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Optivem.Core.Application;
+using System;
 
 namespace Optivem.Web.AspNetCore.Fake.Dtos.Customers
 {
-    public class CustomerPostResponse
+    public class CustomerPostResponse : IResponse<int>
     {
         public int Id { get; set; }
 

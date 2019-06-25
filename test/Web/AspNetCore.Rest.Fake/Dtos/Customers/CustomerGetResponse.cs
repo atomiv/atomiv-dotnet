@@ -1,10 +1,11 @@
-﻿using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Cards;
+﻿using Optivem.Core.Application;
+using Optivem.Web.AspNetCore.Fake.Dtos.Customers.Cards;
 using System;
 using System.Collections.Generic;
 
 namespace Optivem.Web.AspNetCore.Fake.Models
 {
-    public class CustomerGetResponse
+    public class CustomerGetResponse : IResponse<int>
     {
         public int Id { get; set; }
 

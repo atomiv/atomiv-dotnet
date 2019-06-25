@@ -265,12 +265,12 @@ namespace Optivem.Infrastructure.EntityFrameworkCore
 
         protected IEnumerable<TAggregateRoot> GetAggregateRoots(IEnumerable<TRecord> records)
         {
-            return records.Select(GetAggregateRoot);
+            return records.Select(GetAggregateRoot).ToList().AsReadOnly();
         }
 
         protected IEnumerable<TRecord> GetRecords(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            return aggregateRoots.Select(GetRecord);
+            return aggregateRoots.Select(GetRecord).ToList().AsReadOnly();
         }
     }
 }

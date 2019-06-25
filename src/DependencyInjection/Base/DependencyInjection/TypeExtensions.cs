@@ -11,14 +11,19 @@ namespace Optivem.DependencyInjection
             return type.IsClass && !type.IsAbstract;
         }
 
-        public static bool IsGenericInterface(this Type type, Type interfaceType)
+        public static bool IsGenericType(this Type type, Type genericType)
         {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == interfaceType;
+            return type.IsGenericType && type.GetGenericTypeDefinition() == genericType;
+        }
+
+        public static bool IsGenericClass(this Type type, Type classType)
+        {
+            return type.IsClass && type.BaseType.GetGenericTypeDefinition() == classType;
         }
 
         public static bool ImplementsGenericInterface(this Type type, Type interfaceType)
         {
-            return type.GetTypeInfo().ImplementedInterfaces.Any(e => e.IsGenericInterface(interfaceType));
+            return type.GetTypeInfo().ImplementedInterfaces.Any(e => e.IsGenericType(interfaceType));
         }
         public static bool ImplementsInterface(this Type type, Type interfaceType)
         {
@@ -35,11 +40,15 @@ namespace Optivem.DependencyInjection
             return type.IsConcreteClass() && type.ImplementsInterface(interfaceType);
         }
 
-        public static bool IsChildInterface(this Type type, Type interfaceType)
+        public static bool IsChildInterfaceOfInterface(this Type type, Type interfaceType)
         {
-            return type.IsInterface && type.GetTypeInfo().IsAssignableFrom(interfaceType);
-                
-                // .ImplementedInterfaces.Any(e => e.GetType() == interfaceType);
+            // return type.IsInterface && type.GetTypeInfo().IsSubclassOf(interfaceType);
+            return type.IsInterface && type.ImplementsGenericInterface(interfaceType);
+        }
+
+        public static bool IsSubclassOfGenericClass(this Type type, Type classType)
+        {
+            return type.IsConcreteClass() && type.BaseType.IsGenericType(classType);
         }
 
 

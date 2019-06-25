@@ -12,16 +12,14 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
     public class ListProductsUseCaseTest
     {
         private readonly Mock<IProductRepository> _repositoryMock;
-        // private readonly Mock<IUnitOfWork> _unitOfWorkMock;
-        private readonly Mock<IResponseMapper> _responseMapperMock;
+        private readonly Mock<ICollectionResponseMapper<Product, ListProductsResponse>> _responseMapperMock;
 
         private readonly ListProductsUseCase _useCase;
 
         public ListProductsUseCaseTest()
         {
             _repositoryMock = new Mock<IProductRepository>();
-            // _unitOfWorkMock = new Mock<IUnitOfWork>();
-            _responseMapperMock = new Mock<IResponseMapper>();
+            _responseMapperMock = new Mock<ICollectionResponseMapper<Product, ListProductsResponse>>();
             _useCase = new ListProductsUseCase(_repositoryMock.Object, _responseMapperMock.Object);
         }
 
@@ -36,14 +34,14 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
                 new Product(new ProductIdentity(2), "BDE", "My name 2", 14),
             };
 
+            // TODO: VC: Handling casting
             _repositoryMock.Setup(e => e.GetAsync()).Returns(Task.FromResult(products.AsEnumerable()));
-            // _unitOfWorkMock.Setup(e => e.GetRepository<IProductRepository>()).Returns(_repositoryMock.Object);
 
             var request = new ListProductsRequest();
 
             await _useCase.HandleAsync(request);
 
-            _responseMapperMock.Verify(e => e.Map<IEnumerable<Product>, ListProductsResponse>(products), Times.Once);
+            _responseMapperMock.Verify(e => e.Map(products), Times.Once);
         }
     }
 }

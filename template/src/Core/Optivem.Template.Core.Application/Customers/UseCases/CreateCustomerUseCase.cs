@@ -6,7 +6,7 @@ namespace Optivem.Template.Core.Application.Customers
 {
     public class CreateCustomerUseCase : CreateAggregateUseCase<ICustomerRepository, CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public CreateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
+        public CreateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper<Customer, CreateCustomerResponse> responseMapper)
             : base(unitOfWork, responseMapper)
         {
         }

@@ -31,7 +31,7 @@ namespace Optivem.Core.Application
 
             if (aggregateRoot == null)
             {
-                throw new RequestNotFoundException();
+                throw new NotFoundRequestException();
             }
 
             Update(aggregateRoot, request);

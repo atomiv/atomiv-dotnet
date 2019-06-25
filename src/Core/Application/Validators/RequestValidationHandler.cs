@@ -18,7 +18,7 @@ namespace Optivem.Core.Application
 
             if (!result.IsValid)
             {
-                throw new RequestValidationException(result);
+                throw new InvalidRequestException(result);
             }
         }
     }

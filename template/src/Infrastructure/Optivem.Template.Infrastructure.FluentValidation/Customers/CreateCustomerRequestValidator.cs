@@ -4,7 +4,7 @@ using Optivem.Template.Core.Application.Customers;
 
 namespace Optivem.Template.Infrastructure.FluentValidation.Customers
 {
-    public class CreateCustomerRequestValidator : FluentValidationAbstractValidator<CreateCustomerRequest>
+    public class CreateCustomerRequestValidator : BaseValidator<CreateCustomerRequest>
     {
         public CreateCustomerRequestValidator()
         {

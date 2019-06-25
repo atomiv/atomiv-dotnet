@@ -12,25 +12,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 {
     public class ProductServiceTest : ServiceTest
     {
-        private readonly IProductService _productService;
-
         private readonly List<ProductRecord> _productRecords;
 
         public ProductServiceTest(ServiceFixture client)
             : base(client)
         {
-            var configuration = ConfigurationRootFactory.Create();
-
-            var services = new ServiceCollection();
-            services.AddModules(configuration);
-
-            var serviceProvider = services.BuildServiceProvider();
-
-            _productService = serviceProvider.GetService<IProductService>();
-
-            // TODO: DISPOSE
-            // var serviceProvider.Dispose(); 
-
             _productRecords = new List<ProductRecord>
             {
                 // TODO: VC: Currency
@@ -62,7 +48,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             };
 
-            var response = await _productService.ListProductsAsync(request);
+            var response = await Fixture.Products.ListProductsAsync(request);
 
             Assert.Equal(_productRecords.Count, response.Count);
 
