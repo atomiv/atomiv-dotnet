@@ -19,4 +19,9 @@
     <ProjectReference Include="..\..\..\src\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Customers\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>
