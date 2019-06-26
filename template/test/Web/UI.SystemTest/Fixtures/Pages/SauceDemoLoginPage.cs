@@ -1,13 +1,16 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Test.Common.WebAutomation;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
+namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoLoginScreen : TestScreen
+    public class SauceDemoLoginPage : TestPageObject
     {
         private const string Url = "https://www.saucedemo.com/";
 
-        public SauceDemoLoginScreen(TestDriver driver) : base(driver)
+        public SauceDemoLoginPage(TestDriver driver) : base(driver)
         {
             Driver.Url.Should().Be(Url);
         }
@@ -18,10 +21,10 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 
         public TestButton Login => Driver.FindButtonByClass("submit");
 
-        public static SauceDemoLoginScreen Open(TestDriver driver)
+        public static SauceDemoLoginPage Open(TestDriver driver)
         {
             driver.Url = Url;
-            return new SauceDemoLoginScreen(driver);
+            return new SauceDemoLoginPage(driver);
         }
     }
 }

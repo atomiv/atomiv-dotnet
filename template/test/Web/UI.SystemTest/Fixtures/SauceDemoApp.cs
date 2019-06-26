@@ -1,11 +1,14 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens;
-using Optivem.Framework.Test.Common.WebAutomation;
+﻿using Optivem.Framework.Test.Common.WebAutomation;
+using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
+namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
     public class SauceDemoApp : TestPageObject
     {
-        public SauceDemoApp(TestDriver driver) 
+        public SauceDemoApp(TestDriver driver)
             : base(driver)
         {
         }

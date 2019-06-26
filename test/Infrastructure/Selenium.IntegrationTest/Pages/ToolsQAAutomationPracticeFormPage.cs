@@ -3,7 +3,7 @@ using Optivem.Framework.Test.Common.WebAutomation;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 {
-    public class ToolsQAAutomationPracticeFormPage : TestScreen
+    public class ToolsQAAutomationPracticeFormPage : TestPageObject
     {
         public ToolsQAAutomationPracticeFormPage(TestDriver driver) 
             : base(driver)

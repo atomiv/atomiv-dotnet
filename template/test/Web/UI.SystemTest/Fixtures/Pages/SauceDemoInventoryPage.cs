@@ -1,14 +1,18 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
+using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Framework.Test.Common.WebAutomation;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
+namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoInventoryScreen : TestScreen
+    public class SauceDemoInventoryPage : TestPageObject
     {
         private const string Url = "https://www.saucedemo.com/inventory.html";
 
-        public SauceDemoInventoryScreen(TestDriver driver) 
+        public SauceDemoInventoryPage(TestDriver driver)
             : base(driver)
         {
             Driver.Url.Should().Be(Url);
@@ -21,10 +25,10 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
         // public List<InventoryItem> InventoryItems => Driver.FindElementCollection(FindType.ClassName, "inventory_item");
 
 
-        public static SauceDemoInventoryScreen Open(TestDriver driver)
+        public static SauceDemoInventoryPage Open(TestDriver driver)
         {
             driver.Url = Url;
-            return new SauceDemoInventoryScreen(driver);
+            return new SauceDemoInventoryPage(driver);
         }
     }
 
@@ -32,7 +36,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 
     public class InventoryItem : Element
     {
-        public InventoryItem(IWebElement element) 
+        public InventoryItem(IWebElement element)
             : base(element)
         {
         }

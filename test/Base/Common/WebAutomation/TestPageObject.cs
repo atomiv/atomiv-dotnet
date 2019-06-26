@@ -1,8 +1,8 @@
 ﻿namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestScreen
+    public class TestPageObject
     {
-        public TestScreen(TestDriver driver)
+        public TestPageObject(TestDriver driver)
         {
             Driver = driver;
         }
