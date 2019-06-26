@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Products.Requests
 {
-    public class BrowseProductsRequest : IRequest
+    public class BrowseProductsRequest : ICollectionRequest
     {
         public int Page { get; set; }
 

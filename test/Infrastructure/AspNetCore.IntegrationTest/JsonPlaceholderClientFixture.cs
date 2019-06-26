@@ -75,13 +75,24 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
             return Client.DeleteByIdAsync(id);
         }
 
-        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdAsync(int userId)
+        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdRawAsync(int userId)
         {
             // TODO: VC: Consider dto for filtering..
             return Client.GetAsync<List<PostDto>>($"?userId={userId}");
         }
 
-        public Task<IObjectClientResponse<List<CommentDto>>> GetCommentsAsync(int id)
+        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdAsync(int userId)
+        {
+            var query = new PostQueryDto
+            {
+                UserId = userId,
+            };
+
+            return Client.GetAsync<PostQueryDto, List<PostDto>>(query);
+        }
+
+
+        public Task<IObjectClientResponse<List<CommentDto>>> GetCommentsRawAsync(int id)
         {
             return Client.GetAsync<List<CommentDto>>($"{id}/comments");
         }
@@ -95,6 +106,11 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
             : base(clientFactory, "todos")
         {
         }
+    }
+
+    public class PostQueryDto
+    {
+        public int? UserId { get; set; }
     }
 
     public class PostDto

@@ -1,4 +1,7 @@
-﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products.Entities;
 using Optivem.Template.Core.Domain.Products.Repositories;
 using Optivem.Template.Core.Domain.Products.ValueObjects;
@@ -10,6 +13,21 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositor
     {
         public ProductRepository(DatabaseContext context) : base(context)
         {
+        }
+
+        // TODO: VC: Move to base for paging
+
+        public IEnumerable<Product> Get(int page, int size)
+        {
+            var skip = page * size;
+            var records = ReadonlySet.Skip(skip).Take(size).Select(GetAggregateRoot).ToList();
+            return records;
+        }
+
+        public Task<IEnumerable<Product>> GetAsync(int page, int size)
+        {
+            var records = Get(page, size);
+            return Task.FromResult(records);
         }
 
         protected override Product GetAggregateRoot(ProductRecord record)

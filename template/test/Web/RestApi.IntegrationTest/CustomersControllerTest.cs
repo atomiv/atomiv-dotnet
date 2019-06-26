@@ -117,7 +117,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         }
 
         [Fact]
-        public async Task CreateCustomer_Invalid_MissingFirstName_UnprocessableEntity()
+        public async Task CreateCustomer_Invalid_UnprocessableEntity()
         {
             // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
@@ -183,7 +183,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         }
 
         [Fact]
-        public async Task UpdateCustomer_Invalid_MissingLastName_UnprocessableEntity()
+        public async Task UpdateCustomer_Invalid_UnprocessableEntity()
         {
             // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 

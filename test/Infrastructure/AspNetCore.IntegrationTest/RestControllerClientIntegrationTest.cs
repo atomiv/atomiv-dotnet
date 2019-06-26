@@ -144,15 +144,22 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
             await JsonPlaceholderClient.Posts.DeleteAsync(8);
         }
 
-        // TODO: VC: Requests
+        [Fact]
+        public async Task TestGetByQueryParamRawAsync()
+        {
+            var actual = await JsonPlaceholderClient.Posts.GetByUserIdRawAsync(1);
+        }
 
-        /*
-         *
-         *
-GET	/posts/1/comments
-GET	/comments?postId=1
-GET	/posts?userId=1
-         *
-         */
+        [Fact]
+        public async Task TestGetByQueryParamAsync()
+        {
+            var actual = await JsonPlaceholderClient.Posts.GetByUserIdAsync(1);
+        }
+
+        [Fact]
+        public async Task TestGetSubresources()
+        {
+            var actual = await JsonPlaceholderClient.Posts.GetCommentsRawAsync(1);
+        }
     }
 }

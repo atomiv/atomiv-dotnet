@@ -27,31 +27,31 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request)
         {
             var queryString = GetQueryString(request);
-            var relativeUri = GetRelativeUri(null, queryString);
-            return GetAsync<TResponse>(relativeUri);
+            var relativeUri = GetRelativeByQuery(queryString);
+            return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
         {
-            var relativeUri = GetRelativeUri();
+            var relativeUri = GetRelativeByPath();
             return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
         public Task<IClientResponse> GetAsync()
         {
-            var relativeUri = GetRelativeUri();
+            var relativeUri = GetRelativeByPath();
             return ObjectClient.GetAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
         public Task<IClientResponse> GetAsync(string uri)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.GetAsync(relativeUri);
         }
 
@@ -69,25 +69,25 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.PostAsync<TRequest, TResponse>(relativeUri, request);
         }
 
         public Task<IClientResponse> PostAsync<TRequest>(string uri, TRequest request)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.PostAsync(relativeUri, request);
         }
 
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request)
         {
-            var relativeUri = GetRelativeUri();
+            var relativeUri = GetRelativeByPath();
             return ObjectClient.PostAsync<TRequest, TResponse>(relativeUri, request);
         }
 
         public Task<IClientResponse> PostAsync<TRequest>(TRequest request)
         {
-            var relativeUri = GetRelativeUri();
+            var relativeUri = GetRelativeByPath();
             return ObjectClient.PostAsync(relativeUri, request);
         }
         public Task<IObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -97,13 +97,13 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.PutAsync<TRequest, TResponse>(relativeUri, request);
         }
 
         public Task<IClientResponse> PutAsync<TRequest>(string uri, TRequest request)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.PutAsync(relativeUri, request);
         }
 
@@ -121,13 +121,13 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.DeleteAsync<TResponse>(relativeUri);
         }
 
         public Task<IClientResponse> DeleteAsync(string uri)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.DeleteAsync(relativeUri);
         }
 
@@ -145,37 +145,37 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<IClientResponse> GetAsync(string uri, string acceptType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.GetAsync(relativeUri, acceptType);
         }
 
         public Task<IClientResponse> PostAsync(string uri, string content, string contentType, string acceptType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.PostAsync(relativeUri, content, contentType, acceptType);
         }
 
         public Task<IClientResponse> PostAsync(string uri, string content, string contentType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.PostAsync(relativeUri, content, contentType);
         }
 
         public Task<IClientResponse> PutAsync(string uri, string content, string contentType, string acceptType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.PutAsync(relativeUri, content, contentType, acceptType);
         }
 
         public Task<IClientResponse> PutAsync(string uri, string content, string contentType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.PutAsync(relativeUri, content, contentType);
         }
 
         public Task<IClientResponse> DeleteAsync(string uri, string acceptType)
         {
-            var relativeUri = GetRelativeUri(uri);
+            var relativeUri = GetRelativeByPath(uri);
             return Client.DeleteAsync(relativeUri, acceptType);
         }
 
@@ -186,25 +186,41 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return $"{ControllerUri}/{id}";
         }
 
-        private string GetRelativeUri(string uri = null, string query = null)
+        /*
+        private string GetPathSuffix(string path)
         {
-            var stringBuilder = new StringBuilder();
+            return $"/{path}";
+        }
 
-            stringBuilder.Append(ControllerUri);
+        private string GetQuerySuffix(string query)
+        {
+            return $"?{query}";
+        }
 
-            if(uri != null)
-            {
-                stringBuilder.Append($"/{uri}");
-            }
+        private string GetControllerUri()
+        {
+            return ControllerUri;
+        }
 
-            if(query != null)
-            {
-                stringBuilder.Append($"?{query}");
-            }
+        private string GetControllerUri(string uri)
+        {
+            return $"{ControllerUri}{uri}";
+        }
+        */
 
-            var str = stringBuilder.ToString();
+        private string GetRelativeByQuery(string query)
+        {
+            return $"{ControllerUri}?{query}";
+        }
 
-            return str;
+        private string GetRelativeByPath(string path)
+        {
+            return $"{ControllerUri}/{path}";
+        }
+
+        private string GetRelativeByPath()
+        {
+            return ControllerUri;
         }
 
         public void Dispose()
@@ -279,6 +295,21 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
                 return new QueryParameter(name, encodedValue);
             }
+
+            // TODO: VC: Check if needed
+
+            /*
+            private static string ToCamelCase(string text)
+            {
+                if(text == null || text.Length < 1)
+                {
+                    return text;
+                }
+
+                var first = text[0].ToLowerInvariant();
+                var rest = text.Substring(1);
+            }
+            */
         }
 
         private class QueryString

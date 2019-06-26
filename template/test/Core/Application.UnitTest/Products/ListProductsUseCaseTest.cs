@@ -27,10 +27,8 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
             _useCase = new ListProductsUseCase(_repositoryMock.Object, _responseMapperMock.Object);
         }
 
-
-        // [Fact(Skip = "Pending write test")]
         [Fact]
-        public async Task ShouldReturnsResultsWhenRepositoryHasData()
+        public async Task HandleAsync_ValidRequest_ReturnsResponse()
         {
             var products = new List<Product>
             {
@@ -38,7 +36,6 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
                 new Product(new ProductIdentity(2), "BDE", "My name 2", 14),
             };
 
-            // TODO: VC: Handling casting
             _repositoryMock.Setup(e => e.GetAsync()).Returns(Task.FromResult(products.AsEnumerable()));
 
             var request = new ListProductsRequest();

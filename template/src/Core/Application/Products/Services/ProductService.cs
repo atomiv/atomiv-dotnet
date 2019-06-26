@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Products.Services
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
         }
 
         public Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request)

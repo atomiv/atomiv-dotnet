@@ -4,7 +4,7 @@ using Optivem.Template.Core.Domain.Products.ValueObjects;
 
 namespace Optivem.Template.Core.Domain.Products.Repositories
 {
-    public interface IProductRepository : ICrudRepository<Product, ProductIdentity>
+    public interface IProductRepository : ICrudRepository<Product, ProductIdentity>, IPageAggregatesRepository<Product, ProductIdentity>
     {
     }
 }
