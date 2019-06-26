@@ -1,15 +1,12 @@
 ﻿using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Orders.ValueObjects;
 using Optivem.Template.Core.Domain.Products.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Core.Domain.Orders.Entities
 {
     public class OrderDetail : Entity<OrderDetailIdentity>
     {
-        public OrderDetail(OrderDetailIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderDetailStatus status)
+        public OrderDetail(OrderDetailIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderDetailStatus status) 
             : base(id)
         {
             ProductId = productId;

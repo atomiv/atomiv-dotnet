@@ -16,24 +16,22 @@ namespace Optivem.Template.Web.RestApi.Controllers
         {
         }
 
-        /*
         [HttpGet(Name = "browse-products")]
         [ProducesResponseType(typeof(BrowseProductsResponse), 200)]
-        public async Task<ActionResult<BrowseProductsResponse>> BrowseProductsAsync(int? Page = null, int? Size = null)
+        public async Task<ActionResult<BrowseProductsResponse>> BrowseProductsAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
         {
             // TODO: VC: Parameter validation
             var request = new BrowseProductsRequest
             {
-                Page = Page.Value,
-                Size = Size.Value,
+                Page = page.Value,
+                Size = size.Value,
             };
 
             var response = await Service.BrowseProductsAsync(request);
             return Ok(response);
         }
-        */
 
-        [HttpGet(Name = "list-products")]
+        [HttpGet("list", Name = "list-products")]
         [ProducesResponseType(typeof(ListProductsResponse), 200)]
         public async Task<ActionResult<ListProductsResponse>> ListProductsAsync()
         {

@@ -30,7 +30,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures.Clients
 
         public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync()
         {
-            return Client.GetAsync<ListProductsResponse>();
+            return Client.GetAsync<ListProductsResponse>("list");
         }
 
         public Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request)

@@ -39,8 +39,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
         // TODO: VC: Naming conventions for tests
 
-        [Fact(Skip = "Need to fix test")]
-        public async Task BrowseProducts_OK()
+        [Fact]
+        public async Task BrowseProducts_Valid_OK()
         {
             for(int i = 0; i < 30; i++)
             {
@@ -82,13 +82,14 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 var actualRecord = browseResponseContent.Records[i];
                 Assert.Equal(expectedRecord.Id, actualRecord.Id);
                 Assert.Equal(expectedRecord.ProductCode, actualRecord.Code);
-                Assert.Equal(expectedRecord.Id, actualRecord.UnitPrice);
+                Assert.Equal(expectedRecord.ProductName, actualRecord.Description);
+                Assert.Equal(expectedRecord.ListPrice, actualRecord.UnitPrice);
             }
         }
 
 
         [Fact(Skip = "Pending implement")]
-        public async Task CreateProduct_Invalid_MissingCode_UnprocessableEntity()
+        public async Task CreateProduct_Invalid_UnprocessableEntity()
         {
             // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
@@ -113,7 +114,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
 
         [Fact]
-        public async Task ListProducts_OK()
+        public async Task ListProducts_Valid_OK()
         {
             var actual = await Fixture.Products.ListProductsAsync();
 
@@ -243,7 +244,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         }
 
         [Fact(Skip = "Pending implement")]
-        public async Task UpdateProduct_Invalid_MissingCode_UnprocessableEntity()
+        public async Task UpdateProduct_Invalid_UnprocessableEntity()
         {
             // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
 
