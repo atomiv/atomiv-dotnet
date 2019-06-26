@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoMapper\Optivem.Template.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\FluentValidation\Optivem.Template.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\MediatR\Optivem.Template.Infrastructure.MediatR.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -24,8 +24,10 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.12" />
-    <PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.12" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.13" />
+    <PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.13" />
+    <PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.13" />
+    <PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.13" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -38,9 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
-    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.IntegrationTest\Optivem.Template.Core.Application.IntegrationTest.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj" />
   </ItemGroup>
 
 </Project>

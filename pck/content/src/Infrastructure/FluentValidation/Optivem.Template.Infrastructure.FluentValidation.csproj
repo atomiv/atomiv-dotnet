@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Infrastructure.FluentValidation" Version="1.0.12" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.FluentValidation" Version="1.0.13" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
 </Project>

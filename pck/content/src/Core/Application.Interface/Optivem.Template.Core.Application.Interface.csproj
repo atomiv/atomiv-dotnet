@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.12" />
+    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.13" />
   </ItemGroup>
 
 </Project>

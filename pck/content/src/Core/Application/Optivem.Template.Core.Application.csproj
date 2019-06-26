@@ -14,12 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.12" />
+    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.13" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
+    <ProjectReference Include="..\Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Domain\Optivem.Template.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>
