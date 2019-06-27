@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App;
-using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
-using Optivem.Framework.Test.Xunit;
+﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest

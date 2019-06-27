@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
 
-namespace Optivem.Framework.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.FluentAssertions.WebAutomation
 {
     public static class ComboBoxExtensions
     {

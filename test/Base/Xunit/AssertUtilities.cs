@@ -1,12 +1,12 @@
 ﻿using Optivem.Framework.Core.Common.Serialization;
-using Optivem.Framework.Test.Common.Serialization;
+using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using Xunit;
 
 namespace Optivem.Framework.Test.Xunit
 {
     public static class AssertUtilities
     {
-        private static IJsonSerializationService Serializer = SerializationServiceFactory.CreateJsonSerializationService();
+        private static IJsonSerializationService Serializer = new JsonSerializationService();
 
         public static void AssertEqual<T>(T expected, T actual)
         {

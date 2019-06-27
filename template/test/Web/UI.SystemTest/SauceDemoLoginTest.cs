@@ -1,5 +1,3 @@
-using Optivem.Framework.Test.Selenium;
-using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
 using Xunit;
 

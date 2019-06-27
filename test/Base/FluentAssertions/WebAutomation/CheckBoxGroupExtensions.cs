@@ -2,7 +2,7 @@
 using Optivem.Framework.Core.Common.WebAutomation;
 using System.Linq;
 
-namespace Optivem.Framework.Test.Common.WebAutomation
+namespace Optivem.Framework.Test.FluentAssertions.WebAutomation
 {
     public static class CheckBoxGroupExtensions
     {

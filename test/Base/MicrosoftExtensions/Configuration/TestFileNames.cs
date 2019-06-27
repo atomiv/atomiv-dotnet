@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Test.Common.Configuration
+﻿namespace Optivem.Framework.Test.MicrosoftExtensions.Configuration
 {
     public static class TestFileNames
     {

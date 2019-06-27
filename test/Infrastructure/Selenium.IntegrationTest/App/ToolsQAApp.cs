@@ -1,7 +1,4 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 {

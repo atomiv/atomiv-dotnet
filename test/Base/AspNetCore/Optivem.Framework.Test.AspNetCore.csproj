@@ -13,7 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\Common\Optivem.Framework.Test.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\MicrosoftExtensions\Optivem.Framework.Test.MicrosoftExtensions.csproj" />
   </ItemGroup>
 
 </Project>

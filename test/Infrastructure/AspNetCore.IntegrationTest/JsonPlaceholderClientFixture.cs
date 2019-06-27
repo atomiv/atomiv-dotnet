@@ -1,5 +1,5 @@
 ﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Test.Common.Serialization;
+using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +11,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
     {
         public JsonPlaceholderClientFixture()
         {
-            var serializationService = SerializationServiceFactory.CreateJsonSerializationService();
+            var serializationService = new JsonSerializationService();
 
             var httpClient = new HttpClient()
             {

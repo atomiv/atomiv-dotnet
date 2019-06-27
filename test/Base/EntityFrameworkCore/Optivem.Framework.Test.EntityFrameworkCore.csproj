@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\Common\Optivem.Framework.Test.Common.csproj" />
+    <ProjectReference Include="..\MicrosoftExtensions\Optivem.Framework.Test.MicrosoftExtensions.csproj" />
   </ItemGroup>
 
 </Project>

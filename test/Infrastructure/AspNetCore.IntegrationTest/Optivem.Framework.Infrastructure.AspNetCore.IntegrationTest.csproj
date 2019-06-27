@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Base\Common\Optivem.Framework.Test.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
   </ItemGroup>
 

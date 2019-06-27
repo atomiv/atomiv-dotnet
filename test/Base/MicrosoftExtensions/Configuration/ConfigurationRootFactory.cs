@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Optivem.Framework.Core.Common;
 
-namespace Optivem.Framework.Test.Common.Configuration
+namespace Optivem.Framework.Test.MicrosoftExtensions.Configuration
 {
     public static class ConfigurationRootFactory
     {

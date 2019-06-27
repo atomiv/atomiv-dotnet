@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures

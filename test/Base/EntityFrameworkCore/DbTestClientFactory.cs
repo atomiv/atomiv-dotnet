@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Framework.Test.Common.Configuration;
+using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using System;
 
 namespace Optivem.Framework.Test.EntityFrameworkCore

@@ -1,7 +1,5 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
-using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages;
-using Optivem.Framework.Test.Common.WebAutomation;
-using Optivem.Framework.Test.Xunit;
+using Optivem.Framework.Test.FluentAssertions.WebAutomation;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest

@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Optivem.Framework.Test.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Common\Optivem.Framework.Core.Common.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
   </ItemGroup>
 
 </Project>

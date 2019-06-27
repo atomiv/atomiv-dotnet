@@ -1,8 +1,6 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
 using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Common.WebAutomation;
-using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {

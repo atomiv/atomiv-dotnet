@@ -1,8 +1,6 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Framework.Test.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {

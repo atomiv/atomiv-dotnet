@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using Optivem.Framework.Core.Common.WebAutomation;
 using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
