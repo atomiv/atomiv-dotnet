@@ -6,10 +6,8 @@ using Optivem.Template.Core.Application.Products.UseCases;
 using Optivem.Template.Core.Domain.Products.Entities;
 using Optivem.Template.Core.Domain.Products.Repositories;
 using Optivem.Template.Core.Domain.Products.ValueObjects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

@@ -1,37 +1,37 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestRadioGroup : IRadioButtonGroup
+    public class TestRadioButtonGroup<TRadioButtonGroup> : TestElement<TRadioButtonGroup>, IAssertableRadioButtonGroup
+        where TRadioButtonGroup : IRadioButtonGroup
     {
-        private readonly IRadioButtonGroup _radioGroup;
-
-        public TestRadioGroup(IRadioButtonGroup radioGroup)
+        public TestRadioButtonGroup(TRadioButtonGroup element)
+            : base(element)
         {
-            _radioGroup = radioGroup;
         }
 
-        public int Count => _radioGroup.Count;
+        public int Count => Element.Count;
 
         public void SelectValue(string key)
         {
-            _radioGroup.SelectValue(key);
+            Element.SelectValue(key);
         }
 
         public string ReadSelectedValue()
         {
-            return _radioGroup.ReadSelectedValue();
+            return Element.ReadSelectedValue();
         }
 
         public string ReadValue(int index)
         {
-            return _radioGroup.ReadValue(index);
+            return Element.ReadValue(index);
         }
 
         public bool HasSelected()
         {
-            return _radioGroup.HasSelected();
+            return Element.HasSelected();
         }
 
         public void ShouldNotHaveSelection()

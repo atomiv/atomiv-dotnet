@@ -1,7 +1,6 @@
+using Optivem.Framework.Test.Selenium;
 using Optivem.Framework.Test.Xunit;
-using Optivem.Framework.Test.Xunit.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
-using System;
 using Xunit;
 
 namespace Optivem.Template.Web.UI.SystemTest
@@ -19,18 +18,14 @@ namespace Optivem.Template.Web.UI.SystemTest
             var app = new SauceDemoApp(driver);
 
             var loginScreen = app.OpenLoginScreen();
-            loginScreen.UserName.EnterText("standard_user");
-            loginScreen.Password.EnterText("secret_sauce");
+            loginScreen.UserNameTextBox.EnterText("standard_user");
+            loginScreen.PasswordTextBox.EnterText("secret_sauce");
 
-            // TODO: VC: Continue
-
-            /*
-            loginScreen.Login.Click();
+            loginScreen.LoginButton.Click();
 
             var inventoryScreen = app.InventoryScreen;
 
             inventoryScreen.ProductSort.SelectByText("Name (Z to A)");
-            */
         }
     }
 }

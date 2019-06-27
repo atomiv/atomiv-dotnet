@@ -30,10 +30,14 @@ namespace Optivem.Framework.Core.Common.WebAutomation
         TCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy);
     }
 
+    // TODO: VC: DELETE
+
+    /*
     public interface IDriver : IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>
     {
 
     }
+    */
 
 
     // TODO: VC: DELETE

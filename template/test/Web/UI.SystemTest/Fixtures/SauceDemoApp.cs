@@ -1,8 +1,5 @@
-﻿using Optivem.Framework.Test.Common.WebAutomation;
+﻿using Optivem.Framework.Test.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
@@ -16,6 +13,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
         public SauceDemoLoginPage OpenLoginScreen()
         {
             return SauceDemoLoginPage.Open(Driver);
+        }
+
+        public void Login(string userName, string password)
+        {
+            var loginScreen = OpenLoginScreen();
+
         }
 
         public SauceDemoLoginPage LoginScreen => new SauceDemoLoginPage(Driver);

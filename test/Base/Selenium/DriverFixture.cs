@@ -1,8 +1,7 @@
-﻿using Optivem.Framework.Core.Common.WebAutomation;
-using Optivem.Framework.Test.Common.WebAutomation;
+﻿using Optivem.Framework.Infrastructure.Selenium;
 using System;
 
-namespace Optivem.Framework.Test.Xunit.Selenium
+namespace Optivem.Framework.Test.Selenium
 {
     public abstract class DriverFixture : IDisposable
     {
@@ -16,7 +15,7 @@ namespace Optivem.Framework.Test.Xunit.Selenium
 
         public TestDriver TestDriver { get; }
 
-        protected abstract IDriver CreateDriver();
+        protected abstract Driver CreateDriver();
 
         public void Dispose()
         {

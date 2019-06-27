@@ -1,11 +1,13 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
     // TODO: VC: Make this base class
 
-    public class TestElement<TElement> : IElement where TElement : IElement
+    public class TestElement<TElement> : IAssertableElement
+        where TElement : IElement
     {
         public TestElement(TElement element)
         {
@@ -39,10 +41,14 @@ namespace Optivem.Framework.Test.Common.WebAutomation
         }
     }
 
+    // TODO: VC: DELETE
+
+    /*
     public class TestElement : TestElement<IElement>
     {
         public TestElement(IElement element) : base(element)
         {
         }
     }
+    */
 }

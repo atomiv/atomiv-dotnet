@@ -1,29 +1,25 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestTextBox : ITextBox
+    public class TestTextBox<TTextBox> : TestElement<TTextBox>, IAssertableTextBox
+        where TTextBox : ITextBox
     {
-        private readonly ITextBox _textBox;
-
-        public TestTextBox(ITextBox textBox)
+        public TestTextBox(TTextBox element)
+            : base(element)
         {
-            _textBox = textBox;
         }
-
-        public bool Enabled => _textBox.Enabled;
-
-        public bool Visible => _textBox.Visible;
 
         public string ReadText()
         {
-            return _textBox.ReadText();
+            return Element.ReadText();
         }
 
         public void EnterText(string text)
         {
-            _textBox.EnterText(text);
+            Element.EnterText(text);
         }
 
         public void TextShouldBe(string expectedText)

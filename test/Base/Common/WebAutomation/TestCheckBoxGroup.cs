@@ -1,11 +1,12 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestCheckBoxGroup<TCheckBoxGroup> : TestElement<TCheckBoxGroup>, ICheckBoxGroup
+    public class TestCheckBoxGroup<TCheckBoxGroup> : TestElement<TCheckBoxGroup>, IAssertableCheckBoxGroup
         where TCheckBoxGroup : ICheckBoxGroup
     {
         public TestCheckBoxGroup(TCheckBoxGroup element)
@@ -70,14 +71,24 @@ namespace Optivem.Framework.Test.Common.WebAutomation
             var actualValue = actualCount.Single();
             actualValue.Should().Be(expected);
         }
+
+        public void ShouldHaveSelection()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
+    // TODO: VC: DELETE
+
+    /*
     public class TestCheckBoxGroup : TestCheckBoxGroup<ICheckBoxGroup>
     {
         public TestCheckBoxGroup(ICheckBoxGroup element) : base(element)
         {
         }
     }
+
+    */
 
     // TODO: VC: DELETE
 

@@ -1,135 +1,88 @@
 ﻿using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 using System;
 using System.Collections.Generic;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestDriver<TDriver> : IDisposable
-        where TDriver : IDriver
+    public abstract class TestDriver<TDriver, 
+        TElement, 
+        TTextBox, 
+        TCheckBox, 
+        TComboBox, 
+        TButton, 
+        TRadioButtonGroup, 
+        TCheckBoxGroup,
+        TAssertableElement,
+        TAssertableTextBox,
+        TAssertableCheckBox,
+        TAssertableComboBox,
+        TAssertableButton,
+        TAssertableRadioButtonGroup,
+        TAssertableCheckBoxGroup> 
+        : ITestDriver, IDisposable
+        where TDriver : IDriver<TElement, 
+            TTextBox, 
+            TCheckBox, 
+            TComboBox, 
+            TButton, 
+            TRadioButtonGroup, 
+            TCheckBoxGroup>
+        where TElement : IElement
+        where TTextBox : ITextBox
+        where TCheckBox : ICheckBox
+        where TComboBox : IComboBox
+        where TButton : IButton
+        where TRadioButtonGroup : IRadioButtonGroup
+        where TCheckBoxGroup : ICheckBoxGroup
+        where TAssertableElement : IAssertableElement
+        where TAssertableTextBox : IAssertableTextBox
+        where TAssertableCheckBox : IAssertableCheckBox
+        where TAssertableComboBox : IAssertableComboBox
+        where TAssertableButton : IAssertableButton
+        where TAssertableRadioButtonGroup : IAssertableRadioButtonGroup
+        where TAssertableCheckBoxGroup : IAssertableCheckBoxGroup
     {
-        private readonly TDriver _driver;
-
         public TestDriver(TDriver driver)
         {
-            _driver = driver;
+            Driver = driver;
         }
 
         public string Url
         {
-            get { return _driver.Url; }
-            set { _driver.Url = value; }
+            get { return Driver.Url; }
+            set { Driver.Url = value; }
         }
 
+        public TDriver Driver { get; }
 
         public void Dispose()
         {
-            _driver.Dispose();
+            Driver.Dispose();
         }
 
-        public TestCheckBox FindCheckBox(FindType findType, string findBy)
-        {
-            var checkBox = _driver.FindCheckBox(findType, findBy);
-            return new TestCheckBox(checkBox);
-        }
+        public abstract TAssertableCheckBox FindCheckBox(FindType findType, string findBy);
 
-        public TestElement FindElement(FindType findType, string findBy)
-        {
-            var element = _driver.FindElement(findType, findBy);
-            return new TestElement(element);
-        }
+        public abstract TAssertableElement FindElement(FindType findType, string findBy);
 
-        public List<TestElement> FindElementCollection(FindType findType, string findBy)
-        {
+        public abstract List<TAssertableElement> FindElementCollection(FindType findType, string findBy);
 
+        public abstract TAssertableCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy);
 
-            throw new NotImplementedException();
-        }
+        public abstract TAssertableComboBox FindComboBox(FindType findType, string findBy);
 
-        public TestCheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
-        {
-            var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy);
-            return new TestCheckBoxGroup(checkBoxGroup);
-        }
+        public abstract TAssertableComboBox FindComboBoxByClass(string className);
 
+        public abstract TAssertableRadioButtonGroup FindRadioGroup(FindType findType, string findBy);
 
+        public abstract TAssertableTextBox FindTextBox(FindType findType, string findBy);
 
-        public TestComboBox FindComboBox(FindType findType, string findBy)
-        {
-            var comboBox = _driver.FindComboBox(findType, findBy);
-            return new TestComboBox(comboBox);
-        }
+        public abstract TAssertableTextBox FindTextBoxById(string id);
 
+        public abstract TAssertableButton FindButton(FindType findType, string findBy);
 
-
-        public TestComboBox FindComboBoxByClass(string className)
-        {
-            return FindComboBox(FindType.ClassName, className);
-        }
-
-        public TestRadioGroup FindRadioGroup(FindType findType, string findBy)
-        {
-            var radioGroup = _driver.FindRadioGroup(findType, findBy);
-            return new TestRadioGroup(radioGroup);
-        }
-
-
-
-
-        public TestTextBox FindTextBox(FindType findType, string findBy)
-        {
-            var textBox = _driver.FindTextBox(findType, findBy);
-            return new TestTextBox(textBox);
-        }
-
-        public TestTextBox FindTextBoxById(string id)
-        {
-            return FindTextBox(FindType.Id, id);
-        }
-
-        public TestButton FindButton(FindType findType, string findBy)
-        {
-            var button = _driver.FindButton(findType, findBy);
-            return new TestButton(button);
-        }
-        public TestButton FindButtonByClass(string type)
-        {
-            return FindButton(FindType.ClassName, type);
-        }
-
-
-
-        // TODO: VC: DELETE this and the associated classes
-
-        /*
-         * 
-         * 
-        public TestCheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var checkBoxGroup = _driver.FindCheckBoxGroup(findType, findBy, values);
-            return new TestCheckBoxGroup<T>(checkBoxGroup);
-        }
-
-        public TestComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var comboBox = _driver.FindComboBox(findType, findBy, values);
-            return new TestComboBox<T>(comboBox);
-        }
-
-
-        public TestRadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var radioGroup = _driver.FindRadioGroup(findType, findBy, values);
-            return new TestRadioGroup<T>(radioGroup);
-        }
-         * 
-         */
+        public abstract TAssertableButton FindButtonByClass(string type);
 
     }
 
-    public class TestDriver : TestDriver<IDriver>
-    {
-        public TestDriver(IDriver driver) : base(driver)
-        {
-        }
-    }
 }

@@ -2,10 +2,8 @@
 using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Products
 {

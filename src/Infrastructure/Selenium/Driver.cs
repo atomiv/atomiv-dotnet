@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class Driver : IDriver<Element, TextBox, CheckBox, ComboBox, Button, RadioGroup, CheckBoxGroup>, IDriver
+    public class Driver : IDriver<Element, TextBox, CheckBox, ComboBox, Button, RadioButtonGroup, CheckBoxGroup> // TODO: VC: DELETE, IDriver
     {
         private static Dictionary<FindType, Func<string, By>> findTypeMap
             = new Dictionary<FindType, Func<string, By>>
@@ -19,7 +19,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
                 { FindType.Name, e => By.Name(e) },
                 { FindType.PartialLinkText, e => By.PartialLinkText(e) },
                 { FindType.TagName, e => By.TagName(e) },
-                { FindType.XPath, e => By.XPath(e) },
+                { FindType.XPath, e => By.XPath(e) }
             };
 
         public Driver(IWebDriver webDriver)
@@ -47,10 +47,10 @@ namespace Optivem.Framework.Infrastructure.Selenium
             return new TextBox(element);
         }
 
-        public RadioGroup FindRadioGroup(FindType findType, string findBy)
+        public RadioButtonGroup FindRadioGroup(FindType findType, string findBy)
         {
             var elements = FindWebElements(findType, findBy);
-            return new RadioGroup(elements);
+            return new RadioButtonGroup(elements);
         }
 
 
@@ -102,48 +102,6 @@ namespace Optivem.Framework.Infrastructure.Selenium
             var elements = FindWebElements(findType, findBy);
             return elements.Single();
         }
-
-        IElement IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindElement(FindType findType, string findBy)
-        {
-            return FindElement(findType, findBy);
-        }
-
-        ITextBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindTextBox(FindType findType, string findBy)
-        {
-            return FindTextBox(findType, findBy);
-        }
-
-        ICheckBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindCheckBox(FindType findType, string findBy)
-        {
-            return FindCheckBox(findType, findBy);
-        }
-
-        IComboBox IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindComboBox(FindType findType, string findBy)
-        {
-            return FindComboBox(findType, findBy);
-        }
-
-        IButton IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindButton(FindType findType, string findBy)
-        {
-            return FindButton(findType, findBy);
-        }
-
-        IRadioButtonGroup IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindRadioGroup(FindType findType, string findBy)
-        {
-            return FindRadioGroup(findType, findBy);
-        }
-
-        ICheckBoxGroup IDriver<IElement, ITextBox, ICheckBox, IComboBox, IButton, IRadioButtonGroup, ICheckBoxGroup>.FindCheckBoxGroup(FindType findType, string findBy)
-        {
-            return FindCheckBoxGroup(findType, findBy);
-        }
-
-
-
-
-
-
-
 
         #endregion Helper
     }

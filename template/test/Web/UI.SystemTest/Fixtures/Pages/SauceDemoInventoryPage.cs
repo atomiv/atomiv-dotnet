@@ -1,10 +1,7 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
 using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Common.WebAutomation;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {

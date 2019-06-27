@@ -17,10 +17,14 @@ namespace Optivem.Framework.Test.Common.WebAutomation
         }
     }
 
+    // TODO: VC: DELETE
+
+    /*
     public class TestButton : TestButton<IButton>
     {
         public TestButton(IButton element) : base(element)
         {
         }
     }
+    */
 }

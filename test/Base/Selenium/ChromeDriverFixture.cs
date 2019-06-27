@@ -1,11 +1,10 @@
-﻿using Optivem.Framework.Core.Common.WebAutomation;
-using Optivem.Framework.Infrastructure.Selenium;
+﻿using Optivem.Framework.Infrastructure.Selenium;
 
-namespace Optivem.Framework.Test.Xunit.Selenium
+namespace Optivem.Framework.Test.Selenium
 {
     public class ChromeDriverFixture : DriverFixture
     {
-        protected override IDriver CreateDriver()
+        protected override Driver CreateDriver()
         {
             return DriverFactory.CreateChromeDriver();
         }

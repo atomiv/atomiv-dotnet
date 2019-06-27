@@ -1,5 +1,5 @@
 ﻿using Optivem.Framework.Core.Common.WebAutomation;
-using Optivem.Framework.Test.Common.WebAutomation;
+using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 {
@@ -14,9 +14,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 
         public TestTextBox LastName => Driver.FindTextBox(FindType.Name, "lastname");
 
-        public TestRadioGroup Gender => Driver.FindRadioGroup(FindType.Name, "sex");
+        public TestRadioButtonGroup Gender => Driver.FindRadioGroup(FindType.Name, "sex");
 
-        public TestRadioGroup YearsOfExperience => Driver.FindRadioGroup(FindType.Name, "exp");
+        public TestRadioButtonGroup YearsOfExperience => Driver.FindRadioGroup(FindType.Name, "exp");
 
         public TestCheckBoxGroup Profession => Driver.FindCheckBoxGroup(FindType.Name, "profession");
 

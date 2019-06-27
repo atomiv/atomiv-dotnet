@@ -1,45 +1,41 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Core.Common.WebAutomation.Assertion;
 
 namespace Optivem.Framework.Test.Common.WebAutomation
 {
-    public class TestComboBox : IComboBox
+    public class TestComboBox<TComboBox> : TestElement<TComboBox>, IAssertableComboBox
+        where TComboBox : IComboBox
     {
-        private readonly IComboBox _comboBox;
-
-        public TestComboBox(IComboBox comboBox)
+        public TestComboBox(TComboBox element)
+            : base(element)
         {
-            _comboBox = comboBox;
         }
 
-        public int Count => _comboBox.Count;
-
-        public bool Enabled => _comboBox.Enabled;
-
-        public bool Visible => _comboBox.Visible;
+        public int Count => Element.Count;
 
         public void SelectByValue(string key)
         {
-            _comboBox.SelectByValue(key);
+            Element.SelectByValue(key);
         }
         public void SelectByText(string text)
         {
-            _comboBox.SelectByText(text);
+            Element.SelectByText(text);
         }
 
         public string ReadSelectedValue()
         {
-            return _comboBox.ReadSelectedValue();
+            return Element.ReadSelectedValue();
         }
 
         public string ReadValue(int index)
         {
-            return _comboBox.ReadValue(index);
+            return Element.ReadValue(index);
         }
 
         public bool HasSelected()
         {
-            return _comboBox.HasSelected();
+            return Element.HasSelected();
         }
 
         public void ShouldNotHaveSelection()

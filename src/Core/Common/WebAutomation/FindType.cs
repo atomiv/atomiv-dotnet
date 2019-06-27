@@ -9,6 +9,6 @@
         Name,
         PartialLinkText,
         TagName,
-        XPath
+        XPath,
     }
 }

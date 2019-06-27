@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages;
+using Optivem.Framework.Test.Selenium;
 using Optivem.Framework.Test.Xunit;
-using Optivem.Framework.Test.Xunit.Selenium;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest

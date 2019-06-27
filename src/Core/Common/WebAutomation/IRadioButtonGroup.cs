@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface IRadioButtonGroup
+    public interface IRadioButtonGroup : IElement
     {
         void SelectValue(string key);
 

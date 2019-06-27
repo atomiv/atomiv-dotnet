@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
-using Optivem.Framework.Test.Common.WebAutomation;
+using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 {
