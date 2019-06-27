@@ -4,11 +4,10 @@ using Optivem.Framework.Infrastructure.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoLoginPage : PageObject
+    public class SauceDemoLoginPage : Page
     {
-        private const string Url = "https://www.saucedemo.com/";
-
-        public SauceDemoLoginPage(Driver driver) : base(driver)
+        public SauceDemoLoginPage(Driver driver, bool navigateTo) 
+            : base(driver, "https://www.saucedemo.com/", navigateTo)
         {
             Driver.Url.Should().Be(Url);
         }
@@ -19,7 +18,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
         private Button LoginButton => Driver.FindButton(FindType.ClassName, "btn_action");
 
-        private Element ErrorElement => Driver.FindElement(FindType.XPath, "//h3[@data-test='error']");
+        private Element ErrorElement => Driver.FindElement(FindType.CssSelector, "h3[data-test='error']");
 
         public SauceDemoInventoryPage LoginAs(string userName, string password)
         {
@@ -27,7 +26,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
 
-            return new SauceDemoInventoryPage(Driver);
+            return new SauceDemoInventoryPage(Driver, true);
         }
 
         public SauceDemoLoginPage LoginAsExpectingError(string userName, string password)
@@ -36,7 +35,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
 
-            return new SauceDemoLoginPage(Driver);
+            return new SauceDemoLoginPage(Driver, true);
         }
 
         public string GetErrorMessage()
@@ -50,14 +49,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
             return errorElement.WebElement.Text;
         }
-
-        public static SauceDemoLoginPage Open(Driver driver)
-        {
-            driver.Url = Url;
-            return new SauceDemoLoginPage(driver);
-        }
-
-
     }
 
     public class LoginErrorRegion : PageObject

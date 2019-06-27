@@ -2,10 +2,10 @@
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 {
-    public class ToolsQAAutomationPracticeFormPage : PageObject
+    public class ToolsQAAutomationPracticeFormPage : Page
     {
-        public ToolsQAAutomationPracticeFormPage(Driver driver) 
-            : base(driver)
+        public ToolsQAAutomationPracticeFormPage(Driver driver, bool navigateTo) 
+            : base(driver, "https://www.toolsqa.com/automation-practice-form/", navigateTo)
         {
         }
 

@@ -2,17 +2,16 @@
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 {
-    public class ToolsQAApp : PageObject
+    public class ToolsQAApp : App<ToolsQAAutomationPracticeFormPage>
     {
         public ToolsQAApp(Driver driver)
             : base(driver)
         {
         }
 
-        public ToolsQAAutomationPracticeFormPage OpenPracticeFormPage()
+        public ToolsQAAutomationPracticeFormPage NavigateToPracticeFormPage()
         {
-            Driver.Url = "https://www.toolsqa.com/automation-practice-form/";
-            return new ToolsQAAutomationPracticeFormPage(Driver);
+            return new ToolsQAAutomationPracticeFormPage(Driver, true);
         }
     }
 }

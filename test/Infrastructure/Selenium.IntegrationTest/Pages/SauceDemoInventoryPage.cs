@@ -4,12 +4,10 @@ using Optivem.Framework.Core.Common.WebAutomation;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 {
-    public class SauceDemoInventoryPage : PageObject
+    public class SauceDemoInventoryPage : Page
     {
-        private const string Url = "https://www.saucedemo.com/inventory.html";
-
-        public SauceDemoInventoryPage(Driver driver) 
-            : base(driver)
+        public SauceDemoInventoryPage(Driver driver, bool navigateTo)
+            : base(driver, "https://www.saucedemo.com/inventory.html", navigateTo)
         {
             Driver.Url.Should().Be(Url);
         }
@@ -19,13 +17,6 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
         // TODO: VC: Do later
 
         // public List<InventoryItem> InventoryItems => Driver.FindElementCollection(FindType.ClassName, "inventory_item");
-
-
-        public static SauceDemoInventoryPage Open(Driver driver)
-        {
-            driver.Url = Url;
-            return new SauceDemoInventoryPage(driver);
-        }
     }
 
     // TODO: VC: Container element

@@ -2,20 +2,21 @@
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 {
-    public class SauceDemoApp : PageObject
+    public class SauceDemoApp : App<SauceDemoLoginPage>
     {
         public SauceDemoApp(Driver driver) 
             : base(driver)
         {
         }
 
-        public SauceDemoLoginPage OpenLoginScreen()
+        public SauceDemoLoginPage NavigateToLoginScreen()
         {
-            return SauceDemoLoginPage.Open(Driver);
+            return new SauceDemoLoginPage(Driver, true);
         }
 
-        public SauceDemoLoginPage LoginScreen => new SauceDemoLoginPage(Driver);
-
-        public SauceDemoInventoryPage InventoryScreen => new SauceDemoInventoryPage(Driver);
+        public SauceDemoInventoryPage NavigateToInventoryScreen()
+        {
+            return new SauceDemoInventoryPage(Driver, true);
+        }
     }
 }

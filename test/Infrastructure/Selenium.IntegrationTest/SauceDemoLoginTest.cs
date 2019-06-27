@@ -12,7 +12,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
         [Fact(Skip = "In progress")]
         public void TestValidLogin()
         {
-            var loginScreen = Fixture.App.OpenLoginScreen();
+            var loginScreen = Fixture.App.NavigateToLoginScreen();
             loginScreen.UserName.EnterText("standard_user");
             loginScreen.Password.EnterText("secret_sauce");
 

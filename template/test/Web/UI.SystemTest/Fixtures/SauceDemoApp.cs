@@ -3,7 +3,7 @@ using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
-    public class SauceDemoApp : PageObject
+    public class SauceDemoApp : App<SauceDemoLoginPage>
     {
         public SauceDemoApp(Driver driver)
             : base(driver)
@@ -12,17 +12,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
         public SauceDemoLoginPage NavigateToLoginScreen()
         {
-            return SauceDemoLoginPage.Open(Driver);
+            return new SauceDemoLoginPage(Driver, true);
         }
 
-        public void Login(string userName, string password)
+        public SauceDemoInventoryPage NavigateToInventoryScreen()
         {
-            var loginScreen = NavigateToLoginScreen();
-
+            return new SauceDemoInventoryPage(Driver, true);
         }
-
-        public SauceDemoLoginPage LoginScreen => new SauceDemoLoginPage(Driver);
-
-        public SauceDemoInventoryPage InventoryScreen => new SauceDemoInventoryPage(Driver);
     }
 }

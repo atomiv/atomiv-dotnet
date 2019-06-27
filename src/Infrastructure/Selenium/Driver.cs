@@ -38,18 +38,33 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public CheckBox FindCheckBox(FindType findType, string findBy)
         {
             var element = FindWebElement(findType, findBy);
+
+            if(element == null)
+            {
+                return null;
+            }
+
             return new CheckBox(element);
         }
 
         public TextBox FindTextBox(FindType findType, string findBy)
         {
             var element = FindWebElement(findType, findBy);
+
+            if (element == null)
+            {
+                return null;
+            }
+
             return new TextBox(element);
         }
 
         public RadioButtonGroup FindRadioGroup(FindType findType, string findBy)
         {
             var elements = FindWebElements(findType, findBy);
+
+            // TODO: VC: Check elements null
+
             return new RadioButtonGroup(elements);
         }
 
@@ -57,6 +72,9 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public CheckBoxGroup FindCheckBoxGroup(FindType findType, string findBy)
         {
             var elements = FindWebElements(findType, findBy);
+
+            // TODO: VC: Check elements null
+
             return new CheckBoxGroup(elements);
         }
 
@@ -65,6 +83,12 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public ComboBox FindComboBox(FindType findType, string findBy)
         {
             var element = FindWebElement(findType, findBy);
+
+            if (element == null)
+            {
+                return null;
+            }
+
             return new ComboBox(element);
         }
 
@@ -73,12 +97,24 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public Button FindButton(FindType findType, string findBy)
         {
             var element = FindWebElement(findType, findBy);
+
+            if (element == null)
+            {
+                return null;
+            }
+
             return new Button(element);
         }
 
         public Element FindElement(FindType findType, string findBy)
         {
             var element = FindWebElement(findType, findBy);
+
+            if (element == null)
+            {
+                return null;
+            }
+
             return new Element(element);
         }
 
@@ -100,38 +136,9 @@ namespace Optivem.Framework.Infrastructure.Selenium
         private IWebElement FindWebElement(FindType findType, string findBy)
         {
             var elements = FindWebElements(findType, findBy);
-            return elements.Single();
+            return elements.SingleOrDefault();
         }
 
         #endregion Helper
     }
-
-    // TODO: VC: DELETE
-
-    /*
-     * 
-     * 
-        public RadioGroup<T> FindRadioGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var elements = FindWebElements(findType, findBy);
-            return new RadioGroup<T>(elements, values);
-        }
-     * 
-     * 
-        public ICheckBoxGroup<T> FindCheckBoxGroup<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var elements = FindWebElements(findType, findBy);
-            return new CheckBoxGroup<T>(elements, values);
-        }
-
-        public IComboBox<T> FindComboBox<T>(FindType findType, string findBy, Dictionary<string, T> values)
-        {
-            var element = FindWebElement(findType, findBy);
-            return new ComboBox<T>(element, values);
-        }
-
-     * 
-     * 
-     */
-
 }

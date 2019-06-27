@@ -3,11 +3,10 @@ using Optivem.Framework.Core.Common.WebAutomation;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 {
-    public class SauceDemoLoginPage : PageObject
+    public class SauceDemoLoginPage : Page
     {
-        private const string Url = "https://www.saucedemo.com/";
-
-        public SauceDemoLoginPage(Driver driver) : base(driver)
+        public SauceDemoLoginPage(Driver driver, bool navigateTo) 
+            : base(driver, "https://www.saucedemo.com/", navigateTo)
         {
             Driver.Url.Should().Be(Url);
         }
@@ -17,11 +16,5 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
         public TextBox Password => Driver.FindTextBox(FindType.Id, "password");
 
         public Button Login => Driver.FindButton(FindType.ClassName, "submit");
-
-        public static SauceDemoLoginPage Open(Driver driver)
-        {
-            driver.Url = Url;
-            return new SauceDemoLoginPage(driver);
-        }
     }
 }

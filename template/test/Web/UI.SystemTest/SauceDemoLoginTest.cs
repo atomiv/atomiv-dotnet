@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
 using Xunit;
 
@@ -12,18 +13,21 @@ namespace Optivem.Template.Web.UI.SystemTest
         [Fact]
         public void Login_ValidCredentials_OpensInventoryScreen()
         {
-            var loginScreen = Fixture.App.NavigateToLoginScreen();
-            var inventoryScreen = loginScreen.LoginAs("standard_user", "secret_sauce");
+            var loginPage = Fixture.App.NavigateToLoginScreen();
+            var inventoryPage = loginPage.LoginAs("standard_user", "secret_sauce");
 
-            inventoryScreen.ProductSort.SelectByText("Name (Z to A)");
+            inventoryPage.ProductSort.SelectByText("Name (Z to A)");
         }
 
         [Fact]
         public void Login_InvalidCredentialsMissingUserName_ShowsError()
         {
-            var loginScreen = Fixture.App.NavigateToLoginScreen();
-            loginScreen.LoginAsExpectingError("", "secret_sauce");
+            var loginPage = Fixture.App.NavigateToLoginScreen();
+            loginPage.LoginAsExpectingError("", "secret_sauce");
 
+            var message = loginPage.GetErrorMessage();
+
+            message.Should().Be("Epic sadface: Username is required");
 
         }
     }

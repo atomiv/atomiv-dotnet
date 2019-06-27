@@ -16,7 +16,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
         [Fact(Skip = "Need fix test")]
         public void TestFindTextBoxByName()
         {
-            var page = Fixture.App.OpenPracticeFormPage();
+            var page = Fixture.App.NavigateToPracticeFormPage();
 
             // TODO: VC: Link text & partial link text
 
