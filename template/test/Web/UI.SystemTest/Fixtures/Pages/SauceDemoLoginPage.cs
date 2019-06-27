@@ -1,25 +1,27 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Framework.Infrastructure.Selenium;
+using Optivem.Framework.Test.Common.WebAutomation;
 using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoLoginPage : TestPageObject
+    public class SauceDemoLoginPage : PageObject
     {
         private const string Url = "https://www.saucedemo.com/";
 
-        public SauceDemoLoginPage(TestDriver driver) : base(driver)
+        public SauceDemoLoginPage(Driver driver) : base(driver)
         {
             Driver.Url.Should().Be(Url);
         }
 
-        private TestTextBox UserNameTextBox => Driver.FindTextBoxById("user-name");
+        private TextBox UserNameTextBox => Driver.FindTextBox(FindType.Id, "user-name");
 
-        private TestTextBox PasswordTextBox => Driver.FindTextBoxById("password");
+        private TextBox PasswordTextBox => Driver.FindTextBox(FindType.Id, "password");
 
-        private TestButton LoginButton => Driver.FindButtonByClass("btn_action");
+        private Button LoginButton => Driver.FindButton(FindType.ClassName, "btn_action");
 
-        private TestElement ErrorElement => Driver.FindElement(FindType.XPath, "//h3[@data-test='error']");
+        private Element ErrorElement => Driver.FindElement(FindType.XPath, "//h3[@data-test='error']");
 
         public SauceDemoInventoryPage LoginAs(string userName, string password)
         {
@@ -48,10 +50,10 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
                 return null;
             }
 
-            return errorElement.Element.WebElement.Text;
+            return errorElement.WebElement.Text;
         }
 
-        public static SauceDemoLoginPage Open(TestDriver driver)
+        public static SauceDemoLoginPage Open(Driver driver)
         {
             driver.Url = Url;
             return new SauceDemoLoginPage(driver);
@@ -60,9 +62,9 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
     }
 
-    public class LoginErrorRegion : TestPageObject
+    public class LoginErrorRegion : PageObject
     {
-        public LoginErrorRegion(TestDriver driver) : base(driver)
+        public LoginErrorRegion(Driver driver) : base(driver)
         {
 
         }

@@ -1,11 +1,10 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens;
-using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 {
-    public class SauceDemoApp : TestPageObject
+    public class SauceDemoApp : PageObject
     {
-        public SauceDemoApp(TestDriver driver) 
+        public SauceDemoApp(Driver driver) 
             : base(driver)
         {
         }

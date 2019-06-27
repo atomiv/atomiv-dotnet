@@ -1,24 +1,24 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Test.Selenium;
+using Optivem.Framework.Core.Common.WebAutomation;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Screens
 {
-    public class SauceDemoLoginPage : TestPageObject
+    public class SauceDemoLoginPage : PageObject
     {
         private const string Url = "https://www.saucedemo.com/";
 
-        public SauceDemoLoginPage(TestDriver driver) : base(driver)
+        public SauceDemoLoginPage(Driver driver) : base(driver)
         {
             Driver.Url.Should().Be(Url);
         }
 
-        public TestTextBox UserName => Driver.FindTextBoxById("user-name");
+        public TextBox UserName => Driver.FindTextBox(FindType.Id, "user-name");
 
-        public TestTextBox Password => Driver.FindTextBoxById("password");
+        public TextBox Password => Driver.FindTextBox(FindType.Id, "password");
 
-        public TestButton Login => Driver.FindButtonByClass("submit");
+        public Button Login => Driver.FindButton(FindType.ClassName, "submit");
 
-        public static SauceDemoLoginPage Open(TestDriver driver)
+        public static SauceDemoLoginPage Open(Driver driver)
         {
             driver.Url = Url;
             return new SauceDemoLoginPage(driver);

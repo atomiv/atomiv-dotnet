@@ -1,28 +1,29 @@
 ﻿using FluentAssertions;
 using OpenQA.Selenium;
+using Optivem.Framework.Core.Common.WebAutomation;
 using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoInventoryPage : TestPageObject
+    public class SauceDemoInventoryPage : PageObject
     {
         private const string Url = "https://www.saucedemo.com/inventory.html";
 
-        public SauceDemoInventoryPage(TestDriver driver)
+        public SauceDemoInventoryPage(Driver driver)
             : base(driver)
         {
             Driver.Url.Should().Be(Url);
         }
 
-        public TestComboBox ProductSort => Driver.FindComboBoxByClass("product_sort_container");
+        public ComboBox ProductSort => Driver.FindComboBox(FindType.ClassName, "product_sort_container");
 
         // TODO: VC: Do later
 
         // public List<InventoryItem> InventoryItems => Driver.FindElementCollection(FindType.ClassName, "inventory_item");
 
 
-        public static SauceDemoInventoryPage Open(TestDriver driver)
+        public static SauceDemoInventoryPage Open(Driver driver)
         {
             driver.Url = Url;
             return new SauceDemoInventoryPage(driver);

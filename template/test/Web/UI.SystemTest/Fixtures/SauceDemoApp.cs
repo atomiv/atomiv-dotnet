@@ -1,11 +1,12 @@
-﻿using Optivem.Framework.Test.Selenium;
+﻿using Optivem.Framework.Infrastructure.Selenium;
+using Optivem.Framework.Test.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
-    public class SauceDemoApp : TestPageObject
+    public class SauceDemoApp : PageObject
     {
-        public SauceDemoApp(TestDriver driver)
+        public SauceDemoApp(Driver driver)
             : base(driver)
         {
         }

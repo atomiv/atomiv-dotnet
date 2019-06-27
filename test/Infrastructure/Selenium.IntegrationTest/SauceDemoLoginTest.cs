@@ -1,23 +1,20 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App;
-using Optivem.Framework.Test.Selenium;
+using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
 using Optivem.Framework.Test.Xunit;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
 {
-    public class SauceDemoTest : FixtureTest<ChromeTestDriverClient>
+    public class SauceDemoLoginTest : SauceDemoTest
     {
-        public SauceDemoTest(ChromeTestDriverClient fixture) : base(fixture)
+        public SauceDemoLoginTest(SauceDemoFixture fixture) : base(fixture)
         {
         }
 
         [Fact(Skip = "In progress")]
         public void TestValidLogin()
         {
-            var driver = Fixture.TestDriver;
-            var app = new SauceDemoApp(driver);
-
-            var loginScreen = app.OpenLoginScreen();
+            var loginScreen = Fixture.App.OpenLoginScreen();
             loginScreen.UserName.EnterText("standard_user");
             loginScreen.Password.EnterText("secret_sauce");
 

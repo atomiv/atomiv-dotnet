@@ -1,5 +1,6 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages;
-using Optivem.Framework.Test.Selenium;
+﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
+using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages;
+using Optivem.Framework.Test.Common.WebAutomation;
 using Optivem.Framework.Test.Xunit;
 using Xunit;
 
@@ -7,9 +8,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 
-    public class SeleniumPageTest : FixtureTest<ChromeTestDriverClient>
+    public class ToolsQAPageTest : ToolsQATest
     {
-        public SeleniumPageTest(ChromeTestDriverClient fixture) : base(fixture)
+        public ToolsQAPageTest(ToolsQAFixture fixture) : base(fixture)
         {
         }
 
@@ -17,11 +18,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
         [Fact(Skip = "Need fix test")]
         public void TestFindTextBoxByName()
         {
-            var driver = Fixture.TestDriver;
-
-            driver.Url = "https://www.toolsqa.com/automation-practice-form/";
-
-            var page = new ToolsQAAutomationPracticeFormPage(driver);
+            var page = Fixture.App.OpenPracticeFormPage();
 
             // TODO: VC: Link text & partial link text
 

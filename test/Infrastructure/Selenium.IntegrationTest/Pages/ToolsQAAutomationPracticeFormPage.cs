@@ -1,28 +1,27 @@
 ﻿using Optivem.Framework.Core.Common.WebAutomation;
-using Optivem.Framework.Test.Selenium;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 {
-    public class ToolsQAAutomationPracticeFormPage : TestPageObject
+    public class ToolsQAAutomationPracticeFormPage : PageObject
     {
-        public ToolsQAAutomationPracticeFormPage(TestDriver driver) 
+        public ToolsQAAutomationPracticeFormPage(Driver driver) 
             : base(driver)
         {
         }
 
-        public TestTextBox FirstName => Driver.FindTextBox(FindType.Name, "firstname");
+        public TextBox FirstName => Driver.FindTextBox(FindType.Name, "firstname");
 
-        public TestTextBox LastName => Driver.FindTextBox(FindType.Name, "lastname");
+        public TextBox LastName => Driver.FindTextBox(FindType.Name, "lastname");
 
-        public TestRadioButtonGroup Gender => Driver.FindRadioGroup(FindType.Name, "sex");
+        public RadioButtonGroup Gender => Driver.FindRadioGroup(FindType.Name, "sex");
 
-        public TestRadioButtonGroup YearsOfExperience => Driver.FindRadioGroup(FindType.Name, "exp");
+        public RadioButtonGroup YearsOfExperience => Driver.FindRadioGroup(FindType.Name, "exp");
 
-        public TestCheckBoxGroup Profession => Driver.FindCheckBoxGroup(FindType.Name, "profession");
+        public CheckBoxGroup Profession => Driver.FindCheckBoxGroup(FindType.Name, "profession");
 
-        public TestCheckBoxGroup AutomationTool => Driver.FindCheckBoxGroup(FindType.Name, "tool");
+        public CheckBoxGroup AutomationTool => Driver.FindCheckBoxGroup(FindType.Name, "tool");
 
-        public TestComboBox Continent => Driver.FindComboBox(FindType.Name, "continents");
+        public ComboBox Continent => Driver.FindComboBox(FindType.Name, "continents");
 
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
