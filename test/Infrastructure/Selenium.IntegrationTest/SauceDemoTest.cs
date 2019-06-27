@@ -5,9 +5,9 @@ using Xunit;
 
 namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
 {
-    public class SauceDemoTest : FixtureTest<ChromeDriverFixture>
+    public class SauceDemoTest : FixtureTest<ChromeTestDriverClient>
     {
-        public SauceDemoTest(ChromeDriverFixture fixture) : base(fixture)
+        public SauceDemoTest(ChromeTestDriverClient fixture) : base(fixture)
         {
         }
 

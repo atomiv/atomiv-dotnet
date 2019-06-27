@@ -7,9 +7,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 
-    public class SeleniumPageTest : FixtureTest<ChromeDriverFixture>
+    public class SeleniumPageTest : FixtureTest<ChromeTestDriverClient>
     {
-        public SeleniumPageTest(ChromeDriverFixture fixture) : base(fixture)
+        public SeleniumPageTest(ChromeTestDriverClient fixture) : base(fixture)
         {
         }
 

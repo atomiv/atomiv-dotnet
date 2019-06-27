@@ -13,39 +13,43 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             Driver.Url.Should().Be(Url);
         }
 
-        public TestTextBox UserNameTextBox => Driver.FindTextBoxById("user-name");
+        private TestTextBox UserNameTextBox => Driver.FindTextBoxById("user-name");
 
-        public TestTextBox PasswordTextBox => Driver.FindTextBoxById("password");
+        private TestTextBox PasswordTextBox => Driver.FindTextBoxById("password");
 
-        public TestButton LoginButton => Driver.FindButtonByClass("btn_action");
+        private TestButton LoginButton => Driver.FindButtonByClass("btn_action");
 
-        public TestElement ErrorElement => Driver.FindElement(FindType.XPath, "//h3[@data-test='error']");
+        private TestElement ErrorElement => Driver.FindElement(FindType.XPath, "//h3[@data-test='error']");
 
-        public void LoginWith(string userName, string password)
+        public SauceDemoInventoryPage LoginAs(string userName, string password)
         {
             UserNameTextBox.EnterText(userName);
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
+
+            return new SauceDemoInventoryPage(Driver);
         }
 
-        public bool IsLoggedIn()
+        public SauceDemoLoginPage LoginAsExpectingError(string userName, string password)
         {
-            return Driver.Url != Url;
+            UserNameTextBox.EnterText(userName);
+            PasswordTextBox.EnterText(password);
+            LoginButton.Click();
+
+            return new SauceDemoLoginPage(Driver);
         }
 
-        public bool HasError()
+        public string GetErrorMessage()
         {
-            return ErrorElement != null;
+            var errorElement = ErrorElement;
+
+            if(errorElement == null)
+            {
+                return null;
+            }
+
+            return errorElement.Element.WebElement.Text;
         }
-
-        /*
-
-        public string GetError()
-        {
-            return ErrorElement.Element.
-        }
-
-        */
 
         public static SauceDemoLoginPage Open(TestDriver driver)
         {

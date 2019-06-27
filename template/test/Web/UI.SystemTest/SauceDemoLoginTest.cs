@@ -5,27 +5,28 @@ using Xunit;
 
 namespace Optivem.Template.Web.UI.SystemTest
 {
-    public class SauceDemoLoginTest : FixtureTest<ChromeDriverFixture>
+    public class SauceDemoLoginTest : SauceDemoTest
     {
-        public SauceDemoLoginTest(ChromeDriverFixture fixture) : base(fixture)
+        public SauceDemoLoginTest(SauceDemoFixture fixture) : base(fixture)
         {
         }
 
         [Fact]
-        public void TestValidLogin()
+        public void Login_ValidCredentials_OpensInventoryScreen()
         {
-            var driver = Fixture.TestDriver;
-            var app = new SauceDemoApp(driver);
-
-            var loginScreen = app.OpenLoginScreen();
-            loginScreen.UserNameTextBox.EnterText("standard_user");
-            loginScreen.PasswordTextBox.EnterText("secret_sauce");
-
-            loginScreen.LoginButton.Click();
-
-            var inventoryScreen = app.InventoryScreen;
+            var loginScreen = Fixture.App.NavigateToLoginScreen();
+            var inventoryScreen = loginScreen.LoginAs("standard_user", "secret_sauce");
 
             inventoryScreen.ProductSort.SelectByText("Name (Z to A)");
+        }
+
+        [Fact]
+        public void Login_InvalidCredentialsMissingUserName_ShowsError()
+        {
+            var loginScreen = Fixture.App.NavigateToLoginScreen();
+            loginScreen.LoginAsExpectingError("", "secret_sauce");
+
+
         }
     }
 }

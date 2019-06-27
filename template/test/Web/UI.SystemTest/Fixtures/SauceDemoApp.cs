@@ -10,14 +10,14 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
         {
         }
 
-        public SauceDemoLoginPage OpenLoginScreen()
+        public SauceDemoLoginPage NavigateToLoginScreen()
         {
             return SauceDemoLoginPage.Open(Driver);
         }
 
         public void Login(string userName, string password)
         {
-            var loginScreen = OpenLoginScreen();
+            var loginScreen = NavigateToLoginScreen();
 
         }
 

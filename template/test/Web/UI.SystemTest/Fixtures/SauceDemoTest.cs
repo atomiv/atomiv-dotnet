@@ -1,10 +1,11 @@
-﻿namespace Optivem.Template.Web.UI.SystemTest.Fixtures
-{
-    // TODO: VC: Base fixture
+﻿using Optivem.Framework.Test.Xunit;
 
-    /*
-    public class SauceDemoTest : FixtureTest<ChromeDriverFixture>
+namespace Optivem.Template.Web.UI.SystemTest.Fixtures
+{
+    public class SauceDemoTest : FixtureTest<SauceDemoFixture>
     {
+        public SauceDemoTest(SauceDemoFixture fixture) : base(fixture)
+        {
+        }
     }
-    */
 }

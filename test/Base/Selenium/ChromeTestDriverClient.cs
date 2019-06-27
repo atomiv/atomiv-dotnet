@@ -2,7 +2,7 @@
 
 namespace Optivem.Framework.Test.Selenium
 {
-    public class ChromeDriverFixture : DriverFixture
+    public class ChromeTestDriverClient : TestDriverClient
     {
         protected override Driver CreateDriver()
         {

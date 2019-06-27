@@ -3,9 +3,9 @@ using System;
 
 namespace Optivem.Framework.Test.Selenium
 {
-    public abstract class DriverFixture : IDisposable
+    public abstract class TestDriverClient : IDisposable
     {
-        public DriverFixture()
+        public TestDriverClient()
         {
             var driver = CreateDriver();
             TestDriver = new TestDriver(driver);
