@@ -17,7 +17,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
 
             Url = url;
 
-            if(driver.Url == url)
+            if(driver.Url != url)
             {
                 throw new PageNotOpenException();
             }
