@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface IFinder<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup>
-        where TElementRoot : IElementRoot<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup>
+    public interface IFinder<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup, TCompositeElement>
+        where TElementRoot : IElementRoot<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup, TCompositeElement>
         where TElement : IElement
         where TTextBox : ITextBox
         where TCheckBox : ICheckBox
@@ -14,6 +14,7 @@ namespace Optivem.Framework.Core.Common.WebAutomation
         where TRadioButton : IRadioButton
         where TRadioButtonGroup : IRadioButtonGroup
         where TCheckBoxGroup : ICheckBoxGroup
+        where TCompositeElement : ICompositeElement
     {
         TElement FindElement(IQuery query);
 
@@ -43,8 +44,12 @@ namespace Optivem.Framework.Core.Common.WebAutomation
 
         TCheckBoxGroup FindCheckBoxGroup(IQuery query);
 
+        T FindElement<T>(IQuery query, Func<TElementRoot, T> create);
+
         IEnumerable<T> FindElements<T>(IQuery query, Func<TElementRoot, T> create);
 
-        T FindElement<T>(IQuery query, Func<TElementRoot, T> create);
+        T FindElement<T>(IQuery query) where T : TCompositeElement;
+
+        IEnumerable<T> FindElements<T>(IQuery query) where T : TCompositeElement;
     }
 }

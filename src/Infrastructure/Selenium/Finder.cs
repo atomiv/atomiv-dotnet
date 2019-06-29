@@ -3,11 +3,12 @@ using Optivem.Framework.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public abstract class Finder : IFinder<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup>
+    public abstract class Finder : IFinder<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>
     {
         private static Func<ElementRoot, Button> CreateButton = e => new Button(e.Element.WebElement);
         private static Func<ElementRoot, CheckBox> CreateCheckBox = e => new CheckBox(e.Element.WebElement);
@@ -15,6 +16,8 @@ namespace Optivem.Framework.Infrastructure.Selenium
         private static Func<ElementRoot, Element> CreateElement = e => new Element(e.Element.WebElement);
         private static Func<ElementRoot, RadioButton> CreateRadioButton = e => new RadioButton(e.Element.WebElement);
         private static Func<ElementRoot, TextBox> CreateTextBox = e => new TextBox(e.Element.WebElement);
+
+        private static Type ElementRootType = typeof(ElementRoot);
 
         public Button FindButton(IQuery query)
         {
@@ -105,5 +108,27 @@ namespace Optivem.Framework.Infrastructure.Selenium
         }
 
         protected abstract IEnumerable<IWebElement> FindWebElements(By by);
+
+        public IEnumerable<T> FindElements<T>(IQuery query) where T : CompositeElement
+        {
+            Func<ElementRoot, T> createElement = e => Create<T>(e);
+            return FindElements(query, createElement);
+        }
+
+        public T FindElement<T>(IQuery query) where T : CompositeElement
+        {
+            Func<ElementRoot, T> createElement = e => Create<T>(e);
+            return FindElement(query, createElement);
+        }
+
+        private static T Create<T>(ElementRoot element) where T : CompositeElement
+        {
+            var type = typeof(T);
+            var constructorInfo = type.GetConstructor(new[] { ElementRootType });
+            var obj = constructorInfo.Invoke(new object[] { element });
+            return (T)obj;
+        }
+
+
     }
 }

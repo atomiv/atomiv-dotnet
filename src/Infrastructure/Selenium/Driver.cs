@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class Driver : Finder, IDriver<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup> // TODO: VC: DELETE, IDriver
+    public class Driver : Finder, IDriver<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>
     {
         public Driver(IWebDriver webDriver)
         {

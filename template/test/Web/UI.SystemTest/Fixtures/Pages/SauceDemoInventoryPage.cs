@@ -18,7 +18,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
         // TODO: VC: Do later
 
-        public IEnumerable<InventoryItem> InventoryItems => Finder.FindElements(FindBy.CssSelector(".inventory_item"), e => new InventoryItem(e));
+        public IEnumerable<InventoryItem> InventoryItems => Finder.FindElements<InventoryItem>(FindBy.CssSelector(".inventory_item"));
     }
 
     // TODO: VC: Container element
@@ -29,11 +29,13 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
         {
         }
 
-        private Element NameElement => Finder.FindElement(FindBy.ClassName("inventory_item_name"));
+        private Element NameElement => Finder.FindElement(FindBy.CssSelector(".inventory_item_name"));
 
-        private Element DescriptionElement => Finder.FindElement(FindBy.ClassName("inventory_item_desc"));
+        private Element DescriptionElement => Finder.FindElement(FindBy.CssSelector(".inventory_item_desc"));
 
-        private Element PriceElement => Finder.FindElement(FindBy.ClassName("inventory_item_price"));
+        private Element PriceElement => Finder.FindElement(FindBy.CssSelector(".inventory_item_price"));
+
+        private Button Button => Finder.FindButton(FindBy.CssSelector(".btn_inventory"));
 
         public string Name => NameElement.Text;
 
@@ -41,8 +43,11 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
         public string Price => PriceElement.Text;
 
-        // Sauce Labs Backpack
+        public string Action => Button.Text;
 
-
+        public void Click()
+        {
+            Button.Click();
+        }
     }
 }

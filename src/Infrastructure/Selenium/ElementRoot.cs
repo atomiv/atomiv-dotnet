@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class ElementRoot : Finder, IElementRoot<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup>
+    public class ElementRoot : Finder, IElementRoot<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>
     {
         public ElementRoot(Element element)
         {
