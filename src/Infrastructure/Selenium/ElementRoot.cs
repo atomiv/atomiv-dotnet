@@ -22,6 +22,11 @@ namespace Optivem.Framework.Infrastructure.Selenium
 
         public string Text => Element.Text;
 
+        public string GetAttributeValue(string attribute)
+        {
+            return Element.GetAttributeValue(attribute);
+        }
+
         protected override IEnumerable<IWebElement> FindWebElements(By by)
         {
             return Element.WebElement.FindElements(by);

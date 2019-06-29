@@ -7,5 +7,7 @@
         bool Visible { get; }
 
         string Text { get; }
+
+        string GetAttributeValue(string attribute);
     }
 }

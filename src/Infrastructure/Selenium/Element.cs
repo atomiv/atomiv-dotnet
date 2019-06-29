@@ -17,5 +17,10 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public bool Visible => WebElement.Displayed;
 
         public string Text => WebElement.Text;
+
+        public string GetAttributeValue(string attribute)
+        {
+            return WebElement.GetAttribute(attribute);
+        }
     }
 }
