@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface IRadioButtonGroup : IElement
+    public interface IRadioButtonGroup
     {
         void SelectValue(string key);
 
@@ -12,19 +12,4 @@
 
         string ReadValue(int index);
     }
-
-    // TODO: VC: DELETE
-
-
-    /*
-    public interface IRadioGroup<T> : IRadioButtonGroup
-    {
-        void Select(T key);
-
-        T ReadSelected();
-
-        T Read(int index);
-    }
-    */
-
 }

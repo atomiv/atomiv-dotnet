@@ -2,11 +2,11 @@
 
 namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface ICheckBoxGroup : IElement
+    public interface ICheckBoxGroup
     {
-        void SelectValue(string key);
+        void EnsureValueSelected(string key);
 
-        void DeselectValue(string key);
+        void EnsureValueDeselected(string key);
 
         List<string> ReadSelectedValues();
 
@@ -16,19 +16,4 @@ namespace Optivem.Framework.Core.Common.WebAutomation
 
         string ReadValue(int index);
     }
-
-    // TODO: VC: DELETE
-
-    /*
-    public interface ICheckBoxGroup<T> : ICheckBoxGroup
-    {
-        void Select(T key);
-
-        void Deselect(T key);
-
-        List<T> ReadSelected();
-
-        T Read(int index);
-    }
-    */
 }

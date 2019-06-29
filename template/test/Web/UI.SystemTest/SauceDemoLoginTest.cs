@@ -19,15 +19,13 @@ namespace Optivem.Template.Web.UI.SystemTest
             inventoryPage.ProductSort.SelectByText("Name (Z to A)");
         }
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public void Login_InvalidCredentialsMissingUserName_ShowsError()
         {
             var loginPage = Fixture.App.NavigateToLoginScreen();
-            loginPage.LoginAsExpectingError("", "secret_sauce");
+            var message = loginPage.LoginAsExpectingErrorMessage("", "secret_sauce");
 
-            var message = loginPage.GetErrorMessage();
-
-            // message.Should().Be("Epic sadface: Username is required");
+            message.Should().Be("Epic sadface: Username is required");
 
         }
     }

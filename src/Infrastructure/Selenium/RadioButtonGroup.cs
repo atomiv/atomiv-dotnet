@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using Optivem.Framework.Core.Common.WebAutomation;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -8,9 +9,9 @@ namespace Optivem.Framework.Infrastructure.Selenium
     // TODO: VC: CONTINUE
 
 
-    public class RadioButtonGroup : ElementCollection, IRadioButtonGroup
+    public class RadioButtonGroup : ElementCollection<RadioButton>, IRadioButtonGroup
     {
-        public RadioButtonGroup(ReadOnlyCollection<IWebElement> elements) 
+        public RadioButtonGroup(IEnumerable<RadioButton> elements) 
             : base(elements)
         {
         }
@@ -19,86 +20,38 @@ namespace Optivem.Framework.Infrastructure.Selenium
         {
             get
             {
-                return Elements.Count;
+                return Elements.Count();
             }
         }
 
         public string ReadSelectedValue()
         {
-            var element = Elements.SingleOrDefault(e => e.Selected);
+            var element = Elements.SingleOrDefault(e => e.IsSelected);
 
             if (element == null)
             {
                 return null;
             }
 
-            var value = element.GetValueAttribute();
-            return value;
+            return element.Value;
         }
 
         public string ReadValue(int index)
         {
-            var element = Elements[index];
-            var value = element.GetValueAttribute();
-            return value;
-
-            // TODO: VC: Move getting common attributes into some element base
+            var element = Elements.ElementAt(index);
+            return element.Value;
         }
 
         public bool HasSelected()
         {
-            var element = Elements.SingleOrDefault(e => e.Selected);
+            var element = Elements.SingleOrDefault(e => e.IsSelected);
             return element != null;
         }
 
         public void SelectValue(string key)
         {
-            var element = Elements.Single(e => e.GetValueAttribute() == key);
-            element.Click();
+            var element = Elements.Single(e => e.Value == key);
+            element.Select();
         }
     }
-
-    // TODO: VC: DELETE
-
-    /*
-
-    public class RadioGroup<T> : RadioGroup, IRadioGroup<T>
-    {
-        private Dictionary<string, T> _map;
-        private Dictionary<T, string> _reverseMap;
-
-        public RadioGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) 
-            : base(elements)
-        {
-            _map = map;
-            _reverseMap = map.ToDictionary(e => e.Value, e => e.Key);
-        }
-
-
-        public T ReadSelected()
-        {
-            var rawValue = ReadSelectedValue();
-            var mappedValue = _map[rawValue];
-            return mappedValue;
-        }
-
-        public T Read(int index)
-        {
-            var rawValue = ReadValue(index);
-            var mappedValue = _map[rawValue];
-            return mappedValue;
-
-            // TODO: VC: Move getting common attributes into some element base
-        }
-
-        public void Select(T key)
-        {
-            var mappedValue = _reverseMap[key];
-            SelectValue(mappedValue);
-        }
-    }
-
-    */
-
-
 }

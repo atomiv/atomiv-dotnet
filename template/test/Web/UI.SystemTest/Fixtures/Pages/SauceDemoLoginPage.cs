@@ -6,19 +6,19 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
     public class SauceDemoLoginPage : Page
     {
-        public SauceDemoLoginPage(Driver driver, bool navigateTo) 
+        public SauceDemoLoginPage(Driver driver, bool navigateTo = false) 
             : base(driver, "https://www.saucedemo.com/", navigateTo)
         {
             Driver.Url.Should().Be(Url);
         }
 
-        private TextBox UserNameTextBox => Driver.FindTextBox(FindType.Id, "user-name");
+        private TextBox UserNameTextBox => Driver.FindTextBox(FindBy.Id("user-name"));
 
-        private TextBox PasswordTextBox => Driver.FindTextBox(FindType.Id, "password");
+        private TextBox PasswordTextBox => Driver.FindTextBox(FindBy.Id("password"));
 
-        private Button LoginButton => Driver.FindButton(FindType.ClassName, "btn_action");
+        private Button LoginButton => Driver.FindButton(FindBy.CssSelector(".btn_action"));
 
-        private Element ErrorElement => Driver.FindElement(FindType.CssSelector, "h3[data-test='error']");
+        private Element ErrorElement => Driver.FindElement(FindBy.CssSelector("*[data-test='error']"));
 
         public SauceDemoInventoryPage LoginAs(string userName, string password)
         {
@@ -26,28 +26,16 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
 
-            return new SauceDemoInventoryPage(Driver, true);
+            return new SauceDemoInventoryPage(Driver, false);
         }
 
-        public SauceDemoLoginPage LoginAsExpectingError(string userName, string password)
+        public string LoginAsExpectingErrorMessage(string userName, string password)
         {
             UserNameTextBox.EnterText(userName);
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
 
-            return new SauceDemoLoginPage(Driver, true);
-        }
-
-        public string GetErrorMessage()
-        {
-            var errorElement = ErrorElement;
-
-            if(errorElement == null)
-            {
-                return null;
-            }
-
-            return errorElement.WebElement.Text;
+            return ErrorElement.Text;
         }
     }
 

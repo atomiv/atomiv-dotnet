@@ -5,5 +5,7 @@
         void Select();
 
         bool IsSelected { get; }
+
+        string Value { get; }
     }
 }

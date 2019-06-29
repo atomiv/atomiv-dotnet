@@ -5,5 +5,7 @@
         bool Enabled { get; }
 
         bool Visible { get; }
+
+        string Text { get; }
     }
 }

@@ -6,58 +6,43 @@ using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class CheckBoxGroup : ElementCollection, ICheckBoxGroup
+    public class CheckBoxGroup : ElementCollection<CheckBox>, ICheckBoxGroup
     {
-        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements) 
+        public CheckBoxGroup(IEnumerable<CheckBox> elements) 
             : base(elements)
         {
         }
 
-        public int Count
-        {
-            get
-            {
-                return Elements.Count;
-            }
-        }
+        public int Count => Elements.Count();
 
-        public void DeselectValue(string key)
+        public void EnsureValueDeselected(string key)
         {
-            var element = Elements.Single(e => e.GetValueAttribute() == key);
-
-            if (element.Selected)
-            {
-                element.Click();
-            }
+            var element = Elements.Single(e => e.Value == key);
+            element.EnsureDeselected();
         }
 
         public bool HasSelected()
         {
-            var element = Elements.SingleOrDefault(e => e.Selected);
-            return element != null;
+            return Elements.Any(e => e.IsSelected);
         }
 
         public List<string> ReadSelectedValues()
         {
-            return Elements.Where(e => e.Selected)
-                .Select(e => e.GetValueAttribute())
+            return Elements.Where(e => e.IsSelected)
+                .Select(e => e.Value)
                 .ToList();
         }
 
         public string ReadValue(int index)
         {
-            var element = Elements[index];
-            return element.GetValueAttribute();
+            var element = Elements.ElementAt(index);
+            return element.Value;
         }
 
-        public void SelectValue(string key)
+        public void EnsureValueSelected(string key)
         {
-            var element = Elements.Single(e => e.GetValueAttribute() == key);
-
-            if (!element.Selected)
-            {
-                element.Click();
-            }
+            var element = Elements.Single(e => e.Value == key);
+            element.EnsureSelected();
         }
     }
 

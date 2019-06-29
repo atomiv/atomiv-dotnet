@@ -15,5 +15,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
         public bool Enabled => WebElement.Enabled;
 
         public bool Visible => WebElement.Displayed;
+
+        public string Text => WebElement.Text;
     }
 }

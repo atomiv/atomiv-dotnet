@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface IDriver<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup> : IDisposable
+    public interface IElementRoot<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup> : IElement, IElementFinder<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup>
         where TElementRoot : IElementRoot<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup>
         where TElement : IElement
         where TTextBox : ITextBox
@@ -14,6 +15,6 @@ namespace Optivem.Framework.Core.Common.WebAutomation
         where TRadioButtonGroup : IRadioButtonGroup
         where TCheckBoxGroup : ICheckBoxGroup
     {
-        string Url { get; set; }
+
     }
 }

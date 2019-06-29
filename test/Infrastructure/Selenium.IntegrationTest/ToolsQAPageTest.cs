@@ -54,7 +54,7 @@ Message: OpenQA.Selenium.ElementClickInterceptedException : element click interc
             */
 
             page.Profession.ShouldNotHaveSelection();
-            page.Profession.SelectValue("Automation Tester");
+            page.Profession.EnsureValueSelected("Automation Tester");
             page.Profession.ShouldHaveOneSelectedValue("Automation Tester");
 
             // TODO: VC: Upload file
@@ -62,7 +62,7 @@ Message: OpenQA.Selenium.ElementClickInterceptedException : element click interc
             // TODO: VC: Download file
 
             page.AutomationTool.ShouldNotHaveSelection();
-            page.AutomationTool.SelectValue("Selenium IDE");
+            page.AutomationTool.EnsureValueSelected("Selenium IDE");
             page.AutomationTool.ShouldHaveOneSelectedValue("Selenium IDE");
 
             // TODO: VC: Testing multi select

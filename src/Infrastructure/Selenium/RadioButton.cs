@@ -14,12 +14,8 @@ namespace Optivem.Framework.Infrastructure.Selenium
             WebElement.Click();
         }
 
-        public bool IsSelected
-        {
-            get
-            {
-                return WebElement.Selected;
-            }
-        }
+        public bool IsSelected => WebElement.Selected;
+
+        public string Value => WebElement.GetValueAttribute();
     }
 }

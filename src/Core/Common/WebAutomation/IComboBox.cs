@@ -14,19 +14,4 @@
 
         string ReadValue(int index);
     }
-
-    // TODO: VC: DELETE
-
-    /*
-
-    public interface IComboBox<T> : IComboBox
-    {
-        void Select(T key);
-
-        T ReadSelected();
-
-        T Read(int index);
-    }
-
-    */
 }

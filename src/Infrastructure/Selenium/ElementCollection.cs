@@ -1,22 +1,19 @@
 ﻿using OpenQA.Selenium;
 using Optivem.Framework.Core.Common.WebAutomation;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class ElementCollection: IElement
+    // TODO: VC: Re-work this, because it's actually not an element...
+
+    public class ElementCollection<TElement> where TElement : IElement
     {
-        public ElementCollection(ReadOnlyCollection<IWebElement> elements)
+        public ElementCollection(IEnumerable<TElement> elements)
         {
             Elements = elements;
         }
 
-        public ReadOnlyCollection<IWebElement> Elements { get; private set; }
-
-        // TODO: VC: Check
-
-        public bool Enabled => throw new System.NotImplementedException();
-
-        public bool Visible => throw new System.NotImplementedException();
+        public IEnumerable<TElement> Elements { get; private set; }
     }
 }
