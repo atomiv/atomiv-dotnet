@@ -5,19 +5,19 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
     public class SauceDemoApp : App<SauceDemoLoginPage>
     {
-        public SauceDemoApp(Driver driver)
-            : base(driver)
+        public SauceDemoApp(Driver finder)
+            : base(finder)
         {
         }
 
         public SauceDemoLoginPage NavigateToLoginScreen()
         {
-            return new SauceDemoLoginPage(Driver, true);
+            return new SauceDemoLoginPage(Finder, true);
         }
 
         public SauceDemoInventoryPage NavigateToInventoryScreen()
         {
-            return new SauceDemoInventoryPage(Driver, true);
+            return new SauceDemoInventoryPage(Finder, true);
         }
     }
 }

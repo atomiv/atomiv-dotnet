@@ -7,44 +7,44 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     public static class FindBy
     {
-        public static FindQuery ClassName(string className)
+        public static Query ClassName(string className)
         {
-            return new FindQuery(FindType.ClassName, className);
+            return new Query(FindType.ClassName, className);
         }
 
-        public static FindQuery CssSelector(string cssSelector)
+        public static Query CssSelector(string cssSelector)
         {
-            return new FindQuery(FindType.CssSelector, cssSelector);
+            return new Query(FindType.CssSelector, cssSelector);
         }
 
-        public static FindQuery Id(string id)
+        public static Query Id(string id)
         {
-            return new FindQuery(FindType.Id, id);
+            return new Query(FindType.Id, id);
         }
 
-        public static FindQuery LinkText(string linkText)
+        public static Query LinkText(string linkText)
         {
-            return new FindQuery(FindType.LinkText, linkText);
+            return new Query(FindType.LinkText, linkText);
         }
 
-        public static FindQuery Name(string name)
+        public static Query Name(string name)
         {
-            return new FindQuery(FindType.Name, name);
+            return new Query(FindType.Name, name);
         }
 
-        public static FindQuery PartialLinkText(string partialLinkText)
+        public static Query PartialLinkText(string partialLinkText)
         {
-            return new FindQuery(FindType.PartialLinkText, partialLinkText);
+            return new Query(FindType.PartialLinkText, partialLinkText);
         }
 
-        public static FindQuery TagName(string tagName)
+        public static Query TagName(string tagName)
         {
-            return new FindQuery(FindType.TagName, tagName);
+            return new Query(FindType.TagName, tagName);
         }
 
-        public static FindQuery XPath(string xPath)
+        public static Query XPath(string xPath)
         {
-            return new FindQuery(FindType.XPath, xPath);
+            return new Query(FindType.XPath, xPath);
         }
     }
 }

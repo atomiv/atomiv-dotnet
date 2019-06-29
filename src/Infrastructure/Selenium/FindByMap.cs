@@ -21,7 +21,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
                 { FindType.XPath, e => By.XPath(e) }
             };
 
-        public static By GetBy(IFindQuery query)
+        public static By GetBy(IQuery query)
         {
             var findType = query.FindType;
             var findBy = query.FindBy;

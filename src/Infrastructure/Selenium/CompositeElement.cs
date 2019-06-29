@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public abstract class App<THomePage> : PageObject<Driver> 
-        where THomePage : Page
+    public class CompositeElement : PageObject<ElementRoot>
     {
-        public App(Driver finder) : base(finder)
+        public CompositeElement(ElementRoot finder) : base(finder)
         {
         }
     }

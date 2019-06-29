@@ -6,11 +6,11 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class ElementObject
     {
-        public ElementObject(Element element)
+        public ElementObject(ElementRoot element)
         {
             Element = element;
         }
 
-        public Element Element { get; }
+        public ElementRoot Element { get; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Framework.Core.Common.WebAutomation
 {
-    public interface IFindQuery
+    public interface IQuery
     {
         FindType FindType { get; }
 

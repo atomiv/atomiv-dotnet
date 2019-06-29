@@ -9,32 +9,37 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
     public class SauceDemoInventoryPage : Page
     {
-        public SauceDemoInventoryPage(Driver driver, bool navigateTo = false)
-            : base(driver, "https://www.saucedemo.com/inventory.html", navigateTo)
+        public SauceDemoInventoryPage(Driver finder, bool navigateTo = false)
+            : base(finder, "https://www.saucedemo.com/inventory.html", navigateTo)
         {
-            Driver.Url.Should().Be(Url);
         }
 
-        public ComboBox ProductSort => Driver.FindComboBox(FindBy.CssSelector(".product_sort_container"));
+        public ComboBox ProductSort => Finder.FindComboBox(FindBy.CssSelector(".product_sort_container"));
 
         // TODO: VC: Do later
 
-        public IEnumerable<InventoryItem> InventoryItems => Driver.FindElements(FindBy.CssSelector(".inventory_item")).Select(e => new InventoryItem(e));
+        public IEnumerable<InventoryItem> InventoryItems => Finder.FindElements(FindBy.CssSelector(".inventory_item"), e => new InventoryItem(e));
     }
 
     // TODO: VC: Container element
 
-    public class InventoryItem : ElementObject
+    public class InventoryItem : CompositeElement
     {
-        public InventoryItem(Element element) : base(element)
+        public InventoryItem(ElementRoot element) : base(element)
         {
         }
 
-        public string Name => Element.WebElement.FindElement(By.ClassName("inventory_item_name")).Text;
+        private Element NameElement => Finder.FindElement(FindBy.ClassName("inventory_item_name"));
 
-        public string Description => Element.WebElement.FindElement(By.ClassName("inventory_item_desc")).Text;
+        private Element DescriptionElement => Finder.FindElement(FindBy.ClassName("inventory_item_desc"));
 
-        public string Price => Element.WebElement.FindElement(By.ClassName("inventory_item_price")).Text;
+        private Element PriceElement => Finder.FindElement(FindBy.ClassName("inventory_item_price"));
+
+        public string Name => NameElement.Text;
+
+        public string Description => DescriptionElement.Text;
+
+        public string Price => PriceElement.Text;
 
         // Sauce Labs Backpack
 

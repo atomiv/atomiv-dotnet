@@ -1,12 +1,15 @@
-﻿namespace Optivem.Framework.Infrastructure.Selenium
+﻿using Optivem.Framework.Core.Common.WebAutomation;
+
+namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class PageObject
+    public class PageObject<TFinder> 
+        where TFinder : IFinder<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup>
     {
-        public PageObject(Driver driver)
+        public PageObject(TFinder finder)
         {
-            Driver = driver;
+            Finder = finder;
         }
 
-        public Driver Driver { get; }
+        public TFinder Finder { get; }
     }
 }

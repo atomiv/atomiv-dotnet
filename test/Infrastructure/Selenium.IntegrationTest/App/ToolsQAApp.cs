@@ -11,7 +11,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App
 
         public ToolsQAAutomationPracticeFormPage NavigateToPracticeFormPage()
         {
-            return new ToolsQAAutomationPracticeFormPage(Driver, true);
+            return new ToolsQAAutomationPracticeFormPage(Finder, true);
         }
     }
 }

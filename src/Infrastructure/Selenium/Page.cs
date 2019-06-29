@@ -5,29 +5,24 @@ using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class Page : PageObject
+    public class Page : PageObject<Driver>
     {
         public Page(Driver driver, string url, bool navigateTo) 
             : base(driver)
         {
             if(navigateTo)
             {
-                Driver.Url = url;
+                driver.Url = url;
             }
 
             Url = url;
 
-            if(!IsOpen())
+            if(driver.Url == url)
             {
                 throw new PageNotOpenException();
             }
         }
 
         public string Url { get; }
-
-        public bool IsOpen()
-        {
-            return Driver.Url == Url;
-        }
     }
 }

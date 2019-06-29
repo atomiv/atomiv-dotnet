@@ -6,19 +6,18 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
     public class SauceDemoLoginPage : Page
     {
-        public SauceDemoLoginPage(Driver driver, bool navigateTo = false) 
-            : base(driver, "https://www.saucedemo.com/", navigateTo)
+        public SauceDemoLoginPage(Driver finder, bool navigateTo = false) 
+            : base(finder, "https://www.saucedemo.com/", navigateTo)
         {
-            Driver.Url.Should().Be(Url);
         }
 
-        private TextBox UserNameTextBox => Driver.FindTextBox(FindBy.Id("user-name"));
+        private TextBox UserNameTextBox => Finder.FindTextBox(FindBy.Id("user-name"));
 
-        private TextBox PasswordTextBox => Driver.FindTextBox(FindBy.Id("password"));
+        private TextBox PasswordTextBox => Finder.FindTextBox(FindBy.Id("password"));
 
-        private Button LoginButton => Driver.FindButton(FindBy.CssSelector(".btn_action"));
+        private Button LoginButton => Finder.FindButton(FindBy.CssSelector(".btn_action"));
 
-        private Element ErrorElement => Driver.FindElement(FindBy.CssSelector("*[data-test='error']"));
+        private ErrorElement ErrorElement => Finder.FindElement(FindBy.CssSelector("*[data-test='error']"), e => new ErrorElement(e));
 
         public SauceDemoInventoryPage LoginAs(string userName, string password)
         {
@@ -26,7 +25,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             PasswordTextBox.EnterText(password);
             LoginButton.Click();
 
-            return new SauceDemoInventoryPage(Driver, false);
+            return new SauceDemoInventoryPage(Finder, false);
         }
 
         public string LoginAsExpectingErrorMessage(string userName, string password)
@@ -39,13 +38,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
         }
     }
 
-    public class LoginErrorRegion : PageObject
+    public class ErrorElement : CompositeElement
     {
-        public LoginErrorRegion(Driver driver) : base(driver)
+        public ErrorElement(ElementRoot finder) : base(finder)
         {
-
         }
 
-        public string Text { get; }
+        public string Text => Finder.Text;
     }
 }

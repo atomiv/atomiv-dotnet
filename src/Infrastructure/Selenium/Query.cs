@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {
-    public class FindQuery : IFindQuery
+    public class Query : IQuery
     {
-        public FindQuery(FindType findType, string findBy)
+        public Query(FindType findType, string findBy)
         {
             FindType = findType;
             FindBy = findBy;
