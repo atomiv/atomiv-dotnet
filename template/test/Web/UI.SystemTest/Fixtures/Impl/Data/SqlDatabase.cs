@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Records;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Data
@@ -10,22 +11,22 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Data
 
     public class SqlDatabase : IDatabase
     {
-        public ReadOnlyCollection<InventoryItemRecord> GetInventoryItemsOrderByNameAsc()
+        public List<IProductRecord> ReadProductsSortedByNameAsc()
         {
             throw new NotImplementedException();
         }
 
-        public ReadOnlyCollection<InventoryItemRecord> GetInventoryItemsOrderByNameDesc()
+        public List<IProductRecord> ReadProductsSortedByNameDesc()
         {
             throw new NotImplementedException();
         }
 
-        public ReadOnlyCollection<InventoryItemRecord> GetInventoryItemsOrderByPriceAsc()
+        public List<IProductRecord> ReadProductsSortedByPriceAsc()
         {
             throw new NotImplementedException();
         }
 
-        public ReadOnlyCollection<InventoryItemRecord> GetInventoryItemsOrderByPriceDesc()
+        public List<IProductRecord> ReadProductsSortedByPriceDesc()
         {
             throw new NotImplementedException();
         }

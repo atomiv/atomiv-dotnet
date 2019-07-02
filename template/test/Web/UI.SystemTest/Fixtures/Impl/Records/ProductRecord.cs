@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
 {
-    public class InventoryItemRecord
+    public class ProductRecord : IProductRecord
     {
         // TODO: VC: Make dynamic, use regex
         private const string Currency = "$";
 
-        public InventoryItemRecord(int id, string name, string priceText)
+        public ProductRecord(int id, string name, string priceText)
         {
             Id = id;
             Name = name;
@@ -18,7 +19,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
             PriceValue = decimal.Parse(priceText.Substring(1)); // TODO: VC: Use regex
         }
 
-        public InventoryItemRecord(int id, string name, decimal priceValue)
+        public ProductRecord(int id, string name, decimal priceValue)
             : this(id, name, $"{Currency}{priceValue}")
         {
 
@@ -35,7 +36,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
 
         public decimal PriceValue { get; }
 
-        public bool Equals(InventoryItemRecord other)
+        public bool Equals(ProductRecord other)
         {
             return Id == other.Id
                 && Name == other.Name
@@ -44,7 +45,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
 
         public override bool Equals(object obj)
         {
-            var other = obj as InventoryItemRecord;
+            var other = obj as ProductRecord;
 
             if (other == null)
             {

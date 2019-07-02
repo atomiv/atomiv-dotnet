@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest
 {
-    public class SauceDemoShoppingCartTest : SauceDemoTest
+    public class CheckoutTest : AppTest
     {
-        public SauceDemoShoppingCartTest(SauceDemoFixture fixture) : base(fixture)
+        public CheckoutTest(AppFixture fixture) : base(fixture)
         {
         }
     }

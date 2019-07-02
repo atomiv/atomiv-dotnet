@@ -4,25 +4,23 @@ using Xunit;
 
 namespace Optivem.Template.Web.UI.SystemTest
 {
-    public class SauceDemoLoginTest : SauceDemoTest
+    public class LoginTest : AppTest
     {
-        public SauceDemoLoginTest(SauceDemoFixture fixture) : base(fixture)
+        public LoginTest(AppFixture fixture) : base(fixture)
         {
         }
 
         [Fact]
         public void Login_ValidCredentials_OpensInventoryScreen()
         {
-            var loginPage = Fixture.App.NavigateToLoginScreen();
+            var loginPage = Fixture.App.OpenLoginPage();
             var inventoryPage = loginPage.LoginAs("standard_user", "secret_sauce");
-
-            inventoryPage.ProductSort.SelectByText("Name (Z to A)");
         }
 
         [Fact]
         public void Login_InvalidCredentialsMissingUserName_ShowsError()
         {
-            var loginPage = Fixture.App.NavigateToLoginScreen();
+            var loginPage = Fixture.App.OpenLoginPage();
             var message = loginPage.LoginAsExpectingErrorMessage("", "secret_sauce");
 
             message.Should().Be("Epic sadface: Username is required");
