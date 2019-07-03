@@ -5,21 +5,31 @@ using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {
-    public class App : App<SauceDemoLoginPage>, IApp
+    public class App : App<LoginPage>, IApp
     {
         public App(Driver finder)
             : base(finder)
         {
         }
 
+        public bool IsLoginPageOpen()
+        {
+            return LoginPage.IsOpen(Finder);
+        }
+
+        public bool IsProductPageOpen()
+        {
+            return ProductPage.IsOpen(Finder);
+        }
+
         public ILoginPage OpenLoginPage()
         {
-            return new SauceDemoLoginPage(Finder, true);
+            return new LoginPage(Finder, true);
         }
 
         public IProductPage OpenProductPage()
         {
-            return new SauceDemoProductPage(Finder, true);
+            return new ProductPage(Finder, true);
         }
     }
 }

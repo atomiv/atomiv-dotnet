@@ -10,5 +10,9 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces
         ILoginPage OpenLoginPage();
 
         IProductPage OpenProductPage();
+
+        bool IsLoginPageOpen();
+
+        bool IsProductPageOpen();
     }
 }

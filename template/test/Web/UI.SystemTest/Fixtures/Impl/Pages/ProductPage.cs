@@ -10,11 +10,18 @@ using System.Linq;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoProductPage : Page, IProductPage
+    public class ProductPage : Page, IProductPage
     {
-        public SauceDemoProductPage(Driver finder, bool navigateTo = false)
-            : base(finder, "https://www.saucedemo.com/inventory.html", navigateTo)
+        public ProductPage(Driver finder, bool navigateTo = false)
+            : base(finder, PageUrl, navigateTo)
         {
+        }
+
+        public static string PageUrl = "https://www.saucedemo.com/inventory.html";
+
+        public static bool IsOpen(Driver finder)
+        {
+            return finder.Url == PageUrl;
         }
 
         private ProductFilter Filter => Finder.FindElement<ProductFilter>(FindBy.Id("inventory_filter_container"));

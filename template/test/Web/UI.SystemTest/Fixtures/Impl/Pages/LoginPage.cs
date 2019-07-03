@@ -5,11 +5,18 @@ using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 {
-    public class SauceDemoLoginPage : Page, ILoginPage
+    public class LoginPage : Page, ILoginPage
     {
-        public SauceDemoLoginPage(Driver finder, bool navigateTo = false) 
-            : base(finder, "https://www.saucedemo.com/", navigateTo)
+        public LoginPage(Driver finder, bool navigateTo = false) 
+            : base(finder, PageUrl, navigateTo)
         {
+        }
+
+        public static string PageUrl = "https://www.saucedemo.com/";
+
+        public static bool IsOpen(Driver finder)
+        {
+            return finder.Url == PageUrl;
         }
 
         private TextBox UserNameTextBox => Finder.FindTextBox(FindBy.Id("user-name"));
@@ -20,13 +27,28 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
         private ErrorElement ErrorElement => Finder.FindElement(FindBy.CssSelector("*[data-test='error']"), e => new ErrorElement(e));
 
-        public IProductPage LoginAs(string userName, string password)
+        public void ClickLogin()
+        {
+            LoginButton.Click();
+        }
+
+        public void InputUserName(string userName)
         {
             UserNameTextBox.EnterText(userName);
-            PasswordTextBox.EnterText(password);
-            LoginButton.Click();
+        }
 
-            return new SauceDemoProductPage(Finder, false);
+        public void InputPassword(string password)
+        {
+            PasswordTextBox.EnterText(password);
+        }
+
+        public IProductPage LoginAs(string userName, string password)
+        {
+            InputUserName(userName);
+            InputPassword(password);
+            ClickLogin();
+
+            return new ProductPage(Finder, false);
         }
 
         public string LoginAsExpectingErrorMessage(string userName, string password)
