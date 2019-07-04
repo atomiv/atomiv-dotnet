@@ -179,6 +179,69 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Initially, all products can be added")]
+        [Xunit.TraitAttribute("FeatureTitle", "Product")]
+        [Xunit.TraitAttribute("Description", "Initially, all products can be added")]
+        [Xunit.TraitAttribute("Category", "cart")]
+        public virtual void InitiallyAllProductsCanBeAdded()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Initially, all products can be added", null, new string[] {
+                        "cart"});
+#line 34
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 35
+ testRunner.Given("I am on the products page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 36
+ testRunner.Then("It allows me to add all products", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="I can add a product to the cart")]
+        [Xunit.TraitAttribute("FeatureTitle", "Product")]
+        [Xunit.TraitAttribute("Description", "I can add a product to the cart")]
+        [Xunit.TraitAttribute("Category", "cart")]
+        public virtual void ICanAddAProductToTheCart()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can add a product to the cart", null, new string[] {
+                        "cart"});
+#line 39
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 40
+ testRunner.Given("I am on the products page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+ testRunner.When("I click to add a product to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.Then("that product has been added to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="I can remove a product from the cart")]
+        [Xunit.TraitAttribute("FeatureTitle", "Product")]
+        [Xunit.TraitAttribute("Description", "I can remove a product from the cart")]
+        [Xunit.TraitAttribute("Category", "cart")]
+        public virtual void ICanRemoveAProductFromTheCart()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can remove a product from the cart", null, new string[] {
+                        "cart"});
+#line 45
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 46
+ testRunner.Given("I am on the products page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 47
+ testRunner.And("I have added a product to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.When("I click to remove that product from the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.Then("that product has been removed from the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
