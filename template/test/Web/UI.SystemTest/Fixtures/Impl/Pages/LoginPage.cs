@@ -59,6 +59,16 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
             return ErrorElement.Text;
         }
+
+        public bool HasErrorMessage()
+        {
+            return ErrorElement != null;
+        }
+
+        public string GetErrorMessage()
+        {
+            return ErrorElement.Text;
+        }
     }
 
     public class ErrorElement : CompositeElement

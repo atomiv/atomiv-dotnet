@@ -10,6 +10,8 @@ namespace Optivem.Template.Web.UI.SystemTest
         {
         }
 
+
+        /*
         [Fact]
         public void Login_ValidCredentials_OpensInventoryScreen()
         {
@@ -26,5 +28,7 @@ namespace Optivem.Template.Web.UI.SystemTest
             message.Should().Be("Epic sadface: Username is required");
 
         }
+
+        */
     }
 }

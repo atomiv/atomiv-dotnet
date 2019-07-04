@@ -15,9 +15,10 @@ namespace Optivem.Template.Web.UI.SystemTest
 
         public ProductTest(AppFixture fixture) : base(fixture)
         {
-            var loginPage = Fixture.App.OpenLoginPage();
-            _productPage = loginPage.LoginAs("standard_user", "secret_sauce");
+
         }
+
+        /*
 
         // GIVEN I am on the products page
         // THEN the products should be sorted by product name (asc)
@@ -129,6 +130,8 @@ namespace Optivem.Template.Web.UI.SystemTest
 
             someProduct.CanAddToCart().Should().BeTrue();
         }
+
+        */
 
         // TODO: VC:
         // When I click on image it opens up product page

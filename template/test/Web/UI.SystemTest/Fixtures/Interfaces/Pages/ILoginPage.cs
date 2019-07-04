@@ -15,5 +15,9 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces
         void InputPassword(string password);
 
         void ClickLogin();
+
+        bool HasErrorMessage();
+
+        string GetErrorMessage();
     }
 }
