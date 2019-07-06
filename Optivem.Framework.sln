@@ -163,6 +163,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Flue
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.MicrosoftExtensions", "test\Base\MicrosoftExtensions\Optivem.Framework.Test.MicrosoftExtensions.csproj", "{E783027C-DC9A-4FBE-BC6C-64ECBD05730F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Framework.Infrastructure.System.IntegrationTest", "test\Infrastructure\System.IntegrationTest\Optivem.Framework.Infrastructure.System.IntegrationTest.csproj", "{B83BC756-3B9D-4C28-98F0-89757A696229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -393,6 +395,10 @@ Global
 		{E783027C-DC9A-4FBE-BC6C-64ECBD05730F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E783027C-DC9A-4FBE-BC6C-64ECBD05730F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E783027C-DC9A-4FBE-BC6C-64ECBD05730F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83BC756-3B9D-4C28-98F0-89757A696229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83BC756-3B9D-4C28-98F0-89757A696229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83BC756-3B9D-4C28-98F0-89757A696229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83BC756-3B9D-4C28-98F0-89757A696229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -476,6 +482,7 @@ Global
 		{8E45E822-1922-4FAB-A5FF-67E77DAEEB9E} = {04BFF208-657F-4024-8725-BD473BD76F44}
 		{A59642E8-F8CC-4B1F-84C3-B056E131C9CF} = {531EE9B1-F71A-4D55-A695-91D122163D57}
 		{E783027C-DC9A-4FBE-BC6C-64ECBD05730F} = {531EE9B1-F71A-4D55-A695-91D122163D57}
+		{B83BC756-3B9D-4C28-98F0-89757A696229} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
