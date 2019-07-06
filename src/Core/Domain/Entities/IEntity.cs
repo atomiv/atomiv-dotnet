@@ -2,7 +2,7 @@
 
 namespace Optivem.Framework.Core.Domain
 {
-    public interface IEntity : IEquatable<IEntity>
+    public interface IEntity
     {
     }
 
