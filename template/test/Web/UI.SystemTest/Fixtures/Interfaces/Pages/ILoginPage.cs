@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces
+﻿namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces
 {
     public interface ILoginPage
     {

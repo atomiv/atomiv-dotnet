@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records
+﻿namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records
 {
     public interface IProductRecord
     {

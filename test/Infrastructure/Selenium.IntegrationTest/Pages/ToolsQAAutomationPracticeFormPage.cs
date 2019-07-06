@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Core.Common.WebAutomation;
-
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
+﻿namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
 {
     public class ToolsQAAutomationPracticeFormPage : Page
     {

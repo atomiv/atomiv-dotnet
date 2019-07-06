@@ -1,8 +1,8 @@
 ﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Core.Common.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -10,16 +10,19 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class ControllerClient : IControllerClient
     {
-        public ControllerClient(IClient client, IObjectClient objectClient, string controllerUri)
+        public ControllerClient(IClient client, IObjectClient objectClient, IPropertyFactory propertyFactory, string controllerUri)
         {
             Client = client;
             ObjectClient = objectClient;
+            PropertyFactory = propertyFactory;
             ControllerUri = controllerUri;
         }
 
         public IClient Client { get; private set; }
 
         public IObjectClient ObjectClient { get; private set; }
+
+        public IPropertyFactory PropertyFactory { get; private set; }
 
         public string ControllerUri { get; private set; }
 
@@ -227,15 +230,9 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        private static string GetQueryString<TRequest>(TRequest request)
+        private string GetQueryString<TRequest>(TRequest request)
         {
-            // TODO: VC: Make module for reflection helpers
-            var type = typeof(TRequest);
-            var properties = type.GetProperties();
-
-            var propertyValues = properties
-                .Select(e => Property.From(request, e))
-                .ToList();
+            var propertyValues = PropertyFactory.Create(request);
 
             var queryParameters = propertyValues
                 .Where(e => e.Value != null)
@@ -245,27 +242,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             var queryString = QueryString.From(queryParameters);
 
             return queryString;
-        }
-
-        private class Property
-        {
-            public Property(string name, object value)
-            {
-                Name = name;
-                Value = value;
-            }
-
-            public string Name { get; }
-
-            public object Value { get; }
-
-            public static Property From<T>(T obj, PropertyInfo propertyInfo)
-            {
-                var name = propertyInfo.Name;
-                var value = propertyInfo.GetValue(obj, null);
-
-                return new Property(name, value);
-            }
         }
 
         private class QueryParameter
@@ -285,9 +261,9 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
                 return $"{Name}={Value}";
             }
 
-            public static QueryParameter From(Property property)
+            public static QueryParameter From(IObjectProperty property)
             {
-                var name = property.Name;
+                var name = property.TypeProperty.Name;
                 var value = property.Value;
                 var stringValue = value.ToString();
                 var encodedValue = HttpUtility.UrlEncode(stringValue);

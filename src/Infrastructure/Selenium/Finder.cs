@@ -3,8 +3,6 @@ using Optivem.Framework.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.Selenium
 {

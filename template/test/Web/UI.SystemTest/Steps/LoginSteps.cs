@@ -1,9 +1,7 @@
 ﻿using FluentAssertions;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
-using System;
 using TechTalk.SpecFlow;
-using Xunit;
 
 namespace Optivem.Template.Web.UI.SystemTest
 {

@@ -1,7 +1,4 @@
 ﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
 {

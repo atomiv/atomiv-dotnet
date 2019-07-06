@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Records;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Data
 {

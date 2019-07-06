@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-using OpenQA.Selenium;
-using Optivem.Framework.Core.Common.WebAutomation;
+﻿using OpenQA.Selenium;
 using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;

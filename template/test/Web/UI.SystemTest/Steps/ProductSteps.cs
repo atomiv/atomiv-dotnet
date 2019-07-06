@@ -1,9 +1,6 @@
 ﻿using FluentAssertions;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace Optivem.Template.Web.UI.SystemTest.Steps
