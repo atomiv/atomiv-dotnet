@@ -31,11 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Логовање.feature.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Логовање.feature</DependentUpon>
-    </Compile>
     <Compile Update="Product.feature.cs">
       <DependentUpon>Product.feature</DependentUpon>
     </Compile>
@@ -47,10 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="Логовање.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Логовање.feature.cs</LastGenOutput>
-    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Product.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

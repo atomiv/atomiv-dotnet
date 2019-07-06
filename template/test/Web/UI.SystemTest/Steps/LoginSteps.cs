@@ -17,7 +17,6 @@ namespace Optivem.Template.Web.UI.SystemTest
         }
 
         [Given(@"I am on the login page")]
-        [Given(@"налазим се на страници за логовање", "sr-Cyrl")]
         public void GivenIAmOnTheLoginPage()
         {
             _loginPage = Fixture.App.OpenLoginPage();
