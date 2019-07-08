@@ -40,24 +40,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             PasswordTextBox.EnterText(password);
         }
 
-        public IProductPage LoginAs(string userName, string password)
-        {
-            InputUserName(userName);
-            InputPassword(password);
-            ClickLogin();
-
-            return new ProductPage(Finder, false);
-        }
-
-        public string LoginAsExpectingErrorMessage(string userName, string password)
-        {
-            UserNameTextBox.EnterText(userName);
-            PasswordTextBox.EnterText(password);
-            LoginButton.Click();
-
-            return ErrorElement.Text;
-        }
-
         public bool HasErrorMessage()
         {
             return ErrorElement != null;
