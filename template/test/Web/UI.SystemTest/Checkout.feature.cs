@@ -76,62 +76,6 @@ namespace Optivem.Template.Web.UI.SystemTest
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Successfully purchasing multiple products")]
-        [Xunit.TraitAttribute("FeatureTitle", "Checkout")]
-        [Xunit.TraitAttribute("Description", "Successfully purchasing multiple products")]
-        [Xunit.TraitAttribute("Category", "positive")]
-        public virtual void SuccessfullyPurchasingMultipleProducts()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully purchasing multiple products", null, new string[] {
-                        "positive"});
-#line 5
-this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 6
- testRunner.Given("I am logged with username \'standard_user\' and password \'secret_sauce\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
- testRunner.And("I see that the product \'Sauce Labs Backpack\' has the price $29.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 8
- testRunner.And("I see that the product \'Sauce Labs Fleece Jacket\' has the price $49.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.And("I see that the product \'Sauce Labs Onesie\' has the price $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.And("I have added the product \'Sauce Labs Backpack\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
- testRunner.And("I have added the product \'Sauce Labs Fleece Jacket\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.And("I have added the product \'Sauce Labs Onesie\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
- testRunner.And("I have clicked on the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
- testRunner.And("I have clicked on checkout on the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
- testRunner.And("I have entered the first name \'John\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
- testRunner.And("I have entered the last name \'Smith\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
- testRunner.And("I have entered the zip code \'2000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
- testRunner.And("I have clicked on continue on the information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
- testRunner.And("I see the card number \'SauceCard #31337\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.And("I see the shipping information \'FREE PONY EXPRESS DELIVERY!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
- testRunner.And("I see the subtotal $87.97", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
- testRunner.When("I click on the Finish button on the overview", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
- testRunner.Then("I am on the order confirmation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 24
- testRunner.And("I see the confirmation header \'THANK YOU FOR YOUR ORDER\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 25
- testRunner.And("I see the confirmation text \'Your order has been dispatched, and will arrive just" +
-                    " as fast as the pony can get there!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
         [Xunit.FactAttribute(DisplayName="Successfully purchasing a single product")]
         [Xunit.TraitAttribute("FeatureTitle", "Checkout")]
         [Xunit.TraitAttribute("Description", "Successfully purchasing a single product")]
@@ -140,13 +84,69 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully purchasing a single product", null, new string[] {
                         "positive"});
-#line 28
+#line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 29
+#line 6
  testRunner.Given("I am logged with username \'standard_user\' and password \'secret_sauce\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
+#line 7
  testRunner.And("I see that the product \'Sauce Labs Onesie\' has the price $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+ testRunner.And("I have added the product \'Sauce Labs Onesie\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.And("I have clicked on the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I have clicked on checkout on the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I have entered the first name \'John\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I have entered the last name \'Smith\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("I have entered the zip code \'2000\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("I have clicked on continue on the information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.And("I see the card number \'SauceCard #31337\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("I see the shipping information \'FREE PONY EXPRESS DELIVERY!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.And("I see the subtotal $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.When("I click on the Finish button on the overview", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("I am on the order confirmation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+ testRunner.And("I see the confirmation header \'THANK YOU FOR YOUR ORDER\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("I see the confirmation text \'Your order has been dispatched, and will arrive just" +
+                    " as fast as the pony can get there!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Successfully purchasing multiple products")]
+        [Xunit.TraitAttribute("FeatureTitle", "Checkout")]
+        [Xunit.TraitAttribute("Description", "Successfully purchasing multiple products")]
+        [Xunit.TraitAttribute("Category", "positive")]
+        public virtual void SuccessfullyPurchasingMultipleProducts()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully purchasing multiple products", null, new string[] {
+                        "positive"});
+#line 24
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 25
+ testRunner.Given("I am logged with username \'standard_user\' and password \'secret_sauce\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 26
+ testRunner.And("I see that the product \'Sauce Labs Backpack\' has the price $29.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("I see that the product \'Sauce Labs Fleece Jacket\' has the price $49.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.And("I see that the product \'Sauce Labs Onesie\' has the price $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.And("I have added the product \'Sauce Labs Backpack\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.And("I have added the product \'Sauce Labs Fleece Jacket\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
  testRunner.And("I have added the product \'Sauce Labs Onesie\' to the cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 39
  testRunner.And("I see the shipping information \'FREE PONY EXPRESS DELIVERY!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
- testRunner.And("I see the subtotal $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the subtotal $87.97", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
  testRunner.When("I click on the Finish button on the overview", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 42

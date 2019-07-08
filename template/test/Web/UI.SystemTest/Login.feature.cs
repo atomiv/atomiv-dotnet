@@ -79,11 +79,11 @@ namespace Optivem.Template.Web.UI.SystemTest
         [Xunit.FactAttribute(DisplayName="I can login with valid credentials")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
         [Xunit.TraitAttribute("Description", "I can login with valid credentials")]
-        [Xunit.TraitAttribute("Category", "login_valid")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanLoginWithValidCredentials()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can login with valid credentials", null, new string[] {
-                        "login_valid"});
+                        "positive"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -104,11 +104,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I cannot login with missing username")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
         [Xunit.TraitAttribute("Description", "I cannot login with missing username")]
-        [Xunit.TraitAttribute("Category", "login_invalid")]
+        [Xunit.TraitAttribute("Category", "negative")]
         public virtual void ICannotLoginWithMissingUsername()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I cannot login with missing username", null, new string[] {
-                        "login_invalid"});
+                        "negative"});
 #line 13
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -127,11 +127,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I cannot login with missing password")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
         [Xunit.TraitAttribute("Description", "I cannot login with missing password")]
-        [Xunit.TraitAttribute("Category", "login_invalid")]
+        [Xunit.TraitAttribute("Category", "negative")]
         public virtual void ICannotLoginWithMissingPassword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I cannot login with missing password", null, new string[] {
-                        "login_invalid"});
+                        "negative"});
 #line 20
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -150,11 +150,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I cannot login with invalid credentials")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
         [Xunit.TraitAttribute("Description", "I cannot login with invalid credentials")]
-        [Xunit.TraitAttribute("Category", "login_invalid")]
+        [Xunit.TraitAttribute("Category", "negative")]
         public virtual void ICannotLoginWithInvalidCredentials()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I cannot login with invalid credentials", null, new string[] {
-                        "login_invalid"});
+                        "negative"});
 #line 27
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -176,11 +176,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I cannot login if I have been locked out")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
         [Xunit.TraitAttribute("Description", "I cannot login if I have been locked out")]
-        [Xunit.TraitAttribute("Category", "login_invalid")]
+        [Xunit.TraitAttribute("Category", "negative")]
         public virtual void ICannotLoginIfIHaveBeenLockedOut()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I cannot login if I have been locked out", null, new string[] {
-                        "login_invalid"});
+                        "negative"});
 #line 35
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

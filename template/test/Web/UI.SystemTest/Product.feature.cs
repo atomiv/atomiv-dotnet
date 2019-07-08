@@ -79,11 +79,11 @@ namespace Optivem.Template.Web.UI.SystemTest
         [Xunit.FactAttribute(DisplayName="Products are sorted by name (asc) by default")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "Products are sorted by name (asc) by default")]
-        [Xunit.TraitAttribute("Category", "sort")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ProductsAreSortedByNameAscByDefault()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Products are sorted by name (asc) by default", null, new string[] {
-                        "sort"});
+                        "positive"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -98,11 +98,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can sort products by name (asc)")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can sort products by name (asc)")]
-        [Xunit.TraitAttribute("Category", "sort")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanSortProductsByNameAsc()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can sort products by name (asc)", null, new string[] {
-                        "sort"});
+                        "positive"});
 #line 10
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -119,11 +119,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can sort products by name (desc)")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can sort products by name (desc)")]
-        [Xunit.TraitAttribute("Category", "sort")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanSortProductsByNameDesc()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can sort products by name (desc)", null, new string[] {
-                        "sort"});
+                        "positive"});
 #line 16
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -140,11 +140,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can sort products by price (asc)")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can sort products by price (asc)")]
-        [Xunit.TraitAttribute("Category", "sort")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanSortProductsByPriceAsc()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can sort products by price (asc)", null, new string[] {
-                        "sort"});
+                        "positive"});
 #line 22
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -161,11 +161,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can sort products by price (desc)")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can sort products by price (desc)")]
-        [Xunit.TraitAttribute("Category", "sort")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanSortProductsByPriceDesc()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can sort products by price (desc)", null, new string[] {
-                        "sort"});
+                        "positive"});
 #line 28
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -182,11 +182,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="Initially, all products can be added")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "Initially, all products can be added")]
-        [Xunit.TraitAttribute("Category", "cart")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void InitiallyAllProductsCanBeAdded()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Initially, all products can be added", null, new string[] {
-                        "cart"});
+                        "positive"});
 #line 34
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -201,11 +201,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can add a product to the cart")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can add a product to the cart")]
-        [Xunit.TraitAttribute("Category", "cart")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanAddAProductToTheCart()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can add a product to the cart", null, new string[] {
-                        "cart"});
+                        "positive"});
 #line 39
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -222,11 +222,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.FactAttribute(DisplayName="I can remove a product from the cart")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "I can remove a product from the cart")]
-        [Xunit.TraitAttribute("Category", "cart")]
+        [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanRemoveAProductFromTheCart()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can remove a product from the cart", null, new string[] {
-                        "cart"});
+                        "positive"});
 #line 45
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
