@@ -26,6 +26,10 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces
         List<IProductRecord> ReadProductRecords();
 
         IProductComponent GetProductComponentAtPosition(int position);
+        
+        void AddToCart(string productName);
+
+        void ClickCart();
     }
 
     public interface IProductComponent

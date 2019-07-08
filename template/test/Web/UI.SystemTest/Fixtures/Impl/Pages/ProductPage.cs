@@ -26,6 +26,8 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
 
         private IEnumerable<ProductItem> Items => Finder.FindElements<ProductItem>(FindBy.CssSelector(".inventory_item"));
 
+        private Element CartElement => Finder.FindElement(FindBy.CssSelector(".shopping_cart_link"));
+
         public IProductComponent GetProductComponentAtPosition(int position)
         {
             return Items.ElementAt(position - 1);
@@ -62,8 +64,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
             return productComponents.Select(e => e.ReadProductRecord()).ToList();
         }
 
-        // shopping_cart_link
-
         public void SortByNameAsc()
         {
             Filter.Sort(ProductSort.NameAsc);
@@ -82,6 +82,18 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
         public void SortByPriceDesc()
         {
             Filter.Sort(ProductSort.PriceAsc);
+        }
+
+        public void AddToCart(string productName)
+        {
+            var products = GetProductComponents();
+            var product = products.Single(e => e.ReadProductRecord().Name == productName);
+            product.AddToCart();
+        }
+
+        public void ClickCart()
+        {
+            CartElement.WebElement.Click();
         }
     }
 

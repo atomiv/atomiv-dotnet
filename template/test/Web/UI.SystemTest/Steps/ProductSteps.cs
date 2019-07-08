@@ -24,6 +24,8 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
             var loginPage = Fixture.App.OpenLoginPage();
             loginPage.InputUserName("standard_user");
             loginPage.InputPassword("secret_sauce");
+            loginPage.ClickLogin();
+            _productPage = Fixture.App.GetProductPage();
         }
 
         [Given(@"I have added a product to the cart")]

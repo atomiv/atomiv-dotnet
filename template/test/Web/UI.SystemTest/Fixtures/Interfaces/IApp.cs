@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
+﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Pages;
+using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces
 {
@@ -11,5 +12,15 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces
         bool IsLoginPageOpen();
 
         bool IsProductPageOpen();
+
+        IProductPage GetProductPage();
+
+        ICartPage GetCartPage();
+
+        ICheckoutInformationPage GetCheckoutInformationPage();
+
+        ICheckoutOverviewPage GetCheckoutOverviewPage();
+
+        ICheckoutConfirmationPage GetCheckoutConfirmationPage();
     }
 }
