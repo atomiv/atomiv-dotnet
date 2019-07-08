@@ -4,7 +4,10 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+    - develop
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -17,3 +20,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
