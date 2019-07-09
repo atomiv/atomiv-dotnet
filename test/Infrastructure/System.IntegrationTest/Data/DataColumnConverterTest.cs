@@ -7,17 +7,27 @@ using Xunit;
 
 namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
 {
-    public class DataColumnFactoryTest
+    public class DataColumnConverterTest
     {
         // TODO: VC: DataSet does not support nullable
 
-        [Fact]
-        public void TestCreate()
+        [Fact(Skip = "Check if going ahead with this method")]
+        public void ToDataColumn()
         {
-            var propertyFactory = new PropertyFactory<CustomerRecord>();
-            var dataColumnFactory = new DataColumnFactory<CustomerRecord>(propertyFactory);
+            var propertyFactory = new PropertyMapper<CustomerRecord>();
+            var dataColumnMapper = new DataColumnMapper<CustomerRecord>(propertyFactory);
 
-            var dataColumns = dataColumnFactory.Create().ToList();
+            var dataColumn = dataColumnMapper.ToDataColumn(e => e.Id);
+
+        }
+
+        [Fact]
+        public void ToDataColumns()
+        {
+            var propertyFactory = new PropertyMapper<CustomerRecord>();
+            var dataColumnMapper = new DataColumnMapper<CustomerRecord>(propertyFactory);
+
+            var dataColumns = dataColumnMapper.ToDataColumns().ToList();
 
             Assert.Equal(6, dataColumns.Count);
 

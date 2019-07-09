@@ -22,9 +22,9 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Reflection
                 IsActive = true,
             };
 
-            IPropertyFactory<CustomerRecord> propertyFactory = new PropertyFactory<CustomerRecord>();
+            IPropertyMapper<CustomerRecord> propertyFactory = new PropertyMapper<CustomerRecord>();
 
-            var properties = propertyFactory.Create(customerRecord).ToList();
+            var properties = propertyFactory.GetObjectProperties(customerRecord).ToList();
 
             Assert.Equal(6, properties.Count);
 

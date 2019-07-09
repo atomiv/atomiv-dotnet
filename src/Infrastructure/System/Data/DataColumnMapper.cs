@@ -7,19 +7,25 @@ using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.System.Data
 {
-    public class DataColumnFactory<TRecord> : IDataColumnFactory<TRecord>
+    public class DataColumnMapper<T> : IDataColumnMapper<T>
     {
-        public DataColumnFactory(IPropertyFactory<TRecord> propertyFactory)
+        public DataColumnMapper(IPropertyMapper<T> propertyFactory)
         {
             PropertyFactory = propertyFactory;
         }
 
-        public IPropertyFactory<TRecord> PropertyFactory { get; }
+        public IPropertyMapper<T> PropertyFactory { get; }
 
-        public IEnumerable<DataColumn> Create()
+        public IEnumerable<DataColumn> ToDataColumns()
         {
-            var properties = PropertyFactory.Create();
+            var properties = PropertyFactory.GetTypeProperties();
             return properties.Select(e => Create(e));
+        }
+
+        public DataColumn ToDataColumn<U>(Func<T, U> propertyGetter)
+        {
+            var property = PropertyFactory.GetTypeProperty(propertyGetter);
+            throw new NotImplementedException();
         }
 
         private DataColumn Create(ITypeProperty property)

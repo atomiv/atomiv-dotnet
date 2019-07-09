@@ -13,7 +13,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
         public JsonPlaceholderClientFixture()
         {
             var serializationService = new JsonSerializationService();
-            var propertyFactory = new PropertyFactory();
+            var propertyFactory = new PropertyMapper();
 
             var httpClient = new HttpClient()
             {

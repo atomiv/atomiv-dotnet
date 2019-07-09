@@ -29,7 +29,7 @@ namespace Optivem.Framework.Test.AspNetCore
             var webHostBuilder = WebHostBuilderFactory.Create<TStartup>(configurationRoot);
 
             var jsonSerializationService = new JsonSerializationService();
-            var propertyFactory = new PropertyFactory();
+            var propertyFactory = new PropertyMapper();
             Func<IClient, IControllerClientFactory> createControllerClientFactory = e => new JsonControllerClientFactory(e, jsonSerializationService, propertyFactory);
             return Create(configurationRoot, webHostBuilder, createControllerClientFactory);
         }

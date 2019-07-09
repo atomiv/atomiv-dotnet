@@ -10,7 +10,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class ControllerClient : IControllerClient
     {
-        public ControllerClient(IClient client, IObjectClient objectClient, IPropertyFactory propertyFactory, string controllerUri)
+        public ControllerClient(IClient client, IObjectClient objectClient, IPropertyMapper propertyFactory, string controllerUri)
         {
             Client = client;
             ObjectClient = objectClient;
@@ -22,7 +22,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public IObjectClient ObjectClient { get; private set; }
 
-        public IPropertyFactory PropertyFactory { get; private set; }
+        public IPropertyMapper PropertyFactory { get; private set; }
 
         public string ControllerUri { get; private set; }
 
@@ -232,7 +232,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         private string GetQueryString<TRequest>(TRequest request)
         {
-            var propertyValues = PropertyFactory.Create(request);
+            var propertyValues = PropertyFactory.GetObjectProperties(request);
 
             var queryParameters = propertyValues
                 .Where(e => e.Value != null)

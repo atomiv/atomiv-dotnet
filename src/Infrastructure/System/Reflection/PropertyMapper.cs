@@ -6,44 +6,54 @@ using System.Reflection;
 
 namespace Optivem.Framework.Infrastructure.System.Reflection
 {
-    public class PropertyFactory : IPropertyFactory
+    public class PropertyMapper : IPropertyMapper
     {
-        public IEnumerable<ITypeProperty> Create<TRecord>()
+        public IEnumerable<ITypeProperty> GetTypeProperties<TRecord>()
         {
-            var factory = new PropertyFactory<TRecord>();
-            return factory.Create();
+            var factory = new PropertyMapper<TRecord>();
+            return factory.GetTypeProperties();
         }
 
-        public IEnumerable<IObjectProperty> Create<TRecord>(TRecord record)
+        public IEnumerable<IObjectProperty> GetObjectProperties<TRecord>(TRecord record)
         {
-            var factory = new PropertyFactory<TRecord>();
-            return factory.Create(record);
+            var factory = new PropertyMapper<TRecord>();
+            return factory.GetObjectProperties(record);
         }
     }
 
-    public class PropertyFactory<TRecord> : IPropertyFactory<TRecord>
+    public class PropertyMapper<T> : IPropertyMapper<T>
     {
         private readonly Type _type;
         private readonly PropertyInfo[] _propertyInfos;
         private readonly List<ITypeProperty> _typeProperties;
         private readonly Dictionary<string, ITypeProperty> _typePropertyMap;
 
-        public PropertyFactory()
+        public PropertyMapper()
         {
-            _type = typeof(TRecord);
+            _type = typeof(T);
             _propertyInfos = _type.GetProperties();
             _typeProperties = _propertyInfos.Select(e => Create(e)).ToList();
             _typePropertyMap = _typeProperties.ToDictionary(e => e.Name, e => e);
         }
 
-        public IEnumerable<ITypeProperty> Create()
+        public ITypeProperty GetTypeProperty<U>(Func<T, U> propertyGetter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IObjectProperty GetObjectProperty<U>(Func<T, U> propertyGetter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ITypeProperty> GetTypeProperties()
         {
             return _typeProperties;
         }
 
-        public IEnumerable<IObjectProperty> Create(TRecord record)
+        public IEnumerable<IObjectProperty> GetObjectProperties(T obj)
         {
-            return _propertyInfos.Select(e => Create(e, record));
+            return _propertyInfos.Select(e => Create(e, obj));
         }
 
 
@@ -55,13 +65,15 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
             return new TypeProperty(name, type);
         }
 
-        private IObjectProperty Create(PropertyInfo propertyInfo, TRecord record)
+        private IObjectProperty Create(PropertyInfo propertyInfo, T obj)
         {
             var name = propertyInfo.Name;
             var typeProperty = _typePropertyMap[name];
-            var value = propertyInfo.GetValue(record, null);
+            var value = propertyInfo.GetValue(obj, null);
 
             return new ObjectProperty(typeProperty, value);
         }
+
+
     }
 }
