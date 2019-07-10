@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    public abstract class BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse> : IUseCase<TRequest, TResponse>
+    public abstract class UnitOfWorkUseCase<TUnitOfWork, TRepository, TRequest, TResponse> : IUseCase<TRequest, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IRepository
         where TRequest : IRequest
         where TResponse : IResponse
     {
-        public BaseUseCase(IUnitOfWork unitOfWork)
+        public UnitOfWorkUseCase(IUnitOfWork unitOfWork)
         {
             UnitOfWork = unitOfWork;
         }
@@ -24,13 +24,13 @@ namespace Optivem.Framework.Core.Application
         }
     }
 
-    public abstract class BaseUseCase<TRepository, TRequest, TResponse> 
-        : BaseUseCase<IUnitOfWork, TRepository, TRequest, TResponse>
+    public abstract class UnitOfWorkUseCase<TRepository, TRequest, TResponse> 
+        : UnitOfWorkUseCase<IUnitOfWork, TRepository, TRequest, TResponse>
         where TRepository : IRepository
         where TRequest : IRequest
         where TResponse : IResponse
     {
-        public BaseUseCase(IUnitOfWork unitOfWork) 
+        public UnitOfWorkUseCase(IUnitOfWork unitOfWork) 
             : base(unitOfWork)
         {
         }

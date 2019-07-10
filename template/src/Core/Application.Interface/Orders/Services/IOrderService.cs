@@ -1,24 +1,25 @@
 ﻿using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Services
 {
     public interface IOrderService
     {
-        ArchiveOrderResponse ArchiveOrder(ArchiveOrderRequest request);
+        Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request);
 
-        BrowseOrdersResponse BrowseOrders(BrowseOrdersRequest request);
+        Task<BrowseOrdersResponse> BrowseOrdersAsync(BrowseOrdersRequest request);
 
-        CancelOrderResponse CancelOrder(CancelOrderRequest request);
+        Task<CancelOrderResponse> CancelOrderAsync(CancelOrderRequest request);
 
-        CreateOrderResponse CreateOrder(CreateOrderRequest request);
+        Task<CreateOrderResponse> CreateOrderAsync(CreateOrderRequest request);
 
-        FindOrderResponse FindOrder(FindOrderRequest request);
+        Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request);
 
-        ListOrdersResponse ListOrders(ListOrdersRequest request);
+        Task<ListOrdersResponse> ListOrdersAsync(ListOrdersRequest request);
 
-        SubmitOrderResponse SubmitOrder(SubmitOrderRequest request);
+        Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request);
 
-        UpdateOrderResponse UpdateOrder(UpdateOrderRequest request);
+        Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request);
     }
 }

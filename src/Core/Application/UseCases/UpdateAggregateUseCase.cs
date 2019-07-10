@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Core.Application
 {
     public abstract class UpdateAggregateUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
-        : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
+        : UnitOfWorkUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
@@ -60,6 +60,7 @@ namespace Optivem.Framework.Core.Application
 
         protected abstract void Update(TAggregateRoot aggregateRoot, TRequest request);
     }
+
     public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UpdateAggregateUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>

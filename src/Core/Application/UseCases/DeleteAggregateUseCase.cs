@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Core.Application
 {
     public abstract class DeleteAggregateCase<TUnitOfWork, TRepository, TIdentityFactory, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
-        : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
+        : UnitOfWorkUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IExistAggregateRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRepository<TAggregateRoot, TIdentity>
         where TIdentityFactory : IIdentityFactory<TIdentity, TId>

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Core.Application
 {
     public abstract class CreateAggregateUseCase<TUnitOfWork, TResponseMapper, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
-        : BaseUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
+        : UnitOfWorkUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
         where TUnitOfWork : IUnitOfWork
         where TRepository : IAddAggregateRepository<TAggregateRoot, TIdentity>
         where TResponseMapper : IResponseMapper<TAggregateRoot, TResponse>
