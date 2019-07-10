@@ -9,7 +9,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson
     {
         public static IServiceCollection AddNewtonsoftJsonInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-            services.AddScoped<IJsonSerializationService, JsonSerializationService>();
+            services.AddScoped<IJsonSerializer, JsonSerializer>();
 
             return services;
         }

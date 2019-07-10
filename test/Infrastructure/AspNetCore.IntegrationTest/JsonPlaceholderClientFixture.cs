@@ -12,7 +12,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
     {
         public JsonPlaceholderClientFixture()
         {
-            var serializationService = new JsonSerializationService();
+            var serializer = new JsonSerializer();
             var propertyFactory = new PropertyMapper();
 
             var httpClient = new HttpClient()
@@ -22,7 +22,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             var client = new Client(httpClient);
 
-            var controllerClientFactory = new JsonControllerClientFactory(client, serializationService, propertyFactory);
+            var controllerClientFactory = new JsonControllerClientFactory(client, serializer, propertyFactory);
 
             JsonPlaceholderClient = new JsonPlaceholderClient(controllerClientFactory);
         }

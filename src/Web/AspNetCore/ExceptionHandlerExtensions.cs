@@ -28,7 +28,7 @@ namespace Optivem.Framework.Web.AspNetCore
                 {
                     try
                     {
-                        var jsonSerializationService = app.ApplicationServices.GetRequiredService<IJsonSerializationService>();
+                        var jsonSerializationService = app.ApplicationServices.GetRequiredService<IJsonSerializer>();
 
                         if (problemDetailsFactory == null)
                         {

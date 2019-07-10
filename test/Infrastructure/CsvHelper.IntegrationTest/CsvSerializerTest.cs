@@ -5,18 +5,18 @@ using Xunit;
 
 namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 {
-    public class CsvSerializationServiceTest
+    public class CsvSerializerTest
     {
         [Fact]
         public void TestSerializeGeneric()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var records = CreateRecords();
 
             var expected = CreateContent();
 
-            var actual = csvSerializationService.Serialize(records);
+            var actual = csvSerializer.Serialize(records);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -24,13 +24,13 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
         [Fact]
         public void TestSerializeTyped()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var records = CreateRecords();
 
             var expected = CreateContent();
 
-            var actual = csvSerializationService.Serialize(records, typeof(Customer));
+            var actual = csvSerializer.Serialize(records, typeof(Customer));
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -38,13 +38,13 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
         [Fact]
         public void TestSerializeEnumerable()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var records = CreateRecords();
 
             var expected = CreateContent();
 
-            var actual = csvSerializationService.SerializeEnumerable(records);
+            var actual = csvSerializer.SerializeEnumerable(records);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -52,13 +52,13 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
         [Fact]
         public void TestDeserializeGeneric()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var content = CreateContent();
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.Deserialize<List<Customer>>(content);
+            var actual = csvSerializer.Deserialize<List<Customer>>(content);
 
             AssertUtilities.AssertEqual(expected, actual);
         }
@@ -66,13 +66,13 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
         [Fact]
         public void TestDeserializeTyped()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var content = CreateContent();
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.Deserialize(content, typeof(List<Customer>));
+            var actual = csvSerializer.Deserialize(content, typeof(List<Customer>));
 
             AssertUtilities.AssertEqual(expected, actual);
 
@@ -82,13 +82,13 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
         [Fact]
         public void TestDeserializeEnumerable()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializer = new CsvSerializer();
 
             var content = CreateContent();
 
             var expected = CreateRecords();
 
-            var actual = csvSerializationService.DeserializeEnumerable<Customer>(content);
+            var actual = csvSerializer.DeserializeEnumerable<Customer>(content);
 
             AssertUtilities.AssertEqual(expected, actual);
 

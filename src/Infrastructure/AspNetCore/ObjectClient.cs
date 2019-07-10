@@ -10,23 +10,23 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
     {
         // TODO: Boolean if include problem details
 
-        public ObjectClient(IClient client, IFormatSerializationService serializationService, string acceptType, string contentType, Encoding encoding)
+        public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType, Encoding encoding)
         {
             Client = client;
-            SerializationService = serializationService;
+            Serializer = serializer;
             AcceptType = acceptType;
             ContentType = contentType;
             DefaultEncoding = encoding;
         }
 
-        public ObjectClient(IClient client, IFormatSerializationService serializationService, string acceptType, string contentType)
-            : this(client, serializationService, acceptType, contentType, Encoding.UTF8) { }
+        public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType)
+            : this(client, serializer, acceptType, contentType, Encoding.UTF8) { }
 
         // TODO: VC: Base uri, can be null or filled in, useful for controllers
 
         public IClient Client { get; private set; }
 
-        public IFormatSerializationService SerializationService { get; private set; }
+        public IFormatSerializer Serializer { get; private set; }
 
         public string AcceptType { get; private set; }
 
@@ -104,13 +104,13 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         private string Serialize<T>(T data)
         {
-            return SerializationService.Serialize(data);
+            return Serializer.Serialize(data);
         }
 
         private IObjectClientResponse<T> Deserialize<T>(IClientResponse response)
         {
             var contentString = response.ContentString;
-            var content = SerializationService.Deserialize<T>(contentString);
+            var content = Serializer.Deserialize<T>(contentString);
             var problemDetails = DeserializeProblemDetails(contentString);
             
             return new ObjectClientResponse<T>(response, content, problemDetails);
@@ -120,7 +120,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         {
             try
             {
-                return SerializationService.Deserialize<ProblemDetailsResponse>(contentString);
+                return Serializer.Deserialize<ProblemDetailsResponse>(contentString);
             }
             catch(Exception)
             {

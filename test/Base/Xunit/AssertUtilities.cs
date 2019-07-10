@@ -6,7 +6,7 @@ namespace Optivem.Framework.Test.Xunit
 {
     public static class AssertUtilities
     {
-        private static IJsonSerializationService Serializer = new JsonSerializationService();
+        private static IJsonSerializer Serializer = new JsonSerializer();
 
         public static void AssertEqual<T>(T expected, T actual)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Common.Serialization
 {
-    public interface IFormatSerializationService
+    public interface IFormatSerializer
     {
         string Serialize<T>(T data);
 

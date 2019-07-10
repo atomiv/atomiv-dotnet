@@ -1,7 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Common.Serialization
 {
-    public interface IParsingService
+    public interface ICsvSerializer : IFormatSerializer
     {
-        T Parse<T>(string value);
     }
 }

@@ -7,8 +7,8 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
     {
         private const string MediaType = "application/json";
 
-        public JsonClient(IClient client, IJsonSerializationService serializationService)
-            : base(client, serializationService, MediaType, MediaType)
+        public JsonClient(IClient client, IJsonSerializer serializer)
+            : base(client, serializer, MediaType, MediaType)
         {
         }
     }

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Infrastructure.NewtonsoftJson
 {
-    public class JsonSerializationService : IJsonSerializationService
+    public class JsonSerializer : IJsonSerializer
     {
         // TODO: VC: Consider JsonSerializer
         // private readonly JsonSerializer _serializer;
 
-        public JsonSerializationService()
+        public JsonSerializer()
         {
         }
 

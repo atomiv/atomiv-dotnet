@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.CsvHelper
 {
-    public class CsvSerializationService : ICsvSerializationService
+    public class CsvSerializer : ICsvSerializer
     {
         // TODO: VC: Constructor enable type-based specific serializers that override reflection mechanism
 

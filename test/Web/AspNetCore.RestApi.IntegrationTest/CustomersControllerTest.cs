@@ -59,7 +59,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest
         [Fact(Skip = "Fails on server, need to re-check")]
         public async Task TestGetExportsCsvAsync()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializationService = new CsvSerializer();
 
             var expectedDtos = new List<CustomerExportGetCollectionResponse>
             {
@@ -92,7 +92,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest
         [Fact(Skip = "Sometimes fails locally, need to re-check")]
         public async Task TestImportPostCsvAsync()
         {
-            var csvSerializationService = new CsvSerializationService();
+            var csvSerializationService = new CsvSerializer();
 
             var request = new List<CustomerImportCollectionPostRequest>
             {

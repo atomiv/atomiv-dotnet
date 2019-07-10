@@ -6,22 +6,22 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class JsonControllerClientFactory : IControllerClientFactory
     {
-        public JsonControllerClientFactory(IClient client, IJsonSerializationService serializationService, IPropertyMapper propertyFactory)
+        public JsonControllerClientFactory(IClient client, IJsonSerializer serializer, IPropertyMapper propertyFactory)
         {
             Client = client;
-            SerializationService = serializationService;
+            Serializer = serializer;
             PropertyFactory = propertyFactory;
         }
 
         public IClient Client { get; }
 
-        public IJsonSerializationService SerializationService { get; }
+        public IJsonSerializer Serializer { get; }
 
         public IPropertyMapper PropertyFactory { get; }
 
         public IControllerClient Create(string controllerUri)
         {
-            return new JsonControllerClient(Client, SerializationService, PropertyFactory, controllerUri);
+            return new JsonControllerClient(Client, Serializer, PropertyFactory, controllerUri);
         }
     }
 }

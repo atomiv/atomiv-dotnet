@@ -6,7 +6,7 @@ namespace Optivem.Framework.Web.AspNetCore
 {
     public static class HttpResponseExtensions
     {
-        public static Task WriteJsonAsync<T>(this HttpResponse response, T data, IJsonSerializationService jsonSerializationService)
+        public static Task WriteJsonAsync<T>(this HttpResponse response, T data, IJsonSerializer jsonSerializationService)
         {
             var json = jsonSerializationService.Serialize(data);
 

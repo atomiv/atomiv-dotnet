@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Common.Serialization
 {
-    public enum SerializationFormatType
+    public enum FormatType
     {
         None = 0,
         Json = 1,

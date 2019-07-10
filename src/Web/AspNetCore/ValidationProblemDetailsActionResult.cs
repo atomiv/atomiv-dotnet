@@ -7,10 +7,10 @@ namespace Optivem.Framework.Web.AspNetCore
     public class ValidationProblemDetailsActionResult : IActionResult
     {
         private IActionContextProblemDetailsFactory<ValidationProblemDetails> _factory;
-        private IJsonSerializationService _jsonSerializationService;
+        private IJsonSerializer _jsonSerializationService;
 
         public ValidationProblemDetailsActionResult(IActionContextProblemDetailsFactory<ValidationProblemDetails> factory,
-            IJsonSerializationService jsonSerializationService)
+            IJsonSerializer jsonSerializationService)
         {
             _factory = factory;
             _jsonSerializationService = jsonSerializationService;

@@ -6,8 +6,8 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class JsonControllerClient : ControllerClient
     {
-        public JsonControllerClient(IClient client, IJsonSerializationService serializationService, IPropertyMapper propertyFactory, string controllerPath)
-            : base(client, new JsonClient(client, serializationService), propertyFactory, controllerPath)
+        public JsonControllerClient(IClient client, IJsonSerializer serializer, IPropertyMapper propertyFactory, string controllerPath)
+            : base(client, new JsonClient(client, serializer), propertyFactory, controllerPath)
         {
         }
     }

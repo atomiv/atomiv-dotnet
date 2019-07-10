@@ -27,7 +27,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICsvSerializationService, CsvSerializationService>();
+            services.AddSingleton<ICsvSerializer, CsvSerializer>();
 
             services.AddAutoMapper(Assembly.GetAssembly(typeof(CustomerGetAllResponseProfile)));
 
@@ -38,7 +38,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake
             services
                 .AddMvc(options =>
                 {
-                    ICsvSerializationService csvSerializationService = new CsvSerializationService();
+                    ICsvSerializer csvSerializationService = new CsvSerializer();
 
                     // TODO: VC: Consider using from resolver...
                     options.InputFormatters.Add(new CsvInputFormatter(csvSerializationService));
@@ -47,7 +47,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
-            var jsonSerializationService = new JsonSerializationService();
+            var jsonSerializationService = new JsonSerializer();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {

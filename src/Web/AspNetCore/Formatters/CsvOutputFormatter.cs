@@ -12,9 +12,9 @@ namespace Optivem.Framework.Web.AspNetCore
     {
         private const string MediaType = "text/csv";
 
-        private readonly ICsvSerializationService _csvSerializationService;
+        private readonly ICsvSerializer _csvSerializationService;
 
-        public CsvOutputFormatter(ICsvSerializationService csvSerializationService)
+        public CsvOutputFormatter(ICsvSerializer csvSerializationService)
         {
             _csvSerializationService = csvSerializationService;
 
