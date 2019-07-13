@@ -38,6 +38,19 @@ $projects = @(
     'src\Core\Common\Optivem.Framework.Core.Common.csproj',
     'src\Core\Domain\Optivem.Framework.Core.Domain.csproj',
 	
+	# ### ============================== INFRASTRUCTURE ============================== ###
+	
+    'src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj',
+    'src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj',
+    'src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj',
+    'src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj',
+    # 'src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj',
+    'src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj',
+    'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
+    'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
+    'src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj',
+    'src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj',
+	
 	# ### ============================== DEPENDENCY INJECTION ============================== ###
 	
 	# Base
@@ -59,18 +72,6 @@ $projects = @(
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',	
     # 'src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj',	
 
-	# ### ============================== INFRASTRUCTURE ============================== ###
-	
-    'src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj',
-    'src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj',
-    'src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj',
-    'src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj',
-    # 'src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj',
-    'src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj',
-    'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
-    'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
-    'src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj',
-    'src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj',
 
 	# ### ============================== WEB ============================== ###
 
