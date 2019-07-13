@@ -7,84 +7,16 @@ Welcome to the Optivem Framework! The Optivem Framework was created to help you 
 
 ## Table of Contents
 
-[Introduction](#introduction):
-* [A story from the trenches](#story)
-* [What is the Optivem Framework?](#what)
-* [Why should I use the Optivem Framework?](#why)
-
-
-[Getting Started](#getting-started):
-* [Installation](#installation)
-* [Create your first project](#first-project)
-* [Real-life sample projects](#sample-projects)
-
-[Technical Reference](#technical-reference):
-
-* [Architecture](#architecture)
-* [Core Packages](#core-packages)
-* [Infrastructure Packages](#infrastructure-packages)
-* [Dependency Injection Packages](#dependency-injection-packages)
-* [Web Packages](#web-packages)
-* [Test Packages](#test-packages)
-
-[Further Information](#further-information)
+* [Introduction](#introduction)
+* [Getting Started](#getting-started)
+* [Technical Reference](#technical-reference)
 * [Getting support](#support)
-* [MIT License](#license)
+* [License](#license)
 
 <a name="introduction" />
 ## Introduction
 
-<a name="story" />
-### A story from the trenches
-At first, copy-paste is fine - it is faster in the short run. For example, let's say we started with some utility class for parsing text files. At first, it was all "simple", it was just reading a set of lines from the text file. This was developed in Project A. Then, Project B came along, where there was also the requirement for reading text files, so naturally the developer in Project B copied the code base from Project A. However, due to different requirements, parsing text files in Project B was a bit more complex, needed to handle different date formats depending on location settings, so the developer had to adapt the code. Then Project C came up, and there was also a requirement for reading from text files, but with the additional requirement that headers needed to be adjusted. 
-
-Then a bug was found affecting base parsing functionality, and so then in all the projects A, B, C developers had to manually fix the bug. Afterwards, Project D came up and it had some requirements like Project A and some requirements like Project C, so then the developer copied some parts from Project A, some parts from Project C, and combined it together. Furthermore, some newcomers joined the team and when they had to implement text parsing, the other team members told them what was implemented on one project, was was on another, so the developers often had to search through multiple projects.
-
-Now we see that, as the number of project grows and as the codebase grows, that the copy-paste solution is not really maintainable. Reasons are because when creating new projects, develoeprs have to search for older projects to copy the code from, and when bugs are found, it needs to be solved multiple times. This increases overall development cost, introduces risk and decreases quality. So with this in mind, it introduces the need for shared code, to ensure that common components are re-usable. However, at another level, we want not only to re-use components but also to re-use architecture. This means, setting up a standardized project architecture which relies on these standardized re-usable components.
-
-Customer projects always higher priority, then Joe came across the Optivem Framework.
-
-<a name="what" />
-### What is the Optivem Framework?
-
-
-
-<a name="why" />
-### Why should I use the Optivem Framework?
-
-As teams and projects grow over time, a common situation that occurs is that code has to be copy pasted between projects. Examples include:
-* When creating a new project, frequently the structure is based on the structure of previous projects, e.g. for every new project, developers need to setup Repository, Service, Web projects.
-* There are some common utilities that may be needed between projects, e.g. utility methods for working with text, working with files, working with dates, etc.
-* Other common elements, such as base repository classes, logging, validation may also be copied because it's needed across many projects
-
-Welcome to the Optivem Framework for .NET Core 2.2, which is designed to solve the problems above:
-1. At the lower level, it provides re-usable components
-2. At the higher level, it provides guidelines for project architecture
-3. Enables you to focus on your projects and products, deliver features faster to customers with high quality
-
-
-
-
-<a name="getting-started" />
-## Getting Started
-
-<a name="installation" />
-### Installation 
-
-<a name="first-project" />
-### Create your first project 
-
-<a name="sample-projects" />
-### Real-life sample projects
-
-
-
-
-<a name="technical-reference" />
-## Technical Reference
-
-<a name="architecture" />
-### Architecture
+Optivem Framework was created to accelerate the development of enterprise applications, so that you can quickly create new projects for your customers.
 
 The Optivem Framework is founded upon Clean Architecture principles and supports:
 * Modularity & re-usability
@@ -92,17 +24,91 @@ The Optivem Framework is founded upon Clean Architecture principles and supports
 * Maintainability & testibility
 * Scalability and portability
 
-The Optivem Framework consists of the following:
-* Core (contains the Application Layer and the Domain Layer implementations)
-* Infrastructure (contains implementation of infrastructure to support the Core)
-* Web (contains the web presentation layer)
-* Test (contains base classes for testing)
+The architecture consists of the following layers:
+* Core Layer (contains Domain and Application)
+* Infrastructure Layer (contains third-party libraries and frameworks, integration with external systems)
+* Dependency Injection Layer (used to setup the compostion root)
+* Web Layer (contains the REST API and presentation)
+* Test Layer (contains Unit, Integration and System tests)
 
-NuGet packages are split by the architectural layer:
-* [Core Packages](#core-packages)
-* [Infrastructure Packages](#infrastructure-packages)
-* [Web Packages](#web-packages)
-* [Test Packages](#test-packages)
+<a name="getting-started" />
+
+## Getting started
+
+We are using Visual Studio 2019 and .NET Core 2.2.
+
+
+<a name="installation" />
+### Installation
+
+To install the Optivem Template:
+1. Run Visual Studio
+2. Open the Package Manager Console (Visual Studio main menu: Tools > NuGet Package Manager > Package Manager Console)
+3. Run the following command inside the Package Manager Console
+
+```ps
+PM> dotnet new -i Optivem.Template
+```
+
+4. In the future, you can run this same command to get updated versions of the template
+
+<a name="create-new-project" />
+### Create a new project
+
+To create a new project:
+1. Run Visual Studio
+2. Open the Package Manager Console (Visual Studio main menu: Tools > NuGet Package Manager > Package Manager Console)
+3. Create the directory for your new project, for example: 
+
+```ps
+PM> mkdir C:\Users\Valentina.Cupac\source\repos\MyWebShop
+```
+
+4. Go inside the new directory:
+
+```ps
+PM> cd C:\Users\Valentina.Cupac\source\repos\MyWebShop
+```
+5. Create the Visual Studio Solution based on the Optivem Template:
+
+```ps
+PM> dotnet new optivem
+```
+
+6. Open the solution (Visual Studio main menu: File > Open Project/Solution, selecting the folder and inside it the solution MyWebShop.sln)
+
+7. Rebuild the solution
+
+8. Set MyWebShop.Web.RestApi as the StartUp project
+
+9. Inside MyWebShop.Web.RestApi, open up the file appsettings.Development.json, you can adjust the DefaultConnection to the location where the database should be created
+
+10. Inside the Package Manager Console, run the command to create the database:
+
+```ps
+PM> Update-Database
+```
+
+<!-- TODO: VC: Handle the warnings that appear -->
+
+11. Run the application
+
+12. Browser opens up https://localhost:44315/api/values
+
+12. Go to the Swagger page https://localhost:44315/swagger/index.html where you can execute any API calls
+
+13. Stop Debugging
+
+14. Open up the Test Explorer (Visual Studio main menu: Test > Windows > Test Explorer)
+
+15. Rebuild the solution to discover all the tests
+
+15. Click on "Run All" inside the Test Explorer (all tests should pass)
+
+
+
+<a name="technical-reference" />
+## Technical Reference
 
 <a name="core-packages" />
 ### Core Packages
@@ -166,16 +172,14 @@ NuGet packages are split by the architectural layer:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Test.Selenium.svg)](https://www.nuget.org/packages/Optivem.Framework.Test.Selenium) Optivem.Framework.Test.Selenium
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.Test.Xunit.svg)](https://www.nuget.org/packages/Optivem.Framework.Test.Xunit) Optivem.Framework.Test.Xunit
 
-<a name="further-information" />
-## Further Information
 
 <a name="support" />
-### Getting support
+## Getting support
 
 To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/framework-dotnetcore/issues](https://github.com/optivem/framework-dotnetcore/issues).
 
 <a name="license" />
-### MIT License
+## License
 
 Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php). This means you're free to use it for commercial and non-commercial purposes.
 
