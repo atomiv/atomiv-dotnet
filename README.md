@@ -136,7 +136,6 @@ NuGet packages are split by the architectural layer:
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Core.Domain.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Core.Domain) Optivem.Framework.DependencyInjection.Core.Domain
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Core.Application.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Core.Application) Optivem.Framework.DependencyInjection.Core.Application
 
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore) Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper) Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore) Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation.svg)](https://www.nuget.org/packages/Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation) Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation
@@ -145,6 +144,7 @@ NuGet packages are split by the architectural layer:
 
 
     <!-- 
+	Infrastructure.AspNetCore
 	'src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Framework.DependencyInjection.Infrastructure.CsvHelper.csproj',		
     # 'src\DependencyInjection\Infrastructure\EPPlus\Optivem.Framework.DependencyInjection.Infrastructure.EPPlus.csproj',
     # 'src\DependencyInjection\Infrastructure\Selenium\Optivem.Framework.DependencyInjection.Infrastructure.Selenium.csproj',		
