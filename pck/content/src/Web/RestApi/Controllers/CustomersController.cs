@@ -43,10 +43,8 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
             var response = await Service.CreateCustomerAsync(request);
-            return CreatedAtRoute("find-customer", new { id = response.Id }, response); ;
+            return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
-
-        // TODO: VC: Global at request validation, not found, so that we don't have if statements here
 
         [HttpPut("{id}", Name = "update-customer")]
         [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]

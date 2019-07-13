@@ -15,7 +15,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         {
         }
 
-        // TODO: VC: Common factory, optional, unless reflection
+        // TODO: VC: Common factory, optional, unless reflection --> i.e. virtual
         protected override CustomerIdentity GetIdentity(int id)
         {
             // TODO: VC: Do this via reflection

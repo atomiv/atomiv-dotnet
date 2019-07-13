@@ -2,7 +2,8 @@
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class CancelOrderRequest : IRequest
+    public class CancelOrderRequest : IRequest<int>
     {
+        public int Id { get; set; }
     }
 }

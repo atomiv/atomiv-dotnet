@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Customers.ValueObjects;
 using Optivem.Template.Core.Domain.Orders.ValueObjects;
+using System;
 using System.Collections.ObjectModel;
 
 namespace Optivem.Template.Core.Domain.Orders.Entities
@@ -22,5 +23,20 @@ namespace Optivem.Template.Core.Domain.Orders.Entities
         public OrderStatus Status { get; }
 
         public ReadOnlyCollection<OrderDetail> OrderDetails { get; }
+
+        public void Archive()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Submit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Cancel()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

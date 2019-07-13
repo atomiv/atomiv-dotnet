@@ -2,7 +2,8 @@
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class FindOrderRequest : IRequest
+    public class FindOrderRequest : IRequest<int>
     {
+        public int Id { get; set; }
     }
 }

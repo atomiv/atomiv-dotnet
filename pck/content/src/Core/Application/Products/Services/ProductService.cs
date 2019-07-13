@@ -21,12 +21,12 @@ namespace Optivem.Template.Core.Application.Products.Services
 
         public Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
         public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<FindProductRequest, FindProductResponse>(request);
         }
 
         public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
@@ -36,17 +36,17 @@ namespace Optivem.Template.Core.Application.Products.Services
 
         public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
         public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
         public Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request)
         {
-            throw new NotImplementedException();
+            return HandleAsync<UpdateProductRequest, UpdateProductResponse>(request);
         }
     }
 }
