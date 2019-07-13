@@ -24,8 +24,6 @@ namespace Optivem.Framework.Core.Application
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
-            // TODO: VC: Later handling use case with pagination, need corresponding dto and also result not just list
-
             var aggregateRoots = await Repository.GetAsync(request.Page, request.Size);
 
             return ResponseMapper.Map(aggregateRoots);

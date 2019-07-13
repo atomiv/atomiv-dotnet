@@ -30,7 +30,5 @@
         {
             return Id.GetHashCode();
         }
-
-        // TODO: VC: Override == && != operators, also comparability
     }
 }

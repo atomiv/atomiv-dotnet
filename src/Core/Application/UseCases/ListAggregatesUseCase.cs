@@ -4,10 +4,6 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    // TODO: VC: Make optimized version for retriving all
-
-    // TODO: Move response mapper to base
-
     public class ListAggregatesUseCase<TResponseMapper, TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
         : RepositoryUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
@@ -28,8 +24,6 @@ namespace Optivem.Framework.Core.Application
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
-            // TODO: VC: Later handling use case with pagination, need corresponding dto and also result not just list
-
             var aggregateRoots = await Repository.GetAsync();
 
             return ResponseMapper.Map(aggregateRoots);

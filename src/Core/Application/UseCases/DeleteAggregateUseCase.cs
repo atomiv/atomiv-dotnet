@@ -34,8 +34,6 @@ namespace Optivem.Framework.Core.Application
                 throw new NotFoundRequestException();
             }
 
-            // TODO: VC: Should delete check if exists?
-
             repository.Delete(identity);
 
             await UnitOfWork.SaveChangesAsync();

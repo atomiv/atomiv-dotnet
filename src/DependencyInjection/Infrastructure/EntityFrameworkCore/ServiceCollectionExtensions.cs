@@ -11,8 +11,6 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
 {
     public static class ServiceCollectionExtensions
     {
-        // TODO: VC: Find unit of work from assembly, also try to find context?
-
         private static Type UnitOfWorkType = typeof(IUnitOfWork);
 
         public static IServiceCollection AddEntityFrameworkCoreInfrastructure<TDbContext>(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction = null, params Assembly[] assemblies)

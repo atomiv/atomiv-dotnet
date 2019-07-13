@@ -6,12 +6,8 @@ using System.Reflection;
 
 namespace Optivem.Framework.DependencyInjection.Common
 {
-    // TODO: VC: Strong checking that for each interface defined, that implementaiton exists, e.g. IProductService must have ProductService implementation
-
     public static class ServiceCollectionExtensions
     {
-        // TODO: VC: Offer parameter lifetime type
-
         public static IServiceCollection AddScopedOpenType(this IServiceCollection services, Type openServiceType, IEnumerable<Type> implementationTypes)
         {
             var openServiceTypeName = openServiceType.Name;

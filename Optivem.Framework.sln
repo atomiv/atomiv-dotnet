@@ -165,11 +165,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Micr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.System.IntegrationTest", "test\Infrastructure\System.IntegrationTest\Optivem.Framework.Infrastructure.System.IntegrationTest.csproj", "{B83BC756-3B9D-4C28-98F0-89757A696229}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Framework.DependencyInjection.Infrastructure.EPPlus", "src\DependencyInjection\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.DependencyInjection.Infrastructure.EPPlus.csproj", "{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.EPPlus", "src\DependencyInjection\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.DependencyInjection.Infrastructure.EPPlus.csproj", "{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Framework.Infrastructure.EPPlus.IntegrationTest", "test\Infrastructure\Infrastructure.EPPlus.IntegrationTest\Optivem.Framework.Infrastructure.EPPlus.IntegrationTest.csproj", "{8635DD4F-E619-454E-9830-7C236A73DA85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus.IntegrationTest", "test\Infrastructure\Infrastructure.EPPlus.IntegrationTest\Optivem.Framework.Infrastructure.EPPlus.IntegrationTest.csproj", "{8635DD4F-E619-454E-9830-7C236A73DA85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

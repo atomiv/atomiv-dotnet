@@ -32,9 +32,6 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
 
         private static IServiceCollection AddRepositories(this IServiceCollection services, IEnumerable<Type> types)
         {
-            // TODO: VC: Consider early detecting, and for each child interface type expect exactly ONE implementation
-            // var interfaceTypes = types.GetChildInterfaceTypes(RepositoryType);
-
             var implementationTypes = types.GetConcreteImplementationsOfInterface(RepositoryType);
             services.AddScopedMarkedTypes(RepositoryType, implementationTypes);
 

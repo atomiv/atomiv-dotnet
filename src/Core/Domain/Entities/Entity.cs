@@ -2,8 +2,6 @@
 
 namespace Optivem.Framework.Core.Domain
 {
-    // TODO: VC: Handling undefined / unset identity, in that case should not be equal
-
     public class Entity<TIdentity> : IEntity<TIdentity>
         where TIdentity : IIdentity
     {

@@ -47,12 +47,17 @@ $projects = @(
     'src\DependencyInjection\Core\Application\Optivem.Framework.DependencyInjection.Core.Application.csproj',	
     'src\DependencyInjection\Core\Domain\Optivem.Framework.DependencyInjection.Core.Domain.csproj',	
 	
-	# Infrastructure	
+	# Infrastructure
+	# 'src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Framework.DependencyInjection.Infrastructure.AspNetCore.csproj',	
     'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper.csproj',	
-    'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',	
+    # 'src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Framework.DependencyInjection.Infrastructure.CsvHelper.csproj',	
+    'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',
+    # 'src\DependencyInjection\Infrastructure\EPPlus\Optivem.Framework.DependencyInjection.Infrastructure.EPPlus.csproj',
     'src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation.csproj',	
     'src\DependencyInjection\Infrastructure\MediatR\Optivem.Framework.DependencyInjection.Infrastructure.MediatR.csproj',	
+    # 'src\DependencyInjection\Infrastructure\Selenium\Optivem.Framework.DependencyInjection.Infrastructure.Selenium.csproj',	
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',	
+    # 'src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj',	
 
 	# ### ============================== INFRASTRUCTURE ============================== ###
 	
@@ -60,6 +65,7 @@ $projects = @(
     'src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj',
     'src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj',
     'src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj',
+    # 'src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj',
     'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
     'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
@@ -73,11 +79,11 @@ $projects = @(
 	# ### ============================== TEST ============================== ###
 
 	'test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj',
-	'test\Base\Common\Optivem.Framework.Test.Common.csproj',
-	'test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj',	
+	'test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj',
+	'test\Base\FluentAssertions\Optivem.Framework.Test.FluentAssertions.csproj',
+	'test\Base\MicrosoftExtensions\Optivem.Framework.Test.MicrosoftExtensions.csproj',
     'test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj'	
     'test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj'
-
 )
 
 # TODO: VC: Update all project files to the new version
