@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Optivem.Template.UI.Services;
+using Optivem.Template.UI.Services.Fake;
+using Optivem.Template.UI.Services.Interfaces;
 
 namespace Optivem.Template.UI
 {
@@ -33,6 +36,12 @@ namespace Optivem.Template.UI
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // TODO: VC: These could be auto-loaded via dependency injection for razor perhaps
+            // services.AddScoped<IControllerClient>
+            // services.AddScoped<ICustomerService, CustomerService>();
+
+            services.AddScoped<ICustomerService, FakeCustomerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,7 +6,8 @@ namespace Optivem.Framework.Core.Common.Http
     {
         Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri);
 
-        Task<IClientResponse> GetAsync(string uri);
+        // TODO: VC: DELETE this + impl
+        // Task<IClientResponse> GetAsync(string uri);
 
         Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request);
 
@@ -18,6 +19,7 @@ namespace Optivem.Framework.Core.Common.Http
 
         Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri);
 
-        Task<IClientResponse> DeleteAsync(string uri);
+        // TODO: VC: DELETE this + impl
+        // Task<IClientResponse> DeleteAsync(string uri);
     }
 }

@@ -12,4 +12,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Core\Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+  </ItemGroup>
+
 </Project>

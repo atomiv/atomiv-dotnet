@@ -42,7 +42,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IClientResponse> GetAsync()
         {
             var relativeUri = GetRelativeByPath();
-            return ObjectClient.GetAsync(relativeUri);
+            return Client.GetAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
@@ -54,7 +54,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IClientResponse> GetAsync(string uri)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return ObjectClient.GetAsync(relativeUri);
+            return Client.GetAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id)
@@ -66,7 +66,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IClientResponse> GetByIdAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
-            return ObjectClient.GetAsync(relativeUri);
+            return Client.GetAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -130,7 +130,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IClientResponse> DeleteAsync(string uri)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return ObjectClient.DeleteAsync(relativeUri);
+            return Client.DeleteAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id)
@@ -142,7 +142,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public Task<IClientResponse> DeleteByIdAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
-            return ObjectClient.DeleteAsync(relativeUri);
+            return Client.DeleteAsync(relativeUri);
         }
 
         public Task<IClientResponse> GetAsync(string uri, string acceptType)
