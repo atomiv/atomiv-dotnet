@@ -1,21 +1,18 @@
-﻿using Optivem.Framework.Core.Common.Http;
+﻿using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Application.Customers.Services;
-using Optivem.Template.Web.RestClient.Http.Interface;
-using System;
+using Optivem.Template.Web.RestClient.Interface;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : BaseHttpService<ICustomerHttpService>, ICustomerService
     {
-        public CustomerService(IHttpCustomerService service)
+        public CustomerService(ICustomerHttpService service)
+            : base(service)
         {
-            Service = service;
         }
-
-        public IHttpCustomerService Service { get; }
 
         public Task<BrowseCustomersResponse> BrowseCustomersAsync(BrowseCustomersRequest request)
         {
@@ -48,17 +45,5 @@ namespace Optivem.Template.Web.RestClient
         }
 
         // TODO: VC: Create base HttpService class with this method and with holding the service, also for DI
-
-        protected async Task<TResponse> ExecuteAsync<TResponse>(Func<IHttpCustomerService, Task<IObjectClientResponse<TResponse>>> action)
-        {
-            var response = await action(Service);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new ErrorException(response);
-            }
-
-            return response.Data;
-        }
     }
 }

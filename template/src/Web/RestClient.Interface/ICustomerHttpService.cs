@@ -1,14 +1,11 @@
 ﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.RestClient.Http.Interface
+namespace Optivem.Template.Web.RestClient.Interface
 {
-    public interface IHttpCustomerService
+    public interface ICustomerHttpService : IHttpService
     {
         Task<IObjectClientResponse<BrowseCustomersResponse>> BrowseCustomersAsync(BrowseCustomersRequest request);
 

@@ -2,13 +2,14 @@
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
+using Optivem.Template.Web.RestClient.Interface;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures.Clients
+namespace Optivem.Template.Web.RestClient.Http
 {
-    public class ProductsControllerClient : BaseControllerClient
+    public class ProductHttpService : BaseControllerClient, IProductHttpService
     {
-        public ProductsControllerClient(IControllerClientFactory clientFactory)
+        public ProductHttpService(IControllerClientFactory clientFactory) 
             : base(clientFactory, "api/products")
         {
         }
@@ -23,12 +24,13 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures.Clients
             return Client.PostAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(int id)
+        public Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(FindProductRequest request)
         {
+            var id = request.Id;
             return Client.GetByIdAsync<int, FindProductResponse>(id);
         }
 
-        public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync()
+        public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductsRequest request)
         {
             return Client.GetAsync<ListProductsResponse>("list");
         }

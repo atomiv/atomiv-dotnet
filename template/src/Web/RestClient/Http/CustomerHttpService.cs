@@ -2,17 +2,15 @@
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Web.RestClient.Http.Interface;
+using Optivem.Template.Web.RestClient.Interface;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Http
 {
-    public class HttpCustomerService : BaseControllerClient, IHttpCustomerService
+    public class CustomerHttpService : BaseControllerClient, ICustomerHttpService
     {
-        public HttpCustomerService(IControllerClientFactory clientFactory)
+        public CustomerHttpService(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/customers")
         {
         }

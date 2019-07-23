@@ -1,9 +1,6 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Pages;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Impl.Pages
 {

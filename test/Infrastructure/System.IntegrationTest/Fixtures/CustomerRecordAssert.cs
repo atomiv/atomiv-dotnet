@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures

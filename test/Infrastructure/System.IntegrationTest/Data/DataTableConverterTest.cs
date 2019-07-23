@@ -3,8 +3,6 @@ using Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures;
 using Optivem.Framework.Infrastructure.System.Reflection;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data

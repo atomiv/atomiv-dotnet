@@ -1,12 +1,8 @@
-﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Web.AspNetCore;
-using Optivem.Framework.Web.AspNetCore.RazorPages;
-using Optivem.Template.Core.Application.Customers.Requests;
+﻿using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Web.UI.Clients;
 using Optivem.Template.Web.UI.Models;
 using Optivem.Template.Web.UI.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

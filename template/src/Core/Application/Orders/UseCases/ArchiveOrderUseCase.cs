@@ -5,10 +5,6 @@ using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders.Entities;
 using Optivem.Template.Core.Domain.Orders.Repositories;
 using Optivem.Template.Core.Domain.Orders.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {

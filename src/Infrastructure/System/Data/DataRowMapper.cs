@@ -1,9 +1,7 @@
 ﻿using Optivem.Framework.Core.Common.Data;
 using Optivem.Framework.Core.Common.Reflection;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.System.Data
 {
