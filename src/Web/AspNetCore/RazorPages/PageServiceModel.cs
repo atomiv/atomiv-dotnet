@@ -2,9 +2,9 @@
 
 namespace Optivem.Framework.Web.AspNetCore.RazorPages
 {
-    public class ServicePageModel<T> : PageModel
+    public class PageServiceModel<T> : PageModel where T : IPageService
     {
-        public ServicePageModel(T service)
+        public PageServiceModel(T service)
         {
             Service = service;
         }

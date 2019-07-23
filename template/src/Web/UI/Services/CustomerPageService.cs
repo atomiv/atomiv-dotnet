@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Application.Customers.Requests;
+﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
+using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Application.Customers.Services;
 using Optivem.Template.Web.UI.Models;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.Services
 {
-    public class CustomerViewService : BaseViewService<ICustomerService>, ICustomerViewService
+    public class CustomerPageService : PageService<ICustomerService>, ICustomerPageService
     {
-        public CustomerViewService(ICustomerService service)
+        public CustomerPageService(ICustomerService service)
             : base(service)
         {
 

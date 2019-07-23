@@ -35,7 +35,7 @@ namespace Optivem.Template.Web.UI
             // services.AddScoped<IControllerClient>
             // services.AddScoped<ICustomerService, CustomerService>();
 
-            services.AddScoped<ICustomerViewService, FakeCustomerViewService>();
+            services.AddScoped<ICustomerPageService, FakeCustomerPageService>();
 
             // TODO: VC: Global handling of ErrorException, showing popup to user or redirecting to error page
         }
