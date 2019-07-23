@@ -5,9 +5,9 @@ using Optivem.Template.Web.UI.Services.Interfaces;
 
 namespace Optivem.Template.Web.UI.Pages.Customers
 {
-    public class IndexModel : ServicePageModel<ICustomerService>
+    public class IndexModel : ServicePageModel<ICustomerViewService>
     {
-        public IndexModel(ICustomerService service) : base(service)
+        public IndexModel(ICustomerViewService service) : base(service)
         {
         }
 

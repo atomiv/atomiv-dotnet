@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.Services.Interfaces
 {
-    public interface ICustomerService
+    public interface ICustomerViewService
     {
         Task<IList<Customer>> ListCustomers();
     }

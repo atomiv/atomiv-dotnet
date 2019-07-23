@@ -1,6 +1,6 @@
 ﻿using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Web.UI.Clients;
+using Optivem.Template.Core.Application.Customers.Services;
 using Optivem.Template.Web.UI.Models;
 using Optivem.Template.Web.UI.Services.Interfaces;
 using System.Collections.Generic;
@@ -9,33 +9,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.Services
 {
-    public class CustomerService : BaseService, ICustomerService
+    public class CustomerViewService : BaseViewService<ICustomerService>, ICustomerViewService
     {
-        public CustomerService(Client client)
-            : base(client)
+        public CustomerViewService(ICustomerService service)
+            : base(service)
         {
 
         }
 
         public async Task<IList<Customer>> ListCustomers()
         {
-            var response = await Client.Customers.ListCustomers(new ListCustomersRequest());
+            var request = new ListCustomersRequest();
+            var response = await Service.ListCustomersAsync(request);
 
             return response.Records.Select(Get).ToList();
-
-            /*
-
-            var response = await ClientFactory.GetAsync<List<Customer>>();
-
-            // TODO: VC: View model between
-
-            if(!response.IsSuccessStatusCode)
-            {
-                throw new Exception("Failed status code from REST API");
-            }
-
-            return response.Data;
-            */
         }
 
         private Customer Get(ListCustomersRecordResponse record)

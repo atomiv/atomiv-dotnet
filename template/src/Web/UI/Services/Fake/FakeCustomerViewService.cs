@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.Services.Fake
 {
-    public class FakeCustomerService : ICustomerService
+    public class FakeCustomerViewService : ICustomerViewService
     {
         public Task<IList<Customer>> ListCustomers()
         {

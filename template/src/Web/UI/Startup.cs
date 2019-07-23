@@ -35,7 +35,9 @@ namespace Optivem.Template.Web.UI
             // services.AddScoped<IControllerClient>
             // services.AddScoped<ICustomerService, CustomerService>();
 
-            services.AddScoped<ICustomerService, FakeCustomerService>();
+            services.AddScoped<ICustomerViewService, FakeCustomerViewService>();
+
+            // TODO: VC: Global handling of ErrorException, showing popup to user or redirecting to error page
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

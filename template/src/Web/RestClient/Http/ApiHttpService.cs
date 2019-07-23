@@ -1,9 +1,6 @@
 ﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Web.RestClient.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Web.RestClient.Http
 {
