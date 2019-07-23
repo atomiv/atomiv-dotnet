@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Optivem.Template.UI.Pages
+namespace Optivem.Template.Web.UI.Pages
 {
     public class PrivacyModel : PageModel
     {

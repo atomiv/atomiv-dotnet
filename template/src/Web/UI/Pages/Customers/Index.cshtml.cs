@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Optivem.Framework.Web.AspNetCore.RazorPages;
-using Optivem.Template.UI.Models;
-using Optivem.Template.UI.Services;
-using Optivem.Template.UI.Services.Interfaces;
+using Optivem.Template.Web.UI.Models;
+using Optivem.Template.Web.UI.Services;
+using Optivem.Template.Web.UI.Services.Interfaces;
 
-namespace Optivem.Template.UI.Pages.Customers
+namespace Optivem.Template.Web.UI.Pages.Customers
 {
     public class IndexModel : ServicePageModel<ICustomerService>
     {

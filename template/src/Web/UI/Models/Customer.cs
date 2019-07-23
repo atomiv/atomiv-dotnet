@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.UI.Models
+namespace Optivem.Template.Web.UI.Models
 {
     public class Customer
     {

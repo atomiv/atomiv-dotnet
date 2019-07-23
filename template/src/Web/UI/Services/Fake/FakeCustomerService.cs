@@ -1,11 +1,11 @@
-﻿using Optivem.Template.UI.Models;
-using Optivem.Template.UI.Services.Interfaces;
+﻿using Optivem.Template.Web.UI.Models;
+using Optivem.Template.Web.UI.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.UI.Services.Fake
+namespace Optivem.Template.Web.UI.Services.Fake
 {
     public class FakeCustomerService : ICustomerService
     {

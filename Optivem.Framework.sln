@@ -171,7 +171,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Dependenc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus.IntegrationTest", "test\Infrastructure\Infrastructure.EPPlus.IntegrationTest\Optivem.Framework.Infrastructure.EPPlus.IntegrationTest.csproj", "{8635DD4F-E619-454E-9830-7C236A73DA85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.UI", "template\src\Web\UI\Optivem.Template.UI.csproj", "{A8AB5520-F635-4654-982B-C0219FAC92A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.UI", "template\src\Web\UI\Optivem.Template.Web.UI.csproj", "{A8AB5520-F635-4654-982B-C0219FAC92A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

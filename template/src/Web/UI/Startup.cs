@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Template.UI.Services;
-using Optivem.Template.UI.Services.Fake;
-using Optivem.Template.UI.Services.Interfaces;
+using Optivem.Template.Web.UI.Services;
+using Optivem.Template.Web.UI.Services.Fake;
+using Optivem.Template.Web.UI.Services.Interfaces;
 
-namespace Optivem.Template.UI
+namespace Optivem.Template.Web.UI
 {
     public class Startup
     {

@@ -1,11 +1,11 @@
 ﻿
-using Optivem.Template.UI.Clients;
+using Optivem.Template.Web.UI.Clients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.UI.Services
+namespace Optivem.Template.Web.UI.Services
 {
     // TODO: VC: Consider moving into framework
 

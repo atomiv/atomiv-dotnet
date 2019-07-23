@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.UI.Clients
+namespace Optivem.Template.Web.UI.Clients
 {
     public class Client
     {

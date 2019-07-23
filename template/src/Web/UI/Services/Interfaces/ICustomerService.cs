@@ -1,10 +1,10 @@
-﻿using Optivem.Template.UI.Models;
+﻿using Optivem.Template.Web.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.UI.Services.Interfaces
+namespace Optivem.Template.Web.UI.Services.Interfaces
 {
     public interface ICustomerService
     {
