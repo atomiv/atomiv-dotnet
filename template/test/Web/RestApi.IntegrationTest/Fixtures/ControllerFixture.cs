@@ -14,16 +14,13 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
             Web = WebTestClientFactory.Create<Startup>();
             Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e));
 
-            Customers = new CustomerHttpService(Web.ControllerClientFactory);
-            Products = new ProductHttpService(Web.ControllerClientFactory);
+            Api = new ApiHttpService(Web.ControllerClientFactory);
         }
 
         public WebTestClient Web { get; }
 
         public DbTestClient<DatabaseContext> Db { get; }
 
-        public ICustomerHttpService Customers { get; }
-
-        public IProductHttpService Products { get; }
+        public IApiHttpService Api { get; }
     }
 }
