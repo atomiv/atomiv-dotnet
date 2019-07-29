@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Records;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Data
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Data
 {
     public class FakeDatabase : IDatabase
     {

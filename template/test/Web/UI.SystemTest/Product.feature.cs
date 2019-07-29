@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Optivem.Template.Web.UI.SystemTest
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
 {
     using TechTalk.SpecFlow;
     

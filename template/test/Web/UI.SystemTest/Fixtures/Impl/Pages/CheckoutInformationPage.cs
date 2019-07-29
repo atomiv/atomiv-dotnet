@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Pages;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Impl.Pages
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages
 {
     public class CheckoutInformationPage : Page, ICheckoutInformationPage
     {

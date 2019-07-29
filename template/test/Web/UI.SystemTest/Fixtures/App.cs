@@ -1,11 +1,11 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Impl.Pages;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Pages;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures
 {
     public class App : App<LoginPage>, IApp
     {

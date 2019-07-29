@@ -1,4 +1,4 @@
-﻿namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces
+﻿namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces
 {
     public interface ILoginPage
     {

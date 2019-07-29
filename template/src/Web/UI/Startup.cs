@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Optivem.Template.Web.UI.Services;
 using Optivem.Template.Web.UI.Services.Fake;
 using Optivem.Template.Web.UI.Services.Interfaces;
 
@@ -32,10 +33,12 @@ namespace Optivem.Template.Web.UI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // TODO: VC: These could be auto-loaded via dependency injection for razor perhaps
-            // services.AddScoped<IControllerClient>
-            // services.AddScoped<ICustomerService, CustomerService>();
 
-            services.AddScoped<ICustomerPageService, FakeCustomerPageService>();
+
+            // services.AddScoped<ICustomerPageService, FakeCustomerPageService>();
+
+            services.AddScoped<ICustomerPageService, CustomerPageService>();
+
 
             // TODO: VC: Global handling of ErrorException, showing popup to user or redirecting to error page
         }

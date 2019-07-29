@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Test.Xunit;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures
 {
     public class AppTest : FixtureTest<AppFixture>
     {

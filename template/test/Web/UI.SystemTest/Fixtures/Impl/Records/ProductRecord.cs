@@ -1,6 +1,6 @@
-﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Records;
+﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Records
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records
 {
     public class ProductRecord : IProductRecord
     {

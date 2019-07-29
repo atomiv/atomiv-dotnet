@@ -1,7 +1,7 @@
-﻿using Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces.Pages;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interfaces;
+﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
+using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Interfaces
+namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces
 {
     public interface IApp
     {
