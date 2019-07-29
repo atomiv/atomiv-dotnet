@@ -1,12 +1,10 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Apps.Interface;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interface;
+using Optivem.Template.Web.UI.Client.Interface;
+using Optivem.Template.Web.UI.Client.Interface.Pages;
+using Optivem.Template.Web.UI.Client.Pages;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures
+namespace Optivem.Template.Web.UI.Client
 {
     public class App : App<CreateCustomerPage>, IApp
     {

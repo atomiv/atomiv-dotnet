@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Selenium;
+﻿using Optivem.Framework.Test.Selenium;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Data;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces;
 using System;

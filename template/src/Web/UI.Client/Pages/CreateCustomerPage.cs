@@ -1,10 +1,8 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Pages.Interface;
+using Optivem.Template.Web.UI.Client.Interface.Pages;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Optivem.Template.Web.UI.SystemTest.Fixtures.Pages
+namespace Optivem.Template.Web.UI.Client.Pages
 {
     public class CreateCustomerPage : Page, ICreateCustomerPage
     {

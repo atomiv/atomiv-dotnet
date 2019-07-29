@@ -1,7 +1,6 @@
 ﻿Feature: Customer
 	As a salesperson, I need to be able to be able to manage the customer list
 
-@ignore
 @positive
 Scenario: I can create a new customer
 	Given I am on the Create Customer page

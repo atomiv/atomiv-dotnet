@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Framework.Web.AspNetCore.RazorPages
+﻿namespace Optivem.Framework.Web.AspNetCore.RazorPages
 {
     // TODO: VC: Consider base for the api since one view will most likely get data from multiple apis
     // example on orders view, dropdown for list of products

@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records;

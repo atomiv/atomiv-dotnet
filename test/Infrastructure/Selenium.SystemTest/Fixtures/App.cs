@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages;
+﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages;

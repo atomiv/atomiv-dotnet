@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Template.Web.UI.Services;
-using Optivem.Template.Web.UI.Services.Fake;
 using Optivem.Template.Web.UI.Services.Interfaces;
 
 namespace Optivem.Template.Web.UI

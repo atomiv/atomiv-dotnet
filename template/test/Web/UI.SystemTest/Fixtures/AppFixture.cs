@@ -1,9 +1,8 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Framework.Test.Selenium;
-using Optivem.Template.Web.UI.SystemTest.Fixtures.Apps.Interface;
+using Optivem.Template.Web.UI.Client;
+using Optivem.Template.Web.UI.Client.Interface;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {

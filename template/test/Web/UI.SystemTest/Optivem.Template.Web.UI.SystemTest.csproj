@@ -24,6 +24,8 @@
     <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\UI.Client.Interface\Optivem.Template.Web.UI.Client.Interface.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\UI.Client\Optivem.Template.Web.UI.Client.csproj" />
   </ItemGroup>
 
   <ItemGroup>
