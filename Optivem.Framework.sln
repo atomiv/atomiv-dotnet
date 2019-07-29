@@ -177,6 +177,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestCl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.Selenium.SystemTest", "test\Infrastructure\Selenium.SystemTest\Optivem.Framework.Infrastructure.Selenium.SystemTest.csproj", "{BB2D907C-B966-4006-88EB-083522DB4030}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Web.UI.SystemTest", "Optivem.Template.Web.UI.SystemTest\Optivem.Template.Web.UI.SystemTest.csproj", "{30505440-BD3C-4522-83BA-15F170E93675}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -435,6 +437,10 @@ Global
 		{BB2D907C-B966-4006-88EB-083522DB4030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2D907C-B966-4006-88EB-083522DB4030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2D907C-B966-4006-88EB-083522DB4030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30505440-BD3C-4522-83BA-15F170E93675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30505440-BD3C-4522-83BA-15F170E93675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30505440-BD3C-4522-83BA-15F170E93675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30505440-BD3C-4522-83BA-15F170E93675}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -525,6 +531,7 @@ Global
 		{17ED4ED8-DF1C-4E64-917E-528E4F60B9DA} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{EF04AEE0-AE35-4CF2-B2A5-7747ABEE2408} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{BB2D907C-B966-4006-88EB-083522DB4030} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
+		{30505440-BD3C-4522-83BA-15F170E93675} = {04BFF208-657F-4024-8725-BD473BD76F44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

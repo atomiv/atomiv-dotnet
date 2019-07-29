@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.7.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="74.0.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="75.0.0" />
     <PackageReference Include="SpecFlow" Version="3.0.225" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.225" />
     <PackageReference Include="SpecFlow.xUnit" Version="3.0.225" />
