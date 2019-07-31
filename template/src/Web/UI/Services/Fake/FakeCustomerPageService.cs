@@ -7,6 +7,11 @@ namespace Optivem.Template.Web.UI.Services.Fake
 {
     public class FakeCustomerPageService : ICustomerPageService
     {
+        public Task CreateCustomer(Customer customer)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Task<IList<Customer>> ListCustomers()
         {
             var customers = new List<Customer>

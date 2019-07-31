@@ -31,12 +31,12 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 
         public void InputUserName(string userName)
         {
-            UserNameTextBox.EnterText(userName);
+            UserNameTextBox.InputText(userName);
         }
 
         public void InputPassword(string password)
         {
-            PasswordTextBox.EnterText(password);
+            PasswordTextBox.InputText(password);
         }
 
         public bool HasErrorMessage()

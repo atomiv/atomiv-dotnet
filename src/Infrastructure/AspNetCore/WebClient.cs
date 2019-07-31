@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.AspNetCore
 {
-    public class Client : IClient
+    public class WebClient : IClient
     {
         private static Encoding StringContentEncoding = Encoding.UTF8;
 
-        public Client(HttpClient client)
+        public WebClient(HttpClient client)
         {
             HttpClient = client;
         }

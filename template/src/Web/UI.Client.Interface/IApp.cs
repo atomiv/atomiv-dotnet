@@ -4,6 +4,6 @@ namespace Optivem.Template.Web.UI.Client.Interface
 {
     public interface IApp
     {
-        ICreateCustomerPage OpenCreateCustomerPage();
+        ICreateCustomerPage NavigateToCreateCustomerPage();
     }
 }

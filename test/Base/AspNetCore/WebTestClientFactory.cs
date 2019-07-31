@@ -18,7 +18,7 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             var testServer = new TestServer(webHostBuilder);
             var httpClient = testServer.CreateClient();
-            var client = new Client(httpClient);
+            var client = new WebClient(httpClient);
             var controllerClientFactory = createControllerClientFactory(client);
 
             return new WebTestClient(configurationRoot, testServer, httpClient, controllerClientFactory);

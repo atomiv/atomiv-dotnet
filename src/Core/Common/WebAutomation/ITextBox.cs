@@ -2,7 +2,7 @@
 {
     public interface ITextBox : IElement
     {
-        void EnterText(string text);
+        void InputText(string text);
 
         string ReadText();
     }

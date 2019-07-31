@@ -18,6 +18,19 @@ namespace Optivem.Template.Web.UI.Services
 
         }
 
+        public async Task CreateCustomer(Customer customer)
+        {
+            var request = new CreateCustomerRequest
+            {
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+            };
+
+            // TODO: VC: Fails when invalid, also need to put in UI-side validation before calling this
+
+            await Service.CreateCustomerAsync(request);
+        }
+
         public async Task<IList<Customer>> ListCustomers()
         {
             var request = new ListCustomersRequest();

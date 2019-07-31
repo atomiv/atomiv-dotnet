@@ -16,8 +16,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj" />
     <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\RestClient\Optivem.Template.Web.RestClient.csproj" />
   </ItemGroup>
 
 </Project>

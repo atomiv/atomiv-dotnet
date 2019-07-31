@@ -76,30 +76,31 @@ namespace Optivem.Template.Web.UI.SystemTest
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="I can create a new customer")]
+        [Xunit.FactAttribute(DisplayName="I can create a new customer", Skip="Ignored")]
         [Xunit.TraitAttribute("FeatureTitle", "Customer")]
         [Xunit.TraitAttribute("Description", "I can create a new customer")]
         [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanCreateANewCustomer()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can create a new customer", null, new string[] {
+                        "ignore",
                         "positive"});
-#line 5
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 6
- testRunner.Given("I am on the Create Customer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("I have inputted the first name \'John\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I am on the Create Customer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have inputted the last name \'Smith\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have inputted the first name \'John\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.When("I click on \'Create\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I have inputted the last name \'Smith\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.Then("I am on the Customer List page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click on the Create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("I can see the newly created customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I am on the Customer List page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
+ testRunner.And("I can see the newly created customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
  testRunner.And("I can see it has the same details as the ones I had inputted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

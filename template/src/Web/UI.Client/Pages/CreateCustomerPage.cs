@@ -6,28 +6,39 @@ namespace Optivem.Template.Web.UI.Client.Pages
 {
     public class CreateCustomerPage : Page, ICreateCustomerPage
     {
-        public CreateCustomerPage(Driver driver, string url, bool navigateTo) : base(driver, url, navigateTo)
+        // TODO: VC: Base should be configurable due to localhost vs test etc.
+
+        public CreateCustomerPage(Driver driver, bool navigateTo = false) 
+            : base(driver, "https://localhost:44379/customers/create", navigateTo)
         {
         }
 
+        private Button CreateButton => Finder.FindButton(FindBy.Id("create-button"));
+
+        private TextBox FirstNameTextBox => Finder.FindTextBox(FindBy.Id("first-name"));
+
+        private TextBox LastNameTextBox => Finder.FindTextBox(FindBy.Id("last-name"));
+
+        private Element ErrorMessageElement => Finder.FindElement(FindBy.Id("error"));
+
         public void ClickCreate()
         {
-            throw new NotImplementedException();
+            CreateButton.Click();
         }
 
         public void InputFirstName(string firstName)
         {
-            throw new NotImplementedException();
+            FirstNameTextBox.InputText(firstName);
         }
 
         public void InputLastName(string lastName)
         {
-            throw new NotImplementedException();
+            LastNameTextBox.InputText(lastName);
         }
 
         public string ReadErrorMessage()
         {
-            throw new NotImplementedException();
+            return ErrorMessageElement.Text;
         }
     }
 }

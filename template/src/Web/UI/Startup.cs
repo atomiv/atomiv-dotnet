@@ -4,6 +4,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Core.Common.Reflection;
+using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Framework.Infrastructure.NewtonsoftJson;
+using Optivem.Framework.Infrastructure.System.Reflection;
+using Optivem.Template.Core.Application.Customers.Services;
+using Optivem.Template.Web.RestClient;
+using Optivem.Template.Web.RestClient.Http;
+using Optivem.Template.Web.RestClient.Interface;
 using Optivem.Template.Web.UI.Services;
 using Optivem.Template.Web.UI.Services.Interfaces;
 
@@ -36,8 +46,19 @@ namespace Optivem.Template.Web.UI
 
             // services.AddScoped<ICustomerPageService, FakeCustomerPageService>();
 
-            services.AddScoped<ICustomerPageService, CustomerPageService>();
+            //  clientFactory
 
+
+            // IClient client, IJsonSerializer serializer, IPropertyMapper propertyFactory
+
+            services.AddScoped<IClient, ApiClient>();
+            services.AddScoped<IJsonSerializer, JsonSerializer>();
+            services.AddScoped<IPropertyMapper, PropertyMapper>();
+
+            services.AddScoped<IControllerClientFactory, JsonControllerClientFactory>();
+            services.AddScoped<ICustomerHttpService, CustomerHttpService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerPageService, CustomerPageService>();
 
             // TODO: VC: Global handling of ErrorException, showing popup to user or redirecting to error page
         }

@@ -25,17 +25,17 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pag
 
         public void InputFirstName(string firstName)
         {
-            FirstNameTextBox.EnterText(firstName);
+            FirstNameTextBox.InputText(firstName);
         }
 
         public void InputLastName(string lastName)
         {
-            LastNameTextBox.EnterText(lastName);
+            LastNameTextBox.InputText(lastName);
         }
 
         public void InputZipCode(string zipCode)
         {
-            ZipCodeTextBox.EnterText(zipCode);
+            ZipCodeTextBox.InputText(zipCode);
         }
 
         public void ClickCancel()

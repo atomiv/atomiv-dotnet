@@ -20,7 +20,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
                 BaseAddress = new Uri("https://jsonplaceholder.typicode.com"),
             };
 
-            var client = new Client(httpClient);
+            var client = new WebClient(httpClient);
 
             var controllerClientFactory = new JsonControllerClientFactory(client, serializer, propertyFactory);
 

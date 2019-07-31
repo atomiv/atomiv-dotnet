@@ -19,7 +19,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
 
             // TODO: VC: Link text & partial link text
 
-            page.FirstName.EnterText("John");
+            page.FirstName.InputText("John");
             page.FirstName.TextShouldBe("John");
 
             /*

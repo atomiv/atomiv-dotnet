@@ -12,9 +12,9 @@ namespace Optivem.Template.Web.UI.Client
         {
         }
 
-        public ICreateCustomerPage OpenCreateCustomerPage()
+        public ICreateCustomerPage NavigateToCreateCustomerPage()
         {
-            throw new NotImplementedException();
+            return new CreateCustomerPage(Finder, true);
         }
     }
 }

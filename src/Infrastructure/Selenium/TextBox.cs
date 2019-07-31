@@ -14,7 +14,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
             return WebElement.GetAttribute("value");
         }
 
-        public void EnterText(string text)
+        public void InputText(string text)
         {
             WebElement.Clear();
             WebElement.SendKeys(text);
