@@ -19,8 +19,11 @@ variables:
 
 steps:
 
+- script: choco install googlechrome --ignore-checksums
+  displayName: 'choco install googlechrome'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   
-- script: dotnet test
-  displayName: 'dotnet test'
+# - script: dotnet test
+#  displayName: 'dotnet test'
