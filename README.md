@@ -1,6 +1,8 @@
 ## Optivem Framework
 
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/framework-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/framework-dotnetcore)
+[![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=develop)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=develop)
+[![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=master)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=master)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 Welcome to the Optivem Framework! The Optivem Framework was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Optivem Framework in your .NET Core 2.2 software projects. 
