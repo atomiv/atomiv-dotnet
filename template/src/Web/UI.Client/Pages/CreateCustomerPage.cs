@@ -8,8 +8,8 @@ namespace Optivem.Template.Web.UI.Client.Pages
     {
         // TODO: VC: Base should be configurable due to localhost vs test etc.
 
-        public CreateCustomerPage(Driver driver, bool navigateTo = false) 
-            : base(driver, "https://localhost:44379/customers/create", navigateTo)
+        public CreateCustomerPage(string url, Driver driver, bool navigateTo = false) 
+            : base(driver, $"{url}/customers/create", navigateTo)
         {
         }
 

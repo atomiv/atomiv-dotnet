@@ -3,6 +3,12 @@
 
 @ignore
 @positive
+Scenario: I can see the customer list
+	Given I am on the Customer Index page
+	Then I can see the list of customers
+
+@ignore
+@positive
 Scenario: I can create a new customer
 	Given I am on the Create Customer page
 	And I have inputted the first name 'John'

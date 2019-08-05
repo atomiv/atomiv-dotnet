@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Http;
+﻿using Microsoft.Extensions.Options;
+using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using System;
@@ -10,18 +11,17 @@ namespace Optivem.Template.Web.UI
 {
     public class ApiClient : WebClient
     {
-        // TODO: VC: make configurable, e.g. pass via configuration service to this constructor
-        private const string Url = "https://localhost:44315/api";
-
-        public ApiClient() : base(Create())
+        public ApiClient(IOptions<ApiClientOptions> options) : base(Create(options))
         {
         }
 
-        private static HttpClient Create()
+        private static HttpClient Create(IOptions<ApiClientOptions> options)
         {
+            var url = new Uri(options.Value.Url);
+
             return new HttpClient()
             {
-                BaseAddress = new Uri(Url),
+                BaseAddress = url,
             };
         }
     }

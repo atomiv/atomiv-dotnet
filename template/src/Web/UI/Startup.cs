@@ -48,6 +48,8 @@ namespace Optivem.Template.Web.UI
 
             //  clientFactory
 
+            services.Configure<ApiClientOptions>(Configuration.GetSection("ApiClient"));
+
 
             // IClient client, IJsonSerializer serializer, IPropertyMapper propertyFactory
 
@@ -76,6 +78,8 @@ namespace Optivem.Template.Web.UI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // TODO: VC: Error handling
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

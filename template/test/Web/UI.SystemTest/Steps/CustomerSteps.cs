@@ -14,6 +14,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
         {
         }
 
+        [Given(@"I am on the Customer Index page")]
+        public void GivenIAmOnTheCustomerIndexPage()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [Given(@"I am on the Create Customer page")]
         public void GivenIAmOnTheCreateCustomerPage()
         {
@@ -39,6 +45,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
             _createCustomerPage.ClickCreate();
         }
 
+        [Then(@"I can see the list of customers")]
+        public void ThenICanSeeTheListOfCustomers()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [Then(@"I am on the Customer List page")]
         public void ThenIAmOnTheCustomerListPage()
         {
@@ -56,6 +68,18 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
         {
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

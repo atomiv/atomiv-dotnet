@@ -107,6 +107,43 @@ PM> Update-Database
 
 15. Click on "Run All" inside the Test Explorer (all tests should pass)
 
+<a name="running-cli" />
+### Running via the CLI
+
+Global setting to trust localhost certificates (used during development):
+
+dotnet dev-certs https --trust
+Then when there is a Security Warning dialog "Do you want to install this certificate", click on "Yes".
+
+Then run the applications:
+
+D:\GitHub\optivem\framework-dotnetcore\template\src\Web\RestApi>dotnet run MyWebShop.Web.RestApi.csproj
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
+      User profile is available. Using 'C:\Users\Valentina.Cupac\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+Hosting environment: Development
+Content root path: D:\GitHub\optivem\framework-dotnetcore\template\src\Web\RestApi
+Now listening on: https://localhost:5001
+Now listening on: http://localhost:5000
+
+dotnet run Optivem.Template.Web.UI.csproj
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
+      User profile is available. Using 'C:\Users\Valentina.Cupac\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+Hosting environment: Development
+Content root path: D:\GitHub\optivem\framework-dotnetcore\template\src\Web\UI
+Now listening on: https://localhost:5003
+Now listening on: http://localhost:5002
+Application started. Press Ctrl+C to shut down.
+
+In the browser, go to https://localhost:5003/customers
+
+<a name="running-postman" />
+### Running via Postman
+
+Inside Postman, Settings > General > SSL Verification set to off.
+
+Then when you run it via CLI (see above), https://localhost:5001/api/customers
+
+<!-- TODO: VC: Give an example of POST, GET, PUT, GET, DELETE, GET -->
 
 
 <a name="technical-reference" />

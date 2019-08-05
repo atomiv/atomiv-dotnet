@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Optivem.Framework.Web.AspNetCore.RazorPages;
 using Optivem.Template.Web.UI.Models;
@@ -16,7 +17,14 @@ namespace Optivem.Template.Web.UI.Pages.Customers
 
         public async Task OnGet()
         {
-            Customers = await Service.ListCustomers();
+            try
+            {
+                Customers = await Service.ListCustomers();
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
