@@ -1,8 +1,9 @@
-﻿using Xunit;
+﻿using System.Threading.Tasks;
+using Xunit;
 
 namespace Optivem.Framework.Test.Xunit
 {
-    public class FixtureTest<TFixture> : IClassFixture<TFixture>
+    public class FixtureTest<TFixture> : IClassFixture<TFixture>, IAsyncLifetime
         where TFixture : class
     {
         public FixtureTest(TFixture fixture)
@@ -11,5 +12,15 @@ namespace Optivem.Framework.Test.Xunit
         }
 
         public TFixture Fixture { get; private set; }
+
+        public virtual Task InitializeAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        public virtual Task DisposeAsync()
+        {
+            return Task.CompletedTask;
+        }
     }
 }

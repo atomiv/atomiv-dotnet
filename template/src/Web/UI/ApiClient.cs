@@ -17,11 +17,12 @@ namespace Optivem.Template.Web.UI
 
         private static HttpClient Create(IOptions<ApiClientOptions> options)
         {
-            var url = new Uri(options.Value.Url);
+            var url = options.Value.Url;
+            var baseAddress = new Uri(url);
 
             return new HttpClient()
             {
-                BaseAddress = url,
+                BaseAddress = baseAddress,
             };
         }
     }

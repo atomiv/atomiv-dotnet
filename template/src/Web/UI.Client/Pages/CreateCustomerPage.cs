@@ -13,7 +13,7 @@ namespace Optivem.Template.Web.UI.Client.Pages
         {
         }
 
-        private Button CreateButton => Finder.FindButton(FindBy.Id("create-button"));
+        private Button CreateButton => Finder.FindButton(FindBy.Id("create"));
 
         private TextBox FirstNameTextBox => Finder.FindTextBox(FindBy.Id("first-name"));
 

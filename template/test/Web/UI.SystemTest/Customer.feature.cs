@@ -85,25 +85,24 @@ namespace Optivem.Template.Web.UI.SystemTest
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can see the customer list", null, new string[] {
                         "ignore",
                         "positive"});
-#line 6
+#line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 7
- testRunner.Given("I am on the Customer Index page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
+ testRunner.Given("I am on the Customer Index page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
  testRunner.Then("I can see the list of customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="I can create a new customer", Skip="Ignored")]
+        [Xunit.FactAttribute(DisplayName="I can create a new customer")]
         [Xunit.TraitAttribute("FeatureTitle", "Customer")]
         [Xunit.TraitAttribute("Description", "I can create a new customer")]
         [Xunit.TraitAttribute("Category", "positive")]
         public virtual void ICanCreateANewCustomer()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can create a new customer", null, new string[] {
-                        "ignore",
                         "positive"});
 #line 12
 this.ScenarioInitialize(scenarioInfo);

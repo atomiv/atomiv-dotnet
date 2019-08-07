@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace Optivem.Template.Web.UI.SystemTest.Steps
 {
     [Binding]
-    public class CustomerSteps : AppTest
+    public class CustomerSteps : BaseSteps
     {
         private ICreateCustomerPage _createCustomerPage;
 
