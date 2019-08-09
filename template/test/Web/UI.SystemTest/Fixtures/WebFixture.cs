@@ -14,6 +14,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var testDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var appRootPath = Path.GetFullPath(Path.Combine(testDirectoryPath, @"..\..\..\..\..\..\"));
 
+            // TODO: VC: From config
             var srcRootPath = Path.GetFullPath(Path.Combine(appRootPath, @"src\"));
             var webApiProjectName = @"Web\RestApi\Optivem.Template.Web.RestApi.csproj";
             var webUiProjectName = @"Web\UI\Optivem.Template.Web.UI.csproj";
@@ -21,9 +22,11 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var webApiPath = Path.Combine(srcRootPath, webApiProjectName);
             var webUiPath = Path.Combine(srcRootPath, webUiProjectName);
 
-            var webApiUrl = "https://localhost:5001";
-            var webUiUrl = "https://localhost:5003";
+            // TOD: VC ftrom config
+            var webApiUrl = "https://localhost:5003";
+            var webUiUrl = "https://localhost:5009";
 
+            // TODO: VC: from config
             // TODO: VC: Make PING methods, used for testing that api and application are alive and everything connected
             var webApiPingUrl = "swagger";
             var webUiPingUrl = "";

@@ -17,7 +17,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
         public AppFixture()
         {
-            var webUiUrl = "https://localhost:5003";
+            var webUiUrl = "https://localhost:5009";
 
             Client = new ChromeDriverTestClient();
             Driver = Client.Driver;

@@ -11,21 +11,25 @@ namespace Optivem.Template.Web.UI.SystemTest.Hooks
     [Binding]
     public sealed class FeatureHooks
     {
+        private static WebFixture _webFixture;
+
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 
         // NOTE: Method must be static // TODO: VC: Add to docs
         [BeforeFeature]
-        public static void BeforeFeature()
+        public static async Task BeforeFeature()
         {
-            //TODO: implement logic that has to run before executing each scenario
+            _webFixture = new WebFixture();
+            await _webFixture.Start();
         }
+
+        // NOTE: [AfterTestRun] is not working, so moved here to Feature, see https://github.com/techtalk/SpecFlow/issues/1348
 
         // NOTE: Method must be static // TODO: VC: Add to docs
         [AfterFeature]
         public static void AfterFeature()
         {
-
-            //TODO: implement logic that has to run after executing each scenario
+            _webFixture.Dispose();
         }
     }
 }

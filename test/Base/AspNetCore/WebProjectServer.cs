@@ -48,13 +48,6 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             var running = await Pinger.PingAsync(Url, PingPath);
 
-            // TODO: VC: check
-
-            if(running)
-            {
-                return;
-            }
-
             if(running)
             {
                 throw new Exception($"Web server is already running at {Url}");
@@ -66,7 +59,7 @@ namespace Optivem.Framework.Test.AspNetCore
                 {
                     // WorkingDirectory = 
                     FileName = DotNetFileName,
-                    Arguments = $"{RunArg} --project {ProjectPath}",
+                    Arguments = $"{RunArg} --project {ProjectPath} --launch-profile=Staging",
                 },
             };
 
