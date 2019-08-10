@@ -23,8 +23,8 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var webUiPath = Path.Combine(srcRootPath, webUiProjectName);
 
             // TOD: VC ftrom config
-            var webApiUrl = "https://localhost:5003";
-            var webUiUrl = "https://localhost:5009";
+            var webApiUrl = "https://localhost:5103";
+            var webUiUrl = "https://localhost:5109";
 
             // TODO: VC: from config
             // TODO: VC: Make PING methods, used for testing that api and application are alive and everything connected
