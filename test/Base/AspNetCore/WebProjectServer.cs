@@ -59,7 +59,7 @@ namespace Optivem.Framework.Test.AspNetCore
                 {
                     // WorkingDirectory = 
                     FileName = DotNetFileName,
-                    Arguments = $"{RunArg} --project {ProjectPath} --launch-profile=Staging",
+                    Arguments = $"{RunArg} --project {ProjectPath} --launch-profile=Staging --environment=Staging",
                 },
             };
 
