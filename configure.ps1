@@ -26,3 +26,7 @@ Write-Host "Updated JSON is $json"
 $json | ConvertTo-Json | Set-Content $filePath
 
 Write-Host "File has been updated"
+
+$Env:ASPNETCORE_ENVIRONMENT="Staging"
+
+Write-Host "Set ENVIRONMENT"
