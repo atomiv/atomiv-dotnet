@@ -1,6 +1,5 @@
 ﻿using Optivem.Template.Web.UI.Client.Interface.Pages;
 using Optivem.Template.Web.UI.SystemTest.Fixtures;
-using System;
 using TechTalk.SpecFlow;
 
 namespace Optivem.Template.Web.UI.SystemTest.Steps

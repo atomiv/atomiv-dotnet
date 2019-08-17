@@ -1,11 +1,7 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.AspNetCore;
 using Optivem.Framework.Test.Selenium;
 using Optivem.Template.Web.UI.Client;
 using Optivem.Template.Web.UI.Client.Interface;
-using System;
-using System.Diagnostics;
-using System.IO;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 {

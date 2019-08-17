@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
-using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 
 namespace Optivem.Template.Web.UI
 {

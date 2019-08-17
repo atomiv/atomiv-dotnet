@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Infrastructure.Selenium;
 using Optivem.Template.Web.UI.Client.Interface.Pages;
-using System;
 
 namespace Optivem.Template.Web.UI.Client.Pages
 {

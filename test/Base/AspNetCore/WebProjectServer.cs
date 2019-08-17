@@ -1,40 +1,146 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Test.AspNetCore
 {
+    public class WebProjectServer : IDisposable
+    {
+        private WebProjectPublisher _projectPublisher;
+        private WebProjectRunner _projectRunner;
+        private WebPortTerminator _portTerminator;
+
+        private const long MaxRetries = 5;
+
+        private const int Pause = 1000;
+
+        public WebProjectServer(WebProjectPaths paths, string url, int port, string pingPath, WebPinger pinger)
+        {
+            Paths = paths;
+            Url = url;
+            Port = port;
+            PingPath = pingPath;
+            Pinger = pinger;
+
+            _projectPublisher = new WebProjectPublisher(Paths);
+            _projectRunner = new WebProjectRunner(Paths);
+            _portTerminator = new WebPortTerminator();
+        }
+
+        public WebProjectPaths Paths { get; }
+
+        public string Url { get; }
+
+        public int Port { get; }
+
+        public string PingPath { get; }
+
+        public WebPinger Pinger { get; }
+
+        public async Task Start()
+        {
+            await EnsureNotRunning();
+
+            _projectPublisher.Run();
+            _projectRunner.Run();
+
+            await EnsureRunning();
+        }
+
+        public Task<bool> IsRunning()
+        {
+            return Pinger.PingAsync(Url, PingPath);
+        }
+
+        public void Dispose()
+        {
+            _projectPublisher.Dispose();
+            _projectRunner.Dispose();
+        }
+
+        public async Task EnsureNotRunning()
+        {
+            var running = await IsRunning();
+
+            if(running)
+            {
+                _portTerminator.EnsureTerminated(Port);
+            }
+
+            if (running)
+            {
+                throw new Exception($"Web server is already running at {Url}");
+            }
+        }
+
+        public async Task EnsureRunning()
+        {
+            var running = false;
+
+            var currentAttempt = 0;
+
+            while (!running && currentAttempt < MaxRetries)
+            {
+                running = await IsRunning();
+
+                if (!running)
+                {
+                    currentAttempt += 1;
+                    Thread.Sleep(Pause);
+                }
+            }
+
+            if (!running)
+            {
+                throw new Exception($"Failed to contact web server at {Url}");
+            }
+        }
+    }
+
+
+
+
+
+
+
     // TODO: VC: Rename to ProcessTestServer and return also the client
 
+
+
+
+
+    // TODO: VC: Old implementation
+
+
+
+
+
+    /*
     public class WebProjectServer : IDisposable
     {
         private Process _process;
 
         private const string DotNetFileName = "dotnet";
         private const string RunArg = "run";
-        private const string ProjectParam = "project";
 
         private const long MaxRetries = 30;
 
         private const int Pause = 1000;
 
-        public WebProjectServer(string projectPath, string url, string pingPath, WebPinger pinger)
+        public WebProjectServer(string directoryPath, string url, string pingPath, WebPinger pinger)
         {
-            if(!File.Exists(projectPath))
+            if(!Directory.Exists(directoryPath))
             {
-                throw new ArgumentException($"File does not exist: {projectPath}");
+                throw new ArgumentException($"Directory does not exist: {directoryPath}");
             }
 
-            ProjectPath = projectPath;
+            DirectoryPath = directoryPath;
             Url = url;
             PingPath = pingPath;
             Pinger = pinger;
         }
+
+        public string DirectoryPath { get; }
 
         public string ProjectPath { get; }
 
@@ -46,52 +152,80 @@ namespace Optivem.Framework.Test.AspNetCore
 
         public async Task Start()
         {
-            var running = await Pinger.PingAsync(Url, PingPath);
+            await EnsureNotRunning();
+            StartProcess();
+            await EnsureRunning();
+        }
 
-            if(running)
+        public Task<bool> IsRunning()
+        {
+            return Pinger.PingAsync(Url, PingPath);
+        }
+
+        public void Dispose()
+        {
+            if(_process != null)
+            {
+                _process.Kill();
+                _process.Dispose();
+
+
+
+            }
+        }
+
+        public async Task EnsureNotRunning()
+        {
+            var running = await IsRunning();
+
+            if (running)
             {
                 throw new Exception($"Web server is already running at {Url}");
             }
+        }
 
+        private void StartProcess()
+        {
             _process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    // WorkingDirectory = 
                     FileName = DotNetFileName,
-                    Arguments = $"{RunArg} --project {ProjectPath} --launch-profile=Staging --environment=Staging",
+                    // Arguments = $"{RunArg} --project {ProjectPath} --launch-profile=Staging --environment=Staging",
+                    Arguments = $"{RunArg} --launch-profile=Staging",
+                    CreateNoWindow = false,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    WorkingDirectory = DirectoryPath,
                 },
             };
 
             // TODO: VC: Check there is no connection
             _process.Start();
+        }
+
+        public async Task EnsureRunning()
+        {
+            var running = false;
 
             var currentAttempt = 0;
 
-            while(!running && currentAttempt < MaxRetries)
+            while (!running && currentAttempt < MaxRetries)
             {
-                running = await Pinger.PingAsync(Url, PingPath);
+                running = await IsRunning();
 
-                if(!running)
+                if (!running)
                 {
                     currentAttempt += 1;
                     Thread.Sleep(Pause);
                 }
             }
 
-            if(!running)
+            if (!running)
             {
                 throw new Exception($"Failed to contact web server at {Url}");
             }
         }
-
-        public void Dispose()
-        {
-            if(_process != null && !_process.HasExited)
-            {
-                _process.Kill();
-                _process = null;
-            }
-        }
     }
+    */
 }

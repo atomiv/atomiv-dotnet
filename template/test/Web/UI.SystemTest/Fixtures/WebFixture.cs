@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using Optivem.Framework.Test.AspNetCore;
 using System.Threading.Tasks;
@@ -16,15 +14,25 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
             // TODO: VC: From config
             var srcRootPath = Path.GetFullPath(Path.Combine(appRootPath, @"src\"));
-            var webApiProjectName = @"Web\RestApi\Optivem.Template.Web.RestApi.csproj";
-            var webUiProjectName = @"Web\UI\Optivem.Template.Web.UI.csproj";
 
-            var webApiPath = Path.Combine(srcRootPath, webApiProjectName);
-            var webUiPath = Path.Combine(srcRootPath, webUiProjectName);
+            var webApiDir = Path.Combine(srcRootPath, @"Web\RestApi");
+            var webUiDir = Path.Combine(srcRootPath, @"Web\UI");
+
+            var webApiPublishDir = Path.Combine(webApiDir, @"bin\Debug\netcoreapp2.2\publish");
+            var webUiPublishDir = Path.Combine(webUiDir, @"bin\Debug\netcoreapp2.2\publish");
+
+            // var webApiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            // var webUiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+
+            var webApiDllName = "Optivem.Template.Web.RestApi.dll";
+            var webUiDllName = "Optivem.Template.Web.UI.dll";
 
             // TOD: VC ftrom config
             var webApiUrl = "https://localhost:5103";
             var webUiUrl = "https://localhost:5109";
+
+            var webApiPort = 5103;
+            var webUiPort = 5109;
 
             // TODO: VC: from config
             // TODO: VC: Make PING methods, used for testing that api and application are alive and everything connected
@@ -33,9 +41,14 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
             var pinger = new WebPinger();
 
-            WebApi = new WebProjectServer(webApiPath, webApiUrl, webApiPingUrl, pinger);
-            WebUI = new WebProjectServer(webUiPath, webUiUrl, webUiPingUrl, pinger);
+            var webApiPaths = new WebProjectPaths(webApiDir, webApiPublishDir, webApiDllName);
+            var webUiPaths = new WebProjectPaths(webUiDir, webUiPublishDir, webUiDllName);
+
+            WebApi = new WebProjectServer(webApiPaths, webApiUrl, webApiPort, webApiPingUrl, pinger);
+            WebUI = new WebProjectServer(webUiPaths, webUiUrl, webUiPort, webUiPingUrl, pinger);
         }
+
+
 
         public WebProjectServer WebApi { get; }
 
@@ -52,6 +65,12 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
         {
             WebUI.Dispose();
             WebApi.Dispose();
+        }
+
+        public async Task EnsureNotRunning()
+        {
+            await WebUI.EnsureNotRunning();
+            await WebApi.EnsureNotRunning();
         }
     }
 }
