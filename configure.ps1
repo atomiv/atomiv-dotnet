@@ -46,6 +46,8 @@ if(!$certPathExists)
 	Write-Error -Message "Certificate path does not exist: $pfxpath"  -ErrorAction Stop
 }
 
+$securePassword = ConvertTo-SecureString $password -asplaintext -force
+
 Import-PfxCertificate -FilePath $pfxpath -CertStoreLocation Cert:\LocalMachine\My -Password $password
 
 Add-Type -AssemblyName System.Security
