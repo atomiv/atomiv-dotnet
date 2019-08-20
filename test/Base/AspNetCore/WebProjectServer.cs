@@ -6,8 +6,10 @@ namespace Optivem.Framework.Test.AspNetCore
 {
     public class WebProjectServer : IDisposable
     {
-        private WebProjectPublisher _projectPublisher;
-        private WebProjectRunner _projectRunner;
+        // private WebProjectPublisher _projectPublisher;
+        // private WebProjectRunner _projectRunner;
+        private WebProjectDotNetRunner _projectDotNetRunner;
+
         private WebPortTerminator _portTerminator;
 
         private const long MaxRetries = 5;
@@ -22,8 +24,10 @@ namespace Optivem.Framework.Test.AspNetCore
             PingPath = pingPath;
             Pinger = pinger;
 
-            _projectPublisher = new WebProjectPublisher(Paths);
-            _projectRunner = new WebProjectRunner(Paths);
+            // _projectPublisher = new WebProjectPublisher(Paths);
+            // _projectRunner = new WebProjectRunner(Paths);
+            _projectDotNetRunner = new WebProjectDotNetRunner(Paths);
+
             _portTerminator = new WebPortTerminator();
         }
 
@@ -41,8 +45,9 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             await EnsureNotRunning();
 
-            _projectPublisher.Run();
-            _projectRunner.Run();
+            // _projectPublisher.Run();
+            // _projectRunner.Run();
+            _projectDotNetRunner.Run();
 
             await EnsureRunning();
         }
@@ -54,8 +59,9 @@ namespace Optivem.Framework.Test.AspNetCore
 
         public void Dispose()
         {
-            _projectPublisher.Dispose();
-            _projectRunner.Dispose();
+            // _projectPublisher.Dispose();
+            // _projectRunner.Dispose();
+            _projectDotNetRunner.Dispose();
         }
 
         public async Task EnsureNotRunning()

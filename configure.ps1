@@ -30,3 +30,18 @@ Write-Host "File has been updated"
 $Env:ASPNETCORE_ENVIRONMENT="Staging"
 
 Write-Host "Set ENVIRONMENT"
+
+Write-Host "Trusting HTTPS certificates"
+
+# Note: https://stackoverflow.com/questions/49428317/vsts-iis-deploy-configure-iis-site-ssl-certificates/49444664#49444664
+
+$pfxpath = 'DevCert.pfx'
+$password = 'DevCert99'
+
+Add-Type -AssemblyName System.Security
+$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$cert.Import($pfxpath, $password, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]"PersistKeySet")
+$store = new-object system.security.cryptography.X509Certificates.X509Store -argumentlist "MY", CurrentUser
+$store.Open([System.Security.Cryptography.X509Certificates.OpenFlags]"ReadWrite")
+$store.Add($cert)
+$store.Close()
