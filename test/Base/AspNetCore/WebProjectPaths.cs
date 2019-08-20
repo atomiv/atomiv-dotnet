@@ -4,15 +4,18 @@ namespace Optivem.Framework.Test.AspNetCore
 {
     public class WebProjectPaths
     {
-        public WebProjectPaths(string projectDirectoryPath, string publishDirectoryPath, string publishFileName)
+        public WebProjectPaths(string projectDirectoryPath, string projectFilePath, string publishDirectoryPath, string publishFileName)
         {
             ProjectDirectoryPath = projectDirectoryPath;
+            ProjectFilePath = projectFilePath;
             PublishDirectoryPath = publishDirectoryPath;
             PublishFileName = publishFileName;
             PublishFilePath = Path.Combine(PublishDirectoryPath, PublishFileName);
         }
 
         public string ProjectDirectoryPath { get; }
+
+        public string ProjectFilePath { get; }
 
         public string PublishDirectoryPath { get; }
 

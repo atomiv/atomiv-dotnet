@@ -12,7 +12,8 @@ namespace Optivem.Framework.Test.AspNetCore
 
         private WebPortTerminator _portTerminator;
 
-        private const long MaxRetries = 5;
+        // TODO: VC: Make configurable
+        private const long MaxRetries = 60;
 
         private const int Pause = 1000;
 

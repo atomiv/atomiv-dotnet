@@ -18,8 +18,13 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var webApiDir = Path.Combine(srcRootPath, @"Web\RestApi");
             var webUiDir = Path.Combine(srcRootPath, @"Web\UI");
 
+            var webApiFilePath = Path.Combine(webApiDir, "Optivem.Template.Web.RestApi.csproj");
+            var webUiFilePath = Path.Combine(webUiDir, "Optivem.Template.Web.UI.csproj");
+
             var webApiPublishDir = Path.Combine(webApiDir, @"bin\Debug\netcoreapp2.2\publish");
             var webUiPublishDir = Path.Combine(webUiDir, @"bin\Debug\netcoreapp2.2\publish");
+
+
 
             // var webApiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             // var webUiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
@@ -41,8 +46,8 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
             var pinger = new WebPinger();
 
-            var webApiPaths = new WebProjectPaths(webApiDir, webApiPublishDir, webApiDllName);
-            var webUiPaths = new WebProjectPaths(webUiDir, webUiPublishDir, webUiDllName);
+            var webApiPaths = new WebProjectPaths(webApiDir, webApiFilePath, webApiPublishDir, webApiDllName);
+            var webUiPaths = new WebProjectPaths(webUiDir, webUiFilePath, webUiPublishDir, webUiDllName);
 
             WebApi = new WebProjectServer(webApiPaths, webApiUrl, webApiPort, webApiPingUrl, pinger);
             WebUI = new WebProjectServer(webUiPaths, webUiUrl, webUiPort, webUiPingUrl, pinger);

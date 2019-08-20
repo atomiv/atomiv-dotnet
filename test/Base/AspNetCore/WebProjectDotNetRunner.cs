@@ -22,9 +22,9 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             var startInfo = new ProcessStartInfo
             {
-                WorkingDirectory = Paths.ProjectDirectoryPath,
+                // WorkingDirectory = Paths.ProjectDirectoryPath,
                 FileName = DotNet,
-                Arguments = $"run {Environment}",
+                Arguments = $"run --project {Paths.ProjectFilePath} {Environment}",
                 UseShellExecute = false,
                 CreateNoWindow = false,
                 RedirectStandardOutput = true,
