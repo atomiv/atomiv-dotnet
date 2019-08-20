@@ -25,7 +25,8 @@ namespace Optivem.Framework.Test.AspNetCore
             }
             catch(Exception ex)
             {
-                return new WebPingResponse(false, 0, ex.Message);
+                var message = ex.ToString();
+                return new WebPingResponse(false, 0, message);
             }
         }
 
