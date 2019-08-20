@@ -48,7 +48,7 @@ if(!$certPathExists)
 
 $securePassword = ConvertTo-SecureString $password -asplaintext -force
 
-Import-PfxCertificate -FilePath $pfxpath -CertStoreLocation Cert:\LocalMachine\My -Password $password
+Import-PfxCertificate -FilePath $pfxpath -CertStoreLocation Cert:\LocalMachine\My -Password $securePassword
 
 Add-Type -AssemblyName System.Security
 $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
