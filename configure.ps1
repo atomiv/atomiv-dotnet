@@ -49,5 +49,4 @@ Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\
 
 Write-Host "Trying to run web api"
 
-dotnet run --project .\template\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj --environment St
-aging
+dotnet run --project .\template\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj --environment Staging
