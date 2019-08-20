@@ -6,7 +6,7 @@ namespace Optivem.Framework.Test.AspNetCore
 {
     public class WebPinger
     {
-        public async Task<bool> PingAsync(Uri uri)
+        public async Task<WebPingResponse> PingAsync(Uri uri)
         {
             // TODO: VC: Use component
 
@@ -16,16 +16,20 @@ namespace Optivem.Framework.Test.AspNetCore
                 {
                     var response = await client.GetAsync("");
 
-                    return response.IsSuccessStatusCode;
+                    var success = response.IsSuccessStatusCode;
+                    var code = response.StatusCode;
+                    var content = await response.Content.ReadAsStringAsync();
+
+                    return new WebPingResponse(success, code, content);
                 }
             }
             catch(Exception ex)
             {
-                return false;
+                return new WebPingResponse(false, 0, ex.Message);
             }
         }
 
-        public Task<bool> PingAsync(string baseUrl, string relativePath)
+        public Task<WebPingResponse> PingAsync(string baseUrl, string relativePath)
         {
             var baseUri = new Uri(baseUrl);
             var uri = new Uri(baseUri, relativePath);

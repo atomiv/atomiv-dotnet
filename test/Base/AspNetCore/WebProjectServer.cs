@@ -47,7 +47,7 @@ namespace Optivem.Framework.Test.AspNetCore
             await EnsureRunning();
         }
 
-        public Task<bool> IsRunning()
+        public Task<WebPingResponse> Ping()
         {
             return Pinger.PingAsync(Url, PingPath);
         }
@@ -60,17 +60,20 @@ namespace Optivem.Framework.Test.AspNetCore
 
         public async Task EnsureNotRunning()
         {
-            var running = await IsRunning();
+            var pingResponse = await Ping();
 
-            if(running)
+            if(pingResponse.Success)
             {
                 _portTerminator.EnsureTerminated(Port);
             }
 
-            if (running)
+            // TODO: VC: DELETE
+            /*
+            if (pingResponse)
             {
                 throw new Exception($"Web server is already running at {Url}");
             }
+            */
         }
 
         public async Task EnsureRunning()
@@ -79,9 +82,12 @@ namespace Optivem.Framework.Test.AspNetCore
 
             var currentAttempt = 0;
 
+            WebPingResponse pingResponse = null;
+
             while (!running && currentAttempt < MaxRetries)
             {
-                running = await IsRunning();
+                pingResponse = await Ping();
+                running = pingResponse.Success;
 
                 if (!running)
                 {
@@ -92,7 +98,7 @@ namespace Optivem.Framework.Test.AspNetCore
 
             if (!running)
             {
-                throw new Exception($"Failed to contact web server at {Url}");
+                throw new Exception($"Failed to contact web server at {Url}, code {pingResponse.StatusCode}, message {pingResponse.Content}");
             }
         }
     }
