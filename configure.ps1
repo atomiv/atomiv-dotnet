@@ -35,7 +35,8 @@ Write-Host "Trusting HTTPS certificates"
 
 # Note: https://stackoverflow.com/questions/49428317/vsts-iis-deploy-configure-iis-site-ssl-certificates/49444664#49444664
 
-$pfxpath = 'DevCert.pfx'
+# $pfxpath = 'DevCert.pfx'
+$pfxpath = 'DevCert'
 $password = 'DevCert99'
 
 $certPathExists = Test-Path -Path $pfxpath
