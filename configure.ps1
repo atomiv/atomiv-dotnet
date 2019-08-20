@@ -38,6 +38,13 @@ Write-Host "Trusting HTTPS certificates"
 $pfxpath = 'DevCert.pfx'
 $password = 'DevCert99'
 
+$certPathExists = Test-Path -Path $pfxpath
+
+if(!$certPathExists)
+{
+	Write-Error -Message "Certificate path does not exist: $pfxpath"  -ErrorAction Stop
+}
+
 Add-Type -AssemblyName System.Security
 $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $cert.Import($pfxpath, $password, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]"PersistKeySet")

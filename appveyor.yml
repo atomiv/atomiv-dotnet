@@ -8,11 +8,11 @@ install:
   - choco install googlechrome --ignore-checksums
 
 before_build:
-- ps: dotnet restore
-- ps: nuget restore
 - ps: Get-Location
 - ps: .\configure.ps1
 - ps: Get-Location
+- ps: dotnet restore
+- ps: nuget restore
 
 build:
   verbosity: minimal
