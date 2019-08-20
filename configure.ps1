@@ -33,27 +33,21 @@ Write-Host "Set ENVIRONMENT"
 
 Write-Host "Trusting HTTPS certificates"
 
-# Note: https://stackoverflow.com/questions/49428317/vsts-iis-deploy-configure-iis-site-ssl-certificates/49444664#49444664
-
-# $pfxpath = 'DevCert.pfx'
-$pfxpath = 'DevCert'
+$certPath = 'DevCert' # 'DevCert.pfx'
 $password = 'DevCert99'
 
-$certPathExists = Test-Path -Path $pfxpath
+$certPathExists = Test-Path -Path $certPath
 
 if(!$certPathExists)
 {
-	Write-Error -Message "Certificate path does not exist: $pfxpath"  -ErrorAction Stop
+	Write-Error -Message "Certificate path does not exist: $certPath"  -ErrorAction Stop
 }
 
 $securePassword = ConvertTo-SecureString $password -asplaintext -force
 
-Import-PfxCertificate -FilePath $pfxpath -CertStoreLocation Cert:\LocalMachine\My -Password $securePassword
+Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\My -Password $securePassword
 
-Add-Type -AssemblyName System.Security
-$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-$cert.Import($pfxpath, $password, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]"PersistKeySet")
-$store = new-object system.security.cryptography.X509Certificates.X509Store -argumentlist "MY", CurrentUser
-$store.Open([System.Security.Cryptography.X509Certificates.OpenFlags]"ReadWrite")
-$store.Add($cert)
-$store.Close()
+Write-Host "Trying to run web api"
+
+dotnet run --project .\template\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj --environment St
+aging
