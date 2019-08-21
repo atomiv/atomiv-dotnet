@@ -1,6 +1,6 @@
 ﻿Write-Host "Trusting HTTPS certificates"
 
-$certPath = 'DevCert' # 'DevCert.pfx'
+$certPath =  Resolve-Path 'DevCert' # 'DevCert.pfx'
 $password = 'DevCert99'
 
 $certPathExists = Test-Path -Path $certPath
@@ -15,11 +15,9 @@ $securePassword = ConvertTo-SecureString $password -asplaintext -force
 Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\My -Password $securePassword
 
 
-<#
-
-function Install-Certificate ($certificatePath, [string]$storeLocation = "LocalMachine", [string]$storeName = "My")
+function Install-Certificate ($certificatePath, $certificatePassword, [string]$storeLocation = "LocalMachine", [string]$storeName = "My")
 {
-    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificatePath, "", "MachineKeySet,PersistKeySet")
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificatePath, $certificatePassword, "MachineKeySet,PersistKeySet")
     $store = New-Object System.Security.Cryptography.X509Certificates.X509Store($storeName, $storeLocation)
     $store.Open("ReadWrite")
     $store.Add($cert)
@@ -27,9 +25,8 @@ function Install-Certificate ($certificatePath, [string]$storeLocation = "LocalM
     "Thumbprint: $($cert.Thumbprint)"
 }
 
-Install-Certificate $certPath
+Install-Certificate $certPath $securePassword
 
-#>
 
 
 # TODO: VC: DELETE
