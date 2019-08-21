@@ -10,6 +10,7 @@ image: Visual Studio 2017
 before_build:
 - ps: Get-Location
 - ps: .\configure.ps1
+- ps: .\install-cert.ps1
 - ps: Get-Location
 # - ps: dotnet restore
 # - ps: nuget restore
