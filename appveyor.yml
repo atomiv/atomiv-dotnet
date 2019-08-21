@@ -2,10 +2,10 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 services:
- - mssql2017
+  - mssql2017
 
 install:
- - choco install googlechrome --ignore-checksums
+  - choco install googlechrome --ignore-checksums
 
 before_build:
 - ps: Get-Location
@@ -20,6 +20,7 @@ build:
   project: Optivem.Framework.sln
   
 test:
-    assemblies:
-        only:
-            - template\test\Web\UI.SystemTest\bin\Debug\netcoreapp2.2\Optivem.Template.Web.UI.SystemTest.dll
+  assemblies:
+    only:
+      - template\test\Web\UI.SystemTest\bin\Debug\netcoreapp2.2\Optivem.Template.Web.UI.SystemTest.dll
+      - asm2.dll
