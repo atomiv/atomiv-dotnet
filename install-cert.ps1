@@ -15,6 +15,8 @@ $securePassword = ConvertTo-SecureString $password -asplaintext -force
 Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\My -Password $securePassword
 
 
+<#
+
 function Install-Certificate ($certificatePath, [string]$storeLocation = "LocalMachine", [string]$storeName = "My")
 {
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificatePath, "", "MachineKeySet,PersistKeySet")
@@ -27,6 +29,7 @@ function Install-Certificate ($certificatePath, [string]$storeLocation = "LocalM
 
 Install-Certificate $certPath
 
+#>
 
 
 # TODO: VC: DELETE
