@@ -37,7 +37,8 @@ Export-Certificate -Cert $certificatePath -FilePath $cerFilePath
 Import-PfxCertificate -FilePath $pfxFilePath Cert:\LocalMachine\My -Password $pfxPassword -Exportable
 
 # trust the certificate by importing the pfx certificate into your trusted root
-Import-Certificate -FilePath $cerFilePath -CertStoreLocation Cert:\CurrentUser\Root
+# TODO: VC: Check if needed
+# Import-Certificate -FilePath $cerFilePath -CertStoreLocation Cert:\CurrentUser\Root
 
 # optionally delete the physical certificates (don’t delete the pfx file as you need to copy this to your app directory)
 # Remove-Item $pfxFilePath
