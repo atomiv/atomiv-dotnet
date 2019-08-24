@@ -8,14 +8,14 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Common" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Application" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Domain" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.MediatR" Version="1.0.14" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.14" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Common" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Application" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Domain" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.MediatR" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.15" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.14" />
+    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.15" />
   </ItemGroup>
 
   <ItemGroup>
