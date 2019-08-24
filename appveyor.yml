@@ -1,6 +1,12 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 
+environment:
+  my_secret:
+    secure: MYSECRET1234
+  my_salt:
+    secure: 428mkRA+W9HfcZ+GwtmQvZOoQD2kpHzDut8VW5BZ25vxrJa5zOg=
+
 services:
   - mssql2017
 
@@ -10,7 +16,7 @@ install:
 before_build:
 - ps: Get-Location
 - ps: .\configure.ps1
-- ps: .\install-cert3.ps1
+- ps: .\install-cert4.ps1
 - ps: Get-Location
 - ps: dotnet restore
 - ps: nuget restore
@@ -23,3 +29,4 @@ test:
   assemblies:
     only:
       - template\test\Web\UI.SystemTest\bin\Debug\netcoreapp2.2\Optivem.Template.Web.UI.SystemTest.dll
+
