@@ -17,6 +17,7 @@ before_build:
 - ps: Get-Location
 - ps: .\configure.ps1
 - ps: .\install-cert4.ps1
+- ps: .\install-cert5.ps1
 - ps: Get-Location
 - ps: dotnet restore
 - ps: nuget restore
@@ -24,9 +25,3 @@ before_build:
 build:
   verbosity: minimal
   project: Optivem.Framework.sln
-  
-test:
-  assemblies:
-    only:
-      - template\test\Web\UI.SystemTest\bin\Debug\netcoreapp2.2\Optivem.Template.Web.UI.SystemTest.dll
-
