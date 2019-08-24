@@ -10,7 +10,7 @@ install:
 before_build:
 - ps: Get-Location
 - ps: .\configure.ps1
-- ps: .\install-cert.ps1
+- ps: .\install-cert3.ps1
 - ps: Get-Location
 - ps: dotnet restore
 - ps: nuget restore
@@ -23,4 +23,3 @@ test:
   assemblies:
     only:
       - template\test\Web\UI.SystemTest\bin\Debug\netcoreapp2.2\Optivem.Template.Web.UI.SystemTest.dll
-      - asm2.dll
