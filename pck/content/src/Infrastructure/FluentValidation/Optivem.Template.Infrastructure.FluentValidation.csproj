@@ -5,17 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Orders\" />
-    <Folder Include="Products\" />
+    <PackageReference Include="FluentValidation" Version="8.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Optivem.Framework.Infrastructure.FluentValidation" Version="1.0.15" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
+    <Folder Include="Orders\" />
+    <Folder Include="Products\" />
   </ItemGroup>
 
 </Project>

@@ -7,9 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.Test.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="Moq" Version="4.12.0" />
-    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.15" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -19,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Customers\" />
-    <Folder Include="Products\" />
     <Folder Include="Orders\" />
   </ItemGroup>
 

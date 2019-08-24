@@ -63,7 +63,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Size = 5,
             };
 
-            var browseResponse = await Fixture.Products.BrowseProductsAsync(browseRequest);
+            var browseResponse = await Fixture.Api.Products.BrowseProductsAsync(browseRequest);
 
             Assert.Equal(HttpStatusCode.OK, browseResponse.StatusCode);
 
@@ -100,7 +100,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 UnitPrice = 112,
             };
 
-            var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
+            var createResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
 
             Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
 
@@ -116,7 +116,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task ListProducts_Valid_OK()
         {
-            var actual = await Fixture.Products.ListProductsAsync();
+            var listRequest = new ListProductsRequest { };
+
+            var actual = await Fixture.Api.Products.ListProductsAsync(listRequest);
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
@@ -143,7 +145,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var productRecord = _productRecords[0];
             var id = productRecord.Id;
 
-            var findResponse = await Fixture.Products.FindProductAsync(id);
+            var findRequest = new FindProductRequest { Id = id };
+
+            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
@@ -160,7 +164,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = 999;
 
-            var findResponse = await Fixture.Products.FindProductAsync(id);
+            var findRequest = new FindProductRequest { Id = id };
+
+            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, findResponse.StatusCode);
         }
@@ -175,7 +181,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 UnitPrice = 100.56m,
             };
 
-            var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
+            var createResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
 
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
@@ -187,7 +193,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.Description, createResponseContent.Description);
             Assert.Equal(createRequest.UnitPrice, createResponseContent.UnitPrice);
 
-            var findResponse = await Fixture.Products.FindProductAsync(createResponseContent.Id);
+            var findRequest = new FindProductRequest { Id = createResponseContent.Id };
+
+            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
@@ -213,7 +221,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 UnitPrice = 130,
             };
 
-            var updateResponse = await Fixture.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
@@ -236,7 +244,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 UnitPrice = 140,
             };
 
-            var updateResponse = await Fixture.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
 
@@ -257,7 +265,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 UnitPrice = 150,
             };
 
-            var updateResponse = await Fixture.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
             Assert.Equal(HttpStatusCode.UnprocessableEntity, updateResponse.StatusCode);
 
             var problemDetails = updateResponse.ProblemDetails;

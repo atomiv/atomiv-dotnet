@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Optivem.Framework.Core.Common" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.15" />
+    <ProjectReference Include="..\..\Core\Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\RestClient.Interface\Optivem.Template.Web.RestClient.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

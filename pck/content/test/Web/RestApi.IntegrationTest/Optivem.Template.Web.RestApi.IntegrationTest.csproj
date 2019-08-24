@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="appsettings.Test.json" />
-    <None Remove="xunit.runner.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="appsettings.Test.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -24,10 +16,6 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.15" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -36,11 +24,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fixtures\Clients\" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.15" />
+    <ProjectReference Include="..\..\..\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\RestClient.Interface\Optivem.Template.Web.RestClient.Interface.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\RestClient\Optivem.Template.Web.RestClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Web\RestApi\Optivem.Template.Web.RestApi.csproj" />
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

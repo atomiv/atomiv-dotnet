@@ -1,16 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\UseCases\" />
-    <Folder Include="Customers\Services\" />
-    <Folder Include="Orders\Services\" />
-    <Folder Include="Orders\UseCases\" />
-    <Folder Include="Products\Services\" />
-    <Folder Include="Products\UseCases\" />
+    <Folder Include="Base\" />
   </ItemGroup>
 
   <ItemGroup>

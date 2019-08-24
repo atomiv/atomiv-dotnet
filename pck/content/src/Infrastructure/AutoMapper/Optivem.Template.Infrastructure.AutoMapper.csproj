@@ -5,17 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Products\" />
-    <Folder Include="Orders\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Optivem.Framework.Infrastructure.AutoMapper" Version="1.0.15" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
+    <Folder Include="Orders\" />
   </ItemGroup>
 
 </Project>

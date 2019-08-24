@@ -8,6 +8,9 @@ using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
+    // TODO: VC: When testing, making equivalent tests for application layer and web layer when testing correctness
+    // and on web layer just see that it returns web specific things (e.g. status codes)
+
     public class CustomersControllerTest : ControllerTest
     {
         private List<CustomerRecord> _customerRecords;
@@ -35,7 +38,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task ListCustomers_OK()
         {
-            var actual = await Fixture.Customers.ListCustomersAsync();
+            var listRequest = new ListCustomersRequest { };
+
+            var actual = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
@@ -64,7 +69,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var customerRecord = _customerRecords[0];
             var id = customerRecord.Id;
 
-            var findResponse = await Fixture.Customers.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+
+            var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
@@ -80,7 +87,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = 999;
 
-            var findResponse = await Fixture.Customers.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+
+            var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, findResponse.StatusCode);
         }
@@ -94,7 +103,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 LastName = "Last name 1",
             };
 
-            var createResponse = await Fixture.Customers.CreateCustomerAsync(createRequest);
+            var createResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
 
             Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
 
@@ -105,7 +114,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.FirstName, createResponseContent.FirstName);
             Assert.Equal(createRequest.LastName, createResponseContent.LastName);
 
-            var findResponse = await Fixture.Customers.FindCustomerAsync(createResponseContent.Id);
+            var findRequest = new FindCustomerRequest { Id = createResponseContent.Id };
+
+            var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
@@ -127,7 +138,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 LastName = "Last name 1",
             };
 
-            var createResponse = await Fixture.Customers.CreateCustomerAsync(createRequest);
+            var createResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
 
             Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
 
@@ -152,7 +163,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 LastName = "New last name",
             };
 
-            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Customers.UpdateCustomerAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
@@ -177,7 +188,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 LastName = "New last name",
             };
 
-            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Customers.UpdateCustomerAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
         }
@@ -196,7 +207,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 LastName = null,
             };
 
-            var updateResponse = await Fixture.Customers.UpdateCustomerAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Customers.UpdateCustomerAsync(updateRequest);
             Assert.Equal(HttpStatusCode.UnprocessableEntity, updateResponse.StatusCode);
 
             var problemDetails = updateResponse.ProblemDetails;
@@ -209,7 +220,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var customerRecord = _customerRecords[0];
             var id = customerRecord.Id;
 
-            var deleteResponse = await Fixture.Customers.DeleteCustomerAsync(id);
+            var deleteRequest = new DeleteCustomerRequest { Id = id };
+
+            var deleteResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 
             Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
         }
@@ -219,7 +232,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = 999;
 
-            var deleteResponse = await Fixture.Customers.DeleteCustomerAsync(id);
+            var deleteRequest = new DeleteCustomerRequest { Id = id };
+
+            var deleteResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, deleteResponse.StatusCode);
         }

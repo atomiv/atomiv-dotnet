@@ -5,17 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Orders\" />
-    <Folder Include="Products\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.15" />
+    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
+    <Folder Include="Orders\Configurations\" />
+    <Folder Include="Orders\Repositories\" />
+    <Folder Include="Products\Configurations\" />
   </ItemGroup>
 
 </Project>
