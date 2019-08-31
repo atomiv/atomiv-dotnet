@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Interface\Optivem.Generator.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Domain\Optivem.Generator.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
