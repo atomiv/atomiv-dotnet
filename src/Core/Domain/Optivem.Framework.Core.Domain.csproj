@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,10 +12,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Optivem Framework DotNetCore Core Domain</PackageTags>   
   </PropertyGroup>
-    
-  
+
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
 </Project>

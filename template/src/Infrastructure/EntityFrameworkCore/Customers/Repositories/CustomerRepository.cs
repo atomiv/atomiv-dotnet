@@ -1,7 +1,5 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Customers.Entities;
-using Optivem.Template.Core.Domain.Customers.Repositories;
-using Optivem.Template.Core.Domain.Customers.ValueObjects;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Repositories

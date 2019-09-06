@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
+using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Core.Application.Customers.Services;
 using Optivem.Template.Web.UI.Models;
 using Optivem.Template.Web.UI.Services.Interfaces;
 using System.Collections.Generic;

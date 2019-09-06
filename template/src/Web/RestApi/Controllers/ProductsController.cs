@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Framework.Web.AspNetCore;
+using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
-using Optivem.Template.Core.Application.Products.Services;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.Controllers

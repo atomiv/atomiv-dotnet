@@ -1,51 +1,51 @@
-﻿using System.Threading.Tasks;
-using Optivem.Framework.Infrastructure.AspNetCore;
-using Optivem.Template.Core.Application.Products;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Services;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
-using Optivem.Template.Web.RestClient.Interface;
+using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.RestClient
+namespace Optivem.Template.Core.Application.Products
 {
-    public class ProductService : BaseHttpService<IProductHttpService>, IProductService
+    public class ProductService : BaseService, IProductService
     {
-        public ProductService(IProductHttpService service) : base(service)
+        public ProductService(IRequestHandler requestHandler) 
+            : base(requestHandler)
         {
         }
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
         {
-            return ExecuteAsync(e => e.BrowseProductsAsync(request));
+            return HandleAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
         }
 
         public Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request)
         {
-            return ExecuteAsync(e => e.CreateProductAsync(request));
+            return HandleAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
         public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
         {
-            return ExecuteAsync(e => e.FindProductAsync(request));
+            return HandleAsync<FindProductRequest, FindProductResponse>(request);
         }
 
         public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
         {
-            return ExecuteAsync(e => e.ListProductsAsync(request));
+            return HandleAsync<ListProductsRequest, ListProductsResponse>(request);
         }
 
         public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
         {
-            return ExecuteAsync(e => e.RelistProductAsync(request));
+            return HandleAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
         public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
         {
-            return ExecuteAsync(e => e.UnlistProductAsync(request));
+            return HandleAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
         public Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request)
         {
-            return ExecuteAsync(e => e.UpdateProductAsync(request));
+            return HandleAsync<UpdateProductRequest, UpdateProductResponse>(request);
         }
     }
 }

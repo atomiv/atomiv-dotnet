@@ -2,9 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Products.Entities;
-using Optivem.Template.Core.Domain.Products.Repositories;
-using Optivem.Template.Core.Domain.Products.ValueObjects;
+using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositories

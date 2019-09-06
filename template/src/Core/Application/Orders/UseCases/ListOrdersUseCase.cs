@@ -1,9 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
-using Optivem.Template.Core.Domain.Orders.Entities;
-using Optivem.Template.Core.Domain.Orders.Repositories;
-using Optivem.Template.Core.Domain.Orders.ValueObjects;
+using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {

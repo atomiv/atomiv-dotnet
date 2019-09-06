@@ -10,7 +10,7 @@ using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using Optivem.Framework.Infrastructure.System.Reflection;
-using Optivem.Template.Core.Application.Customers.Services;
+using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Web.RestClient;
 using Optivem.Template.Web.RestClient.Http;
 using Optivem.Template.Web.RestClient.Interface;
