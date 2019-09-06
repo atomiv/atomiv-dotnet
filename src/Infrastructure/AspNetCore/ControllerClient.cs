@@ -270,21 +270,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
                 return new QueryParameter(name, encodedValue);
             }
-
-            // TODO: VC: Check if needed
-
-            /*
-            private static string ToCamelCase(string text)
-            {
-                if(text == null || text.Length < 1)
-                {
-                    return text;
-                }
-
-                var first = text[0].ToLowerInvariant();
-                var rest = text.Substring(1);
-            }
-            */
         }
 
         private class QueryString

@@ -21,7 +21,5 @@ namespace Optivem.Template.Core.Domain.UnitTest.Products
             Assert.Equal(name, product.ProductName);
             Assert.Equal(price, product.ListPrice);
         }
-
-        // TODO: VC: Cannot construct invalid etc
     }
 }

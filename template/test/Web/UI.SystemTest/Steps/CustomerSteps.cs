@@ -22,7 +22,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
         [Given(@"I am on the Create Customer page")]
         public void GivenIAmOnTheCreateCustomerPage()
         {
-            // TODO: VC: Setup tests in all methods below
             _createCustomerPage = Fixture.App.NavigateToCreateCustomerPage();
         }
 

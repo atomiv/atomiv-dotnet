@@ -3,9 +3,6 @@ using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
-    // TODO: VC: When testing, making equivalent tests for application layer and web layer when testing correctness
-    // and on web layer just see that it returns web specific things (e.g. status codes)
-
     public class ProcessTerminationTest
     {
 

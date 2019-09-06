@@ -12,8 +12,6 @@ namespace Optivem.Framework.Core.Common.Http
 
         public IClientResponse ClientResponse { get; private set; }
 
-        // TODO: VC: Check possibility to include problem details?
-
         public ErrorException(string message) : base(message)
         {
         }

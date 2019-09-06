@@ -70,7 +70,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         public void Dispose()
         {
             // No action
-            // TODO: VC: Check where client was created?
         }
 
         #region Helper

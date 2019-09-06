@@ -8,8 +8,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {
-        // TODO: Boolean if include problem details
-
         public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType, Encoding encoding)
         {
             Client = client;
@@ -21,8 +19,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType)
             : this(client, serializer, acceptType, contentType, Encoding.UTF8) { }
-
-        // TODO: VC: Base uri, can be null or filled in, useful for controllers
 
         public IClient Client { get; private set; }
 
@@ -124,8 +120,8 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             }
             catch(Exception)
             {
+                // TODO: https://github.com/optivem/framework-dotnetcore/issues/273
                 return null;
-                // TODO: VC: Handle deserialization error, or perhaps throw?
             }
         }
 

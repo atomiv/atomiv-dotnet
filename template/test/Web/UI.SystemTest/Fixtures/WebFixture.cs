@@ -12,7 +12,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var testDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var appRootPath = Path.GetFullPath(Path.Combine(testDirectoryPath, @"..\..\..\..\..\..\"));
 
-            // TODO: VC: From config
             var srcRootPath = Path.GetFullPath(Path.Combine(appRootPath, @"src\"));
 
             var webApiDir = Path.Combine(srcRootPath, @"Web\RestApi");
@@ -24,23 +23,15 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var webApiPublishDir = Path.Combine(webApiDir, @"bin\Debug\netcoreapp2.2\publish");
             var webUiPublishDir = Path.Combine(webUiDir, @"bin\Debug\netcoreapp2.2\publish");
 
-
-
-            // var webApiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-            // var webUiPublishDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-
             var webApiDllName = "Optivem.Template.Web.RestApi.dll";
             var webUiDllName = "Optivem.Template.Web.UI.dll";
 
-            // TOD: VC ftrom config
             var webApiUrl = "https://localhost:5103";
             var webUiUrl = "https://localhost:5109";
 
             var webApiPort = 5103;
             var webUiPort = 5109;
 
-            // TODO: VC: from config
-            // TODO: VC: Make PING methods, used for testing that api and application are alive and everything connected
             var webApiPingUrl = "swagger";
             var webUiPingUrl = "";
 
@@ -61,7 +52,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
         public async Task Start()
         {
-            // TODO: VC: Async calls
             await WebApi.Start();
             await WebUI.Start();
         }
