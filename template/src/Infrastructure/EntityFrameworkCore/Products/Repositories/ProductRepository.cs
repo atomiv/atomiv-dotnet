@@ -13,8 +13,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositor
         {
         }
 
-        // TODO: VC: Move to base for paging
-
         public IEnumerable<Product> Get(int page, int size)
         {
             var skip = page * size;
@@ -39,8 +37,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositor
             var id = record.Id;
             return new ProductIdentity(id);
         }
-
-        // TODO: VC: This method is only needed when there is deletion
 
         protected override ProductRecord GetRecord(ProductIdentity identity)
         {

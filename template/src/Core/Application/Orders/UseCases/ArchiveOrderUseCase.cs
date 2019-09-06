@@ -6,8 +6,6 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    // TODO: VC: Base could be like a custom update... with action injected
-
     public class ArchiveOrderUseCase : UpdateAggregateUseCase<IOrderRepository, ArchiveOrderRequest, ArchiveOrderResponse, Order, OrderIdentity, int>
     {
         public ArchiveOrderUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) : base(unitOfWork, responseMapper)

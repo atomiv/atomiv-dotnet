@@ -7,8 +7,6 @@ namespace Optivem.Template.Core.Domain.Orders
 {
     public class Order : AggregateRoot<OrderIdentity>
     {
-        // TODO: VC: Accept order details as IEnumerable
-
         public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, ReadOnlyCollection<OrderDetail> orderDetails) 
             : base(id)
         {

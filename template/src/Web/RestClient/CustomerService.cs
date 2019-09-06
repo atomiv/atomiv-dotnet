@@ -43,7 +43,5 @@ namespace Optivem.Template.Web.RestClient
         {
             return ExecuteAsync(e => e.UpdateCustomerAsync(request));
         }
-
-        // TODO: VC: Create base HttpService class with this method and with holding the service, also for DI
     }
 }

@@ -25,8 +25,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        // TODO: VC: Check swagger global responses, e.g. for validation?
-
         [HttpGet("{id}", Name = "find-customer")]
         [ProducesResponseType(typeof(FindCustomerResponse), 200)]
         [ProducesResponseType(404)]
@@ -50,8 +48,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]
         public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(int id, UpdateCustomerRequest request)
         {
-            // TODO: VC: API validation regarding id matching
-
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
         }

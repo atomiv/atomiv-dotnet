@@ -52,7 +52,4 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<UpdateOrderRequest, UpdateOrderResponse> (request);
         }
     }
-
-    // TODO: VC: Introduce subclasses of orders, e.g. express and regular orders? sales order vs purchase order
-    // TODO: VC: Also then show inheritance both in domain and in DB
 }

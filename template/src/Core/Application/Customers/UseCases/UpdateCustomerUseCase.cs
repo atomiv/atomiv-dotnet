@@ -6,8 +6,6 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    // TODO: VC: Perhaps have shared responses?
-
     public class UpdateCustomerUseCase : UpdateAggregateUseCase<ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
         public UpdateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
