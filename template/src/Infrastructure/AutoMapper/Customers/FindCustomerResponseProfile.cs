@@ -5,11 +5,11 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {
-    public class FindCustomerResponseProfile : ResponseProfile<Customer, FindCustomerResponse>
+    public class FindCustomerResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<Customer, FindCustomerResponse> map)
+        public FindCustomerResponseProfile()
         {
-            map.ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id));
+            CreateMap<Customer, FindCustomerResponse>();
         }
     }
 }
