@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,13 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Application" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Domain" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.MediatR" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Application" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Core.Domain" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.MediatR" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.16" />
     <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\All\Optivem.Template.Infrastructure.All.csproj" />
   </ItemGroup>

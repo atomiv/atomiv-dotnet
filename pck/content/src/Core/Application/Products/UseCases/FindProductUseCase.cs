@@ -1,22 +1,17 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
-using Optivem.Template.Core.Domain.Products.Entities;
-using Optivem.Template.Core.Domain.Products.Repositories;
-using Optivem.Template.Core.Domain.Products.ValueObjects;
+using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
     public class FindProductUseCase : FindAggregateUseCase<IProductRepository, FindProductRequest, FindProductResponse, Product, ProductIdentity, int>
     {
-        public FindProductUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) : base(unitOfWork, responseMapper)
+        public FindProductUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override ProductIdentity GetIdentity(int id)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

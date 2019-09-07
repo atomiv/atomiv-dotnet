@@ -1,5 +1,4 @@
-﻿using Optivem.Template.Core.Domain.Products.Entities;
-using Optivem.Template.Core.Domain.Products.ValueObjects;
+﻿using Optivem.Template.Core.Domain.Products;
 using Xunit;
 
 namespace Optivem.Template.Core.Domain.UnitTest.Products
@@ -21,7 +20,5 @@ namespace Optivem.Template.Core.Domain.UnitTest.Products
             Assert.Equal(name, product.ProductName);
             Assert.Equal(price, product.ListPrice);
         }
-
-        // TODO: VC: Cannot construct invalid etc
     }
 }

@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Core.Domain.Customers.Entities;
+using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {
-    public class UpdateCustomerResponseProfile : ResponseProfile<Customer, UpdateCustomerResponse>
+    public class UpdateCustomerResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<Customer, UpdateCustomerResponse> map)
+        public UpdateCustomerResponseProfile()
         {
-            // TODO: VC: Separate mappings just for ids
-            map.ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id));
+            CreateMap<Customer, UpdateCustomerResponse>();
         }
     }
 }

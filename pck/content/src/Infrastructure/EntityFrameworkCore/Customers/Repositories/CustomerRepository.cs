@@ -1,7 +1,5 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Customers.Entities;
-using Optivem.Template.Core.Domain.Customers.Repositories;
-using Optivem.Template.Core.Domain.Customers.ValueObjects;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Repositories
@@ -31,8 +29,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Reposito
             };
         }
 
-        // TODO: VC: Distinguishing between getting records for add vs update
-
         protected override CustomerRecord GetRecord(Customer aggregateRoot)
         {
             return new CustomerRecord
@@ -40,7 +36,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Reposito
                 Id = aggregateRoot.Id.Id,
                 FirstName = aggregateRoot.FirstName,
                 LastName = aggregateRoot.LastName,
-                Order = null, // TODO: VC
+                Order = null,
             };
         }
     }

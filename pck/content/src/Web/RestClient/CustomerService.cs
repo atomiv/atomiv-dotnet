@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Core.Application.Customers.Services;
 using Optivem.Template.Web.RestClient.Interface;
 using System.Threading.Tasks;
 
@@ -43,7 +43,5 @@ namespace Optivem.Template.Web.RestClient
         {
             return ExecuteAsync(e => e.UpdateCustomerAsync(request));
         }
-
-        // TODO: VC: Create base HttpService class with this method and with holding the service, also for DI
     }
 }

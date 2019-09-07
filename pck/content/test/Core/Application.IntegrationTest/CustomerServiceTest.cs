@@ -32,8 +32,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        // TODO: VC: Separate tests when there is no data and when data exists?
-
         [Fact(Skip = "TODO")]
         public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
         {
@@ -69,9 +67,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task CreateCustomer_InvalidRequest_ThrowsInvalidRequestException()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-            // TODO: VC: That detailed validation should be in unit tests
-
             var createRequest = new CreateCustomerRequest
             {
                 FirstName = null,
@@ -79,8 +74,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Customers.CreateCustomerAsync(createRequest));
-
-            // TODO: Verify that the element was not added by comparing count before and after
         }
 
         [Fact]
@@ -91,8 +84,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var deleteRequest = new DeleteCustomerRequest { Id = id };
             var deleteResponse = await Fixture.Customers.DeleteCustomerAsync(deleteRequest);
-
-            // TODO: VC: Assert that when try find it does not exist
         }
 
         [Fact]
@@ -152,8 +143,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_ValidRequest_ReturnsResponse()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest
@@ -173,8 +162,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest
@@ -190,8 +177,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_InvalidRequest_ThrowsInvalidRequestException()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest

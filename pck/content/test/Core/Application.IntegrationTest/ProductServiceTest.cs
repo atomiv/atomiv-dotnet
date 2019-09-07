@@ -17,8 +17,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             _productRecords = new List<ProductRecord>
             {
-                // TODO: VC: Currency
-
                 new ProductRecord
                 {
                     ProductCode = "APP",
@@ -50,7 +48,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ListPrice = 100 + i,
                 };
 
-                // TODO: VC: Check if valid
                 _productRecords.Add(productRecord);
 
                 Fixture.Db.Add(productRecord);

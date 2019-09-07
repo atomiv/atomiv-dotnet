@@ -1,11 +1,10 @@
 ﻿using Moq;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Application.Products.UseCases;
-using Optivem.Template.Core.Domain.Products.Entities;
-using Optivem.Template.Core.Domain.Products.Repositories;
-using Optivem.Template.Core.Domain.Products.ValueObjects;
+using Optivem.Template.Core.Domain.Products;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,16 +14,16 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
 {
     public class BrowseProductsUseCaseTest
     {
+        private readonly Mock<IUseCaseMapper> _mapperMock;
         private readonly Mock<IProductRepository> _repositoryMock;
-        private readonly Mock<ICollectionResponseMapper<Product, BrowseProductsResponse>> _responseMapperMock;
 
         private readonly BrowseProductsUseCase _useCase;
 
         public BrowseProductsUseCaseTest()
         {
+            _mapperMock = new Mock<IUseCaseMapper>();
             _repositoryMock = new Mock<IProductRepository>();
-            _responseMapperMock = new Mock<ICollectionResponseMapper<Product, BrowseProductsResponse>>();
-            _useCase = new BrowseProductsUseCase(_repositoryMock.Object, _responseMapperMock.Object);
+            _useCase = new BrowseProductsUseCase(_mapperMock.Object, _repositoryMock.Object);
         }
 
         [Fact]
@@ -52,8 +51,8 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
 
             await _useCase.HandleAsync(request);
 
+            _mapperMock.Verify(e => e.Map<IEnumerable<Product>, BrowseProductsResponse>(products), Times.Once);
             _repositoryMock.Verify(e => e.GetAsync(page, size), Times.Once);
-            _responseMapperMock.Verify(e => e.Map(products), Times.Once);
         }
     }
 }

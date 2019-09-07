@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.16" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Infrastructure.MediatR" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.MediatR" Version="1.0.16" />
     <ProjectReference Include="..\..\Core\All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 

@@ -10,7 +10,7 @@ using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using Optivem.Framework.Infrastructure.System.Reflection;
-using Optivem.Template.Core.Application.Customers.Services;
+using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Web.RestClient;
 using Optivem.Template.Web.RestClient.Http;
 using Optivem.Template.Web.RestClient.Interface;
@@ -41,17 +41,7 @@ namespace Optivem.Template.Web.UI
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // TODO: VC: These could be auto-loaded via dependency injection for razor perhaps
-
-
-            // services.AddScoped<ICustomerPageService, FakeCustomerPageService>();
-
-            //  clientFactory
-
             services.Configure<ApiClientOptions>(Configuration.GetSection("ApiClient"));
-
-
-            // IClient client, IJsonSerializer serializer, IPropertyMapper propertyFactory
 
             services.AddScoped<IClient, ApiClient>();
             services.AddScoped<IJsonSerializer, JsonSerializer>();
@@ -61,8 +51,6 @@ namespace Optivem.Template.Web.UI
             services.AddScoped<ICustomerHttpService, CustomerHttpService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ICustomerPageService, CustomerPageService>();
-
-            // TODO: VC: Global handling of ErrorException, showing popup to user or redirecting to error page
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,8 +66,6 @@ namespace Optivem.Template.Web.UI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            // TODO: VC: Error handling
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
