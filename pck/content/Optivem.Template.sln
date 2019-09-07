@@ -59,8 +59,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.UI.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.UI.Client.Interface", "src\Web\UI.Client.Interface\Optivem.Template.Web.UI.Client.Interface.csproj", "{E3254F0D-A353-459C-ACBC-A3910252C417}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.UI.SystemTest", "test\Web\UI.SystemTest\Optivem.Template.Web.UI.SystemTest.csproj", "{0C29862E-1842-4C97-B88F-79BD6FD6A885}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,10 +145,6 @@ Global
 		{E3254F0D-A353-459C-ACBC-A3910252C417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3254F0D-A353-459C-ACBC-A3910252C417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3254F0D-A353-459C-ACBC-A3910252C417}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C29862E-1842-4C97-B88F-79BD6FD6A885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C29862E-1842-4C97-B88F-79BD6FD6A885}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C29862E-1842-4C97-B88F-79BD6FD6A885}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C29862E-1842-4C97-B88F-79BD6FD6A885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,7 +176,6 @@ Global
 		{A65CAB11-3738-4B5D-A319-631D4C2AD189} = {829FCE68-4851-44F8-AC31-DE062FA0077E}
 		{23E2C05D-4632-42DB-9F04-881FA4C6D030} = {829FCE68-4851-44F8-AC31-DE062FA0077E}
 		{E3254F0D-A353-459C-ACBC-A3910252C417} = {829FCE68-4851-44F8-AC31-DE062FA0077E}
-		{0C29862E-1842-4C97-B88F-79BD6FD6A885} = {5098EA65-BD02-4CF2-82C4-6614EC35C43C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41DD5ECF-00C7-44F6-A2A7-937713CBE1AC}
