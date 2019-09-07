@@ -2,7 +2,7 @@
 using Optivem.Generator.Core.Application.Orders.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Generator.Core.Application.Orders.Services
+namespace Optivem.Generator.Core.Application.Orders
 {
     public interface IOrderService
     {

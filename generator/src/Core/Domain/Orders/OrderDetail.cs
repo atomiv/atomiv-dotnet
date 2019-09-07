@@ -1,8 +1,7 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Generator.Core.Domain.Orders.ValueObjects;
-using Optivem.Generator.Core.Domain.Products.ValueObjects;
+using Optivem.Generator.Core.Domain.Products;
 
-namespace Optivem.Generator.Core.Domain.Orders.Entities
+namespace Optivem.Generator.Core.Domain.Orders
 {
     public class OrderDetail : Entity<OrderDetailIdentity>
     {

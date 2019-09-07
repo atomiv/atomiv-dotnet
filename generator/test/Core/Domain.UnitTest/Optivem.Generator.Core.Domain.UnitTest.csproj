@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Domain" Version="1.0.15" />
+    <PackageReference Include="Optivem.Framework.Core.Domain" Version="1.0.16" />
     <ProjectReference Include="..\..\..\src\Core\Domain\Optivem.Generator.Core.Domain.csproj" />
   </ItemGroup>
 

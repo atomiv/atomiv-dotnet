@@ -4,7 +4,7 @@ using Optivem.Framework.Core.Application.Services;
 using Optivem.Generator.Core.Application.Orders.Requests;
 using Optivem.Generator.Core.Application.Orders.Responses;
 
-namespace Optivem.Generator.Core.Application.Orders.Services
+namespace Optivem.Generator.Core.Application.Orders
 {
     public class OrderService : BaseService, IOrderService
     {
@@ -52,7 +52,4 @@ namespace Optivem.Generator.Core.Application.Orders.Services
             return HandleAsync<UpdateOrderRequest, UpdateOrderResponse> (request);
         }
     }
-
-    // TODO: VC: Introduce subclasses of orders, e.g. express and regular orders? sales order vs purchase order
-    // TODO: VC: Also then show inheritance both in domain and in DB
 }

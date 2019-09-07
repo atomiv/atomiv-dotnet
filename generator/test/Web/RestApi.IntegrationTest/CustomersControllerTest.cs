@@ -8,9 +8,6 @@ using Xunit;
 
 namespace Optivem.Generator.Web.RestApi.IntegrationTest
 {
-    // TODO: VC: When testing, making equivalent tests for application layer and web layer when testing correctness
-    // and on web layer just see that it returns web specific things (e.g. status codes)
-
     public class CustomersControllerTest : ControllerTest
     {
         private List<CustomerRecord> _customerRecords;
@@ -130,8 +127,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         [Fact]
         public async Task CreateCustomer_Invalid_UnprocessableEntity()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var createRequest = new CreateCustomerRequest
             {
                 FirstName = null,
@@ -152,8 +147,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_Valid_OK()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest
@@ -177,8 +170,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_NotExist_NotFound()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest
@@ -196,8 +187,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_Invalid_UnprocessableEntity()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var customerRecord = _customerRecords[0];
 
             var updateRequest = new UpdateCustomerRequest

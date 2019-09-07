@@ -5,8 +5,6 @@ namespace Optivem.Generator.Web.UI.Client.Pages
 {
     public class CreateCustomerPage : Page, ICreateCustomerPage
     {
-        // TODO: VC: Base should be configurable due to localhost vs test etc.
-
         public CreateCustomerPage(string url, Driver driver, bool navigateTo = false) 
             : base(driver, $"{url}/customers/create", navigateTo)
         {

@@ -12,8 +12,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest.Fixtures
 
         public void Dispose()
         {
-            // TODO: VC: Optimize, use truncate, also generic truncate for all DB contexts, but only the operational tables
-
             using (var context = Fixture.Db.CreateContext())
             {
                 context.Customer.RemoveRange(context.Customer);

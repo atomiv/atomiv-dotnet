@@ -1,7 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Generator.Core.Domain.Customers.ValueObjects;
 
-namespace Optivem.Generator.Core.Domain.Customers.Entities
+namespace Optivem.Generator.Core.Domain.Customers
 {
     public class Customer : AggregateRoot<CustomerIdentity>
     {

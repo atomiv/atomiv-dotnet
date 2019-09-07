@@ -3,7 +3,7 @@
   "author": "Optivem",
   "classifications": [ "Template", "Web" ],
   "identity": "Optivem.Template.CSharp",
-  "name": "Optivem Template",
+  "name": "Optivem .NET Core 2.2 Application",
   "shortName": "optivem",
   "sourceName": "Optivem.Template"
 }

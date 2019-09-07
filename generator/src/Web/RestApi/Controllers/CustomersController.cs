@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Framework.Web.AspNetCore;
+using Optivem.Generator.Core.Application.Customers;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
-using Optivem.Generator.Core.Application.Customers.Services;
 using System.Threading.Tasks;
 
 namespace Optivem.Generator.Web.RestApi.Controllers
@@ -24,8 +24,6 @@ namespace Optivem.Generator.Web.RestApi.Controllers
             var response = await Service.ListCustomersAsync(request);
             return Ok(response);
         }
-
-        // TODO: VC: Check swagger global responses, e.g. for validation?
 
         [HttpGet("{id}", Name = "find-customer")]
         [ProducesResponseType(typeof(FindCustomerResponse), 200)]
@@ -50,8 +48,6 @@ namespace Optivem.Generator.Web.RestApi.Controllers
         [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]
         public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(int id, UpdateCustomerRequest request)
         {
-            // TODO: VC: API validation regarding id matching
-
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
         }

@@ -1,15 +1,12 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Generator.Core.Domain.Customers.ValueObjects;
-using Optivem.Generator.Core.Domain.Orders.ValueObjects;
+using Optivem.Generator.Core.Domain.Customers;
 using System;
 using System.Collections.ObjectModel;
 
-namespace Optivem.Generator.Core.Domain.Orders.Entities
+namespace Optivem.Generator.Core.Domain.Orders
 {
     public class Order : AggregateRoot<OrderIdentity>
     {
-        // TODO: VC: Accept order details as IEnumerable
-
         public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, ReadOnlyCollection<OrderDetail> orderDetails) 
             : base(id)
         {

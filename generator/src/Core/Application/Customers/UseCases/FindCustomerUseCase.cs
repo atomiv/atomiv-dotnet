@@ -1,25 +1,17 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
-using Optivem.Generator.Core.Domain.Customers.Entities;
-using Optivem.Generator.Core.Domain.Customers.Repositories;
-using Optivem.Generator.Core.Domain.Customers.ValueObjects;
+using Optivem.Generator.Core.Domain.Customers;
 
 namespace Optivem.Generator.Core.Application.Customers.UseCases
 {
     public class FindCustomerUseCase : FindAggregateUseCase<ICustomerRepository, FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public FindCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
-            : base(unitOfWork, responseMapper)
+        public FindCustomerUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        // TODO: VC: Common factory, optional, unless reflection --> i.e. virtual
-        protected override CustomerIdentity GetIdentity(int id)
-        {
-            // TODO: VC: Do this via reflection
-            return new CustomerIdentity(id);
         }
     }
 }

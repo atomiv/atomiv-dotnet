@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Generator.Core.Application.Products;
 using Optivem.Generator.Core.Application.Products.Requests;
 using Optivem.Generator.Core.Application.Products.Responses;
-using Optivem.Generator.Core.Application.Products.Services;
 using Optivem.Generator.Web.RestClient.Interface;
 
 namespace Optivem.Generator.Web.RestClient

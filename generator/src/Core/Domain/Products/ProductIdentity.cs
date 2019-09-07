@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
 
-namespace Optivem.Generator.Core.Domain.Products.ValueObjects
+namespace Optivem.Generator.Core.Domain.Products
 {
     public class ProductIdentity : Identity<int>
     {

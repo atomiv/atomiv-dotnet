@@ -56,8 +56,6 @@ namespace Optivem.Generator.Web.RestApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
-            // TODO: VC: Add Production, Staging too...
         }
     }
 }

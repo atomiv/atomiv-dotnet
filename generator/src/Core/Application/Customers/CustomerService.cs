@@ -4,7 +4,7 @@ using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Generator.Core.Application.Customers.Services
+namespace Optivem.Generator.Core.Application.Customers
 {
     public class CustomerService : BaseService, ICustomerService
     {

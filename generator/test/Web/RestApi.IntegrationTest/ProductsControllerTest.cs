@@ -17,8 +17,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         {
             _productRecords = new List<ProductRecord>
             {
-                // TODO: VC: Currency
-
                 new ProductRecord
                 {
                     ProductCode = "APP",
@@ -37,8 +35,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
             Fixture.Db.AddRange(_productRecords);
         }
 
-        // TODO: VC: Naming conventions for tests
-
         [Fact]
         public async Task BrowseProducts_Valid_OK()
         {
@@ -51,7 +47,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
                     ListPrice = 100 + i,
                 };
 
-                // TODO: VC: Check if valid
                 _productRecords.Add(productRecord);
 
                 Fixture.Db.Add(productRecord);
@@ -91,8 +86,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
         [Fact(Skip = "Pending implement")]
         public async Task CreateProduct_Invalid_UnprocessableEntity()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var createRequest = new CreateProductRequest
             {
                 Code = null,
@@ -230,8 +223,6 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
             Assert.Equal(updateRequest.Id, updateResponseContent.Id);
             Assert.Equal(updateRequest.Description, updateResponseContent.Description);
             Assert.Equal(updateRequest.UnitPrice, updateResponseContent.UnitPrice);
-
-            // TODO: VC: Do another GET
         }
 
         [Fact]
@@ -247,15 +238,11 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
             var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
-
-            // TODO: VC: Do GET to assert not updated
         }
 
         [Fact(Skip = "Pending implement")]
         public async Task UpdateProduct_Invalid_UnprocessableEntity()
         {
-            // TODO: Request invalid - null, exceeded length, special characters, words, date (date in the past), negative integers for quantities
-
             var productRecord = _productRecords[0];
 
             var updateRequest = new UpdateProductRequest
@@ -271,7 +258,5 @@ namespace Optivem.Generator.Web.RestApi.IntegrationTest
             var problemDetails = updateResponse.ProblemDetails;
             Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
         }
-
-        // TODO: VC: Test that DELETE is not possible
     }
 }

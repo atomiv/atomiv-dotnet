@@ -1,27 +1,30 @@
 ﻿using AutoMapper;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Generator.Core.Application.Products.Responses;
-using Optivem.Generator.Core.Domain.Products.Entities;
+using Optivem.Generator.Core.Domain.Products;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Optivem.Generator.Infrastructure.AutoMapper.Products
 {
-    public class ListProductsResponseProfile : ResponseProfile<IEnumerable<Product>, ListProductsResponse>
+    public class ListProductsResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<IEnumerable<Product>, ListProductsResponse> map)
+        public ListProductsResponseProfile()
         {
-            map.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
+            CreateMap<IEnumerable<Product>, ListProductsResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
                 .ForMember(dest => dest.Count, opt => opt.MapFrom(e => e.Count()));
+
         }
     }
 
-    public class ListProductsRecordResponseProfile : ResponseProfile<Product, ListProductsRecordResponse>
+    public class ListProductsRecordResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<Product, ListProductsRecordResponse> map)
+        public ListProductsRecordResponseProfile()
         {
-            map.ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id));
-            map.ForMember(dest => dest.Name, opt => opt.MapFrom(e => $"{e.ProductCode} - {e.ProductName}"));
+            CreateMap<Product, ListProductsRecordResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(e => $"{e.ProductCode} - {e.ProductName}"));
         }
     }
 }

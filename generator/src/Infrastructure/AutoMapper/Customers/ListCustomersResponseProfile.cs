@@ -1,26 +1,27 @@
 ﻿using AutoMapper;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Generator.Core.Application.Customers.Responses;
-using Optivem.Generator.Core.Domain.Customers.Entities;
+using Optivem.Generator.Core.Domain.Customers;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Optivem.Generator.Infrastructure.AutoMapper.Customers
 {
-    public class ListCustomersResponseProfile : ResponseProfile<IEnumerable<Customer>, ListCustomersResponse>
+    public class ListCustomersResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<IEnumerable<Customer>, ListCustomersResponse> map)
+        public ListCustomersResponseProfile()
         {
-            map.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
+            CreateMap<IEnumerable<Customer>, ListCustomersResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
                 .ForMember(dest => dest.Count, opt => opt.MapFrom(e => e.Count()));
         }
     }
 
-    public class ListCustomersRecordResponseProfile : ResponseProfile<Customer, ListCustomersRecordResponse>
+    public class ListCustomersRecordResponseProfile : Profile
     {
-        protected override void Extend(IMappingExpression<Customer, ListCustomersRecordResponse> map)
+        public ListCustomersRecordResponseProfile()
         {
-            map.ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id));
+            CreateMap<Customer, ListCustomersRecordResponse>();
         }
     }
 }

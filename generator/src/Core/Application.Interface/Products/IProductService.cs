@@ -3,7 +3,7 @@ using Optivem.Generator.Core.Application.Products.Requests;
 using Optivem.Generator.Core.Application.Products.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Generator.Core.Application.Products.Services
+namespace Optivem.Generator.Core.Application.Products
 {
     public interface IProductService : IApplicationService
     {

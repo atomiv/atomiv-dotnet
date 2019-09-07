@@ -2,9 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Generator.Core.Domain.Products.Entities;
-using Optivem.Generator.Core.Domain.Products.Repositories;
-using Optivem.Generator.Core.Domain.Products.ValueObjects;
+using Optivem.Generator.Core.Domain.Products;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore.Products.Records;
 
 namespace Optivem.Generator.Infrastructure.EntityFrameworkCore.Products.Repositories
@@ -14,8 +12,6 @@ namespace Optivem.Generator.Infrastructure.EntityFrameworkCore.Products.Reposito
         public ProductRepository(DatabaseContext context) : base(context)
         {
         }
-
-        // TODO: VC: Move to base for paging
 
         public IEnumerable<Product> Get(int page, int size)
         {
@@ -41,8 +37,6 @@ namespace Optivem.Generator.Infrastructure.EntityFrameworkCore.Products.Reposito
             var id = record.Id;
             return new ProductIdentity(id);
         }
-
-        // TODO: VC: This method is only needed when there is deletion
 
         protected override ProductRecord GetRecord(ProductIdentity identity)
         {

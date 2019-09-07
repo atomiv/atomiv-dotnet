@@ -1,7 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Generator.Core.Domain.Products.ValueObjects;
 
-namespace Optivem.Generator.Core.Domain.Products.Entities
+namespace Optivem.Generator.Core.Domain.Products
 {
     public class Product : AggregateRoot<ProductIdentity>
     {

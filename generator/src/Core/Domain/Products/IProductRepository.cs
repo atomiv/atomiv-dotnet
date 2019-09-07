@@ -1,8 +1,6 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Generator.Core.Domain.Products.Entities;
-using Optivem.Generator.Core.Domain.Products.ValueObjects;
 
-namespace Optivem.Generator.Core.Domain.Products.Repositories
+namespace Optivem.Generator.Core.Domain.Products
 {
     public interface IProductRepository : ICrudRepository<Product, ProductIdentity>, IPageAggregatesRepository<Product, ProductIdentity>
     {

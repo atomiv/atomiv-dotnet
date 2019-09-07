@@ -3,9 +3,9 @@ using Optivem.Generator.DependencyInjection;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.Test.EntityFrameworkCore;
 using System;
-using Optivem.Generator.Core.Application.Customers.Services;
-using Optivem.Generator.Core.Application.Products.Services;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Generator.Core.Application.Customers;
+using Optivem.Generator.Core.Application.Products;
 
 namespace Optivem.Generator.Core.Application.IntegrationTest.Fixtures
 {

@@ -1,25 +1,17 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
-using Optivem.Generator.Core.Domain.Customers.Entities;
-using Optivem.Generator.Core.Domain.Customers.Repositories;
-using Optivem.Generator.Core.Domain.Customers.ValueObjects;
+using Optivem.Generator.Core.Domain.Customers;
 
 namespace Optivem.Generator.Core.Application.Customers.UseCases
 {
-    // TODO: VC: Perhaps have shared responses?
-
     public class UpdateCustomerUseCase : UpdateAggregateUseCase<ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public UpdateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
-            : base(unitOfWork, responseMapper)
+        public UpdateCustomerUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override CustomerIdentity GetIdentity(int id)
-        {
-            return new CustomerIdentity(id);
         }
 
         protected override void Update(Customer aggregateRoot, UpdateCustomerRequest request)
