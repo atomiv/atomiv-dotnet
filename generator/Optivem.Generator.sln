@@ -47,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Generator.Cli", "sr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cli", "Cli", "{11AF7FF3-77FE-4A0A-806E-D972767B5E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Generator.Cli.IntegrationTest", "Optivem.Generator.Cli.IntegrationTest\Optivem.Generator.Cli.IntegrationTest.csproj", "{8F798BBB-06D7-4477-BD2A-0C3E9A000066}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Generator.Cli.IntegrationTest", "test\Cli\Cli.IntegrationTest\Optivem.Generator.Cli.IntegrationTest.csproj", "{C6FA580C-5FC0-4A65-A565-B296C8A0D19E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,10 +111,10 @@ Global
 		{A51EEBC7-CDEE-4450-8D66-FA7F19A26B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51EEBC7-CDEE-4450-8D66-FA7F19A26B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A51EEBC7-CDEE-4450-8D66-FA7F19A26B2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F798BBB-06D7-4477-BD2A-0C3E9A000066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F798BBB-06D7-4477-BD2A-0C3E9A000066}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F798BBB-06D7-4477-BD2A-0C3E9A000066}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F798BBB-06D7-4477-BD2A-0C3E9A000066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FA580C-5FC0-4A65-A565-B296C8A0D19E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FA580C-5FC0-4A65-A565-B296C8A0D19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FA580C-5FC0-4A65-A565-B296C8A0D19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FA580C-5FC0-4A65-A565-B296C8A0D19E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,7 +140,7 @@ Global
 		{F9485192-D039-451C-9DFB-C715D5FC63B6} = {A48792A6-8259-4BC8-A8D1-42B15C7C3DDB}
 		{A51EEBC7-CDEE-4450-8D66-FA7F19A26B2E} = {F9485192-D039-451C-9DFB-C715D5FC63B6}
 		{11AF7FF3-77FE-4A0A-806E-D972767B5E3B} = {85A15CB0-4F65-4D52-BAC4-5C4745865902}
-		{8F798BBB-06D7-4477-BD2A-0C3E9A000066} = {11AF7FF3-77FE-4A0A-806E-D972767B5E3B}
+		{C6FA580C-5FC0-4A65-A565-B296C8A0D19E} = {11AF7FF3-77FE-4A0A-806E-D972767B5E3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41DD5ECF-00C7-44F6-A2A7-937713CBE1AC}
