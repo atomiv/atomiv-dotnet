@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Web.UI.Client.Interface\Optivem.Template.Web.UI.Client.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

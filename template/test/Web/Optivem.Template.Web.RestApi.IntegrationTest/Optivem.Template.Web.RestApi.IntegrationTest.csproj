@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
