@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
@@ -8,14 +9,9 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class UpdateCustomerUseCase : UpdateAggregateUseCase<ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public UpdateCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
-            : base(unitOfWork, responseMapper)
+        public UpdateCustomerUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override CustomerIdentity GetIdentity(int id)
-        {
-            return new CustomerIdentity(id);
         }
 
         protected override void Update(Customer aggregateRoot, UpdateCustomerRequest request)

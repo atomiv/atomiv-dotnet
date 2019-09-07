@@ -1,29 +1,26 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Framework.Core.Application.Mappers;
+using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    public abstract class UpdateAggregateUseCase<TUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
-        : UnitOfWorkUseCase<TUnitOfWork, TRepository, TRequest, TResponse>
-        where TUnitOfWork : IUnitOfWork
+    public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+        : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : class, IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
-        where TIdentity : IIdentity
+        where TIdentity : IIdentity<TId>
     {
-        public UpdateAggregateUseCase(TUnitOfWork unitOfWork, IResponseMapper responseMapper)
-            : base(unitOfWork)
+        public UpdateAggregateUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-            ResponseMapper = responseMapper;
         }
-
-        protected IResponseMapper ResponseMapper { get; private set; }
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
             var id = request.Id;
-            var identity = GetIdentity(id);
+            var identity = Mapper.Map<TId, TIdentity>(id);
 
             var repository = GetRepository();
 
@@ -40,7 +37,7 @@ namespace Optivem.Framework.Core.Application
             {
                 repository.Update(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
-                var response = ResponseMapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
+                var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;
             }
             catch (ConcurrentUpdateException)
@@ -56,22 +53,6 @@ namespace Optivem.Framework.Core.Application
             }
         }
 
-        protected abstract TIdentity GetIdentity(TId id);
-
         protected abstract void Update(TAggregateRoot aggregateRoot, TRequest request);
-    }
-
-    public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
-        : UpdateAggregateUseCase<IUnitOfWork, TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
-        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
-        where TRequest : IRequest<TId>
-        where TResponse : class, IResponse<TId>
-        where TAggregateRoot : IAggregateRoot<TIdentity>
-        where TIdentity : IIdentity
-    {
-        public UpdateAggregateUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) 
-            : base(unitOfWork, responseMapper)
-        {
-        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
@@ -8,14 +9,9 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class FindCustomerUseCase : FindAggregateUseCase<ICustomerRepository, FindCustomerRequest, FindCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public FindCustomerUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper)
-            : base(unitOfWork, responseMapper)
+        public FindCustomerUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override CustomerIdentity GetIdentity(int id)
-        {
-            return new CustomerIdentity(id);
         }
     }
 }

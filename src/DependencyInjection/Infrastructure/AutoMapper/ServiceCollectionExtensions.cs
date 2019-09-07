@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using System;
@@ -25,6 +26,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
         {
             services.AddAutoMapper(assemblies);
             services.AddScoped<IResponseMapper, ResponseMapper>();
+            services.AddScoped<IUseCaseMapper, UseCaseMapper>();
 
             var types = assemblies.GetTypes();
             services.AddRequestMappers(types);

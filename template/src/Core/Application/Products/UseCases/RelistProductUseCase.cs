@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
@@ -8,13 +9,9 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 {
     public class RelistProductUseCase : UpdateAggregateUseCase<IProductRepository, RelistProductRequest, RelistProductResponse, Product, ProductIdentity, int>
     {
-        public RelistProductUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) : base(unitOfWork, responseMapper)
+        public RelistProductUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override ProductIdentity GetIdentity(int id)
-        {
-            throw new System.NotImplementedException();
         }
 
         protected override void Update(Product aggregateRoot, RelistProductRequest request)

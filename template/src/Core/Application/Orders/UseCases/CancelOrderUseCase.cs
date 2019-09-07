@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -8,13 +9,9 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class CancelOrderUseCase : UpdateAggregateUseCase<IOrderRepository, CancelOrderRequest, CancelOrderResponse, Order, OrderIdentity, int>
     {
-        public CancelOrderUseCase(IUnitOfWork unitOfWork, IResponseMapper responseMapper) : base(unitOfWork, responseMapper)
+        public CancelOrderUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+            : base(mapper, unitOfWork)
         {
-        }
-
-        protected override OrderIdentity GetIdentity(int id)
-        {
-            return new OrderIdentity(id);
         }
 
         protected override void Update(Order aggregateRoot, CancelOrderRequest request)
