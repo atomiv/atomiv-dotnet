@@ -18,12 +18,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // TODO: VC: Check if needed
-            // modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
-
             modelBuilder.ApplyConfiguration(new CustomerRecordConfiguration());
-
-            // TODO: VC: Dynamically find everything implementing IEntityTypeConfiguration interface
         }
     }
 }

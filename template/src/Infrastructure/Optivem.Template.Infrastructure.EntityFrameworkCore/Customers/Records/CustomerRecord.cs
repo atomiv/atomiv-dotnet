@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records
 {
-    // TODO: VC: Transfer records to EF level
-
     public class CustomerRecord : IIdentity<int>
     {
         public CustomerRecord()
