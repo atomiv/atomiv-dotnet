@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Optivem.Template</id>
-    <version>1.0.15.0</version>
-    <description>Optivem Template</description>
+    <version>1.0.16</version>
+    <description>Optivem</description>
     <authors>Optivem</authors>
     <packageTypes>
       <packageType name="Template" />
