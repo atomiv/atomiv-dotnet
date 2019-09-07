@@ -14,8 +14,8 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
 
             var srcRootPath = Path.GetFullPath(Path.Combine(appRootPath, @"src\"));
 
-            var webApiDir = Path.Combine(srcRootPath, @"Web\RestApi");
-            var webUiDir = Path.Combine(srcRootPath, @"Web\UI");
+            var webApiDir = Path.Combine(srcRootPath, @"Web\Optivem.Template.Web.RestApi");
+            var webUiDir = Path.Combine(srcRootPath, @"Web\Optivem.Template.Web.UI");
 
             var webApiFilePath = Path.Combine(webApiDir, "Optivem.Template.Web.RestApi.csproj");
             var webUiFilePath = Path.Combine(webUiDir, "Optivem.Template.Web.UI.csproj");
