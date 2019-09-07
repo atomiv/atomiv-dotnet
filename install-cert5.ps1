@@ -28,8 +28,8 @@ New-Item -ItemType Directory -Force -Path $tmpPath
 
 # set certificate password here
 $pfxPassword = ConvertTo-SecureString -String "YourSecurePassword" -Force -AsPlainText
-$pfxFilePath = "C:\projects\framework-dotnetcore\template\src\Web\UI\localhost3.pfx"
-$cerFilePath = "C:\projects\framework-dotnetcore\template\src\Web\UI\localhost3.cer"
+$pfxFilePath = "C:\projects\framework-dotnetcore\template\src\Web\Optivem.Template.Web.UI\localhost3.pfx"
+$cerFilePath = "C:\projects\framework-dotnetcore\template\src\Web\Optivem.Template.Web.UI\localhost3.cer"
 #$pfxFilePath = "D:\GitHub\optivem\framework-dotnetcore\template\src\Web\UI\localhost3.pfx"
 #$cerFilePath = "D:\GitHub\optivem\framework-dotnetcore\template\src\Web\UI\localhost3.cer"
 
