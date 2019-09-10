@@ -1,5 +1,4 @@
 ﻿using Moq;
-using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;

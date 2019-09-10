@@ -1,9 +1,6 @@
 ﻿
 using AutoMapper;
 using Optivem.Framework.Core.Application.Mappers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.AutoMapper
 {
@@ -16,9 +13,14 @@ namespace Optivem.Framework.Infrastructure.AutoMapper
 
         protected IMapper Mapper { get; private set; }
 
-        public U Map<T, U>(T source)
+        public T Map<S, T>(S source)
         {
-            return Mapper.Map<T, U>(source);
+            return Mapper.Map<S, T>(source);
+        }
+
+        public T Map<S, T>(S source, T target)
+        {
+            return Mapper.Map<S, T>(source, target);
         }
     }
 }

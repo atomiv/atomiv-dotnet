@@ -15,11 +15,6 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         {
         }
 
-        protected override Order CreateAggregateRoot(CreateOrderRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
         protected override Order CreateAggregateRoot(Order aggregateRoot, OrderIdentity identity)
         {
             throw new NotImplementedException();

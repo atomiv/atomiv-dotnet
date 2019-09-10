@@ -1,8 +1,7 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Repositories
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
     public class CustomerRepository : Repository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>, ICustomerRepository
     {

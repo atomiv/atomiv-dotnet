@@ -19,7 +19,8 @@ namespace Optivem.Framework.Core.Application
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
-            var aggregateRoot = CreateAggregateRoot(request);
+            //var aggregateRoot = CreateAggregateRoot(request);
+            var aggregateRoot = Mapper.Map<TRequest, TAggregateRoot>(request);
 
             var repository = GetRepository();
             var identity = await repository.AddAsync(aggregateRoot);
@@ -31,7 +32,8 @@ namespace Optivem.Framework.Core.Application
             return response;
         }
 
-        protected abstract TAggregateRoot CreateAggregateRoot(TRequest request);
+        // TODO: VC: DELETE
+        // protected abstract TAggregateRoot CreateAggregateRoot(TRequest request);
 
         protected abstract TAggregateRoot CreateAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
     }

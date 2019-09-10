@@ -1,8 +1,8 @@
 ﻿using Optivem.Framework.Core.Domain;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Records;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
     public class ProductRecord : IIdentity<int>
     {

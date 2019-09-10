@@ -9,10 +9,4 @@
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Orders\Configurations\" />
-    <Folder Include="Orders\Repositories\" />
-    <Folder Include="Products\Configurations\" />
-  </ItemGroup>
-
 </Project>

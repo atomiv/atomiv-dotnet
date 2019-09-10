@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mappers;
-using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper

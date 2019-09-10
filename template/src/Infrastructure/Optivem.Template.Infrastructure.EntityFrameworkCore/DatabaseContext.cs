@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Configurations;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {

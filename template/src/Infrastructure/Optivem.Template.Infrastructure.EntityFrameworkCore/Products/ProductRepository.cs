@@ -3,9 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Repositories
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
     public class ProductRepository : Repository<DatabaseContext, Product, ProductIdentity, ProductRecord, int>, IProductRepository
     {

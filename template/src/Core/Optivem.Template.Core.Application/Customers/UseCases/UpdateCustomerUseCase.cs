@@ -14,10 +14,13 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         {
         }
 
+        // TODO: VC: DELETE
+        /*
         protected override void Update(Customer aggregateRoot, UpdateCustomerRequest request)
         {
             aggregateRoot.FirstName = request.FirstName;
             aggregateRoot.LastName = request.LastName;
         }
+        */
     }
 }

@@ -1,5 +1,5 @@
 using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Records;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System.Collections.Generic;
 using System.Linq;

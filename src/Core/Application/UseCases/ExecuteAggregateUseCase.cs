@@ -1,10 +1,15 @@
 ﻿using Optivem.Framework.Core.Application.Mappers;
 using Optivem.Framework.Core.Domain;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application
+namespace Optivem.Framework.Core.Application.UseCases
 {
-    public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
+    // TODO: VC: Base class with UpdateAggregate, ro try to do composition
+
+    public abstract class ExecuteAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
@@ -12,7 +17,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public UpdateAggregateUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+        public ExecuteAggregateUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }
@@ -31,10 +36,7 @@ namespace Optivem.Framework.Core.Application
                 throw new NotFoundRequestException();
             }
 
-            aggregateRoot = Mapper.Map<TRequest, TAggregateRoot>(request, aggregateRoot);
-
-            // TODO: VC: DELETE
-            // Update(aggregateRoot, request);
+            Execute(request, aggregateRoot);
 
             try
             {
@@ -56,7 +58,6 @@ namespace Optivem.Framework.Core.Application
             }
         }
 
-        // TODO: VC: DELETE
-        // protected abstract void Update(TAggregateRoot aggregateRoot, TRequest request);
+        protected abstract void Execute(TRequest request, TAggregateRoot aggregateRoot);
     }
 }
