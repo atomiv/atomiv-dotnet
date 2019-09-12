@@ -189,7 +189,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
         */
 
-        [Fact]
+        [Fact(Skip = "TODO")]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];

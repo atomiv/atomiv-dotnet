@@ -44,7 +44,7 @@ $projects = @(
     'src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj',
     'src\Infrastructure\CsvHelper\Optivem.Framework.Infrastructure.CsvHelper.csproj',
     'src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj',
-    # 'src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj',
+    'src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Optivem.Framework.Infrastructure.FluentValidation.csproj',
     'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
     'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
