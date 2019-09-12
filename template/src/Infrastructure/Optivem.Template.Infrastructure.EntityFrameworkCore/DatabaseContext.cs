@@ -45,8 +45,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 
         // TODO: VC: ENum entities could inherit from base which has the property Code
         private void SeedEnumRecords<TRecord, TEnum>(ModelBuilder modelBuilder, Func<TEnum, TRecord> converter) 
-            where TRecord : class 
-            where TEnum : Enum
+            where TRecord : class
         {
 
             var values = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();

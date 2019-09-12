@@ -33,6 +33,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             OrderStatus status = (OrderStatus)record.StatusId; // TODO: VC
             var orderDetails = record.OrderDetails.Select(GetOrderDetail).ToList().AsReadOnly();
 
+            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
+
             return new Order(id, customerId, status, orderDetails);
         }
 
