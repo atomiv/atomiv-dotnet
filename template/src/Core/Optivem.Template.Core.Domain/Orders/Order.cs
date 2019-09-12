@@ -17,23 +17,25 @@ namespace Optivem.Template.Core.Domain.Orders
 
         public CustomerIdentity CustomerId { get; }
 
-        public OrderStatus Status { get; }
+        public OrderStatus Status { get; private set; }
 
         public ReadOnlyCollection<OrderDetail> OrderDetails { get; }
 
         public void Archive()
         {
-            throw new NotImplementedException();
+            Status = OrderStatus.Archived;
         }
 
         public void Submit()
         {
-            throw new NotImplementedException();
+            Status = OrderStatus.Submitted;
         }
 
         public void Cancel()
         {
-            throw new NotImplementedException();
+            Status = OrderStatus.Cancelled;
+
+
         }
     }
 }

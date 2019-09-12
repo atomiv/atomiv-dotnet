@@ -9,6 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         public int ProductId { get; set; }
         public decimal Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public int StatusId { get; set; }
 
         public virtual OrderRecord Order { get; set; }
         public virtual ProductRecord Product { get; set; }

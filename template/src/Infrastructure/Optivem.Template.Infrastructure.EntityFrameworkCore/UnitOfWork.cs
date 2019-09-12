@@ -1,7 +1,11 @@
 ﻿using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
@@ -11,6 +15,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
             : base(context, disposeContext)
         {
             AddRepository<ICustomerRepository>(new CustomerRepository(context));
+            AddRepository<IOrderRepository>(new OrderRepository(context));
+            AddRepository<IProductRepository>(new ProductRepository(context));
         }
     }
 }

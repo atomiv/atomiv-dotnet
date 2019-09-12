@@ -1,13 +1,14 @@
-﻿using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderRecord
+    public class OrderRecord : IIdentity<int>
     {
         public OrderRecord()
         {
-            OrderDetail = new HashSet<OrderDetailRecord>();
+            OrderDetails = new List<OrderDetailRecord>();
         }
 
         public int Id { get; set; }
@@ -16,6 +17,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         public virtual CustomerRecord Customer { get; set; }
         public virtual OrderStatusRecord Status { get; set; }
-        public virtual ICollection<OrderDetailRecord> OrderDetail { get; set; }
+        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
     }
 }

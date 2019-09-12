@@ -6,6 +6,7 @@ using System;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Products;
+using Optivem.Template.Core.Application.Orders;
 
 namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 {
@@ -22,6 +23,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             ServiceProvider = services.BuildServiceProvider();
 
             Customers = GetService<ICustomerService>();
+            Orders = GetService<IOrderService>();
             Products = GetService<IProductService>();
         }
 
@@ -35,6 +37,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
         }
 
         public ICustomerService Customers { get; }
+
+        public IOrderService Orders { get; }
 
         public IProductService Products { get; }
 
