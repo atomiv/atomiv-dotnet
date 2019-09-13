@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
@@ -9,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderRepository : Repository<DatabaseContext, Order, OrderIdentity, OrderRecord, int>, IOrderRepository
+    public class OrderRepository : CrudRepository<DatabaseContext, Order, OrderIdentity, OrderRecord, int>, IOrderRepository
     {
-        public OrderRepository(DatabaseContext context) : base(context, e => e.OrderDetails)
+        public OrderRepository(IMapper mapper, DatabaseContext context) 
+            : base(mapper, context, e => e.OrderDetails)
         {
         }
 

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
-    public class ProductRepository : Repository<DatabaseContext, Product, ProductIdentity, ProductRecord, int>, IProductRepository
+    public class ProductRepository : CrudRepository<DatabaseContext, Product, ProductIdentity, ProductRecord, int>, IProductRepository
     {
-        public ProductRepository(DatabaseContext context) : base(context)
+        public ProductRepository(IMapper mapper, DatabaseContext context) : base(mapper, context)
         {
         }
 

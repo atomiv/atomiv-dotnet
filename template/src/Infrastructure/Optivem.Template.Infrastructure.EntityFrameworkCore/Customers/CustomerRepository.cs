@@ -1,11 +1,13 @@
-﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
-    public class CustomerRepository : Repository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>, ICustomerRepository
+    public class CustomerRepository : CrudRepository<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>, ICustomerRepository
     {
-        public CustomerRepository(DatabaseContext context) : base(context)
+        public CustomerRepository(IMapper mapper, DatabaseContext context) 
+            : base(mapper, context)
         {
         }
 

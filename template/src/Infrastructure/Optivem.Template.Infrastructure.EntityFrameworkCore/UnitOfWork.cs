@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
@@ -11,12 +12,12 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
     public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {
-        public UnitOfWork(DatabaseContext context, bool disposeContext = false)
+        public UnitOfWork(IMapper mapper, DatabaseContext context, bool disposeContext = false)
             : base(context, disposeContext)
         {
-            AddRepository<ICustomerRepository>(new CustomerRepository(context));
-            AddRepository<IOrderRepository>(new OrderRepository(context));
-            AddRepository<IProductRepository>(new ProductRepository(context));
+            AddRepository<ICustomerRepository>(new CustomerRepository(mapper, context));
+            AddRepository<IOrderRepository>(new OrderRepository(mapper, context));
+            AddRepository<IProductRepository>(new ProductRepository(mapper, context));
         }
     }
 }

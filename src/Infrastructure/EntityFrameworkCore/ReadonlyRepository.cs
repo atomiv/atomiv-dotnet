@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,14 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         // protected readonly DbSet<TRecord> set;
         // protected readonly DbSet<TRecord> setAsNoTracking;
 
-        public ReadonlyRepository(TContext context, params Expression<Func<TRecord, object>>[] includes)
+        public ReadonlyRepository(IMapper mapper, TContext context, params Expression<Func<TRecord, object>>[] includes)
         {
             // TODO: VC: DELETE
 
             // this.context = context;
             // this.set = context.Set<TRecord>();
 
+            Mapper = mapper;
             Context = context;
             ReadonlySet = context.Set<TRecord>().AsNoTracking();
 
@@ -139,7 +141,10 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
         */
 
+        protected IMapper Mapper { get; }
+
         protected TContext Context { get; }
+
 
         protected IQueryable<TRecord> ReadonlySet { get; }
 
