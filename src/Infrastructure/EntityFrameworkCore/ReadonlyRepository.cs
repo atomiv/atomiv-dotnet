@@ -3,6 +3,7 @@ using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
@@ -20,7 +21,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         // protected readonly DbSet<TRecord> set;
         // protected readonly DbSet<TRecord> setAsNoTracking;
 
-        public ReadonlyRepository(TContext context)
+        public ReadonlyRepository(TContext context, params Expression<Func<TRecord, object>>[] includes)
         {
             // TODO: VC: DELETE
 
@@ -29,6 +30,15 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             Context = context;
             ReadonlySet = context.Set<TRecord>().AsNoTracking();
+
+            if(includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    ReadonlySet = ReadonlySet.Include(include);
+                }
+            }
+
         }
 
         #region Read
@@ -173,19 +183,22 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return GetAggregateRoot(record);
         }
 
-        public bool GetExists(TIdentity id)
+        public bool GetExists(TIdentity identity)
         {
-            var entity = GetSingleOrDefault(id);
-            return entity != null;
+            return ReadonlySet.Any(e => e.Id.Equals(identity.Id));
         }
 
-        public async Task<bool> GetExistsAsync(TIdentity id)
+        public Task<bool> GetExistsAsync(TIdentity identity)
         {
-            var entity = await GetSingleOrDefaultAsync(id);
-            return entity != null;
+            return ReadonlySet.AnyAsync(e => e.Id.Equals(identity.Id));
         }
 
         #endregion Read
+
+        protected virtual IEnumerable<Expression<Func<TAggregateRoot, object>>[]> GetSingleIncludes()
+        {
+            return null;
+        }
 
         // TODO: VC: CHECK
         /*

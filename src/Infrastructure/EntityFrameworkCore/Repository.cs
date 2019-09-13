@@ -3,6 +3,7 @@ using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
@@ -14,7 +15,8 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TRecord : class, IIdentity<TId>
         where TId : IEquatable<TId>
     {
-        public Repository(TContext context) : base(context)
+        public Repository(TContext context, params Expression<Func<TRecord, object>>[] includes) 
+            : base(context, includes)
         {
             Set = context.Set<TRecord>();
         }

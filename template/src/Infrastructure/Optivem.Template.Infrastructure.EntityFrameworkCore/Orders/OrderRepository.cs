@@ -12,7 +12,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
     public class OrderRepository : Repository<DatabaseContext, Order, OrderIdentity, OrderRecord, int>, IOrderRepository
     {
-        public OrderRepository(DatabaseContext context) : base(context)
+        public OrderRepository(DatabaseContext context) : base(context, e => e.OrderDetails)
         {
         }
 

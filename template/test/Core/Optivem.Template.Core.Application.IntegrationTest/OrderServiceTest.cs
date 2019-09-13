@@ -189,7 +189,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
         */
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];
@@ -206,7 +206,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.Equal(orderRecord.OrderDetails.Count, findResponse.OrderDetails.Count);
 
-            for(int i = 0; i <= orderRecord.OrderDetails.Count; i++)
+            for(int i = 0; i < orderRecord.OrderDetails.Count; i++)
             {
                 var orderDetailRecord = orderRecord.OrderDetails.ToList()[i];
                 var findResponseDetail = findResponse.OrderDetails[i];

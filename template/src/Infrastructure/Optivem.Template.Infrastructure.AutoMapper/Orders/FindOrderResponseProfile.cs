@@ -11,7 +11,11 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
     {
         public FindOrderResponseProfile()
         {
-            CreateMap<Order, FindOrderResponse>();
+            CreateMap<Order, FindOrderResponse>()
+                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status));
+
+            CreateMap<OrderDetail, FindOrderResponse.OrderDetail>()
+                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status));
         }
     }
 }
