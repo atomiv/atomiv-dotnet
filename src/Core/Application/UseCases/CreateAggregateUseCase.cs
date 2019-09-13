@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public CreateAggregateUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+        public CreateAggregateUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
         }

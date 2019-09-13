@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -21,6 +21,7 @@
     
   <ItemGroup>
     <ProjectReference Include="..\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Common\Optivem.Framework.Core.Common.csproj" />
     <ProjectReference Include="..\Domain\Optivem.Framework.Core.Domain.csproj" />
   </ItemGroup>
 

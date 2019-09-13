@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application.Mappers;
-using Optivem.Framework.Core.Application.UseCases.Base;
+﻿using Optivem.Framework.Core.Application.UseCases.Base;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public BrowseAggregatesUseCase(IUseCaseMapper mapper, TRepository repository) 
+        public BrowseAggregatesUseCase(IMapper mapper, TRepository repository) 
             : base(mapper, repository)
         {
         }

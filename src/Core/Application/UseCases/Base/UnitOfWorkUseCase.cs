@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
@@ -10,7 +10,7 @@ namespace Optivem.Framework.Core.Application
         where TRequest : IRequest
         where TResponse : IResponse
     {
-        public UnitOfWorkUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork)
+        public UnitOfWorkUseCase(IMapper mapper, IUnitOfWork unitOfWork)
         {
             Mapper = mapper;
             UnitOfWork = unitOfWork;
@@ -18,7 +18,7 @@ namespace Optivem.Framework.Core.Application
 
         public abstract Task<TResponse> HandleAsync(TRequest request);
 
-        protected IUseCaseMapper Mapper { get; set; }
+        protected IMapper Mapper { get; set; }
 
         protected IUnitOfWork UnitOfWork { get; }
 

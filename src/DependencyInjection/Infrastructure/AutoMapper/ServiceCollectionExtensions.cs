@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Application.Mappers;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Infrastructure.AutoMapper;
 using System;
 using System.Collections;
 using System.Reflection;
+using IMapper = Optivem.Framework.Core.Common.Mapping.IMapper;
 
 namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
 {
@@ -15,7 +16,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
         public static IServiceCollection AddAutoMapperInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
             services.AddAutoMapper(assemblies);
-            services.AddScoped<IUseCaseMapper, UseCaseMapper>();
+            services.AddScoped<IMapper, UseCaseMapper>();
 
             return services;
         }

@@ -1,9 +1,6 @@
 ﻿using OfficeOpenXml;
 using Optivem.Framework.Core.Common.Files;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.EPPlus
 {

@@ -1,5 +1,5 @@
 ﻿using Moq;
-using Optivem.Framework.Core.Application.Mappers;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Application.Products.UseCases;
@@ -13,14 +13,14 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
 {
     public class BrowseProductsUseCaseTest
     {
-        private readonly Mock<IUseCaseMapper> _mapperMock;
+        private readonly Mock<IMapper> _mapperMock;
         private readonly Mock<IProductRepository> _repositoryMock;
 
         private readonly BrowseProductsUseCase _useCase;
 
         public BrowseProductsUseCaseTest()
         {
-            _mapperMock = new Mock<IUseCaseMapper>();
+            _mapperMock = new Mock<IMapper>();
             _repositoryMock = new Mock<IProductRepository>();
             _useCase = new BrowseProductsUseCase(_mapperMock.Object, _repositoryMock.Object);
         }

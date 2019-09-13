@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Products
 {

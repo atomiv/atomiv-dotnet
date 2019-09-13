@@ -4,10 +4,8 @@ using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

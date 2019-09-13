@@ -1,17 +1,15 @@
-﻿
-using AutoMapper;
-using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Framework.Core.Common.Mapping;
 
 namespace Optivem.Framework.Infrastructure.AutoMapper
 {
-    public class UseCaseMapper : IUseCaseMapper
+    public class UseCaseMapper : IMapper
     {
-        public UseCaseMapper(IMapper mapper)
+        public UseCaseMapper(global::AutoMapper.IMapper mapper)
         {
             Mapper = mapper;
         }
 
-        protected IMapper Mapper { get; private set; }
+        protected global::AutoMapper.IMapper Mapper { get; private set; }
 
         public T Map<S, T>(S source)
         {

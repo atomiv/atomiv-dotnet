@@ -1,6 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Mappers;
-using Optivem.Framework.Core.Application.UseCases;
+﻿using Optivem.Framework.Core.Application.UseCases;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
@@ -10,7 +9,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 {
     public class UpdateProductUseCase : ExecuteAggregateUseCase<IProductRepository, UpdateProductRequest, UpdateProductResponse, Product, ProductIdentity, int>
     {
-        public UpdateProductUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+        public UpdateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
         }

@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Optivem.Template.Core.Domain.Orders

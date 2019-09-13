@@ -5,7 +5,6 @@ using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders

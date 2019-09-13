@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Xunit;
 
 namespace Optivem.Framework.Infrastructure.EPPlus.IntegrationTest
