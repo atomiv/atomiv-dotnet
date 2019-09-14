@@ -15,6 +15,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Orders
         public OrderRecordProfile()
         {
             CreateMap<OrderRecord, Order>()
+                .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 // .ForMember(e => e.OrderDetails, e => e.Ignore())
                 .ConstructUsing(e => Create(e));
         }
