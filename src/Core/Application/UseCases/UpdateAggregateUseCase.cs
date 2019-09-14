@@ -6,7 +6,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistsAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : class, IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
@@ -24,7 +24,7 @@ namespace Optivem.Framework.Core.Application
 
             var repository = GetRepository();
 
-            var aggregateRoot = await repository.GetSingleOrDefaultAsync(identity);
+            var aggregateRoot = await repository.GetAsync(identity);
 
             if (aggregateRoot == null)
             {
@@ -38,14 +38,14 @@ namespace Optivem.Framework.Core.Application
 
             try
             {
-                repository.Update(aggregateRoot);
+                aggregateRoot = await repository.UpdateAsync(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
                 var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;
             }
             catch (ConcurrentUpdateException)
             {
-                var exists = await repository.GetExistsAsync(identity);
+                var exists = await repository.ExistsAsync(identity);
 
                 if (!exists)
                 {

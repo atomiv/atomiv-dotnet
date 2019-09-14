@@ -4,7 +4,6 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders;
-using System;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
@@ -13,11 +12,6 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
-        }
-
-        protected override Order CreateAggregateRoot(Order aggregateRoot, OrderIdentity identity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

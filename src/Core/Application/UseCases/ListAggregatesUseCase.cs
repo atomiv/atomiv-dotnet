@@ -8,7 +8,7 @@ namespace Optivem.Framework.Core.Application
 {
     public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
         : RepositoryUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IFindAllAggregatesRepository<TAggregateRoot, TIdentity>
+        where TRepository : IFindAggregatesRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
         where TRecordResponse : IResponse<TId>

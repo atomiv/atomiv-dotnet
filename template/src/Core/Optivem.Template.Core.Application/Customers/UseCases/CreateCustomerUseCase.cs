@@ -13,10 +13,5 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
             : base(mapper, unitOfWork)
         {
         }
-
-        protected override Customer CreateAggregateRoot(Customer aggregateRoot, CustomerIdentity identity)
-        {
-            return new Customer(identity, aggregateRoot.FirstName, aggregateRoot.LastName);
-        }
     }
 }

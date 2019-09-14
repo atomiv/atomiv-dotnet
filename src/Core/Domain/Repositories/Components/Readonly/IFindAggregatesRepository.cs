@@ -1,14 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Domain
 {
-    public interface IExistAggregateRepository<TAggregateRoot, TIdentity> 
+    public interface IFindAggregatesRepository<TAggregateRoot, TIdentity> 
         : IRepository<TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        bool GetExists(TIdentity id);
-
-        Task<bool> GetExistsAsync(TIdentity id);
+        Task<IEnumerable<TAggregateRoot>> GetAsync();
     }
 }

@@ -20,6 +20,7 @@
     <ProjectReference Include="..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.All\Optivem.Template.Infrastructure.All.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

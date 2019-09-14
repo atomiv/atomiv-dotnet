@@ -8,12 +8,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        void AddRange(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        void AddRange(params TAggregateRoot[] aggregateRoots);
-
-        Task AddRangeAsync(params TAggregateRoot[] aggregateRoots);
+        Task AddAsync(IEnumerable<TAggregateRoot> aggregateRoots);
     }
 }

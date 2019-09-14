@@ -12,12 +12,12 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 {
     public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {
-        public UnitOfWork(IMapper mapper, DatabaseContext context, bool disposeContext = false)
+        public UnitOfWork(DatabaseContext context, IMapper mapper, bool disposeContext = false)
             : base(context, disposeContext)
         {
-            AddRepository<ICustomerRepository>(new CustomerRepository(mapper, context));
-            AddRepository<IOrderRepository>(new OrderRepository(mapper, context));
-            AddRepository<IProductRepository>(new ProductRepository(mapper, context));
+            AddRepository<ICustomerRepository>(new CustomerRepository(context, mapper));
+            AddRepository<IOrderRepository>(new OrderRepository(context, mapper));
+            AddRepository<IProductRepository>(new ProductRepository(context, mapper));
         }
     }
 }

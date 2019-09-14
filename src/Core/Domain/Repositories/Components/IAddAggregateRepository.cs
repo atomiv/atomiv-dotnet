@@ -7,8 +7,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        TIdentity Add(TAggregateRoot aggregateRoot);
-
-        Task<TIdentity> AddAsync(TAggregateRoot aggregateRoot);
+        Task<TAggregateRoot> AddAsync(TAggregateRoot aggregateRoot);
     }
 }

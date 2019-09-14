@@ -23,7 +23,7 @@ namespace Optivem.Framework.Core.Application
             var identity = Mapper.Map<TId, TIdentity>(id);
 
             var repository = GetRepository();
-            var aggregateRoot = await repository.GetSingleOrDefaultAsync(identity);
+            var aggregateRoot = await repository.GetAsync(identity);
 
             if (aggregateRoot == null)
             {

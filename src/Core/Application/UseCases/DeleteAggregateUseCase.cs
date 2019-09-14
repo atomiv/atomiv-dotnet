@@ -6,7 +6,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class DeleteAggregateCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IExistAggregateRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IExistsAggregateRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : IResponse, new()
         where TAggregateRoot : IAggregateRoot<TIdentity>
@@ -23,14 +23,14 @@ namespace Optivem.Framework.Core.Application
             var identity = Mapper.Map<TId, TIdentity>(id);
 
             var repository = GetRepository();
-            var exists = await repository.GetExistsAsync(identity);
+            var exists = await repository.ExistsAsync(identity);
 
             if (!exists)
             {
                 throw new NotFoundRequestException();
             }
 
-            repository.Delete(identity);
+            await repository.RemoveAsync(identity);
 
             await UnitOfWork.SaveChangesAsync();
 

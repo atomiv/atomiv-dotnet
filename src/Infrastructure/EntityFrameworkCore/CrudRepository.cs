@@ -3,148 +3,64 @@ using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public abstract class CrudRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
+    public class CrudRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
         where TRecord : class, IIdentity<TId>
         where TId : IEquatable<TId>
     {
-        public CrudRepository(IMapper mapper, TContext context, params Expression<Func<TRecord, object>>[] includes) 
-            : base(mapper, context, includes)
+        private AddAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregateRepository;
+        private AddAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregatesRepository;
+        private RemoveAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregateRepository;
+        private RemoveAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregatesRepository;
+        private UpdateAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregateRepository;
+        private UpdateAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregatesRepository;
+
+        public CrudRepository(TContext context, IMapper mapper, params Expression<Func<TRecord, object>>[] includes) 
+            : base(context, mapper, includes)
         {
-            Set = context.Set<TRecord>();
+            _addAggregateRepository = new AddAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _addAggregatesRepository = new AddAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _removeAggregateRepository = new RemoveAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _removeAggregatesRepository = new RemoveAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _updateAggregateRepository = new UpdateAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _updateAggregatesRepository = new UpdateAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
         }
 
-        protected DbSet<TRecord> Set { get; }
-
-        #region Create
-
-        public TIdentity Add(TAggregateRoot aggregateRoot)
+        public Task<TAggregateRoot> AddAsync(TAggregateRoot aggregateRoot)
         {
-            var record = GetRecord(aggregateRoot);
-            Set.Add(record);
-            Context.SaveChanges();
-            var identity = GetIdentity(record);
-            return identity;
+            return _addAggregateRepository.AddAsync(aggregateRoot);
         }
 
-        public async Task<TIdentity> AddAsync(TAggregateRoot aggregateRoot)
+        public Task AddAsync(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            var record = GetRecord(aggregateRoot);
-            await Set.AddAsync(record);
-            await Context.SaveChangesAsync(); // TODO: VC: Check if correct here
-            var identity = GetIdentity(record);
-            return identity;
+            return _addAggregatesRepository.AddAsync(aggregateRoots);
         }
 
-        public void AddRange(IEnumerable<TAggregateRoot> aggregateRoots)
+        public Task RemoveAsync(TIdentity identity)
         {
-            var records = GetRecords(aggregateRoots);
-            Set.AddRange(records);
-            Context.SaveChanges();
+            return _removeAggregateRepository.RemoveAsync(identity);
         }
 
-        public async Task AddRangeAsync(IEnumerable<TAggregateRoot> aggregateRoots)
+        public Task RemoveAsync(IEnumerable<TIdentity> identities)
         {
-            var records = GetRecords(aggregateRoots);
-            await Set.AddRangeAsync(records);
-            await Context.SaveChangesAsync();
+            return _removeAggregatesRepository.RemoveAsync(identities);
         }
 
-        public void AddRange(params TAggregateRoot[] aggregateRoots)
+        public Task<TAggregateRoot> UpdateAsync(TAggregateRoot aggregateRoot)
         {
-            var records = GetRecords(aggregateRoots);
-            Set.AddRange(records);
-            Context.SaveChanges();
+            return _updateAggregateRepository.UpdateAsync(aggregateRoot);
         }
 
-        public async Task AddRangeAsync(params TAggregateRoot[] aggregateRoots)
+        public Task UpdateAsync(IEnumerable<TAggregateRoot> aggregateRoots)
         {
-            var records = GetRecords(aggregateRoots);
-            await Set.AddRangeAsync(records);
-            await Context.SaveChangesAsync();
+            return _updateAggregatesRepository.UpdateAsync(aggregateRoots);
         }
-
-        #endregion Create
-
-        #region Update
-
-        public void Update(TAggregateRoot aggregateRoot)
-        {
-            var record = GetRecord(aggregateRoot);
-            ExecuteConcurrentUpdate(() => Set.Update(record));
-        }
-
-        public void UpdateRange(IEnumerable<TAggregateRoot> aggregateRoots)
-        {
-            var records = GetRecords(aggregateRoots);
-            ExecuteConcurrentUpdate(() => Set.UpdateRange(records));
-        }
-
-        public void UpdateRange(params TAggregateRoot[] aggregateRoots)
-        {
-            var records = GetRecords(aggregateRoots);
-            ExecuteConcurrentUpdate(() => Set.UpdateRange(records));
-        }
-
-        private void ExecuteConcurrentUpdate(Action action)
-        {
-            try
-            {
-                action();
-                Context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
-        }
-
-        #endregion Update
-
-        #region Delete
-
-        public void Delete(TIdentity identity)
-        {
-            var record = GetRecord(identity);
-            Set.Remove(record);
-            Context.SaveChanges();
-        }
-
-        public void DeleteRange(IEnumerable<TIdentity> identities)
-        {
-            var records = GetRecords(identities);
-            Set.RemoveRange(records);
-            Context.SaveChanges();
-        }
-
-        public void DeleteRange(params TIdentity[] identities)
-        {
-            var records = GetRecords(identities);
-            Set.RemoveRange(records);
-            Context.SaveChanges();
-        }
-
-        #endregion Delete
-
-        #region Helper - Delete
-
-        protected abstract TRecord GetRecord(TIdentity identity);
-
-        protected abstract TIdentity GetIdentity(TRecord record);
-
-        protected IEnumerable<TRecord> GetRecords(IEnumerable<TIdentity> identities)
-        {
-            return identities.Select(GetRecord);
-        }
-
-        #endregion Helper - Delete
     }
 }

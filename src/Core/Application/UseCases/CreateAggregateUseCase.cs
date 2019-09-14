@@ -23,18 +23,11 @@ namespace Optivem.Framework.Core.Application
             var aggregateRoot = Mapper.Map<TRequest, TAggregateRoot>(request);
 
             var repository = GetRepository();
-            var identity = await repository.AddAsync(aggregateRoot);
+            aggregateRoot = await repository.AddAsync(aggregateRoot);
             await UnitOfWork.SaveChangesAsync();
-
-            aggregateRoot = CreateAggregateRoot(aggregateRoot, identity);
 
             var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
         }
-
-        // TODO: VC: DELETE
-        // protected abstract TAggregateRoot CreateAggregateRoot(TRequest request);
-
-        protected abstract TAggregateRoot CreateAggregateRoot(TAggregateRoot aggregateRoot, TIdentity identity);
     }
 }

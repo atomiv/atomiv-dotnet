@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AutoMapper\Optivem.Framework.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

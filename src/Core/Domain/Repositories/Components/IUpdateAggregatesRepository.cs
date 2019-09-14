@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Domain
 {
@@ -7,8 +8,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        void UpdateRange(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        void UpdateRange(params TAggregateRoot[] aggregateRoots);
+        Task UpdateAsync(IEnumerable<TAggregateRoot> aggregateRoots);
     }
 }
