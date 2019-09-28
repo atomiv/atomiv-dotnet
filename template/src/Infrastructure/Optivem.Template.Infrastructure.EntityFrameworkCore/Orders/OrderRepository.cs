@@ -20,7 +20,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Order>> GetAsync(int page, int size)
+        public Task<IEnumerable<Order>> PageAsync(int page, int size)
         {
             throw new NotImplementedException();
         }

@@ -12,12 +12,14 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IIdentity<TId>
+        where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
         private readonly FindAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregateRepository;
         private readonly FindAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregatesRepository;
+        private readonly PageAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _pageAggregatesRepository;
         private readonly ExistsAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _existsAggregateRepository;
+
 
         public ReadonlyRepository(TContext context, IMapper mapper, IEnumerable<Expression<Func<TRecord, object>>> includes)
         {
@@ -26,6 +28,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             _findAggregateRepository = new FindAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
             _findAggregatesRepository = new FindAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
+            _pageAggregatesRepository = new PageAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
             _existsAggregateRepository = new ExistsAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
         }
 
@@ -43,9 +46,16 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return _findAggregatesRepository.GetAsync();
         }
 
+        public Task<IEnumerable<TAggregateRoot>> PageAsync(int page, int size)
+        {
+            return _pageAggregatesRepository.PageAsync(page, size);
+        }
+
         public Task<bool> ExistsAsync(TIdentity identity)
         {
             return _existsAggregateRepository.ExistsAsync(identity);
         }
+
+
     }
 }

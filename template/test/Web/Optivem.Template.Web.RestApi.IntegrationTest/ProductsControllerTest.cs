@@ -83,7 +83,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         }
 
 
-        [Fact(Skip = "Pending implement")]
+        [Fact(Skip = "In progress")]
         public async Task CreateProduct_Invalid_UnprocessableEntity()
         {
             var createRequest = new CreateProductRequest
@@ -164,7 +164,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(HttpStatusCode.NotFound, findResponse.StatusCode);
         }
 
-        [Fact(Skip = "Pending implement")]
+        [Fact(Skip = "In progress")]
         public async Task CreateProduct_Valid_Created()
         {
             var createRequest = new CreateProductRequest

@@ -1,17 +1,17 @@
 ﻿using Optivem.Framework.Core.Domain;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderRecord : IIdentity<int>
+    public class OrderRecord : Record<int>
     {
         public OrderRecord()
         {
             OrderDetails = new List<OrderDetailRecord>();
         }
 
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public byte StatusId { get; set; }
 

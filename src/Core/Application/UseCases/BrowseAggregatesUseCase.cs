@@ -22,7 +22,7 @@ namespace Optivem.Framework.Core.Application
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
-            var aggregateRoots = await Repository.GetAsync(request.Page, request.Size);
+            var aggregateRoots = await Repository.PageAsync(request.Page, request.Size);
 
             return Mapper.Map<IEnumerable<TAggregateRoot>, TResponse>(aggregateRoots);
         }

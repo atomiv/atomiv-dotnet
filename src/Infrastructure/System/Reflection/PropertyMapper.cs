@@ -8,6 +8,8 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
 {
     public class PropertyMapper : IPropertyMapper
     {
+        public static PropertyMapper Instance = new PropertyMapper();
+
         public IEnumerable<ITypeProperty> GetTypeProperties<TRecord>()
         {
             var factory = new PropertyMapper<TRecord>();
@@ -18,6 +20,12 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
         {
             var factory = new PropertyMapper<TRecord>();
             return factory.GetObjectProperties(record);
+        }
+
+        public string ToString<T>(T obj)
+        {
+            var properties = GetObjectProperties(obj);
+            return string.Join(", ", properties);
         }
     }
 
@@ -35,6 +43,27 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
             _typeProperties = _propertyInfos.Select(e => Create(e)).ToList();
             _typePropertyMap = _typeProperties.ToDictionary(e => e.Name, e => e);
         }
+
+        // TODO: VC: DELETE
+
+        /*
+        private static List<PropertyInfo> GetPropertyInfos(Type type)
+        {
+            var properties = new List<PropertyInfo>();
+
+            if(type.BaseType != typeof(object))
+            {
+                var innerProperties = GetPropertyInfos(type.BaseType);
+                properties.AddRange(innerProperties);
+            }
+
+            properties.AddRange(type.GetProperties());
+
+            return properties;
+
+            // return type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        }
+        */
 
         public ITypeProperty GetTypeProperty<U>(Func<T, U> propertyGetter)
         {

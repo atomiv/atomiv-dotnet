@@ -11,7 +11,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IIdentity<TId>
+        where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
         public UpdateAggregatesRepository(TContext context, IMapper mapper) : base(context, mapper)

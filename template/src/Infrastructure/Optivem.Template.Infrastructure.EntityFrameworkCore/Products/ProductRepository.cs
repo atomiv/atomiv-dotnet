@@ -14,7 +14,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         {
         }
 
-        public async Task<IEnumerable<Product>> GetAsync(int page, int size)
+        public async Task<IEnumerable<Product>> PageAsync(int page, int size)
         {
             // TODO: VC: Move to base
 

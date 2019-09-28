@@ -4,6 +4,7 @@
         : IRepository<TAggregateRoot, TIdentity>,
             IFindAggregateRepository<TAggregateRoot, TIdentity>,
             IFindAggregatesRepository<TAggregateRoot, TIdentity>,
+            IPageAggregatesRepository<TAggregateRoot, TIdentity>,
             IExistsAggregateRepository<TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity

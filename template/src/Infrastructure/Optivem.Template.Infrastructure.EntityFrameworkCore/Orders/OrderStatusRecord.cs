@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderStatusRecord
+    public class OrderStatusRecord : Record<byte>
     {
         public OrderStatusRecord()
         {
             Order = new HashSet<OrderRecord>();
         }
 
-        public byte Id { get; set; }
         public string Code { get; set; }
 
         public virtual ICollection<OrderRecord> Order { get; set; }

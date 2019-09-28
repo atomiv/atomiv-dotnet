@@ -26,18 +26,72 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 {
                     FirstName = "John",
                     LastName = "McDonald",
-                }
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Rob",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Molly",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Jake",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Mark",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Susan",
+                    LastName = "McDonald",
+                },
             };
 
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
         {
-            var browseRequest = new BrowseCustomersRequest { };
+            var browseRequest = new BrowseCustomersRequest
+            {
+                Page = 2,
+                Size = 3,
+            };
+
+            var expectedRecords = new List<CustomerRecord>
+            {
+                _customerRecords[3],
+                _customerRecords[4],
+                _customerRecords[5],
+            };
 
             var browseResponse = await Fixture.Customers.BrowseCustomersAsync(browseRequest);
+
+            Assert.Equal(expectedRecords.Count, browseResponse.Count);
+            Assert.Equal(expectedRecords.Count, browseResponse.Records.Count);
+
+            for(int i = 0; i < expectedRecords.Count; i++)
+            {
+                var expectedRecord = expectedRecords[i];
+                var responseRecord = browseResponse.Records[i];
+
+                Assert.Equal(expectedRecord.Id, responseRecord.Id);
+                Assert.Equal(expectedRecord.FirstName, responseRecord.FirstName);
+                Assert.Equal(expectedRecord.LastName, responseRecord.LastName);
+            }
         }
 
         [Fact]

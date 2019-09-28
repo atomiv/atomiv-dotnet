@@ -8,6 +8,8 @@ namespace Optivem.Framework.Core.Common.Reflection
         IEnumerable<ITypeProperty> GetTypeProperties<T>();
 
         IEnumerable<IObjectProperty> GetObjectProperties<T>(T obj);
+
+        string ToString<T>(T obj);
     }
 
     public interface IPropertyMapper<T>

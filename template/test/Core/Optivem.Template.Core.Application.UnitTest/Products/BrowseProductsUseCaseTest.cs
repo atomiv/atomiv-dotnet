@@ -39,7 +39,7 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
             var page = 2;
             var size = 5;
 
-            _repositoryMock.Setup(e => e.GetAsync(page, size))
+            _repositoryMock.Setup(e => e.PageAsync(page, size))
                 .Returns(Task.FromResult(products.AsEnumerable()));
 
             var request = new BrowseProductsRequest
@@ -51,7 +51,7 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
             await _useCase.HandleAsync(request);
 
             _mapperMock.Verify(e => e.Map<IEnumerable<Product>, BrowseProductsResponse>(products), Times.Once);
-            _repositoryMock.Verify(e => e.GetAsync(page, size), Times.Once);
+            _repositoryMock.Verify(e => e.PageAsync(page, size), Times.Once);
         }
     }
 }

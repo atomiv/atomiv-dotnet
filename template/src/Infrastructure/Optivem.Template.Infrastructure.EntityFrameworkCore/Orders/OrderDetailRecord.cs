@@ -1,10 +1,10 @@
-﻿using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderDetailRecord
+    public class OrderDetailRecord : Record<int>
     {
-        public int Id { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
         public decimal Quantity { get; set; }

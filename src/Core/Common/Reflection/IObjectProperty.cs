@@ -5,5 +5,7 @@
         ITypeProperty TypeProperty { get; }
 
         object Value { get; }
+
+        string ToString();
     }
 }

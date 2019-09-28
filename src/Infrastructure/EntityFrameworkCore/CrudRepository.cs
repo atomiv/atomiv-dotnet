@@ -12,7 +12,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IIdentity<TId>
+        where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
         private AddAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregateRepository;

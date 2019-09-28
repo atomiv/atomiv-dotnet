@@ -13,5 +13,10 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
         public ITypeProperty TypeProperty { get; }
 
         public object Value { get; }
+
+        public override string ToString()
+        {
+            return $"{TypeProperty.Name}: {Value}";
+        }
     }
 }

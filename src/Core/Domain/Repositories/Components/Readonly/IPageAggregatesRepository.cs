@@ -8,6 +8,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        Task<IEnumerable<TAggregateRoot>> GetAsync(int page, int size);
+        Task<IEnumerable<TAggregateRoot>> PageAsync(int page, int size);
     }
 }
