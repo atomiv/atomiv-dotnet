@@ -33,7 +33,14 @@ namespace Optivem.Framework.Core.Application.UseCases
                 throw new NotFoundRequestException();
             }
 
-            Execute(request, aggregateRoot);
+            try
+            {
+                Execute(request, aggregateRoot);
+            }
+            catch(DomainException ex)
+            {
+                throw new ApplicationException(ex.Message, ex);
+            }
 
             try
             {

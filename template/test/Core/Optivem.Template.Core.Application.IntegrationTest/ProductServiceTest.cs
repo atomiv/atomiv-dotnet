@@ -23,6 +23,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "APP",
                     ProductName = "Apple",
                     ListPrice = 10.50m,
+                    IsActive = true,
                 },
 
                 new ProductRecord
@@ -30,11 +31,73 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "BAN",
                     ProductName = "Banana",
                     ListPrice = 30.99m,
+                    IsActive = true,
+                },
+
+                new ProductRecord
+                {
+                    ProductCode = "ONG",
+                    ProductName = "Orange",
+                    ListPrice = 35.99m,
+                    IsActive = false,
+                },
+
+                new ProductRecord
+                {
+                    ProductCode = "STR",
+                    ProductName = "Strawberry",
+                    ListPrice = 40.00m,
+                    IsActive = true,
                 },
             };
 
             Fixture.Db.AddRange(_productRecords);
 
+        }
+
+        [Fact]
+        public async Task ActivateProduct_ValidRequest_ReturnsResponse()
+        {
+            var record = _productRecords.Where(e => !e.IsActive).First();
+            var id = record.Id;
+
+            var activateRequest = new ActivateProductRequest
+            {
+                Id = id,
+            };
+
+            var activateResponse = await Fixture.Products.ActivateProductAsync(activateRequest);
+
+            Assert.True(activateResponse.Id > 0);
+            Assert.Equal(record.Id, activateResponse.Id);
+            Assert.Equal(record.ProductCode, activateResponse.Code);
+            Assert.Equal(record.ProductName, activateResponse.Description);
+            Assert.Equal(record.ListPrice, activateResponse.UnitPrice);
+            Assert.True(activateResponse.IsActive);
+
+            var findRequest = new FindProductRequest { Id = activateResponse.Id };
+
+            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+
+            Assert.Equal(activateResponse.Id, findResponse.Id);
+            Assert.Equal(activateResponse.Code, findResponse.Code);
+            Assert.Equal(activateResponse.Description, findResponse.Description);
+            Assert.Equal(activateResponse.UnitPrice, findResponse.UnitPrice);
+            Assert.Equal(activateResponse.IsActive, findResponse.IsActive);
+        }
+
+        [Fact]
+        public async Task ActivateProduct_InvalidRequest_ThrowsInvalidRequestException()
+        {
+            var record = _productRecords.Where(e => e.IsActive).First();
+            var id = record.Id;
+
+            var activateRequest = new ActivateProductRequest
+            {
+                Id = id,
+            };
+
+            await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.ActivateProductAsync(activateRequest));
         }
 
         [Fact]
@@ -118,6 +181,51 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Products.CreateProductAsync(createRequest));
+        }
+
+        [Fact]
+        public async Task DeactivateProduct_ValidRequest_ReturnsResponse()
+        {
+            var record = _productRecords.Where(e => e.IsActive).First();
+            var id = record.Id;
+
+            var dectivateRequest = new DeactivateProductRequest
+            {
+                Id = id,
+            };
+
+            var deactivateResponse = await Fixture.Products.DeactivateProductAsync(dectivateRequest);
+
+            Assert.True(deactivateResponse.Id > 0);
+            Assert.Equal(record.Id, deactivateResponse.Id);
+            Assert.Equal(record.ProductCode, deactivateResponse.Code);
+            Assert.Equal(record.ProductName, deactivateResponse.Description);
+            Assert.Equal(record.ListPrice, deactivateResponse.UnitPrice);
+            Assert.False(deactivateResponse.IsActive);
+
+            var findRequest = new FindProductRequest { Id = deactivateResponse.Id };
+
+            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+
+            Assert.Equal(deactivateResponse.Id, findResponse.Id);
+            Assert.Equal(deactivateResponse.Code, findResponse.Code);
+            Assert.Equal(deactivateResponse.Description, findResponse.Description);
+            Assert.Equal(deactivateResponse.UnitPrice, findResponse.UnitPrice);
+            Assert.Equal(deactivateResponse.IsActive, findResponse.IsActive);
+        }
+
+        [Fact]
+        public async Task DectivateProduct_InvalidRequest_ThrowsInvalidRequestException()
+        {
+            var record = _productRecords.Where(e => !e.IsActive).First();
+            var id = record.Id;
+
+            var deactivateRequest = new DeactivateProductRequest
+            {
+                Id = id,
+            };
+
+            await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.DeactivateProductAsync(deactivateRequest));
         }
 
         [Fact]

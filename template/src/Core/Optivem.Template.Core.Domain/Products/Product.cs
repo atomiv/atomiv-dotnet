@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using System;
+using Optivem.Framework.Core.Domain;
 
 namespace Optivem.Template.Core.Domain.Products
 {
@@ -10,6 +11,7 @@ namespace Optivem.Template.Core.Domain.Products
             ProductCode = productCode;
             ProductName = productName;
             ListPrice = listPrice;
+            IsActive = true;
         }
 
         public string ProductCode { get; set; }
@@ -17,5 +19,27 @@ namespace Optivem.Template.Core.Domain.Products
         public string ProductName { get; set; }
 
         public decimal ListPrice { get; set; }
+
+        public bool IsActive { get; private set; }
+
+        public void Activate()
+        {
+            if(IsActive)
+            {
+                throw new DomainException("Cannot activate product because it is already active");
+            }
+
+            IsActive = true;
+        }
+
+        public void Deactivate()
+        {
+            if(!IsActive)
+            {
+                throw new DomainException("Cannot deactivate product because it has already been deactivated");
+            }
+
+            IsActive = false;
+        }
     }
 }

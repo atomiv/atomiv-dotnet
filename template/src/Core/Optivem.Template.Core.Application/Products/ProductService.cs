@@ -13,6 +13,11 @@ namespace Optivem.Template.Core.Application.Products
         {
         }
 
+        public Task<ActivateProductResponse> ActivateProductAsync(ActivateProductRequest request)
+        {
+            return HandleAsync<ActivateProductRequest, ActivateProductResponse>(request);
+        }
+
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
         {
             return HandleAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
@@ -23,6 +28,11 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
+        public Task<DeactivateProductResponse> DeactivateProductAsync(DeactivateProductRequest request)
+        {
+            return HandleAsync<DeactivateProductRequest, DeactivateProductResponse>(request);
+        }
+
         public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
         {
             return HandleAsync<FindProductRequest, FindProductResponse>(request);
@@ -31,16 +41,6 @@ namespace Optivem.Template.Core.Application.Products
         public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
         {
             return HandleAsync<ListProductsRequest, ListProductsResponse>(request);
-        }
-
-        public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
-        {
-            return HandleAsync<RelistProductRequest, RelistProductResponse>(request);
-        }
-
-        public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
-        {
-            return HandleAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
         public Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request)

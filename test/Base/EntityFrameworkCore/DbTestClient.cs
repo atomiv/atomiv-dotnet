@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Common;
+using System;
 using System.Collections.Generic;
 
 namespace Optivem.Framework.Test.EntityFrameworkCore
@@ -22,7 +23,8 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
         {
             using (var context = CreateContext())
             {
-                context.Database.EnsureCreated();
+                // context.Database.EnsureCreated();
+                context.Database.Migrate();
             }
         }
 
@@ -42,6 +44,7 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
                 context.SaveChanges();
             }
         }
+
 
         public void AddRange<T>(IEnumerable<T> entities) where T : class
         {

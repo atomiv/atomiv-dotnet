@@ -7,16 +7,16 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class UnlistProductUseCase : ExecuteAggregateUseCase<IProductRepository, UnlistProductRequest, UnlistProductResponse, Product, ProductIdentity, int>
+    public class UnlistProductUseCase : ExecuteAggregateUseCase<IProductRepository, DeactivateProductRequest, DeactivateProductResponse, Product, ProductIdentity, int>
     {
         public UnlistProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
         }
 
-        protected override void Execute(UnlistProductRequest request, Product aggregateRoot)
+        protected override void Execute(DeactivateProductRequest request, Product aggregateRoot)
         {
-            throw new System.NotImplementedException();
+            aggregateRoot.Deactivate();
         }
     }
 }
