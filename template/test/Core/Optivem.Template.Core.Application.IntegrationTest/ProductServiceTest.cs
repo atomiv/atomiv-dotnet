@@ -277,6 +277,54 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.NotNull(response);
         }
 
+        [Fact]
+        public async Task UpdateProduct_ValidRequest_ReturnsResponse()
+        {
+            var productRecord = _productRecords[0];
 
+            var updateRequest = new UpdateProductRequest
+            {
+                Id = productRecord.Id,
+                Description = "Desc updated",
+                UnitPrice = 300m,
+            };
+
+            var updateResponse = await Fixture.Products.UpdateProductAsync(updateRequest);
+
+            Assert.Equal(updateRequest.Id, updateResponse.Id);
+            Assert.Equal(productRecord.ProductCode, updateResponse.Code);
+            Assert.Equal(updateRequest.Description, updateResponse.Description);
+            Assert.Equal(updateRequest.UnitPrice, updateResponse.UnitPrice);
+        }
+
+        [Fact]
+        public async Task UpdateProduct_NotExistRequest_ThrowsNotFoundRequestException()
+        {
+            var id = 999;
+
+            var updateRequest = new UpdateProductRequest
+            {
+                Id = id,
+                Description = "Desc updated",
+                UnitPrice = 300m,
+            };
+
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Products.UpdateProductAsync(updateRequest));
+        }
+
+        [Fact]
+        public async Task UpdateProduct_InvalidRequest_ThrowsInvalidRequestException()
+        {
+            var record = _productRecords[0];
+
+            var updateRequest = new UpdateProductRequest
+            {
+                Id = record.Id,
+                Description = "Something",
+                UnitPrice = -20m,
+            };
+
+            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Products.UpdateProductAsync(updateRequest));
+        }
     }
 }

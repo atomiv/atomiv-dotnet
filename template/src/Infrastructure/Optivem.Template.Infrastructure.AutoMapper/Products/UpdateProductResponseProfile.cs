@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Products
 {
-    public class FindProductResponseProfile : Profile
+    public class UpdateProductResponseProfile : Profile
     {
-        public FindProductResponseProfile()
+        public UpdateProductResponseProfile()
         {
-            CreateMap<Product, FindProductResponse>()
+            CreateMap<Product, UpdateProductResponse>()
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(e => e.ProductCode))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(e => e.ProductName))
                 .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice))

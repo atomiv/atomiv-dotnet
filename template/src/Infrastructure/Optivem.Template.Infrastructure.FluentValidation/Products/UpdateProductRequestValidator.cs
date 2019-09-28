@@ -7,11 +7,10 @@ using System.Text;
 
 namespace Optivem.Template.Infrastructure.FluentValidation.Products
 {
-    public class CreateProductRequestValidator : BaseValidator<CreateProductRequest>
+    public class UpdateProductRequestValidator : BaseValidator<UpdateProductRequest>
     {
-        public CreateProductRequestValidator()
+        public UpdateProductRequestValidator()
         {
-            RuleFor(e => e.Code).NotNull();
             RuleFor(e => e.Description).NotNull();
             RuleFor(e => e.UnitPrice).GreaterThan(0);
         }

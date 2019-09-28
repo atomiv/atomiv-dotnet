@@ -22,7 +22,6 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
         public ListProductsRecordResponseProfile()
         {
             CreateMap<Product, ListProductsRecordResponse>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(e => $"{e.ProductCode} - {e.ProductName}"));
         }
     }

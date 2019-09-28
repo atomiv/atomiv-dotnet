@@ -14,7 +14,7 @@ namespace Optivem.Template.Core.Domain.Products
             IsActive = true;
         }
 
-        public string ProductCode { get; set; }
+        public string ProductCode { get; }
 
         public string ProductName { get; set; }
 
