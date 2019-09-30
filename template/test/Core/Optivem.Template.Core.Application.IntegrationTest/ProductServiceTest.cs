@@ -140,6 +140,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(expectedRecord.ProductCode, actualRecord.Code);
                 Assert.Equal(expectedRecord.ProductName, actualRecord.Description);
                 Assert.Equal(expectedRecord.ListPrice, actualRecord.UnitPrice);
+                Assert.Equal(expectedRecord.IsActive, actualRecord.IsActive);
             }
         }
 
@@ -159,6 +160,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.Code, createResponse.Code);
             Assert.Equal(createRequest.Description, createResponse.Description);
             Assert.Equal(createRequest.UnitPrice, createResponse.UnitPrice);
+            Assert.True(createResponse.IsActive);
 
             var findRequest = new FindProductRequest { Id = createResponse.Id };
 
@@ -168,6 +170,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.Code, findResponse.Code);
             Assert.Equal(createRequest.Description, findResponse.Description);
             Assert.Equal(createRequest.UnitPrice, findResponse.UnitPrice);
+            Assert.True(findResponse.IsActive);
         }
 
         [Fact]
@@ -241,6 +244,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(customerRecord.ProductCode, findResponse.Code);
             Assert.Equal(customerRecord.ProductName, findResponse.Description);
             Assert.Equal(customerRecord.ListPrice, findResponse.UnitPrice);
+            Assert.Equal(customerRecord.IsActive, findResponse.IsActive);
         }
 
         [Fact]
@@ -295,6 +299,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(productRecord.ProductCode, updateResponse.Code);
             Assert.Equal(updateRequest.Description, updateResponse.Description);
             Assert.Equal(updateRequest.UnitPrice, updateResponse.UnitPrice);
+            Assert.Equal(productRecord.IsActive, updateResponse.IsActive);
         }
 
         [Fact]

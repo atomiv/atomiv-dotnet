@@ -7,6 +7,7 @@ using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
@@ -14,6 +15,16 @@ namespace Optivem.Template.Core.Application.Products.UseCases
     {
         public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) : base(mapper, unitOfWork)
         {
+        }
+
+        protected override Task<Product> CreateAggregateRootAsync(CreateProductRequest request)
+        {
+            var product = new Product(ProductIdentity.Null,
+                    request.Code,
+                    request.Description,
+                    request.UnitPrice);
+
+            return Task.FromResult(product);
         }
     }
 }

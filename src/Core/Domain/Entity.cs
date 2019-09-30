@@ -27,7 +27,7 @@ namespace Optivem.Framework.Core.Domain
 
         public override bool Equals(object obj)
         {
-            if (obj == null)
+            if (obj is null)
             {
                 return false;
             }
@@ -49,6 +49,21 @@ namespace Optivem.Framework.Core.Domain
 
         public bool Equals(Entity<TIdentity> other)
         {
+            if(other is null)
+            {
+                return false;
+            }
+
+            if(ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if(GetType() != other.GetType())
+            {
+                return false;
+            }
+
             return Id.Equals(other.Id);
         }
 
@@ -59,9 +74,9 @@ namespace Optivem.Framework.Core.Domain
 
         public static bool operator ==(Entity<TIdentity> first, Entity<TIdentity> second)
         {
-            if (first == null)
+            if (first is null)
             {
-                return second == null;
+                return second is null;
             }
 
             return first.Equals(second);

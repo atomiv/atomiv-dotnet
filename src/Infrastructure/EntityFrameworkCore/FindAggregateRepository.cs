@@ -20,7 +20,12 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         }
 
         public async Task<TAggregateRoot> GetAsync(TIdentity identity)
-{
+        {
+            if(identity == null)
+            {
+                return null;
+            }
+
             var id = identity.Id;
             
             // TODO: VC: Check equality handling and null

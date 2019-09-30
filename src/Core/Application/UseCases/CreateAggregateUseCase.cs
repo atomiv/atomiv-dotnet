@@ -1,5 +1,6 @@
 ﻿using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
@@ -19,8 +20,7 @@ namespace Optivem.Framework.Core.Application
 
         public override async Task<TResponse> HandleAsync(TRequest request)
         {
-            //var aggregateRoot = CreateAggregateRoot(request);
-            var aggregateRoot = Mapper.Map<TRequest, TAggregateRoot>(request);
+            var aggregateRoot = await CreateAggregateRootAsync(request);
 
             var repository = GetRepository();
             aggregateRoot = await repository.AddAsync(aggregateRoot);
@@ -29,5 +29,7 @@ namespace Optivem.Framework.Core.Application
             var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
             return response;
         }
+
+        protected abstract Task<TAggregateRoot> CreateAggregateRootAsync(TRequest request);
     }
 }

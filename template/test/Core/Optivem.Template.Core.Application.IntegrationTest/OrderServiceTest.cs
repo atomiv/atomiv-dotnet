@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
@@ -114,25 +115,31 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var browseResponse = await Fixture.Orders.BrowseOrdersAsync(browseRequest);
         }
 
+        */
 
 
         [Fact]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
         {
+            var customerRecord = _customerRecords[0];
+
+            var product1Record = _productRecords[0];
+            var product2Record = _productRecords[1];
+
             var createRequest = new CreateOrderRequest
             {
-                CustomerId = 2,
+                CustomerId = customerRecord.Id,
                 OrderDetails = new List<CreateOrderRequest.OrderDetail>
                 {
                     new CreateOrderRequest.OrderDetail
                     {
-                        ProductId = 501,
+                        ProductId = product1Record.Id,
                         Quantity = 10,
                     },
 
                     new CreateOrderRequest.OrderDetail
                     {
-                        ProductId = 600,
+                        ProductId = product2Record.Id,
                         Quantity = 20,
                     }
                 },
@@ -141,17 +148,47 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var createResponse = await Fixture.Orders.CreateOrderAsync(createRequest);
 
             Assert.True(createResponse.Id > 0);
-            Assert.Equal(createRequest.CustomerId, createResponse.C);
-            Assert.Equal(createRequest.LastName, createResponse.LastName);
+            Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
+            Assert.Equal((int)OrderStatus.New, createResponse.StatusId);
+
+            Assert.NotNull(createResponse.OrderDetails);
+
+            Assert.Equal(createRequest.OrderDetails.Count, createResponse.OrderDetails.Count);
+
+            for (int i = 0; i < createRequest.OrderDetails.Count; i++)
+            {
+                var createRequestOrderDetail = createRequest.OrderDetails[i];
+                var createResponseOrderDetail = createResponse.OrderDetails[i];
+
+                Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
+                Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
+                Assert.Equal((int)OrderDetailStatus.Allocated, createResponseOrderDetail.StatusId);
+            }
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
 
             var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
 
-            Assert.Equal(findRequest.Id, findResponse.Id);
-            Assert.Equal(createRequest.FirstName, findResponse.FirstName);
-            Assert.Equal(createRequest.LastName, findResponse.LastName);
+            Assert.Equal(createResponse.Id, findResponse.Id);
+            Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
+            Assert.Equal(createResponse.StatusId, createResponse.StatusId);
+
+            Assert.NotNull(findResponse.OrderDetails);
+
+            Assert.Equal(createResponse.OrderDetails.Count, findResponse.OrderDetails.Count);
+
+            for (int i = 0; i < createResponse.OrderDetails.Count; i++)
+            {
+                var createResponseOrderDetail = createResponse.OrderDetails[i];
+                var findResponseOrderDetail = findResponse.OrderDetails[i];
+
+                Assert.Equal(createResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
+                Assert.Equal(createResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
+                Assert.Equal(createResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+            }
         }
+
+        /*
 
         [Fact]
         public async Task CreateOrder_InvalidRequest_ThrowsInvalidRequestException()
@@ -200,7 +237,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
             Assert.Equal(orderRecord.StatusId, findResponse.StatusId);
 
-            Assert.NotNull(orderRecord.OrderDetails);
+            Assert.NotNull(findResponse.OrderDetails);
 
             Assert.Equal(orderRecord.OrderDetails.Count, findResponse.OrderDetails.Count);
 
@@ -215,10 +252,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             }
         }
 
-
-
-        /*
-
         [Fact]
         public async Task FindOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
@@ -229,6 +262,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.FindOrderAsync(findRequest));
         }
 
+        /*
         [Fact]
         public async Task ListOrders_ValidRequest_ReturnsResponse()
         {

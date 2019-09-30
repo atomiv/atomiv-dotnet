@@ -4,6 +4,7 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
@@ -12,6 +13,15 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
+        }
+
+        protected override Task<Customer> CreateAggregateRootAsync(CreateCustomerRequest request)
+        {
+            var customer = new Customer(CustomerIdentity.Null,
+                                request.FirstName,
+                                request.LastName);
+
+            return Task.FromResult(customer);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Product
     {
         public ProductRecordProfile()
         {
-            CreateMap<Product, ProductRecord>()
+            CreateMap<Product, ProductRecord>();
+            /*
                 .ConstructUsing(e => new ProductRecord
                 {
                     Id = e.Id.Id,
@@ -19,6 +20,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Product
                     ProductName = e.ProductName,
                     ListPrice = e.ListPrice,
                 });
+            */
 
             CreateMap<ProductRecord, Product>()
                 .ConstructUsing(e => new Product(new ProductIdentity(e.Id), e.ProductCode, e.ProductName, e.ListPrice));

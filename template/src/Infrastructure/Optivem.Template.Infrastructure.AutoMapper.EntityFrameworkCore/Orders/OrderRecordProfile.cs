@@ -14,6 +14,18 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Orders
     {
         public OrderRecordProfile()
         {
+            CreateMap<Order, OrderRecord>()
+                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => (int)e.Status))
+                .ForMember(dest => dest.Status, opt => opt.Ignore())
+                .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(e => e.CustomerId.Id))
+                ;
+
+            CreateMap<OrderDetail, OrderDetailRecord>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id))
+                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => (int)e.Status))
+                .ForMember(dest => dest.Status, opt => opt.Ignore())
+                ;
+
             CreateMap<OrderRecord, Order>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ConstructUsing(e => Create(e));
