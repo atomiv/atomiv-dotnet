@@ -31,10 +31,7 @@ namespace Optivem.Framework.Core.Application
                 throw new NotFoundRequestException();
             }
 
-            aggregateRoot = Mapper.Map<TRequest, TAggregateRoot>(request, aggregateRoot);
-
-            // TODO: VC: DELETE
-            // Update(aggregateRoot, request);
+            await UpdateAsync(request, aggregateRoot);
 
             try
             {
@@ -43,20 +40,19 @@ namespace Optivem.Framework.Core.Application
                 var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;
             }
-            catch (ConcurrentUpdateException)
+            catch (ConcurrentUpdateException ex)
             {
                 var exists = await repository.ExistsAsync(identity);
 
                 if (!exists)
                 {
-                    return null;
+                    throw new NotFoundRequestException(ex.Message, ex);
                 }
 
                 throw;
             }
         }
 
-        // TODO: VC: DELETE
-        // protected abstract void Update(TAggregateRoot aggregateRoot, TRequest request);
+        protected abstract Task UpdateAsync(TRequest request, TAggregateRoot aggregateRoot);
     }
 }

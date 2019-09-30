@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using System.Threading.Tasks;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
@@ -14,13 +15,12 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         {
         }
 
-        // TODO: VC: DELETE
-        /*
-        protected override void Update(Customer aggregateRoot, UpdateCustomerRequest request)
+        protected override Task UpdateAsync(UpdateCustomerRequest request, Customer aggregateRoot)
         {
             aggregateRoot.FirstName = request.FirstName;
             aggregateRoot.LastName = request.LastName;
+
+            return Task.CompletedTask;
         }
-        */
     }
 }

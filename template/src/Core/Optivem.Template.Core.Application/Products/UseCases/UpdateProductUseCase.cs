@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using System.Threading.Tasks;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.UseCases;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
@@ -13,6 +14,14 @@ namespace Optivem.Template.Core.Application.Products.UseCases
         public UpdateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
             : base(mapper, unitOfWork)
         {
+        }
+
+        protected override Task UpdateAsync(UpdateProductRequest request, Product aggregateRoot)
+        {
+            aggregateRoot.ProductName = request.Description;
+            aggregateRoot.ListPrice = request.UnitPrice;
+
+            return Task.CompletedTask;
         }
     }
 }
