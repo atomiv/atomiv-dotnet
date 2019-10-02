@@ -13,6 +13,8 @@ namespace Optivem.Template.Core.Application.Orders.Requests
 
         public class OrderDetail
         {
+            public int? Id { get; set; }
+
             public int ProductId { get; set; }
 
             public decimal Quantity { get; set; }

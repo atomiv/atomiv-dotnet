@@ -32,6 +32,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 {
                     FirstName = "John2",
                     LastName = "McDonald2",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Jake2",
+                    LastName = "McDonald2",
                 }
             };
 
@@ -51,6 +57,20 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "BAN2",
                     ProductName = "Banana2",
                     ListPrice = 302.99m,
+                },
+
+                new ProductRecord
+                {
+                    ProductCode = "ORG2",
+                    ProductName = "Orange2",
+                    ListPrice = 102.50m,
+                },
+
+                new ProductRecord
+                {
+                    ProductCode = "MAN2",
+                    ProductName = "Mango2",
+                    ListPrice = 500.99m,
                 },
             };
 
@@ -98,6 +118,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             Quantity = 40,
                             StatusId = (int)OrderDetailStatus.Allocated,
                         },
+
+                        new OrderDetailRecord
+                        {
+                            ProductId = _productRecords[2].Id,
+                            UnitPrice = _productRecords[2].ListPrice,
+                            Quantity = 50,
+                            StatusId = (int)OrderDetailStatus.Invoiced,
+                        },
                     },
                 },
             };
@@ -118,7 +146,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         */
 
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
         {
             var customerRecord = _customerRecords[0];
@@ -160,6 +188,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 var createRequestOrderDetail = createRequest.OrderDetails[i];
                 var createResponseOrderDetail = createResponse.OrderDetails[i];
 
+                Assert.True(createResponseOrderDetail.Id > 0);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
                 Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
                 Assert.Equal((int)OrderDetailStatus.Allocated, createResponseOrderDetail.StatusId);
@@ -182,26 +211,28 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 var createResponseOrderDetail = createResponse.OrderDetails[i];
                 var findResponseOrderDetail = findResponse.OrderDetails[i];
 
+                Assert.Equal(createResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(createResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
                 Assert.Equal(createResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
                 Assert.Equal(createResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
             }
         }
 
-        /*
-
         [Fact]
         public async Task CreateOrder_InvalidRequest_ThrowsInvalidRequestException()
         {
             var createRequest = new CreateOrderRequest
             {
-                FirstName = null,
-                LastName = "Last name 1",
+                CustomerId = 999,
+                OrderDetails = null,
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.CreateOrderAsync(createRequest));
         }
 
+        // TODO: VC: DELETE
+
+        /*
         [Fact]
         public async Task DeleteOrder_ValidRequest_ReturnsResponse()
         {
@@ -221,10 +252,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.DeleteOrderAsync(deleteRequest));
         }
-
         */
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];
@@ -246,6 +276,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 var orderDetailRecord = orderRecord.OrderDetails.ToList()[i];
                 var findResponseDetail = findResponse.OrderDetails[i];
 
+                Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
                 Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
                 Assert.Equal(orderDetailRecord.StatusId, findResponseDetail.StatusId);
@@ -282,36 +313,102 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(expectedRecord.LastName, actualRecord.LastName);
             }
         }
+        */
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task UpdateOrder_ValidRequest_ReturnsResponse()
         {
-            var orderRecord = _orderRecords[0];
+            var customerRecord = _customerRecords[2];
+
+            var product1Record = _productRecords[2];
+            var product2Record = _productRecords[3];
+
+            var orderRecord = _orderRecords[1];
 
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                FirstName = "New first name",
-                LastName = "New last name",
+                CustomerId = customerRecord.Id,
+                OrderDetails = new List<UpdateOrderRequest.OrderDetail>
+                {
+                    new UpdateOrderRequest.OrderDetail
+                    {
+                        Id = orderRecord.OrderDetails.ElementAt(0).Id,
+                        ProductId = product1Record.Id,
+                        Quantity = 72,
+                    },
+
+                    new UpdateOrderRequest.OrderDetail
+                    {
+                        Id = null,
+                        ProductId = product2Record.Id,
+                        Quantity = 84,
+                    }
+                },
             };
 
             var updateResponse = await Fixture.Orders.UpdateOrderAsync(updateRequest);
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
-            Assert.Equal(updateRequest.FirstName, updateResponse.FirstName);
-            Assert.Equal(updateRequest.LastName, updateResponse.LastName);
+            Assert.Equal(updateRequest.CustomerId, updateResponse.CustomerId);
+            Assert.Equal((int)OrderStatus.New, updateResponse.StatusId);
+
+            Assert.NotNull(updateResponse.OrderDetails);
+
+            Assert.Equal(updateRequest.OrderDetails.Count, updateResponse.OrderDetails.Count);
+
+            for (int i = 0; i < updateRequest.OrderDetails.Count; i++)
+            {
+                var updateRequestOrderDetail = updateRequest.OrderDetails[i];
+                var updateResponseOrderDetail = updateResponse.OrderDetails[i];
+
+                Assert.Equal(updateRequestOrderDetail.Id, updateResponseOrderDetail.Id);
+                Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
+                Assert.Equal(updateRequestOrderDetail.Quantity, updateResponseOrderDetail.Quantity);
+                Assert.Equal((int)OrderDetailStatus.Allocated, updateResponseOrderDetail.StatusId);
+            }
+
+            var findRequest = new FindOrderRequest { Id = updateResponse.Id };
+
+            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+
+            Assert.Equal(updateResponse.Id, findResponse.Id);
+            Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
+            Assert.Equal(updateResponse.StatusId, updateResponse.StatusId);
+
+            Assert.NotNull(findResponse.OrderDetails);
+
+            Assert.Equal(updateResponse.OrderDetails.Count, findResponse.OrderDetails.Count);
+
+            for (int i = 0; i < updateResponse.OrderDetails.Count; i++)
+            {
+                var updateResponseOrderDetail = updateResponse.OrderDetails[i];
+                var findResponseOrderDetail = findResponse.OrderDetails[i];
+
+                Assert.Equal(updateResponseOrderDetail.Id, findResponseOrderDetail.Id);
+                Assert.Equal(updateResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
+                Assert.Equal(updateResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
+                Assert.Equal(updateResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+            }
         }
+
 
         [Fact]
         public async Task UpdateOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var orderRecord = _orderRecords[0];
-
             var updateRequest = new UpdateOrderRequest
             {
                 Id = 999,
-                FirstName = "New first name",
-                LastName = "New last name",
+                CustomerId = _customerRecords[0].Id,
+                OrderDetails = new List<UpdateOrderRequest.OrderDetail>
+                {
+                    new UpdateOrderRequest.OrderDetail
+                    {
+                        Id = 1,
+                        ProductId = _productRecords[0].Id,
+                        Quantity = 40,
+                    },
+                },
             };
 
             await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
@@ -325,13 +422,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                FirstName = "New first name",
-                LastName = null,
+                CustomerId = 0,
+                OrderDetails = null,
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
         }
-
-    */
     }
 }
