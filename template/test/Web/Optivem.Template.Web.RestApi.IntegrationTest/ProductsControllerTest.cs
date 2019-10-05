@@ -35,7 +35,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Fixture.Db.AddRange(_productRecords);
         }
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task BrowseProducts_Valid_OK()
         {
             for(int i = 0; i < 30; i++)
@@ -64,7 +64,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var browseResponseContent = browseResponse.Data;
 
-            Assert.Equal(browseRequest.Size, browseResponseContent.Count);
+            Assert.Equal(browseRequest.Size, browseResponseContent.TotalRecords);
 
             var skip = browseRequest.Page * browseRequest.Size;
             var take = browseRequest.Size;

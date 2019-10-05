@@ -7,7 +7,6 @@ using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
@@ -28,7 +27,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         {
             var customerId = new CustomerIdentity(request.CustomerId);
 
-            var customer = await _customerRepository.GetAsync(customerId);
+            var customer = await _customerRepository.FindAsync(customerId);
 
             if(customer == null)
             {
@@ -59,7 +58,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         private async Task<OrderDetail> CreateAsync(CreateOrderRequest.OrderDetail requestOrderDetail)
         {
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
-            var product = await _productRepository.GetAsync(productId);
+            var product = await _productRepository.FindAsync(productId);
 
             if(product == null)
             {

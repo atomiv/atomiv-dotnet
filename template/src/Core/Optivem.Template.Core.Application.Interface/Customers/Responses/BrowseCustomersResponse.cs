@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 
 namespace Optivem.Template.Core.Application.Customers.Responses
 {
@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Application.Customers.Responses
     {
         public List<BrowseCustomersRecordResponse> Records { get; set; }
 
-        public int Count { get; set; }
+        public int TotalRecords { get; set; }
     }
 
     public class BrowseCustomersRecordResponse : IResponse<int>

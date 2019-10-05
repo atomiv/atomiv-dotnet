@@ -80,7 +80,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var browseResponse = await Fixture.Customers.BrowseCustomersAsync(browseRequest);
 
-            Assert.Equal(expectedRecords.Count, browseResponse.Count);
+            Assert.Equal(_customerRecords.Count, browseResponse.TotalRecords);
             Assert.Equal(expectedRecords.Count, browseResponse.Records.Count);
 
             for(int i = 0; i < expectedRecords.Count; i++)
@@ -181,7 +181,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var actualResponse = await Fixture.Customers.ListCustomersAsync(request);
 
-            Assert.Equal(_customerRecords.Count, actualResponse.Count);
+            Assert.Equal(_customerRecords.Count, actualResponse.TotalRecords);
 
             for(int i = 0; i < _customerRecords.Count; i++)
             {

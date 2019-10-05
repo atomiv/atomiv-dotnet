@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards;
 using System;
 using System.Collections.Generic;

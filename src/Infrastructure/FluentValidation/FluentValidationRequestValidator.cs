@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.FluentValidation

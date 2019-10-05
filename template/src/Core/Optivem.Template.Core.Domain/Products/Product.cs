@@ -1,5 +1,4 @@
-﻿using System;
-using Optivem.Framework.Core.Domain;
+﻿using Optivem.Framework.Core.Domain;
 
 namespace Optivem.Template.Core.Domain.Products
 {

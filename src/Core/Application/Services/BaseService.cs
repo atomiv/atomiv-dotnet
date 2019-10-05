@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Optivem.Framework.Core.Common;
+using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.Services
+namespace Optivem.Framework.Core.Application
 {
     public class BaseService : IApplicationService
     {

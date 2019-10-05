@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Common;
-using System;
 using System.Collections.Generic;
 
 namespace Optivem.Framework.Test.EntityFrameworkCore

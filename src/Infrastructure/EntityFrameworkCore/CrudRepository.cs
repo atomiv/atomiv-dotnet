@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
-using Optivem.Framework.Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
+    // TODO: VC: Consider deleting
+
+    /*
     public class CrudRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>, ICrudRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
@@ -15,22 +10,22 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
-        private AddAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregateRepository;
-        private AddAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregatesRepository;
-        private RemoveAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregateRepository;
-        private RemoveAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregatesRepository;
-        private UpdateAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregateRepository;
-        private UpdateAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregatesRepository;
+        private AddAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregateRepository;
+        private AddAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _addAggregatesRepository;
+        private RemoveAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregateRepository;
+        private RemoveAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _removeAggregatesRepository;
+        private UpdateAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregateRepository;
+        private UpdateAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregatesRepository;
 
         public CrudRepository(TContext context, IMapper mapper, params Expression<Func<TRecord, object>>[] includes) 
             : base(context, mapper, includes)
         {
-            _addAggregateRepository = new AddAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
-            _addAggregatesRepository = new AddAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
-            _removeAggregateRepository = new RemoveAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
-            _removeAggregatesRepository = new RemoveAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
-            _updateAggregateRepository = new UpdateAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
-            _updateAggregatesRepository = new UpdateAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _addAggregateRepository = new AddAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _addAggregatesRepository = new AddAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _removeAggregateRepository = new RemoveAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _removeAggregatesRepository = new RemoveAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _updateAggregateRepository = new UpdateAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _updateAggregatesRepository = new UpdateAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
         }
 
         public Task<TAggregateRoot> AddAsync(TAggregateRoot aggregateRoot)
@@ -63,4 +58,5 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return _updateAggregatesRepository.UpdateAsync(aggregateRoots);
         }
     }
+    */
 }

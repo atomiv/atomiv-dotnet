@@ -1,13 +1,13 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
-using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
     public abstract class CreateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IAddAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IAddAggregateRootRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest
         where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>

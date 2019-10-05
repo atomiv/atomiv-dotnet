@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
-using Optivem.Framework.Core.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
+    // TODO: VC: Consider deleting
+
+    /*
     public abstract class ReadonlyRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : IReadonlyRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
@@ -15,10 +10,10 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
-        private readonly FindAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregateRepository;
-        private readonly FindAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregatesRepository;
-        private readonly PageAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _pageAggregatesRepository;
-        private readonly ExistsAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> _existsAggregateRepository;
+        private readonly FindAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregateRepository;
+        private readonly FindAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _findAggregatesRepository;
+        private readonly PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _pageAggregatesRepository;
+        private readonly ExistsAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _existsAggregateRepository;
 
 
         public ReadonlyRepository(TContext context, IMapper mapper, IEnumerable<Expression<Func<TRecord, object>>> includes)
@@ -26,10 +21,10 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             Context = context;
             Mapper = mapper;
 
-            _findAggregateRepository = new FindAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
-            _findAggregatesRepository = new FindAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
-            _pageAggregatesRepository = new PageAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
-            _existsAggregateRepository = new ExistsAggregateRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
+            _findAggregateRepository = new FindAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
+            _findAggregatesRepository = new FindAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
+            _pageAggregatesRepository = new PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper, includes);
+            _existsAggregateRepository = new ExistsAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);
         }
 
         protected TContext Context { get; }
@@ -58,4 +53,5 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
 
     }
+    */
 }

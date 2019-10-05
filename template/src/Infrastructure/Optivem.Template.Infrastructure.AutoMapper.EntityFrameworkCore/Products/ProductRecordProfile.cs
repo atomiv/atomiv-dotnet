@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Products
 {

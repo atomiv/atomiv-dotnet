@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.MediatR;
 using System;
@@ -12,7 +13,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 {
     public static class ServiceCollectionExtensions
     {
-        private static Type UseCaseType = typeof(IUseCase<,>);
+        private static Type RequestHandlerType = typeof(Core.Common.IRequestHandler<,>);
         private static Type RequestValidatorType = typeof(IRequestValidator<>);
         private static Type PipelineBehaviorType = typeof(IPipelineBehavior<,>);
         private static Type MediatorRequestType = typeof(MediatorRequest<,>);
@@ -34,21 +35,22 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 
         private static IServiceCollection AddRequestHandlers(this IServiceCollection services, IEnumerable<Type> types)
         {
-            var useCaseImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
+            var requestHandlerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RequestHandlerType);
 
-            foreach (var useCaseImplementationType in useCaseImplementationTypes)
+            foreach (var requestHandlerImplementationType in requestHandlerImplementationTypes)
             {
-                var useCaseInterfaceTypes = useCaseImplementationType.GetTypeInfo().ImplementedInterfaces;
-                var useCaseInterfaceType = useCaseInterfaceTypes.Single(e => e.Name == UseCaseType.Name);
+                var requestHandlerInterfaceTypes = requestHandlerImplementationType.GetTypeInfo().ImplementedInterfaces;
+                var requestHandlerInterfaceType = requestHandlerInterfaceTypes.Single(e => e.Name == RequestHandlerType.Name);
 
-                var requestType = useCaseInterfaceType.GenericTypeArguments[0];
-                var responseType = useCaseInterfaceType.GenericTypeArguments[1];
+                var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
+                var responseType = requestHandlerInterfaceType.GenericTypeArguments[1];
 
                 var mediatorRequestImplementationType = MediatorRequestType.MakeGenericType(requestType, responseType);
                 var mediatorRequestHandlerImplementationType = MediatorRequestHandlerType.MakeGenericType(requestType, responseType);
 
                 var serviceType = MediatorRequestHandlerInterfaceType.MakeGenericType(mediatorRequestImplementationType, responseType);
 
+                services.AddScoped(requestHandlerInterfaceType, requestHandlerImplementationType);
                 services.AddScoped(serviceType, mediatorRequestHandlerImplementationType);
             }
 
@@ -70,30 +72,30 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
                 requestTypes.Add(requestType.Name, requestType);
             }
 
-            var useCaseImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
+            var requestHandlerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RequestHandlerType);
             
-            foreach(var useCaseImplementationType in useCaseImplementationTypes)
+            foreach(var requestHandlerImplementationType in requestHandlerImplementationTypes)
             {
-                var useCaseInterfaceTypes = useCaseImplementationType.GetTypeInfo().ImplementedInterfaces;
-                var useCaseInterfaceType = useCaseInterfaceTypes.Single(e => e.Name == UseCaseType.Name);
+                var requestHandlerInterfaceTypes = requestHandlerImplementationType.GetTypeInfo().ImplementedInterfaces;
+                var requestHandlerInterfaceType = requestHandlerInterfaceTypes.Single(e => e.Name == RequestHandlerType.Name);
 
-                var requestType = useCaseInterfaceType.GenericTypeArguments[0];
+                var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
 
                 if(!requestTypes.ContainsKey(requestType.Name))
                 {
                     continue;
                 }
 
-                services.AddValidationPipelineBehavior(useCaseInterfaceType);
+                services.AddValidationPipelineBehavior(requestHandlerInterfaceType);
             }
 
             return services;
         }
 
-        private static IServiceCollection AddValidationPipelineBehavior(this IServiceCollection services, Type useCaseInterfaceType)
+        private static IServiceCollection AddValidationPipelineBehavior(this IServiceCollection services, Type requestHandlerInterfaceType)
         {
-            var requestType = useCaseInterfaceType.GenericTypeArguments[0];
-            var responseType = useCaseInterfaceType.GenericTypeArguments[1];
+            var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
+            var responseType = requestHandlerInterfaceType.GenericTypeArguments[1];
 
             var mediatorRequestServiceType = MediatorRequestType.MakeGenericType(requestType, responseType);
             var pipelineBehaviorServiceType = PipelineBehaviorType.MakeGenericType(mediatorRequestServiceType, responseType);

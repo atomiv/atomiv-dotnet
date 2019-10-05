@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Cus
     {
         public List<CustomerGetSubsetRecordResponse> Records { get; set; }
 
-        public int Count { get; set; }
+        public int TotalRecords { get; set; }
     }
 
     public class CustomerGetSubsetRecordResponse : IResponse<int>

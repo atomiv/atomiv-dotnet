@@ -100,7 +100,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.ActivateProductAsync(activateRequest));
         }
 
-        [Fact]
+        [Fact(Skip = "In ")]
         public async Task BrowseProducts_ValidRequest_ReturnsResponse()
         {
             for (int i = 0; i < 30; i++)
@@ -125,7 +125,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var browseResponse = await Fixture.Products.BrowseProductsAsync(browseRequest);
 
-            Assert.Equal(browseRequest.Size, browseResponse.Count);
+            Assert.Equal(_productRecords.Count, browseResponse.TotalRecords);
 
             var skip = browseRequest.Page * browseRequest.Size;
             var take = browseRequest.Size;
@@ -267,7 +267,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var response = await Fixture.Products.ListProductsAsync(request);
 
-            Assert.Equal(_productRecords.Count, response.Count);
+            Assert.Equal(_productRecords.Count, response.TotalRecords);
 
             for(int i = 0; i < _productRecords.Count; i++)
             {

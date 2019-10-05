@@ -2,7 +2,14 @@
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public interface IOrderRepository : ICrudRepository<Order, OrderIdentity>, IPageAggregatesRepository<Order, OrderIdentity>
+    public interface IOrderRepository : IRepository<Order, OrderIdentity>,
+        IFindAggregateRootRepository<Order, OrderIdentity>,
+        IExistsAggregateRootRepository<Order, OrderIdentity>,
+        IAddAggregateRootRepository<Order, OrderIdentity>,
+        IUpdateAggregateRootRepository<Order, OrderIdentity>,
+        IRemoveAggregateRootRepository<Order, OrderIdentity>,
+        IPageAggregateRootsRepository<Order, OrderIdentity>,
+        IListAggregateRootsRepository<Order, OrderIdentity>
     {
     }
 }

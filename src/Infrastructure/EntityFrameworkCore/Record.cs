@@ -1,7 +1,4 @@
 ﻿using Optivem.Framework.Infrastructure.System.Reflection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {

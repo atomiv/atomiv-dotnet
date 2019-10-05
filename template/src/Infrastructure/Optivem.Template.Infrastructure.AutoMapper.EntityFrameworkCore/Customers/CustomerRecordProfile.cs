@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Customers
 {

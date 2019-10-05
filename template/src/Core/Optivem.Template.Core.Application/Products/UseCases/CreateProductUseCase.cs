@@ -4,9 +4,6 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases

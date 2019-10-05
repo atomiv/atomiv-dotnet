@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Requests

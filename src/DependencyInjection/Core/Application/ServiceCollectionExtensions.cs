@@ -9,19 +9,22 @@ namespace Optivem.Framework.DependencyInjection.Core.Application
 {
     public static class ServiceCollectionExtensions
     {
-        private static Type UseCaseType = typeof(IUseCase<,>);
+        // TODO: VC: DELETE use cases
+
+        // private static Type UseCaseType = typeof(IUseCase<,>);
         private static Type ApplicationServiceType = typeof(IApplicationService);
 
         public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
         {
             var types = assemblies.GetTypes();
 
-            services.AddUseCases(types);
+            // services.AddUseCases(types);
             services.AddApplicationServices(types);
 
             return services;
         }
 
+        /*
         private static IServiceCollection AddUseCases(this IServiceCollection services, IEnumerable<Type> types)
         {
             var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(UseCaseType);
@@ -29,6 +32,7 @@ namespace Optivem.Framework.DependencyInjection.Core.Application
 
             return services;
         }
+        */
 
         private static IServiceCollection AddApplicationServices(this IServiceCollection services, IEnumerable<Type> types)
         {

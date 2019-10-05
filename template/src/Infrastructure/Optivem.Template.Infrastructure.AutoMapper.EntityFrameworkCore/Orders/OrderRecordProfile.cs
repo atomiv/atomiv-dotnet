@@ -6,7 +6,7 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Orders
 {
@@ -29,6 +29,11 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Orders
             CreateMap<OrderRecord, Order>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ConstructUsing(e => Create(e));
+
+            /*
+            CreateMap<OrderRecord, IEnumerable<Expression<Func<OrderRecord, object>>>>()
+                .ConvertUsing(e => new List<Expression<Func<OrderRecord, object>>> { f => f.OrderDetails });
+            */
         }
 
         private static Order Create(OrderRecord record)

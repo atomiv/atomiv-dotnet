@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Web.AspNetCore

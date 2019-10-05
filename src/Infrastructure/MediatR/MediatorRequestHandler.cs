@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using IRequest = Optivem.Framework.Core.Application.IRequest;
+using IRequest = Optivem.Framework.Core.Common.IRequest;
 
 namespace Optivem.Framework.Infrastructure.MediatR
 {
@@ -11,23 +12,16 @@ namespace Optivem.Framework.Infrastructure.MediatR
         where TRequest : IRequest
         where TResponse : IResponse
     {
-        private IUseCase<TRequest, TResponse> _useCase;
+        private Core.Common.IRequestHandler<TRequest, TResponse> _requestHandler;
 
-        public MediatorRequestHandler(IUseCase<TRequest, TResponse> useCase)
+        public MediatorRequestHandler(Core.Common.IRequestHandler<TRequest, TResponse> requestHandler)
         {
-            _useCase = useCase;
+            _requestHandler = requestHandler;
         }
 
         public Task<TResponse> Handle(MediatorRequest<TRequest, TResponse> request, CancellationToken cancellationToken)
         {
-            try
-            {
-                return _useCase.HandleAsync(request.Request);
-            }
-            catch(Exception ex)
-            {
-                throw new RequestHandlerException($"Error handling use case {typeof(IUseCase<TRequest, TResponse>)}", ex);
-            }
+            return _requestHandler.HandleAsync(request.Request);
         }
     }
     public class MediatorRequestHandler : IRequestHandler
@@ -40,7 +34,7 @@ namespace Optivem.Framework.Infrastructure.MediatR
         }
 
         public Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : Core.Application.IRequest
+            where TRequest : Core.Common.IRequest
             where TResponse : IResponse
         {
             // TODO: VC:
@@ -49,14 +43,7 @@ namespace Optivem.Framework.Infrastructure.MediatR
                 Request = request,
             };
 
-            try
-            {
-                return _mediator.Send(mediatorRequest);
-            }
-            catch (Exception ex)
-            {
-                throw new RequestHandlerException($"Error handling use case {typeof(IUseCase<TRequest, TResponse>)}", ex);
-            }
+            return _mediator.Send(mediatorRequest);
         }
     }
 }

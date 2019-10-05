@@ -1,10 +1,11 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Application.UseCases.Base
+namespace Optivem.Framework.Core.Application
 {
-    public abstract class RepositoryUseCase<TRepository, TRequest, TResponse> : IUseCase<TRequest, TResponse>
+    public abstract class RepositoryUseCase<TRepository, TRequest, TResponse> : UseCase<TRequest, TResponse>
         where TRepository : IRepository
         where TRequest : IRequest
         where TResponse : IResponse
@@ -18,9 +19,5 @@ namespace Optivem.Framework.Core.Application.UseCases.Base
         protected IMapper Mapper { get; }
 
         protected TRepository Repository { get; }
-
-        public abstract Task<TResponse> HandleAsync(TRequest request);
-
-
     }
 }

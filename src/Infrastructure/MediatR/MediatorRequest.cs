@@ -1,4 +1,6 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using MediatR;
+using Optivem.Framework.Core.Common;
+using IRequest = Optivem.Framework.Core.Common.IRequest;
 
 namespace Optivem.Framework.Infrastructure.MediatR
 {

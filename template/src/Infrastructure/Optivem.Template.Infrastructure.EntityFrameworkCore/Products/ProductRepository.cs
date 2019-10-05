@@ -2,28 +2,53 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
-    public class ProductRepository : CrudRepository<DatabaseContext, Product, ProductIdentity, ProductRecord, int>, IProductRepository
+    public class ProductRepository : Repository<Product, ProductIdentity>, IProductRepository
     {
-        public ProductRepository(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public ProductRepository(IRequestHandler requestHandler) : base(requestHandler)
         {
         }
 
-        public async Task<IEnumerable<Product>> PageAsync(int page, int size)
+        public Task<Product> AddAsync(Product aggregateRoot)
         {
-            // TODO: VC: Move to base
+            return HandleAddAggregateRootAsync(aggregateRoot);
+        }
 
-            var skip = page * size;
-            var records = await Context.Set<ProductRecord>().AsNoTracking()
-                .Skip(skip)
-                .Take(size)
-                .ToListAsync();
-            return Mapper.Map<IEnumerable<ProductRecord>, IEnumerable<Product>>(records);
+        public Task<bool> ExistsAsync(ProductIdentity identity)
+        {
+            return HandleExistsAggregateRootAsync(identity);
+        }
+
+        public Task<Product> FindAsync(ProductIdentity identity)
+        {
+            return HandleFindAggregateRootAsync(identity);
+        }
+
+        public Task<IEnumerable<Product>> ListAsync()
+        {
+            return HandleListAggregateRootsAsync();
+        }
+
+        public Task<PageAggregateRootsResponse<Product>> PageAsync(int page, int size)
+        {
+            return HandlePageAggregateRootsAsync(page, size);
+        }
+
+        public Task RemoveAsync(ProductIdentity identity)
+        {
+            return HandleRemoveAggregateRootAsync(identity);
+        }
+
+        public Task UpdateAsync(Product aggregateRoot)
+        {
+            return HandleUpdateAggregateRootAsync(aggregateRoot);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class DeleteAggregateCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IExistsAggregateRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IExistsAggregateRootRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRootRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : IResponse, new()
         where TAggregateRoot : IAggregateRoot<TIdentity>

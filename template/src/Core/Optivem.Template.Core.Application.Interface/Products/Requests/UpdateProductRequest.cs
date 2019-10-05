@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 
 namespace Optivem.Template.Core.Application.Products.Requests
 {

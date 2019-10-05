@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class FindAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IFindAggregateRootRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
@@ -23,7 +24,7 @@ namespace Optivem.Framework.Core.Application
             var identity = Mapper.Map<TId, TIdentity>(id);
 
             var repository = GetRepository();
-            var aggregateRoot = await repository.GetAsync(identity);
+            var aggregateRoot = await repository.FindAsync(identity);
 
             if (aggregateRoot == null)
             {

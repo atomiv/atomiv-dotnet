@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Responses
@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Application.Orders.Responses
     {
         public List<BrowseOrdersRecordResponse> Records { get; set; }
 
-        public int Count { get; set; }
+        public int TotalRecords { get; set; }
     }
 
     public class BrowseOrdersRecordResponse : IResponse<int>

@@ -1,14 +1,13 @@
-﻿using Optivem.Framework.Core.Application.UseCases.Base;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
     public class BrowseAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         : RepositoryUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IPageAggregatesRepository<TAggregateRoot, TIdentity>
+        where TRepository : IPageAggregateRootsRepository<TAggregateRoot, TIdentity>
         where TRequest : ICollectionRequest
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
         where TRecordResponse : IResponse<TId>
@@ -24,7 +23,7 @@ namespace Optivem.Framework.Core.Application
         {
             var aggregateRoots = await Repository.PageAsync(request.Page, request.Size);
 
-            return Mapper.Map<IEnumerable<TAggregateRoot>, TResponse>(aggregateRoots);
+            return Mapper.Map<PageAggregateRootsResponse<TAggregateRoot>, TResponse>(aggregateRoots);
         }
     }
 }

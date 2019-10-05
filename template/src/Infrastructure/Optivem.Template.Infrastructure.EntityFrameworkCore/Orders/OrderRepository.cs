@@ -1,32 +1,53 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Orders;
-using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderRepository : CrudRepository<DatabaseContext, Order, OrderIdentity, OrderRecord, int>, IOrderRepository
+    public class OrderRepository : Repository<Order, OrderIdentity>, IOrderRepository
     {
-        public OrderRepository(DatabaseContext context, IMapper mapper) 
-            : base(context, mapper, e => e.OrderDetails)
+        public OrderRepository(IRequestHandler requestHandler) : base(requestHandler)
         {
         }
 
-        public IEnumerable<Order> Get(int page, int size)
+        public Task<Order> AddAsync(Order aggregateRoot)
         {
-            throw new NotImplementedException();
+            return HandleAddAggregateRootAsync(aggregateRoot);
         }
 
-        public Task<IEnumerable<Order>> PageAsync(int page, int size)
+        public Task<bool> ExistsAsync(OrderIdentity identity)
         {
-            throw new NotImplementedException();
+            return HandleExistsAggregateRootAsync(identity);
         }
 
+        public Task<Order> FindAsync(OrderIdentity identity)
+        {
+            return HandleFindAggregateRootAsync(identity);
+        }
 
+        public Task<IEnumerable<Order>> ListAsync()
+        {
+            return HandleListAggregateRootsAsync();
+        }
 
+        public Task<PageAggregateRootsResponse<Order>> PageAsync(int page, int size)
+        {
+            return HandlePageAggregateRootsAsync(page, size);
+        }
 
+        public Task RemoveAsync(OrderIdentity identity)
+        {
+            return HandleRemoveAggregateRootAsync(identity);
+        }
+
+        public Task UpdateAsync(Order aggregateRoot)
+        {
+            return HandleUpdateAggregateRootAsync(aggregateRoot);
+        }
     }
 }

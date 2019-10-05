@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
-        where TRepository : IFindAggregateRepository<TAggregateRoot, TIdentity>, IExistsAggregateRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRepository<TAggregateRoot, TIdentity>
+        where TRepository : IFindAggregateRootRepository<TAggregateRoot, TIdentity>, IExistsAggregateRootRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRootRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TId>
         where TResponse : class, IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
@@ -24,7 +25,7 @@ namespace Optivem.Framework.Core.Application
 
             var repository = GetRepository();
 
-            var aggregateRoot = await repository.GetAsync(identity);
+            var aggregateRoot = await repository.FindAsync(identity);
 
             if (aggregateRoot == null)
             {
@@ -35,7 +36,7 @@ namespace Optivem.Framework.Core.Application
 
             try
             {
-                aggregateRoot = await repository.UpdateAsync(aggregateRoot);
+                await repository.UpdateAsync(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
                 var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;

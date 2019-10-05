@@ -6,10 +6,7 @@ using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
@@ -47,7 +44,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             foreach(var added in addedOrderRequestDetails)
             {
                 var productId = new ProductIdentity(added.ProductId);
-                var product = await _productRepository.GetAsync(productId);
+                var product = await _productRepository.FindAsync(productId);
 
                 if(product == null)
                 {
@@ -64,7 +61,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 var orderDetail = aggregateRoot.OrderDetails.First(e => e.Id == orderDetailId);
 
                 var productId = new ProductIdentity(updated.ProductId);
-                var product = await _productRepository.GetAsync(productId);
+                var product = await _productRepository.FindAsync(productId);
 
                 if (product == null)
                 {

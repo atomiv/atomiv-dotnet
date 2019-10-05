@@ -2,8 +2,6 @@
 using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
