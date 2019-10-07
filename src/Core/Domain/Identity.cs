@@ -1,6 +1,9 @@
-﻿namespace Optivem.Framework.Core.Domain
+﻿using System;
+
+namespace Optivem.Framework.Core.Domain
 {
-    public class Identity<TId> : IIdentity<TId>
+    public class Identity<TId> : IIdentity<TId>, IComparable<Identity<TId>>
+        where TId : IEquatable<TId>, IComparable<TId>
     {
         public Identity(TId id)
         {
@@ -8,6 +11,16 @@
         }
 
         public TId Id { get; }
+
+        public int CompareTo(Identity<TId> other)
+        {
+            if(ReferenceEquals(other, null))
+            {
+                return 1;
+            }
+
+            return Id.CompareTo(other.Id);
+        }
 
         public bool Equals(IIdentity<TId> other)
         {
@@ -26,9 +39,12 @@
                 return false;
             }
 
-            // TODO: VC: Check the internals
+            if(ReferenceEquals(Id, null) && ReferenceEquals(other.Id, null))
+            {
+                return true;
+            }
 
-            return (Id == null && other.Id == null) || Id.Equals(other.Id);
+            return Id.Equals(other.Id);
         }
 
         public override bool Equals(object other)
@@ -48,29 +64,74 @@
             return Id.GetHashCode();
         }
 
-        public static bool operator ==(Identity<TId> first, Identity<TId> second)
+        public static bool operator ==(Identity<TId> a, Identity<TId> b)
         {
-            if(ReferenceEquals(first, second))
+            return Equals(a, b);
+        }
+
+        public static bool operator!=(Identity<TId> a, Identity<TId> b)
+        {
+            return !Equals(a, b);
+        }
+
+        public static bool operator<(Identity<TId> a, Identity<TId> b)
+        {
+            return CompareTo(a, b) < 0;
+        }
+
+        public static bool operator>(Identity<TId> a, Identity<TId> b)
+        {
+            return CompareTo(a, b) > 0;
+        }
+
+        public static bool operator<=(Identity<TId> a, Identity<TId> b)
+        {
+            return CompareTo(a, b) <= 0;
+        }
+
+        public static bool operator >=(Identity<TId> a, Identity<TId> b)
+        {
+            return CompareTo(a, b) >= 0;
+        }
+
+        private static bool Equals(Identity<TId> a, Identity<TId> b)
+        {
+            if (ReferenceEquals(a, b))
             {
                 return true;
             }
 
-            if(ReferenceEquals(first, null))
+            if (ReferenceEquals(a, null))
             {
                 return false;
             }
 
-            if(ReferenceEquals(second, null))
+            if (ReferenceEquals(b, null))
             {
                 return false;
             }
 
-            return first.Equals(second);
+            return a.Equals(b);
         }
 
-        public static bool operator!=(Identity<TId> first, Identity<TId> second)
+        private static int CompareTo(Identity<TId> a, Identity<TId> b)
         {
-            return !(first == second);
+            if (ReferenceEquals(a, b))
+            {
+                return 0;
+            }
+
+            if (ReferenceEquals(a, null))
+            {
+                return -1;
+            }
+
+            if (ReferenceEquals(b, null))
+            {
+                return 1;
+            }
+
+            return a.CompareTo(b);
         }
     }
 }

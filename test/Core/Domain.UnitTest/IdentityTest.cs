@@ -131,6 +131,25 @@ namespace Optivem.Framework.Core.Domain.UnitTest
             Assert.True(a != b);
         }
 
+        [Fact]
+        public void TestLessThanOperator1()
+        {
+            var a = new CustomerIdentity(5);
+            var b = new OrderIdentity(10);
+
+            Assert.True(a < b);
+        }
+
+        [Fact]
+        public void TestLessThanOperator2()
+        {
+            var a = new CustomerIdentity(15);
+            var b = new OrderIdentity(10);
+
+            Assert.False(a < b);
+        }
+
+
 
 
         private class CustomerIdentity : Identity<int>
