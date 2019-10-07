@@ -76,5 +76,75 @@ namespace Optivem.Framework.Core.Domain.UnitTest
             // TODO: VC: Check
             Assert.True(a.Equals(b));
         }
+
+        [Fact]
+        public void TestEqualsOperator1()
+        {
+            var a = new Identity<int>(5);
+            var b = new Identity<int>(5);
+
+            Assert.True(a == b);
+        }
+
+        [Fact]
+        public void TestEqualsOperator2()
+        {
+            var a = new CustomerIdentity(5);
+            var b = new CustomerIdentity(5);
+
+            Assert.True(a == b);
+        }
+
+        [Fact]
+        public void TestEqualsOperator3()
+        {
+            var a = new CustomerIdentity(5);
+            var b = new OrderIdentity(5);
+
+            Assert.False(a == b);
+        }
+
+        [Fact]
+        public void TestInequalityOperator1()
+        {
+            var a = new Identity<int>(5);
+            var b = new Identity<int>(6);
+
+            Assert.True(a != b);
+        }
+
+        [Fact]
+        public void TestInequalityOperator2()
+        {
+            var a = new Identity<int>(5);
+            var b = new Identity<int>(5);
+
+            Assert.False(a != b);
+        }
+
+        [Fact]
+        public void TestInequalityOperator3()
+        {
+            var a = new CustomerIdentity(5);
+            var b = new OrderIdentity(5);
+
+            Assert.True(a != b);
+        }
+
+
+
+        private class CustomerIdentity : Identity<int>
+        {
+            public CustomerIdentity(int id) : base(id)
+            {
+            }
+        }
+
+        private class OrderIdentity : Identity<int>
+        {
+            public OrderIdentity(int id) : base(id)
+            {
+            }
+        }
     }
 }
