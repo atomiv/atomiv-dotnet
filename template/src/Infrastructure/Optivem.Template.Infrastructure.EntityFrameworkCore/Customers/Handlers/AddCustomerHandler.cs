@@ -8,7 +8,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Handlers
 {
     public class AddCustomerHandler : AddAggregateRootHandler<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {
-        public AddCustomerHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public AddCustomerHandler(DatabaseContext context, IMapper mapper, IAggregateRootFactory<Customer, CustomerRecord> aggregateRootFactory) 
+            : base(context, mapper, aggregateRootFactory)
         {
         }
     }

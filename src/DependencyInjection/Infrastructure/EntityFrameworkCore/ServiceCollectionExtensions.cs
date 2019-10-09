@@ -12,6 +12,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
     public static class ServiceCollectionExtensions
     {
         private static Type UnitOfWorkType = typeof(IUnitOfWork);
+        private static Type AggregateRootFactoryType = typeof(Optivem.Framework.Infrastructure.EntityFrameworkCore.IAggregateRootFactory<,>);
 
         public static IServiceCollection AddEntityFrameworkCoreInfrastructure<TDbContext>(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction = null, params Assembly[] assemblies)
             where TDbContext : DbContext
@@ -20,6 +21,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
 
             services.AddDbContext<TDbContext>(optionsAction);
             services.AddUnitOfWork(types);
+            services.AddAggregateRootFactories(types);
 
             return services;
         }
@@ -28,6 +30,14 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
         {
             var implementationType = types.GetConcreteImplementationsOfInterface(UnitOfWorkType).Single();
             services.AddScoped(UnitOfWorkType, implementationType);
+
+            return services;
+        }
+
+        private static IServiceCollection AddAggregateRootFactories(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(AggregateRootFactoryType);
+            services.AddScopedOpenType(AggregateRootFactoryType, implementationTypes);
 
             return services;
         }

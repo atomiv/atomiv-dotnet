@@ -81,50 +81,50 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             {
                 new OrderRecord
                 {
-                    CustomerId = _customerRecords[0].Id,
-                    StatusId = (int)OrderStatus.Invoiced,
+                    CustomerRecordId = _customerRecords[0].Id,
+                    OrderStatusRecordId = (int)OrderStatus.Invoiced,
 
-                    OrderDetails = new List<OrderDetailRecord>
+                    OrderDetailRecords = new List<OrderDetailRecord>
                     {
                         new OrderDetailRecord
                         {
-                            ProductId = _productRecords[0].Id,
+                            ProductRecordId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
-                            StatusId = (int)OrderDetailStatus.NoStock,
+                            StatusRecordId = (int)OrderDetailStatus.NoStock,
                         },
 
                         new OrderDetailRecord
                         {
-                            ProductId = _productRecords[1].Id,
+                            ProductRecordId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
-                            StatusId = (int)OrderDetailStatus.OnOrder,
+                            StatusRecordId = (int)OrderDetailStatus.OnOrder,
                         },
                     },
                 },
 
                 new OrderRecord
                 {
-                    CustomerId = _customerRecords[1].Id,
-                    StatusId = (int)OrderStatus.Shipped,
+                    CustomerRecordId = _customerRecords[1].Id,
+                    OrderStatusRecordId = (int)OrderStatus.Shipped,
 
-                    OrderDetails = new List<OrderDetailRecord>
+                    OrderDetailRecords = new List<OrderDetailRecord>
                     {
                         new OrderDetailRecord
                         {
-                            ProductId = _productRecords[1].Id,
+                            ProductRecordId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
-                            StatusId = (int)OrderDetailStatus.Allocated,
+                            StatusRecordId = (int)OrderDetailStatus.Allocated,
                         },
 
                         new OrderDetailRecord
                         {
-                            ProductId = _productRecords[2].Id,
+                            ProductRecordId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,
-                            StatusId = (int)OrderDetailStatus.Invoiced,
+                            StatusRecordId = (int)OrderDetailStatus.Invoiced,
                         },
                     },
                 },
@@ -146,7 +146,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         */
 
 
-        [Fact(Skip = "In progress")]
+        [Fact(Skip ="In progress")]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
         {
             var customerRecord = _customerRecords[0];
@@ -254,7 +254,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
         */
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];
@@ -264,22 +264,22 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
-            Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
-            Assert.Equal(orderRecord.StatusId, findResponse.StatusId);
+            Assert.Equal(orderRecord.CustomerRecordId, findResponse.CustomerId);
+            Assert.Equal(orderRecord.OrderStatusRecordId, findResponse.StatusId);
 
             Assert.NotNull(findResponse.OrderDetails);
 
-            Assert.Equal(orderRecord.OrderDetails.Count, findResponse.OrderDetails.Count);
+            Assert.Equal(orderRecord.OrderDetailRecords.Count, findResponse.OrderDetails.Count);
 
-            for(int i = 0; i < orderRecord.OrderDetails.Count; i++)
+            for(int i = 0; i < orderRecord.OrderDetailRecords.Count; i++)
             {
-                var orderDetailRecord = orderRecord.OrderDetails.ToList()[i];
+                var orderDetailRecord = orderRecord.OrderDetailRecords.ToList()[i];
                 var findResponseDetail = findResponse.OrderDetails[i];
 
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
-                Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
+                Assert.Equal(orderDetailRecord.ProductRecordId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
-                Assert.Equal(orderDetailRecord.StatusId, findResponseDetail.StatusId);
+                Assert.Equal(orderDetailRecord.StatusRecordId, findResponseDetail.StatusId);
             }
         }
 
@@ -333,7 +333,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 {
                     new UpdateOrderRequest.OrderDetail
                     {
-                        Id = orderRecord.OrderDetails.ElementAt(0).Id,
+                        Id = orderRecord.OrderDetailRecords.ElementAt(0).Id,
                         ProductId = product1Record.Id,
                         Quantity = 72,
                     },

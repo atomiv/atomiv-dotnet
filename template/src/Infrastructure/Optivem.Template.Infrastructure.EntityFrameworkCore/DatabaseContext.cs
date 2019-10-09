@@ -16,22 +16,40 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         {
         }
 
-        public virtual DbSet<CustomerRecord> Customer { get; set; }
+        // Customers
+        public virtual DbSet<CustomerRecord> CustomerRecords { get; set; }
 
-        public virtual DbSet<ProductRecord> Product { get; set; }
+        // Orders
+        public virtual DbSet<OrderDetailRecord> OrderDetailRecords { get; set; }
+        public virtual DbSet<OrderDetailStatusRecord> OrderDetailStatusRecords { get; set; }
+        public virtual DbSet<OrderRecord> OrderRecords { get; set; }
+        public virtual DbSet<OrderStatusRecord> OrderStatusRecords { get; set; }
+
+        // Products
+        public virtual DbSet<ProductRecord> ProductRecords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ApplyConfigurations(modelBuilder);
-            SeedRecords(modelBuilder);
+            ApplyConfiguration(modelBuilder);
+            Seed(modelBuilder);
         }
 
-        private void ApplyConfigurations(ModelBuilder modelBuilder)
+        private void ApplyConfiguration(ModelBuilder modelBuilder)
         {
+            // Customers
             modelBuilder.ApplyConfiguration(new CustomerRecordConfiguration());
+
+            // Orders
+            modelBuilder.ApplyConfiguration(new OrderDetailRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailStatusRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderStatusRecordConfiguration());
+
+            // Products
+            modelBuilder.ApplyConfiguration(new ProductRecordConfiguration());
         }
 
-        private void SeedRecords(ModelBuilder modelBuilder)
+        private void Seed(ModelBuilder modelBuilder)
         {
             SeedEnumRecords<OrderStatusRecord, OrderStatus>(modelBuilder, e => new OrderStatusRecord { Id = (byte)e, Code = e.ToString() });
             SeedEnumRecords<OrderDetailStatusRecord, OrderDetailStatus>(modelBuilder, e => new OrderDetailStatusRecord { Id = (byte)e, Code = e.ToString() });

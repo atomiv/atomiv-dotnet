@@ -14,8 +14,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
-        public AddAggregateRootHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private IAggregateRootFactory<TAggregateRoot, TRecord> _aggregateRootFactory;
+
+        public AddAggregateRootHandler(TContext context, IMapper mapper, IAggregateRootFactory<TAggregateRoot, TRecord> aggregateRootFactory) : base(context, mapper)
         {
+            _aggregateRootFactory = aggregateRootFactory;
         }
 
         public override async Task<AddAggregateRootResponse<TAggregateRoot>> HandleAsync(AddAggregateRootRequest<TAggregateRoot, TIdentity> request)
@@ -24,7 +27,8 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             var record = Mapper.Map<TAggregateRoot, TRecord>(aggregateRoot);
             await MutableSet.AddAsync(record);
             await Context.SaveChangesAsync(); // TODO: VC: Check if correct here
-            aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
+            // aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
+            aggregateRoot = _aggregateRootFactory.Create(record);
             return new AddAggregateRootResponse<TAggregateRoot>(aggregateRoot);
         }
     }

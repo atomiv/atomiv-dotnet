@@ -15,48 +15,21 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Orders
         public OrderRecordProfile()
         {
             CreateMap<Order, OrderRecord>()
-                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => (int)e.Status))
-                .ForMember(dest => dest.Status, opt => opt.Ignore())
-                .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(e => e.CustomerId.Id))
+                .ForMember(dest => dest.OrderStatusRecordId, opt => opt.MapFrom(e => (int)e.Status))
+                .ForMember(dest => dest.OrderStatusRecord, opt => opt.Ignore())
+                .ForMember(dest => dest.CustomerRecordId, opt => opt.MapFrom(e => e.CustomerId.Id))
                 ;
 
             CreateMap<OrderDetail, OrderDetailRecord>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id))
-                .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => (int)e.Status))
-                .ForMember(dest => dest.Status, opt => opt.Ignore())
+                .ForMember(dest => dest.StatusRecordId, opt => opt.MapFrom(e => (int)e.Status))
+                .ForMember(dest => dest.OrderDetailStatusRecord, opt => opt.Ignore())
                 ;
 
-            CreateMap<OrderRecord, Order>()
-                .IgnoreAllPropertiesWithAnInaccessibleSetter()
-                .ConstructUsing(e => Create(e));
-
-            /*
             CreateMap<OrderRecord, IEnumerable<Expression<Func<OrderRecord, object>>>>()
-                .ConvertUsing(e => new List<Expression<Func<OrderRecord, object>>> { f => f.OrderDetails });
-            */
+                .ConvertUsing(e => new List<Expression<Func<OrderRecord, object>>> { f => f.OrderDetailRecords });
         }
 
-        private static Order Create(OrderRecord record)
-        {
-            var id = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerId);
-            OrderStatus status = (OrderStatus)record.StatusId; // TODO: VC
-            var orderDetails = record.OrderDetails.Select(Create).ToList().AsReadOnly();
 
-            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
-
-            return new Order(id, customerId, status, orderDetails);
-        }
-
-        private static OrderDetail Create(OrderDetailRecord record)
-        {
-            var id = new OrderDetailIdentity(record.Id);
-            var productId = new ProductIdentity(record.ProductId);
-            var quantity = record.Quantity;
-            var unitPrice = record.UnitPrice;
-            var status = (OrderDetailStatus)record.StatusId; // TODO: VC
-
-            return new OrderDetail(id, productId, quantity, unitPrice, status);
-        }
     }
 }

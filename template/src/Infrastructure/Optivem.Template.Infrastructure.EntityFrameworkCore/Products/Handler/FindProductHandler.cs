@@ -5,11 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handler
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class FindProductHandler : FindAggregateRootHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {
-        public FindProductHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public FindProductHandler(DatabaseContext context, IMapper mapper, IAggregateRootFactory<Product, ProductRecord> aggregateRootFactory) 
+            : base(context, mapper, aggregateRootFactory)
         {
         }
     }

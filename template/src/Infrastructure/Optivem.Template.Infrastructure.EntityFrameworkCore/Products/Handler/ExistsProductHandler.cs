@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handler
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class ExistsProductHandler : ExistsAggregateRootHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {

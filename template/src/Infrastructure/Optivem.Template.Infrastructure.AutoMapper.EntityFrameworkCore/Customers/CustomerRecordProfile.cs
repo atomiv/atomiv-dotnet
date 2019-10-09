@@ -9,16 +9,17 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Custome
         public CustomerRecordProfile()
         {
             CreateMap<Customer, CustomerRecord>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id))
+                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(e => e.FirstName))
+                .ForMember(dest => dest.FirstName, opt => opt.MapFrom(e => e.FirstName))
+
                 .ConstructUsing(e => new CustomerRecord
                 {
                     Id = e.Id.Id,
                     FirstName = e.FirstName,
                     LastName = e.LastName,
-                    Order = null,
+                    OrderRecords = null,
                 });
-
-            CreateMap<CustomerRecord, Customer>()
-                .ConstructUsing(e => new Customer(new CustomerIdentity(e.Id), e.FirstName, e.LastName));
 
             CreateMap<CustomerIdentity, CustomerRecord>()
                 .ConstructUsing(e => new CustomerRecord

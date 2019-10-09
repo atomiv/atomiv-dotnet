@@ -9,7 +9,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Handlers
 {
     public class AddOrderHandler : AddAggregateRootHandler<DatabaseContext, Order, OrderIdentity, OrderRecord, int>
     {
-        public AddOrderHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public AddOrderHandler(DatabaseContext context, IMapper mapper, IAggregateRootFactory<Order, OrderRecord> aggregateRootFactory) 
+            : base(context, mapper, aggregateRootFactory)
         {
         }
     }

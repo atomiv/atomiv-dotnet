@@ -8,14 +8,14 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
     {
         public OrderRecord()
         {
-            OrderDetails = new List<OrderDetailRecord>();
+            OrderDetailRecords = new List<OrderDetailRecord>();
         }
 
-        public int CustomerId { get; set; }
-        public byte StatusId { get; set; }
+        public int CustomerRecordId { get; set; }
+        public byte OrderStatusRecordId { get; set; }
 
-        public virtual CustomerRecord Customer { get; set; }
-        public virtual OrderStatusRecord Status { get; set; }
-        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
+        public virtual CustomerRecord CustomerRecord { get; set; }
+        public virtual OrderStatusRecord OrderStatusRecord { get; set; }
+        public virtual ICollection<OrderDetailRecord> OrderDetailRecords { get; set; }
     }
 }

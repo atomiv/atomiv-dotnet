@@ -17,8 +17,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TId : IEquatable<TId>
     {
 
-        public FindAggregateRootHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private IAggregateRootFactory<TAggregateRoot, TRecord> _aggregateRootFactory;
+
+        public FindAggregateRootHandler(TContext context, IMapper mapper, IAggregateRootFactory<TAggregateRoot, TRecord> aggregateRootFactory) : base(context, mapper)
         {
+            _aggregateRootFactory = aggregateRootFactory;
         }
 
         public override async Task<FindAggregateRootResponse<TAggregateRoot>> HandleAsync(FindAggregateRootRequest<TAggregateRoot, TIdentity> request)
@@ -40,7 +43,8 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
                 return new FindAggregateRootResponse<TAggregateRoot>(null);
             }
 
-            var aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
+            // var aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
+            var aggregateRoot = _aggregateRootFactory.Create(record);
 
             return new FindAggregateRootResponse<TAggregateRoot>(aggregateRoot);
         }

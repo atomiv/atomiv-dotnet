@@ -19,8 +19,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.Product
                 });
             */
 
-            CreateMap<ProductRecord, Product>()
-                .ConstructUsing(e => new Product(new ProductIdentity(e.Id), e.ProductCode, e.ProductName, e.ListPrice));
+
 
             CreateMap<ProductIdentity, ProductRecord>()
                 .ConstructUsing(e => new ProductRecord
