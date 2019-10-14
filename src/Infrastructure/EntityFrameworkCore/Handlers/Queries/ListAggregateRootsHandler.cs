@@ -3,27 +3,31 @@ using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class ListAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> 
-        : RecordHandler<TContext, ListAggregateRootsRequest<TAggregateRoot, TIdentity>, ListAggregateRootsResponse<TAggregateRoot>, TRecord>
+    public class ListAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+        : RecordHandler<TContext, ListAggregateRootsRequest<TAggregateRoot, TIdentity>, ListAggregateRootsResponse<TAggregateRoot>, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IRecord<TId>
+        where TAggregateRecord : class, IAggregateRecord<TAggregateRoot, TId>
         where TId : IEquatable<TId>
     {
-        public ListAggregateRootsHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private readonly IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> _getAggregateRootMapper;
+
+        public ListAggregateRootsHandler(TContext context, IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> getAggregateRootMapper) : base(context)
         {
+            _getAggregateRootMapper = getAggregateRootMapper;
         }
 
         public override async Task<ListAggregateRootsResponse<TAggregateRoot>> HandleAsync(ListAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
-            var records = await ReadOnlySet.ToListAsync();
-            var aggregateRoots = Mapper.Map<IEnumerable<TRecord>, IEnumerable<TAggregateRoot>>(records);
+            var records = await ReadonlyQueryable.ToListAsync();
+            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Create(e)).ToList();
             return new ListAggregateRootsResponse<TAggregateRoot>(aggregateRoots);
         }
     }

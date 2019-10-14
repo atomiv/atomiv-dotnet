@@ -4,13 +4,13 @@ namespace Optivem.Template.Core.Domain.Products
 {
     public class Product : AggregateRoot<ProductIdentity>
     {
-        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice)
+        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isActive)
             : base(id)
         {
             ProductCode = productCode;
             ProductName = productName;
             ListPrice = listPrice;
-            IsActive = true;
+            IsActive = isActive;
         }
 
         public string ProductCode { get; }

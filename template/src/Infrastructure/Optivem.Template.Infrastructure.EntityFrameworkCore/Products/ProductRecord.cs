@@ -1,10 +1,11 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
-    public class ProductRecord : Record<int>
+    public class ProductRecord : AggregateRecord<Product, int>
     {
         public ProductRecord()
         {

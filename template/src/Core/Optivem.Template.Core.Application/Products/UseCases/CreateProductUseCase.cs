@@ -16,10 +16,11 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 
         protected override Task<Product> CreateAggregateRootAsync(CreateProductRequest request)
         {
-            var product = new Product(ProductIdentity.Null,
-                    request.Code,
-                    request.Description,
-                    request.UnitPrice);
+            var productCode = request.Code;
+            var productName = request.Description;
+            var listPrice = request.UnitPrice;
+
+            var product = ProductFactory.CreateNewProduct(productCode, productName, listPrice);
 
             return Task.FromResult(product);
         }

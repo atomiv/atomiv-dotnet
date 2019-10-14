@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class UpdateProductsHandler : UpdateAggregateRootHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {
-        public UpdateProductsHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public UpdateProductsHandler(DatabaseContext context, IAddAggregateRootMapper<Product, ProductRecord> addAggregateRootMapper) : base(context, addAggregateRootMapper)
         {
         }
     }

@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.Handlers
 {
     public class ExistsOrderHandler : ExistsAggregateRootHandler<DatabaseContext, Order, OrderIdentity, OrderRecord, int>
     {
-        public ExistsOrderHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public ExistsOrderHandler(DatabaseContext context) : base(context)
         {
         }
     }

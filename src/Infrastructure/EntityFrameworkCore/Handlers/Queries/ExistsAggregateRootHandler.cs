@@ -14,14 +14,14 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
     {
-        public ExistsAggregateRootHandler(TContext context, IMapper mapper) : base(context, mapper)
+        public ExistsAggregateRootHandler(TContext context) : base(context)
         {
         }
 
         public override async Task<ExistsAggregateRootResponse> HandleAsync(ExistsAggregateRootRequest<TAggregateRoot, TIdentity> request)
         {
             var identity = request.Identity;
-            var exists = await ReadOnlySet.AnyAsync(e => e.Id.Equals(identity.Id));
+            var exists = await ReadonlyQueryable.AnyAsync(e => e.Id.Equals(identity.Id));
             return new ExistsAggregateRootResponse(exists);
         }
     }

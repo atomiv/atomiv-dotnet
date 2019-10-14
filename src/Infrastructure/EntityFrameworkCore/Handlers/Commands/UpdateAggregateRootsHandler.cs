@@ -3,27 +3,31 @@ using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class UpdateAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>
-        : RecordHandler<TContext, UpdateAggregateRootsRequest<TAggregateRoot, TIdentity>, UpdateAggregateRootsResponse, TRecord>
+    public class UpdateAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId>
+        : RecordHandler<TContext, UpdateAggregateRootsRequest<TAggregateRoot, TIdentity>, UpdateAggregateRootsResponse, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IRecord<TId>
+        where TAggregateRecord : class, IAggregateRecord<TAggregateRoot, TId>
         where TId : IEquatable<TId>
     {
-        public UpdateAggregateRootsHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private readonly IAddAggregateRootMapper<TAggregateRoot, TAggregateRecord> _addAggregateRootMapper;
+
+        public UpdateAggregateRootsHandler(TContext context, IAddAggregateRootMapper<TAggregateRoot, TAggregateRecord> addAggregateRootMapper) : base(context)
         {
+            _addAggregateRootMapper = addAggregateRootMapper;
         }
 
         public override async Task<UpdateAggregateRootsResponse> HandleAsync(UpdateAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
             var aggregateRoots = request.AggregateRoots;
 
-            var records = Mapper.Map<IEnumerable<TAggregateRoot>, IEnumerable<TRecord>>(aggregateRoots);
+            var records = aggregateRoots.Select(e => _addAggregateRootMapper.Create(e)).ToList();
 
             try
             {

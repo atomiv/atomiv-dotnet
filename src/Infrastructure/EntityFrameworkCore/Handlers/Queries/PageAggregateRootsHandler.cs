@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> 
-        : RecordHandler<TContext, PageAggregateRootsRequest<TAggregateRoot, TIdentity>, PageAggregateRootsResponse<TAggregateRoot>, TRecord>
+    public class PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+        : RecordHandler<TContext, PageAggregateRootsRequest<TAggregateRoot, TIdentity>, PageAggregateRootsResponse<TAggregateRoot>, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IRecord<TId>
+        where TAggregateRecord : class, IAggregateRecord<TAggregateRoot, TId>
         where TId : IEquatable<TId>
     {
-        public PageAggregateRootsHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> _getAggregateRootMapper;
+
+        public PageAggregateRootsHandler(TContext context, IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> getAggregateRootMapper) : base(context)
         {
+            _getAggregateRootMapper = getAggregateRootMapper;
         }
 
         public override async Task<PageAggregateRootsResponse<TAggregateRoot>> HandleAsync(PageAggregateRootsRequest<TAggregateRoot, TIdentity> request)
@@ -30,18 +33,18 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             var skip = pageIndex * size;
 
-            var records = await ReadOnlySet
+            var records = await ReadonlyQueryable
                 .Skip(skip)
                 .Take(size)
                 .ToListAsync();
 
-            var totalRecords = await ReadOnlySet
+            var totalRecords = await ReadonlyQueryable
                 .CountAsync();
 
             var totalPagesDecimal = (decimal)totalRecords / size;
             var totalPages = (int) Math.Round(totalPagesDecimal, MidpointRounding.AwayFromZero);
 
-            var aggregateRoots = Mapper.Map<IEnumerable<TRecord>, IEnumerable<TAggregateRoot>>(records);
+            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Create(e)).ToList();
 
             return new PageAggregateRootsResponse<TAggregateRoot>(aggregateRoots, totalPages, totalRecords);
         }

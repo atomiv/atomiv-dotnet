@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
                 .HasColumnName("product_id")
                 .IsRequired();
 
-            builder.Property(e => e.StatusRecordId)
+            builder.Property(e => e.OrderDetailStatusRecordId)
                 .HasColumnName("status_id")
                 .IsRequired();
 
@@ -38,6 +39,18 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
                 .HasColumnName("unit_price")
                 .IsRequired()
                 .HasColumnType("decimal(18,2)");
+
+            builder.HasOne(e => e.OrderRecord)
+                .WithMany(e => e.OrderDetailRecords)
+                .HasForeignKey(e => e.OrderRecordId);
+
+            builder.HasOne(e => e.ProductRecord)
+                .WithMany(e => e.OrderDetailRecords)
+                .HasForeignKey(e => e.ProductRecordId);
+
+            builder.HasOne(e => e.OrderDetailStatusRecord)
+                .WithMany(e => e.OrderDetailRecords)
+                .HasForeignKey(e => e.OrderDetailStatusRecordId);
         }
     }
 }

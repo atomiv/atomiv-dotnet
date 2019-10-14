@@ -1,11 +1,12 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.Infrastructure.System.Reflection;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
-    public class CustomerRecord : Record<int>
+    public class CustomerRecord : AggregateRecord<Customer, int>
     {
         public CustomerRecord()
         {

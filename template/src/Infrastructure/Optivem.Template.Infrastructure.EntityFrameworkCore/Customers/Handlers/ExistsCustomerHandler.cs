@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Handlers
 {
     public class ExistsCustomerHandler : ExistsAggregateRootHandler<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {
-        public ExistsCustomerHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public ExistsCustomerHandler(DatabaseContext context) : base(context)
         {
         }
     }

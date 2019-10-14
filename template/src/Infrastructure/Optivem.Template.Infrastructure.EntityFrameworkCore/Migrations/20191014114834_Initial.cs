@@ -95,20 +95,19 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     order_id = table.Column<int>(nullable: false),
                     product_id = table.Column<int>(nullable: false),
-                    status_id = table.Column<int>(nullable: false),
+                    status_id = table.Column<byte>(nullable: false),
                     quantity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    unit_price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderDetailStatusRecordId = table.Column<byte>(nullable: true)
+                    unit_price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_order_detail", x => x.id);
                     table.ForeignKey(
-                        name: "FK_order_detail_order_detail_status_OrderDetailStatusRecordId",
-                        column: x => x.OrderDetailStatusRecordId,
+                        name: "FK_order_detail_order_detail_status_status_id",
+                        column: x => x.status_id,
                         principalTable: "order_detail_status",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_order_detail_order_order_id",
                         column: x => x.order_id,
@@ -162,9 +161,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                 column: "status_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_detail_OrderDetailStatusRecordId",
+                name: "IX_order_detail_status_id",
                 table: "order_detail",
-                column: "OrderDetailStatusRecordId");
+                column: "status_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_order_detail_order_id",

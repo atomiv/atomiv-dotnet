@@ -31,8 +31,8 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
         {
             var products = new List<Product>
             {
-                new Product(new ProductIdentity(1), "ABC", "My name", 12),
-                new Product(new ProductIdentity(2), "BDE", "My name 2", 14),
+                new Product(new ProductIdentity(1), "ABC", "My name", 12, true),
+                new Product(new ProductIdentity(2), "BDE", "My name 2", 14, true),
             };
 
             throw new NotImplementedException();

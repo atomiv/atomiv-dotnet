@@ -10,8 +10,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Handlers
 {
     public class FindCustomerHandler : FindAggregateRootHandler<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {
-        public FindCustomerHandler(DatabaseContext context, IMapper mapper, IAggregateRootFactory<Customer, CustomerRecord> aggregateRootFactory) 
-            : base(context, mapper, aggregateRootFactory)
+        public FindCustomerHandler(DatabaseContext context, IGetAggregateRootMapper<Customer, CustomerRecord> getAggregateRootMapper) : base(context, getAggregateRootMapper)
         {
         }
     }

@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public interface IAggregateRootFactory<TAggregateRoot, TRecord>
+    public class AggregateRecord<TAggregateRoot, TId> : Record<TId>, IAggregateRecord<TAggregateRoot, TId>
         where TAggregateRoot : IAggregateRoot
-        where TRecord : IRecord
     {
-        TAggregateRoot Create(TRecord record);
     }
 }

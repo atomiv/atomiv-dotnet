@@ -2,11 +2,12 @@
 using Optivem.Template.Core.Domain.Customers;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Mappers
 {
-    public class CustomerFactory : IAggregateRootFactory<Customer, CustomerRecord>
+    public class GetCustomerMapper : IGetAggregateRootMapper<Customer, CustomerRecord>
     {
         public Customer Create(CustomerRecord record)
         {
@@ -15,6 +16,11 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
             var lastName = record.LastName;
 
             return new Customer(identity, firstName, lastName);
+        }
+
+        public List<Expression<Func<CustomerRecord, object>>> GetIncludes()
+        {
+            return null;
         }
     }
 }

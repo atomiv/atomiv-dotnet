@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.DependencyInjection.Common;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
     public static class ServiceCollectionExtensions
     {
         private static Type UnitOfWorkType = typeof(IUnitOfWork);
-        private static Type AggregateRootFactoryType = typeof(Optivem.Framework.Infrastructure.EntityFrameworkCore.IAggregateRootFactory<,>);
+        private static Type AddAggregateRootMapperType = typeof(IAddAggregateRootMapper<,>);
+        private static Type RemoveAggregateRootMapperType = typeof(IRemoveAggregateRootMapper<,>);
+        private static Type GetAggregateRootMapperType = typeof(IGetAggregateRootMapper<,>);
 
         public static IServiceCollection AddEntityFrameworkCoreInfrastructure<TDbContext>(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction = null, params Assembly[] assemblies)
             where TDbContext : DbContext
@@ -21,7 +24,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
 
             services.AddDbContext<TDbContext>(optionsAction);
             services.AddUnitOfWork(types);
-            services.AddAggregateRootFactories(types);
+            services.AddMappers(types);
 
             return services;
         }
@@ -34,10 +37,15 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
             return services;
         }
 
-        private static IServiceCollection AddAggregateRootFactories(this IServiceCollection services, IEnumerable<Type> types)
+        private static IServiceCollection AddMappers(this IServiceCollection services, IEnumerable<Type> types)
         {
-            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(AggregateRootFactoryType);
-            services.AddScopedOpenType(AggregateRootFactoryType, implementationTypes);
+            var addAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(AddAggregateRootMapperType);
+            var removeAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RemoveAggregateRootMapperType);
+            var getAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(GetAggregateRootMapperType);
+
+            services.AddScopedOpenType(AddAggregateRootMapperType, addAggregateRootImplementationTypes);
+            services.AddScopedOpenType(RemoveAggregateRootMapperType, removeAggregateRootImplementationTypes);
+            services.AddScopedOpenType(GetAggregateRootMapperType, getAggregateRootImplementationTypes);
 
             return services;
         }

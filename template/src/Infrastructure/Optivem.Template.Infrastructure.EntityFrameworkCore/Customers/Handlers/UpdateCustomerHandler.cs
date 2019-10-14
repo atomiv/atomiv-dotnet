@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Handlers
 {
     public class UpdateCustomerHandler : UpdateAggregateRootHandler<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {
-        public UpdateCustomerHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public UpdateCustomerHandler(DatabaseContext context, IAddAggregateRootMapper<Customer, CustomerRecord> addAggregateRootMapper) : base(context, addAggregateRootMapper)
         {
         }
     }

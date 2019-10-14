@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Handlers
 {
     public class RemoveCustomerHandler : RemoveAggregateRootHandler<DatabaseContext, Customer, CustomerIdentity, CustomerRecord, int>
     {
-        public RemoveCustomerHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public RemoveCustomerHandler(DatabaseContext context, IRemoveAggregateRootMapper<CustomerIdentity, CustomerRecord> removeAggregateRootMapper) : base(context, removeAggregateRootMapper)
         {
         }
     }

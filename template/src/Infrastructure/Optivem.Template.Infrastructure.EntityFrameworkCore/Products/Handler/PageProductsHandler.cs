@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class PageProductsHandler : PageAggregateRootsHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {
-        public PageProductsHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public PageProductsHandler(DatabaseContext context, IGetAggregateRootMapper<Product, ProductRecord> getAggregateRootMapper) : base(context, getAggregateRootMapper)
         {
         }
     }

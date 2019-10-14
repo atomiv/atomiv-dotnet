@@ -15,31 +15,33 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TResponse : IResponse
         where TRecord : class
     {
-        public RecordHandler(TContext context, IMapper mapper) : base(context, mapper)
+        public RecordHandler(TContext context) : base(context)
         {
-            QueryIncludes = mapper.Map<TRecord, IEnumerable<Expression<Func<TRecord, object>>>>(null);
             MutableSet = GetMutableSet();
-            ReadOnlySet = GetReadOnlySet();
+            ReadonlyQueryable = GetReadonlyQueryable();
         }
 
         protected DbSet<TRecord> MutableSet { get; }
 
-        protected IQueryable<TRecord> ReadOnlySet { get; }
-
-        protected IEnumerable<Expression<Func<TRecord, object>>> QueryIncludes { get; }
+        protected IQueryable<TRecord> ReadonlyQueryable { get; }
 
         private DbSet<TRecord> GetMutableSet()
         {
             return Context.Set<TRecord>();
         }
 
-        private IQueryable<TRecord> GetReadOnlySet()
+        private IQueryable<TRecord> GetReadonlyQueryable()
         {
-            var queryable = Context.Set<TRecord>().AsNoTracking();
+            return Context.Set<TRecord>().AsNoTracking();
+        }
 
-            if (QueryIncludes != null)
+        protected IQueryable<TRecord> GetReadonlyQueryable(IEnumerable<Expression<Func<TRecord, object>>> includes)
+        {
+            var queryable = GetReadonlyQueryable();
+
+            if (includes != null)
             {
-                foreach (var include in QueryIncludes)
+                foreach (var include in includes)
                 {
                     queryable = queryable.Include(include);
                 }

@@ -9,8 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class AddProductHandler : AddAggregateRootHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {
-        public AddProductHandler(DatabaseContext context, IMapper mapper, IAggregateRootFactory<Product, ProductRecord> aggregateRootFactory) 
-            : base(context, mapper, aggregateRootFactory)
+        public AddProductHandler(DatabaseContext context, IAddAggregateRootMapper<Product, ProductRecord> addAggregateRootMapper, IGetAggregateRootMapper<Product, ProductRecord> getAggregateRootMapper) : base(context, addAggregateRootMapper, getAggregateRootMapper)
         {
         }
     }

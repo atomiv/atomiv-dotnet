@@ -3,26 +3,30 @@ using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class RemoveAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>
-        : RecordHandler<TContext, RemoveAggregateRootsRequest<TAggregateRoot, TIdentity>, RemoveAggregateRootsResponse, TRecord>
+    public class RemoveAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId>
+        : RecordHandler<TContext, RemoveAggregateRootsRequest<TAggregateRoot, TIdentity>, RemoveAggregateRootsResponse, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IRecord<TId>
+        where TAggregateRecord : class, IAggregateRecord<TAggregateRoot, TId>
         where TId : IEquatable<TId>
     {
-        public RemoveAggregateRootsHandler(TContext context, IMapper mapper) : base(context, mapper)
+        private readonly IRemoveAggregateRootMapper<TIdentity, TAggregateRecord> _removeAggregateRootMapper;
+
+        public RemoveAggregateRootsHandler(TContext context, IRemoveAggregateRootMapper<TIdentity, TAggregateRecord> removeAggregateRootMapper) : base(context)
         {
+            _removeAggregateRootMapper = removeAggregateRootMapper;
         }
 
         public override async Task<RemoveAggregateRootsResponse> HandleAsync(RemoveAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
             var identities = request.Identities;
-            var records = Mapper.Map<IEnumerable<TIdentity>, IEnumerable<TRecord>>(identities);
+            var records = identities.Select(e => _removeAggregateRootMapper.Create(e)).ToList();
             MutableSet.RemoveRange(records);
             await Context.SaveChangesAsync();
             return new RemoveAggregateRootsResponse();

@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Handlers
 {
     public class ExistsProductHandler : ExistsAggregateRootHandler<DatabaseContext, Product, ProductIdentity, ProductRecord, int>
     {
-        public ExistsProductHandler(DatabaseContext context, IMapper mapper) : base(context, mapper)
+        public ExistsProductHandler(DatabaseContext context) : base(context)
         {
         }
     }

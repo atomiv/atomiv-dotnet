@@ -10,15 +10,14 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TResponse : IResponse
         where TContext : DbContext
     {
-        public Handler(TContext context, IMapper mapper)
+        // TODO: VC: REmove mapper
+
+        public Handler(TContext context)
         {
             Context = context;
-            Mapper = mapper;
         }
 
         public TContext Context { get; }
-
-        public IMapper Mapper { get; }
 
         public abstract Task<TResponse> HandleAsync(TRequest request);
 

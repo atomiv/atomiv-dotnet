@@ -31,10 +31,10 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
         {
             var products = new List<Product>
             {
-                new Product(new ProductIdentity(10), "ABC", "My name", 12),
-                new Product(new ProductIdentity(11), "BDE", "My name 2", 14),
-                new Product(new ProductIdentity(12), "GDE", "My name 3", 16),
-                new Product(new ProductIdentity(13), "HDE", "My name 4", 18),
+                new Product(new ProductIdentity(10), "ABC", "My name", 12, true),
+                new Product(new ProductIdentity(11), "BDE", "My name 2", 14, true),
+                new Product(new ProductIdentity(12), "GDE", "My name 3", 16, true),
+                new Product(new ProductIdentity(13), "HDE", "My name 4", 18, true),
             };
 
             var page = 2;

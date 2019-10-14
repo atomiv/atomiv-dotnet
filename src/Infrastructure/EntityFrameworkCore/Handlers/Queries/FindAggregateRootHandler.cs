@@ -8,20 +8,19 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class FindAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> 
-        : RecordHandler<TContext, FindAggregateRootRequest<TAggregateRoot, TIdentity>, FindAggregateRootResponse<TAggregateRoot>, TRecord>
+    public class FindAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+        : RecordHandler<TContext, FindAggregateRootRequest<TAggregateRoot, TIdentity>, FindAggregateRootResponse<TAggregateRoot>, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
-        where TRecord : class, IRecord<TId>
+        where TAggregateRecord : class, IAggregateRecord<TAggregateRoot, TId>
         where TId : IEquatable<TId>
     {
+        private IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> _getAggregateRootMapper;
 
-        private IAggregateRootFactory<TAggregateRoot, TRecord> _aggregateRootFactory;
-
-        public FindAggregateRootHandler(TContext context, IMapper mapper, IAggregateRootFactory<TAggregateRoot, TRecord> aggregateRootFactory) : base(context, mapper)
+        public FindAggregateRootHandler(TContext context, IGetAggregateRootMapper<TAggregateRoot, TAggregateRecord> getAggregateRootMapper) : base(context)
         {
-            _aggregateRootFactory = aggregateRootFactory;
+            _getAggregateRootMapper = getAggregateRootMapper;
         }
 
         public override async Task<FindAggregateRootResponse<TAggregateRoot>> HandleAsync(FindAggregateRootRequest<TAggregateRoot, TIdentity> request)
@@ -35,8 +34,15 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             var id = identity.Id;
 
+            var includes = _getAggregateRootMapper.GetIncludes();
+
+            var readonlyQueryable = GetReadonlyQueryable(includes);
+
+            var recordId = identity.Id;
+
             // TODO: VC: Check equality handling and null
-            var record = await ReadOnlySet.SingleOrDefaultAsync(e => e.Id.Equals(identity.Id));
+            var record = await readonlyQueryable
+                .SingleOrDefaultAsync(e => e.Id.Equals(recordId));
 
             if (record == null)
             {
@@ -44,7 +50,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             }
 
             // var aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
-            var aggregateRoot = _aggregateRootFactory.Create(record);
+            var aggregateRoot = _getAggregateRootMapper.Create(record);
 
             return new FindAggregateRootResponse<TAggregateRoot>(aggregateRoot);
         }
