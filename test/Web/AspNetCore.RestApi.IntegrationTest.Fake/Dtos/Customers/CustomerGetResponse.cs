@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
 {
-    public class CustomerGetResponse : IResponse<int>
+    public class CustomerGetResponse
     {
         public int Id { get; set; }
 

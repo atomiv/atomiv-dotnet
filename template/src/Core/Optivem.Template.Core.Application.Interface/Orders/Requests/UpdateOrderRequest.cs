@@ -1,9 +1,10 @@
 ﻿using Optivem.Framework.Core.Common;
+using Optivem.Template.Core.Application.Orders.Responses;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class UpdateOrderRequest : IRequest<int>
+    public class UpdateOrderRequest : IRequest<UpdateOrderResponse, int>
     {
         public int Id { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Common
 {
-    public interface ICollectionRequest : IRequest
+    public interface ICollectionRequest<TResponse> : IRequest<TResponse>
     {
         int Page { get; set; }
 

@@ -8,8 +8,8 @@ namespace Optivem.Framework.Core.Application
     public abstract class CreateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IAddAggregateRootRepository<TAggregateRoot, TIdentity>
-        where TRequest : IRequest
-        where TResponse : IResponse<TId>
+        where TRequest : IRequest<TResponse>
+        where TResponse : IResponse
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {

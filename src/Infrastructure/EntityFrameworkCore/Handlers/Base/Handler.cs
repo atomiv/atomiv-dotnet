@@ -6,7 +6,7 @@ using Optivem.Framework.Core.Common.Mapping;
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
     public abstract class Handler<TContext, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest
+        where TRequest : IRequest<TResponse>
         where TResponse : IResponse
         where TContext : DbContext
     {

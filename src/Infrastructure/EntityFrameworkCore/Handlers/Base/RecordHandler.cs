@@ -11,7 +11,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
     public abstract class RecordHandler<TContext, TRequest, TResponse, TRecord>
         : Handler<TContext, TRequest, TResponse>
         where TContext : DbContext
-        where TRequest : IRequest
+        where TRequest : IRequest<TResponse>
         where TResponse : IResponse
         where TRecord : class
     {

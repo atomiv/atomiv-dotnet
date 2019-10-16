@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Optivem.Framework.Core.Domain
 {
     public class RemoveAggregateRootsRequest<TAggregateRoot, TIdentity>
-        : IAggregateRootRequest<TAggregateRoot, TIdentity>
+        : IAggregateRootRequest<RemoveAggregateRootsResponse, TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {

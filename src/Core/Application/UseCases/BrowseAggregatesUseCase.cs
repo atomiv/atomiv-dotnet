@@ -8,9 +8,8 @@ namespace Optivem.Framework.Core.Application
     public class BrowseAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         : RepositoryUseCase<TRepository, TRequest, TResponse>
         where TRepository : IPageAggregateRootsRepository<TAggregateRoot, TIdentity>
-        where TRequest : ICollectionRequest
+        where TRequest : ICollectionRequest<TResponse>
         where TResponse : ICollectionResponse<TRecordResponse, TId>, new()
-        where TRecordResponse : IResponse<TId>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {

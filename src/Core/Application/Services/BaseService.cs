@@ -13,7 +13,7 @@ namespace Optivem.Framework.Core.Application
         protected IRequestHandler RequestHandler { get; private set; }
 
         protected Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : IRequest
+            where TRequest : IRequest<TResponse>
             where TResponse : IResponse
         {
             return RequestHandler.HandleAsync<TRequest, TResponse>(request);

@@ -2,13 +2,7 @@
 
 namespace Optivem.Framework.Core.Common
 {
-    public interface ICollectionResponse : IResponse
-    {
-
-    }
-
-    public interface ICollectionResponse<TRecordResponse> : ICollectionResponse
-        where TRecordResponse : IResponse
+    public interface ICollectionResponse<TRecordResponse> : IResponse
     {
         List<TRecordResponse> Records { get; set; }
 
@@ -16,7 +10,6 @@ namespace Optivem.Framework.Core.Common
     }
 
     public interface ICollectionResponse<TRecordResponse, TId> : ICollectionResponse<TRecordResponse>
-        where TRecordResponse : IResponse<TId>
     {
 
     }

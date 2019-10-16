@@ -9,7 +9,7 @@ namespace Optivem.Framework.Core.Common
     }
 
     public interface IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest
+        where TRequest : IRequest<TResponse>
         where TResponse : IResponse
     {
         Task<TResponse> HandleAsync(TRequest request);
@@ -17,7 +17,7 @@ namespace Optivem.Framework.Core.Common
     public interface IRequestHandler
     {
         Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : IRequest
+            where TRequest : IRequest<TResponse>
             where TResponse : IResponse;
     }
 }

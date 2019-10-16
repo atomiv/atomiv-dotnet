@@ -8,7 +8,7 @@ namespace Optivem.Framework.Core.Application
     public abstract class DeleteAggregateCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IExistsAggregateRootRepository<TAggregateRoot, TIdentity>, IRemoveAggregateRootRepository<TAggregateRoot, TIdentity>
-        where TRequest : IRequest<TId>
+        where TRequest : IRequest<TResponse, TId>
         where TResponse : IResponse, new()
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>

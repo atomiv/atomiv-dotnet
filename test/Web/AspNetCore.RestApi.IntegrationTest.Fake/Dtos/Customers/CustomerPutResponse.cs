@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers
 {
-    public class CustomerPutResponse : IResponse<int>
+    public class CustomerPutResponse
     {
         public int Id { get; set; }
 

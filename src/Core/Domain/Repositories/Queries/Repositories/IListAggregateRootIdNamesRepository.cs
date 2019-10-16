@@ -7,6 +7,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        Task<ListIdNamesResponse<TId>> ListIdNamesAsync(string nameFilter);
+        Task<ListAggregateRootIdNamesResponse<TId>> ListIdNamesAsync(string nameFilter);
     }
 }

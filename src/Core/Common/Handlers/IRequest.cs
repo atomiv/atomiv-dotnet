@@ -4,7 +4,11 @@
     {
     }
 
-    public interface IRequest<TId> : IRequest
+    public interface IRequest<TResponse> : IRequest
+    {
+    }
+
+    public interface IRequest<TResponse, TId> : IRequest<TResponse>
     {
         TId Id { get; set; }
     }

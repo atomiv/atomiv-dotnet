@@ -10,7 +10,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Cus
         public int TotalRecords { get; set; }
     }
 
-    public class CustomerGetAllRecordResponse : IResponse<int>
+    public class CustomerGetAllRecordResponse
     {
         public int Id { get; set; }
 

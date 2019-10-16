@@ -7,7 +7,7 @@ namespace Optivem.Framework.Core.Application
 {
     public abstract class RepositoryUseCase<TRepository, TRequest, TResponse> : UseCase<TRequest, TResponse>
         where TRepository : IRepository
-        where TRequest : IRequest
+        where TRequest : IRequest<TResponse>
         where TResponse : IResponse
     {
         public RepositoryUseCase(IMapper mapper, TRepository repository)

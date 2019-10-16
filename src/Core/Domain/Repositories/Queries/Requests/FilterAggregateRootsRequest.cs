@@ -1,9 +1,9 @@
 ﻿using Optivem.Framework.Core.Common;
 
-namespace Optivem.Framework.Core.Domain.Repositories.Queries
+namespace Optivem.Framework.Core.Domain
 {
     public class FilterAggregateRootsRequest<TAggregateRoot, TIdentity, TFilter, TSort>
-        : IAggregateRootRequest<TAggregateRoot, TIdentity>
+        : IAggregateRootRequest<FilterAggregateRootsResponse<TAggregateRoot>, TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {

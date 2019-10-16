@@ -2,8 +2,8 @@
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class ListAggregateRootIdNamesRequest<TAggregateRoot, TIdentity>
-        : IAggregateRootRequest<TAggregateRoot, TIdentity>
+    public class ListAggregateRootIdNamesRequest<TResponse, TAggregateRoot, TIdentity, TId>
+        : IAggregateRootRequest<ListAggregateRootIdNamesResponse<TId>, TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {

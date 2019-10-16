@@ -3,7 +3,7 @@
 namespace Optivem.Framework.Core.Domain
 {
     public class FindAggregateRootRequest<TAggregateRoot, TIdentity>
-        : IAggregateRootRequest<TAggregateRoot, TIdentity>
+        : IAggregateRootRequest<FindAggregateRootResponse<TAggregateRoot>, TAggregateRoot, TIdentity>
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {

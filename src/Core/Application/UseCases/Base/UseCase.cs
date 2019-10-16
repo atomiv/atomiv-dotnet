@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Core.Application
 {
     public abstract class UseCase<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest
+        where TRequest : IRequest<TResponse>
         where TResponse : IResponse
     {
-        public  abstract Task<TResponse> HandleAsync(TRequest request);
+        public abstract Task<TResponse> HandleAsync(TRequest request);
     }
 }

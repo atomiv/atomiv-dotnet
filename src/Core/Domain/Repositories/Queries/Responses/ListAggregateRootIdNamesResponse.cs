@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class ListIdNamesResponse<TId> : IResponse
+    public class ListAggregateRootIdNamesResponse<TId> : IResponse
     {
-        public ListIdNamesResponse(IEnumerable<IdNameResponse<TId>> records, int totalRecords)
+        public ListAggregateRootIdNamesResponse(IEnumerable<IdNameResponse<TId>> records, int totalRecords)
         {
             Records = records;
             TotalRecords = totalRecords;
@@ -16,7 +16,7 @@ namespace Optivem.Framework.Core.Domain
         public int TotalRecords { get; }
     }
 
-    public class IdNameResponse<TId> : IResponse
+    public class IdNameResponse<TId>
     {
         public IdNameResponse(TId id, string name)
         {

@@ -10,7 +10,7 @@ namespace Optivem.Template.Core.Application.Orders.Responses
         public int TotalRecords { get; set; }
     }
 
-    public class BrowseOrdersRecordResponse : IResponse<int>
+    public class BrowseOrdersRecordResponse
     {
         public int Id { get; set; }
     }

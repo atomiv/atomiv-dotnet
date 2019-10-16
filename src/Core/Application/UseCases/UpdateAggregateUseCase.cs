@@ -8,8 +8,8 @@ namespace Optivem.Framework.Core.Application
     public abstract class UpdateAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAggregateRootRepository<TAggregateRoot, TIdentity>, IExistsAggregateRootRepository<TAggregateRoot, TIdentity>, IUpdateAggregateRootRepository<TAggregateRoot, TIdentity>
-        where TRequest : IRequest<TId>
-        where TResponse : class, IResponse<TId>
+        where TRequest : IRequest<TResponse, TId>
+        where TResponse : IResponse
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
