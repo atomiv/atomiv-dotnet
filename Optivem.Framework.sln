@@ -129,8 +129,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Test.Micr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.System.IntegrationTest", "test\Infrastructure\System.IntegrationTest\Optivem.Framework.Infrastructure.System.IntegrationTest.csproj", "{B83BC756-3B9D-4C28-98F0-89757A696229}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.DependencyInjection.Infrastructure.EPPlus", "src\DependencyInjection\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.DependencyInjection.Infrastructure.EPPlus.csproj", "{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus.IntegrationTest", "test\Infrastructure\Infrastructure.EPPlus.IntegrationTest\Optivem.Framework.Infrastructure.EPPlus.IntegrationTest.csproj", "{8635DD4F-E619-454E-9830-7C236A73DA85}"
@@ -187,7 +185,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Cli.Integr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Cli", "template\src\Cli\Optivem.Template.Cli\Optivem.Template.Cli.csproj", "{E0D7C883-EF31-4231-989F-73053E048B17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore", "template\src\Infrastructure\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.csproj", "{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore", "template\src\Infrastructure\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.csproj", "{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{5D4A7AC1-3784-400B-B560-2551CDE174D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -355,10 +355,6 @@ Global
 		{B83BC756-3B9D-4C28-98F0-89757A696229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B83BC756-3B9D-4C28-98F0-89757A696229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B83BC756-3B9D-4C28-98F0-89757A696229}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F69AA4FB-A8CD-483F-9576-CDF3186A8A86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7368F3FA-5E19-48EC-AB77-421EC49E8CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -467,6 +463,10 @@ Global
 		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -533,7 +533,6 @@ Global
 		{A59642E8-F8CC-4B1F-84C3-B056E131C9CF} = {531EE9B1-F71A-4D55-A695-91D122163D57}
 		{E783027C-DC9A-4FBE-BC6C-64ECBD05730F} = {531EE9B1-F71A-4D55-A695-91D122163D57}
 		{B83BC756-3B9D-4C28-98F0-89757A696229} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
-		{F69AA4FB-A8CD-483F-9576-CDF3186A8A86} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{7368F3FA-5E19-48EC-AB77-421EC49E8CEA} = {1136EAB4-2929-4A65-BF00-AC90062E7A33}
 		{8635DD4F-E619-454E-9830-7C236A73DA85} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
 		{BB2D907C-B966-4006-88EB-083522DB4030} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
@@ -563,6 +562,7 @@ Global
 		{9325DCE9-E847-4F15-9F0F-EFCB797B862D} = {D223067D-2094-4782-B9DE-2824DD87A97D}
 		{E0D7C883-EF31-4231-989F-73053E048B17} = {21F19882-BAA6-413E-AF16-E298FF09999D}
 		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{5D4A7AC1-3784-400B-B560-2551CDE174D4} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

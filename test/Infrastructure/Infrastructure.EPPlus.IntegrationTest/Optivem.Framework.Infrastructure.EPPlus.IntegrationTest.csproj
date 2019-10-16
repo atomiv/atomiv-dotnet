@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Infrastructure\Infrastructure.EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj" />
   </ItemGroup>
 
 </Project>
