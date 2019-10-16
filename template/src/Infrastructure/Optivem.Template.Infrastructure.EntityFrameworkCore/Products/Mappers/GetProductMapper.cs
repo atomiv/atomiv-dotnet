@@ -3,7 +3,6 @@ using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Mappers
 {
@@ -24,6 +23,5 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Mappers
         {
             return null;
         }
-
     }
 }

@@ -1,14 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class AddAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+    public class AddAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId>
         : RecordHandler<TContext, AddAggregateRootsRequest<TAggregateRoot, TIdentity>, AddAggregateRootsResponse<TAggregateRoot>, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>

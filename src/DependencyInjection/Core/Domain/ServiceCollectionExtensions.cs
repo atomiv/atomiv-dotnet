@@ -27,6 +27,5 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
 
             return services;
         }
-
     }
 }

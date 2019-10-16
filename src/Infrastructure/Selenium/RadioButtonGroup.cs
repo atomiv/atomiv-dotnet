@@ -6,10 +6,9 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     // TODO: VC: CONTINUE
 
-
     public class RadioButtonGroup : ElementCollection<RadioButton>, IRadioButtonGroup
     {
-        public RadioButtonGroup(IEnumerable<RadioButton> elements) 
+        public RadioButtonGroup(IEnumerable<RadioButton> elements)
             : base(elements)
         {
         }

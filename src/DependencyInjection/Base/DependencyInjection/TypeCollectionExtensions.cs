@@ -26,6 +26,6 @@ namespace Optivem.Framework.DependencyInjection.Common
             return types.Where(e => e.IsSubclassOfGenericClass(classType));
         }
 
-        // 
+        //
     }
 }

@@ -9,7 +9,7 @@ namespace Optivem.Template.Web.RestClient.Http
 {
     public class ProductHttpService : BaseControllerClient, IProductHttpService
     {
-        public ProductHttpService(IControllerClientFactory clientFactory) 
+        public ProductHttpService(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/products")
         {
         }

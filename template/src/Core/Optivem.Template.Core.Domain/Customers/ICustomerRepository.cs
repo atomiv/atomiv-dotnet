@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Domain.Customers
 {
-    public interface ICustomerRepository 
+    public interface ICustomerRepository
         : IRepository<Customer, CustomerIdentity>,
         IFindAggregateRootRepository<Customer, CustomerIdentity>,
         IExistsAggregateRootRepository<Customer, CustomerIdentity>,

@@ -67,7 +67,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             {
                 if (disposing)
                 {
-                    if(DisposeContext)
+                    if (DisposeContext)
                     {
                         Context.Dispose();
                     }
@@ -87,7 +87,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             var type = typeof(TRepository);
             var typeName = type.AssemblyQualifiedName;
 
-            if(!_repositories.ContainsKey(typeName))
+            if (!_repositories.ContainsKey(typeName))
             {
                 throw new ArgumentException($"Repository type {typeName} has not been registered");
             }
@@ -99,7 +99,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
         /*
 
-        public ICrudRepository<TAggregateRoot, TIdentity> GetRepository<TAggregateRoot, TIdentity, TRecord, TId>() 
+        public ICrudRepository<TAggregateRoot, TIdentity> GetRepository<TAggregateRoot, TIdentity, TRecord, TId>()
             where TAggregateRoot : IAggregateRoot<TIdentity>
             where TIdentity : IIdentity
         {
@@ -111,7 +111,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return new Repository<TContext, TAggregateRoot, TIdentity, TRecord, TId>(Context);
         }
 
-        public IReadonlyCrudRepository<TAggregateRoot, TIdentity> GetReadonlyRepository<TAggregateRoot, TIdentity>() 
+        public IReadonlyCrudRepository<TAggregateRoot, TIdentity> GetReadonlyRepository<TAggregateRoot, TIdentity>()
             where TAggregateRoot : IAggregateRoot<TIdentity>
             where TIdentity : IIdentity
         {

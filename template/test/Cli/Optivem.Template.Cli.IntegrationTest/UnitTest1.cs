@@ -7,7 +7,6 @@ namespace Optivem.Template.Cli.IntegrationTest
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

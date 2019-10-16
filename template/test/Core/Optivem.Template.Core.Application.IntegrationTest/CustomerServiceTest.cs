@@ -83,7 +83,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(_customerRecords.Count, browseResponse.TotalRecords);
             Assert.Equal(expectedRecords.Count, browseResponse.Records.Count);
 
-            for(int i = 0; i < expectedRecords.Count; i++)
+            for (int i = 0; i < expectedRecords.Count; i++)
             {
                 var expectedRecord = expectedRecords[i];
                 var responseRecord = browseResponse.Records[i];
@@ -146,7 +146,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = 999;
 
             var deleteRequest = new DeleteCustomerRequest { Id = id };
-            
+
             await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Customers.DeleteCustomerAsync(deleteRequest));
         }
 
@@ -183,7 +183,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.Equal(_customerRecords.Count, actualResponse.TotalRecords);
 
-            for(int i = 0; i < _customerRecords.Count; i++)
+            for (int i = 0; i < _customerRecords.Count; i++)
             {
                 var expectedRecord = _customerRecords[i];
                 var actualRecord = actualResponse.Records[i];

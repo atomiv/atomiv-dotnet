@@ -28,7 +28,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
 
         public void EnsureSelected()
         {
-            if(!IsSelected)
+            if (!IsSelected)
             {
                 Click();
             }

@@ -13,8 +13,8 @@ namespace Optivem.Framework.Infrastructure.EPPlus
             using (var package = new ExcelPackage())
             {
                 var workBook = package.Workbook;
-                
-                foreach(var sheet in file.Sheets)
+
+                foreach (var sheet in file.Sheets)
                 {
                     AddSheet(workBook, sheet);
                 }
@@ -30,11 +30,11 @@ namespace Optivem.Framework.Infrastructure.EPPlus
 
             var data = sheet.Data;
 
-            for(int i = 0; i < data.GetLength(0); i++)
+            for (int i = 0; i < data.GetLength(0); i++)
             {
                 var rowPosition = i + 1;
 
-                for(int j = 0; j < data.GetLength(1); j++)
+                for (int j = 0; j < data.GetLength(1); j++)
                 {
                     var columnPosition = j + 1;
 

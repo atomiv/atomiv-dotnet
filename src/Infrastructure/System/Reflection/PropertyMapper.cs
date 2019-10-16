@@ -85,8 +85,6 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
             return _propertyInfos.Select(e => Create(e, obj));
         }
 
-
-
         private ITypeProperty Create(PropertyInfo propertyInfo)
         {
             var name = propertyInfo.Name;
@@ -102,7 +100,5 @@ namespace Optivem.Framework.Infrastructure.System.Reflection
 
             return new ObjectProperty(typeProperty, value);
         }
-
-
     }
 }

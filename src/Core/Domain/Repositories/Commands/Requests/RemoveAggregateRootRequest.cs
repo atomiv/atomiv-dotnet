@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Framework.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public class RemoveAggregateRootRequest<TAggregateRoot, TIdentity>
         : IAggregateRootRequest<RemoveAggregateRootResponse, TAggregateRoot, TIdentity>

@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Core.Common;
-using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Domain
 {

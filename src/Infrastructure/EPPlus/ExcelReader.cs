@@ -43,7 +43,7 @@ namespace Optivem.Framework.Infrastructure.EPPlus
             {
                 var i = start.Row - 1;
 
-                for(int col = start.Column; col <= end.Column; col++)
+                for (int col = start.Column; col <= end.Column; col++)
                 {
                     var j = start.Column - 1;
 

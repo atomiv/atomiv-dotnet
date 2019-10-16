@@ -14,6 +14,7 @@ namespace Optivem.Framework.Core.Common
     {
         Task<TResponse> HandleAsync(TRequest request);
     }
+
     public interface IRequestHandler
     {
         Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)

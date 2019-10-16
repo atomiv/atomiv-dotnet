@@ -40,8 +40,6 @@ namespace Optivem.Framework.Test.AspNetCore
 
                 var exitCode = process.ExitCode;
 
-
-
                 if (exitCode != 0)
                 {
                     throw new Exception($"Failed to get process id {error}");
@@ -73,12 +71,12 @@ namespace Optivem.Framework.Test.AspNetCore
                 .Distinct()
                 .ToList();
 
-            if(processIds.Count == 0)
+            if (processIds.Count == 0)
             {
                 return null;
             }
 
-            if(processIds.Count == 1)
+            if (processIds.Count == 1)
             {
                 return processIds.Single();
             }
@@ -128,8 +126,6 @@ namespace Optivem.Framework.Test.AspNetCore
                 ProcessId = processId,
             };
         }
-
-
     }
 
     public class NetstatRecord

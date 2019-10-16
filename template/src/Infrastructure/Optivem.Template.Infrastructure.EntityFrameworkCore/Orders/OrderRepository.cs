@@ -1,9 +1,7 @@
 ﻿using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Orders;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

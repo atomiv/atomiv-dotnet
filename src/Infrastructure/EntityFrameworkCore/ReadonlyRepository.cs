@@ -15,7 +15,6 @@
         private readonly PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _pageAggregatesRepository;
         private readonly ExistsAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _existsAggregateRepository;
 
-
         public ReadonlyRepository(TContext context, IMapper mapper, IEnumerable<Expression<Func<TRecord, object>>> includes)
         {
             Context = context;
@@ -50,8 +49,6 @@
         {
             return _existsAggregateRepository.ExistsAsync(identity);
         }
-
-
     }
     */
 }

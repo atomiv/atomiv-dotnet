@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Optivem.Framework.Core.Common.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common.Serialization;
 using System;
 using System.Net;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Optivem.Framework.Web.AspNetCore
 {
@@ -44,7 +44,7 @@ namespace Optivem.Framework.Web.AspNetCore
 
                         // TODO: VC: Check if NotFound should be here or move below
 
-                        if(exception.GetType() == typeof(NotFoundRequestException))
+                        if (exception.GetType() == typeof(NotFoundRequestException))
                         {
                             context.Response.StatusCode = (int)HttpStatusCode.NotFound;
                             return;
@@ -54,7 +54,7 @@ namespace Optivem.Framework.Web.AspNetCore
 
                         var problemDetails = problemDetailsFactory.Create(exception);
 
-                        if(problemDetails != null)
+                        if (problemDetails != null)
                         {
                             var instance = problemDetails.Instance;
 
@@ -68,7 +68,7 @@ namespace Optivem.Framework.Web.AspNetCore
                             await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
                         }
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         // TODO: VC: Attempt log
                         throw;

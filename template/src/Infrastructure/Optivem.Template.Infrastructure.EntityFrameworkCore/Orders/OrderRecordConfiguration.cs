@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {

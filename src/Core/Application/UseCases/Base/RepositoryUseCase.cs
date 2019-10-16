@@ -1,7 +1,6 @@
 ﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
-using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {

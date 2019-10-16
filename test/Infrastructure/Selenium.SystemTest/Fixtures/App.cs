@@ -57,6 +57,5 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures
         {
             return new ProductPage(Finder, true);
         }
-
     }
 }

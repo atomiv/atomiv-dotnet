@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Optivem.Framework.Test.AspNetCore;
+using System;
 using System.IO;
-using Optivem.Framework.Test.AspNetCore;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.SystemTest.Fixtures
@@ -43,8 +43,6 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             WebApi = new WebProjectServer(webApiPaths, webApiUrl, webApiPort, webApiPingUrl, pinger);
             WebUI = new WebProjectServer(webUiPaths, webUiUrl, webUiPort, webUiPingUrl, pinger);
         }
-
-
 
         public WebProjectServer WebApi { get; }
 

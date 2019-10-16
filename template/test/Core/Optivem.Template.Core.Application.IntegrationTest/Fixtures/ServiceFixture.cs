@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Template.DependencyInjection;
-using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.Test.EntityFrameworkCore;
-using System;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.Core.Application.Customers;
-using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Orders;
+using Optivem.Template.Core.Application.Products;
+using Optivem.Template.DependencyInjection;
+using Optivem.Template.Infrastructure.EntityFrameworkCore;
+using System;
 
 namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 {

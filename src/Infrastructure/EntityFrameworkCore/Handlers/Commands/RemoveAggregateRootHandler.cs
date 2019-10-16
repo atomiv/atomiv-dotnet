@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class RemoveAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+    public class RemoveAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId>
         : RecordHandler<TContext, RemoveAggregateRootRequest<TAggregateRoot, TIdentity>, RemoveAggregateRootResponse, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>

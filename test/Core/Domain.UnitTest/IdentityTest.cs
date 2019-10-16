@@ -149,9 +149,6 @@ namespace Optivem.Framework.Core.Domain.UnitTest
             Assert.False(a < b);
         }
 
-
-
-
         private class CustomerIdentity : Identity<int>
         {
             public CustomerIdentity(int id) : base(id)

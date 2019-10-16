@@ -102,8 +102,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             overviewPage.GetSubTotal().Should().Be(subTotal);
         }
 
-
-        #endregion
+        #endregion Given
 
         #region When
 
@@ -121,7 +120,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             informationPage.ClickContinue();
         }
 
-        #endregion
+        #endregion When
 
         #region Then
 
@@ -152,14 +151,6 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             informationPage.GetErrorMessage().Should().Be(errorMessage);
         }
 
-        #endregion
-
-
-
-
-
-
-
-
+        #endregion Then
     }
 }

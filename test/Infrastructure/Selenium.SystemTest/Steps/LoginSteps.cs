@@ -32,19 +32,17 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
             _loginPage.InputPassword(password);
         }
 
-
         [When(@"I press login")]
         public void WhenIPressLogin()
         {
             _loginPage.ClickLogin();
         }
-        
+
         [Then(@"I see the products page")]
         public void ThenISeeTheProductsPage()
         {
             Fixture.App.IsProductPageOpen().Should().BeTrue();
         }
-
 
         [Then(@"I see the error message '(.*)'")]
         public void ThenISeeTheErrorMessage(string errorMessage)
@@ -53,6 +51,5 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
             _loginPage.HasErrorMessage().Should().BeTrue();
             _loginPage.GetErrorMessage().Should().Be(errorMessage);
         }
-
     }
 }

@@ -41,7 +41,7 @@ namespace Optivem.Framework.Test.AspNetCore
     // TODO: VC: Check if needed
 
     /*
-     * 
+     *
         public WebDbTestClient(IConfigurationRoot configurationRoot, WebTestClient webTestClient, DbTestClient<TDbContext> databaseTestClient)
         {
             ConfigurationRoot = configurationRoot;
@@ -75,8 +75,7 @@ namespace Optivem.Framework.Test.AspNetCore
             // DatabaseTestClient.EnsureDatabaseDeleted();
         }
     }
-     * 
-     * 
+     *
+     *
      */
-
 }

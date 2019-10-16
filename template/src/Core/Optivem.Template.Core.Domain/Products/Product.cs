@@ -23,7 +23,7 @@ namespace Optivem.Template.Core.Domain.Products
 
         public void Activate()
         {
-            if(IsActive)
+            if (IsActive)
             {
                 throw new DomainException("Cannot activate product because it is already active");
             }
@@ -33,7 +33,7 @@ namespace Optivem.Template.Core.Domain.Products
 
         public void Deactivate()
         {
-            if(!IsActive)
+            if (!IsActive)
             {
                 throw new DomainException("Cannot deactivate product because it has already been deactivated");
             }

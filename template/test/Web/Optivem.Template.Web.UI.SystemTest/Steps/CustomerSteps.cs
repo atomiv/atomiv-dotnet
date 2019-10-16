@@ -52,32 +52,16 @@ namespace Optivem.Template.Web.UI.SystemTest.Steps
         [Then(@"I am on the Customer List page")]
         public void ThenIAmOnTheCustomerListPage()
         {
-
         }
 
         [Then(@"I can see the newly created customer")]
         public void ThenICanSeeTheNewlyCreatedCustomer()
         {
-
         }
 
         [Then(@"I can see it has the same details as the ones I had inputted")]
         public void ThenICanSeeItHasTheSameDetailsAsTheOnesIHadInputted()
         {
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Web.RestClient.Interface;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient
 {

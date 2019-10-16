@@ -11,6 +11,5 @@ namespace Optivem.Framework.Core.Common
 
     public interface ICollectionResponse<TRecordResponse, TId> : ICollectionResponse<TRecordResponse>
     {
-
     }
 }

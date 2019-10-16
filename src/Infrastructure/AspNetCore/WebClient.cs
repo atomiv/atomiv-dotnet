@@ -18,7 +18,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         protected HttpClient HttpClient { get; private set; }
 
-
         public Task<IClientResponse> GetAsync(string uri, string accept)
         {
             var message = CreateMessage(HttpMethod.Get, uri, null, null, accept);
@@ -73,7 +72,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         }
 
         #region Helper
-
 
         private HttpRequestMessage CreateMessage(HttpMethod method, string uri, string content, string contentType, string acceptType)
         {

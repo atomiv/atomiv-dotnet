@@ -15,7 +15,7 @@ namespace Optivem.Framework.Test.AspNetCore
 
                 var exitCode = process.ExitCode;
 
-                if(exitCode != 0)
+                if (exitCode != 0)
                 {
                     throw new Exception($"Failed to terminate process {processId}");
                 }

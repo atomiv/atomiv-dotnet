@@ -23,14 +23,14 @@ namespace Optivem.Framework.Test.AspNetCore
 
             _process.Start();
 
-            if(WaitForExit)
+            if (WaitForExit)
             {
                 _process.WaitForExit();
             }
 
             // TODO: VC: Detect process start error
 
-            if(_process.HasExited && _process.ExitCode != 0)
+            if (_process.HasExited && _process.ExitCode != 0)
             {
                 var error = _process.StandardError.ReadToEnd();
 
@@ -52,9 +52,9 @@ namespace Optivem.Framework.Test.AspNetCore
 
         public void Dispose()
         {
-            if(_process != null)
+            if (_process != null)
             {
-                if(!_process.HasExited)
+                if (!_process.HasExited)
                 {
                     _process.Kill();
                 }

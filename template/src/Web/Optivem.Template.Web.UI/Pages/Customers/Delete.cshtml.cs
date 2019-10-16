@@ -6,7 +6,6 @@ namespace Optivem.Template.Web.UI.Pages.Customers
     {
         public void OnGet()
         {
-
         }
     }
 }

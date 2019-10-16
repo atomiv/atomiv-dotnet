@@ -1,11 +1,10 @@
 ﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
-using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    public abstract class UnitOfWorkUseCase<TRepository, TRequest, TResponse> 
+    public abstract class UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         : UseCase<TRequest, TResponse>
         where TRepository : IRepository
         where TRequest : IRequest<TResponse>
@@ -26,5 +25,4 @@ namespace Optivem.Framework.Core.Application
             return UnitOfWork.GetRepository<TRepository>();
         }
     }
-
 }

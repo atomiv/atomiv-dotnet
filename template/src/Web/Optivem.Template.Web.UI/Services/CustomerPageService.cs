@@ -15,7 +15,6 @@ namespace Optivem.Template.Web.UI.Services
         public CustomerPageService(ICustomerService service)
             : base(service)
         {
-
         }
 
         public async Task CreateCustomer(Customer customer)

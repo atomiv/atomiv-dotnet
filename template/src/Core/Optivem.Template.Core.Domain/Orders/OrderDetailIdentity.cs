@@ -6,7 +6,7 @@ namespace Optivem.Template.Core.Domain.Orders
     {
         public static OrderDetailIdentity Null = new OrderDetailIdentity(0);
 
-        public OrderDetailIdentity(int id) 
+        public OrderDetailIdentity(int id)
             : base(id)
         {
         }

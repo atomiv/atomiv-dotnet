@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Framework.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public class ListAggregateRootsRequest<TAggregateRoot, TIdentity>
         : IAggregateRootRequest<ListAggregateRootsResponse<TAggregateRoot>, TAggregateRoot, TIdentity>
@@ -9,7 +7,6 @@ namespace Optivem.Framework.Core.Domain
     {
         public ListAggregateRootsRequest()
         {
-
         }
     }
 }

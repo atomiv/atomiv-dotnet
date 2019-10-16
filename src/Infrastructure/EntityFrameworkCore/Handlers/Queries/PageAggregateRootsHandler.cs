@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId> 
+    public class PageAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TAggregateRecord, TId>
         : RecordHandler<TContext, PageAggregateRootsRequest<TAggregateRoot, TIdentity>, PageAggregateRootsResponse<TAggregateRoot>, TAggregateRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
@@ -42,7 +39,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
                 .CountAsync();
 
             var totalPagesDecimal = (decimal)totalRecords / size;
-            var totalPages = (int) Math.Round(totalPagesDecimal, MidpointRounding.AwayFromZero);
+            var totalPages = (int)Math.Round(totalPagesDecimal, MidpointRounding.AwayFromZero);
 
             var aggregateRoots = records.Select(e => _getAggregateRootMapper.Create(e)).ToList();
 

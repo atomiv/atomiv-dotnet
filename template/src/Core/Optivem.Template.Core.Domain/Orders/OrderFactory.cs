@@ -14,12 +14,12 @@ namespace Optivem.Template.Core.Domain.Orders
 
         public static OrderDetail CreateNewOrderDetail(Product product, decimal quantity)
         {
-            if(product == null)
+            if (product == null)
             {
                 throw new ArgumentException();
             }
 
-            if(quantity < 0)
+            if (quantity < 0)
             {
                 throw new ArgumentException();
             }

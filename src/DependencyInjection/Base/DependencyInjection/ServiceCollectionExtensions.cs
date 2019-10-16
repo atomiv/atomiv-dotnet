@@ -12,7 +12,7 @@ namespace Optivem.Framework.DependencyInjection.Common
         {
             var openServiceTypeName = openServiceType.Name;
 
-            foreach(var implementationType in implementationTypes)
+            foreach (var implementationType in implementationTypes)
             {
                 var serviceType = implementationType.GetTypeInfo().ImplementedInterfaces.Single(e => e.Name == openServiceTypeName);
                 services.AddScoped(serviceType, implementationType);
@@ -30,7 +30,7 @@ namespace Optivem.Framework.DependencyInjection.Common
                 var implementedInterfaces = implementationType.GetTypeInfo().ImplementedInterfaces;
                 var serviceTypes = implementedInterfaces.Where(e => e.Name != markerServiceTypeName);
 
-                foreach(var serviceType in serviceTypes)
+                foreach (var serviceType in serviceTypes)
                 {
                     services.AddScoped(serviceType, implementationType);
                 }

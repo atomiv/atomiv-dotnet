@@ -49,17 +49,17 @@ namespace Optivem.Framework.Core.Domain
 
         public bool Equals(Entity<TIdentity> other)
         {
-            if(other is null)
+            if (other is null)
             {
                 return false;
             }
 
-            if(ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
 
-            if(GetType() != other.GetType())
+            if (GetType() != other.GetType())
             {
                 return false;
             }

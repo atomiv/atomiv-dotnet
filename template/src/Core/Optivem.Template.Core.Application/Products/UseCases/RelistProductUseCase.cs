@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 {
     public class RelistProductUseCase : ExecuteAggregateUseCase<IProductRepository, ActivateProductRequest, ActivateProductResponse, Product, ProductIdentity, int>
     {
-        public RelistProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public RelistProductUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

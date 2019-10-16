@@ -68,7 +68,6 @@ namespace Optivem.Framework.Infrastructure.Selenium
             return FindElement(query, CreateRadioButton);
         }
 
-
         public IEnumerable<RadioButton> FindRadioButtons(IQuery query)
         {
             return FindElements(query, CreateRadioButton);
@@ -126,7 +125,5 @@ namespace Optivem.Framework.Infrastructure.Selenium
             var obj = constructorInfo.Invoke(new object[] { element });
             return (T)obj;
         }
-
-
     }
 }

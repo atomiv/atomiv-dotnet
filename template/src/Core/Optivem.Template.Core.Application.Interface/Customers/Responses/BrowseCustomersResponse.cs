@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Optivem.Framework.Core.Common;
+﻿using Optivem.Framework.Core.Common;
+using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Customers.Responses
 {

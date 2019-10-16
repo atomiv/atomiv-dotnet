@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {

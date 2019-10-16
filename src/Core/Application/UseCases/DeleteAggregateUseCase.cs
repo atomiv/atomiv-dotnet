@@ -13,7 +13,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public DeleteAggregateCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public DeleteAggregateCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

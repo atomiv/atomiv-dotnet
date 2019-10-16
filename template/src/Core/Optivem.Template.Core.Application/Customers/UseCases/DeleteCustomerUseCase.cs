@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class DeleteCustomerUseCase : DeleteAggregateCase<ICustomerRepository, DeleteCustomerRequest, DeleteCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public DeleteCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public DeleteCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

@@ -52,7 +52,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             };
 
             Fixture.Db.AddRange(_productRecords);
-
         }
 
         [Fact]
@@ -262,14 +261,13 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             var request = new ListProductsRequest
             {
-
             };
 
             var response = await Fixture.Products.ListProductsAsync(request);
 
             Assert.Equal(_productRecords.Count, response.TotalRecords);
 
-            for(int i = 0; i < _productRecords.Count; i++)
+            for (int i = 0; i < _productRecords.Count; i++)
             {
                 var expected = _productRecords[i];
                 var actual = response.Records[i];

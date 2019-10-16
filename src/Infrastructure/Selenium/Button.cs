@@ -5,7 +5,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class Button : Element, IButton
     {
-        public Button(IWebElement element) 
+        public Button(IWebElement element)
             : base(element)
         {
         }

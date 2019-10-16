@@ -22,11 +22,11 @@ namespace Optivem.Framework.Infrastructure.EPPlus.IntegrationTest
 
             var data = new object[numRows, numCols];
 
-            for(int i = 0; i < numRows; i++)
+            for (int i = 0; i < numRows; i++)
             {
                 var rowPosition = i + 1;
 
-                for(int j = 0; j < numCols; j++)
+                for (int j = 0; j < numCols; j++)
                 {
                     var colPosition = j + 1;
 

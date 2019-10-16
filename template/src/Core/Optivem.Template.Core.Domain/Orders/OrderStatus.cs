@@ -8,10 +8,9 @@
         Shipped = 3,
         Closed = 4,
 
-
-
         // TODO: VC: DELETE
         Submitted = 7,
+
         Cancelled = 8,
         Archived = 9,
     }

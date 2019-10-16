@@ -6,7 +6,6 @@ using Optivem.Template.Core.Application.Products.UseCases;
 using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 

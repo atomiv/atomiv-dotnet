@@ -41,6 +41,5 @@ namespace Optivem.Template.Core.Application.Customers
         {
             return HandleAsync<UpdateCustomerRequest, UpdateCustomerResponse>(request);
         }
-
     }
 }

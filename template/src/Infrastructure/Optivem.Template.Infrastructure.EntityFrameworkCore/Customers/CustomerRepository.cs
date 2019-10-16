@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Optivem.Framework.Core.Common;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {

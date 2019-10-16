@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Framework.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public class ExistsAggregateRootRequest<TAggregateRoot, TIdentity>
         : IAggregateRootRequest<ExistsAggregateRootResponse, TAggregateRoot, TIdentity>

@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    class QueryAggregateRootsHandler
+    internal class QueryAggregateRootsHandler
     {
     }
 
@@ -68,12 +68,9 @@
         return entities;
     }
 
-
-
     #endregion Helper - Read
 
     */
-
 
     // TODO: VC: RECHECK
 
@@ -95,7 +92,6 @@
         var query = GetQuery(filter, orderBy, skip, take, includes);
         return await query.ToListAsync();
     }
-
 
     public TAggregateRoot GetSingle(Expression<Func<TAggregateRoot, bool>> filter = null, params Expression<Func<TAggregateRoot, object>>[] includes)
     {
@@ -170,5 +166,4 @@
     }
 
     */
-
 }

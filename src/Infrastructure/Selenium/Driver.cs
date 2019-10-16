@@ -19,12 +19,10 @@ namespace Optivem.Framework.Infrastructure.Selenium
             set { WebDriver.Url = value; }
         }
 
-
         public void Dispose()
         {
             WebDriver.Dispose();
         }
-
 
         protected override IEnumerable<IWebElement> FindWebElements(By by)
         {

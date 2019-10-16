@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
@@ -11,7 +10,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 {
     public class CreateCustomerUseCase : CreateAggregateUseCase<ICustomerRepository, CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
     {
-        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

@@ -144,7 +144,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
             await JsonPlaceholderClient.Posts.DeleteAsync(8);
         }
 
-        [Fact(Skip ="Failed on CI")]
+        [Fact(Skip = "Failed on CI")]
         public async Task TestGetByQueryParamRawAsync()
         {
             var actual = await JsonPlaceholderClient.Posts.GetByUserIdRawAsync(1);

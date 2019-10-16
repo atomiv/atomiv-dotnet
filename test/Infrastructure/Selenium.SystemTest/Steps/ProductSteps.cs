@@ -35,7 +35,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             _someProduct.AddToCart();
         }
 
-        #endregion
+        #endregion Given
 
         #region When
 
@@ -76,7 +76,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             _someProduct.RemoveFromCart();
         }
 
-        #endregion
+        #endregion When
 
         #region Then
 
@@ -139,11 +139,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
             _someProduct.CanAddToCart().Should().BeTrue();
         }
 
-        #endregion
-
-
-
-
+        #endregion Then
 
         // TODO: VC:
         // When I click on image it opens up product page
@@ -168,12 +164,10 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
         // if I click on cancel it takes me back
         // when I click on checkout it says thank yuou for your order
 
-
         // when I click on logout I am logged out
 
         // if I log in as locked out user, I get locked out error message
         // auth: missing username, missing passowrd, invalid combination
-
 
         // TODO: VC: Use perhaps nspec and show it on serbian in cyrillic
     }

@@ -100,7 +100,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 
     public class ProductFilter : CompositeElement
     {
-        private static Dictionary<ProductSort, string> EnumValueMap 
+        private static Dictionary<ProductSort, string> EnumValueMap
             = new Dictionary<ProductSort, string>
         {
             { ProductSort.NameAsc, "az" },
@@ -109,7 +109,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
             { ProductSort.PriceDesc, "hilo" },
         };
 
-        private static Dictionary<string, ProductSort> ValueEnumMap 
+        private static Dictionary<string, ProductSort> ValueEnumMap
             = EnumValueMap.ToDictionary(e => e.Value, e => e.Key);
 
         public ProductFilter(ElementRoot finder) : base(finder)
@@ -174,7 +174,6 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
             }
         }
 
-
         public string Name => NameElement.Text;
 
         public string Description => DescriptionElement.Text;
@@ -185,7 +184,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 
         public void AddToCart()
         {
-            if(!CanAddToCart())
+            if (!CanAddToCart())
             {
                 throw new InvalidElementStateException();
             }
@@ -195,7 +194,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 
         public void RemoveFromCart()
         {
-            if(!CanRemoveFromCart())
+            if (!CanRemoveFromCart())
             {
                 throw new InvalidElementStateException();
             }
@@ -217,7 +216,6 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
             var id = int.Parse(idStr);
 
             return id;
-
         }
 
         public IProductRecord ReadProductRecord()
@@ -235,6 +233,4 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
             return CartAction == RemoveFromCartText;
         }
     }
-
-
 }

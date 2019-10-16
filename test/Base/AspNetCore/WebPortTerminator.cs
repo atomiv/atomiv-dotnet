@@ -22,15 +22,12 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             var processId = _portProcessFinder.FindProcessId(port);
 
-            if(processId == null)
+            if (processId == null)
             {
                 throw new Exception($"Failed to find process for port {port}");
             }
 
             _processTerminator.Terminate(processId.Value);
         }
-
     }
-
-
 }

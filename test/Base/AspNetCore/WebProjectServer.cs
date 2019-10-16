@@ -69,7 +69,7 @@ namespace Optivem.Framework.Test.AspNetCore
         {
             var pingResponse = await Ping();
 
-            if(pingResponse.Success)
+            if (pingResponse.Success)
             {
                 _portTerminator.EnsureTerminated(Port);
             }
@@ -110,23 +110,9 @@ namespace Optivem.Framework.Test.AspNetCore
         }
     }
 
-
-
-
-
-
-
     // TODO: VC: Rename to ProcessTestServer and return also the client
 
-
-
-
-
     // TODO: VC: Old implementation
-
-
-
-
 
     /*
     public class WebProjectServer : IDisposable
@@ -181,9 +167,6 @@ namespace Optivem.Framework.Test.AspNetCore
             {
                 _process.Kill();
                 _process.Dispose();
-
-
-
             }
         }
 

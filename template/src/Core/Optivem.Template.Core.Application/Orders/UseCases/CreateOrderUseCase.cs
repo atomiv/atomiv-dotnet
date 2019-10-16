@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         private readonly ICustomerRepository _customerRepository;
         private readonly IProductRepository _productRepository;
 
-        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository) 
+        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository)
             : base(mapper, unitOfWork)
         {
             _customerRepository = customerRepository;
@@ -29,14 +29,14 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var customer = await _customerRepository.FindAsync(customerId);
 
-            if(customer == null)
+            if (customer == null)
             {
                 throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
             }
 
             var orderDetails = new List<OrderDetail>();
 
-            for(int i = 0; i < request.OrderDetails.Count; i++)
+            for (int i = 0; i < request.OrderDetails.Count; i++)
             {
                 var requestOrderDetail = request.OrderDetails[i];
 
@@ -45,7 +45,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                     var orderDetail = await CreateAsync(requestOrderDetail);
                     orderDetails.Add(orderDetail);
                 }
-                catch(InvalidRequestException ex)
+                catch (InvalidRequestException ex)
                 {
                     var position = i + 1;
                     throw new InvalidRequestException($"Order detail at position {position} is invalid", ex);
@@ -60,7 +60,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
             var product = await _productRepository.FindAsync(productId);
 
-            if(product == null)
+            if (product == null)
             {
                 throw new InvalidRequestException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
             }

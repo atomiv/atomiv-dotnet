@@ -32,7 +32,6 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
             var dataColumns = dataColumnMapper.ToDataColumns().ToArray();
             dataTable.Columns.AddRange(dataColumns);
 
-
             var dataRow = dataRowMapper.ToDataRow(dataTable, customerRecord);
 
             CustomerRecordAssert.Equal(customerRecord, dataRow);

@@ -19,9 +19,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records
         public ProductRecord(int id, string name, decimal priceValue)
             : this(id, name, $"{Currency}{priceValue}")
         {
-
         }
-
 
         public int Id { get; }
 

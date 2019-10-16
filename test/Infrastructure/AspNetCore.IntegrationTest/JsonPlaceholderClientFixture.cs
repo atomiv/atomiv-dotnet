@@ -93,7 +93,6 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
             return Client.GetAsync<PostQueryDto, List<PostDto>>(query);
         }
 
-
         public Task<IObjectClientResponse<List<CommentDto>>> GetCommentsRawAsync(int id)
         {
             return Client.GetAsync<List<CommentDto>>($"{id}/comments");

@@ -63,7 +63,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 
             var requestTypes = new Dictionary<string, Type>();
 
-            foreach(var requestValidatorImplementationType in requestValidatorImplementationTypes)
+            foreach (var requestValidatorImplementationType in requestValidatorImplementationTypes)
             {
                 var requestValidatorInterfaceTypes = requestValidatorImplementationType.GetTypeInfo().ImplementedInterfaces;
                 var requestValidatorInterfaceType = requestValidatorInterfaceTypes.Single(e => e.Name == RequestValidatorType.Name);
@@ -73,15 +73,15 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
             }
 
             var requestHandlerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RequestHandlerType);
-            
-            foreach(var requestHandlerImplementationType in requestHandlerImplementationTypes)
+
+            foreach (var requestHandlerImplementationType in requestHandlerImplementationTypes)
             {
                 var requestHandlerInterfaceTypes = requestHandlerImplementationType.GetTypeInfo().ImplementedInterfaces;
                 var requestHandlerInterfaceType = requestHandlerInterfaceTypes.Single(e => e.Name == RequestHandlerType.Name);
 
                 var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
 
-                if(!requestTypes.ContainsKey(requestType.Name))
+                if (!requestTypes.ContainsKey(requestType.Name))
                 {
                     continue;
                 }

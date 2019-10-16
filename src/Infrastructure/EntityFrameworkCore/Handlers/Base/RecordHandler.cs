@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;

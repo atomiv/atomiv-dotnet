@@ -131,8 +131,6 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controll
             return NoContent();
         }
 
-
-
         #region Exports
 
         [HttpGet("exports")]

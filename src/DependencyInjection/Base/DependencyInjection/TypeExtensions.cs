@@ -25,6 +25,7 @@ namespace Optivem.Framework.DependencyInjection.Common
         {
             return type.GetTypeInfo().ImplementedInterfaces.Any(e => e.IsGenericType(interfaceType));
         }
+
         public static bool ImplementsInterface(this Type type, Type interfaceType)
         {
             return type.GetTypeInfo().ImplementedInterfaces.Any(e => e == interfaceType);
@@ -50,8 +51,5 @@ namespace Optivem.Framework.DependencyInjection.Common
         {
             return type.IsConcreteClass() && type.BaseType.IsGenericType(classType);
         }
-
-
-
     }
 }

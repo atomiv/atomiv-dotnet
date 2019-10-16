@@ -1,7 +1,6 @@
-﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
@@ -21,29 +20,23 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
         public abstract Task<TResponse> HandleAsync(TRequest request);
 
-
-
-
         // TODO: VC: Check how to use
 
         /*
-         * 
+         *
     public class AddAggregatesRepository<TContext, TAggregateRoot, TIdentity, TRecord, TId> : CommandHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>, IAddAggregatesRepository<TAggregateRoot, TIdentity>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
         where TRecord : class, IRecord<TId>
         where TId : IEquatable<TId>
-         * 
+         *
          */
 
-
-
         /*
-         * 
+         *
         public CommandHandler(TContext context, IMapper mapper) : base(context, mapper)
         {
-            
         }
 
         public CommandHandler(TContext context, IMapper mapper) : base(context, mapper)
@@ -54,11 +47,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         protected DbSet<TRecord> MutableSet { get; }
 
         public abstract Task<TRequest> HandleAsync(TRequest request);
-         * 
-         * 
-         * 
-         * 
-         * 
+         *
+         *
+         *
+         *
+         *
         public QueryableRepository(TContext context, IMapper mapper, IEnumerable<Expression<Func<TRecord, object>>> includes) : base(context, mapper)
         {
             ReadonlySet = Context.Set<TRecord>().AsNoTracking();
@@ -73,9 +66,8 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         }
 
         protected IQueryable<TRecord> ReadonlySet { get; }
-         * 
-         * 
+         *
+         *
          */
-
     }
 }

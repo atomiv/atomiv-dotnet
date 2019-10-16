@@ -18,7 +18,6 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
             var dataColumnMapper = new DataColumnMapper<CustomerRecord>(propertyFactory);
 
             var dataColumn = dataColumnMapper.ToDataColumn(e => e.Id);
-
         }
 
         [Fact]
@@ -57,7 +56,5 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
 
             // TODO: VC: Also separate method per property, so that we can test various primitive types
         }
-
-
     }
 }

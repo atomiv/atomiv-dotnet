@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Data
 {

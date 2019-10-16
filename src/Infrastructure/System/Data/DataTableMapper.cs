@@ -31,7 +31,7 @@ namespace Optivem.Framework.Infrastructure.System.Data
 
             var dataRows = DataRowMapper.ToDataRows(dataTable, records).ToArray();
 
-            foreach(var dataRow in dataRows)
+            foreach (var dataRow in dataRows)
             {
                 dataTable.Rows.Add(dataRow);
             }

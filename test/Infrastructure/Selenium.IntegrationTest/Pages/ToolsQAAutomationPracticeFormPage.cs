@@ -2,7 +2,7 @@
 {
     public class ToolsQAAutomationPracticeFormPage : Page
     {
-        public ToolsQAAutomationPracticeFormPage(Driver finder, bool navigateTo = false) 
+        public ToolsQAAutomationPracticeFormPage(Driver finder, bool navigateTo = false)
             : base(finder, "https://www.toolsqa.com/automation-practice-form/", navigateTo)
         {
         }
@@ -23,5 +23,4 @@
 
         // TODO: VC: Radio group with names: https://www.toolsqa.com/selenium-webdriver/checkbox-radio-button-operations/
     }
-
 }

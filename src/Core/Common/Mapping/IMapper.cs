@@ -4,6 +4,6 @@
     {
         T Map<S, T>(S source);
 
-        T Map<S, T>(S source, T target); 
+        T Map<S, T>(S source, T target);
     }
 }

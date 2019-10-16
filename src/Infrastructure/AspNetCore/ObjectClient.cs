@@ -40,6 +40,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         {
             return Client.GetAsync(uri);
         }
+
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
         {
             throw new NotImplementedException();
@@ -62,6 +63,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             var content = Serialize(request);
             return Client.PostAsync(uri, content, ContentType);
         }
+
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request)
         {
             throw new NotImplementedException();
@@ -108,7 +110,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             var contentString = response.ContentString;
             var content = Serializer.Deserialize<T>(contentString);
             var problemDetails = DeserializeProblemDetails(contentString);
-            
+
             return new ObjectClientResponse<T>(response, content, problemDetails);
         }
 
@@ -118,14 +120,12 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             {
                 return Serializer.Deserialize<ProblemDetailsResponse>(contentString);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 // TODO: https://github.com/optivem/framework-dotnetcore/issues/273
                 return null;
             }
         }
-
-
 
         #endregion Helper
     }

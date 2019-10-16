@@ -11,11 +11,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pag
 
         public static string PageUrl = "https://www.saucedemo.com/checkout-complete.html";
 
-
         private Element MessageHeaderElement => Finder.FindElement(FindBy.CssSelector(".complete-header"));
 
         private Element MessageTextElement => Finder.FindElement(FindBy.CssSelector(".complete-text"));
-
 
         public string GetMessageHeader()
         {

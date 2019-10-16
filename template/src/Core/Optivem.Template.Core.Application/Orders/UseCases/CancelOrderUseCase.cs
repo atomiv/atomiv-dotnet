@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class CancelOrderUseCase : ExecuteAggregateUseCase<IOrderRepository, CancelOrderRequest, CancelOrderResponse, Order, OrderIdentity, int>
     {
-        public CancelOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public CancelOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

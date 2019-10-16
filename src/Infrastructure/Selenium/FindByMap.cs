@@ -30,6 +30,5 @@ namespace Optivem.Framework.Infrastructure.Selenium
 
             return by;
         }
-
     }
 }

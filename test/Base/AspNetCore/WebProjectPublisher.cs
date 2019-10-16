@@ -46,7 +46,7 @@ namespace Optivem.Framework.Test.AspNetCore
 
         protected override void PostProcess()
         {
-            if(!Paths.ExistsPublishFilePath())
+            if (!Paths.ExistsPublishFilePath())
             {
                 throw new Exception($"Publish has failed because file was not generated: {Paths.PublishFilePath}");
             }

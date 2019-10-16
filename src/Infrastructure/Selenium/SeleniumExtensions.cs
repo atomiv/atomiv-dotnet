@@ -13,7 +13,5 @@ namespace Optivem.Framework.Infrastructure.Selenium
         {
             return webElement.GetAttribute("value");
         }
-
-
     }
 }

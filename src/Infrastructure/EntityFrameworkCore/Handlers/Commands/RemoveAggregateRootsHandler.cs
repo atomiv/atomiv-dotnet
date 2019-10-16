@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 

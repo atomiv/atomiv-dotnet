@@ -7,6 +7,5 @@
     public interface IAggregateRoot<TIdentity> : IEntity<TIdentity>, IAggregateRoot
         where TIdentity : IIdentity
     {
-
     }
 }

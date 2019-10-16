@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class BrowseOrdersUseCase : BrowseAggregatesUseCase<IOrderRepository, BrowseOrdersRequest, BrowseOrdersResponse, BrowseOrdersRecordResponse, Order, OrderIdentity, int>
     {
-        public BrowseOrdersUseCase(IMapper mapper, IOrderRepository repository) 
+        public BrowseOrdersUseCase(IMapper mapper, IOrderRepository repository)
             : base(mapper, repository)
         {
         }

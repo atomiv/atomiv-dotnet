@@ -2,8 +2,6 @@
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {

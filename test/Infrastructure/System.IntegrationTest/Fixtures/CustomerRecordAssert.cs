@@ -30,7 +30,6 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures
 
                 Equal(expectedRecord, actualRecord);
             }
-
         }
     }
 }

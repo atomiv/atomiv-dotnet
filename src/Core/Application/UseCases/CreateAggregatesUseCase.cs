@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Application
 {
-    class CreateAggregatesUseCase
+    internal class CreateAggregatesUseCase
     {
     }
 }

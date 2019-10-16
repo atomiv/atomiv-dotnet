@@ -92,6 +92,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             var relativeUri = GetRelativeByPath();
             return ObjectClient.PostAsync(relativeUri, request);
         }
+
         public Task<IObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             throw new NotImplementedException();

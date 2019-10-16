@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 {
     public class FindProductUseCase : FindAggregateUseCase<IProductRepository, FindProductRequest, FindProductResponse, Product, ProductIdentity, int>
     {
-        public FindProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public FindProductUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

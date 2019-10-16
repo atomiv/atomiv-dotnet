@@ -37,14 +37,13 @@ namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
             // TODO: VC: Error
 
             /*
-             * 
-             * 
+             *
+             *
 Message: OpenQA.Selenium.ElementClickInterceptedException : element click intercepted: Element <input id="exp-2" name="exp" type="radio" value="3"> is not clickable at point (291, 891). Other element would receive the click: <div class="cookie-notice-container">...</div>
   (Session info: chrome=75.0.3770.100)
   (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Windows NT 10.0.17134 x86_64)
-             * 
+             *
              */
-
 
             /*
             page.YearsOfExperience.ShouldNotHaveSelection();
@@ -78,21 +77,20 @@ Message: OpenQA.Selenium.ElementClickInterceptedException : element click interc
             // TODO: VC: Assert messages
         }
 
-
         /*
-         * 
-         * 
+         *
+         *
 , new Dictionary<string, AutomationTool?>
         {
             { "QTP", Pages.AutomationTool.Qtp },
             { "Selenium IDE", Pages.AutomationTool.SeleniumIde },
             { "Selenium Webdriver", Pages.AutomationTool.SeleniumWebDriver },
         })
-         * 
+         *
          */
 
         /*
-         * 
+         *
         {
             { "Asia", Pages.Continent.Asia },
             { "Europe", Pages.Continent.Europe },
@@ -102,12 +100,12 @@ Message: OpenQA.Selenium.ElementClickInterceptedException : element click interc
             { "North America", Pages.Continent.NorthAmerica },
             { "Antartica", Pages.Continent.Antartica },
         }
-         * 
+         *
          */
 
         /*
-         * 
-         * 
+         *
+         *
 
     public enum Gender
     {
@@ -139,8 +137,8 @@ Message: OpenQA.Selenium.ElementClickInterceptedException : element click interc
         NorthAmerica,
         Antartica
     }
-         * 
-         * 
+         *
+         *
          */
     }
 }

@@ -28,9 +28,8 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
             Assert.Equal(0, dataTable.Rows.Count);
         }
 
-
         [Fact]
-        public void ToDataTableWithMultipleRows ()
+        public void ToDataTableWithMultipleRows()
         {
             var customerRecords = new List<CustomerRecord>
             {
@@ -70,8 +69,5 @@ namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
 
             CustomerRecordAssert.Equal(customerRecords, dataTable.Rows);
         }
-
-
-
     }
 }

@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         private readonly ICustomerRepository _customerRepository;
         private readonly IProductRepository _productRepository;
 
-        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository) 
+        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository)
             : base(mapper, unitOfWork)
         {
             _customerRepository = customerRepository;
@@ -28,7 +28,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             var customerId = new CustomerIdentity(request.CustomerId);
             var existsCustomer = await _customerRepository.ExistsAsync(customerId);
 
-            if(!existsCustomer)
+            if (!existsCustomer)
             {
                 throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
             }
@@ -41,12 +41,12 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             var updatedOrderRequestDetails = request.OrderDetails.Where(e => e.Id != null).ToList();
             var deletedOrderDetails = aggregateRoot.OrderDetails.Where(e => !request.OrderDetails.Any(f => f.Id == e.Id.Id)).ToList();
 
-            foreach(var added in addedOrderRequestDetails)
+            foreach (var added in addedOrderRequestDetails)
             {
                 var productId = new ProductIdentity(added.ProductId);
                 var product = await _productRepository.FindAsync(productId);
 
-                if(product == null)
+                if (product == null)
                 {
                     throw new InvalidRequestException($"Product {productId} does not exist");
                 }
@@ -55,7 +55,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 aggregateRoot.AddOrderDetail(orderDetail);
             }
 
-            foreach(var updated in updatedOrderRequestDetails)
+            foreach (var updated in updatedOrderRequestDetails)
             {
                 var orderDetailId = new OrderDetailIdentity(updated.Id.Value);
                 var orderDetail = aggregateRoot.OrderDetails.First(e => e.Id == orderDetailId);
@@ -72,7 +72,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 orderDetail.Quantity = updated.Quantity;
             }
 
-            foreach(var deleted in deletedOrderDetails)
+            foreach (var deleted in deletedOrderDetails)
             {
                 aggregateRoot.RemoveOrderDetail(deleted.Id);
             }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    public abstract class FindAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId> 
+    public abstract class FindAggregateUseCase<TRepository, TRequest, TResponse, TAggregateRoot, TIdentity, TId>
         : UnitOfWorkUseCase<TRepository, TRequest, TResponse>
         where TRepository : IFindAggregateRootRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TResponse, TId>
@@ -13,7 +13,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public FindAggregateUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public FindAggregateUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

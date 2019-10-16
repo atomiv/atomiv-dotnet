@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
-    public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId> 
+    public class ListAggregatesUseCase<TRepository, TRequest, TResponse, TRecordResponse, TAggregateRoot, TIdentity, TId>
         : RepositoryUseCase<TRepository, TRequest, TResponse>
         where TRepository : IListAggregateRootsRepository<TAggregateRoot, TIdentity>
         where TRequest : IRequest<TResponse>

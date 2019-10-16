@@ -2,7 +2,6 @@
 {
     public interface IIdentity
     {
-
     }
 
     public interface IIdentity<TId> : IIdentity

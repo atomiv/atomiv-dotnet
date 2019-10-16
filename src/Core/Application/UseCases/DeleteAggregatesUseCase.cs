@@ -1,7 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Application
 {
-
-    class DeleteAggregatesUseCase
+    internal class DeleteAggregatesUseCase
     {
     }
 }

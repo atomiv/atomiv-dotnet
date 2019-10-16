@@ -20,7 +20,7 @@ namespace Optivem.Framework.Infrastructure.System.Data
 
             var properties = PropertyMapper.GetObjectProperties(record);
 
-            foreach(var property in properties)
+            foreach (var property in properties)
             {
                 var name = property.TypeProperty.Name;
                 var value = property.Value;
@@ -35,7 +35,7 @@ namespace Optivem.Framework.Infrastructure.System.Data
         {
             var dataRows = new List<DataRow>();
 
-            foreach(var record in records)
+            foreach (var record in records)
             {
                 var dataRow = ToDataRow(dataTable, record);
                 dataRows.Add(dataRow);

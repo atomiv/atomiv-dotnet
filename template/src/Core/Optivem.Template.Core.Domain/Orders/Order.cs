@@ -12,7 +12,7 @@ namespace Optivem.Template.Core.Domain.Orders
         private CustomerIdentity _customerId;
         private List<OrderDetail> _orderDetails;
 
-        public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, IEnumerable<OrderDetail> orderDetails) 
+        public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, IEnumerable<OrderDetail> orderDetails)
             : base(id)
         {
             CustomerId = customerId;
@@ -36,12 +36,12 @@ namespace Optivem.Template.Core.Domain.Orders
             get { return _orderDetails.AsReadOnly(); }
             set
             {
-                if(value == null)
+                if (value == null)
                 {
                     throw new ArgumentNullException();
                 }
 
-                if(!value.Any())
+                if (!value.Any())
                 {
                     throw new ArgumentException("There are no order items");
                 }
@@ -52,7 +52,7 @@ namespace Optivem.Template.Core.Domain.Orders
 
         public void AddOrderDetail(OrderDetail orderDetail)
         {
-            if(orderDetail == null)
+            if (orderDetail == null)
             {
                 throw new ArgumentNullException();
             }
@@ -66,7 +66,7 @@ namespace Optivem.Template.Core.Domain.Orders
         {
             var orderDetail = _orderDetails.FirstOrDefault(e => e.Id == orderDetailId);
 
-            if(orderDetail == null)
+            if (orderDetail == null)
             {
                 throw new ArgumentException($"Order detail {orderDetailId} does not exist in the order");
             }
@@ -88,7 +88,5 @@ namespace Optivem.Template.Core.Domain.Orders
         {
             Status = OrderStatus.Cancelled;
         }
-
-
     }
 }

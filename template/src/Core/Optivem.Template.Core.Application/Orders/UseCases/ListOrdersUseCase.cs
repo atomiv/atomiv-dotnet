@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class ListOrdersUseCase : ListAggregatesUseCase<IOrderRepository, ListOrdersRequest, ListOrdersResponse, ListOrdersRecordResponse, Order, OrderIdentity, int>
     {
-        public ListOrdersUseCase(IMapper mapper, IOrderRepository repository) 
+        public ListOrdersUseCase(IMapper mapper, IOrderRepository repository)
             : base(mapper, repository)
         {
         }

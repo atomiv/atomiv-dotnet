@@ -17,7 +17,7 @@
         private UpdateAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregateRepository;
         private UpdateAggregateRootsHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> _updateAggregatesRepository;
 
-        public CrudRepository(TContext context, IMapper mapper, params Expression<Func<TRecord, object>>[] includes) 
+        public CrudRepository(TContext context, IMapper mapper, params Expression<Func<TRecord, object>>[] includes)
             : base(context, mapper, includes)
         {
             _addAggregateRepository = new AddAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>(context, mapper);

@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Common;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,6 +21,7 @@ namespace Optivem.Framework.Infrastructure.MediatR
             return _requestHandler.HandleAsync(request.Request);
         }
     }
+
     public class MediatorRequestHandler : IRequestHandler
     {
         private readonly IMediator _mediator;

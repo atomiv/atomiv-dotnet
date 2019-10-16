@@ -12,7 +12,6 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pag
 
         public static string PageUrl = "https://www.saucedemo.com/checkout-step-two.html";
 
-
         private Button CancelButton => Finder.FindButton(FindBy.CssSelector(".cart_cancel_link"));
 
         private Button FinishButton => Finder.FindButton(FindBy.CssSelector(".cart_button"));

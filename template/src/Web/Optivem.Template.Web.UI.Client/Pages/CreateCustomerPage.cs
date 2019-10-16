@@ -5,7 +5,7 @@ namespace Optivem.Template.Web.UI.Client.Pages
 {
     public class CreateCustomerPage : Page, ICreateCustomerPage
     {
-        public CreateCustomerPage(string url, Driver driver, bool navigateTo = false) 
+        public CreateCustomerPage(string url, Driver driver, bool navigateTo = false)
             : base(driver, $"{url}/customers/create", navigateTo)
         {
         }

@@ -2,8 +2,6 @@
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Products
 {
@@ -26,6 +24,5 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(e => e.ProductName))
                 .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice));
         }
-
     }
 }

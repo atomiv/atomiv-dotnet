@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-using System;
+﻿using System;
 
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers
 {

@@ -76,7 +76,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Fixture.Db.AddRange(_productRecords);
 
-
             _orderRecords = new List<OrderRecord>
             {
                 new OrderRecord
@@ -144,7 +143,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
 
         */
-
 
         [Fact]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
@@ -271,7 +269,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.Equal(orderRecord.OrderDetailRecords.Count, findResponse.OrderDetails.Count);
 
-            for(int i = 0; i < orderRecord.OrderDetailRecords.Count; i++)
+            for (int i = 0; i < orderRecord.OrderDetailRecords.Count; i++)
             {
                 var orderDetailRecord = orderRecord.OrderDetailRecords.ToList()[i];
                 var findResponseDetail = findResponse.OrderDetails[i];
@@ -391,7 +389,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(updateResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
             }
         }
-
 
         [Fact]
         public async Task UpdateOrder_NotExistRequest_ThrowsNotFoundRequestException()

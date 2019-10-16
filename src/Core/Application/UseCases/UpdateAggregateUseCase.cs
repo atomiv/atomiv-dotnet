@@ -13,7 +13,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public UpdateAggregateUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public UpdateAggregateUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

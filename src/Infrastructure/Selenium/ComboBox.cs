@@ -7,7 +7,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class ComboBox : Element, IComboBox
     {
-        public ComboBox(IWebElement element) 
+        public ComboBox(IWebElement element)
             : base(element)
         {
         }
@@ -65,7 +65,6 @@ namespace Optivem.Framework.Infrastructure.Selenium
             return WebElement.FindElements(By.TagName("option"));
         }
     }
-
 
     // TODO: VC: DELETE
 

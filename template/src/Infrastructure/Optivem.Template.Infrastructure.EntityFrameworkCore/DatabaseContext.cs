@@ -21,6 +21,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
 
         // Orders
         public virtual DbSet<OrderDetailRecord> OrderDetailRecords { get; set; }
+
         public virtual DbSet<OrderDetailStatusRecord> OrderDetailStatusRecords { get; set; }
         public virtual DbSet<OrderRecord> OrderRecords { get; set; }
         public virtual DbSet<OrderStatusRecord> OrderStatusRecords { get; set; }
@@ -55,17 +56,16 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
             SeedEnumRecords<OrderDetailStatusRecord, OrderDetailStatus>(modelBuilder, e => new OrderDetailStatusRecord { Id = (byte)e, Code = e.ToString() });
         }
 
-        private void SeedRecords<TRecord>(ModelBuilder modelBuilder, List<TRecord> data) 
+        private void SeedRecords<TRecord>(ModelBuilder modelBuilder, List<TRecord> data)
             where TRecord : class
         {
             modelBuilder.Entity<TRecord>().HasData(data);
         }
 
         // TODO: VC: ENum entities could inherit from base which has the property Code
-        private void SeedEnumRecords<TRecord, TEnum>(ModelBuilder modelBuilder, Func<TEnum, TRecord> converter) 
+        private void SeedEnumRecords<TRecord, TEnum>(ModelBuilder modelBuilder, Func<TEnum, TRecord> converter)
             where TRecord : class
         {
-
             var values = Enum.GetValues(typeof(TEnum)).Cast<TEnum>();
 
             var records = values.Select(converter).ToList();

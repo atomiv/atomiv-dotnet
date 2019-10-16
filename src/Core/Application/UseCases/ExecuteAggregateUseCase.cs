@@ -38,7 +38,7 @@ namespace Optivem.Framework.Core.Application.UseCases
             {
                 Execute(request, aggregateRoot);
             }
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 throw new ApplicationException(ex.Message, ex);
             }

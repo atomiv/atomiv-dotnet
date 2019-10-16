@@ -13,7 +13,7 @@ namespace Optivem.Framework.Core.Application
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity<TId>
     {
-        public BrowseAggregatesUseCase(IMapper mapper, TRepository repository) 
+        public BrowseAggregatesUseCase(IMapper mapper, TRepository repository)
             : base(mapper, repository)
         {
         }

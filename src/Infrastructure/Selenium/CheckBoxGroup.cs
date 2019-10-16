@@ -6,7 +6,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
 {
     public class CheckBoxGroup : ElementCollection<CheckBox>, ICheckBoxGroup
     {
-        public CheckBoxGroup(IEnumerable<CheckBox> elements) 
+        public CheckBoxGroup(IEnumerable<CheckBox> elements)
             : base(elements)
         {
         }
@@ -44,9 +44,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
         }
     }
 
-
     // TODO: VC: DELETE
-
 
     /*
 
@@ -55,7 +53,7 @@ namespace Optivem.Framework.Infrastructure.Selenium
         private Dictionary<string, T> _map;
         private Dictionary<T, string> _reverseMap;
 
-        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map) 
+        public CheckBoxGroup(ReadOnlyCollection<IWebElement> elements, Dictionary<string, T> map)
             : base(elements)
         {
             _map = map;

@@ -4,7 +4,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 {
     public class LoginPage : Page, ILoginPage
     {
-        public LoginPage(Driver finder, bool navigateTo = false) 
+        public LoginPage(Driver finder, bool navigateTo = false)
             : base(finder, PageUrl, navigateTo)
         {
         }

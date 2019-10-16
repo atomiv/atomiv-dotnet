@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public class ExistsAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId> 
+    public class ExistsAggregateRootHandler<TContext, TAggregateRoot, TIdentity, TRecord, TId>
         : RecordHandler<TContext, ExistsAggregateRootRequest<TAggregateRoot, TIdentity>, ExistsAggregateRootResponse, TRecord>
         where TContext : DbContext
         where TAggregateRoot : class, IAggregateRoot<TIdentity>

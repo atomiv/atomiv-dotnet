@@ -26,7 +26,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.In
         List<IProductRecord> ReadProductRecords();
 
         IProductComponent GetProductComponentAtPosition(int position);
-        
+
         void AddToCart(string productName);
 
         void ClickCart();

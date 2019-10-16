@@ -6,7 +6,7 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
 {
     public class DbTestClient<TContext> where TContext : DbContext
     {
-        public DbTestClient(IFactory<TContext> contextFactory) 
+        public DbTestClient(IFactory<TContext> contextFactory)
         {
             ContextFactory = contextFactory;
         }
@@ -44,7 +44,6 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
             }
         }
 
-
         public void AddRange<T>(IEnumerable<T> entities) where T : class
         {
             using (var context = CreateContext())
@@ -53,6 +52,7 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
                 context.SaveChanges();
             }
         }
+
         public void RemoveRange<T>(IEnumerable<T> entities) where T : class
         {
             using (var context = CreateContext())
@@ -61,6 +61,5 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
                 context.SaveChanges();
             }
         }
-
     }
 }

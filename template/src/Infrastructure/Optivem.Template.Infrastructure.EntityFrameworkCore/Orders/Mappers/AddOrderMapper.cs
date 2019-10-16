@@ -1,9 +1,6 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Orders;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {

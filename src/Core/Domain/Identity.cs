@@ -14,7 +14,7 @@ namespace Optivem.Framework.Core.Domain
 
         public int CompareTo(Identity<TId> other)
         {
-            if(ReferenceEquals(other, null))
+            if (ReferenceEquals(other, null))
             {
                 return 1;
             }
@@ -39,7 +39,7 @@ namespace Optivem.Framework.Core.Domain
                 return false;
             }
 
-            if(ReferenceEquals(Id, null) && ReferenceEquals(other.Id, null))
+            if (ReferenceEquals(Id, null) && ReferenceEquals(other.Id, null))
             {
                 return true;
             }
@@ -69,22 +69,22 @@ namespace Optivem.Framework.Core.Domain
             return Equals(a, b);
         }
 
-        public static bool operator!=(Identity<TId> a, Identity<TId> b)
+        public static bool operator !=(Identity<TId> a, Identity<TId> b)
         {
             return !Equals(a, b);
         }
 
-        public static bool operator<(Identity<TId> a, Identity<TId> b)
+        public static bool operator <(Identity<TId> a, Identity<TId> b)
         {
             return CompareTo(a, b) < 0;
         }
 
-        public static bool operator>(Identity<TId> a, Identity<TId> b)
+        public static bool operator >(Identity<TId> a, Identity<TId> b)
         {
             return CompareTo(a, b) > 0;
         }
 
-        public static bool operator<=(Identity<TId> a, Identity<TId> b)
+        public static bool operator <=(Identity<TId> a, Identity<TId> b)
         {
             return CompareTo(a, b) <= 0;
         }

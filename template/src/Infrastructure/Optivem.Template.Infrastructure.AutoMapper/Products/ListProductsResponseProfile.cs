@@ -13,7 +13,6 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
             CreateMap<IEnumerable<Product>, ListProductsResponse>()
                 .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
                 .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.Count()));
-
         }
     }
 

@@ -38,7 +38,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact(Skip = "In progress")]
         public async Task BrowseProducts_Valid_OK()
         {
-            for(int i = 0; i < 30; i++)
+            for (int i = 0; i < 30; i++)
             {
                 var productRecord = new ProductRecord
                 {
@@ -71,7 +71,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var expected = _productRecords.Skip(skip).Take(take).ToList();
 
-            for(int i = 0; i < expected.Count; i++)
+            for (int i = 0; i < expected.Count; i++)
             {
                 var expectedRecord = expected[i];
                 var actualRecord = browseResponseContent.Records[i];
@@ -81,7 +81,6 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(expectedRecord.ListPrice, actualRecord.UnitPrice);
             }
         }
-
 
         [Fact(Skip = "In progress")]
         public async Task CreateProduct_Invalid_UnprocessableEntity()
@@ -103,8 +102,6 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
         }
-
-
 
         [Fact]
         public async Task ListProducts_Valid_OK()
@@ -199,8 +196,6 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.Description, findResponseContent.Description);
             Assert.Equal(createRequest.UnitPrice, findResponseContent.UnitPrice);
         }
-
-
 
         [Fact(Skip = "Pending implement")]
         public async Task UpdateProduct_Valid_OK()

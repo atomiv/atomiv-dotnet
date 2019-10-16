@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class FindOrderUseCase : FindAggregateUseCase<IOrderRepository, FindOrderRequest, FindOrderResponse, Order, OrderIdentity, int>
     {
-        public FindOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public FindOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }

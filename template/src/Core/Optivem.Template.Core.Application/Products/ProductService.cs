@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Application.Products
 {
     public class ProductService : BaseService, IProductService
     {
-        public ProductService(IRequestHandler requestHandler) 
+        public ProductService(IRequestHandler requestHandler)
             : base(requestHandler)
         {
         }

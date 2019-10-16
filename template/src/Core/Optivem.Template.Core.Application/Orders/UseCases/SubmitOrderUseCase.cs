@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class SubmitOrderUseCase : ExecuteAggregateUseCase<IOrderRepository, SubmitOrderRequest, SubmitOrderResponse, Order, OrderIdentity, int>
     {
-        public SubmitOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork) 
+        public SubmitOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork)
             : base(mapper, unitOfWork)
         {
         }
