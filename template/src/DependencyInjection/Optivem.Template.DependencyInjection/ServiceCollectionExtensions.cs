@@ -29,7 +29,6 @@ namespace Optivem.Template.DependencyInjection
             var infrastructureModuleTypes = new List<Type>
             {
                 typeof(Infrastructure.AutoMapper.Module),
-                typeof(Infrastructure.AutoMapper.EntityFrameworkCore.Module),
                 typeof(Infrastructure.EntityFrameworkCore.Module),
                 typeof(Infrastructure.FluentValidation.Module),
                 typeof(Infrastructure.MediatR.Module),

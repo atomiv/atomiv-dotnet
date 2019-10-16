@@ -185,8 +185,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Cli.Integr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Cli", "template\src\Cli\Optivem.Template.Cli\Optivem.Template.Cli.csproj", "{E0D7C883-EF31-4231-989F-73053E048B17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore", "template\src\Infrastructure\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore\Optivem.Template.Infrastructure.AutoMapper.EntityFrameworkCore.csproj", "{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{5D4A7AC1-3784-400B-B560-2551CDE174D4}"
 EndProject
 Global
@@ -459,10 +457,6 @@ Global
 		{E0D7C883-EF31-4231-989F-73053E048B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0D7C883-EF31-4231-989F-73053E048B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0D7C883-EF31-4231-989F-73053E048B17}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -561,7 +555,6 @@ Global
 		{D223067D-2094-4782-B9DE-2824DD87A97D} = {AC63F853-51D6-464A-9D51-CE421A323541}
 		{9325DCE9-E847-4F15-9F0F-EFCB797B862D} = {D223067D-2094-4782-B9DE-2824DD87A97D}
 		{E0D7C883-EF31-4231-989F-73053E048B17} = {21F19882-BAA6-413E-AF16-E298FF09999D}
-		{DC1DA49D-2E40-4FFF-81BA-B2E8CE2A4500} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
