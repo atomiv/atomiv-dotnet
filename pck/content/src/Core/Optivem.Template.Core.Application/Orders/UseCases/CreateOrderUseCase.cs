@@ -1,28 +1,73 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Mappers;
+using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
-using System;
+using Optivem.Template.Core.Domain.Products;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
     public class CreateOrderUseCase : CreateAggregateUseCase<IOrderRepository, CreateOrderRequest, CreateOrderResponse, Order, OrderIdentity, int>
     {
-        public CreateOrderUseCase(IUseCaseMapper mapper, IUnitOfWork unitOfWork) 
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IProductRepository _productRepository;
+
+        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository)
             : base(mapper, unitOfWork)
         {
+            _customerRepository = customerRepository;
+            _productRepository = productRepository;
         }
 
-        protected override Order CreateAggregateRoot(CreateOrderRequest request)
+        protected override async Task<Order> CreateAggregateRootAsync(CreateOrderRequest request)
         {
-            throw new NotImplementedException();
+            var customerId = new CustomerIdentity(request.CustomerId);
+
+            var customer = await _customerRepository.FindAsync(customerId);
+
+            if (customer == null)
+            {
+                throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
+            }
+
+            var orderDetails = new List<OrderDetail>();
+
+            for (int i = 0; i < request.OrderDetails.Count; i++)
+            {
+                var requestOrderDetail = request.OrderDetails[i];
+
+                try
+                {
+                    var orderDetail = await CreateAsync(requestOrderDetail);
+                    orderDetails.Add(orderDetail);
+                }
+                catch (InvalidRequestException ex)
+                {
+                    var position = i + 1;
+                    throw new InvalidRequestException($"Order detail at position {position} is invalid", ex);
+                }
+            }
+
+            return OrderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
-        protected override Order CreateAggregateRoot(Order aggregateRoot, OrderIdentity identity)
+        private async Task<OrderDetail> CreateAsync(CreateOrderRequest.OrderDetail requestOrderDetail)
         {
-            throw new NotImplementedException();
+            var productId = new ProductIdentity(requestOrderDetail.ProductId);
+            var product = await _productRepository.FindAsync(productId);
+
+            if (product == null)
+            {
+                throw new InvalidRequestException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
+            }
+
+            var quantity = requestOrderDetail.Quantity;
+
+            return OrderFactory.CreateNewOrderDetail(product, quantity);
         }
     }
 }

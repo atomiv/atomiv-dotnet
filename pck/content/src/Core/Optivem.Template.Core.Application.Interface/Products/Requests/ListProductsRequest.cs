@@ -1,8 +1,9 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
+using Optivem.Template.Core.Application.Products.Responses;
 
 namespace Optivem.Template.Core.Application.Products.Requests
 {
-    public class ListProductsRequest : IRequest
+    public class ListProductsRequest : IRequest<ListProductsResponse>
     {
     }
 }

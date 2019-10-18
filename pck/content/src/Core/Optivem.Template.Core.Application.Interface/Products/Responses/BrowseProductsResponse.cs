@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Products.Responses
@@ -7,10 +7,10 @@ namespace Optivem.Template.Core.Application.Products.Responses
     {
         public List<BrowseProductsRecordResponse> Records { get; set; }
 
-        public int Count { get; set; }
+        public int TotalRecords { get; set; }
     }
 
-    public class BrowseProductsRecordResponse : IResponse<int>
+    public class BrowseProductsRecordResponse
     {
         public int Id { get; set; }
 
@@ -19,5 +19,7 @@ namespace Optivem.Template.Core.Application.Products.Responses
         public string Description { get; set; }
 
         public decimal UnitPrice { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

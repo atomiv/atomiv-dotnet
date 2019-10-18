@@ -4,7 +4,9 @@ namespace Optivem.Template.Core.Domain.Products
 {
     public class ProductIdentity : Identity<int>
     {
-        public ProductIdentity(int id) 
+        public static ProductIdentity Null = new ProductIdentity(0);
+
+        public ProductIdentity(int id)
             : base(id)
         {
         }

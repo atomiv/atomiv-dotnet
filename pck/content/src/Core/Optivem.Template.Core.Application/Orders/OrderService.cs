@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Services;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders
 {
@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Orders
 
         public Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request)
         {
-            return HandleAsync<FindOrderRequest, FindOrderResponse> (request);
+            return HandleAsync<FindOrderRequest, FindOrderResponse>(request);
         }
 
         public Task<ListOrdersResponse> ListOrdersAsync(ListOrdersRequest request)
@@ -44,12 +44,12 @@ namespace Optivem.Template.Core.Application.Orders
 
         public Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
         {
-            return HandleAsync<SubmitOrderRequest, SubmitOrderResponse> (request);
+            return HandleAsync<SubmitOrderRequest, SubmitOrderResponse>(request);
         }
 
         public Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            return HandleAsync<UpdateOrderRequest, UpdateOrderResponse> (request);
+            return HandleAsync<UpdateOrderRequest, UpdateOrderResponse>(request);
         }
     }
 }

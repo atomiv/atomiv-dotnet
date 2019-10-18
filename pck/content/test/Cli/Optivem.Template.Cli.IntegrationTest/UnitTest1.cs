@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Optivem.Template.Cli.IntegrationTest
@@ -8,7 +7,6 @@ namespace Optivem.Template.Cli.IntegrationTest
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

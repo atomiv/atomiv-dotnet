@@ -29,7 +29,7 @@ namespace Optivem.Template.Web.UI.Services.Fake
                 },
             };
 
-            return Task.FromResult((IList<Customer>) customers);
+            return Task.FromResult((IList<Customer>)customers);
         }
     }
 }

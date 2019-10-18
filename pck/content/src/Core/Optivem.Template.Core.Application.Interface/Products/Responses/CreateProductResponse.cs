@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 
 namespace Optivem.Template.Core.Application.Products.Responses
 {
@@ -11,5 +11,7 @@ namespace Optivem.Template.Core.Application.Products.Responses
         public string Description { get; set; }
 
         public decimal UnitPrice { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

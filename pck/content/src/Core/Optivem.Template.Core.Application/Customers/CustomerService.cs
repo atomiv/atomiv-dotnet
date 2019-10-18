@@ -1,5 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Services;
+using Optivem.Framework.Core.Common;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using System.Threading.Tasks;
@@ -41,6 +41,5 @@ namespace Optivem.Template.Core.Application.Customers
         {
             return HandleAsync<UpdateCustomerRequest, UpdateCustomerResponse>(request);
         }
-
     }
 }

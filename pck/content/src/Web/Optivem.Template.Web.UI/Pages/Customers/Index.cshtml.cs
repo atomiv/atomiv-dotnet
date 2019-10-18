@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Optivem.Framework.Web.AspNetCore.RazorPages;
+﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
 using Optivem.Template.Web.UI.Models;
 using Optivem.Template.Web.UI.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.UI.Pages.Customers
 {
@@ -21,7 +21,7 @@ namespace Optivem.Template.Web.UI.Pages.Customers
             {
                 Customers = await Service.ListCustomers();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }

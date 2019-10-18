@@ -15,9 +15,9 @@ namespace Optivem.Template.Web.RestClient.Interface
 
         Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductsRequest request);
 
-        Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request);
+        Task<IObjectClientResponse<ActivateProductResponse>> RelistProductAsync(ActivateProductRequest request);
 
-        Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request);
+        Task<IObjectClientResponse<DeactivateProductResponse>> UnlistProductAsync(DeactivateProductRequest request);
 
         Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request);
     }

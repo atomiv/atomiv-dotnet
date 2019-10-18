@@ -13,7 +13,7 @@ namespace Optivem.Template.Core.Domain.UnitTest.Products
             var name = "My name";
             decimal price = 10.50m;
 
-            var product = new Product(identity, code, name, price);
+            var product = new Product(identity, code, name, price, true);
 
             Assert.Equal(identity, product.Id);
             Assert.Equal(code, product.ProductCode);

@@ -20,13 +20,13 @@ namespace Optivem.Template.DependencyInjection
     {
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
         {
-            var coreModules = new List<Type>
+            var coreModuleTypes = new List<Type>
             {
                 typeof(Core.Application.Module),
                 typeof(Core.Domain.Module),
             };
 
-            var infrastructureModules = new List<Type>
+            var infrastructureModuleTypes = new List<Type>
             {
                 typeof(Infrastructure.AutoMapper.Module),
                 typeof(Infrastructure.EntityFrameworkCore.Module),
@@ -34,11 +34,11 @@ namespace Optivem.Template.DependencyInjection
                 typeof(Infrastructure.MediatR.Module),
             };
 
-            var modules = new List<Type>();
-            modules.AddRange(coreModules);
-            modules.AddRange(infrastructureModules);
+            var moduleTypes = new List<Type>();
+            moduleTypes.AddRange(coreModuleTypes);
+            moduleTypes.AddRange(infrastructureModuleTypes);
 
-            var assemblies = modules.Select(e => e.Assembly).ToArray();
+            var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
 
             // var assemblies = null;
 

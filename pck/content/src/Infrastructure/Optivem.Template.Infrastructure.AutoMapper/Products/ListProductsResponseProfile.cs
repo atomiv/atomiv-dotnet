@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products;
 using System.Collections.Generic;
@@ -13,8 +12,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
         {
             CreateMap<IEnumerable<Product>, ListProductsResponse>()
                 .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
-                .ForMember(dest => dest.Count, opt => opt.MapFrom(e => e.Count()));
-
+                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.Count()));
         }
     }
 
@@ -23,7 +21,6 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
         public ListProductsRecordResponseProfile()
         {
             CreateMap<Product, ListProductsRecordResponse>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.Id.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(e => $"{e.ProductCode} - {e.ProductName}"));
         }
     }

@@ -16,7 +16,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         {
         }
 
-        [HttpGet(Name ="list-customers")]
+        [HttpGet(Name = "list-customers")]
         [ProducesResponseType(typeof(ListCustomersResponse), 200)]
         public async Task<ActionResult<ListCustomersResponse>> ListCustomersAsync()
         {
@@ -36,7 +36,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPost(Name ="create-customer")]
+        [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerResponse), 201)]
         public async Task<ActionResult<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {

@@ -9,7 +9,7 @@ namespace Optivem.Template.Web.RestClient.Http
 {
     public class ProductHttpService : BaseControllerClient, IProductHttpService
     {
-        public ProductHttpService(IControllerClientFactory clientFactory) 
+        public ProductHttpService(IControllerClientFactory clientFactory)
             : base(clientFactory, "api/products")
         {
         }
@@ -35,14 +35,14 @@ namespace Optivem.Template.Web.RestClient.Http
             return Client.GetAsync<ListProductsResponse>("list");
         }
 
-        public Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request)
+        public Task<IObjectClientResponse<ActivateProductResponse>> RelistProductAsync(ActivateProductRequest request)
         {
-            return Client.PostAsync<RelistProductRequest, RelistProductResponse>(request);
+            return Client.PostAsync<ActivateProductRequest, ActivateProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request)
+        public Task<IObjectClientResponse<DeactivateProductResponse>> UnlistProductAsync(DeactivateProductRequest request)
         {
-            return Client.PostAsync<UnlistProductRequest, UnlistProductResponse>(request);
+            return Client.PostAsync<DeactivateProductRequest, DeactivateProductResponse>(request);
         }
 
         public Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request)

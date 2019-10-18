@@ -14,11 +14,11 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.16" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.16" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.16" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.System" Version="1.0.16" />
-    <PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.16" />
+    <PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.17" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.17" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.17" />
+    <PackageReference Include="Optivem.Framework.Infrastructure.System" Version="1.0.17" />
+    <PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.17" />
   </ItemGroup>
 
 

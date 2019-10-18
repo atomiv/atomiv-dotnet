@@ -5,7 +5,7 @@ namespace Optivem.Template.Core.Domain.Orders
 {
     public class OrderDetail : Entity<OrderDetailIdentity>
     {
-        public OrderDetail(OrderDetailIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderDetailStatus status) 
+        public OrderDetail(OrderDetailIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderDetailStatus status)
             : base(id)
         {
             ProductId = productId;
@@ -14,11 +14,17 @@ namespace Optivem.Template.Core.Domain.Orders
             Status = status;
         }
 
-        public ProductIdentity ProductId { get; set; }
+        public ProductIdentity ProductId { get; private set; }
+
+        public decimal UnitPrice { get; private set; }
+
+        public void SetProduct(Product product)
+        {
+            ProductId = product.Id;
+            UnitPrice = product.ListPrice;
+        }
 
         public decimal Quantity { get; set; }
-
-        public decimal UnitPrice { get; set; }
 
         public OrderDetailStatus Status { get; }
     }

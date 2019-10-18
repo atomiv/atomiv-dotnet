@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Records;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -26,18 +26,72 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 {
                     FirstName = "John",
                     LastName = "McDonald",
-                }
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Rob",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Molly",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Jake",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Mark",
+                    LastName = "McDonald",
+                },
+
+                new CustomerRecord
+                {
+                    FirstName = "Susan",
+                    LastName = "McDonald",
+                },
             };
 
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
         {
-            var browseRequest = new BrowseCustomersRequest { };
+            var browseRequest = new BrowseCustomersRequest
+            {
+                Page = 2,
+                Size = 3,
+            };
+
+            var expectedRecords = new List<CustomerRecord>
+            {
+                _customerRecords[3],
+                _customerRecords[4],
+                _customerRecords[5],
+            };
 
             var browseResponse = await Fixture.Customers.BrowseCustomersAsync(browseRequest);
+
+            Assert.Equal(_customerRecords.Count, browseResponse.TotalRecords);
+            Assert.Equal(expectedRecords.Count, browseResponse.Records.Count);
+
+            for (int i = 0; i < expectedRecords.Count; i++)
+            {
+                var expectedRecord = expectedRecords[i];
+                var responseRecord = browseResponse.Records[i];
+
+                Assert.Equal(expectedRecord.Id, responseRecord.Id);
+                Assert.Equal(expectedRecord.FirstName, responseRecord.FirstName);
+                Assert.Equal(expectedRecord.LastName, responseRecord.LastName);
+            }
         }
 
         [Fact]
@@ -92,7 +146,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = 999;
 
             var deleteRequest = new DeleteCustomerRequest { Id = id };
-            
+
             await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Customers.DeleteCustomerAsync(deleteRequest));
         }
 
@@ -127,9 +181,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var actualResponse = await Fixture.Customers.ListCustomersAsync(request);
 
-            Assert.Equal(_customerRecords.Count, actualResponse.Count);
+            Assert.Equal(_customerRecords.Count, actualResponse.TotalRecords);
 
-            for(int i = 0; i < _customerRecords.Count; i++)
+            for (int i = 0; i < _customerRecords.Count; i++)
             {
                 var expectedRecord = _customerRecords[i];
                 var actualRecord = actualResponse.Records[i];

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Infrastructure.AutoMapper;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
         {
             CreateMap<IEnumerable<Customer>, ListCustomersResponse>()
                 .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
-                .ForMember(dest => dest.Count, opt => opt.MapFrom(e => e.Count()));
+                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.Count()));
         }
     }
 
