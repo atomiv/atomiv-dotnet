@@ -78,6 +78,16 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         }
 
         [Fact]
+        public void TestEquals9()
+        {
+            var a = new Identity<int>(5);
+            var b = 5;
+
+            // TODO: VC: Check
+            Assert.False(a.Equals(b));
+        }
+
+        [Fact]
         public void TestEqualsOperator1()
         {
             var a = new Identity<int>(5);
