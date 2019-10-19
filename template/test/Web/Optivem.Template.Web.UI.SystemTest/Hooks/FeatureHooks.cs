@@ -22,7 +22,7 @@ namespace Optivem.Template.Web.UI.SystemTest.Hooks
             {
                 await _webFixture.Start();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _webFixture.Dispose();
                 await _webFixture.EnsureNotRunning();

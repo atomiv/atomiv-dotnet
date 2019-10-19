@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controllers
 {
     [Route("api/exceptions")]
-    public class ExceptionsController
+    public class ExceptionsController : ControllerBase
     {
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -24,7 +24,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controll
             }
             else if (id == 400)
             {
-                BadHttpRequestException.Throw(RequestRejectionReason.InvalidContentLength, HttpMethod.Get);
+                return BadRequest();
             }
 
             return "value";

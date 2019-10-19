@@ -21,7 +21,7 @@ namespace Optivem.Template.Web.UI.Pages.Customers
             {
                 Customers = await Service.ListCustomers();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
