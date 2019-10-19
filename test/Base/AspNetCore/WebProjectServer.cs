@@ -17,7 +17,7 @@ namespace Optivem.Framework.Test.AspNetCore
 
         private const int Pause = 1000;
 
-        public WebProjectServer(WebProjectPaths paths, string url, int port, string pingPath, WebPinger pinger)
+        public WebProjectServer(WebProjectPaths paths, string url, int port, string pingPath, WebPinger pinger, string environment)
         {
             Paths = paths;
             Url = url;
@@ -27,7 +27,7 @@ namespace Optivem.Framework.Test.AspNetCore
 
             // _projectPublisher = new WebProjectPublisher(Paths);
             // _projectRunner = new WebProjectRunner(Paths);
-            _projectDotNetRunner = new WebProjectDotNetRunner(Paths);
+            _projectDotNetRunner = new WebProjectDotNetRunner(Paths, environment);
 
             _portTerminator = new WebPortTerminator();
         }

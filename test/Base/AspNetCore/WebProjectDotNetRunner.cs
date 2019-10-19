@@ -6,15 +6,18 @@ namespace Optivem.Framework.Test.AspNetCore
     public class WebProjectDotNetRunner : BaseProcessRunner
     {
         private const string DotNet = "dotnet";
-        private const string Environment = "--environment Staging";
+        private const string Environment = "--environment";
 
-        public WebProjectDotNetRunner(WebProjectPaths paths)
+        public WebProjectDotNetRunner(WebProjectPaths paths, string environmentName)
             : base(false)
         {
             Paths = paths;
+            EnvironmentName = environmentName;
         }
 
         public WebProjectPaths Paths { get; }
+
+        public string EnvironmentName { get; }
 
         protected override Process CreateProcess()
         {
@@ -22,7 +25,7 @@ namespace Optivem.Framework.Test.AspNetCore
             {
                 // WorkingDirectory = Paths.ProjectDirectoryPath,
                 FileName = DotNet,
-                Arguments = $"run --project {Paths.ProjectFilePath} {Environment}",
+                Arguments = $"run --project {Paths.ProjectFilePath} {Environment} {EnvironmentName}",
                 UseShellExecute = false,
                 CreateNoWindow = false,
                 RedirectStandardOutput = true,

@@ -40,8 +40,10 @@ namespace Optivem.Template.Web.UI.SystemTest.Fixtures
             var webApiPaths = new WebProjectPaths(webApiDir, webApiFilePath, webApiPublishDir, webApiDllName);
             var webUiPaths = new WebProjectPaths(webUiDir, webUiFilePath, webUiPublishDir, webUiDllName);
 
-            WebApi = new WebProjectServer(webApiPaths, webApiUrl, webApiPort, webApiPingUrl, pinger);
-            WebUI = new WebProjectServer(webUiPaths, webUiUrl, webUiPort, webUiPingUrl, pinger);
+            var environment = "Staging";
+
+            WebApi = new WebProjectServer(webApiPaths, webApiUrl, webApiPort, webApiPingUrl, pinger, environment);
+            WebUI = new WebProjectServer(webUiPaths, webUiUrl, webUiPort, webUiPingUrl, pinger, environment);
         }
 
         public WebProjectServer WebApi { get; }
