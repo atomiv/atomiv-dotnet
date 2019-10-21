@@ -16,8 +16,8 @@ install:
 before_build:
 - ps: Get-Location
 - ps: .\configure.ps1
-- ps: .\install-cert.ps1 -rootPath 'C:\projects\framework-dotnetcore' -certFriendlyName 'Localhost2 Certificate for .NET Core' -certFileName 'localhost2'
-- ps: .\install-cert.ps1 -rootPath 'C:\projects\framework-dotnetcore' -certFriendlyName 'Localhost3 Certificate for .NET Core' -certFileName 'localhost3'
+- ps: .\install-cert.ps1 -certFriendlyName 'Localhost2 Certificate for .NET Core' -certFileName 'localhost2'
+- ps: .\install-cert.ps1 -certFriendlyName 'Localhost3 Certificate for .NET Core' -certFileName 'localhost3'
 - ps: Get-Location
 - ps: dotnet restore
 - ps: nuget restore
