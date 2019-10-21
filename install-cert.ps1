@@ -14,6 +14,10 @@ Write-Host "Root path: $rootPath"
 Write-Host "Certificate friendly name: $certFriendlyName"
 Write-Host "Certificate file name: $certFileName"
 
+Write-Host "Resolving root path..."
+$rootPath = Resolve-Path $rootPath
+Write-Host "Root path: $rootPath"
+
 # setup certificate properties including the commonName (DNSName) property for Chrome 58+
 $certificate = New-SelfSignedCertificate `
     -Subject localhost `
