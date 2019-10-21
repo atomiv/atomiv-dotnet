@@ -11,7 +11,7 @@ param (
 Write-Host "Generating Localhost Certificate for .NET Core..."
 
 Write-Host "Root path: $rootPath"
-Write-Host "Certificate friendly name: $rootPath"
+Write-Host "Certificate friendly name: $certFriendlyName"
 Write-Host "Certificate file name: $certFileName"
 
 # setup certificate properties including the commonName (DNSName) property for Chrome 58+
