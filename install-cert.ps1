@@ -10,6 +10,10 @@ param (
 
 Write-Host "Generating Localhost Certificate for .NET Core..."
 
+Write-Host "Root path: $rootPath"
+Write-Host "Certificate friendly name: $rootPath"
+Write-Host "Certificate file name: $certFileName"
+
 # setup certificate properties including the commonName (DNSName) property for Chrome 58+
 $certificate = New-SelfSignedCertificate `
     -Subject localhost `
@@ -23,6 +27,8 @@ $certificate = New-SelfSignedCertificate `
     -HashAlgorithm SHA256 `
     -KeyUsage DigitalSignature, KeyEncipherment, DataEncipherment `
     -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1") 
+
+Write-Host $certificate
 	
 $certificatePath = 'Cert:\LocalMachine\My\' + ($certificate.ThumbPrint)  
 
@@ -30,6 +36,9 @@ $certificatePath = 'Cert:\LocalMachine\My\' + ($certificate.ThumbPrint)
 $pfxPassword = ConvertTo-SecureString -String "YourSecurePassword" -Force -AsPlainText
 $pfxFilePath = "$rootPath\template\src\Web\Optivem.Template.Web.RestApi\$certFileName.pfx"
 $cerFilePath = "$rootPath\template\src\Web\Optivem.Template.Web.RestApi\$certFileName.cer"
+
+Write-Host $pfxFilePath
+Write-Host $cerFilePath
 
 Write-Host "Exporting..."
 
