@@ -1,5 +1,6 @@
 param (
  [String]$rootPath='.',
+ [String]$targetPath,
  [String]$certFriendlyName,
  [String]$certFileName
 )
@@ -38,8 +39,8 @@ $certificatePath = 'Cert:\LocalMachine\My\' + ($certificate.ThumbPrint)
 
 # set certificate password here
 $pfxPassword = ConvertTo-SecureString -String "YourSecurePassword" -Force -AsPlainText
-$pfxFilePath = "$rootPath\template\src\Web\Optivem.Template.Web.RestApi\$certFileName.pfx"
-$cerFilePath = "$rootPath\template\src\Web\Optivem.Template.Web.RestApi\$certFileName.cer"
+$pfxFilePath = "$rootPath\$targetPath\$certFileName.pfx"
+$cerFilePath = "$rootPath\$targetPath\$certFileName.cer"
 
 Write-Host $pfxFilePath
 Write-Host $cerFilePath
