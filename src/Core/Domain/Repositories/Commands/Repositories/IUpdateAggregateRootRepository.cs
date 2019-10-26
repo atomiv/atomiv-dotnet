@@ -7,6 +7,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        Task UpdateAsync(TAggregateRoot aggregateRoot);
+        Task<TAggregateRoot> UpdateAsync(TAggregateRoot aggregateRoot);
     }
 }

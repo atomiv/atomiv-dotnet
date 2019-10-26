@@ -36,7 +36,7 @@ namespace Optivem.Framework.Core.Application
 
             try
             {
-                await repository.UpdateAsync(aggregateRoot);
+                aggregateRoot = await repository.UpdateAsync(aggregateRoot);
                 await UnitOfWork.SaveChangesAsync();
                 var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
                 return response;

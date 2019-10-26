@@ -24,7 +24,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         public override async Task<ListAggregateRootsResponse<TAggregateRoot>> HandleAsync(ListAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
             var records = await ReadonlyQueryable.ToListAsync();
-            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Create(e)).ToList();
+            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Map(e)).ToList();
             return new ListAggregateRootsResponse<TAggregateRoot>(aggregateRoots);
         }
     }

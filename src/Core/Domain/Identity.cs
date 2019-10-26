@@ -2,7 +2,7 @@
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class Identity<TId> : IIdentity<TId>, IComparable<Identity<TId>>
+    public class Identity<TId> : IIdentity<TId>, IEquatable<IIdentity<TId>>, IComparable<IIdentity<TId>> 
         where TId : IEquatable<TId>, IComparable<TId>
     {
         public Identity(TId id)
@@ -12,56 +12,30 @@ namespace Optivem.Framework.Core.Domain
 
         public TId Id { get; }
 
-        public int CompareTo(Identity<TId> other)
-        {
-            if (ReferenceEquals(other, null))
-            {
-                return 1;
-            }
-
-            return Id.CompareTo(other.Id);
-        }
-
         public bool Equals(IIdentity<TId> other)
         {
-            if (ReferenceEquals(other, null))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (this.GetType() != other.GetType())
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(Id, null) && ReferenceEquals(other.Id, null))
-            {
-                return true;
-            }
-
-            return Id.Equals(other.Id);
+            return Equals(this, other);
         }
 
         public override bool Equals(object other)
         {
             var otherIdentity = other as IIdentity<TId>;
-
-            if (otherIdentity == null)
-            {
-                return false;
-            }
-
             return Equals(otherIdentity);
         }
 
         public override int GetHashCode()
         {
+            if(ReferenceEquals(Id, null))
+            {
+                return 0;
+            }
+
             return Id.GetHashCode();
+        }
+
+        public int CompareTo(IIdentity<TId> other)
+        {
+            return CompareTo(this, other);
         }
 
         public static bool operator ==(Identity<TId> a, Identity<TId> b)
@@ -94,7 +68,7 @@ namespace Optivem.Framework.Core.Domain
             return CompareTo(a, b) >= 0;
         }
 
-        private static bool Equals(Identity<TId> a, Identity<TId> b)
+        private static bool Equals(IIdentity<TId> a, IIdentity<TId> b)
         {
             if (ReferenceEquals(a, b))
             {
@@ -111,10 +85,30 @@ namespace Optivem.Framework.Core.Domain
                 return false;
             }
 
-            return a.Equals(b);
+            if (a.GetType() != b.GetType())
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(a.Id, b.Id))
+            {
+                return true;
+            }
+
+            if(ReferenceEquals(a.Id, null))
+            {
+                return false;
+            }
+
+            if(ReferenceEquals(b.Id, null))
+            {
+                return false;
+            }
+
+            return a.Id.Equals(b.Id);
         }
 
-        private static int CompareTo(Identity<TId> a, Identity<TId> b)
+        private static int CompareTo(IIdentity<TId> a, IIdentity<TId> b)
         {
             if (ReferenceEquals(a, b))
             {
@@ -131,7 +125,22 @@ namespace Optivem.Framework.Core.Domain
                 return 1;
             }
 
-            return a.CompareTo(b);
+            if(ReferenceEquals(a.Id, b.Id))
+            {
+                return 0;
+            }
+
+            if(ReferenceEquals(a.Id, null))
+            {
+                return -1;
+            }
+
+            if(ReferenceEquals(b.Id, null))
+            {
+                return 1;
+            }
+
+            return a.Id.CompareTo(b.Id);
         }
     }
 }

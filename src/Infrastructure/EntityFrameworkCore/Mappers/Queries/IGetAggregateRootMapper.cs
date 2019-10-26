@@ -9,7 +9,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TAggregateRoot : IAggregateRoot
         where TAggregateRecord : IAggregateRecord<TAggregateRoot>
     {
-        TAggregateRoot Create(TAggregateRecord aggregateRecord);
+        TAggregateRoot Map(TAggregateRecord aggregateRecord);
 
         List<Expression<Func<TAggregateRecord, object>>> GetIncludes();
     }

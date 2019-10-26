@@ -6,6 +6,6 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         where TIdentity : IIdentity
         where TAggregateRecord : IAggregateRecord
     {
-        TAggregateRecord Create(TIdentity identity);
+        TAggregateRecord Map(TIdentity identity);
     }
 }

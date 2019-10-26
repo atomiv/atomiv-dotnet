@@ -24,7 +24,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         public override async Task<RemoveAggregateRootsResponse> HandleAsync(RemoveAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
             var identities = request.Identities;
-            var records = identities.Select(e => _removeAggregateRootMapper.Create(e)).ToList();
+            var records = identities.Select(e => _removeAggregateRootMapper.Map(e)).ToList();
             MutableSet.RemoveRange(records);
             await Context.SaveChangesAsync();
             return new RemoveAggregateRootsResponse();

@@ -99,7 +99,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.ActivateProductAsync(activateRequest));
         }
 
-        [Fact(Skip = "In ")]
+        [Fact]
         public async Task BrowseProducts_ValidRequest_ReturnsResponse()
         {
             for (int i = 0; i < 30; i++)

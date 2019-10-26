@@ -63,10 +63,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return HandleAsync<RemoveAggregateRootRequest<TAggregateRoot, TIdentity>, RemoveAggregateRootResponse>(request);
         }
 
-        protected Task HandleUpdateAggregateRootAsync(TAggregateRoot aggregateRoot)
+        protected async Task<TAggregateRoot> HandleUpdateAggregateRootAsync(TAggregateRoot aggregateRoot)
         {
             var request = new UpdateAggregateRootRequest<TAggregateRoot, TIdentity>(aggregateRoot);
-            return HandleAsync<UpdateAggregateRootRequest<TAggregateRoot, TIdentity>, UpdateAggregateRootResponse>(request);
+            var response = await HandleAsync<UpdateAggregateRootRequest<TAggregateRoot, TIdentity>, UpdateAggregateRootResponse<TAggregateRoot>>(request);
+            return response.AggregateRoot;
         }
     }
 }

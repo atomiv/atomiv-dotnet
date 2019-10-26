@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class Entity<TIdentity> : IEntity<TIdentity>
-        where TIdentity : IIdentity
+    public class Entity<TIdentity, TId> : IEntity<TIdentity>
+        where TIdentity : IIdentity<TId>, IEquatable<IIdentity<TId>>, IComparable<IIdentity<TId>>
     {
         private List<IEvent> _events;
 
@@ -25,66 +26,135 @@ namespace Optivem.Framework.Core.Domain
             _events.Add(domainEvent);
         }
 
-        public override bool Equals(object obj)
+        public bool Equals(IEntity<TIdentity> other)
         {
-            if (obj is null)
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            var otherEntity = obj as IEntity<TIdentity>;
-
-            if (otherEntity == null)
-            {
-                return false;
-            }
-
-            return Equals(otherEntity);
+            return Equals(this, other);
         }
 
-        public bool Equals(Entity<TIdentity> other)
+        public override bool Equals(object other)
         {
-            if (other is null)
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (GetType() != other.GetType())
-            {
-                return false;
-            }
-
-            return Id.Equals(other.Id);
+            var otherEntity = other as IEntity<TIdentity>;
+            return Equals(otherEntity);
         }
 
         public override int GetHashCode()
         {
+            if (ReferenceEquals(Id, null))
+            {
+                return 0;
+            }
+
             return Id.GetHashCode();
         }
 
-        public static bool operator ==(Entity<TIdentity> first, Entity<TIdentity> second)
+        public int CompareTo(IEntity<TIdentity> other)
         {
-            if (first is null)
-            {
-                return second is null;
-            }
-
-            return first.Equals(second);
+            return CompareTo(this, other);
         }
 
-        public static bool operator !=(Entity<TIdentity> first, Entity<TIdentity> second)
+        public static bool operator ==(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
         {
-            return !(first == second);
+            return Equals(a, b);
+        }
+
+        public static bool operator !=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        {
+            return !Equals(a, b);
+        }
+
+        public static bool operator <(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        {
+            return CompareTo(a, b) < 0;
+        }
+
+        public static bool operator >(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        {
+            return CompareTo(a, b) > 0;
+        }
+
+        public static bool operator <=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        {
+            return CompareTo(a, b) <= 0;
+        }
+
+        public static bool operator >=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        {
+            return CompareTo(a, b) >= 0;
+        }
+
+        private static bool Equals(IEntity<TIdentity> a, IEntity<TIdentity> b)
+        {
+            if (ReferenceEquals(a, b))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(a, null))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(b, null))
+            {
+                return false;
+            }
+
+            if (a.GetType() != b.GetType())
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(a.Id, b.Id))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(a.Id, null))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(b.Id, null))
+            {
+                return false;
+            }
+
+            return a.Id.Equals(b.Id);
+        }
+
+        private static int CompareTo(IEntity<TIdentity> a, IEntity<TIdentity> b)
+        {
+            if (ReferenceEquals(a, b))
+            {
+                return 0;
+            }
+
+            if (ReferenceEquals(a, null))
+            {
+                return -1;
+            }
+
+            if (ReferenceEquals(b, null))
+            {
+                return 1;
+            }
+
+            if (ReferenceEquals(a.Id, b.Id))
+            {
+                return 0;
+            }
+
+            if (ReferenceEquals(a.Id, null))
+            {
+                return -1;
+            }
+
+            if (ReferenceEquals(b.Id, null))
+            {
+                return 1;
+            }
+
+            return a.Id.CompareTo(b.Id);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         {
             var aggregateRoots = request.AggregateRoots;
 
-            var records = aggregateRoots.Select(e => _addAggregateRootMapper.Create(e)).ToList();
+            var records = aggregateRoots.Select(e => _addAggregateRootMapper.Map(e)).ToList();
 
             try
             {

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Framework.Infrastructure.EntityFrameworkCore.Mappers.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
     {
         private static Type UnitOfWorkType = typeof(IUnitOfWork);
         private static Type AddAggregateRootMapperType = typeof(IAddAggregateRootMapper<,>);
+        private static Type UpdateAggregateRootMapperType = typeof(IUpdateAggregateRootMapper<,>);
         private static Type RemoveAggregateRootMapperType = typeof(IRemoveAggregateRootMapper<,>);
         private static Type GetAggregateRootMapperType = typeof(IGetAggregateRootMapper<,>);
 
@@ -40,10 +42,12 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
         private static IServiceCollection AddMappers(this IServiceCollection services, IEnumerable<Type> types)
         {
             var addAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(AddAggregateRootMapperType);
+            var updateAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(UpdateAggregateRootMapperType);
             var removeAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RemoveAggregateRootMapperType);
             var getAggregateRootImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(GetAggregateRootMapperType);
 
             services.AddScopedOpenType(AddAggregateRootMapperType, addAggregateRootImplementationTypes);
+            services.AddScopedOpenType(UpdateAggregateRootMapperType, updateAggregateRootImplementationTypes);
             services.AddScopedOpenType(RemoveAggregateRootMapperType, removeAggregateRootImplementationTypes);
             services.AddScopedOpenType(GetAggregateRootMapperType, getAggregateRootImplementationTypes);
 

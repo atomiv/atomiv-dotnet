@@ -3,7 +3,7 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public class OrderDetail : Entity<OrderDetailIdentity>
+    public class OrderDetail : Entity<OrderDetailIdentity, int>
     {
         public OrderDetail(OrderDetailIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderDetailStatus status)
             : base(id)

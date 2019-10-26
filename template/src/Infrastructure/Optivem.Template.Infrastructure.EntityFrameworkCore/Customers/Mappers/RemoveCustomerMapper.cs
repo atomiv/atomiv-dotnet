@@ -5,7 +5,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Mappers
 {
     public class RemoveCustomerMapper : IRemoveAggregateRootMapper<CustomerIdentity, CustomerRecord>
     {
-        public CustomerRecord Create(CustomerIdentity identity)
+        public CustomerRecord Map(CustomerIdentity identity)
         {
             var id = identity.Id;
 

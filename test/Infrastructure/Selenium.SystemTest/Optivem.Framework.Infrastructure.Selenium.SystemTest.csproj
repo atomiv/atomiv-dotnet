@@ -30,24 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Checkout.feature.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Checkout.feature</DependentUpon>
-    </Compile>
-    <Compile Update="Product.feature.cs">
-      <DependentUpon>Product.feature</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Login.feature.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Login.feature</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Checkout.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Checkout.feature.cs</LastGenOutput>

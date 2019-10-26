@@ -41,7 +41,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             var totalPagesDecimal = (decimal)totalRecords / size;
             var totalPages = (int)Math.Round(totalPagesDecimal, MidpointRounding.AwayFromZero);
 
-            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Create(e)).ToList();
+            var aggregateRoots = records.Select(e => _getAggregateRootMapper.Map(e)).ToList();
 
             return new PageAggregateRootsResponse<TAggregateRoot>(aggregateRoots, totalPages, totalRecords);
         }

@@ -27,11 +27,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         public override async Task<AddAggregateRootResponse<TAggregateRoot>> HandleAsync(AddAggregateRootRequest<TAggregateRoot, TIdentity> request)
         {
             var aggregateRoot = request.AggregateRoot;
-            var record = _addAggregateRootMapper.Create(aggregateRoot);
+            var record = _addAggregateRootMapper.Map(aggregateRoot);
             await MutableSet.AddAsync(record);
             await Context.SaveChangesAsync(); // TODO: VC: Check if correct here
             // aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
-            aggregateRoot = _getAggregateRootMapper.Create(record);
+            aggregateRoot = _getAggregateRootMapper.Map(record);
             return new AddAggregateRootResponse<TAggregateRoot>(aggregateRoot);
         }
     }

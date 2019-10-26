@@ -24,7 +24,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
         public override async Task<AddAggregateRootsResponse<TAggregateRoot>> HandleAsync(AddAggregateRootsRequest<TAggregateRoot, TIdentity> request)
         {
             var aggregateRoots = request.AggregateRoots;
-            var records = aggregateRoots.Select(e => _addAggregateRootMapper.Create(e)).ToList();
+            var records = aggregateRoots.Select(e => _addAggregateRootMapper.Map(e)).ToList();
             await MutableSet.AddRangeAsync(records);
             await Context.SaveChangesAsync();
             return new AddAggregateRootsResponse<TAggregateRoot>(aggregateRoots);

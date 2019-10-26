@@ -47,7 +47,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             }
 
             // var aggregateRoot = Mapper.Map<TRecord, TAggregateRoot>(record);
-            var aggregateRoot = _getAggregateRootMapper.Create(record);
+            var aggregateRoot = _getAggregateRootMapper.Map(record);
 
             return new FindAggregateRootResponse<TAggregateRoot>(aggregateRoot);
         }

@@ -313,7 +313,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
         */
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task UpdateOrder_ValidRequest_ReturnsResponse()
         {
             var customerRecord = _customerRecords[2];
@@ -322,6 +322,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var product2Record = _productRecords[3];
 
             var orderRecord = _orderRecords[1];
+
+            var orderStatusId = orderRecord.OrderStatusRecordId;
 
             var updateRequest = new UpdateOrderRequest
             {
@@ -349,7 +351,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(updateRequest.CustomerId, updateResponse.CustomerId);
-            Assert.Equal((int)OrderStatus.New, updateResponse.StatusId);
+            Assert.Equal(orderStatusId, updateResponse.StatusId);
 
             Assert.NotNull(updateResponse.OrderDetails);
 
@@ -360,7 +362,15 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 var updateRequestOrderDetail = updateRequest.OrderDetails[i];
                 var updateResponseOrderDetail = updateResponse.OrderDetails[i];
 
-                Assert.Equal(updateRequestOrderDetail.Id, updateResponseOrderDetail.Id);
+                if(updateRequestOrderDetail.Id != null)
+                {
+                    Assert.Equal(updateRequestOrderDetail.Id, updateResponseOrderDetail.Id);
+                }
+                else
+                {
+                    Assert.True(updateResponseOrderDetail.Id > 0);
+                }
+
                 Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
                 Assert.Equal(updateRequestOrderDetail.Quantity, updateResponseOrderDetail.Quantity);
                 Assert.Equal((int)OrderDetailStatus.Allocated, updateResponseOrderDetail.StatusId);

@@ -8,6 +8,6 @@ namespace Optivem.Framework.Core.Domain
         where TAggregateRoot : IAggregateRoot<TIdentity>
         where TIdentity : IIdentity
     {
-        Task UpdateAsync(IEnumerable<TAggregateRoot> aggregateRoots);
+        Task<IEnumerable<TAggregateRoot>> UpdateAsync(IEnumerable<TAggregateRoot> aggregateRoots);
     }
 }

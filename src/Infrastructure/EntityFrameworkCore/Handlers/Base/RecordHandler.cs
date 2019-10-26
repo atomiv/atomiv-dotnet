@@ -48,5 +48,20 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             return queryable;
         }
+
+        protected IQueryable<TRecord> GetMutableQueryable(IEnumerable<Expression<Func<TRecord, object>>> includes)
+        {
+            var queryable = GetMutableSet().AsQueryable();
+
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    queryable = queryable.Include(include);
+                }
+            };
+
+            return queryable;
+        }
     }
 }

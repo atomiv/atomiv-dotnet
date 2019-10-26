@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Mappers
 {
     public class GetCustomerMapper : IGetAggregateRootMapper<Customer, CustomerRecord>
     {
-        public Customer Create(CustomerRecord record)
+        public Customer Map(CustomerRecord record)
         {
             var identity = new CustomerIdentity(record.Id);
             var firstName = record.FirstName;
