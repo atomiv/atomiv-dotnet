@@ -211,6 +211,13 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(updateRequest.FirstName, updateResponse.FirstName);
             Assert.Equal(updateRequest.LastName, updateResponse.LastName);
+
+            var findRequest = new FindCustomerRequest { Id = updateRequest.Id };
+            var findResponse = await Fixture.Customers.FindCustomerAsync(findRequest);
+
+            Assert.Equal(updateResponse.Id, findResponse.Id);
+            Assert.Equal(updateResponse.FirstName, findResponse.FirstName);
+            Assert.Equal(updateResponse.LastName, findResponse.LastName);
         }
 
         [Fact]

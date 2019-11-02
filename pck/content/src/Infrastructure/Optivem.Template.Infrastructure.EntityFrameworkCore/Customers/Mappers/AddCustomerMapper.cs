@@ -5,7 +5,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.Mappers
 {
     public class AddCustomerMapper : IAddAggregateRootMapper<Customer, CustomerRecord>
     {
-        public CustomerRecord Create(Customer customer)
+        public CustomerRecord Map(Customer customer)
         {
             var id = customer.Id.Id;
             var firstName = customer.FirstName;

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public class Order : AggregateRoot<OrderIdentity>
+    public class Order : AggregateRoot<OrderIdentity, int>
     {
         private CustomerIdentity _customerId;
         private List<OrderDetail> _orderDetails;

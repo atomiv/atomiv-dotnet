@@ -26,7 +26,7 @@ namespace Optivem.Template.Core.Domain.Orders
 
             // TODO: VC: Need to get the product price from repository, perhaps need customer mapper... or do it in the use case?
             // perhaps to be able to write a custom mapper...
-            return new OrderDetail(OrderDetailIdentity.Null, product.Id, quantity, product.ListPrice, OrderDetailStatus.Allocated);
+            return new OrderDetail(OrderDetailIdentity.New, product.Id, quantity, product.ListPrice, OrderDetailStatus.Allocated);
         }
     }
 }

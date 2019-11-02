@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Template.Core.Domain.Orders
 {
-    public enum OrderStatus
+    public enum OrderStatus : byte
     {
         None = 0,
         New = 1,

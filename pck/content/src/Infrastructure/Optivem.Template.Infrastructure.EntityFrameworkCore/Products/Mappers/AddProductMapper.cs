@@ -5,7 +5,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products.Mappers
 {
     public class AddProductMapper : IAddAggregateRootMapper<Product, ProductRecord>
     {
-        public ProductRecord Create(Product product)
+        public ProductRecord Map(Product product)
         {
             var id = product.Id.Id;
             var productCode = product.ProductCode;

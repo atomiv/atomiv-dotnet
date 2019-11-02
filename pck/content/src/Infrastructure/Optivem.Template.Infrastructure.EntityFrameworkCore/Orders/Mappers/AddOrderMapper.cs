@@ -6,7 +6,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
     public class AddOrderMapper : IAddAggregateRootMapper<Order, OrderRecord>
     {
-        public OrderRecord Create(Order aggregateRoot)
+        public OrderRecord Map(Order aggregateRoot)
         {
             var id = aggregateRoot.Id.Id;
             var customerRecordId = aggregateRoot.CustomerId.Id;

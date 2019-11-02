@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -28,11 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.17" />
-    <PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.17" />
-  </ItemGroup>
-
-  <ItemGroup>
+<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.18" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
   </ItemGroup>
 

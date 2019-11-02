@@ -9,7 +9,7 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
         public int CustomerId { get; set; }
 
-        public int StatusId { get; set; }
+        public byte StatusId { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
 
@@ -21,7 +21,7 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
             public decimal Quantity { get; set; }
 
-            public int StatusId { get; set; }
+            public byte StatusId { get; set; }
         }
     }
 }

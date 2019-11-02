@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Domain.Customers
 {
-    public class Customer : AggregateRoot<CustomerIdentity>
+    public class Customer : AggregateRoot<CustomerIdentity, int>
     {
         public Customer(CustomerIdentity id, string firstName, string lastName)
             : base(id)

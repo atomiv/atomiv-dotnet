@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,10 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.17" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.18" />
     <ProjectReference Include="..\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
   </ItemGroup>

@@ -43,7 +43,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             return HandleRemoveAggregateRootAsync(identity);
         }
 
-        public Task UpdateAsync(Order aggregateRoot)
+        public Task<Order> UpdateAsync(Order aggregateRoot)
         {
             return HandleUpdateAggregateRootAsync(aggregateRoot);
         }

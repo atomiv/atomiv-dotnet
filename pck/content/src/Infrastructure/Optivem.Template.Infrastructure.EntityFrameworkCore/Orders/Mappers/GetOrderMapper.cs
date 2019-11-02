@@ -11,7 +11,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
     public class GetOrderMapper : IGetAggregateRootMapper<Order, OrderRecord>
     {
-        public Order Create(OrderRecord record)
+        public Order Map(OrderRecord record)
         {
             var id = new OrderIdentity(record.Id);
             var customerId = new CustomerIdentity(record.CustomerRecordId);
