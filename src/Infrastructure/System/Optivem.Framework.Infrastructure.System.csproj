@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <PackageTags>Optivem Framework DotNetCore Infrastructure Serialization System</PackageTags>
-    <Version>1.0.17</Version>
+    <Version>1.0.18</Version>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

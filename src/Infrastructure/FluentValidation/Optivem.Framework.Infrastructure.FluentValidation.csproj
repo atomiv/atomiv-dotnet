@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.17</Version>
+    <Version>1.0.18</Version>
     <Authors>Optivem</Authors>
     <Description>Implementation for validation using FluentValidation</Description>
     <Copyright>� Optivem. All rights reserved.</Copyright>
