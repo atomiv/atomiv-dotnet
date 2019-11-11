@@ -19,12 +19,10 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCo
         private static Type RemoveAggregateRootMapperType = typeof(IRemoveAggregateRootMapper<,>);
         private static Type GetAggregateRootMapperType = typeof(IGetAggregateRootMapper<,>);
 
-        public static IServiceCollection AddEntityFrameworkCoreInfrastructure<TDbContext>(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsAction = null, params Assembly[] assemblies)
-            where TDbContext : DbContext
+        public static IServiceCollection AddEntityFrameworkCoreInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
             var types = assemblies.GetTypes();
 
-            services.AddDbContext<TDbContext>(optionsAction);
             services.AddUnitOfWork(types);
             services.AddMappers(types);
 

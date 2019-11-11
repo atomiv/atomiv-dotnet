@@ -10,7 +10,6 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper
     {
         public static IServiceCollection AddAutoMapperInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-            services.AddAutoMapper(assemblies);
             services.AddScoped<IMapper, Mapper>();
 
             return services;

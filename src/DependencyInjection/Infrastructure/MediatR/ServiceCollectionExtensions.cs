@@ -23,7 +23,6 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 
         public static IServiceCollection AddMediatRInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-            services.AddMediatR(assemblies);
             services.AddScoped<IRequestHandler, MediatorRequestHandler>();
 
             var types = assemblies.GetTypes();
