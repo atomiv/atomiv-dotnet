@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
@@ -11,30 +12,45 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class CreateOrderUseCase : CreateAggregateUseCase<IOrderRepository, CreateOrderRequest, CreateOrderResponse, Order, OrderIdentity, int>
+    public class CreateOrderUseCase : RequestHandler<CreateOrderRequest, CreateOrderResponse>
     {
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IOrderRepository _orderRepository;
+        private readonly ICustomerReadRepository _customerReadRepository;
+        private readonly IProductReadRepository _productReadRepository;
 
-        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository)
-            : base(mapper, unitOfWork)
+        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, ICustomerReadRepository customerReadRepository, IProductReadRepository productReadRepository)
+            : base(mapper)
         {
-            _customerRepository = customerRepository;
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
+            _orderRepository = orderRepository;
+            _customerReadRepository = customerReadRepository;
+            _productReadRepository = productReadRepository;
         }
 
-        protected override async Task<Order> CreateAggregateRootAsync(CreateOrderRequest request)
+        public override async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
+        {
+            var order = await GetOrderAsync(request);
+
+            order = await _orderRepository.AddAsync(order);
+            await _unitOfWork.SaveChangesAsync();
+
+            var response = Mapper.Map<Order, CreateOrderResponse>(order);
+            return response;
+        }
+
+        private async Task<Order> GetOrderAsync(CreateOrderRequest request)
         {
             var customerId = new CustomerIdentity(request.CustomerId);
 
-            var customer = await _customerRepository.FindAsync(customerId);
+            var customer = await _customerReadRepository.FindAsync(customerId);
 
             if (customer == null)
             {
                 throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
             }
 
-            var orderDetails = new List<OrderDetail>();
+            var orderDetails = new List<OrderItem>();
 
             for (int i = 0; i < request.OrderDetails.Count; i++)
             {
@@ -42,7 +58,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
                 try
                 {
-                    var orderDetail = await CreateAsync(requestOrderDetail);
+                    var orderDetail = await GetOrderItem(requestOrderDetail);
                     orderDetails.Add(orderDetail);
                 }
                 catch (InvalidRequestException ex)
@@ -55,10 +71,10 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             return OrderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
-        private async Task<OrderDetail> CreateAsync(CreateOrderRequest.OrderDetail requestOrderDetail)
+        private async Task<OrderItem> GetOrderItem(CreateOrderRequest.OrderDetail requestOrderDetail)
         {
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
-            var product = await _productRepository.FindAsync(productId);
+            var product = await _productReadRepository.FindAsync(productId);
 
             if (product == null)
             {

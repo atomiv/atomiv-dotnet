@@ -1,51 +1,117 @@
-﻿using Optivem.Framework.Core.Common;
+﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
-    public class ProductRepository : Repository<Product, ProductIdentity>, IProductRepository
+    public class ProductRepository : ProductReadRepository, IProductRepository
     {
-        public ProductRepository(IRequestHandler requestHandler) : base(requestHandler)
+        public ProductRepository(DatabaseContext context) : base(context)
         {
         }
 
-        public Task<Product> AddAsync(Product aggregateRoot)
+        public async Task<Product> AddAsync(Product product)
         {
-            return HandleAddAggregateRootAsync(aggregateRoot);
+            var productRecord = GetProductRecord(product);
+            Context.ProductRecords.Add(productRecord);
+            await Context.SaveChangesAsync();
+            return GetProduct(productRecord);
         }
 
-        public Task<bool> ExistsAsync(ProductIdentity identity)
+        public async Task RemoveAsync(ProductIdentity productId)
         {
-            return HandleExistsAggregateRootAsync(identity);
+            var productRecord = GetProductRecord(productId);
+            Context.Remove(productRecord);
+            await Context.SaveChangesAsync();
         }
 
-        public Task<Product> FindAsync(ProductIdentity identity)
+        public async Task<Product> UpdateAsync(Product product)
         {
-            return HandleFindAggregateRootAsync(identity);
+            var productRecordId = product.Id.Id;
+            var productRecord = await Context.ProductRecords.FindAsync(productRecordId);
+
+            UpdateProductRecord(productRecord, product);
+
+            try
+            {
+                Context.ProductRecords.Update(productRecord);
+                await Context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new ConcurrentUpdateException(ex.Message, ex);
+            }
+
+            return GetProduct(productRecord);
         }
 
-        public Task<IEnumerable<Product>> ListAsync()
+        #region Helper
+
+
+        protected ProductRecord GetProductRecord(Product product)
         {
-            return HandleListAggregateRootsAsync();
+            var id = product.Id.Id;
+            var productCode = product.ProductCode;
+            var productName = product.ProductName;
+            var listPrice = product.ListPrice;
+            var isListed = product.IsListed;
+
+            return new ProductRecord
+            {
+                Id = id,
+                ProductCode = productCode,
+                ProductName = productName,
+                ListPrice = listPrice,
+                IsListed = isListed,
+            };
         }
 
-        public Task<PageAggregateRootsResponse<Product>> PageAsync(int page, int size)
+        protected ProductRecord GetProductRecord(ProductIdentity productId)
         {
-            return HandlePageAggregateRootsAsync(page, size);
+            return new ProductRecord
+            {
+                Id = productId.Id,
+            };
         }
 
-        public Task RemoveAsync(ProductIdentity identity)
+        protected void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            return HandleRemoveAggregateRootAsync(identity);
+            var id = product.Id.Id;
+            var productCode = product.ProductCode;
+            var productName = product.ProductName;
+            var listPrice = product.ListPrice;
+            var isListed = product.IsListed;
+
+            productRecord.Id = id;
+            productRecord.ProductCode = productCode;
+            productRecord.ProductName = productName;
+            productRecord.ListPrice = listPrice;
+            productRecord.IsListed = isListed;
         }
 
-        public Task<Product> UpdateAsync(Product aggregateRoot)
+
+        #endregion
+
+        /*
+         * 
+        public async Task<Product> AddAsync(Product product)
         {
-            return HandleUpdateAggregateRootAsync(aggregateRoot);
+
         }
+
+        public async Task RemoveAsync(ProductIdentity productId)
+        {
+
+        }
+
+        public async Task<Product> UpdateAsync(Product product)
+        {
+
+        }
+
+         * 
+         * 
+         */
     }
 }

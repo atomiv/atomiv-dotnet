@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Orders
 {
@@ -14,7 +11,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
             CreateMap<Order, UpdateOrderResponse>()
                 .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status));
 
-            CreateMap<OrderDetail, UpdateOrderResponse.OrderDetail>()
+            CreateMap<OrderItem, UpdateOrderResponse.OrderDetail>()
                 .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status));
         }
     }

@@ -41,8 +41,7 @@ namespace Optivem.Template.Web.UI.Services
             return new Customer
             {
                 Id = record.Id,
-                FirstName = record.FirstName,
-                LastName = record.LastName,
+                FirstName = record.Name, // TODO: VC: Use browse
             };
         }
     }

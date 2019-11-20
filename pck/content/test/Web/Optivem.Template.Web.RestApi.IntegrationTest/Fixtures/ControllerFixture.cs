@@ -12,7 +12,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
         public ControllerFixture()
         {
             Web = WebTestClientFactory.Create<Startup>();
-            Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e));
+            Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e), ConfigurationKeys.SqlServerOptionsAction);
 
             Api = new ApiHttpService(Web.ControllerClientFactory);
         }

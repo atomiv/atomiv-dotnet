@@ -11,11 +11,11 @@
 
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Infrastructure.System" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Core.Application.Interface" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Infrastructure.System" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.19" />
     <ProjectReference Include="..\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />
   </ItemGroup>
 

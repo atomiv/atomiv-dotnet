@@ -1,51 +1,84 @@
-﻿using Optivem.Framework.Core.Common;
+﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Customers;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
-    public class CustomerRepository : Repository<Customer, CustomerIdentity>, ICustomerRepository
+    public class CustomerRepository : CustomerReadRepository, ICustomerRepository
     {
-        public CustomerRepository(IRequestHandler requestHandler) : base(requestHandler)
+        public CustomerRepository(DatabaseContext context) : base(context)
         {
         }
 
-        public Task<Customer> AddAsync(Customer aggregateRoot)
+        public async Task<Customer> AddAsync(Customer customer)
         {
-            return HandleAddAggregateRootAsync(aggregateRoot);
+            var customerRecord = GetCustomerRecord(customer);
+            Context.CustomerRecords.Add(customerRecord);
+            await Context.SaveChangesAsync();
+            return GetCustomer(customerRecord);
         }
 
-        public Task<bool> ExistsAsync(CustomerIdentity identity)
+        public async Task RemoveAsync(CustomerIdentity customerId)
         {
-            return HandleExistsAggregateRootAsync(identity);
+            var customerRecord = GetCustomerRecord(customerId);
+            Context.Remove(customerRecord);
+            await Context.SaveChangesAsync();
         }
 
-        public Task<Customer> FindAsync(CustomerIdentity identity)
+        public async Task<Customer> UpdateAsync(Customer customer)
         {
-            return HandleFindAggregateRootAsync(identity);
+            var customerRecordId = customer.Id.Id;
+            var customerRecord = await Context.CustomerRecords.FindAsync(customerRecordId);
+
+            UpdateCustomerRecord(customerRecord, customer);
+
+            try
+            {
+                Context.CustomerRecords.Update(customerRecord);
+                await Context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new ConcurrentUpdateException(ex.Message, ex);
+            }
+
+            return GetCustomer(customerRecord);
         }
 
-        public Task<IEnumerable<Customer>> ListAsync()
+        protected CustomerRecord GetCustomerRecord(Customer customer)
         {
-            return HandleListAggregateRootsAsync();
+            var id = customer.Id.Id;
+            var firstName = customer.FirstName;
+            var lastName = customer.LastName;
+
+            return new CustomerRecord
+            {
+                Id = id,
+                FirstName = firstName,
+                LastName = lastName,
+            };
         }
 
-        public Task<PageAggregateRootsResponse<Customer>> PageAsync(int page, int size)
+        protected CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
         {
-            return HandlePageAggregateRootsAsync(page, size);
+            var id = customerId.Id;
+
+            return new CustomerRecord
+            {
+                Id = id,
+            };
         }
 
-        public Task RemoveAsync(CustomerIdentity identity)
+        protected void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            return HandleRemoveAggregateRootAsync(identity);
-        }
+            var id = customer.Id.Id;
+            var firstName = customer.FirstName;
+            var lastName = customer.LastName;
 
-        public Task<Customer> UpdateAsync(Customer aggregateRoot)
-        {
-            return HandleUpdateAggregateRootAsync(aggregateRoot);
+            customerRecord.Id = id;
+            customerRecord.FirstName = firstName;
+            customerRecord.LastName = lastName;
         }
     }
 }

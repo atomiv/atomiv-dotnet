@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
     {
         public FindCustomerResponseProfile()
         {
-            CreateMap<Customer, FindCustomerResponse>();
+            CreateMap<CustomerDetailReadModel, FindCustomerResponse>();
         }
     }
 }

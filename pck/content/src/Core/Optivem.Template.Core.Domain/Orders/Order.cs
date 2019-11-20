@@ -10,30 +10,33 @@ namespace Optivem.Template.Core.Domain.Orders
     public class Order : AggregateRoot<OrderIdentity, int>
     {
         private CustomerIdentity _customerId;
-        private List<OrderDetail> _orderDetails;
+        private List<OrderItem> _orderItems;
 
-        public Order(OrderIdentity id, CustomerIdentity customerId, OrderStatus status, IEnumerable<OrderDetail> orderDetails)
+        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<OrderItem> orderDetails)
             : base(id)
         {
             CustomerId = customerId;
+            OrderDate = orderDate;
             Status = status;
-            OrderDetails = orderDetails.ToList().AsReadOnly();
+            OrderItems = orderDetails.ToList().AsReadOnly();
         }
 
         public CustomerIdentity CustomerId
         {
             get { return _customerId; }
-            set
+            private set
             {
                 _customerId = value ?? throw new ArgumentNullException();
             }
         }
 
+        public DateTime? OrderDate { get; }
+
         public OrderStatus Status { get; private set; }
 
-        public ReadOnlyCollection<OrderDetail> OrderDetails
+        public ReadOnlyCollection<OrderItem> OrderItems
         {
-            get { return _orderDetails.AsReadOnly(); }
+            get { return _orderItems.AsReadOnly(); }
             set
             {
                 if (value == null)
@@ -46,11 +49,11 @@ namespace Optivem.Template.Core.Domain.Orders
                     throw new ArgumentException("There are no order items");
                 }
 
-                _orderDetails = value.ToList();
+                _orderItems = value.ToList();
             }
         }
 
-        public void AddOrderDetail(OrderDetail orderDetail)
+        public void AddOrderDetail(OrderItem orderDetail)
         {
             if (orderDetail == null)
             {
@@ -59,19 +62,19 @@ namespace Optivem.Template.Core.Domain.Orders
 
             // TODO: VC: Checking if id exists
 
-            _orderDetails.Add(orderDetail);
+            _orderItems.Add(orderDetail);
         }
 
-        public void RemoveOrderDetail(OrderDetailIdentity orderDetailId)
+        public void RemoveOrderDetail(OrderItemIdentity orderDetailId)
         {
-            var orderDetail = _orderDetails.FirstOrDefault(e => e.Id == orderDetailId);
+            var orderDetail = _orderItems.FirstOrDefault(e => e.Id == orderDetailId);
 
             if (orderDetail == null)
             {
                 throw new ArgumentException($"Order detail {orderDetailId} does not exist in the order");
             }
 
-            _orderDetails.Remove(orderDetail);
+            _orderItems.Remove(orderDetail);
         }
 
         public void Archive()

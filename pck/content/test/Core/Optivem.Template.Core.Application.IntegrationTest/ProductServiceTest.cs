@@ -1,4 +1,5 @@
 using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
@@ -23,7 +24,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "APP",
                     ProductName = "Apple",
                     ListPrice = 10.50m,
-                    IsActive = true,
+                    IsListed = true,
                 },
 
                 new ProductRecord
@@ -31,7 +32,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "BAN",
                     ProductName = "Banana",
                     ListPrice = 30.99m,
-                    IsActive = true,
+                    IsListed = true,
                 },
 
                 new ProductRecord
@@ -39,7 +40,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "ONG",
                     ProductName = "Orange",
                     ListPrice = 35.99m,
-                    IsActive = false,
+                    IsListed = false,
                 },
 
                 new ProductRecord
@@ -47,7 +48,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     ProductCode = "STR",
                     ProductName = "Strawberry",
                     ListPrice = 40.00m,
-                    IsActive = true,
+                    IsListed = true,
                 },
             };
 
@@ -55,24 +56,24 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
 
         [Fact]
-        public async Task ActivateProduct_ValidRequest_ReturnsResponse()
+        public async Task RelistProduct_ValidRequest_ReturnsResponse()
         {
-            var record = _productRecords.Where(e => !e.IsActive).First();
+            var record = _productRecords.Where(e => !e.IsListed).First();
             var id = record.Id;
 
-            var activateRequest = new ActivateProductRequest
+            var activateRequest = new RelistProductRequest
             {
                 Id = id,
             };
 
-            var activateResponse = await Fixture.Products.ActivateProductAsync(activateRequest);
+            var activateResponse = await Fixture.Products.RelistProductAsync(activateRequest);
 
             Assert.True(activateResponse.Id > 0);
             Assert.Equal(record.Id, activateResponse.Id);
             Assert.Equal(record.ProductCode, activateResponse.Code);
             Assert.Equal(record.ProductName, activateResponse.Description);
             Assert.Equal(record.ListPrice, activateResponse.UnitPrice);
-            Assert.True(activateResponse.IsActive);
+            Assert.True(activateResponse.IsListed);
 
             var findRequest = new FindProductRequest { Id = activateResponse.Id };
 
@@ -82,32 +83,32 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(activateResponse.Code, findResponse.Code);
             Assert.Equal(activateResponse.Description, findResponse.Description);
             Assert.Equal(activateResponse.UnitPrice, findResponse.UnitPrice);
-            Assert.Equal(activateResponse.IsActive, findResponse.IsActive);
+            Assert.Equal(activateResponse.IsListed, findResponse.IsListed);
         }
 
         [Fact]
-        public async Task ActivateProduct_InvalidRequest_ThrowsInvalidRequestException()
+        public async Task RelistProduct_InvalidRequest_ThrowsInvalidRequestException()
         {
-            var record = _productRecords.Where(e => e.IsActive).First();
+            var record = _productRecords.Where(e => e.IsListed).First();
             var id = record.Id;
 
-            var activateRequest = new ActivateProductRequest
+            var activateRequest = new RelistProductRequest
             {
                 Id = id,
             };
 
-            await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.ActivateProductAsync(activateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.Products.RelistProductAsync(activateRequest));
         }
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task BrowseProducts_ValidRequest_ReturnsResponse()
         {
             for (int i = 0; i < 30; i++)
             {
                 var productRecord = new ProductRecord
                 {
-                    ProductCode = $"P{i}",
-                    ProductName = $"Product {i}",
+                    ProductCode = $"P{i.ToString("0000")}",
+                    ProductName = $"Product {i.ToString("0000")}",
                     ListPrice = 100 + i,
                 };
 
@@ -126,7 +127,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.Equal(_productRecords.Count, browseResponse.TotalRecords);
 
-            var skip = browseRequest.Page * browseRequest.Size;
+            var skip = (browseRequest.Page - 1) * browseRequest.Size;
             var take = browseRequest.Size;
 
             var expected = _productRecords.Skip(skip).Take(take).ToList();
@@ -139,7 +140,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(expectedRecord.ProductCode, actualRecord.Code);
                 Assert.Equal(expectedRecord.ProductName, actualRecord.Description);
                 Assert.Equal(expectedRecord.ListPrice, actualRecord.UnitPrice);
-                Assert.Equal(expectedRecord.IsActive, actualRecord.IsActive);
+                Assert.Equal(expectedRecord.IsListed, actualRecord.IsListed);
             }
         }
 
@@ -159,7 +160,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.Code, createResponse.Code);
             Assert.Equal(createRequest.Description, createResponse.Description);
             Assert.Equal(createRequest.UnitPrice, createResponse.UnitPrice);
-            Assert.True(createResponse.IsActive);
+            Assert.True(createResponse.IsListed);
 
             var findRequest = new FindProductRequest { Id = createResponse.Id };
 
@@ -169,7 +170,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.Code, findResponse.Code);
             Assert.Equal(createRequest.Description, findResponse.Description);
             Assert.Equal(createRequest.UnitPrice, findResponse.UnitPrice);
-            Assert.True(findResponse.IsActive);
+            Assert.True(findResponse.IsListed);
         }
 
         [Fact]
@@ -186,17 +187,17 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
 
         [Fact]
-        public async Task DeactivateProduct_ValidRequest_ReturnsResponse()
+        public async Task UnlistProduct_ValidRequest_ReturnsResponse()
         {
-            var record = _productRecords.Where(e => e.IsActive).First();
+            var record = _productRecords.Where(e => e.IsListed).First();
             var id = record.Id;
 
-            var dectivateRequest = new DeactivateProductRequest
+            var dectivateRequest = new UnlistProductRequest
             {
                 Id = id,
             };
 
-            var deactivateResponse = await Fixture.Products.DeactivateProductAsync(dectivateRequest);
+            var deactivateResponse = await Fixture.Products.UnlistProductAsync(dectivateRequest);
 
             Assert.True(deactivateResponse.Id > 0);
             Assert.Equal(record.Id, deactivateResponse.Id);
@@ -213,21 +214,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(deactivateResponse.Code, findResponse.Code);
             Assert.Equal(deactivateResponse.Description, findResponse.Description);
             Assert.Equal(deactivateResponse.UnitPrice, findResponse.UnitPrice);
-            Assert.Equal(deactivateResponse.IsActive, findResponse.IsActive);
+            Assert.Equal(deactivateResponse.IsActive, findResponse.IsListed);
         }
 
         [Fact]
-        public async Task DectivateProduct_InvalidRequest_ThrowsInvalidRequestException()
+        public async Task UnlistProduct_InvalidRequest_ThrowsInvalidRequestException()
         {
-            var record = _productRecords.Where(e => !e.IsActive).First();
+            var record = _productRecords.Where(e => !e.IsListed).First();
             var id = record.Id;
 
-            var deactivateRequest = new DeactivateProductRequest
+            var deactivateRequest = new UnlistProductRequest
             {
                 Id = id,
             };
 
-            await Assert.ThrowsAsync<ApplicationException>(() => Fixture.Products.DeactivateProductAsync(deactivateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.Products.UnlistProductAsync(deactivateRequest));
         }
 
         [Fact]
@@ -243,7 +244,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(customerRecord.ProductCode, findResponse.Code);
             Assert.Equal(customerRecord.ProductName, findResponse.Description);
             Assert.Equal(customerRecord.ListPrice, findResponse.UnitPrice);
-            Assert.Equal(customerRecord.IsActive, findResponse.IsActive);
+            Assert.Equal(customerRecord.IsListed, findResponse.IsListed);
         }
 
         [Fact]
@@ -259,7 +260,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task ListProducts_ValidRequest_ReturnsResponse()
         {
-            var request = new ListProductsRequest
+            var request = new ListProductRequest
             {
             };
 
@@ -297,7 +298,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(productRecord.ProductCode, updateResponse.Code);
             Assert.Equal(updateRequest.Description, updateResponse.Description);
             Assert.Equal(updateRequest.UnitPrice, updateResponse.UnitPrice);
-            Assert.Equal(productRecord.IsActive, updateResponse.IsActive);
+            Assert.Equal(productRecord.IsListed, updateResponse.IsListed);
         }
 
         [Fact]

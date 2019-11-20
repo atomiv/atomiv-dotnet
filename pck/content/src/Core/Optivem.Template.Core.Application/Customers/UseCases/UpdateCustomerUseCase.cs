@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
@@ -8,19 +9,40 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class UpdateCustomerUseCase : UpdateAggregateUseCase<ICustomerRepository, UpdateCustomerRequest, UpdateCustomerResponse, Customer, CustomerIdentity, int>
+    public class UpdateCustomerUseCase : RequestHandler<UpdateCustomerRequest, UpdateCustomerResponse>
     {
-        public UpdateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ICustomerRepository _customerRepository;
+
+        public UpdateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+            : base(mapper)
         {
+            _unitOfWork = unitOfWork;
+            _customerRepository = customerRepository;
         }
 
-        protected override Task UpdateAsync(UpdateCustomerRequest request, Customer aggregateRoot)
+        public override async Task<UpdateCustomerResponse> HandleAsync(UpdateCustomerRequest request)
         {
-            aggregateRoot.FirstName = request.FirstName;
-            aggregateRoot.LastName = request.LastName;
+            var customerId = new CustomerIdentity(request.Id);
 
-            return Task.CompletedTask;
+            var customer = await _customerRepository.FindAsync(customerId);
+
+            if (customer == null)
+            {
+                throw new NotFoundRequestException();
+            }
+
+            Update(customer, request);
+
+            customer = await _customerRepository.UpdateAsync(customer);
+            await _unitOfWork.SaveChangesAsync();
+            return Mapper.Map<Customer, UpdateCustomerResponse>(customer);
+        }
+
+        private void Update(Customer customer, UpdateCustomerRequest request)
+        {
+            customer.FirstName = request.FirstName;
+            customer.LastName = request.LastName;
         }
     }
 }

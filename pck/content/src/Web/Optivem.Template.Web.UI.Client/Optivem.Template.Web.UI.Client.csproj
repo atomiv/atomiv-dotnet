@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.Selenium" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Infrastructure.Selenium" Version="1.0.19" />
     <ProjectReference Include="..\Optivem.Template.Web.UI.Client.Interface\Optivem.Template.Web.UI.Client.Interface.csproj" />
   </ItemGroup>
 

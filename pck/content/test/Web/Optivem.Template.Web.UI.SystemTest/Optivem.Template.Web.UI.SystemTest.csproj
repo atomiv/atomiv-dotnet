@@ -19,8 +19,8 @@
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="76.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="77.0.0" />
     <PackageReference Include="SpecFlow" Version="3.1.21-beta" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.21-beta" />
     <PackageReference Include="SpecFlow.xUnit" Version="3.1.21-beta" />
@@ -32,12 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Infrastructure.Selenium" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Test.Selenium" Version="1.0.18" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Infrastructure.NewtonsoftJson" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Infrastructure.Selenium" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Test.Selenium" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.19" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.UI.Client\Optivem.Template.Web.UI.Client.csproj" />
   </ItemGroup>
 

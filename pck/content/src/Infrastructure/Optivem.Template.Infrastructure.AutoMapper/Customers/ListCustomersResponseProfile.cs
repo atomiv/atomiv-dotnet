@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {
@@ -10,9 +9,11 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
     {
         public ListCustomersResponseProfile()
         {
-            CreateMap<IEnumerable<Customer>, ListCustomersResponse>()
-                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
-                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.Count()));
+            CreateMap<ListReadModel<CustomerIdNameReadModel>, ListCustomersResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.Records))
+                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.TotalRecords));
+
+            CreateMap<CustomerIdNameReadModel, ListCustomersRecordResponse>();
         }
     }
 

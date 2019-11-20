@@ -13,11 +13,11 @@ namespace Optivem.Template.Web.RestClient.Interface
 
         Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(FindProductRequest request);
 
-        Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductsRequest request);
+        Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductRequest request);
 
-        Task<IObjectClientResponse<ActivateProductResponse>> RelistProductAsync(ActivateProductRequest request);
+        Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request);
 
-        Task<IObjectClientResponse<DeactivateProductResponse>> UnlistProductAsync(DeactivateProductRequest request);
+        Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request);
 
         Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request);
     }

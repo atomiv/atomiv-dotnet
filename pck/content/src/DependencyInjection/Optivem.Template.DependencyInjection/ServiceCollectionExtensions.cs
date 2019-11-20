@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.DependencyInjection.Core.Application;
@@ -12,6 +14,7 @@ using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Optivem.Template.DependencyInjection
@@ -19,6 +22,15 @@ namespace Optivem.Template.DependencyInjection
     public static class ServiceCollectionExtensions
     {
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
+        {
+            var moduleTypes = GetModuleTypes();
+            var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
+
+            AddCoreModules(services, assemblies);
+            AddInfrastructureModules(services, configuration, assemblies);
+        }
+
+        private static List<Type> GetModuleTypes()
         {
             var coreModuleTypes = new List<Type>
             {
@@ -38,18 +50,24 @@ namespace Optivem.Template.DependencyInjection
             moduleTypes.AddRange(coreModuleTypes);
             moduleTypes.AddRange(infrastructureModuleTypes);
 
-            var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
+            return moduleTypes;
+        }
 
-            // var assemblies = null;
-
-            // Core
+        private static void AddCoreModules(this IServiceCollection services, Assembly[] assemblies)
+        {
             services.AddApplicationCore(assemblies);
             services.AddDomainCore(assemblies);
+        }
 
-            // Infrastructure
+        private static void AddInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        {
             var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
             var connection = configuration.GetConnectionString(connectionKey);
-            services.AddEntityFrameworkCoreInfrastructure<DatabaseContext>(options => options.UseSqlServer(connection), assemblies);
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection));
+            services.AddAutoMapper(assemblies);
+            services.AddMediatR(assemblies);
+
+            services.AddEntityFrameworkCoreInfrastructure(assemblies);
             services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
             services.AddMediatRInfrastructure(assemblies);

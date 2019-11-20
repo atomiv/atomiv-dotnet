@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
@@ -8,20 +8,49 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class CreateCustomerUseCase : CreateAggregateUseCase<ICustomerRepository, CreateCustomerRequest, CreateCustomerResponse, Customer, CustomerIdentity, int>
+    public class CreateCustomerUseCase : RequestHandler<CreateCustomerRequest, CreateCustomerResponse>
     {
-        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ICustomerRepository _customerRepository;
+
+        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+            : base(mapper)
         {
+            _unitOfWork = unitOfWork;
+            _customerRepository = customerRepository;
         }
 
-        protected override Task<Customer> CreateAggregateRootAsync(CreateCustomerRequest request)
+        public override async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
         {
-            var customer = new Customer(CustomerIdentity.Null,
+            var customer = GetCustomer(request);
+
+            customer = await _customerRepository.AddAsync(customer);
+            await _unitOfWork.SaveChangesAsync();
+
+            return Mapper.Map<Customer, CreateCustomerResponse>(customer);
+        }
+
+        protected Customer GetCustomer(CreateCustomerRequest request)
+        {
+            return new Customer(CustomerIdentity.Null,
                                 request.FirstName,
                                 request.LastName);
-
-            return Task.FromResult(customer);
         }
+
+        /*
+         * 
+        public override async Task<TResponse> HandleAsync(TRequest request)
+        {
+            var aggregateRoot = await CreateAggregateRootAsync(request);
+
+            var repository = GetRepository();
+            aggregateRoot = await repository.AddAsync(aggregateRoot);
+            await UnitOfWork.SaveChangesAsync();
+
+            var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
+            return response;
+        }
+         * 
+         */
     }
 }

@@ -18,7 +18,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             var services = new ServiceCollection();
             services.AddModules(configuration);
 
-            Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e));
+            Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e), ConfigurationKeys.SqlServerOptionsAction);
 
             ServiceProvider = services.BuildServiceProvider();
 

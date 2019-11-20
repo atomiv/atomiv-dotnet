@@ -29,7 +29,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
                 .IsRequired()
                 .HasColumnType("decimal(18,2)");
 
-            builder.Property(e => e.IsActive)
+            builder.Property(e => e.IsListed)
                 .HasColumnName("active")
                 .IsRequired();
         }

@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.19" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 

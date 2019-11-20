@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products
 {
-    public class ProductService : BaseService, IProductService
+    public class ProductService : ApplicationService, IProductService
     {
         public ProductService(IRequestHandler requestHandler)
             : base(requestHandler)
         {
         }
 
-        public Task<ActivateProductResponse> ActivateProductAsync(ActivateProductRequest request)
+        public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
         {
-            return HandleAsync<ActivateProductRequest, ActivateProductResponse>(request);
+            return HandleAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
@@ -28,19 +28,19 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
-        public Task<DeactivateProductResponse> DeactivateProductAsync(DeactivateProductRequest request)
-        {
-            return HandleAsync<DeactivateProductRequest, DeactivateProductResponse>(request);
-        }
-
         public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
         {
             return HandleAsync<FindProductRequest, FindProductResponse>(request);
         }
 
-        public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
+        public Task<ListProductsResponse> ListProductsAsync(ListProductRequest request)
         {
-            return HandleAsync<ListProductsRequest, ListProductsResponse>(request);
+            return HandleAsync<ListProductRequest, ListProductsResponse>(request);
+        }
+
+        public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
+        {
+            return HandleAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
         public Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request)

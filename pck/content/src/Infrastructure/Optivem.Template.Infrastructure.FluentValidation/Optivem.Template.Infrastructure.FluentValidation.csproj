@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="8.5.0" />
+    <PackageReference Include="FluentValidation" Version="8.5.1" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.FluentValidation" Version="1.0.18" />
+<PackageReference Include="Optivem.Framework.Infrastructure.FluentValidation" Version="1.0.19" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 

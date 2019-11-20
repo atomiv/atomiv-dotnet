@@ -8,7 +8,6 @@ namespace Optivem.Template.Infrastructure.FluentValidation.Orders
     {
         public UpdateOrderRequestValidator()
         {
-            RuleFor(e => e.CustomerId).GreaterThan(0);
             RuleFor(e => e.OrderDetails).NotNull();
         }
     }

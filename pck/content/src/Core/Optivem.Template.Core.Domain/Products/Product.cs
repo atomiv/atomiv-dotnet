@@ -4,13 +4,13 @@ namespace Optivem.Template.Core.Domain.Products
 {
     public class Product : AggregateRoot<ProductIdentity, int>
     {
-        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isActive)
+        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isListed)
             : base(id)
         {
             ProductCode = productCode;
             ProductName = productName;
             ListPrice = listPrice;
-            IsActive = isActive;
+            IsListed = isListed;
         }
 
         public string ProductCode { get; }
@@ -19,26 +19,26 @@ namespace Optivem.Template.Core.Domain.Products
 
         public decimal ListPrice { get; set; }
 
-        public bool IsActive { get; private set; }
+        public bool IsListed { get; private set; }
 
-        public void Activate()
+        public void Relist()
         {
-            if (IsActive)
+            if (IsListed)
             {
-                throw new DomainException("Cannot activate product because it is already active");
+                throw new DomainException("Cannot relist product because it is already listed");
             }
 
-            IsActive = true;
+            IsListed = true;
         }
 
-        public void Deactivate()
+        public void Unlist()
         {
-            if (!IsActive)
+            if (!IsListed)
             {
-                throw new DomainException("Cannot deactivate product because it has already been deactivated");
+                throw new DomainException("Cannot unlist product because it has already been unlisted");
             }
 
-            IsActive = false;
+            IsListed = false;
         }
     }
 }

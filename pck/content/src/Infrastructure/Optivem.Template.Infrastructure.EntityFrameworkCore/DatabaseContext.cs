@@ -53,7 +53,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         private void Seed(ModelBuilder modelBuilder)
         {
             SeedEnumRecords<OrderStatusRecord, OrderStatus>(modelBuilder, e => new OrderStatusRecord { Id = (byte)e, Code = e.ToString() });
-            SeedEnumRecords<OrderDetailStatusRecord, OrderDetailStatus>(modelBuilder, e => new OrderDetailStatusRecord { Id = (byte)e, Code = e.ToString() });
+            SeedEnumRecords<OrderDetailStatusRecord, OrderItemStatus>(modelBuilder, e => new OrderDetailStatusRecord { Id = (byte)e, Code = e.ToString() });
         }
 
         private void SeedRecords<TRecord>(ModelBuilder modelBuilder, List<TRecord> data)

@@ -1,15 +1,29 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using System.Threading.Tasks;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class BrowseCustomersUseCase : BrowseAggregatesUseCase<ICustomerRepository, BrowseCustomersRequest, BrowseCustomersResponse, BrowseCustomersRecordResponse, Customer, CustomerIdentity, int>
+    public class BrowseCustomersUseCase : RequestHandler<BrowseCustomersRequest, BrowseCustomersResponse>
     {
-        public BrowseCustomersUseCase(IMapper mapper, ICustomerRepository repository) : base(mapper, repository)
+        private readonly ICustomerReadRepository _customerReadRepository;
+
+        public BrowseCustomersUseCase(IMapper mapper, ICustomerReadRepository customerReadRepository)
+            : base(mapper)
         {
+            _customerReadRepository = customerReadRepository;
+        }
+
+        public override async Task<BrowseCustomersResponse> HandleAsync(BrowseCustomersRequest request)
+        {
+            var pageQuery = new PageQuery(request.Page, request.Size);
+            var pageResult = await _customerReadRepository.GetPageAsync(pageQuery);
+
+            return Mapper.Map<PageReadModel<CustomerHeaderReadModel>, BrowseCustomersResponse>(pageResult);
         }
     }
 }

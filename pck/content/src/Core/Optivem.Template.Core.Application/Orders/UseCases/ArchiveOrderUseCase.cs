@@ -1,4 +1,6 @@
-﻿using Optivem.Framework.Core.Application.UseCases;
+﻿using System.Threading.Tasks;
+using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
@@ -7,16 +9,34 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class ArchiveOrderUseCase : ExecuteAggregateUseCase<IOrderRepository, ArchiveOrderRequest, ArchiveOrderResponse, Order, OrderIdentity, int>
+    public class ArchiveOrderUseCase : RequestHandler<ArchiveOrderRequest, ArchiveOrderResponse>
     {
-        public ArchiveOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IOrderRepository _orderRepository;
+
+        public ArchiveOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+            : base(mapper)
         {
+            _unitOfWork = unitOfWork;
+            _orderRepository = orderRepository;
         }
 
-        protected override void Execute(ArchiveOrderRequest request, Order aggregateRoot)
+        public override async Task<ArchiveOrderResponse> HandleAsync(ArchiveOrderRequest request)
         {
-            aggregateRoot.Archive();
+            var orderId = new OrderIdentity(request.Id);
+
+            var order = await _orderRepository.FindAsync(orderId);
+
+            if (order == null)
+            {
+                throw new NotFoundRequestException();
+            }
+
+            order.Archive();
+
+            order = await _orderRepository.UpdateAsync(order);
+            await _unitOfWork.SaveChangesAsync();
+            return Mapper.Map<Order, ArchiveOrderResponse>(order);
         }
     }
 }

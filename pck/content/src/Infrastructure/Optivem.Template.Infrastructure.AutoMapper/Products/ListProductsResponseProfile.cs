@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products;
 using System.Collections.Generic;
@@ -10,18 +11,11 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
     {
         public ListProductsResponseProfile()
         {
-            CreateMap<IEnumerable<Product>, ListProductsResponse>()
-                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e))
-                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.Count()));
-        }
-    }
+            CreateMap<ListReadModel<ProductIdNameReadModel>, ListProductsResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.Records))
+                .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.TotalRecords));
 
-    public class ListProductsRecordResponseProfile : Profile
-    {
-        public ListProductsRecordResponseProfile()
-        {
-            CreateMap<Product, ListProductsRecordResponse>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(e => $"{e.ProductCode} - {e.ProductName}"));
+            CreateMap<ProductIdNameReadModel, ListProductsRecordResponse>();
         }
     }
 }
