@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Optivem</Authors>
-    <Version>1.0.18</Version>
+    <Version>1.0.19</Version>
     <Description>Implementation for Excel reading and writing using EPPlus</Description>
     <Copyright>? Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>

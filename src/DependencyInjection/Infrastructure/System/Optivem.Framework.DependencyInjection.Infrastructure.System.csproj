@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.18</Version>
+    <Version>1.0.19</Version>
     <Authors>Optivem</Authors>
   </PropertyGroup>
 
