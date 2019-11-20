@@ -13,7 +13,7 @@ namespace Optivem.Template.Web.RestClient
         {
         }
 
-        public Task<ActivateProductResponse> ActivateProductAsync(ActivateProductRequest request)
+        public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
         {
             return ExecuteAsync(e => e.RelistProductAsync(request));
         }
@@ -28,7 +28,7 @@ namespace Optivem.Template.Web.RestClient
             return ExecuteAsync(e => e.CreateProductAsync(request));
         }
 
-        public Task<DeactivateProductResponse> DeactivateProductAsync(DeactivateProductRequest request)
+        public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
         {
             return ExecuteAsync(e => e.UnlistProductAsync(request));
         }
@@ -38,7 +38,7 @@ namespace Optivem.Template.Web.RestClient
             return ExecuteAsync(e => e.FindProductAsync(request));
         }
 
-        public Task<ListProductsResponse> ListProductsAsync(ListProductsRequest request)
+        public Task<ListProductsResponse> ListProductsAsync(ListProductRequest request)
         {
             return ExecuteAsync(e => e.ListProductsAsync(request));
         }

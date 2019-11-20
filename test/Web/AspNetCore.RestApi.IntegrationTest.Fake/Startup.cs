@@ -11,7 +11,6 @@ using Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Framework.Infrastructure.CsvHelper;
 using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers;
-using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
 
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake

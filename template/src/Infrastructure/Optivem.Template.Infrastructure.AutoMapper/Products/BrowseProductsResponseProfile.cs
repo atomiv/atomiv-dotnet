@@ -9,17 +9,12 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
     {
         public BrowseProductsResponseProfile()
         {
-            CreateMap<PageAggregateRootsResponse<Product>, BrowseProductsResponse>()
-                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.AggregateRoots))
+            CreateMap<PageReadModel<ProductHeaderReadModel>, BrowseProductsResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.Records))
                 .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.TotalRecords));
-        }
-    }
 
-    public class BrowseProductsRecordResponseProfile : Profile
-    {
-        public BrowseProductsRecordResponseProfile()
-        {
-            CreateMap<Product, BrowseProductsRecordResponse>()
+            CreateMap<ProductHeaderReadModel, BrowseProductsRecordResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.ProductId))
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(e => e.ProductCode))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(e => e.ProductName))
                 .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice));

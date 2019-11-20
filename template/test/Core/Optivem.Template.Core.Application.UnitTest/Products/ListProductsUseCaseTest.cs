@@ -40,7 +40,7 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
             _repositoryMock.Setup(e => e.FindAsync()).Returns(Task.FromResult(products.AsEnumerable()));
             */
 
-            var request = new ListProductsRequest();
+            var request = new ListProductRequest();
 
             await _useCase.HandleAsync(request);
 

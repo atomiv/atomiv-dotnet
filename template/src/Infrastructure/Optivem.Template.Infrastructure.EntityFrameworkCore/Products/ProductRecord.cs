@@ -15,7 +15,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         public string ProductCode { get; set; }
         public string ProductName { get; set; }
         public decimal ListPrice { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsListed { get; set; }
 
         public virtual ICollection<OrderDetailRecord> OrderDetailRecords { get; set; }
     }

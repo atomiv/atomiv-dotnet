@@ -1,9 +1,9 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
-using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
 using System.Linq;
@@ -11,40 +11,50 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class UpdateOrderUseCase : UpdateAggregateUseCase<IOrderRepository, UpdateOrderRequest, UpdateOrderResponse, Order, OrderIdentity, int>
+    public class UpdateOrderUseCase : RequestHandler<UpdateOrderRequest, UpdateOrderResponse>
     {
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IProductReadRepository _productReadRepository;
 
-        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IProductRepository productRepository)
-            : base(mapper, unitOfWork)
+        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, IProductReadRepository productReadRepository)
+            : base(mapper)
         {
-            _customerRepository = customerRepository;
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
+            _orderRepository = orderRepository;
+            _productReadRepository = productReadRepository;
         }
 
-        protected override async Task UpdateAsync(UpdateOrderRequest request, Order aggregateRoot)
+        public override async Task<UpdateOrderResponse> HandleAsync(UpdateOrderRequest request)
         {
-            var customerId = new CustomerIdentity(request.CustomerId);
-            var existsCustomer = await _customerRepository.ExistsAsync(customerId);
+            var orderId = new OrderIdentity(request.Id);
 
-            if (!existsCustomer)
+            var order = await _orderRepository.FindAsync(orderId);
+
+            if (order == null)
             {
-                throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
+                throw new NotFoundRequestException();
             }
 
-            aggregateRoot.CustomerId = customerId;
+            await UpdateAsync(order, request);
 
-            var currentOrderDetails = aggregateRoot.OrderDetails;
+            order = await _orderRepository.UpdateAsync(order);
+            await _unitOfWork.SaveChangesAsync();
+            return Mapper.Map<Order, UpdateOrderResponse>(order);
+        }
+
+        private async Task UpdateAsync(Order order, UpdateOrderRequest request)
+        {
+            var currentOrderDetails = order.OrderItems;
 
             var addedOrderRequestDetails = request.OrderDetails.Where(e => e.Id == null).ToList();
             var updatedOrderRequestDetails = request.OrderDetails.Where(e => e.Id != null).ToList();
-            var deletedOrderDetails = aggregateRoot.OrderDetails.Where(e => !request.OrderDetails.Any(f => f.Id == e.Id.Id)).ToList();
+            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderDetails.Any(f => f.Id == e.Id.Id)).ToList();
 
             foreach (var added in addedOrderRequestDetails)
             {
                 var productId = new ProductIdentity(added.ProductId);
-                var product = await _productRepository.FindAsync(productId);
+                var product = await _productReadRepository.FindAsync(productId);
 
                 if (product == null)
                 {
@@ -52,16 +62,16 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 }
 
                 var orderDetail = OrderFactory.CreateNewOrderDetail(product, added.Quantity);
-                aggregateRoot.AddOrderDetail(orderDetail);
+                order.AddOrderDetail(orderDetail);
             }
 
             foreach (var updated in updatedOrderRequestDetails)
             {
-                var orderDetailId = new OrderDetailIdentity(updated.Id.Value);
-                var orderDetail = aggregateRoot.OrderDetails.First(e => e.Id == orderDetailId);
+                var orderDetailId = new OrderItemIdentity(updated.Id.Value);
+                var orderDetail = order.OrderItems.First(e => e.Id == orderDetailId);
 
                 var productId = new ProductIdentity(updated.ProductId);
-                var product = await _productRepository.FindAsync(productId);
+                var product = await _productReadRepository.FindAsync(productId);
 
                 if (product == null)
                 {
@@ -74,7 +84,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             foreach (var deleted in deletedOrderDetails)
             {
-                aggregateRoot.RemoveOrderDetail(deleted.Id);
+                order.RemoveOrderDetail(deleted.Id);
             }
         }
     }

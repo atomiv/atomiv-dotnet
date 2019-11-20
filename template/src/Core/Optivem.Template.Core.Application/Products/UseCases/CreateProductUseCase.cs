@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
@@ -8,21 +8,35 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class CreateProductUseCase : CreateAggregateUseCase<IProductRepository, CreateProductRequest, CreateProductResponse, Product, ProductIdentity, int>
+    public class CreateProductUseCase : RequestHandler<CreateProductRequest, CreateProductResponse>
     {
-        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork) : base(mapper, unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IProductRepository _productRepository;
+
+        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+            : base(mapper)
         {
+            _unitOfWork = unitOfWork;
+            _productRepository = productRepository;
         }
 
-        protected override Task<Product> CreateAggregateRootAsync(CreateProductRequest request)
+        public override async Task<CreateProductResponse> HandleAsync(CreateProductRequest request)
+        {
+            var product = GetProduct(request);
+
+            product = await _productRepository.AddAsync(product);
+            await _unitOfWork.SaveChangesAsync();
+
+            return Mapper.Map<Product, CreateProductResponse>(product);
+        }
+
+        private Product GetProduct(CreateProductRequest request)
         {
             var productCode = request.Code;
             var productName = request.Description;
             var listPrice = request.UnitPrice;
 
-            var product = ProductFactory.CreateNewProduct(productCode, productName, listPrice);
-
-            return Task.FromResult(product);
+            return ProductFactory.CreateNewProduct(productCode, productName, listPrice);
         }
     }
 }

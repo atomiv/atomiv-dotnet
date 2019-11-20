@@ -1,12 +1,11 @@
-﻿using Optivem.Framework.Core.Domain;
-
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
-    public interface IRecord : IIdentity
+    public interface IRecord
     {
     }
 
-    public interface IRecord<TId> : IRecord, IIdentity<TId>
+    public interface IRecord<TId> : IRecord
     {
+        TId Id { get; set; }
     }
 }

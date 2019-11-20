@@ -1,5 +1,6 @@
 ﻿using Moq;
 using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Application.Products.UseCases;
@@ -54,7 +55,8 @@ namespace Optivem.Template.Core.Application.UnitTest.Products
             await _useCase.HandleAsync(request);
 
             _mapperMock.Verify(e => e.Map<IEnumerable<Product>, BrowseProductsResponse>(products), Times.Once);
-            _repositoryMock.Verify(e => e.PageAsync(page, size), Times.Once);
+            var pageQuery = new PageQuery(request.Page, request.Size);
+            _repositoryMock.Verify(e => e.GetPageAsync(pageQuery), Times.Once);
         }
     }
 }

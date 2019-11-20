@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using IMapper = Optivem.Framework.Core.Common.Mapping.IMapper;
 using Mapper = Optivem.Framework.Infrastructure.AutoMapper.Mapper;

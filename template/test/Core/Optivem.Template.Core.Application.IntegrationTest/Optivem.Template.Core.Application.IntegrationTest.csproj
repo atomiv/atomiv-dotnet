@@ -31,6 +31,7 @@
     <ProjectReference Include="..\..\..\..\test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj" />
   </ItemGroup>
 
   <ItemGroup>

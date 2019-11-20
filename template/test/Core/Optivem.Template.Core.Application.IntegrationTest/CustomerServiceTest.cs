@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
                 new CustomerRecord
                 {
-                    FirstName = "Molly",
+                    FirstName = "Markson",
                     LastName = "McDonald",
                 },
 
@@ -49,7 +49,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 new CustomerRecord
                 {
                     FirstName = "Mark",
-                    LastName = "McDonald",
+                    LastName = "McPhil",
                 },
 
                 new CustomerRecord
@@ -177,20 +177,30 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task ListCustomers_ValidRequest_ReturnsResponse()
         {
-            var request = new ListCustomersRequest();
+            var request = new ListCustomersRequest
+            {
+                NameSearch = "ark",
+                Limit = 20,
+            };
+
+            var expectedRecords = new List<CustomerRecord>
+            {
+                _customerRecords[5],
+                _customerRecords[3],
+            };
 
             var actualResponse = await Fixture.Customers.ListCustomersAsync(request);
 
+            Assert.Equal(expectedRecords.Count, actualResponse.Records.Count);
             Assert.Equal(_customerRecords.Count, actualResponse.TotalRecords);
 
-            for (int i = 0; i < _customerRecords.Count; i++)
+            for (int i = 0; i < expectedRecords.Count; i++)
             {
-                var expectedRecord = _customerRecords[i];
+                var expectedRecord = expectedRecords[i];
                 var actualRecord = actualResponse.Records[i];
 
                 Assert.Equal(expectedRecord.Id, actualRecord.Id);
-                Assert.Equal(expectedRecord.FirstName, actualRecord.FirstName);
-                Assert.Equal(expectedRecord.LastName, actualRecord.LastName);
+                Assert.Equal(expectedRecord.FirstName + " " + expectedRecord.LastName, actualRecord.Name);
             }
         }
 

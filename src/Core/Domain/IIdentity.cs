@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.Framework.Core.Domain
+﻿namespace Optivem.Framework.Core.Domain
 {
     public interface IIdentity
     {

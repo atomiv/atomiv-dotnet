@@ -1,22 +1,42 @@
-﻿using Optivem.Framework.Core.Application.UseCases;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class CancelOrderUseCase : ExecuteAggregateUseCase<IOrderRepository, CancelOrderRequest, CancelOrderResponse, Order, OrderIdentity, int>
+    public class CancelOrderUseCase : RequestHandler<CancelOrderRequest, CancelOrderResponse>
     {
-        public CancelOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork)
-            : base(mapper, unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IOrderRepository _orderRepository;
+
+        public CancelOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+            : base(mapper)
         {
+            _unitOfWork = unitOfWork;
+            _orderRepository = orderRepository;
         }
 
-        protected override void Execute(CancelOrderRequest request, Order aggregateRoot)
+        public override async Task<CancelOrderResponse> HandleAsync(CancelOrderRequest request)
         {
-            aggregateRoot.Cancel();
+            var orderId = new OrderIdentity(request.Id);
+
+            var order = await _orderRepository.FindAsync(orderId);
+
+            if (order == null)
+            {
+                throw new NotFoundRequestException();
+            }
+
+            order.Cancel();
+
+            order = await _orderRepository.UpdateAsync(order);
+            await _unitOfWork.SaveChangesAsync();
+            return Mapper.Map<Order, CancelOrderResponse>(order);
         }
     }
 }

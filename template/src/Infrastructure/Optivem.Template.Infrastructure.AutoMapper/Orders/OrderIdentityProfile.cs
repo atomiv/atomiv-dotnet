@@ -13,10 +13,10 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
             CreateMap<OrderIdentity, int>()
                 .ConvertUsing(src => src.Id);
 
-            CreateMap<int, OrderDetailIdentity>()
-                .ConvertUsing(src => new OrderDetailIdentity(src));
+            CreateMap<int, OrderItemIdentity>()
+                .ConvertUsing(src => new OrderItemIdentity(src));
 
-            CreateMap<OrderDetailIdentity, int>()
+            CreateMap<OrderItemIdentity, int>()
                 .ConvertUsing(src => src.Id);
         }
     }

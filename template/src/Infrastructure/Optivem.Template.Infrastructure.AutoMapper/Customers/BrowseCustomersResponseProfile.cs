@@ -9,9 +9,12 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
     {
         public BrowseCustomersResponseProfile()
         {
-            CreateMap<PageAggregateRootsResponse<Customer>, BrowseCustomersResponse>()
-                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.AggregateRoots))
+            CreateMap<PageReadModel<CustomerHeaderReadModel>, BrowseCustomersResponse>()
+                .ForMember(dest => dest.Records, opt => opt.MapFrom(e => e.Records))
                 .ForMember(dest => dest.TotalRecords, opt => opt.MapFrom(e => e.TotalRecords));
+
+            CreateMap<CustomerHeaderReadModel, BrowseCustomersRecordResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(e => e.CustomerId));
         }
     }
 

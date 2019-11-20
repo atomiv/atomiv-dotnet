@@ -11,8 +11,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
             CreateMap<Product, FindProductResponse>()
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(e => e.ProductCode))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(e => e.ProductName))
-                .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice))
-                ;
+                .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice));
         }
     }
 }

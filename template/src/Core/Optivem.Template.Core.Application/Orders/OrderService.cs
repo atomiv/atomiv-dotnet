@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders
 {
-    public class OrderService : BaseService, IOrderService
+    public class OrderService : ApplicationService, IOrderService
     {
         public OrderService(IRequestHandler requestHandler) : base(requestHandler)
         {

@@ -1,15 +1,13 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public interface IOrderRepository : IRepository<Order, OrderIdentity>,
-        IFindAggregateRootRepository<Order, OrderIdentity>,
-        IExistsAggregateRootRepository<Order, OrderIdentity>,
-        IAddAggregateRootRepository<Order, OrderIdentity>,
-        IUpdateAggregateRootRepository<Order, OrderIdentity>,
-        IRemoveAggregateRootRepository<Order, OrderIdentity>,
-        IPageAggregateRootsRepository<Order, OrderIdentity>,
-        IListAggregateRootsRepository<Order, OrderIdentity>
+    public interface IOrderRepository : IOrderReadRepository
     {
+        Task<Order> AddAsync(Order order);
+
+        Task<Order> UpdateAsync(Order order);
+
+        Task RemoveAsync(OrderIdentity orderId);
     }
 }

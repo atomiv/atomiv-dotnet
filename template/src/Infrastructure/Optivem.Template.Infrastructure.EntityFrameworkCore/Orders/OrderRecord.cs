@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using System;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
@@ -13,6 +14,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         }
 
         public int CustomerRecordId { get; set; }
+        public DateTime OrderDate { get; set; }
         public byte OrderStatusRecordId { get; set; }
 
         public virtual CustomerRecord CustomerRecord { get; set; }

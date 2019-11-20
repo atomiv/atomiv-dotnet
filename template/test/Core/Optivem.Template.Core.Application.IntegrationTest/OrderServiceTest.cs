@@ -90,7 +90,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductRecordId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
-                            OrderDetailStatusRecordId = (int)OrderDetailStatus.NoStock,
+                            OrderDetailStatusRecordId = (int)OrderItemStatus.NoStock,
                         },
 
                         new OrderDetailRecord
@@ -98,7 +98,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductRecordId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
-                            OrderDetailStatusRecordId = (int)OrderDetailStatus.OnOrder,
+                            OrderDetailStatusRecordId = (int)OrderItemStatus.OnOrder,
                         },
                     },
                 },
@@ -115,7 +115,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductRecordId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
-                            OrderDetailStatusRecordId = (int)OrderDetailStatus.Allocated,
+                            OrderDetailStatusRecordId = (int)OrderItemStatus.Allocated,
                         },
 
                         new OrderDetailRecord
@@ -123,7 +123,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductRecordId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,
-                            OrderDetailStatusRecordId = (int)OrderDetailStatus.Invoiced,
+                            OrderDetailStatusRecordId = (int)OrderItemStatus.Invoiced,
                         },
                     },
                 },
@@ -189,7 +189,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.True(createResponseOrderDetail.Id > 0);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
                 Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderDetailStatus.Allocated, createResponseOrderDetail.StatusId);
+                Assert.Equal((int)OrderItemStatus.Allocated, createResponseOrderDetail.StatusId);
             }
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
@@ -316,8 +316,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task UpdateOrder_ValidRequest_ReturnsResponse()
         {
-            var customerRecord = _customerRecords[2];
-
             var product1Record = _productRecords[2];
             var product2Record = _productRecords[3];
 
@@ -328,7 +326,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                CustomerId = customerRecord.Id,
                 OrderDetails = new List<UpdateOrderRequest.OrderDetail>
                 {
                     new UpdateOrderRequest.OrderDetail
@@ -350,7 +347,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateResponse = await Fixture.Orders.UpdateOrderAsync(updateRequest);
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
-            Assert.Equal(updateRequest.CustomerId, updateResponse.CustomerId);
+            Assert.Equal(orderRecord.CustomerRecordId, updateResponse.CustomerId);
             Assert.Equal(orderStatusId, updateResponse.StatusId);
 
             Assert.NotNull(updateResponse.OrderDetails);
@@ -373,7 +370,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
                 Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
                 Assert.Equal(updateRequestOrderDetail.Quantity, updateResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderDetailStatus.Allocated, updateResponseOrderDetail.StatusId);
+                Assert.Equal((int)OrderItemStatus.Allocated, updateResponseOrderDetail.StatusId);
             }
 
             var findRequest = new FindOrderRequest { Id = updateResponse.Id };
@@ -406,7 +403,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = 999,
-                CustomerId = _customerRecords[0].Id,
                 OrderDetails = new List<UpdateOrderRequest.OrderDetail>
                 {
                     new UpdateOrderRequest.OrderDetail
@@ -429,7 +425,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                CustomerId = 0,
                 OrderDetails = null,
             };
 

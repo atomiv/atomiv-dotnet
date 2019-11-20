@@ -12,6 +12,6 @@ namespace Optivem.Template.Core.Application.Products.Responses
 
         public decimal UnitPrice { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsListed { get; set; }
     }
 }

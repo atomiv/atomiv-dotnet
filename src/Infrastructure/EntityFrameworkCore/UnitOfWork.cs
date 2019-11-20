@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Optivem.Framework.Core.Domain;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
     public abstract class UnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext
     {
+        private IDbContextTransaction _dbContextTransaction;
+
         private bool disposedValue = false;
 
         private Dictionary<string, IRepository> _repositories;
@@ -31,14 +34,24 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
         protected bool DisposeContext { get; private set; }
 
-        public void BeginTransaction()
+        public void Begin()
         {
-            Context.Database.BeginTransaction();
+            if(_dbContextTransaction != null)
+            {
+                throw new InvalidOperationException("Cannot begin transaction because it was already started");
+            }
+
+            _dbContextTransaction = Context.Database.BeginTransaction();
         }
 
-        public async Task BeginTransactionAsync()
+        public async Task BeginAsync()
         {
-            await Context.Database.BeginTransactionAsync();
+            if (_dbContextTransaction != null)
+            {
+                throw new InvalidOperationException("Cannot begin transaction because it was already started");
+            }
+
+            _dbContextTransaction = await Context.Database.BeginTransactionAsync();
         }
 
         public void SaveChanges()
@@ -51,14 +64,22 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             await Context.SaveChangesAsync();
         }
 
-        public void CommitTransaction()
+        public void Commit()
         {
-            Context.Database.CommitTransaction();
-        }
+            if(_dbContextTransaction == null)
+            {
+                throw new InvalidOperationException("Cannot commit transaction because it was not started");
+            }
 
-        public void RollbackTransaction()
-        {
-            Context.Database.RollbackTransaction();
+            try
+            {
+                Context.Database.CommitTransaction();
+            }
+            catch(Exception)
+            {
+                Context.Database.RollbackTransaction();
+                throw;
+            }
         }
 
         protected void Dispose(bool disposing)
@@ -67,6 +88,11 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             {
                 if (disposing)
                 {
+                    if(_dbContextTransaction != null)
+                    {
+                        _dbContextTransaction.Dispose();
+                    }
+
                     if (DisposeContext)
                     {
                         Context.Dispose();
@@ -77,7 +103,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             }
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             Dispose(true);
         }

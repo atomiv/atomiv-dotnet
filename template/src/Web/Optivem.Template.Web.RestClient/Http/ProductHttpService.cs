@@ -30,19 +30,19 @@ namespace Optivem.Template.Web.RestClient.Http
             return Client.GetByIdAsync<int, FindProductResponse>(id);
         }
 
-        public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductsRequest request)
+        public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductRequest request)
         {
             return Client.GetAsync<ListProductsResponse>("list");
         }
 
-        public Task<IObjectClientResponse<ActivateProductResponse>> RelistProductAsync(ActivateProductRequest request)
+        public Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request)
         {
-            return Client.PostAsync<ActivateProductRequest, ActivateProductResponse>(request);
+            return Client.PostAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<DeactivateProductResponse>> UnlistProductAsync(DeactivateProductRequest request)
+        public Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request)
         {
-            return Client.PostAsync<DeactivateProductRequest, DeactivateProductResponse>(request);
+            return Client.PostAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
         public Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request)

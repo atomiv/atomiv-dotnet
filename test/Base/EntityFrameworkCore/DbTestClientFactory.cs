@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
@@ -8,7 +9,7 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
 {
     public static class DbTestClientFactory
     {
-        public static DbTestClient<TDbContext> Create<TDbContext>(string connectionStringKey, Func<DbContextOptions<TDbContext>, TDbContext> createDbContext)
+        public static DbTestClient<TDbContext> Create<TDbContext>(string connectionStringKey, Func<DbContextOptions<TDbContext>, TDbContext> createDbContext, Action<SqlServerDbContextOptionsBuilder> sqlServerOptionsAction = null)
             where TDbContext : DbContext
         {
             var configurationRoot = ConfigurationRootFactory.Create();

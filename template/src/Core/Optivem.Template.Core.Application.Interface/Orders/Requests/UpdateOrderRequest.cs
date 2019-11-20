@@ -8,8 +8,6 @@ namespace Optivem.Template.Core.Application.Orders.Requests
     {
         public int Id { get; set; }
 
-        public int CustomerId { get; set; }
-
         public List<OrderDetail> OrderDetails { get; set; }
 
         public class OrderDetail
