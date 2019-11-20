@@ -15,7 +15,7 @@ namespace Optivem.Framework.Test.EntityFrameworkCore
             var configurationRoot = ConfigurationRootFactory.Create();
 
             var connectionString = configurationRoot.GetConnectionString(connectionStringKey);
-            var databaseContextFactory = new SqlServerDbContextFactory<TDbContext>(connectionString, createDbContext);
+            var databaseContextFactory = new SqlServerDbContextFactory<TDbContext>(connectionString, createDbContext, sqlServerOptionsAction);
             var databaseTestClient = new DbTestClient<TDbContext>(databaseContextFactory);
             databaseTestClient.EnsureDatabaseCreated(); // TODO: VC: Check this applies all migrations
 

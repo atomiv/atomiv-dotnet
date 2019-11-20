@@ -32,7 +32,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task ListCustomers_OK()
         {
             var listRequest = new ListCustomersRequest { };

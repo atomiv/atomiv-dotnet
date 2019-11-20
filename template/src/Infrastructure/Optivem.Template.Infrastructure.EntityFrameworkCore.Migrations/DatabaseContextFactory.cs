@@ -28,7 +28,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
             // throw new Exception("Connection is: " + connection);
 
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer(connection, b => b.MigrationsAssembly("Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations"));
+            optionsBuilder.UseSqlServer(connection, ConfigurationKeys.SqlServerOptionsAction);
 
             return new DatabaseContext(optionsBuilder.Options);
         }
