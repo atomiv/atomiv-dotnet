@@ -144,7 +144,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
         */
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
         {
             var customerRecord = _customerRecords[0];
@@ -252,7 +252,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
         */
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];
@@ -281,7 +281,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             }
         }
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task FindOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
             var id = 999;
@@ -313,7 +313,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
         */
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task UpdateOrder_ValidRequest_ReturnsResponse()
         {
             var product1Record = _productRecords[2];
@@ -397,7 +397,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             }
         }
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task UpdateOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
             var updateRequest = new UpdateOrderRequest

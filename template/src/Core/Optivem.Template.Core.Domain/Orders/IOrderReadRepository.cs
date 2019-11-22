@@ -9,8 +9,10 @@ namespace Optivem.Template.Core.Domain.Orders
 
         Task<bool> ExistsAsync(OrderIdentity orderId);
 
-        Task<ListReadModel<int>> ListAsync();
+        Task<ListReadModel<OrderIdNameReadModel>> ListAsync();
 
         Task<PageReadModel<OrderHeaderReadModel>> GetPageAsync(PageQuery pageQuery);
+
+        Task<long> CountAsync();
     }
 }

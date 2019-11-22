@@ -22,7 +22,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         {
             var listResult = await _orderReadRepository.ListAsync();
 
-            return Mapper.Map<ListReadModel<int>, ListOrdersResponse>(listResult);
+            return Mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersResponse>(listResult);
         }
     }
 }

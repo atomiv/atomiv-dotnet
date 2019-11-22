@@ -1,5 +1,7 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Orders;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
@@ -10,29 +12,49 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         {
         }
 
-        public Task<Order> AddAsync(Order order)
+        public async Task<Order> AddAsync(Order order)
         {
-            throw new System.NotImplementedException();
+            var orderRecord = GetOrderRecord(order);
+            Context.OrderRecords.Add(orderRecord);
+            await Context.SaveChangesAsync();
+            return GetOrder(orderRecord);
         }
 
-        public Task RemoveAsync(OrderIdentity orderId)
+        public async Task RemoveAsync(OrderIdentity orderId)
         {
-            throw new System.NotImplementedException();
+            var orderRecord = GetOrderRecord(orderId);
+            Context.Remove(orderRecord);
+            await Context.SaveChangesAsync();
         }
 
-        public Task<Order> UpdateAsync(Order order)
+        public async Task<Order> UpdateAsync(Order order)
         {
-            throw new System.NotImplementedException();
+            var orderRecordId = order.Id.Id;
+            var orderRecord = await Context.OrderRecords
+                .Include(e => e.OrderDetailRecords)
+                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+
+            UpdateOrderRecord(orderRecord, order);
+
+            try
+            {
+                Context.OrderRecords.Update(orderRecord);
+                await Context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new ConcurrentUpdateException(ex.Message, ex);
+            }
+
+            return GetOrder(orderRecord);
         }
 
-        /*
-         * 
-        public OrderRecord Map(Order aggregateRoot)
+        protected OrderRecord GetOrderRecord(Order order)
         {
-            var id = aggregateRoot.Id.Id;
-            var customerRecordId = aggregateRoot.CustomerId.Id;
-            var orderStatusRecordId = (byte)aggregateRoot.Status;
-            var orderDetailRecords = aggregateRoot.OrderItems.Select(e => Create(e, id)).ToList();
+            var id = order.Id.Id;
+            var customerRecordId = order.CustomerId.Id;
+            var orderStatusRecordId = (byte)order.Status;
+            var orderDetailRecords = order.OrderItems.Select(e => GetOrderDetailRecord(e, id)).ToList();
 
             return new OrderRecord
             {
@@ -43,7 +65,17 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             };
         }
 
-        private OrderDetailRecord Create(OrderItem orderDetail, int orderRecordId)
+        protected OrderRecord GetOrderRecord(OrderIdentity orderId)
+        {
+            var id = orderId.Id;
+
+            return new OrderRecord
+            {
+                Id = id,
+            };
+        }
+
+        protected OrderDetailRecord GetOrderDetailRecord(OrderItem orderDetail, int orderRecordId)
         {
             var id = orderDetail.Id.Id;
             var productRecordId = orderDetail.ProductId.Id;
@@ -61,50 +93,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
                 UnitPrice = unitPrice,
             };
         }
-         * 
-         * 
-         *
-         *
-         * 
-        public Order Map(OrderRecord record)
+
+        protected void UpdateOrderRecord(OrderRecord record, Order order)
         {
-            var id = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerRecordId);
-            OrderStatus status = (OrderStatus)record.OrderStatusRecordId; // TODO: VC
-            var orderDetails = record.OrderDetailRecords.Select(Create).ToList().AsReadOnly();
+            record.CustomerRecordId = order.CustomerId.Id;
+            record.OrderStatusRecordId = (byte)order.Status;
 
-            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
-
-            return new Order(id, customerId, DateTime.Now, status, orderDetails);
-        }
-
-        private static OrderItem Create(OrderDetailRecord record)
-        {
-            var id = new OrderItemIdentity(record.Id);
-            var productId = new ProductIdentity(record.ProductRecordId);
-            var quantity = record.Quantity;
-            var unitPrice = record.UnitPrice;
-            var status = (OrderItemStatus)record.OrderDetailStatusRecordId; // TODO: VC
-
-            return new OrderItem(id, productId, quantity, unitPrice, status);
-        }
-
-        public List<Expression<Func<OrderRecord, object>>> GetIncludes()
-        {
-            return new List<Expression<Func<OrderRecord, object>>>
-            {
-                e => e.OrderDetailRecords
-            };
-        }
-
-
-
-        public OrderRecord Map(Order aggregateRoot, OrderRecord record)
-        {
-            record.CustomerRecordId = aggregateRoot.CustomerId.Id;
-            record.OrderStatusRecordId = (byte)aggregateRoot.Status;
-
-            var addedOrderDetails = aggregateRoot.OrderItems
+            var addedOrderDetails = order.OrderItems
                 .Where(e => e.Id == OrderItemIdentity.New);
 
             var addedOrderDetailRecords = addedOrderDetails
@@ -112,31 +107,29 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
                 .ToList();
 
             var removedOrderDetailRecords = record.OrderDetailRecords
-                .Where(e => !aggregateRoot.OrderItems.Any(f => f.Id.Id == e.Id))
+                .Where(e => !order.OrderItems.Any(f => f.Id.Id == e.Id))
                 .ToList();
 
             var updatedOrderDetailRecords = record.OrderDetailRecords
-                .Where(e => aggregateRoot.OrderItems.Any(f => f.Id.Id == e.Id))
+                .Where(e => order.OrderItems.Any(f => f.Id.Id == e.Id))
                 .ToList();
 
-            foreach(var addedOrderDetailRecord in addedOrderDetailRecords)
+            foreach (var addedOrderDetailRecord in addedOrderDetailRecords)
             {
                 record.OrderDetailRecords.Add(addedOrderDetailRecord);
             }
 
-            foreach(var removedOrderDetailRecord in removedOrderDetailRecords)
+            foreach (var removedOrderDetailRecord in removedOrderDetailRecords)
             {
                 record.OrderDetailRecords.Remove(removedOrderDetailRecord);
             }
 
-            foreach(var updatedOrderDetailRecord in updatedOrderDetailRecords)
+            foreach (var updatedOrderDetailRecord in updatedOrderDetailRecords)
             {
-                var orderDetail = aggregateRoot.OrderItems.Single(e => e.Id.Id == updatedOrderDetailRecord.Id);
+                var orderDetail = order.OrderItems.Single(e => e.Id.Id == updatedOrderDetailRecord.Id);
 
-                UpdateOrderDetailRecord(orderDetail, updatedOrderDetailRecord);
+                UpdateOrderDetailRecord(updatedOrderDetailRecord, orderDetail);
             }
-
-            return record;
         }
 
         private OrderDetailRecord CreateOrderDetailRecord(OrderItem orderDetail)
@@ -155,7 +148,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             };
         }
 
-        private void UpdateOrderDetailRecord(OrderItem orderDetail, OrderDetailRecord orderDetailRecord)
+        private void UpdateOrderDetailRecord(OrderDetailRecord orderDetailRecord, OrderItem orderDetail)
         {
             var productRecordId = orderDetail.ProductId.Id;
             var orderDetailStatusRecordId = (byte)orderDetail.Status;
@@ -167,10 +160,5 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             orderDetailRecord.Quantity = quantity;
             orderDetailRecord.UnitPrice = unitPrice;
         }
-    }
-
-         * 
-         * 
-         */
     }
 }
