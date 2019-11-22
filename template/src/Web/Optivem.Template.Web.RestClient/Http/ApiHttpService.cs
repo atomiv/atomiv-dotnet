@@ -10,10 +10,13 @@ namespace Optivem.Template.Web.RestClient.Http
             : base(clientFactory)
         {
             Customers = new CustomerHttpService(clientFactory);
+            Orders = new OrderHttpService(clientFactory);
             Products = new ProductHttpService(clientFactory);
         }
 
         public ICustomerHttpService Customers { get; }
+
+        public IOrderHttpService Orders { get; }
 
         public IProductHttpService Products { get; }
     }

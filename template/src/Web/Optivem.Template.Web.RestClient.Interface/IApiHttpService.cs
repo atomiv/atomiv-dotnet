@@ -4,6 +4,8 @@
     {
         ICustomerHttpService Customers { get; }
 
+        IOrderHttpService Orders { get; }
+
         IProductHttpService Products { get; }
     }
 }

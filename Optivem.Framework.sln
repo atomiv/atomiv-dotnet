@@ -169,8 +169,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.UI.Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.IntegrationTest", "template\test\Core\Optivem.Template.Core.Application.IntegrationTest\Optivem.Template.Core.Application.IntegrationTest.csproj", "{8A39C9F7-FCB9-4864-B3BF-16E78FF2A140}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.UnitTest", "template\test\Core\Optivem.Template.Core.Application.UnitTest\Optivem.Template.Core.Application.UnitTest.csproj", "{1CF6883B-5410-4C65-B56D-0403B422E5BF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domain.UnitTest", "template\test\Core\Optivem.Template.Core.Domain.UnitTest\Optivem.Template.Core.Domain.UnitTest.csproj", "{5152E6D4-742E-483D-AC14-EC862F7105A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.IntegrationTest", "template\test\Web\Optivem.Template.Web.RestApi.IntegrationTest\Optivem.Template.Web.RestApi.IntegrationTest.csproj", "{D6C3A607-11EC-4254-953B-502ADD3127D1}"
@@ -187,7 +185,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Cli", "tem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastructure.EPPlus", "src\Infrastructure\EPPlus\Optivem.Framework.Infrastructure.EPPlus.csproj", "{5D4A7AC1-3784-400B-B560-2551CDE174D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations", "template\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj", "{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations", "template\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj", "{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -435,10 +433,6 @@ Global
 		{8A39C9F7-FCB9-4864-B3BF-16E78FF2A140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A39C9F7-FCB9-4864-B3BF-16E78FF2A140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A39C9F7-FCB9-4864-B3BF-16E78FF2A140}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CF6883B-5410-4C65-B56D-0403B422E5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CF6883B-5410-4C65-B56D-0403B422E5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CF6883B-5410-4C65-B56D-0403B422E5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CF6883B-5410-4C65-B56D-0403B422E5BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5152E6D4-742E-483D-AC14-EC862F7105A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5152E6D4-742E-483D-AC14-EC862F7105A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5152E6D4-742E-483D-AC14-EC862F7105A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -553,7 +547,6 @@ Global
 		{0A04B45C-807D-4EED-BD8F-CB3AB7F205C7} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{9443A15E-75A2-4D07-A559-5F7CBC57A02D} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{8A39C9F7-FCB9-4864-B3BF-16E78FF2A140} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
-		{1CF6883B-5410-4C65-B56D-0403B422E5BF} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{5152E6D4-742E-483D-AC14-EC862F7105A4} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{D6C3A607-11EC-4254-953B-502ADD3127D1} = {04BFF208-657F-4024-8725-BD473BD76F44}
 		{6B035D26-3A83-40F7-A8E6-3B81C3F2BC2C} = {04BFF208-657F-4024-8725-BD473BD76F44}

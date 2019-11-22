@@ -1,24 +1,25 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Template.Core.Application.Orders.Requests;
+﻿using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Template.Core.Application.IntegrationTest
+namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
-    public class OrderServiceTest : ServiceTest
+    public class OrdersControllerTest : ControllerTest
     {
         private readonly List<CustomerRecord> _customerRecords;
         private readonly List<ProductRecord> _productRecords;
         private readonly List<OrderRecord> _orderRecords;
 
-        public OrderServiceTest(ServiceFixture fixture) : base(fixture)
+        public OrdersControllerTest(ControllerFixture fixture) : base(fixture)
         {
             _customerRecords = new List<CustomerRecord>
             {
@@ -159,7 +160,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            var createResponse = await Fixture.Orders.CreateOrderAsync(createRequest);
+            var createApiResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+
+            Assert.Equal(HttpStatusCode.Created, createApiResponse.StatusCode);
+
+            var createResponse = createApiResponse.Data;
 
             Assert.True(createResponse.Id > 0);
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
@@ -182,7 +187,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
 
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+            var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findResponse = findApiResponse.Data;
 
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
@@ -213,7 +219,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderDetails = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.CreateOrderAsync(createRequest));
+            var createApiResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, createApiResponse.StatusCode);
         }
 
         [Fact]
@@ -223,7 +231,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = orderRecord.Id;
 
             var findRequest = new FindOrderRequest { Id = id };
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+
+            var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+
+            Assert.Equal(HttpStatusCode.OK, findApiResponse.StatusCode);
+
+            var findResponse = findApiResponse.Data;
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
             Assert.Equal(orderRecord.CustomerRecordId, findResponse.CustomerId);
@@ -252,7 +265,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = id };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.FindOrderAsync(findRequest));
+            var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+
+            Assert.Equal(HttpStatusCode.NotFound, findApiResponse.StatusCode);
         }
 
         [Fact]
@@ -286,7 +301,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            var updateResponse = await Fixture.Orders.UpdateOrderAsync(updateRequest);
+            var updateApiResponse = await Fixture.Api.Orders.UpdateOrderAsync(updateRequest);
+
+            Assert.Equal(HttpStatusCode.OK, updateApiResponse.StatusCode);
+
+            var updateResponse = updateApiResponse.Data;
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(orderRecord.CustomerRecordId, updateResponse.CustomerId);
@@ -301,7 +320,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 var updateRequestOrderDetail = updateRequest.OrderDetails[i];
                 var updateResponseOrderDetail = updateResponse.OrderDetails[i];
 
-                if(updateRequestOrderDetail.Id != null)
+                if (updateRequestOrderDetail.Id != null)
                 {
                     Assert.Equal(updateRequestOrderDetail.Id, updateResponseOrderDetail.Id);
                 }
@@ -317,7 +336,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = updateResponse.Id };
 
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+            var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+
+            Assert.Equal(HttpStatusCode.OK, findApiResponse.StatusCode);
+
+            var findResponse = findApiResponse.Data;
 
             Assert.Equal(updateResponse.Id, findResponse.Id);
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
@@ -356,7 +379,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
+            var updateApiResponse = await Fixture.Api.Orders.UpdateOrderAsync(updateRequest);
+
+            Assert.Equal(HttpStatusCode.NotFound, updateApiResponse.StatusCode);
         }
 
         [Fact]
@@ -370,7 +395,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderDetails = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
+            var updateApiResponse = await Fixture.Api.Orders.UpdateOrderAsync(updateRequest);
+
+            Assert.Equal(HttpStatusCode.UnprocessableEntity, updateApiResponse.StatusCode);
         }
     }
 }
