@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.Controllers
 {
-    /*
     [Route("api/orders")]
     [ApiController]
     public class OrdersController : BaseController<IOrderService>
@@ -15,6 +14,8 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public OrdersController(IOrderService service) : base(service)
         {
         }
+
+        /*
 
         [HttpPost(Name = "archive-order")]
         [ProducesResponseType(typeof(ArchiveOrderResponse), 200)]
@@ -89,7 +90,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             var response = await Service.UpdateOrderAsync(request);
             return Ok(response);
         }
-    }
 
-    */
+        */
+    }
 }
