@@ -19,7 +19,8 @@ namespace Optivem.Template.Web.RestClient.Http
 
         public Task<IObjectClientResponse<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
-            throw new NotImplementedException();
+            var id = request.Id;
+            return Client.PostAsync<ArchiveOrderResponse>($"{id}/archive");
         }
 
         public Task<IObjectClientResponse<BrowseOrdersResponse>> BrowseOrdersAsync(BrowseOrdersRequest request)
@@ -29,32 +30,35 @@ namespace Optivem.Template.Web.RestClient.Http
 
         public Task<IObjectClientResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
         {
-            throw new NotImplementedException();
+            var id = request.Id;
+            return Client.PostAsync<CancelOrderResponse>($"{id}/cancel");
         }
 
         public Task<IObjectClientResponse<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
         {
-            throw new NotImplementedException();
+            return Client.PostAsync<CreateOrderRequest, CreateOrderResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindOrderResponse>> FindOrderAsync(FindOrderRequest request)
         {
-            throw new NotImplementedException();
+            var id = request.Id;
+            return Client.GetByIdAsync<int, FindOrderResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListOrdersResponse>> ListOrdersAsync(ListOrdersRequest request)
         {
-            throw new NotImplementedException();
+            return Client.GetAsync<ListOrdersResponse>("list");
         }
 
         public Task<IObjectClientResponse<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
         {
-            throw new NotImplementedException();
+            var id = request.Id;
+            return Client.PostAsync<SubmitOrderResponse>($"{id}/submit");
         }
 
         public Task<IObjectClientResponse<UpdateOrderResponse>> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            throw new NotImplementedException();
+            return Client.PutByIdAsync<int, UpdateOrderRequest, UpdateOrderResponse>(request.Id, request);
         }
     }
 }

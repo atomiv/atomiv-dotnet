@@ -15,9 +15,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         {
         }
 
-        /*
-
-        [HttpPost(Name = "archive-order")]
+        [HttpPost("{id}/archive", Name = "archive-order")]
         [ProducesResponseType(typeof(ArchiveOrderResponse), 200)]
         public async Task<ActionResult<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
@@ -25,7 +23,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet(Name = "browse-orders")]
+        [HttpGet("browse", Name = "browse-orders")]
         [ProducesResponseType(typeof(BrowseOrdersResponse), 200)]
         public async Task<ActionResult<BrowseOrdersResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
         {
@@ -39,7 +37,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPost(Name = "cancel-order")]
+        [HttpPost("{id}/cancel", Name = "cancel-order")]
         [ProducesResponseType(typeof(CancelOrderResponse), 200)]
         public async Task<ActionResult<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
         {
@@ -47,6 +45,8 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
+        // TODO: VC: Not working
+        /*
         [HttpPost(Name = "create-order")]
         [ProducesResponseType(typeof(CreateOrderResponse), 201)]
         public async Task<ActionResult<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
@@ -54,6 +54,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             var response = await Service.CreateOrderAsync(request);
             return CreatedAtRoute("find-order", new { id = response.Id }, response);
         }
+        */
 
         [HttpGet("{id}", Name = "find-order")]
         [ProducesResponseType(typeof(FindOrderResponse), 200)]
@@ -66,7 +67,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet(Name = "list-orders")]
+        [HttpGet("list", Name = "list-orders")]
         [ProducesResponseType(typeof(ListOrdersResponse), 200)]
         public async Task<ActionResult<ListOrdersResponse>> ListOrdersAsync()
         {
@@ -75,7 +76,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPost(Name = "submit-order")]
+        [HttpPost("{id}/submit", Name = "submit-order")]
         [ProducesResponseType(typeof(SubmitOrderResponse), 200)]
         public async Task<ActionResult<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
         {
@@ -83,6 +84,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
+        /*
         [HttpPut("{id}", Name = "update-order")]
         [ProducesResponseType(typeof(UpdateOrderResponse), 201)]
         public async Task<ActionResult<UpdateOrderResponse>> UpdateOrderAsync(int id, UpdateOrderRequest request)
@@ -90,7 +92,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
             var response = await Service.UpdateOrderAsync(request);
             return Ok(response);
         }
-
         */
     }
 }

@@ -30,7 +30,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<string> PostAsync<TRequest>(string uri, TRequest request)
         {
-            return ExecuteAsync(e => e.PostAsync<TRequest>(uri, request));
+            return ExecuteAsync(e => e.PostNoResponseAsync<TRequest>(uri, request));
         }
 
         public Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -40,7 +40,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
 
         public Task<string> PutAsync<TRequest>(string uri, TRequest request)
         {
-            return ExecuteAsync(e => e.PutAsync<TRequest>(uri, request));
+            return ExecuteAsync(e => e.PutNoResponseAsync<TRequest>(uri, request));
         }
 
         private async Task<TResponse> ExecuteAsync<TResponse>(Func<IObjectClient, Task<IObjectClientResponse<TResponse>>> action)

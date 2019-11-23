@@ -52,7 +52,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fixture
 
         public Task<IClientResponse> GetAsync(int id)
         {
-            return Client.GetByIdAsync(id);
+            return Client.GetByIdNoResponseAsync(id);
         }
     }
 

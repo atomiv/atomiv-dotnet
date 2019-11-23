@@ -39,7 +39,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
-        public Task<IClientResponse> GetAsync()
+        public Task<IClientResponse> GetNoResponseAsync()
         {
             var relativeUri = GetRelativeByPath();
             return Client.GetAsync(relativeUri);
@@ -63,7 +63,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
-        public Task<IClientResponse> GetByIdAsync<TId>(TId id)
+        public Task<IClientResponse> GetByIdNoResponseAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
             return Client.GetAsync(relativeUri);
@@ -75,10 +75,16 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.PostAsync<TRequest, TResponse>(relativeUri, request);
         }
 
-        public Task<IClientResponse> PostAsync<TRequest>(string uri, TRequest request)
+        public Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return ObjectClient.PostAsync(relativeUri, request);
+            return ObjectClient.PostAsync<TResponse>(relativeUri);
+        }
+
+        public Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
+        {
+            var relativeUri = GetRelativeByPath(uri);
+            return ObjectClient.PostNoResponseAsync(relativeUri, request);
         }
 
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request)
@@ -87,10 +93,10 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.PostAsync<TRequest, TResponse>(relativeUri, request);
         }
 
-        public Task<IClientResponse> PostAsync<TRequest>(TRequest request)
+        public Task<IClientResponse> PostNoResponseAsync<TRequest>(TRequest request)
         {
             var relativeUri = GetRelativeByPath();
-            return ObjectClient.PostAsync(relativeUri, request);
+            return ObjectClient.PostNoResponseAsync(relativeUri, request);
         }
 
         public Task<IObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -104,10 +110,10 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.PutAsync<TRequest, TResponse>(relativeUri, request);
         }
 
-        public Task<IClientResponse> PutAsync<TRequest>(string uri, TRequest request)
+        public Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return ObjectClient.PutAsync(relativeUri, request);
+            return ObjectClient.PutNoResponseAsync(relativeUri, request);
         }
 
         public Task<IObjectClientResponse<TResponse>> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request)
@@ -116,10 +122,10 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.PutAsync<TRequest, TResponse>(relativeUri, request);
         }
 
-        public Task<IClientResponse> PutByIdAsync<TId, TRequest>(TId id, TRequest request)
+        public Task<IClientResponse> PutByIdNoResponseAsync<TId, TRequest>(TId id, TRequest request)
         {
             var relativeUri = GetRelativeUriById(id);
-            return ObjectClient.PutAsync(relativeUri, request);
+            return ObjectClient.PutNoResponseAsync(relativeUri, request);
         }
 
         public Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
@@ -140,7 +146,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.DeleteAsync<TResponse>(relativeUri);
         }
 
-        public Task<IClientResponse> DeleteByIdAsync<TId>(TId id)
+        public Task<IClientResponse> DeleteByIdNoResponseAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
             return Client.DeleteAsync(relativeUri);

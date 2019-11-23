@@ -10,24 +10,26 @@ namespace Optivem.Framework.Core.Common.Http
 
         Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>();
 
-        Task<IClientResponse> GetAsync();
+        Task<IClientResponse> GetNoResponseAsync();
 
         Task<IObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id);
 
-        Task<IClientResponse> GetByIdAsync<TId>(TId id);
+        Task<IClientResponse> GetByIdNoResponseAsync<TId>(TId id);
 
         Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request);
 
-        Task<IClientResponse> PostAsync<TRequest>(TRequest request);
+        Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri);
+
+        Task<IClientResponse> PostNoResponseAsync<TRequest>(TRequest request);
 
         Task<IObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request);
 
         Task<IObjectClientResponse<TResponse>> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request);
 
-        Task<IClientResponse> PutByIdAsync<TId, TRequest>(TId id, TRequest request);
+        Task<IClientResponse> PutByIdNoResponseAsync<TId, TRequest>(TId id, TRequest request);
 
         Task<IObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id);
 
-        Task<IClientResponse> DeleteByIdAsync<TId>(TId id);
+        Task<IClientResponse> DeleteByIdNoResponseAsync<TId>(TId id);
     }
 }

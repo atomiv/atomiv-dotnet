@@ -11,11 +11,13 @@ namespace Optivem.Framework.Core.Common.Http
 
         Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request);
 
-        Task<IClientResponse> PostAsync<TRequest>(string uri, TRequest request);
+        Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri);
+
+        Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request);
 
         Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request);
 
-        Task<IClientResponse> PutAsync<TRequest>(string uri, TRequest request);
+        Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request);
 
         Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri);
 

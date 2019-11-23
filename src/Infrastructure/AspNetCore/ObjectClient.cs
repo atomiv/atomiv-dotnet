@@ -58,20 +58,16 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return Deserialize<TResponse>(response);
         }
 
-        public Task<IClientResponse> PostAsync<TRequest>(string uri, TRequest request)
+        public Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
             return Client.PostAsync(uri, content, ContentType);
         }
 
-        public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request)
+        public async Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IClientResponse> PostAsync<TRequest>(TRequest request)
-        {
-            throw new NotImplementedException();
+            var response = await Client.PostAsync(uri, ContentType, AcceptType);
+            return Deserialize<TResponse>(response);
         }
 
         public async Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -81,7 +77,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return Deserialize<TResponse>(response);
         }
 
-        public Task<IClientResponse> PutAsync<TRequest>(string uri, TRequest request)
+        public Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
             return Client.PutAsync(uri, content, ContentType);

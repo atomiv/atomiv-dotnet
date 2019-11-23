@@ -74,7 +74,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
         public Task<IClientResponse> DeleteAsync(int id)
         {
-            return Client.DeleteByIdAsync(id);
+            return Client.DeleteByIdNoResponseAsync(id);
         }
 
         public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdRawAsync(int userId)
