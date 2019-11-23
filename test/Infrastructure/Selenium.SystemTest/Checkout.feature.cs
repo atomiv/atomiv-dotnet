@@ -31,10 +31,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
 #line 1 "Checkout.feature"
 #line hidden
         
-        public CheckoutFeature(CheckoutFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CheckoutFeature(CheckoutFeature.FixtureData fixtureData, Optivem_Framework_Infrastructure_Selenium_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
-            InternalSpecFlow.XUnitAssemblyFixture assemblyFixture = new InternalSpecFlow.XUnitAssemblyFixture();
             this.TestInitialize();
         }
         

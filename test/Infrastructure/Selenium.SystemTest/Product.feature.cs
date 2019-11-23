@@ -31,10 +31,9 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
 #line 1 "Product.feature"
 #line hidden
         
-        public ProductFeature(ProductFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ProductFeature(ProductFeature.FixtureData fixtureData, Optivem_Framework_Infrastructure_Selenium_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
-            InternalSpecFlow.XUnitAssemblyFixture assemblyFixture = new InternalSpecFlow.XUnitAssemblyFixture();
             this.TestInitialize();
         }
         

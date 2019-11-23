@@ -31,10 +31,9 @@ namespace Optivem.Template.Web.UI.SystemTest
 #line 1 "Customer.feature"
 #line hidden
         
-        public CustomerFeature(CustomerFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CustomerFeature(CustomerFeature.FixtureData fixtureData, Optivem_Template_Web_UI_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
-            InternalSpecFlow.XUnitAssemblyFixture assemblyFixture = new InternalSpecFlow.XUnitAssemblyFixture();
             this.TestInitialize();
         }
         
