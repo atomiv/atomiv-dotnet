@@ -84,7 +84,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        /*
         [HttpPut("{id}", Name = "update-order")]
         [ProducesResponseType(typeof(UpdateOrderResponse), 201)]
         public async Task<ActionResult<UpdateOrderResponse>> UpdateOrderAsync(int id, UpdateOrderRequest request)
@@ -92,6 +91,5 @@ namespace Optivem.Template.Web.RestApi.Controllers
             var response = await Service.UpdateOrderAsync(request);
             return Ok(response);
         }
-        */
     }
 }
