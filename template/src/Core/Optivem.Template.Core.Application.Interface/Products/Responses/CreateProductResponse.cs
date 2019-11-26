@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Products.Responses
 {
-    public class CreateProductResponse : IResponse<int>
+    public class CreateProductResponse
     {
         public int Id { get; set; }
 

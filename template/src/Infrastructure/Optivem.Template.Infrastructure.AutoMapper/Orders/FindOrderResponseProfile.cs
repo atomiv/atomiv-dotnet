@@ -10,9 +10,9 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
         {
             CreateMap<Order, FindOrderResponse>()
                 .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status))
-                .ForMember(dest => dest.OrderDetails, opt => opt.MapFrom(e => e.OrderItems));
+                .ForMember(dest => dest.OrderItems, opt => opt.MapFrom(e => e.OrderItems));
 
-            CreateMap<OrderItem, FindOrderResponse.OrderDetail>()
+            CreateMap<OrderItem, FindOrderItemResponse>()
                 .ForMember(dest => dest.StatusId, opt => opt.MapFrom(e => e.Status));
         }
     }

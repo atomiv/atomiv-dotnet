@@ -52,9 +52,9 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var orderDetails = new List<OrderItem>();
 
-            for (int i = 0; i < request.OrderDetails.Count; i++)
+            for (int i = 0; i < request.OrderItems.Count; i++)
             {
-                var requestOrderDetail = request.OrderDetails[i];
+                var requestOrderDetail = request.OrderItems[i];
 
                 try
                 {
@@ -71,7 +71,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             return OrderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
-        private async Task<OrderItem> GetOrderItem(CreateOrderRequest.OrderDetail requestOrderDetail)
+        private async Task<OrderItem> GetOrderItem(CreateOrderItemRequest requestOrderDetail)
         {
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
             var product = await _productReadRepository.FindAsync(productId);

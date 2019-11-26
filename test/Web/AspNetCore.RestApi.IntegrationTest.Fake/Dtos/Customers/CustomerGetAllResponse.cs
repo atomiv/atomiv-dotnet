@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers
 {
-    public class CustomerGetAllResponse : ICollectionResponse<CustomerGetAllRecordResponse, int>
+    public class CustomerGetAllResponse
     {
         public List<CustomerGetAllRecordResponse> Records { get; set; }
         public int TotalRecords { get; set; }

@@ -45,8 +45,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        // TODO: VC: Not working
-        /*
         [HttpPost(Name = "create-order")]
         [ProducesResponseType(typeof(CreateOrderResponse), 201)]
         public async Task<ActionResult<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
@@ -54,7 +52,6 @@ namespace Optivem.Template.Web.RestApi.Controllers
             var response = await Service.CreateOrderAsync(request);
             return CreatedAtRoute("find-order", new { id = response.Id }, response);
         }
-        */
 
         [HttpGet("{id}", Name = "find-order")]
         [ProducesResponseType(typeof(FindOrderResponse), 200)]

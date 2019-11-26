@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Responses
 {
-    public class BrowseOrdersResponse : ICollectionResponse<BrowseOrdersRecordResponse, int>
+    public class BrowseOrdersResponse
     {
         public List<BrowseOrdersRecordResponse> Records { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Orders.Responses
 {
-    public class CancelOrderResponse : IResponse<int>
+    public class CancelOrderResponse
     {
         public int Id { get; set; }
     }

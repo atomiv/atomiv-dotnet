@@ -7,7 +7,6 @@ namespace Optivem.Framework.Infrastructure.MediatR
 {
     public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
         where TRequest : Core.Common.IRequest<TResponse>
-        where TResponse : IResponse
     {
         private Core.Common.IRequestHandler<TRequest, TResponse> _requestHandler;
 
@@ -33,7 +32,6 @@ namespace Optivem.Framework.Infrastructure.MediatR
 
         public Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
             where TRequest : Core.Common.IRequest<TResponse>
-            where TResponse : IResponse
         {
             // TODO: VC:
             var mediatorRequest = new MediatorRequest<TRequest, TResponse>

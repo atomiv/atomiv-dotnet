@@ -8,15 +8,15 @@ namespace Optivem.Template.Core.Application.Orders.Requests
     {
         public int Id { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<UpdateOrderItemRequest> OrderItems { get; set; }
+    }
 
-        public class OrderDetail
-        {
-            public int? Id { get; set; }
+    public class UpdateOrderItemRequest
+    {
+        public int? Id { get; set; }
 
-            public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
-            public decimal Quantity { get; set; }
-        }
+        public decimal Quantity { get; set; }
     }
 }

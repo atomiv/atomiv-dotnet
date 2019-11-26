@@ -8,13 +8,13 @@ namespace Optivem.Template.Core.Application.Orders.Requests
     {
         public int CustomerId { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<CreateOrderItemRequest> OrderItems { get; set; }
+    }
 
-        public class OrderDetail
-        {
-            public int ProductId { get; set; }
+    public class CreateOrderItemRequest
+    {
+        public int ProductId { get; set; }
 
-            public decimal Quantity { get; set; }
-        }
+        public decimal Quantity { get; set; }
     }
 }

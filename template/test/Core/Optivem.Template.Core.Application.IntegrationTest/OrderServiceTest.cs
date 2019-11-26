@@ -143,15 +143,15 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var createRequest = new CreateOrderRequest
             {
                 CustomerId = customerRecord.Id,
-                OrderDetails = new List<CreateOrderRequest.OrderDetail>
+                OrderItems = new List<CreateOrderItemRequest>
                 {
-                    new CreateOrderRequest.OrderDetail
+                    new CreateOrderItemRequest
                     {
                         ProductId = product1Record.Id,
                         Quantity = 10,
                     },
 
-                    new CreateOrderRequest.OrderDetail
+                    new CreateOrderItemRequest
                     {
                         ProductId = product2Record.Id,
                         Quantity = 20,
@@ -165,14 +165,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
             Assert.Equal((int)OrderStatus.New, createResponse.StatusId);
 
-            Assert.NotNull(createResponse.OrderDetails);
+            Assert.NotNull(createResponse.OrderItems);
 
-            Assert.Equal(createRequest.OrderDetails.Count, createResponse.OrderDetails.Count);
+            Assert.Equal(createRequest.OrderItems.Count, createResponse.OrderItems.Count);
 
-            for (int i = 0; i < createRequest.OrderDetails.Count; i++)
+            for (int i = 0; i < createRequest.OrderItems.Count; i++)
             {
-                var createRequestOrderDetail = createRequest.OrderDetails[i];
-                var createResponseOrderDetail = createResponse.OrderDetails[i];
+                var createRequestOrderDetail = createRequest.OrderItems[i];
+                var createResponseOrderDetail = createResponse.OrderItems[i];
 
                 Assert.True(createResponseOrderDetail.Id > 0);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
@@ -188,14 +188,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
             Assert.Equal(createResponse.StatusId, createResponse.StatusId);
 
-            Assert.NotNull(findResponse.OrderDetails);
+            Assert.NotNull(findResponse.OrderItems);
 
-            Assert.Equal(createResponse.OrderDetails.Count, findResponse.OrderDetails.Count);
+            Assert.Equal(createResponse.OrderItems.Count, findResponse.OrderItems.Count);
 
-            for (int i = 0; i < createResponse.OrderDetails.Count; i++)
+            for (int i = 0; i < createResponse.OrderItems.Count; i++)
             {
-                var createResponseOrderDetail = createResponse.OrderDetails[i];
-                var findResponseOrderDetail = findResponse.OrderDetails[i];
+                var createResponseOrderDetail = createResponse.OrderItems[i];
+                var findResponseOrderDetail = findResponse.OrderItems[i];
 
                 Assert.Equal(createResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(createResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
@@ -210,7 +210,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var createRequest = new CreateOrderRequest
             {
                 CustomerId = 999,
-                OrderDetails = null,
+                OrderItems = null,
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.CreateOrderAsync(createRequest));
@@ -229,14 +229,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(orderRecord.CustomerRecordId, findResponse.CustomerId);
             Assert.Equal(orderRecord.OrderStatusRecordId, findResponse.StatusId);
 
-            Assert.NotNull(findResponse.OrderDetails);
+            Assert.NotNull(findResponse.OrderItems);
 
-            Assert.Equal(orderRecord.OrderDetailRecords.Count, findResponse.OrderDetails.Count);
+            Assert.Equal(orderRecord.OrderDetailRecords.Count, findResponse.OrderItems.Count);
 
             for (int i = 0; i < orderRecord.OrderDetailRecords.Count; i++)
             {
                 var orderDetailRecord = orderRecord.OrderDetailRecords.ToList()[i];
-                var findResponseDetail = findResponse.OrderDetails[i];
+                var findResponseDetail = findResponse.OrderItems[i];
 
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
                 Assert.Equal(orderDetailRecord.ProductRecordId, findResponseDetail.ProductId);
@@ -268,16 +268,16 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                OrderDetails = new List<UpdateOrderRequest.OrderDetail>
+                OrderItems = new List<UpdateOrderItemRequest>
                 {
-                    new UpdateOrderRequest.OrderDetail
+                    new UpdateOrderItemRequest
                     {
                         Id = orderRecord.OrderDetailRecords.ElementAt(0).Id,
                         ProductId = product1Record.Id,
                         Quantity = 72,
                     },
 
-                    new UpdateOrderRequest.OrderDetail
+                    new UpdateOrderItemRequest
                     {
                         Id = null,
                         ProductId = product2Record.Id,
@@ -292,14 +292,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(orderRecord.CustomerRecordId, updateResponse.CustomerId);
             Assert.Equal(orderStatusId, updateResponse.StatusId);
 
-            Assert.NotNull(updateResponse.OrderDetails);
+            Assert.NotNull(updateResponse.OrderItems);
 
-            Assert.Equal(updateRequest.OrderDetails.Count, updateResponse.OrderDetails.Count);
+            Assert.Equal(updateRequest.OrderItems.Count, updateResponse.OrderItems.Count);
 
-            for (int i = 0; i < updateRequest.OrderDetails.Count; i++)
+            for (int i = 0; i < updateRequest.OrderItems.Count; i++)
             {
-                var updateRequestOrderDetail = updateRequest.OrderDetails[i];
-                var updateResponseOrderDetail = updateResponse.OrderDetails[i];
+                var updateRequestOrderDetail = updateRequest.OrderItems[i];
+                var updateResponseOrderDetail = updateResponse.OrderItems[i];
 
                 if(updateRequestOrderDetail.Id != null)
                 {
@@ -323,14 +323,14 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
             Assert.Equal(updateResponse.StatusId, updateResponse.StatusId);
 
-            Assert.NotNull(findResponse.OrderDetails);
+            Assert.NotNull(findResponse.OrderItems);
 
-            Assert.Equal(updateResponse.OrderDetails.Count, findResponse.OrderDetails.Count);
+            Assert.Equal(updateResponse.OrderItems.Count, findResponse.OrderItems.Count);
 
-            for (int i = 0; i < updateResponse.OrderDetails.Count; i++)
+            for (int i = 0; i < updateResponse.OrderItems.Count; i++)
             {
-                var updateResponseOrderDetail = updateResponse.OrderDetails[i];
-                var findResponseOrderDetail = findResponse.OrderDetails[i];
+                var updateResponseOrderDetail = updateResponse.OrderItems[i];
+                var findResponseOrderDetail = findResponse.OrderItems[i];
 
                 Assert.Equal(updateResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(updateResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
@@ -345,9 +345,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = 999,
-                OrderDetails = new List<UpdateOrderRequest.OrderDetail>
+                OrderItems = new List<UpdateOrderItemRequest>
                 {
-                    new UpdateOrderRequest.OrderDetail
+                    new UpdateOrderItemRequest
                     {
                         Id = 1,
                         ProductId = _productRecords[0].Id,
@@ -367,7 +367,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var updateRequest = new UpdateOrderRequest
             {
                 Id = orderRecord.Id,
-                OrderDetails = null,
+                OrderItems = null,
             };
 
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));

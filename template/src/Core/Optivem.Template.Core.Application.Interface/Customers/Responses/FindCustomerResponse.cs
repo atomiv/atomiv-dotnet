@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Customers.Responses
 {
-    public class FindCustomerResponse : IResponse<int>
+    public class FindCustomerResponse
     {
         public int Id { get; set; }
 

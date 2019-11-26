@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Responses
 {
-    public class FindOrderResponse : IResponse<int>
+    public class FindOrderResponse
     {
         public int Id { get; set; }
 
@@ -11,17 +11,17 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
         public byte StatusId { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<FindOrderItemResponse> OrderItems { get; set; }
+    }
 
-        public class OrderDetail
-        {
-            public int Id { get; set; }
+    public class FindOrderItemResponse
+    {
+        public int Id { get; set; }
 
-            public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
-            public decimal Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
-            public byte StatusId { get; set; }
-        }
+        public byte StatusId { get; set; }
     }
 }
