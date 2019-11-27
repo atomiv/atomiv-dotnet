@@ -1,6 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Template.Core.Application.Products.Responses
+﻿namespace Optivem.Template.Core.Application.Products.Responses
 {
     public class CreateProductResponse
     {

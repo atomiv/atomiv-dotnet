@@ -1,9 +1,6 @@
 ﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Interface

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Framework.Core.Application;
 
 namespace Optivem.Framework.Web.AspNetCore
 {

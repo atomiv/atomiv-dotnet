@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Domain;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
     /*
 
