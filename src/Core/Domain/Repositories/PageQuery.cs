@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Framework.Core.Domain
 {
-    public class PageQuery : ValueObject
+    public struct PageQuery
     {
         public PageQuery(int page, int size)
         {

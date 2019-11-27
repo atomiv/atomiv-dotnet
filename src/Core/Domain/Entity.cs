@@ -6,22 +6,22 @@ namespace Optivem.Framework.Core.Domain
     public class Entity<TIdentity>
         where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
-        private List<IEvent> _events;
+        private List<Event> _events;
 
         public Entity(TIdentity id)
         {
             Id = id;
-            _events = new List<IEvent>();
+            _events = new List<Event>();
         }
 
         public TIdentity Id { get; }
 
-        public IEnumerable<IEvent> GetEvents()
+        public IEnumerable<Event> GetEvents()
         {
             return _events;
         }
 
-        protected void AddEvent(IEvent domainEvent)
+        protected void AddEvent(Event domainEvent)
         {
             _events.Add(domainEvent);
         }
