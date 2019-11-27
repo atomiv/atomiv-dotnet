@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 {
-    public class CustomerRecord : AggregateRecord<Customer, int>
+    public class CustomerRecord : Record<int>
     {
         public CustomerRecord()
         {

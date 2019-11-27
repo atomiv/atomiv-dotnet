@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 {
-    public class ProductRecord : AggregateRecord<Product, int>
+    public class ProductRecord : Record<int>
     {
         public ProductRecord()
         {

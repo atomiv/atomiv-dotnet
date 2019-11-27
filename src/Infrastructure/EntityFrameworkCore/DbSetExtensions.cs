@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 {
+    /*
+
     public static class DbSetExtensions
     {
         public static Task<bool> ExistsAsync<TRecord, TId>(this DbSet<TRecord> set, IIdentity<TId> id)
@@ -75,19 +77,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return new PageReadModel<TRecord>(records, totalPages, totalRecords);
         }
 
-        public static IQueryable<T> Page<T>(this IQueryable<T> queryable, PageQuery pageQuery)
-        {
-            var page = pageQuery.Page;
-            var size = pageQuery.Size;
 
-            var pageIndex = page - 1;
-
-            var skip = pageIndex * size;
-
-            return queryable
-                .Skip(skip)
-                .Take(size);
-        }
 
 
 
@@ -139,7 +129,7 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
 
             return queryable;
         }
-        */
+
 
         private static IQueryable<TRecord> GetQueryable<TRecord>(IQueryable<TRecord> queryable, Func<IQueryable<TRecord>, IQueryable<TRecord>> queryableFunc = null)
         {
@@ -151,4 +141,6 @@ namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
             return queryableFunc(queryable);
         }
     }
+
+    */
 }
