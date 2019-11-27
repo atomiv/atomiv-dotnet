@@ -51,5 +51,15 @@ namespace Optivem.Framework.DependencyInjection.Common
         {
             return type.IsConcreteClass() && type.BaseType.IsGenericType(classType);
         }
+
+        public static bool IsConcreteClassWithAttribute(this Type type, Type attributeType)
+        {
+            return type.IsConcreteClass() && type.HasAttribute(attributeType);
+        }
+
+        public static bool HasAttribute(this Type type, Type attributeType)
+        {
+            return type.GetCustomAttribute(attributeType) != null;
+        }
     }
 }

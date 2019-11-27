@@ -26,6 +26,9 @@ namespace Optivem.Framework.DependencyInjection.Common
             return types.Where(e => e.IsSubclassOfGenericClass(classType));
         }
 
-        //
+        public static IEnumerable<Type> GetInterfacesWithAttribute(this IEnumerable<Type> types, Type attributeType)
+        {
+            return types.Where(e =>  e.HasAttribute(attributeType));
+        }
     }
 }

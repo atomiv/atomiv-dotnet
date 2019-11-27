@@ -13,6 +13,9 @@ namespace Optivem.Framework.DependencyInjection.Core.Application
 
         // private static Type UseCaseType = typeof(IUseCase<,>);
         private static Type ApplicationServiceType = typeof(IApplicationService);
+        // private static Type ApplicationServiceAttributeType = typeof(ApplicationServiceAttribute);
+
+        private const string ApplicationServiceSuffix = "Service";
 
         public static IServiceCollection AddApplicationCore(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -38,6 +41,16 @@ namespace Optivem.Framework.DependencyInjection.Core.Application
         {
             var implementationTypes = types.GetConcreteImplementationsOfInterface(ApplicationServiceType);
             services.AddScopedMarkedTypes(ApplicationServiceType, implementationTypes);
+
+            /*
+            var implementationTypes = types.GetConcreteImplementationsOfInterface(ApplicationServiceType);
+            services.AddScopedMarkedTypes(ApplicationServiceType, implementationTypes);
+            */
+
+
+
+            // var implementationTypes = types.GetInterfacesWithAttribute(ApplicationServiceAttributeType);
+            // services.AddScopedMarkedTypes(ApplicationServiceType, implementationTypes);
 
             return services;
         }
