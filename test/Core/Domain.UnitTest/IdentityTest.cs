@@ -17,7 +17,7 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         public void TestEquals2()
         {
             var a = new Identity<int>(5);
-            IIdentity<int> b = null;
+            Identity<int> b = null;
 
             Assert.False(a.Equals(b));
         }

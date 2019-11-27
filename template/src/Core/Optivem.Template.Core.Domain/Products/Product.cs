@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Domain.Products
 {
-    public class Product : AggregateRoot<ProductIdentity, int>
+    public class Product : Entity<ProductIdentity>
     {
         public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isListed)
             : base(id)

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class Entity<TIdentity, TId> : IEntity<TIdentity>
-        where TIdentity : IIdentity<TId>, IEquatable<IIdentity<TId>>, IComparable<IIdentity<TId>>
+    public class Entity<TIdentity>
+        where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
         private List<IEvent> _events;
 
@@ -26,14 +26,14 @@ namespace Optivem.Framework.Core.Domain
             _events.Add(domainEvent);
         }
 
-        public bool Equals(IEntity<TIdentity> other)
+        public bool Equals(Entity<TIdentity> other)
         {
             return Equals(this, other);
         }
 
         public override bool Equals(object other)
         {
-            var otherEntity = other as IEntity<TIdentity>;
+            var otherEntity = other as Entity<TIdentity>;
             return Equals(otherEntity);
         }
 
@@ -47,42 +47,42 @@ namespace Optivem.Framework.Core.Domain
             return Id.GetHashCode();
         }
 
-        public int CompareTo(IEntity<TIdentity> other)
+        public int CompareTo(Entity<TIdentity> other)
         {
             return CompareTo(this, other);
         }
 
-        public static bool operator ==(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator ==(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return Equals(a, b);
         }
 
-        public static bool operator !=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator !=(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return !Equals(a, b);
         }
 
-        public static bool operator <(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator <(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return CompareTo(a, b) < 0;
         }
 
-        public static bool operator >(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator >(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return CompareTo(a, b) > 0;
         }
 
-        public static bool operator <=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator <=(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return CompareTo(a, b) <= 0;
         }
 
-        public static bool operator >=(Entity<TIdentity, TId> a, Entity<TIdentity, TId> b)
+        public static bool operator >=(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             return CompareTo(a, b) >= 0;
         }
 
-        private static bool Equals(IEntity<TIdentity> a, IEntity<TIdentity> b)
+        private static bool Equals(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             if (ReferenceEquals(a, b))
             {
@@ -122,7 +122,7 @@ namespace Optivem.Framework.Core.Domain
             return a.Id.Equals(b.Id);
         }
 
-        private static int CompareTo(IEntity<TIdentity> a, IEntity<TIdentity> b)
+        private static int CompareTo(Entity<TIdentity> a, Entity<TIdentity> b)
         {
             if (ReferenceEquals(a, b))
             {

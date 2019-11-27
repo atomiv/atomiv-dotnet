@@ -7,8 +7,8 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         [Fact]
         public void TestEquals1()
         {
-            var a = new Entity<CustomerIdentity, int>(new CustomerIdentity(4));
-            var b = new Entity<CustomerIdentity, int>(new CustomerIdentity(4));
+            var a = new Entity<CustomerIdentity>(new CustomerIdentity(4));
+            var b = new Entity<CustomerIdentity>(new CustomerIdentity(4));
 
             Assert.True(a.Equals(b));
         }
@@ -16,8 +16,8 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         [Fact]
         public void TestEquals2()
         {
-            var a = (object) new Entity<CustomerIdentity, int>(new CustomerIdentity(4));
-            var b = new Entity<CustomerIdentity, int>(new CustomerIdentity(4));
+            var a = (object) new Entity<CustomerIdentity>(new CustomerIdentity(4));
+            var b = new Entity<CustomerIdentity>(new CustomerIdentity(4));
 
             Assert.True(a.Equals(b));
         }
