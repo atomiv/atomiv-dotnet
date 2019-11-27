@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.19" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.20" />
+<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.20" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj" />
   </ItemGroup>

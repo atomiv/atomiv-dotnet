@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.FluentValidation.Orders
     {
         public UpdateOrderRequestValidator()
         {
-            RuleFor(e => e.OrderDetails).NotNull();
+            RuleFor(e => e.OrderItems).NotNull();
         }
     }
 }

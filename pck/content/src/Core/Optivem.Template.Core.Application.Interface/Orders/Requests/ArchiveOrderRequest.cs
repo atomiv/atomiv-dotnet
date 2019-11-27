@@ -3,7 +3,7 @@ using Optivem.Template.Core.Application.Orders.Responses;
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class ArchiveOrderRequest : IRequest<ArchiveOrderResponse, int>
+    public class ArchiveOrderRequest : IRequest<ArchiveOrderResponse>
     {
         public int Id { get; set; }
     }

@@ -1,8 +1,6 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Template.Core.Application.Products.Responses
+﻿namespace Optivem.Template.Core.Application.Products.Responses
 {
-    public class UnlistProductResponse : IResponse<int>
+    public class UnlistProductResponse
     {
         public int Id { get; set; }
 

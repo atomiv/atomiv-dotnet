@@ -3,7 +3,7 @@ using Optivem.Template.Core.Application.Customers.Responses;
 
 namespace Optivem.Template.Core.Application.Customers.Requests
 {
-    public class BrowseCustomersRequest : ICollectionRequest<BrowseCustomersResponse>
+    public class BrowseCustomersRequest : IRequest<BrowseCustomersResponse>
     {
         public int Page { get; set; }
 

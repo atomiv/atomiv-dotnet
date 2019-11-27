@@ -1,8 +1,6 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Template.Core.Application.Customers.Responses
+﻿namespace Optivem.Template.Core.Application.Customers.Responses
 {
-    public class CreateCustomerResponse : IResponse<int>
+    public class CreateCustomerResponse
     {
         public int Id { get; set; }
 

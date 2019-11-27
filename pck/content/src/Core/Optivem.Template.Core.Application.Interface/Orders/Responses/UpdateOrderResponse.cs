@@ -1,9 +1,8 @@
-﻿using Optivem.Framework.Core.Common;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Responses
 {
-    public class UpdateOrderResponse : IResponse<int>
+    public class UpdateOrderResponse
     {
         public int Id { get; set; }
 
@@ -11,17 +10,17 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
         public byte StatusId { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<UpdateOrderItemResponse> OrderItems { get; set; }
+    }
 
-        public class OrderDetail
-        {
-            public int Id { get; set; }
+    public class UpdateOrderItemResponse
+    {
+        public int Id { get; set; }
 
-            public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
-            public decimal Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
-            public byte StatusId { get; set; }
-        }
+        public byte StatusId { get; set; }
     }
 }

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Core.Domain" Version="1.0.19" />
+<PackageReference Include="Optivem.Framework.Core.Domain" Version="1.0.20" />
     <ProjectReference Include="..\..\..\src\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
   </ItemGroup>
 

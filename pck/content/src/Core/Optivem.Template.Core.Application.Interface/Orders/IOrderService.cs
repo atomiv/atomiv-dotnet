@@ -1,10 +1,11 @@
-﻿using Optivem.Template.Core.Application.Orders.Requests;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders
 {
-    public interface IOrderService
+    public interface IOrderService : IApplicationService
     {
         Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request);
 

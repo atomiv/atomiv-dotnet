@@ -3,7 +3,7 @@ using Optivem.Template.Core.Application.Products.Responses;
 
 namespace Optivem.Template.Core.Application.Products.Requests
 {
-    public class UpdateProductRequest : IRequest<UpdateProductResponse, int>
+    public class UpdateProductRequest : IRequest<UpdateProductResponse>
     {
         public int Id { get; set; }
 

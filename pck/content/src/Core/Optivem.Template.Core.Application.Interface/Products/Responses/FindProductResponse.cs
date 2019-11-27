@@ -1,8 +1,6 @@
-﻿using Optivem.Framework.Core.Common;
-
-namespace Optivem.Template.Core.Application.Products.Responses
+﻿namespace Optivem.Template.Core.Application.Products.Responses
 {
-    public class FindProductResponse : IResponse<int>
+    public class FindProductResponse
     {
         public int Id { get; set; }
 

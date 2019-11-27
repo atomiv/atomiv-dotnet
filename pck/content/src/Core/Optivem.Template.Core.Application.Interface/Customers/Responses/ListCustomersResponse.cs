@@ -1,9 +1,8 @@
-﻿using Optivem.Framework.Core.Common;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Customers.Responses
 {
-    public class ListCustomersResponse : ICollectionResponse<ListCustomersRecordResponse, int>
+    public class ListCustomersResponse
     {
         public List<ListCustomersRecordResponse> Records { get; set; }
 
