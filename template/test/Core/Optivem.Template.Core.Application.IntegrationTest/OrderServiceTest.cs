@@ -2,6 +2,7 @@
 using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Orders.Requests;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System;

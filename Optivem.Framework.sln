@@ -187,6 +187,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations", "template\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj", "{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Core.Common", "template\src\Core\Optivem.Template.Core.Common\Optivem.Template.Core.Common.csproj", "{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -461,6 +463,10 @@ Global
 		{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD5E01E9-82D4-4E2E-8148-589ADC7E037F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -556,6 +562,7 @@ Global
 		{E0D7C883-EF31-4231-989F-73053E048B17} = {21F19882-BAA6-413E-AF16-E298FF09999D}
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{CD5E01E9-82D4-4E2E-8148-589ADC7E037F} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{FE2C3085-FF38-4B0D-AB4F-BB0A6806DC08} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

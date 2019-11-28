@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Domain.Customers;
+﻿using Optivem.Template.Core.Common.Orders;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;

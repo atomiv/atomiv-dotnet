@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Domain.Orders
