@@ -85,22 +85,22 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     CustomerId = _customerRecords[0].Id,
                     OrderStatusId = (int)OrderStatus.Invoiced,
 
-                    OrderDetails = new List<OrderDetailRecord>
+                    OrderItems = new List<OrderItemRecord>
                     {
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
                             ProductId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
-                            OrderDetailStatusId = (int)OrderItemStatus.NoStock,
+                            OrderItemStatusId = (int)OrderItemStatus.NoStock,
                         },
 
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
-                            OrderDetailStatusId = (int)OrderItemStatus.OnOrder,
+                            OrderItemStatusId = (int)OrderItemStatus.OnOrder,
                         },
                     },
                 },
@@ -110,22 +110,22 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                     CustomerId = _customerRecords[1].Id,
                     OrderStatusId = (int)OrderStatus.Shipped,
 
-                    OrderDetails = new List<OrderDetailRecord>
+                    OrderItems = new List<OrderItemRecord>
                     {
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
-                            OrderDetailStatusId = (int)OrderItemStatus.Allocated,
+                            OrderItemStatusId = (int)OrderItemStatus.Allocated,
                         },
 
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
                             ProductId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,
-                            OrderDetailStatusId = (int)OrderItemStatus.Invoiced,
+                            OrderItemStatusId = (int)OrderItemStatus.Invoiced,
                         },
                     },
                 },
@@ -240,17 +240,17 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             Assert.NotNull(findResponse.OrderItems);
 
-            Assert.Equal(orderRecord.OrderDetails.Count, findResponse.OrderItems.Count);
+            Assert.Equal(orderRecord.OrderItems.Count, findResponse.OrderItems.Count);
 
-            for (int i = 0; i < orderRecord.OrderDetails.Count; i++)
+            for (int i = 0; i < orderRecord.OrderItems.Count; i++)
             {
-                var orderDetailRecord = orderRecord.OrderDetails.ToList()[i];
+                var orderDetailRecord = orderRecord.OrderItems.ToList()[i];
                 var findResponseDetail = findResponse.OrderItems[i];
 
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
                 Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
-                Assert.Equal(orderDetailRecord.OrderDetailStatusId, findResponseDetail.StatusId);
+                Assert.Equal(orderDetailRecord.OrderItemStatusId, findResponseDetail.StatusId);
             }
         }
 
@@ -281,7 +281,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 {
                     new UpdateOrderItemRequest
                     {
-                        Id = orderRecord.OrderDetails.ElementAt(0).Id,
+                        Id = orderRecord.OrderItems.ElementAt(0).Id,
                         ProductId = product1Record.Id,
                         Quantity = 72,
                     },

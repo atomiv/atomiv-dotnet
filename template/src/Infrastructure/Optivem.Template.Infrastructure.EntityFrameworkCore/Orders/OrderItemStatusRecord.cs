@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderDetailStatusRecord : Record<byte>
+    public class OrderItemStatusRecord : Record<byte>
     {
-        public OrderDetailStatusRecord()
+        public OrderItemStatusRecord()
         {
-            OrderDetails = new HashSet<OrderDetailRecord>();
+            OrderItems = new HashSet<OrderItemRecord>();
         }
 
         public string Code { get; set; }
 
-        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
+        public virtual ICollection<OrderItemRecord> OrderItems { get; set; }
     }
 }

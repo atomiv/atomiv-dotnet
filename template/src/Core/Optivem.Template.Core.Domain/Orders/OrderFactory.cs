@@ -15,7 +15,7 @@ namespace Optivem.Template.Core.Domain.Orders
             return new Order(id, customerId, DateTime.Now, OrderStatus.New, orderDetails);
         }
 
-        public static OrderItem CreateNewOrderDetail(Product product, decimal quantity)
+        public static OrderItem CreateNewOrderItem(Product product, decimal quantity)
         {
             if (product == null)
             {

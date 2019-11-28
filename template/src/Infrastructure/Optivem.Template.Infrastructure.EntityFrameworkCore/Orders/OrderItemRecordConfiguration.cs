@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderDetailRecordConfiguration : IEntityTypeConfiguration<OrderDetailRecord>
+    public class OrderItemRecordConfiguration : IEntityTypeConfiguration<OrderItemRecord>
     {
-        public void Configure(EntityTypeBuilder<OrderDetailRecord> builder)
+        public void Configure(EntityTypeBuilder<OrderItemRecord> builder)
         {
             builder.Property(e => e.Quantity)
                 .HasColumnType("decimal(18,2)");
@@ -14,16 +14,16 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
                 .HasColumnType("decimal(18,2)");
 
             builder.HasOne(e => e.Order)
-                .WithMany(e => e.OrderDetails)
+                .WithMany(e => e.OrderItems)
                 .HasForeignKey(e => e.OrderId);
 
             builder.HasOne(e => e.Product)
-                .WithMany(e => e.OrderDetails)
+                .WithMany(e => e.OrderItems)
                 .HasForeignKey(e => e.ProductId);
 
-            builder.HasOne(e => e.OrderDetailStatus)
-                .WithMany(e => e.OrderDetails)
-                .HasForeignKey(e => e.OrderDetailStatusId);
+            builder.HasOne(e => e.OrderItemStatus)
+                .WithMany(e => e.OrderItems)
+                .HasForeignKey(e => e.OrderItemStatusId);
         }
     }
 }

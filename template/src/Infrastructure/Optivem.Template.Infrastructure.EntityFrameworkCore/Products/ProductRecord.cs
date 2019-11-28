@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
     {
         public ProductRecord()
         {
-            OrderDetails = new HashSet<OrderDetailRecord>();
+            OrderItems = new HashSet<OrderItemRecord>();
         }
 
         public string ProductCode { get; set; }
@@ -17,6 +17,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         public decimal ListPrice { get; set; }
         public bool IsListed { get; set; }
 
-        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
+        public virtual ICollection<OrderItemRecord> OrderItems { get; set; }
     }
 }

@@ -61,8 +61,8 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                     throw new InvalidRequestException($"Product {productId} does not exist");
                 }
 
-                var orderDetail = OrderFactory.CreateNewOrderDetail(product, added.Quantity);
-                order.AddOrderDetail(orderDetail);
+                var orderDetail = OrderFactory.CreateNewOrderItem(product, added.Quantity);
+                order.AddOrderItem(orderDetail);
             }
 
             foreach (var updated in updatedOrderRequestDetails)
@@ -84,7 +84,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             foreach (var deleted in deletedOrderDetails)
             {
-                order.RemoveOrderDetail(deleted.Id);
+                order.RemoveOrderItem(deleted.Id);
             }
         }
     }

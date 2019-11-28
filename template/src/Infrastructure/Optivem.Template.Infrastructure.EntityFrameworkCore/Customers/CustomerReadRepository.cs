@@ -47,7 +47,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)
-                    .ThenInclude(e => e.OrderDetails)
+                    .ThenInclude(e => e.OrderItems)
                         .ThenInclude(e => e.Product)
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
@@ -143,13 +143,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
                 .Count;
 
             var totalOrderValue = customerRecord.Orders
-                .SelectMany(e => e.OrderDetails)
+                .SelectMany(e => e.OrderItems)
                 .Select(e => e.UnitPrice * e.Quantity)
                 .Sum(e => (decimal?)e)
                 .GetValueOrDefault();
 
             var topProducts = customerRecord.Orders
-                .SelectMany(e => e.OrderDetails)
+                .SelectMany(e => e.OrderItems)
                 .GroupBy(e => e.Product)
                 .OrderByDescending(e => e.Count())
                 .Select(e => e.Key.ProductName)

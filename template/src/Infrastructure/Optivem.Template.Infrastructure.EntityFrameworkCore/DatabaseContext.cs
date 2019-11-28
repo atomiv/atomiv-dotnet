@@ -20,9 +20,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         public virtual DbSet<CustomerRecord> Customers { get; set; }
 
         // Orders
-        public virtual DbSet<OrderDetailRecord> OrderDetails { get; set; }
+        public virtual DbSet<OrderItemRecord> OrderItems { get; set; }
 
-        public virtual DbSet<OrderDetailStatusRecord> OrderDetailStatuses { get; set; }
+        public virtual DbSet<OrderItemStatusRecord> OrderItemStatuses { get; set; }
         public virtual DbSet<OrderRecord> Orders { get; set; }
         public virtual DbSet<OrderStatusRecord> OrderStatuses { get; set; }
 
@@ -41,8 +41,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
             modelBuilder.ApplyConfiguration(new CustomerRecordConfiguration());
 
             // Orders
-            modelBuilder.ApplyConfiguration(new OrderDetailRecordConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderDetailStatusRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderItemRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderItemStatusRecordConfiguration());
             modelBuilder.ApplyConfiguration(new OrderRecordConfiguration());
             modelBuilder.ApplyConfiguration(new OrderStatusRecordConfiguration());
 
@@ -53,7 +53,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         private void Seed(ModelBuilder modelBuilder)
         {
             SeedEnumRecords<OrderStatusRecord, OrderStatus>(modelBuilder, e => new OrderStatusRecord { Id = (byte)e, Code = e.ToString() });
-            SeedEnumRecords<OrderDetailStatusRecord, OrderItemStatus>(modelBuilder, e => new OrderDetailStatusRecord { Id = (byte)e, Code = e.ToString() });
+            SeedEnumRecords<OrderItemStatusRecord, OrderItemStatus>(modelBuilder, e => new OrderItemStatusRecord { Id = (byte)e, Code = e.ToString() });
         }
 
         private void SeedRecords<TRecord>(ModelBuilder modelBuilder, List<TRecord> data)

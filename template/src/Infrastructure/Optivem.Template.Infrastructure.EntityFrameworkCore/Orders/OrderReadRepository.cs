@@ -29,7 +29,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             var orderRecordId = orderId.Id;
 
             var orderRecord = await Context.Orders.AsNoTracking()
-                .Include(e => e.OrderDetails)
+                .Include(e => e.OrderItems)
                 .FirstOrDefaultAsync(e => e.Id == orderRecordId);
 
             if (orderRecord == null)
@@ -77,20 +77,20 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             var id = new OrderIdentity(record.Id);
             var customerId = new CustomerIdentity(record.CustomerId);
             OrderStatus status = (OrderStatus)record.OrderStatusId; // TODO: VC
-            var orderDetails = record.OrderDetails.Select(GetOrderItem).ToList().AsReadOnly();
+            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
 
             // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
 
             return new Order(id, customerId, DateTime.Now, status, orderDetails);
         }
 
-        protected OrderItem GetOrderItem(OrderDetailRecord record)
+        protected OrderItem GetOrderItem(OrderItemRecord record)
         {
             var id = new OrderItemIdentity(record.Id);
             var productId = new ProductIdentity(record.ProductId);
             var quantity = record.Quantity;
             var unitPrice = record.UnitPrice;
-            var status = (OrderItemStatus)record.OrderDetailStatusId; // TODO: VC
+            var status = (OrderItemStatus)record.OrderItemStatusId; // TODO: VC
 
             return new OrderItem(id, productId, quantity, unitPrice, status);
         }
@@ -101,7 +101,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             var customerId = new CustomerIdentity(record.CustomerId);
             var orderDate = record.OrderDate;
             var status = (OrderStatus) record.OrderStatusId;
-            var totalPrice = record.OrderDetails.Sum(e => e.UnitPrice * e.Quantity);
+            var totalPrice = record.OrderItems.Sum(e => e.UnitPrice * e.Quantity);
 
             return new OrderHeaderReadModel(orderId, customerId, orderDate, status, totalPrice);
         }

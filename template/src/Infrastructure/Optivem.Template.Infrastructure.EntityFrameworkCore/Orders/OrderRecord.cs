@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
     {
         public OrderRecord()
         {
-            OrderDetails = new List<OrderDetailRecord>();
+            OrderItems = new List<OrderItemRecord>();
         }
 
         public Guid CustomerId { get; set; }
@@ -18,6 +18,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         public virtual CustomerRecord Customer { get; set; }
         public virtual OrderStatusRecord OrderStatus { get; set; }
-        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
+        public virtual ICollection<OrderItemRecord> OrderItems { get; set; }
     }
 }
