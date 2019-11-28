@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class OrderRepository : OrderReadRepository, IOrderRepository
     {

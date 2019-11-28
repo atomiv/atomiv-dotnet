@@ -1,6 +1,6 @@
 using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System;
 using System.Collections.Generic;

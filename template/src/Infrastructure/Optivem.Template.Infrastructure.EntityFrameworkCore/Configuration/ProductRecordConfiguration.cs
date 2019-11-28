@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
 {
     public class ProductRecordConfiguration : IEntityTypeConfiguration<ProductRecord>
     {

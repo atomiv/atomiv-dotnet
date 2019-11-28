@@ -1,9 +1,8 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Records
 {
     public class OrderRecord : Record<Guid>
     {

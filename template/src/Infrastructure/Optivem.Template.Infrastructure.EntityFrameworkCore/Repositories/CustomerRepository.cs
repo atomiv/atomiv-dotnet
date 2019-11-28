@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class CustomerRepository : CustomerReadRepository, ICustomerRepository
     {
