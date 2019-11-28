@@ -14,7 +14,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         public async Task<Product> AddAsync(Product product)
         {
             var productRecord = GetProductRecord(product);
-            Context.ProductRecords.Add(productRecord);
+            Context.Products.Add(productRecord);
             await Context.SaveChangesAsync();
             return GetProduct(productRecord);
         }
@@ -29,13 +29,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         public async Task<Product> UpdateAsync(Product product)
         {
             var productRecordId = product.Id.Id;
-            var productRecord = await Context.ProductRecords.FindAsync(productRecordId);
+            var productRecord = await Context.Products.FindAsync(productRecordId);
 
             UpdateProductRecord(productRecord, product);
 
             try
             {
-                Context.ProductRecords.Update(productRecord);
+                Context.Products.Update(productRecord);
                 await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)

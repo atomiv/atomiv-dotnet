@@ -17,17 +17,17 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         }
 
         // Customers
-        public virtual DbSet<CustomerRecord> CustomerRecords { get; set; }
+        public virtual DbSet<CustomerRecord> Customers { get; set; }
 
         // Orders
-        public virtual DbSet<OrderDetailRecord> OrderDetailRecords { get; set; }
+        public virtual DbSet<OrderDetailRecord> OrderDetails { get; set; }
 
-        public virtual DbSet<OrderDetailStatusRecord> OrderDetailStatusRecords { get; set; }
-        public virtual DbSet<OrderRecord> OrderRecords { get; set; }
-        public virtual DbSet<OrderStatusRecord> OrderStatusRecords { get; set; }
+        public virtual DbSet<OrderDetailStatusRecord> OrderDetailStatuses { get; set; }
+        public virtual DbSet<OrderRecord> Orders { get; set; }
+        public virtual DbSet<OrderStatusRecord> OrderStatuses { get; set; }
 
         // Products
-        public virtual DbSet<ProductRecord> ProductRecords { get; set; }
+        public virtual DbSet<ProductRecord> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

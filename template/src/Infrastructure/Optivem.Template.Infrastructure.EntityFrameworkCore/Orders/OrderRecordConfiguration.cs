@@ -7,28 +7,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
     {
         public void Configure(EntityTypeBuilder<OrderRecord> builder)
         {
-            builder.ToTable("order");
+            builder.HasOne(e => e.Customer)
+                .WithMany(e => e.Orders)
+                .HasForeignKey(e => e.CustomerId);
 
-            builder.HasKey(e => e.Id);
-
-            builder.Property(e => e.Id)
-                .HasColumnName("id");
-
-            builder.Property(e => e.CustomerRecordId)
-                .HasColumnName("customer_id")
-                .IsRequired();
-
-            builder.Property(e => e.OrderStatusRecordId)
-                .HasColumnName("status_id")
-                .IsRequired();
-
-            builder.HasOne(e => e.CustomerRecord)
+            builder.HasOne(e => e.OrderStatus)
                 .WithMany(e => e.OrderRecords)
-                .HasForeignKey(e => e.CustomerRecordId);
-
-            builder.HasOne(e => e.OrderStatusRecord)
-                .WithMany(e => e.OrderRecords)
-                .HasForeignKey(e => e.OrderStatusRecordId);
+                .HasForeignKey(e => e.OrderStatusId);
         }
     }
 }

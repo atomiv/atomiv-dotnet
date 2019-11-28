@@ -14,7 +14,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         public async Task<Customer> AddAsync(Customer customer)
         {
             var customerRecord = GetCustomerRecord(customer);
-            Context.CustomerRecords.Add(customerRecord);
+            Context.Customers.Add(customerRecord);
             await Context.SaveChangesAsync();
             return GetCustomer(customerRecord);
         }
@@ -29,13 +29,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         public async Task<Customer> UpdateAsync(Customer customer)
         {
             var customerRecordId = customer.Id.Id;
-            var customerRecord = await Context.CustomerRecords.FindAsync(customerRecordId);
+            var customerRecord = await Context.Customers.FindAsync(customerRecordId);
 
             UpdateCustomerRecord(customerRecord, customer);
 
             try
             {
-                Context.CustomerRecords.Update(customerRecord);
+                Context.Customers.Update(customerRecord);
                 await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)

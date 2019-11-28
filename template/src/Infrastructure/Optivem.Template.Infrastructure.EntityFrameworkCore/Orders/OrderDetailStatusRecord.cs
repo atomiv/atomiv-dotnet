@@ -7,11 +7,11 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
     {
         public OrderDetailStatusRecord()
         {
-            OrderDetailRecords = new HashSet<OrderDetailRecord>();
+            OrderDetails = new HashSet<OrderDetailRecord>();
         }
 
         public string Code { get; set; }
 
-        public virtual ICollection<OrderDetailRecord> OrderDetailRecords { get; set; }
+        public virtual ICollection<OrderDetailRecord> OrderDetails { get; set; }
     }
 }

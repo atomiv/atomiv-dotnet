@@ -16,7 +16,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         public async Task<Order> AddAsync(Order order)
         {
             var orderRecord = GetOrderRecord(order);
-            Context.OrderRecords.Add(orderRecord);
+            Context.Orders.Add(orderRecord);
             await Context.SaveChangesAsync();
             return GetOrder(orderRecord);
         }
@@ -31,15 +31,15 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         public async Task<Order> UpdateAsync(Order order)
         {
             var orderRecordId = order.Id.Id;
-            var orderRecord = await Context.OrderRecords
-                .Include(e => e.OrderDetailRecords)
+            var orderRecord = await Context.Orders
+                .Include(e => e.OrderDetails)
                 .FirstOrDefaultAsync(e => e.Id == orderRecordId);
 
             UpdateOrderRecord(orderRecord, order);
 
             try
             {
-                Context.OrderRecords.Update(orderRecord);
+                Context.Orders.Update(orderRecord);
                 await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
@@ -60,9 +60,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             return new OrderRecord
             {
                 Id = id,
-                CustomerRecordId = customerRecordId,
-                OrderStatusRecordId = orderStatusRecordId,
-                OrderDetailRecords = orderDetailRecords,
+                CustomerId = customerRecordId,
+                OrderStatusId = orderStatusRecordId,
+                OrderDetails = orderDetailRecords,
             };
         }
 
@@ -87,9 +87,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             return new OrderDetailRecord
             {
                 Id = id,
-                OrderRecordId = orderRecordId,
-                ProductRecordId = productRecordId,
-                OrderDetailStatusRecordId = orderDetailStatusRecordId,
+                OrderId = orderRecordId,
+                ProductId = productRecordId,
+                OrderDetailStatusId = orderDetailStatusRecordId,
                 Quantity = quantity,
                 UnitPrice = unitPrice,
             };
@@ -97,33 +97,33 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         protected void UpdateOrderRecord(OrderRecord record, Order order)
         {
-            record.CustomerRecordId = order.CustomerId.Id;
-            record.OrderStatusRecordId = (byte)order.Status;
+            record.CustomerId = order.CustomerId.Id;
+            record.OrderStatusId = (byte)order.Status;
 
             var addedOrderDetails = order.OrderItems
-                .Where(e => !record.OrderDetailRecords.Any(f => f.Id == e.Id.Id))
+                .Where(e => !record.OrderDetails.Any(f => f.Id == e.Id.Id))
                 .ToList();
 
             var addedOrderDetailRecords = addedOrderDetails
                 .Select(e => CreateOrderDetailRecord(e))
                 .ToList();
 
-            var removedOrderDetailRecords = record.OrderDetailRecords
+            var removedOrderDetailRecords = record.OrderDetails
                 .Where(e => !order.OrderItems.Any(f => f.Id.Id == e.Id))
                 .ToList();
 
-            var updatedOrderDetailRecords = record.OrderDetailRecords
+            var updatedOrderDetailRecords = record.OrderDetails
                 .Where(e => order.OrderItems.Any(f => f.Id.Id == e.Id))
                 .ToList();
 
             foreach (var addedOrderDetailRecord in addedOrderDetailRecords)
             {
-                record.OrderDetailRecords.Add(addedOrderDetailRecord);
+                record.OrderDetails.Add(addedOrderDetailRecord);
             }
 
             foreach (var removedOrderDetailRecord in removedOrderDetailRecords)
             {
-                record.OrderDetailRecords.Remove(removedOrderDetailRecord);
+                record.OrderDetails.Remove(removedOrderDetailRecord);
             }
 
             foreach (var updatedOrderDetailRecord in updatedOrderDetailRecords)
@@ -143,8 +143,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
             return new OrderDetailRecord
             {
-                ProductRecordId = productRecordId,
-                OrderDetailStatusRecordId = orderDetailStatusRecordId,
+                ProductId = productRecordId,
+                OrderDetailStatusId = orderDetailStatusRecordId,
                 Quantity = quantity,
                 UnitPrice = unitPrice,
             };
@@ -157,8 +157,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             var quantity = orderDetail.Quantity;
             var unitPrice = orderDetail.UnitPrice;
 
-            orderDetailRecord.ProductRecordId = productRecordId;
-            orderDetailRecord.OrderDetailStatusRecordId = orderDetailStatusRecordId;
+            orderDetailRecord.ProductId = productRecordId;
+            orderDetailRecord.OrderDetailStatusId = orderDetailStatusRecordId;
             orderDetailRecord.Quantity = quantity;
             orderDetailRecord.UnitPrice = unitPrice;
         }

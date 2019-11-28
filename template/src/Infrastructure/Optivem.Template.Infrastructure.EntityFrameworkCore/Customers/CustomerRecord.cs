@@ -9,12 +9,12 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
     {
         public CustomerRecord()
         {
-            OrderRecords = new HashSet<OrderRecord>();
+            Orders = new HashSet<OrderRecord>();
         }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public virtual ICollection<OrderRecord> OrderRecords { get; set; }
+        public virtual ICollection<OrderRecord> Orders { get; set; }
     }
 }

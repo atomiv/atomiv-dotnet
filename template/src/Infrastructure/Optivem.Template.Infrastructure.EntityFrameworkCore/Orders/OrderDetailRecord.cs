@@ -6,14 +6,14 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
     public class OrderDetailRecord : Record<Guid>
     {
-        public Guid OrderRecordId { get; set; }
-        public Guid ProductRecordId { get; set; }
-        public byte OrderDetailStatusRecordId { get; set; }
+        public Guid OrderId { get; set; }
+        public Guid ProductId { get; set; }
+        public byte OrderDetailStatusId { get; set; }
         public decimal Quantity { get; set; }
         public decimal UnitPrice { get; set; }
 
-        public virtual OrderRecord OrderRecord { get; set; }
-        public virtual ProductRecord ProductRecord { get; set; }
-        public virtual OrderDetailStatusRecord OrderDetailStatusRecord { get; set; }
+        public virtual OrderRecord Order { get; set; }
+        public virtual ProductRecord Product { get; set; }
+        public virtual OrderDetailStatusRecord OrderDetailStatus { get; set; }
     }
 }
