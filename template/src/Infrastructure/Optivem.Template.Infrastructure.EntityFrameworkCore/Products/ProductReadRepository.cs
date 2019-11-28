@@ -94,7 +94,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 
         protected ProductIdNameReadModel GetIdNameResult(ProductRecord productRecord)
         {
-            var id = productRecord.Id;
+            var id = new ProductIdentity(productRecord.Id);
             var name = $"{productRecord.ProductCode} - {productRecord.ProductName}";
 
             return new ProductIdNameReadModel(id, name);

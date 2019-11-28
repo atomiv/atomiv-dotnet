@@ -28,7 +28,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.Data);
+            AssertUtilities.Equal(expected, actual.Data);
         }
 
         [Fact(Skip = "Failed on CI")]
@@ -53,7 +53,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             var actualFirst = actual.Data.First();
 
-            AssertUtilities.AssertEqual(expectedFirst, actualFirst);
+            AssertUtilities.Equal(expectedFirst, actualFirst);
 
             var expectedLast = new PostDto
             {
@@ -65,7 +65,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             var actualLast = actual.Data.Last();
 
-            AssertUtilities.AssertEqual(expectedLast, actualLast);
+            AssertUtilities.Equal(expectedLast, actualLast);
         }
 
         [Fact(Skip = "Message: Newtonsoft.Json.JsonReaderException : Unexpected character encountered while parsing value: <. Path '', line 0, position 0.")]
@@ -110,7 +110,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             var actualContent = actual.Data;
 
-            AssertUtilities.AssertEqual(expectedContent, actualContent);
+            AssertUtilities.Equal(expectedContent, actualContent);
         }
 
         [Fact(Skip = "Checking test failure")]
@@ -135,7 +135,7 @@ namespace Optivem.Framework.Infrastructure.AspNetCore.IntegrationTest
 
             var actualContent = actual.Data;
 
-            AssertUtilities.AssertEqual(expectedContent, actualContent);
+            AssertUtilities.Equal(expectedContent, actualContent);
         }
 
         [Fact(Skip = "Failed on CI")]

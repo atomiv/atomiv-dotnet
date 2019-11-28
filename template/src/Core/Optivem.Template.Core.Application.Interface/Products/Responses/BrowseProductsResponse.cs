@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Products.Responses
 {
@@ -11,7 +12,7 @@ namespace Optivem.Template.Core.Application.Products.Responses
 
     public class BrowseProductsRecordResponse
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Code { get; set; }
 

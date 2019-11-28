@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Orders;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -75,7 +76,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             };
         }
 
-        protected OrderDetailRecord GetOrderDetailRecord(OrderItem orderDetail, int orderRecordId)
+        protected OrderDetailRecord GetOrderDetailRecord(OrderItem orderDetail, Guid orderRecordId)
         {
             var id = orderDetail.Id.Id;
             var productRecordId = orderDetail.ProductId.Id;
@@ -100,7 +101,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
             record.OrderStatusRecordId = (byte)order.Status;
 
             var addedOrderDetails = order.OrderItems
-                .Where(e => e.Id == OrderItemIdentity.New);
+                .Where(e => !record.OrderDetailRecords.Any(f => f.Id == e.Id.Id))
+                .ToList();
 
             var addedOrderDetailRecords = addedOrderDetails
                 .Select(e => CreateOrderDetailRecord(e))

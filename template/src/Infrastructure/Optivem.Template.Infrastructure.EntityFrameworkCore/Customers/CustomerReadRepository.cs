@@ -99,7 +99,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 
         private CustomerIdNameReadModel GetIdNameResult(CustomerRecord customerRecord)
         {
-            var id = customerRecord.Id;
+            var id = new CustomerIdentity(customerRecord.Id);
             var name = $"{customerRecord.FirstName} {customerRecord.LastName}";
             return new CustomerIdNameReadModel(id, name);
         }

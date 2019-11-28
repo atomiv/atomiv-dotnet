@@ -108,7 +108,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         protected OrderIdNameReadModel GetIdNameResult(OrderRecord record)
         {
-            var id = record.Id;
+            var id = new OrderIdentity(record.Id);
             var name = record.Id.ToString();
 
             return new OrderIdNameReadModel(id, name);

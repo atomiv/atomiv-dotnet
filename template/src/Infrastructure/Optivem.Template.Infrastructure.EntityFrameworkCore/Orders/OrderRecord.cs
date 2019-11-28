@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 {
-    public class OrderRecord : Record<int>
+    public class OrderRecord : Record<Guid>
     {
         public OrderRecord()
         {
             OrderDetailRecords = new List<OrderDetailRecord>();
         }
 
-        public int CustomerRecordId { get; set; }
+        public Guid CustomerRecordId { get; set; }
         public DateTime OrderDate { get; set; }
         public byte OrderStatusRecordId { get; set; }
 

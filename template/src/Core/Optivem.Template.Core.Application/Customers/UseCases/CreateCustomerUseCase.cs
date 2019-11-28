@@ -32,9 +32,11 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
         protected Customer GetCustomer(CreateCustomerRequest request)
         {
-            return new Customer(CustomerIdentity.Null,
-                                request.FirstName,
-                                request.LastName);
+            var id = CustomerIdentity.New();
+            var firstName = request.FirstName;
+            var lastName = request.LastName;
+
+            return new Customer(id, firstName, lastName);
         }
 
         /*

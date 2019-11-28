@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Customers;
+using System;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Customers
 {
@@ -7,7 +8,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
     {
         public CustomerIdentityProfile()
         {
-            CreateMap<CustomerIdentity, int>()
+            CreateMap<CustomerIdentity, Guid>()
                 .ConvertUsing(src => src.Id);
         }
     }

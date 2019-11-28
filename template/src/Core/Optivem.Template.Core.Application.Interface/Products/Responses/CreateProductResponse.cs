@@ -1,8 +1,10 @@
-﻿namespace Optivem.Template.Core.Application.Products.Responses
+﻿using System;
+
+namespace Optivem.Template.Core.Application.Products.Responses
 {
     public class CreateProductResponse
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Code { get; set; }
 

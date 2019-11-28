@@ -7,27 +7,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191114203438_SomeMigration")]
-    partial class SomeMigration
+    [Migration("20191128185801_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.CustomerRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -48,23 +47,22 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
 
             modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderDetailRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<byte>("OrderDetailStatusRecordId")
                         .HasColumnName("status_id")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("OrderRecordId")
+                    b.Property<Guid>("OrderRecordId")
                         .HasColumnName("order_id")
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ProductRecordId")
+                    b.Property<Guid>("ProductRecordId")
                         .HasColumnName("product_id")
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Quantity")
                         .HasColumnName("quantity")
@@ -136,15 +134,14 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
 
             modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CustomerRecordId")
+                    b.Property<Guid>("CustomerRecordId")
                         .HasColumnName("customer_id")
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -223,13 +220,12 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
 
             modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Products.ProductRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsListed")
                         .HasColumnName("active")
                         .HasColumnType("bit");
 

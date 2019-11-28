@@ -28,13 +28,13 @@ namespace Optivem.Template.Web.RestClient.Http
         public Task<IObjectClientResponse<DeleteCustomerResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<int, DeleteCustomerResponse>(id);
+            return Client.DeleteByIdAsync<Guid, DeleteCustomerResponse>(id);
         }
 
         public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(FindCustomerRequest request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<int, FindCustomerResponse>(id);
+            return Client.GetByIdAsync<Guid, FindCustomerResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListCustomersResponse>> ListCustomersAsync(ListCustomersRequest request)
@@ -44,7 +44,7 @@ namespace Optivem.Template.Web.RestClient.Http
 
         public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
         {
-            return Client.PutByIdAsync<int, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
         }
     }
 }

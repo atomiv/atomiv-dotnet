@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrations
 {
     public partial class Initial : Migration
     {
@@ -11,8 +11,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                 name: "customer",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    id = table.Column<Guid>(nullable: false),
                     first_name = table.Column<string>(maxLength: 50, nullable: false),
                     last_name = table.Column<string>(maxLength: 50, nullable: false)
                 },
@@ -49,8 +48,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                 name: "product",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    id = table.Column<Guid>(nullable: false),
                     code = table.Column<string>(maxLength: 10, nullable: false),
                     name = table.Column<string>(maxLength: 100, nullable: false),
                     list_price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -65,9 +63,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                 name: "order",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    customer_id = table.Column<int>(nullable: false),
+                    id = table.Column<Guid>(nullable: false),
+                    customer_id = table.Column<Guid>(nullable: false),
+                    OrderDate = table.Column<DateTime>(nullable: false),
                     status_id = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
@@ -91,10 +89,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                 name: "order_detail",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    order_id = table.Column<int>(nullable: false),
-                    product_id = table.Column<int>(nullable: false),
+                    id = table.Column<Guid>(nullable: false),
+                    order_id = table.Column<Guid>(nullable: false),
+                    product_id = table.Column<Guid>(nullable: false),
                     status_id = table.Column<byte>(nullable: false),
                     quantity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     unit_price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)

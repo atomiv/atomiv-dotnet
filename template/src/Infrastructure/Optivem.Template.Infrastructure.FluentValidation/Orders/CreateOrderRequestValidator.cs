@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.FluentValidation.Orders
     {
         public CreateOrderRequestValidator()
         {
-            RuleFor(e => e.CustomerId).GreaterThan(0);
+            RuleFor(e => e.CustomerId).NotEmpty();
             RuleFor(e => e.OrderItems).NotNull();
         }
     }

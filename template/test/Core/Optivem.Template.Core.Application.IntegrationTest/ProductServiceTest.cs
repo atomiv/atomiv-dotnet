@@ -1,8 +1,10 @@
 using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Domain;
+using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -68,7 +70,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var activateResponse = await Fixture.Products.RelistProductAsync(activateRequest);
 
-            Assert.True(activateResponse.Id > 0);
+            AssertUtilities.NotEmpty(activateResponse.Id);
             Assert.Equal(record.Id, activateResponse.Id);
             Assert.Equal(record.ProductCode, activateResponse.Code);
             Assert.Equal(record.ProductName, activateResponse.Description);
@@ -156,7 +158,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
 
-            Assert.True(createResponse.Id > 0);
+            AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.Code, createResponse.Code);
             Assert.Equal(createRequest.Description, createResponse.Description);
             Assert.Equal(createRequest.UnitPrice, createResponse.UnitPrice);
@@ -199,7 +201,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var deactivateResponse = await Fixture.Products.UnlistProductAsync(dectivateRequest);
 
-            Assert.True(deactivateResponse.Id > 0);
+            AssertUtilities.NotEmpty(deactivateResponse.Id);
             Assert.Equal(record.Id, deactivateResponse.Id);
             Assert.Equal(record.ProductCode, deactivateResponse.Code);
             Assert.Equal(record.ProductName, deactivateResponse.Description);
@@ -250,7 +252,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task FindProduct_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindProductRequest { Id = id };
 
@@ -304,7 +306,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task UpdateProduct_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var updateRequest = new UpdateProductRequest
             {

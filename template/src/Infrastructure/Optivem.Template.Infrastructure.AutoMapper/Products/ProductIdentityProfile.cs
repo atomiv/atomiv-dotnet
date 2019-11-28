@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Products;
+using System;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Products
 {
@@ -7,7 +8,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
     {
         public ProductIdentityProfile()
         {
-            CreateMap<ProductIdentity, int>()
+            CreateMap<ProductIdentity, Guid>()
                 .ConvertUsing(src => src.Id);
         }
     }

@@ -1,12 +1,13 @@
 ﻿using Optivem.Framework.Core.Domain;
+using System;
 
 namespace Optivem.Template.Core.Domain.Products
 {
-    public class ProductIdentity : Identity<int>
+    public class ProductIdentity : Identity<Guid>
     {
-        public static ProductIdentity Null = new ProductIdentity(0);
+        public static ProductIdentity New() => new ProductIdentity(Guid.NewGuid());
 
-        public ProductIdentity(int id)
+        public ProductIdentity(Guid id)
             : base(id)
         {
         }

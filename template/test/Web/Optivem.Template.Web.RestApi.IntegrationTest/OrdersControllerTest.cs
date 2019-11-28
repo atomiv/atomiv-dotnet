@@ -1,9 +1,11 @@
-﻿using Optivem.Template.Core.Application.Orders.Requests;
+﻿using Optivem.Framework.Test.Xunit;
+using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -165,7 +167,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var createResponse = createApiResponse.Data;
 
-            Assert.True(createResponse.Id > 0);
+            AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
             Assert.Equal((int)OrderStatus.New, createResponse.StatusId);
 
@@ -178,7 +180,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 var createRequestOrderDetail = createRequest.OrderItems[i];
                 var createResponseOrderDetail = createResponse.OrderItems[i];
 
-                Assert.True(createResponseOrderDetail.Id > 0);
+                AssertUtilities.NotEmpty(createResponseOrderDetail.Id);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
                 Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
                 Assert.Equal((int)OrderItemStatus.Allocated, createResponseOrderDetail.StatusId);
@@ -212,9 +214,11 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact(Skip = "In progress")]
         public async Task CreateOrder_InvalidRequest_ThrowsInvalidRequestException()
         {
+            var customerId = Guid.NewGuid();
+
             var createRequest = new CreateOrderRequest
             {
-                CustomerId = 999,
+                CustomerId = customerId,
                 OrderItems = null,
             };
 
@@ -260,7 +264,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task FindOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindOrderRequest { Id = id };
 
@@ -325,7 +329,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 }
                 else
                 {
-                    Assert.True(updateResponseOrderDetail.Id > 0);
+                    AssertUtilities.NotEmpty(updateResponseOrderDetail.Id);
                 }
 
                 Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
@@ -364,14 +368,17 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
+            var id = Guid.NewGuid();
+            var orderItemId = Guid.NewGuid();
+
             var updateRequest = new UpdateOrderRequest
             {
-                Id = 999,
+                Id = id,
                 OrderItems = new List<UpdateOrderItemRequest>
                 {
                     new UpdateOrderItemRequest
                     {
-                        Id = 1,
+                        Id = orderItemId,
                         ProductId = _productRecords[0].Id,
                         Quantity = 40,
                     },

@@ -53,7 +53,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.Data);
+            AssertUtilities.Equal(expected, actual.Data);
         }
 
         [Fact(Skip = "Fails on server, need to re-check")]
@@ -86,7 +86,7 @@ namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 
-            AssertUtilities.AssertEqual(expected, actual.ContentString);
+            AssertUtilities.Equal(expected, actual.ContentString);
         }
 
         [Fact(Skip = "Sometimes fails locally, need to re-check")]

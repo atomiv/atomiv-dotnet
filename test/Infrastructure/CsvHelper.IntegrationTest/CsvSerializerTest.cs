@@ -18,7 +18,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.Serialize(records);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.Serialize(records, typeof(Customer));
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.SerializeEnumerable(records);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.Deserialize<List<Customer>>(content);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.Deserialize(content, typeof(List<Customer>));
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
 
             Assert.IsType<List<Customer>>(actual);
         }
@@ -90,7 +90,7 @@ namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
 
             var actual = csvSerializer.DeserializeEnumerable<Customer>(content);
 
-            AssertUtilities.AssertEqual(expected, actual);
+            AssertUtilities.Equal(expected, actual);
 
             Assert.IsType<List<Customer>>(actual);
         }

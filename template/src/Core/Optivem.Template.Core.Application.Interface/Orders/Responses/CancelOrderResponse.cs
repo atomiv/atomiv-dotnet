@@ -1,7 +1,9 @@
-﻿namespace Optivem.Template.Core.Application.Orders.Responses
+﻿using System;
+
+namespace Optivem.Template.Core.Application.Orders.Responses
 {
     public class CancelOrderResponse
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }
