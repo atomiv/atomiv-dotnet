@@ -168,7 +168,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
-            Assert.Equal((int)OrderStatus.New, createResponse.StatusId);
+            Assert.Equal(OrderStatus.New, createResponse.Status);
 
             Assert.NotNull(createResponse.OrderItems);
 
@@ -182,7 +182,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 AssertUtilities.NotEmpty(createResponseOrderDetail.Id);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
                 Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderItemStatus.Allocated, createResponseOrderDetail.StatusId);
+                Assert.Equal(OrderItemStatus.Allocated, createResponseOrderDetail.Status);
             }
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
@@ -192,7 +192,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
-            Assert.Equal(createResponse.StatusId, createResponse.StatusId);
+            Assert.Equal(createResponse.Status, createResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
@@ -206,7 +206,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(createResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(createResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
                 Assert.Equal(createResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
-                Assert.Equal(createResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+                Assert.Equal(createResponseOrderDetail.Status, findResponseOrderDetail.Status);
             }
         }
 
@@ -242,7 +242,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
             Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
-            Assert.Equal(orderRecord.OrderStatusId, findResponse.StatusId);
+            Assert.Equal((OrderStatus)orderRecord.OrderStatusId, findResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
@@ -256,7 +256,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
                 Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
-                Assert.Equal(orderDetailRecord.OrderItemStatusId, findResponseDetail.StatusId);
+                Assert.Equal((OrderItemStatus)orderDetailRecord.OrderItemStatusId, findResponseDetail.Status);
             }
         }
 
@@ -311,7 +311,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(orderRecord.CustomerId, updateResponse.CustomerId);
-            Assert.Equal(orderStatusId, updateResponse.StatusId);
+            Assert.Equal((OrderStatus)orderStatusId, updateResponse.Status);
 
             Assert.NotNull(updateResponse.OrderItems);
 
@@ -333,7 +333,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
                 Assert.Equal(updateRequestOrderDetail.Quantity, updateResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderItemStatus.Allocated, updateResponseOrderDetail.StatusId);
+                Assert.Equal(OrderItemStatus.Allocated, updateResponseOrderDetail.Status);
             }
 
             var findRequest = new FindOrderRequest { Id = updateResponse.Id };
@@ -346,7 +346,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(updateResponse.Id, findResponse.Id);
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
-            Assert.Equal(updateResponse.StatusId, updateResponse.StatusId);
+            Assert.Equal(updateResponse.Status, updateResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
@@ -360,7 +360,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(updateResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(updateResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
                 Assert.Equal(updateResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
-                Assert.Equal(updateResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+                Assert.Equal(updateResponseOrderDetail.Status, findResponseOrderDetail.Status);
             }
         }
 

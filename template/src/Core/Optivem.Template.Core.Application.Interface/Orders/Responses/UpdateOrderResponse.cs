@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Optivem.Template.Core.Common.Orders;
+using System;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Responses
@@ -9,7 +10,7 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
         public Guid CustomerId { get; set; }
 
-        public byte StatusId { get; set; }
+        public OrderStatus Status { get; set; }
 
         public List<UpdateOrderItemResponse> OrderItems { get; set; }
     }
@@ -22,6 +23,6 @@ namespace Optivem.Template.Core.Application.Orders.Responses
 
         public decimal Quantity { get; set; }
 
-        public byte StatusId { get; set; }
+        public OrderItemStatus Status { get; set; }
     }
 }
