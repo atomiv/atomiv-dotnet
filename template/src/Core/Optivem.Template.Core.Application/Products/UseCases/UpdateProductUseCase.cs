@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 
             Update(product, request);
 
-            product = await _productRepository.UpdateAsync(product);
+            await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
             var response = Mapper.Map<Product, UpdateProductResponse>(product);
             return response;

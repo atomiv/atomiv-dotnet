@@ -24,7 +24,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         {
             var customer = GetCustomer(request);
 
-            customer = await _customerRepository.AddAsync(customer);
+            _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync();
 
             return Mapper.Map<Customer, CreateCustomerResponse>(customer);

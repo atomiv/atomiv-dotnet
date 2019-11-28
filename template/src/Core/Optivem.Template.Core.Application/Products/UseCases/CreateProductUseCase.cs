@@ -24,7 +24,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
         {
             var product = GetProduct(request);
 
-            product = await _productRepository.AddAsync(product);
+            _productRepository.Add(product);
             await _unitOfWork.SaveChangesAsync();
 
             return Mapper.Map<Product, CreateProductResponse>(product);

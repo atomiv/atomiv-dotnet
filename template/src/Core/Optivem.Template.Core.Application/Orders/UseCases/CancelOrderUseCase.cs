@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             order.Cancel();
 
-            order = await _orderRepository.UpdateAsync(order);
+            await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
             return Mapper.Map<Order, CancelOrderResponse>(order);
         }

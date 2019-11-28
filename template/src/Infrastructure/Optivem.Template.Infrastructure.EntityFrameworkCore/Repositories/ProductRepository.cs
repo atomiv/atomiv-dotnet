@@ -12,22 +12,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
         {
         }
 
-        public async Task<Product> AddAsync(Product product)
+        public void Add(Product product)
         {
             var productRecord = GetProductRecord(product);
             Context.Products.Add(productRecord);
-            await Context.SaveChangesAsync();
-            return GetProduct(productRecord);
         }
 
-        public async Task RemoveAsync(ProductIdentity productId)
-        {
-            var productRecord = GetProductRecord(productId);
-            Context.Remove(productRecord);
-            await Context.SaveChangesAsync();
-        }
-
-        public async Task<Product> UpdateAsync(Product product)
+        public async Task UpdateAsync(Product product)
         {
             var productRecordId = product.Id.Id;
             var productRecord = await Context.Products.FindAsync(productRecordId);
@@ -43,14 +34,11 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
-
-            return GetProduct(productRecord);
         }
 
         #region Helper
 
-
-        protected ProductRecord GetProductRecord(Product product)
+        private ProductRecord GetProductRecord(Product product)
         {
             var id = product.Id.Id;
             var productCode = product.ProductCode;
@@ -68,7 +56,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        protected ProductRecord GetProductRecord(ProductIdentity productId)
+        private ProductRecord GetProductRecord(ProductIdentity productId)
         {
             return new ProductRecord
             {
@@ -76,7 +64,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        protected void UpdateProductRecord(ProductRecord productRecord, Product product)
+        private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
             var id = product.Id.Id;
             var productCode = product.ProductCode;
@@ -91,28 +79,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             productRecord.IsListed = isListed;
         }
 
-
         #endregion
-
-        /*
-         * 
-        public async Task<Product> AddAsync(Product product)
-        {
-
-        }
-
-        public async Task RemoveAsync(ProductIdentity productId)
-        {
-
-        }
-
-        public async Task<Product> UpdateAsync(Product product)
-        {
-
-        }
-
-         * 
-         * 
-         */
     }
 }

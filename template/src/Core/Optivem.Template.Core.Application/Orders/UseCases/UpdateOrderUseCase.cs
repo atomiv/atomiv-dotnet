@@ -38,7 +38,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await UpdateAsync(order, request);
 
-            order = await _orderRepository.UpdateAsync(order);
+            await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
             return Mapper.Map<Order, UpdateOrderResponse>(order);
         }

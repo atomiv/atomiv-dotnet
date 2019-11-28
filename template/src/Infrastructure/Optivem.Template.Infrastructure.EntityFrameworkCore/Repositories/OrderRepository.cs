@@ -14,22 +14,19 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
         {
         }
 
-        public async Task<Order> AddAsync(Order order)
+        public void Add(Order order)
         {
             var orderRecord = GetOrderRecord(order);
             Context.Orders.Add(orderRecord);
-            await Context.SaveChangesAsync();
-            return GetOrder(orderRecord);
         }
 
-        public async Task RemoveAsync(OrderIdentity orderId)
+        public void Remove(OrderIdentity orderId)
         {
             var orderRecord = GetOrderRecord(orderId);
             Context.Remove(orderRecord);
-            await Context.SaveChangesAsync();
         }
 
-        public async Task<Order> UpdateAsync(Order order)
+        public async Task UpdateAsync(Order order)
         {
             var orderRecordId = order.Id.Id;
             var orderRecord = await Context.Orders
@@ -47,11 +44,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
-
-            return GetOrder(orderRecord);
         }
 
-        protected OrderRecord GetOrderRecord(Order order)
+        private OrderRecord GetOrderRecord(Order order)
         {
             var id = order.Id.Id;
             var customerRecordId = order.CustomerId.Id;
@@ -67,7 +62,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        protected OrderRecord GetOrderRecord(OrderIdentity orderId)
+        private OrderRecord GetOrderRecord(OrderIdentity orderId)
         {
             var id = orderId.Id;
 
@@ -77,7 +72,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        protected OrderItemRecord GetOrderItemRecord(OrderItem orderDetail, Guid orderRecordId)
+        private OrderItemRecord GetOrderItemRecord(OrderItem orderDetail, Guid orderRecordId)
         {
             var id = orderDetail.Id.Id;
             var productRecordId = orderDetail.ProductId.Id;
@@ -96,7 +91,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        protected void UpdateOrderRecord(OrderRecord record, Order order)
+        private void UpdateOrderRecord(OrderRecord record, Order order)
         {
             record.CustomerId = order.CustomerId.Id;
             record.OrderStatusId = (byte)order.Status;

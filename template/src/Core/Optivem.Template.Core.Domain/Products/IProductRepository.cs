@@ -4,12 +4,8 @@ namespace Optivem.Template.Core.Domain.Products
 {
     public interface IProductRepository : IProductReadRepository
     {
-        Task<Product> AddAsync(Product product);
+        void Add(Product product);
 
-        Task<Product> UpdateAsync(Product product);
-
-        Task RemoveAsync(ProductIdentity productId);
-
-
+        Task UpdateAsync(Product product);
     }
 }

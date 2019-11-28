@@ -105,7 +105,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new CustomerIdNameReadModel(id, name);
         }
 
-        protected Customer GetCustomer(CustomerRecord customerRecord)
+        private Customer GetCustomer(CustomerRecord customerRecord)
         {
             var identity = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -114,7 +114,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new Customer(identity, firstName, lastName);
         }
 
-        protected CustomerHeaderReadModel GetCustomerHeaderReadModel(CustomerRecord customerRecord)
+        private CustomerHeaderReadModel GetCustomerHeaderReadModel(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -127,7 +127,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new CustomerHeaderReadModel(id, firstName, lastName, openOrders);
         }
 
-        protected CustomerDetailReadModel GetCustomerDetailReadModel(CustomerRecord customerRecord)
+        private CustomerDetailReadModel GetCustomerDetailReadModel(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;

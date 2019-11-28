@@ -73,7 +73,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return Context.Orders.LongCountAsync();
         }
 
-        protected Order GetOrder(OrderRecord record)
+        private Order GetOrder(OrderRecord record)
         {
             var id = new OrderIdentity(record.Id);
             var customerId = new CustomerIdentity(record.CustomerId);
@@ -85,7 +85,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new Order(id, customerId, DateTime.Now, status, orderDetails);
         }
 
-        protected OrderItem GetOrderItem(OrderItemRecord record)
+        private OrderItem GetOrderItem(OrderItemRecord record)
         {
             var id = new OrderItemIdentity(record.Id);
             var productId = new ProductIdentity(record.ProductId);
@@ -96,7 +96,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new OrderItem(id, productId, quantity, unitPrice, status);
         }
 
-        protected OrderHeaderReadModel GetOrderHeaderReadModel(OrderRecord record)
+        private OrderHeaderReadModel GetOrderHeaderReadModel(OrderRecord record)
         {
             var orderId = new OrderIdentity(record.Id);
             var customerId = new CustomerIdentity(record.CustomerId);
@@ -107,7 +107,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new OrderHeaderReadModel(orderId, customerId, orderDate, status, totalPrice);
         }
 
-        protected OrderIdNameReadModel GetIdNameResult(OrderRecord record)
+        private OrderIdNameReadModel GetIdNameResult(OrderRecord record)
         {
             var id = new OrderIdentity(record.Id);
             var name = record.Id.ToString();

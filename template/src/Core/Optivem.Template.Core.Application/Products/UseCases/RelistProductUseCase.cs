@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 
             product.Relist();
 
-            product = await _productRepository.UpdateAsync(product);
+            await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
             return Mapper.Map<Product, RelistProductResponse>(product);
         }
