@@ -13,9 +13,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class CustomerReadRepository : Repository, ICustomerReadRepository
     {
-        // TODO: VC: Add enums into EF https://github.com/optivem/framework-dotnetcore/issues/355
-        private const byte ClosedOrderStatusRecordId = (byte)OrderStatus.Closed;
-
         public CustomerReadRepository(DatabaseContext context) : base(context)
         {
         }
@@ -122,7 +119,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             var lastName = customerRecord.LastName;
 
             var openOrders = customerRecord.Orders
-                .Where(e => e.OrderStatusId != ClosedOrderStatusRecordId)
+                .Where(e => e.OrderStatusId != OrderStatus.Closed)
                 .Count();
 
             return new CustomerHeaderReadModel(id, firstName, lastName, openOrders);
@@ -135,7 +132,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             var lastName = customerRecord.LastName;
 
             var openOrders = customerRecord.Orders
-                .Where(e => e.OrderStatusId != ClosedOrderStatusRecordId)
+                .Where(e => e.OrderStatusId != OrderStatus.Closed)
                 .Count();
 
             var lastOrderDate = customerRecord.Orders

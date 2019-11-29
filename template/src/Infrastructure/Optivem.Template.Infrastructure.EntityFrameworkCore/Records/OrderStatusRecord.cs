@@ -1,9 +1,10 @@
 ﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Common.Orders;
 using System.Collections.Generic;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Records
 {
-    public class OrderStatusRecord : Record<byte>
+    public class OrderStatusRecord : Record<OrderStatus>
     {
         public OrderStatusRecord()
         {

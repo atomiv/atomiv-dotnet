@@ -82,7 +82,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 new OrderRecord
                 {
                     CustomerId = _customerRecords[0].Id,
-                    OrderStatusId = (int)OrderStatus.Invoiced,
+                    OrderStatusId = OrderStatus.Invoiced,
 
                     OrderItems = new List<OrderItemRecord>
                     {
@@ -107,7 +107,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 new OrderRecord
                 {
                     CustomerId = _customerRecords[1].Id,
-                    OrderStatusId = (int)OrderStatus.Shipped,
+                    OrderStatusId = OrderStatus.Shipped,
 
                     OrderItems = new List<OrderItemRecord>
                     {

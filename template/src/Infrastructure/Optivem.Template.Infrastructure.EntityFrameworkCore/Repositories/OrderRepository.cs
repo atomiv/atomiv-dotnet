@@ -48,17 +48,18 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         private OrderRecord GetOrderRecord(Order order)
         {
-            var id = order.Id.Id;
-            var customerRecordId = order.CustomerId.Id;
-            var orderStatusRecordId = (byte)order.Status;
-            var orderDetailRecords = order.OrderItems.Select(e => GetOrderItemRecord(e, id)).ToList();
+            var orderRecordId = order.Id.Id;
+
+            var orderItemRecords = order.OrderItems
+                .Select(e => GetOrderItemRecord(e, orderRecordId))
+                .ToList();
 
             return new OrderRecord
             {
-                Id = id,
-                CustomerId = customerRecordId,
-                OrderStatusId = orderStatusRecordId,
-                OrderItems = orderDetailRecords,
+                Id = orderRecordId,
+                CustomerId = order.CustomerId.Id,
+                OrderStatusId = order.Status,
+                OrderItems = orderItemRecords,
             };
         }
 
@@ -88,7 +89,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
         private void UpdateOrderRecord(OrderRecord record, Order order)
         {
             record.CustomerId = order.CustomerId.Id;
-            record.OrderStatusId = (byte)order.Status;
+            record.OrderStatusId = order.Status;
 
             var addedOrderDetails = order.OrderItems
                 .Where(e => !record.OrderItems.Any(f => f.Id == e.Id.Id))

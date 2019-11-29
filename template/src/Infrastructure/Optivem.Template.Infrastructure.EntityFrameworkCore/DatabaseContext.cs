@@ -45,7 +45,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore
         private void SeedEnum(ModelBuilder modelBuilder)
         {
             modelBuilder.SeedEnum<OrderItemStatusRecord, OrderItemStatus>(e => new OrderItemStatusRecord { Id = e, Code = e.ToString() });
-            modelBuilder.SeedEnum<OrderStatusRecord, OrderStatus>(e => new OrderStatusRecord { Id = (byte)e, Code = e.ToString() });
+            modelBuilder.SeedEnum<OrderStatusRecord, OrderStatus>(e => new OrderStatusRecord { Id = e, Code = e.ToString() });
         }
     }
 }

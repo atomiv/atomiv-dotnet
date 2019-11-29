@@ -16,9 +16,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
             builder.Property(e => e.UnitPrice)
                 .HasColumnType("decimal(18,2)");
 
-            builder.Property(e => e.StatusId)
-                .HasConversion<byte>();
-
             builder.HasOne(e => e.Order)
                 .WithMany(e => e.OrderItems)
                 .HasForeignKey(e => e.OrderId);
