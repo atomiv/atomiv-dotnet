@@ -86,13 +86,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             return new Order(id, customerId, DateTime.Now, status, orderDetails);
         }
 
-        private OrderItem GetOrderItem(OrderItemRecord record)
+        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
         {
-            var id = new OrderItemIdentity(record.Id);
-            var productId = new ProductIdentity(record.ProductId);
-            var quantity = record.Quantity;
-            var unitPrice = record.UnitPrice;
-            var status = (OrderItemStatus)record.OrderItemStatusId; // TODO: VC
+            var id = new OrderItemIdentity(orderItemRecord.Id);
+            var productId = new ProductIdentity(orderItemRecord.ProductId);
+            var quantity = orderItemRecord.Quantity;
+            var unitPrice = orderItemRecord.UnitPrice;
+            var status = orderItemRecord.StatusId;
 
             return new OrderItem(id, productId, quantity, unitPrice, status);
         }

@@ -8,6 +8,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
     {
         public void Configure(EntityTypeBuilder<OrderItemStatusRecord> builder)
         {
+            builder.Property(e => e.Id)
+                .HasConversion<byte>();
+
             builder.Property(e => e.Code)
                 .IsRequired()
                 .HasMaxLength(20);

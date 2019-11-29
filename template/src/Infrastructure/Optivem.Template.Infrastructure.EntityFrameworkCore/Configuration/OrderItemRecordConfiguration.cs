@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
@@ -14,6 +16,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
             builder.Property(e => e.UnitPrice)
                 .HasColumnType("decimal(18,2)");
 
+            builder.Property(e => e.StatusId)
+                .HasConversion<byte>();
+
             builder.HasOne(e => e.Order)
                 .WithMany(e => e.OrderItems)
                 .HasForeignKey(e => e.OrderId);
@@ -22,9 +27,9 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration
                 .WithMany(e => e.OrderItems)
                 .HasForeignKey(e => e.ProductId);
 
-            builder.HasOne(e => e.OrderItemStatus)
+            builder.HasOne(e => e.Status)
                 .WithMany(e => e.OrderItems)
-                .HasForeignKey(e => e.OrderItemStatusId);
+                .HasForeignKey(e => e.StatusId);
         }
     }
 }

@@ -72,22 +72,16 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             };
         }
 
-        private OrderItemRecord GetOrderItemRecord(OrderItem orderDetail, Guid orderRecordId)
+        private OrderItemRecord GetOrderItemRecord(OrderItem orderItem, Guid orderRecordId)
         {
-            var id = orderDetail.Id.Id;
-            var productRecordId = orderDetail.ProductId.Id;
-            var orderDetailStatusRecordId = (byte)orderDetail.Status;
-            var quantity = orderDetail.Quantity;
-            var unitPrice = orderDetail.UnitPrice;
-
             return new OrderItemRecord
             {
-                Id = id,
+                Id = orderItem.Id.Id,
                 OrderId = orderRecordId,
-                ProductId = productRecordId,
-                OrderItemStatusId = orderDetailStatusRecordId,
-                Quantity = quantity,
-                UnitPrice = unitPrice,
+                ProductId = orderItem.ProductId.Id,
+                StatusId = orderItem.Status,
+                Quantity = orderItem.Quantity,
+                UnitPrice = orderItem.UnitPrice,
             };
         }
 
@@ -130,33 +124,23 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
             }
         }
 
-        private OrderItemRecord CreateOrderItemRecord(OrderItem orderDetail)
+        private OrderItemRecord CreateOrderItemRecord(OrderItem orderItem)
         {
-            var productRecordId = orderDetail.ProductId.Id;
-            var orderDetailStatusRecordId = (byte)orderDetail.Status;
-            var quantity = orderDetail.Quantity;
-            var unitPrice = orderDetail.UnitPrice;
-
             return new OrderItemRecord
             {
-                ProductId = productRecordId,
-                OrderItemStatusId = orderDetailStatusRecordId,
-                Quantity = quantity,
-                UnitPrice = unitPrice,
+                ProductId = orderItem.ProductId.Id,
+                StatusId = orderItem.Status,
+                Quantity = orderItem.Quantity,
+                UnitPrice = orderItem.UnitPrice,
             };
         }
 
-        private void UpdateOrderItemRecord(OrderItemRecord orderDetailRecord, OrderItem orderDetail)
+        private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, OrderItem orderItem)
         {
-            var productRecordId = orderDetail.ProductId.Id;
-            var orderDetailStatusRecordId = (byte)orderDetail.Status;
-            var quantity = orderDetail.Quantity;
-            var unitPrice = orderDetail.UnitPrice;
-
-            orderDetailRecord.ProductId = productRecordId;
-            orderDetailRecord.OrderItemStatusId = orderDetailStatusRecordId;
-            orderDetailRecord.Quantity = quantity;
-            orderDetailRecord.UnitPrice = unitPrice;
+            orderItemRecord.ProductId = orderItem.ProductId.Id;
+            orderItemRecord.StatusId = orderItem.Status;
+            orderItemRecord.Quantity = orderItem.Quantity;
+            orderItemRecord.UnitPrice = orderItem.UnitPrice;
         }
     }
 }

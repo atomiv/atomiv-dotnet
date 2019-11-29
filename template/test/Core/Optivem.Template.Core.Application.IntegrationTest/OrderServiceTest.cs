@@ -91,7 +91,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
-                            OrderItemStatusId = (int)OrderItemStatus.NoStock,
+                            StatusId = OrderItemStatus.NoStock,
                         },
 
                         new OrderItemRecord
@@ -99,7 +99,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
-                            OrderItemStatusId = (int)OrderItemStatus.OnOrder,
+                            StatusId = OrderItemStatus.OnOrder,
                         },
                     },
                 },
@@ -116,7 +116,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
-                            OrderItemStatusId = (int)OrderItemStatus.Allocated,
+                            StatusId = OrderItemStatus.Allocated,
                         },
 
                         new OrderItemRecord
@@ -124,7 +124,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                             ProductId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,
-                            OrderItemStatusId = (int)OrderItemStatus.Invoiced,
+                            StatusId = OrderItemStatus.Invoiced,
                         },
                     },
                 },
@@ -249,7 +249,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
                 Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
-                Assert.Equal((OrderItemStatus)orderDetailRecord.OrderItemStatusId, findResponseDetail.Status);
+                Assert.Equal(orderDetailRecord.StatusId, findResponseDetail.Status);
             }
         }
 

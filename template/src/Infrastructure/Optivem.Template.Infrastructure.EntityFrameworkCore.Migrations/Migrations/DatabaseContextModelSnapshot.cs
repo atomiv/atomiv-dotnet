@@ -19,7 +19,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.CustomerRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.CustomerRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,7 +40,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderItemRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,14 +49,14 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte>("OrderItemStatusId")
-                        .HasColumnType("tinyint");
-
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Quantity")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<byte>("StatusId")
+                        .HasColumnType("tinyint");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
@@ -65,14 +65,14 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("OrderItemStatusId");
-
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderItemStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
                         .HasColumnType("tinyint");
@@ -119,7 +119,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -143,7 +143,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
                         .HasColumnType("tinyint");
@@ -200,7 +200,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Products.ProductRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.ProductRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -227,36 +227,36 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrati
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderItemRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemRecord", b =>
                 {
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", "Order")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderItemStatusRecord", "OrderItemStatus")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderItemStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Products.ProductRecord", "Product")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.ProductRecord", "Product")
                         .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemStatusRecord", "Status")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", b =>
                 {
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.CustomerRecord", "Customer")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.CustomerRecord", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderStatusRecord", "OrderStatus")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderStatusRecord", "OrderStatus")
                         .WithMany("OrderRecords")
                         .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
