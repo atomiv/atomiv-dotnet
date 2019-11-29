@@ -3,6 +3,7 @@ using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Web.RestClient.Interface;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Http
@@ -27,7 +28,7 @@ namespace Optivem.Template.Web.RestClient.Http
         public Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(FindProductRequest request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<int, FindProductResponse>(id);
+            return Client.GetByIdAsync<Guid, FindProductResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductRequest request)
@@ -47,7 +48,7 @@ namespace Optivem.Template.Web.RestClient.Http
 
         public Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request)
         {
-            return Client.PutByIdAsync<int, UpdateProductRequest, UpdateProductResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateProductRequest, UpdateProductResponse>(request.Id, request);
         }
     }
 }

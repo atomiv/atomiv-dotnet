@@ -1,7 +1,9 @@
 ﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -105,7 +107,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var createResponse = await Fixture.Customers.CreateCustomerAsync(createRequest);
 
-            Assert.True(createResponse.Id > 0);
+            AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.FirstName, createResponse.FirstName);
             Assert.Equal(createRequest.LastName, createResponse.LastName);
 
@@ -143,7 +145,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task DeleteCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var deleteRequest = new DeleteCustomerRequest { Id = id };
 
@@ -167,7 +169,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         [Fact]
         public async Task FindCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindCustomerRequest { Id = id };
 
@@ -235,9 +237,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             var customerRecord = _customerRecords[0];
 
+            var id = Guid.NewGuid();
+
             var updateRequest = new UpdateCustomerRequest
             {
-                Id = 999,
+                Id = id,
                 FirstName = "New first name",
                 LastName = "New last name",
             };

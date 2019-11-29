@@ -7,99 +7,86 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191114203438_SomeMigration")]
-    partial class SomeMigration
+    [Migration("20191129190504_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.CustomerRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.CustomerRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnName("first_name")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnName("last_name")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
 
-                    b.ToTable("customer");
+                    b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderDetailRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte>("OrderDetailStatusRecordId")
-                        .HasColumnName("status_id")
-                        .HasColumnType("tinyint");
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("OrderRecordId")
-                        .HasColumnName("order_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductRecordId")
-                        .HasColumnName("product_id")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Quantity")
-                        .HasColumnName("quantity")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<byte>("StatusId")
+                        .HasColumnType("tinyint");
+
                     b.Property<decimal>("UnitPrice")
-                        .HasColumnName("unit_price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderDetailStatusRecordId");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("OrderRecordId");
+                    b.HasIndex("ProductId");
 
-                    b.HasIndex("ProductRecordId");
+                    b.HasIndex("StatusId");
 
-                    b.ToTable("order_detail");
+                    b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderDetailStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
-                        .HasColumnName("id")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnName("code")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
 
-                    b.ToTable("order_detail_status");
+                    b.ToTable("OrderItemStatuses");
 
                     b.HasData(
                         new
@@ -134,49 +121,43 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CustomerRecordId")
-                        .HasColumnName("customer_id")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("OrderStatusRecordId")
-                        .HasColumnName("status_id")
+                    b.Property<byte>("OrderStatusId")
                         .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerRecordId");
+                    b.HasIndex("CustomerId");
 
-                    b.HasIndex("OrderStatusRecordId");
+                    b.HasIndex("OrderStatusId");
 
-                    b.ToTable("order");
+                    b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
-                        .HasColumnName("id")
                         .HasColumnType("tinyint");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnName("code")
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
 
-                    b.ToTable("order_status");
+                    b.ToTable("OrderStatuses");
 
                     b.HasData(
                         new
@@ -221,71 +202,65 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Products.ProductRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.ProductRecord", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnName("active")
+                    b.Property<bool>("IsListed")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("ListPrice")
-                        .HasColumnName("list_price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductCode")
                         .IsRequired()
-                        .HasColumnName("code")
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasColumnName("name")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
 
-                    b.ToTable("product");
+                    b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderDetailRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemRecord", b =>
                 {
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderDetailStatusRecord", "OrderDetailStatusRecord")
-                        .WithMany("OrderDetailRecords")
-                        .HasForeignKey("OrderDetailStatusRecordId")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", "OrderRecord")
-                        .WithMany("OrderDetailRecords")
-                        .HasForeignKey("OrderRecordId")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.ProductRecord", "Product")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Products.ProductRecord", "ProductRecord")
-                        .WithMany("OrderDetailRecords")
-                        .HasForeignKey("ProductRecordId")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderItemStatusRecord", "Status")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderRecord", b =>
                 {
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Customers.CustomerRecord", "CustomerRecord")
-                        .WithMany("OrderRecords")
-                        .HasForeignKey("CustomerRecordId")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.CustomerRecord", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Orders.OrderStatusRecord", "OrderStatusRecord")
+                    b.HasOne("Optivem.Template.Infrastructure.EntityFrameworkCore.Records.OrderStatusRecord", "OrderStatus")
                         .WithMany("OrderRecords")
-                        .HasForeignKey("OrderStatusRecordId")
+                        .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

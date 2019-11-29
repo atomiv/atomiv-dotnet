@@ -32,7 +32,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         {
             var order = await GetOrderAsync(request);
 
-            order = await _orderRepository.AddAsync(order);
+            _orderRepository.Add(order);
             await _unitOfWork.SaveChangesAsync();
 
             var response = Mapper.Map<Order, CreateOrderResponse>(order);
@@ -83,7 +83,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var quantity = requestOrderDetail.Quantity;
 
-            return OrderFactory.CreateNewOrderDetail(product, quantity);
+            return OrderFactory.CreateNewOrderItem(product, quantity);
         }
     }
 }

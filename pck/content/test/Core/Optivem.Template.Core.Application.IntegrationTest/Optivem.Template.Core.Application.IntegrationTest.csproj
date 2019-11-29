@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.20" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.20" />
+<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.21" />
+<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.21" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj" />
   </ItemGroup>

@@ -1,12 +1,13 @@
 ﻿using Optivem.Framework.Core.Domain;
+using System;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public class OrderItemIdentity : Identity<int>
+    public class OrderItemIdentity : Identity<Guid>
     {
-        public static OrderItemIdentity New = new OrderItemIdentity(0);
+        public static OrderItemIdentity New() => new OrderItemIdentity(Guid.NewGuid());
 
-        public OrderItemIdentity(int id)
+        public OrderItemIdentity(Guid id)
             : base(id)
         {
         }

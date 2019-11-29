@@ -1,6 +1,8 @@
+using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -119,13 +121,13 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var expectedFirst = _productRecords[0];
             var actualFirst = actualContent.Records[0];
 
-            Assert.True(actualFirst.Id > 0);
+            AssertUtilities.NotEmpty(actualFirst.Id);
             Assert.Equal($"{expectedFirst.ProductCode} - {expectedFirst.ProductName}", actualFirst.Name);
 
             var expectedSecond = _productRecords[1];
             var actualSecond = actualContent.Records[1];
 
-            Assert.True(actualSecond.Id > 0);
+            AssertUtilities.NotEmpty(actualSecond.Id);
             Assert.Equal($"{expectedSecond.ProductCode} - {expectedSecond.ProductName}", actualSecond.Name);
         }
 
@@ -152,7 +154,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task FindProduct_NotExist_NotFound()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindProductRequest { Id = id };
 
@@ -177,7 +179,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var createResponseContent = createResponse.Data;
 
-            Assert.True(createResponseContent.Id > 0);
+            AssertUtilities.NotEmpty(createResponseContent.Id);
 
             Assert.Equal(createRequest.Code, createResponseContent.Code);
             Assert.Equal(createRequest.Description, createResponseContent.Description);
@@ -223,9 +225,11 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateProduct_NotExist_NotFound()
         {
+            var id = Guid.NewGuid();
+
             var updateRequest = new UpdateProductRequest
             {
-                Id = 999,
+                Id = id,
                 Description = "New desc 2",
                 UnitPrice = 140,
             };

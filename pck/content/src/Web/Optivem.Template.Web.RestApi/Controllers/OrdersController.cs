@@ -3,6 +3,7 @@ using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.Core.Application.Orders;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.Controllers
@@ -57,7 +58,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(FindOrderResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<FindOrderResponse>> FindOrderAsync(int id)
+        public async Task<ActionResult<FindOrderResponse>> FindOrderAsync(Guid id)
         {
             var request = new FindOrderRequest { Id = id };
             var response = await Service.FindOrderAsync(request);
@@ -83,7 +84,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
 
         [HttpPut("{id}", Name = "update-order")]
         [ProducesResponseType(typeof(UpdateOrderResponse), 201)]
-        public async Task<ActionResult<UpdateOrderResponse>> UpdateOrderAsync(int id, UpdateOrderRequest request)
+        public async Task<ActionResult<UpdateOrderResponse>> UpdateOrderAsync(Guid id, UpdateOrderRequest request)
         {
             var response = await Service.UpdateOrderAsync(request);
             return Ok(response);

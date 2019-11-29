@@ -24,7 +24,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         {
             var customer = GetCustomer(request);
 
-            customer = await _customerRepository.AddAsync(customer);
+            _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync();
 
             return Mapper.Map<Customer, CreateCustomerResponse>(customer);
@@ -32,9 +32,11 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
         protected Customer GetCustomer(CreateCustomerRequest request)
         {
-            return new Customer(CustomerIdentity.Null,
-                                request.FirstName,
-                                request.LastName);
+            var id = CustomerIdentity.New();
+            var firstName = request.FirstName;
+            var lastName = request.LastName;
+
+            return new Customer(id, firstName, lastName);
         }
 
         /*

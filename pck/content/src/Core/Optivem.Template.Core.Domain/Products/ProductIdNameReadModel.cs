@@ -2,9 +2,9 @@
 
 namespace Optivem.Template.Core.Domain.Products
 {
-    public class ProductIdNameReadModel : IdNameReadModel<int>
+    public class ProductIdNameReadModel : IdNameReadModel<ProductIdentity>
     {
-        public ProductIdNameReadModel(int id, string name) : base(id, name)
+        public ProductIdNameReadModel(ProductIdentity id, string name) : base(id, name)
         {
         }
     }

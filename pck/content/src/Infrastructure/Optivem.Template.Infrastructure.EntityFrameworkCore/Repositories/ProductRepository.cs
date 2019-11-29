@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class ProductRepository : ProductReadRepository, IProductRepository
     {
@@ -11,45 +12,33 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         {
         }
 
-        public async Task<Product> AddAsync(Product product)
+        public void Add(Product product)
         {
             var productRecord = GetProductRecord(product);
-            Context.ProductRecords.Add(productRecord);
-            await Context.SaveChangesAsync();
-            return GetProduct(productRecord);
+            Context.Products.Add(productRecord);
         }
 
-        public async Task RemoveAsync(ProductIdentity productId)
-        {
-            var productRecord = GetProductRecord(productId);
-            Context.Remove(productRecord);
-            await Context.SaveChangesAsync();
-        }
-
-        public async Task<Product> UpdateAsync(Product product)
+        public async Task UpdateAsync(Product product)
         {
             var productRecordId = product.Id.Id;
-            var productRecord = await Context.ProductRecords.FindAsync(productRecordId);
+            var productRecord = await Context.Products.FindAsync(productRecordId);
 
             UpdateProductRecord(productRecord, product);
 
             try
             {
-                Context.ProductRecords.Update(productRecord);
+                Context.Products.Update(productRecord);
                 await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
-
-            return GetProduct(productRecord);
         }
 
         #region Helper
 
-
-        protected ProductRecord GetProductRecord(Product product)
+        private ProductRecord GetProductRecord(Product product)
         {
             var id = product.Id.Id;
             var productCode = product.ProductCode;
@@ -67,7 +56,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
             };
         }
 
-        protected ProductRecord GetProductRecord(ProductIdentity productId)
+        private ProductRecord GetProductRecord(ProductIdentity productId)
         {
             return new ProductRecord
             {
@@ -75,7 +64,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
             };
         }
 
-        protected void UpdateProductRecord(ProductRecord productRecord, Product product)
+        private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
             var id = product.Id.Id;
             var productCode = product.ProductCode;
@@ -90,28 +79,6 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
             productRecord.IsListed = isListed;
         }
 
-
         #endregion
-
-        /*
-         * 
-        public async Task<Product> AddAsync(Product product)
-        {
-
-        }
-
-        public async Task RemoveAsync(ProductIdentity productId)
-        {
-
-        }
-
-        public async Task<Product> UpdateAsync(Product product)
-        {
-
-        }
-
-         * 
-         * 
-         */
     }
 }

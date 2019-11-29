@@ -1,19 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class CustomerReadRepository : Repository, ICustomerReadRepository
     {
-        // TODO: VC: Add enums into EF https://github.com/optivem/framework-dotnetcore/issues/355
-        private const byte ClosedOrderStatusRecordId = (byte)OrderStatus.Closed;
-
         public CustomerReadRepository(DatabaseContext context) : base(context)
         {
         }
@@ -22,7 +21,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         {
             var customerRecordId = customerId.Id;
 
-            return Context.CustomerRecords.AsNoTracking()
+            return Context.Customers.AsNoTracking()
                 .AnyAsync(e => e.Id == customerRecordId);
         }
 
@@ -30,7 +29,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         {
             var customerRecordId = customerId.Id;
 
-            var customerRecord = await Context.CustomerRecords.AsNoTracking()
+            var customerRecord = await Context.Customers.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             if(customerRecord == null)
@@ -45,10 +44,10 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         {
             var customerRecordId = customerId.Id;
 
-            var customerRecord = await Context.CustomerRecords.AsNoTracking()
-                .Include(e => e.OrderRecords)
-                    .ThenInclude(e => e.OrderDetailRecords)
-                        .ThenInclude(e => e.ProductRecord)
+            var customerRecord = await Context.Customers.AsNoTracking()
+                .Include(e => e.Orders)
+                    .ThenInclude(e => e.OrderItems)
+                        .ThenInclude(e => e.Product)
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             if(customerRecord == null)
@@ -61,7 +60,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 
         public async Task<PageReadModel<CustomerHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
         {
-            var customerRecords = await Context.CustomerRecords.AsNoTracking()
+            var customerRecords = await Context.Customers.AsNoTracking()
                 .Page(pageQuery)
                 .ToListAsync();
 
@@ -77,7 +76,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 
         public async Task<ListReadModel<CustomerIdNameReadModel>> ListAsync(string nameSearch, int limit)
         {
-            var customerRecords = await Context.CustomerRecords.AsNoTracking()
+            var customerRecords = await Context.Customers.AsNoTracking()
                 .Where(e => e.FirstName.Contains(nameSearch) || e.LastName.Contains(nameSearch))
                 .OrderBy(e => e.FirstName)
                 .ThenBy(e => e.LastName)
@@ -92,19 +91,19 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
 
         public Task<long> CountAsync()
         {
-            return Context.CustomerRecords.LongCountAsync();
+            return Context.Customers.LongCountAsync();
         }
 
         #region Helper
 
         private CustomerIdNameReadModel GetIdNameResult(CustomerRecord customerRecord)
         {
-            var id = customerRecord.Id;
+            var id = new CustomerIdentity(customerRecord.Id);
             var name = $"{customerRecord.FirstName} {customerRecord.LastName}";
             return new CustomerIdNameReadModel(id, name);
         }
 
-        protected Customer GetCustomer(CustomerRecord customerRecord)
+        private Customer GetCustomer(CustomerRecord customerRecord)
         {
             var identity = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -113,44 +112,44 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
             return new Customer(identity, firstName, lastName);
         }
 
-        protected CustomerHeaderReadModel GetCustomerHeaderReadModel(CustomerRecord customerRecord)
+        private CustomerHeaderReadModel GetCustomerHeaderReadModel(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 
-            var openOrders = customerRecord.OrderRecords
-                .Where(e => e.OrderStatusRecordId != ClosedOrderStatusRecordId)
+            var openOrders = customerRecord.Orders
+                .Where(e => e.OrderStatusId != OrderStatus.Closed)
                 .Count();
 
             return new CustomerHeaderReadModel(id, firstName, lastName, openOrders);
         }
 
-        protected CustomerDetailReadModel GetCustomerDetailReadModel(CustomerRecord customerRecord)
+        private CustomerDetailReadModel GetCustomerDetailReadModel(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 
-            var openOrders = customerRecord.OrderRecords
-                .Where(e => e.OrderStatusRecordId != ClosedOrderStatusRecordId)
+            var openOrders = customerRecord.Orders
+                .Where(e => e.OrderStatusId != OrderStatus.Closed)
                 .Count();
 
-            var lastOrderDate = customerRecord.OrderRecords
+            var lastOrderDate = customerRecord.Orders
                 .Max(e => (DateTime?)e.OrderDate);
 
-            var totalOrders = customerRecord.OrderRecords
+            var totalOrders = customerRecord.Orders
                 .Count;
 
-            var totalOrderValue = customerRecord.OrderRecords
-                .SelectMany(e => e.OrderDetailRecords)
+            var totalOrderValue = customerRecord.Orders
+                .SelectMany(e => e.OrderItems)
                 .Select(e => e.UnitPrice * e.Quantity)
                 .Sum(e => (decimal?)e)
                 .GetValueOrDefault();
 
-            var topProducts = customerRecord.OrderRecords
-                .SelectMany(e => e.OrderDetailRecords)
-                .GroupBy(e => e.ProductRecord)
+            var topProducts = customerRecord.Orders
+                .SelectMany(e => e.OrderItems)
+                .GroupBy(e => e.Product)
                 .OrderByDescending(e => e.Count())
                 .Select(e => e.Key.ProductName)
                 .ToList();

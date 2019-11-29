@@ -1,4 +1,4 @@
-﻿namespace Optivem.Template.Core.Domain.Orders
+﻿namespace Optivem.Template.Core.Common.Orders
 {
     public enum OrderItemStatus : byte
     {

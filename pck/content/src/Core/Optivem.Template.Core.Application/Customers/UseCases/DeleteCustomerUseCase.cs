@@ -32,7 +32,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
                 throw new NotFoundRequestException();
             }
 
-            await _customerRepository.RemoveAsync(customerId);
+            _customerRepository.Remove(customerId);
 
             await _unitOfWork.SaveChangesAsync();
 

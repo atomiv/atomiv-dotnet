@@ -8,7 +8,7 @@ namespace Optivem.Template.Core.Domain.UnitTest.Products
         [Fact]
         public void Constructor_CanCreateValid()
         {
-            var identity = new ProductIdentity(1);
+            var identity = ProductIdentity.New();
             var code = "ABC";
             var name = "My name";
             decimal price = 10.50m;

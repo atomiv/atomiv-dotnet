@@ -1,12 +1,13 @@
 ﻿using Optivem.Framework.Core.Domain;
+using System;
 
 namespace Optivem.Template.Core.Domain.Customers
 {
-    public class CustomerIdentity : Identity<int>
+    public class CustomerIdentity : Identity<Guid>
     {
-        public static readonly CustomerIdentity Null = new CustomerIdentity(0);
+        public static CustomerIdentity New() => new CustomerIdentity(Guid.NewGuid());
 
-        public CustomerIdentity(int id) : base(id)
+        public CustomerIdentity(Guid id) : base(id)
         {
         }
     }

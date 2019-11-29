@@ -2,10 +2,11 @@
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class ProductReadRepository : Repository, IProductReadRepository
     {
@@ -17,7 +18,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         {
             var productRecordId = productId.Id;
 
-            return Context.ProductRecords.AsNoTracking()
+            return Context.Products.AsNoTracking()
                 .AnyAsync(e => e.Id == productRecordId);
         }
 
@@ -25,7 +26,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
         {
             var productRecordId = productId.Id;
 
-            var productRecord = await Context.ProductRecords.AsNoTracking()
+            var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productRecordId);
 
             if (productRecord == null)
@@ -38,7 +39,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 
         public async Task<PageReadModel<ProductHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
         {
-            var productRecords = await Context.ProductRecords.AsNoTracking()
+            var productRecords = await Context.Products.AsNoTracking()
                 .Page(pageQuery)
                 .ToListAsync();
 
@@ -53,7 +54,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 
         public async Task<ListReadModel<ProductIdNameReadModel>> ListAsync()
         {
-            var productRecords = await Context.ProductRecords.AsNoTracking()
+            var productRecords = await Context.Products.AsNoTracking()
                 .OrderBy(e => e.ProductCode)
                 .ToListAsync();
 
@@ -65,7 +66,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 
         public Task<long> CountAsync()
         {
-            return Context.ProductRecords.LongCountAsync();
+            return Context.Products.LongCountAsync();
         }
 
         #region Helper
@@ -94,7 +95,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Products
 
         protected ProductIdNameReadModel GetIdNameResult(ProductRecord productRecord)
         {
-            var id = productRecord.Id;
+            var id = new ProductIdentity(productRecord.Id);
             var name = $"{productRecord.ProductCode} - {productRecord.ProductName}";
 
             return new ProductIdNameReadModel(id, name);

@@ -1,8 +1,10 @@
-﻿namespace Optivem.Template.Web.UI.Models
+﻿using System;
+
+namespace Optivem.Template.Web.UI.Models
 {
     public class Customer
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string FirstName { get; set; }
 

@@ -40,7 +40,7 @@ namespace Optivem.Template.Web.RestClient.Http
         public Task<IObjectClientResponse<FindOrderResponse>> FindOrderAsync(FindOrderRequest request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<int, FindOrderResponse>(id);
+            return Client.GetByIdAsync<Guid, FindOrderResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListOrdersResponse>> ListOrdersAsync(ListOrdersRequest request)
@@ -56,7 +56,7 @@ namespace Optivem.Template.Web.RestClient.Http
 
         public Task<IObjectClientResponse<UpdateOrderResponse>> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            return Client.PutByIdAsync<int, UpdateOrderRequest, UpdateOrderResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateOrderRequest, UpdateOrderResponse>(request.Id, request);
         }
     }
 }

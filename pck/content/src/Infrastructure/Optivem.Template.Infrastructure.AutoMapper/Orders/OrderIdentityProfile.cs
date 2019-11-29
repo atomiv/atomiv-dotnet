@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Optivem.Template.Core.Domain.Orders;
+using System;
 
 namespace Optivem.Template.Infrastructure.AutoMapper.Orders
 {
@@ -7,16 +8,10 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
     {
         public OrderIdentityProfile()
         {
-            CreateMap<int, OrderIdentity>()
-                .ConvertUsing(src => new OrderIdentity(src));
-
-            CreateMap<OrderIdentity, int>()
+            CreateMap<OrderIdentity, Guid>()
                 .ConvertUsing(src => src.Id);
 
-            CreateMap<int, OrderItemIdentity>()
-                .ConvertUsing(src => new OrderItemIdentity(src));
-
-            CreateMap<OrderItemIdentity, int>()
+            CreateMap<OrderItemIdentity, Guid>()
                 .ConvertUsing(src => src.Id);
         }
     }

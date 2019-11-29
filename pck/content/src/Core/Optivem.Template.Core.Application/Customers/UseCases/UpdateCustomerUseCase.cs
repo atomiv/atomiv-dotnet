@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
             Update(customer, request);
 
-            customer = await _customerRepository.UpdateAsync(customer);
+            await _customerRepository.UpdateAsync(customer);
             await _unitOfWork.SaveChangesAsync();
             return Mapper.Map<Customer, UpdateCustomerResponse>(customer);
         }

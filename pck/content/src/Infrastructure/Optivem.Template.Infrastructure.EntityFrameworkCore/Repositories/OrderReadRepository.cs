@@ -1,14 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class OrderReadRepository : Repository, IOrderReadRepository
     {
@@ -20,7 +22,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         {
             var orderRecordId = orderId.Id;
 
-            return Context.OrderRecords.AsNoTracking()
+            return Context.Orders.AsNoTracking()
                 .AnyAsync(e => e.Id == orderRecordId);
         }
 
@@ -28,8 +30,8 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
         {
             var orderRecordId = orderId.Id;
 
-            var orderRecord = await Context.OrderRecords.AsNoTracking()
-                .Include(e => e.OrderDetailRecords)
+            var orderRecord = await Context.Orders.AsNoTracking()
+                .Include(e => e.OrderItems)
                 .FirstOrDefaultAsync(e => e.Id == orderRecordId);
 
             if (orderRecord == null)
@@ -42,7 +44,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         public async Task<PageReadModel<OrderHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
         {
-            var orderRecords = await Context.OrderRecords.AsNoTracking()
+            var orderRecords = await Context.Orders.AsNoTracking()
                 .Page(pageQuery)
                 .ToListAsync();
 
@@ -57,7 +59,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         public async Task<ListReadModel<OrderIdNameReadModel>> ListAsync()
         {
-            var orderRecords = await Context.OrderRecords.AsNoTracking()
+            var orderRecords = await Context.Orders.AsNoTracking()
                 .OrderBy(e => e.Id)
                 .ToListAsync();
 
@@ -69,46 +71,46 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Orders
 
         public Task<long> CountAsync()
         {
-            return Context.OrderRecords.LongCountAsync();
+            return Context.Orders.LongCountAsync();
         }
 
-        protected Order GetOrder(OrderRecord record)
+        private Order GetOrder(OrderRecord record)
         {
             var id = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerRecordId);
-            OrderStatus status = (OrderStatus)record.OrderStatusRecordId; // TODO: VC
-            var orderDetails = record.OrderDetailRecords.Select(GetOrderItem).ToList().AsReadOnly();
+            var customerId = new CustomerIdentity(record.CustomerId);
+            OrderStatus status = (OrderStatus)record.OrderStatusId; // TODO: VC
+            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
 
             // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
 
             return new Order(id, customerId, DateTime.Now, status, orderDetails);
         }
 
-        protected OrderItem GetOrderItem(OrderDetailRecord record)
+        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
         {
-            var id = new OrderItemIdentity(record.Id);
-            var productId = new ProductIdentity(record.ProductRecordId);
-            var quantity = record.Quantity;
-            var unitPrice = record.UnitPrice;
-            var status = (OrderItemStatus)record.OrderDetailStatusRecordId; // TODO: VC
+            var id = new OrderItemIdentity(orderItemRecord.Id);
+            var productId = new ProductIdentity(orderItemRecord.ProductId);
+            var quantity = orderItemRecord.Quantity;
+            var unitPrice = orderItemRecord.UnitPrice;
+            var status = orderItemRecord.StatusId;
 
             return new OrderItem(id, productId, quantity, unitPrice, status);
         }
 
-        protected OrderHeaderReadModel GetOrderHeaderReadModel(OrderRecord record)
+        private OrderHeaderReadModel GetOrderHeaderReadModel(OrderRecord record)
         {
             var orderId = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerRecordId);
+            var customerId = new CustomerIdentity(record.CustomerId);
             var orderDate = record.OrderDate;
-            var status = (OrderStatus) record.OrderStatusRecordId;
-            var totalPrice = record.OrderDetailRecords.Sum(e => e.UnitPrice * e.Quantity);
+            var status = (OrderStatus) record.OrderStatusId;
+            var totalPrice = record.OrderItems.Sum(e => e.UnitPrice * e.Quantity);
 
             return new OrderHeaderReadModel(orderId, customerId, orderDate, status, totalPrice);
         }
 
-        protected OrderIdNameReadModel GetIdNameResult(OrderRecord record)
+        private OrderIdNameReadModel GetIdNameResult(OrderRecord record)
         {
-            var id = record.Id;
+            var id = new OrderIdentity(record.Id);
             var name = record.Id.ToString();
 
             return new OrderIdNameReadModel(id, name);

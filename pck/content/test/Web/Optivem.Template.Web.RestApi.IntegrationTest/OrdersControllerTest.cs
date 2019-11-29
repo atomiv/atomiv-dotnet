@@ -1,9 +1,10 @@
-﻿using Optivem.Template.Core.Application.Orders.Requests;
+﻿using Optivem.Framework.Test.Xunit;
+using Optivem.Template.Core.Application.Orders.Requests;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Orders;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Orders;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Products;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -80,50 +81,50 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new OrderRecord
                 {
-                    CustomerRecordId = _customerRecords[0].Id,
-                    OrderStatusRecordId = (int)OrderStatus.Invoiced,
+                    CustomerId = _customerRecords[0].Id,
+                    OrderStatusId = OrderStatus.Invoiced,
 
-                    OrderDetailRecords = new List<OrderDetailRecord>
+                    OrderItems = new List<OrderItemRecord>
                     {
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
-                            ProductRecordId = _productRecords[0].Id,
+                            ProductId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
-                            OrderDetailStatusRecordId = (int)OrderItemStatus.NoStock,
+                            StatusId = OrderItemStatus.NoStock,
                         },
 
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
-                            ProductRecordId = _productRecords[1].Id,
+                            ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
-                            OrderDetailStatusRecordId = (int)OrderItemStatus.OnOrder,
+                            StatusId = OrderItemStatus.OnOrder,
                         },
                     },
                 },
 
                 new OrderRecord
                 {
-                    CustomerRecordId = _customerRecords[1].Id,
-                    OrderStatusRecordId = (int)OrderStatus.Shipped,
+                    CustomerId = _customerRecords[1].Id,
+                    OrderStatusId = OrderStatus.Shipped,
 
-                    OrderDetailRecords = new List<OrderDetailRecord>
+                    OrderItems = new List<OrderItemRecord>
                     {
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
-                            ProductRecordId = _productRecords[1].Id,
+                            ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
-                            OrderDetailStatusRecordId = (int)OrderItemStatus.Allocated,
+                            StatusId = OrderItemStatus.Allocated,
                         },
 
-                        new OrderDetailRecord
+                        new OrderItemRecord
                         {
-                            ProductRecordId = _productRecords[2].Id,
+                            ProductId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,
-                            OrderDetailStatusRecordId = (int)OrderItemStatus.Invoiced,
+                            StatusId = OrderItemStatus.Invoiced,
                         },
                     },
                 },
@@ -165,9 +166,9 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var createResponse = createApiResponse.Data;
 
-            Assert.True(createResponse.Id > 0);
+            AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
-            Assert.Equal((int)OrderStatus.New, createResponse.StatusId);
+            Assert.Equal(OrderStatus.New, createResponse.Status);
 
             Assert.NotNull(createResponse.OrderItems);
 
@@ -178,10 +179,10 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 var createRequestOrderDetail = createRequest.OrderItems[i];
                 var createResponseOrderDetail = createResponse.OrderItems[i];
 
-                Assert.True(createResponseOrderDetail.Id > 0);
+                AssertUtilities.NotEmpty(createResponseOrderDetail.Id);
                 Assert.Equal(createRequestOrderDetail.ProductId, createResponseOrderDetail.ProductId);
                 Assert.Equal(createRequestOrderDetail.Quantity, createResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderItemStatus.Allocated, createResponseOrderDetail.StatusId);
+                Assert.Equal(OrderItemStatus.Allocated, createResponseOrderDetail.Status);
             }
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
@@ -191,7 +192,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
-            Assert.Equal(createResponse.StatusId, createResponse.StatusId);
+            Assert.Equal(createResponse.Status, createResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
@@ -205,16 +206,18 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(createResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(createResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
                 Assert.Equal(createResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
-                Assert.Equal(createResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+                Assert.Equal(createResponseOrderDetail.Status, findResponseOrderDetail.Status);
             }
         }
 
         [Fact(Skip = "In progress")]
         public async Task CreateOrder_InvalidRequest_ThrowsInvalidRequestException()
         {
+            var customerId = Guid.NewGuid();
+
             var createRequest = new CreateOrderRequest
             {
-                CustomerId = 999,
+                CustomerId = customerId,
                 OrderItems = null,
             };
 
@@ -238,29 +241,29 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var findResponse = findApiResponse.Data;
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
-            Assert.Equal(orderRecord.CustomerRecordId, findResponse.CustomerId);
-            Assert.Equal(orderRecord.OrderStatusRecordId, findResponse.StatusId);
+            Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
+            Assert.Equal((OrderStatus)orderRecord.OrderStatusId, findResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
-            Assert.Equal(orderRecord.OrderDetailRecords.Count, findResponse.OrderItems.Count);
+            Assert.Equal(orderRecord.OrderItems.Count, findResponse.OrderItems.Count);
 
-            for (int i = 0; i < orderRecord.OrderDetailRecords.Count; i++)
+            for (int i = 0; i < orderRecord.OrderItems.Count; i++)
             {
-                var orderDetailRecord = orderRecord.OrderDetailRecords.ToList()[i];
+                var orderDetailRecord = orderRecord.OrderItems.ToList()[i];
                 var findResponseDetail = findResponse.OrderItems[i];
 
                 Assert.Equal(orderDetailRecord.Id, findResponseDetail.Id);
-                Assert.Equal(orderDetailRecord.ProductRecordId, findResponseDetail.ProductId);
+                Assert.Equal(orderDetailRecord.ProductId, findResponseDetail.ProductId);
                 Assert.Equal(orderDetailRecord.Quantity, findResponseDetail.Quantity);
-                Assert.Equal(orderDetailRecord.OrderDetailStatusRecordId, findResponseDetail.StatusId);
+                Assert.Equal(orderDetailRecord.StatusId, findResponseDetail.Status);
             }
         }
 
         [Fact]
         public async Task FindOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindOrderRequest { Id = id };
 
@@ -277,7 +280,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var orderRecord = _orderRecords[1];
 
-            var orderStatusId = orderRecord.OrderStatusRecordId;
+            var orderStatusId = orderRecord.OrderStatusId;
 
             var updateRequest = new UpdateOrderRequest
             {
@@ -286,7 +289,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 {
                     new UpdateOrderItemRequest
                     {
-                        Id = orderRecord.OrderDetailRecords.ElementAt(0).Id,
+                        Id = orderRecord.OrderItems.ElementAt(0).Id,
                         ProductId = product1Record.Id,
                         Quantity = 72,
                     },
@@ -307,8 +310,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var updateResponse = updateApiResponse.Data;
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
-            Assert.Equal(orderRecord.CustomerRecordId, updateResponse.CustomerId);
-            Assert.Equal(orderStatusId, updateResponse.StatusId);
+            Assert.Equal(orderRecord.CustomerId, updateResponse.CustomerId);
+            Assert.Equal((OrderStatus)orderStatusId, updateResponse.Status);
 
             Assert.NotNull(updateResponse.OrderItems);
 
@@ -325,12 +328,12 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 }
                 else
                 {
-                    Assert.True(updateResponseOrderDetail.Id > 0);
+                    AssertUtilities.NotEmpty(updateResponseOrderDetail.Id);
                 }
 
                 Assert.Equal(updateRequestOrderDetail.ProductId, updateResponseOrderDetail.ProductId);
                 Assert.Equal(updateRequestOrderDetail.Quantity, updateResponseOrderDetail.Quantity);
-                Assert.Equal((int)OrderItemStatus.Allocated, updateResponseOrderDetail.StatusId);
+                Assert.Equal(OrderItemStatus.Allocated, updateResponseOrderDetail.Status);
             }
 
             var findRequest = new FindOrderRequest { Id = updateResponse.Id };
@@ -343,7 +346,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(updateResponse.Id, findResponse.Id);
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
-            Assert.Equal(updateResponse.StatusId, updateResponse.StatusId);
+            Assert.Equal(updateResponse.Status, updateResponse.Status);
 
             Assert.NotNull(findResponse.OrderItems);
 
@@ -357,21 +360,24 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(updateResponseOrderDetail.Id, findResponseOrderDetail.Id);
                 Assert.Equal(updateResponseOrderDetail.ProductId, findResponseOrderDetail.ProductId);
                 Assert.Equal(updateResponseOrderDetail.Quantity, findResponseOrderDetail.Quantity);
-                Assert.Equal(updateResponseOrderDetail.StatusId, findResponseOrderDetail.StatusId);
+                Assert.Equal(updateResponseOrderDetail.Status, findResponseOrderDetail.Status);
             }
         }
 
         [Fact]
         public async Task UpdateOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
+            var id = Guid.NewGuid();
+            var orderItemId = Guid.NewGuid();
+
             var updateRequest = new UpdateOrderRequest
             {
-                Id = 999,
+                Id = id,
                 OrderItems = new List<UpdateOrderItemRequest>
                 {
                     new UpdateOrderItemRequest
                     {
-                        Id = 1,
+                        Id = orderItemId,
                         ProductId = _productRecords[0].Id,
                         Quantity = 40,
                     },

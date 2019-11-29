@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Domain.Customers;
+﻿using Optivem.Template.Core.Common.Orders;
+using Optivem.Template.Core.Domain.Customers;
 using System;
 
 namespace Optivem.Template.Core.Domain.Orders

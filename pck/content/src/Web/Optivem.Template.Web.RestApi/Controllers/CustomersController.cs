@@ -3,6 +3,7 @@ using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.Controllers
@@ -29,7 +30,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(FindCustomerResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<FindCustomerResponse>> FindCustomerAsync(int id)
+        public async Task<ActionResult<FindCustomerResponse>> FindCustomerAsync(Guid id)
         {
             var request = new FindCustomerRequest { Id = id };
             var response = await Service.FindCustomerAsync(request);
@@ -46,17 +47,17 @@ namespace Optivem.Template.Web.RestApi.Controllers
 
         [HttpPut("{id}", Name = "update-customer")]
         [ProducesResponseType(typeof(UpdateCustomerResponse), 201)]
-        public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(int id, UpdateCustomerRequest request)
+        public async Task<ActionResult<UpdateCustomerResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerRequest request)
         {
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
         }
 
         [HttpDelete("{id}", Name = "delete-customer")]
-        public async Task<ActionResult> DeleteCustomerAsync(int id)
+        public async Task<ActionResult> DeleteCustomerAsync(Guid id)
         {
             var request = new DeleteCustomerRequest { Id = id };
-            var response = await Service.DeleteCustomerAsync(request);
+            await Service.DeleteCustomerAsync(request);
             return NoContent();
         }
     }

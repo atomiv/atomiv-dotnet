@@ -1,6 +1,8 @@
+using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -48,13 +50,13 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var expectedFirst = _customerRecords[0];
             var actualFirst = actualContent.Records[0];
 
-            Assert.True(actualFirst.Id > 0);
+            AssertUtilities.NotEmpty(actualFirst.Id);
             Assert.Equal(expectedFirst.FirstName + " " + expectedFirst.LastName, actualFirst.Name);
 
             var expectedSecond = _customerRecords[1];
             var actualSecond = actualContent.Records[1];
 
-            Assert.True(actualSecond.Id > 0);
+            AssertUtilities.NotEmpty(actualSecond.Id);
             Assert.Equal(expectedSecond.FirstName + " " + expectedSecond.LastName, actualSecond.Name);
         }
 
@@ -80,7 +82,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task FindCustomer_NotExist_NotFound()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var findRequest = new FindCustomerRequest { Id = id };
 
@@ -104,7 +106,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var createResponseContent = createResponse.Data;
 
-            Assert.True(createResponseContent.Id > 0);
+            AssertUtilities.NotEmpty(createResponseContent.Id);
 
             Assert.Equal(createRequest.FirstName, createResponseContent.FirstName);
             Assert.Equal(createRequest.LastName, createResponseContent.LastName);
@@ -168,11 +170,11 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task UpdateCustomer_NotExist_NotFound()
         {
-            var customerRecord = _customerRecords[0];
+            var id = Guid.NewGuid();
 
             var updateRequest = new UpdateCustomerRequest
             {
-                Id = 999,
+                Id = id,
                 FirstName = "New first name",
                 LastName = "New last name",
             };
@@ -217,7 +219,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task DeleteCustomer_NotExist_NotFound()
         {
-            var id = 999;
+            var id = Guid.NewGuid();
 
             var deleteRequest = new DeleteCustomerRequest { Id = id };
 

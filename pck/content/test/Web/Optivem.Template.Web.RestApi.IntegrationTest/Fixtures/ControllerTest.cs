@@ -14,8 +14,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
         {
             using (var context = Fixture.Db.CreateContext())
             {
-                context.CustomerRecords.RemoveRange(context.CustomerRecords);
-                context.ProductRecords.RemoveRange(context.ProductRecords);
+                context.Customers.RemoveRange(context.Customers);
+                context.Products.RemoveRange(context.Products);
                 context.SaveChanges();
             }
         }

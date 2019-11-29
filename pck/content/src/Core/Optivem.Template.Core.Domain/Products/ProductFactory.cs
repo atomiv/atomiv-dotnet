@@ -6,7 +6,8 @@
 
         public static Product CreateNewProduct(string productCode, string productName, decimal listPrice)
         {
-            return new Product(ProductIdentity.Null, productCode, productName, listPrice, DefaultIsListed);
+            var id = ProductIdentity.New();
+            return new Product(id, productCode, productName, listPrice, DefaultIsListed);
         }
     }
 }

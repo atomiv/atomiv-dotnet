@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
+namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 {
     public class CustomerRepository : CustomerReadRepository, ICustomerRepository
     {
@@ -11,42 +12,36 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
         {
         }
 
-        public async Task<Customer> AddAsync(Customer customer)
+        public void Add(Customer customer)
         {
             var customerRecord = GetCustomerRecord(customer);
-            Context.CustomerRecords.Add(customerRecord);
-            await Context.SaveChangesAsync();
-            return GetCustomer(customerRecord);
+            Context.Customers.Add(customerRecord);
         }
 
-        public async Task RemoveAsync(CustomerIdentity customerId)
+        public void Remove(CustomerIdentity customerId)
         {
             var customerRecord = GetCustomerRecord(customerId);
             Context.Remove(customerRecord);
-            await Context.SaveChangesAsync();
         }
 
-        public async Task<Customer> UpdateAsync(Customer customer)
+        public async Task UpdateAsync(Customer customer)
         {
             var customerRecordId = customer.Id.Id;
-            var customerRecord = await Context.CustomerRecords.FindAsync(customerRecordId);
+            var customerRecord = await Context.Customers.FindAsync(customerRecordId);
 
             UpdateCustomerRecord(customerRecord, customer);
 
             try
             {
-                Context.CustomerRecords.Update(customerRecord);
-                await Context.SaveChangesAsync();
+                Context.Customers.Update(customerRecord);
             }
             catch (DbUpdateConcurrencyException ex)
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
-
-            return GetCustomer(customerRecord);
         }
 
-        protected CustomerRecord GetCustomerRecord(Customer customer)
+        private CustomerRecord GetCustomerRecord(Customer customer)
         {
             var id = customer.Id.Id;
             var firstName = customer.FirstName;
@@ -60,7 +55,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
             };
         }
 
-        protected CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
+        private CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
         {
             var id = customerId.Id;
 
@@ -70,7 +65,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Customers
             };
         }
 
-        protected void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
+        private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
             var id = customer.Id.Id;
             var firstName = customer.FirstName;

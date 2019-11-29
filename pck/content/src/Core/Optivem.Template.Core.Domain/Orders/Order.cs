@@ -1,4 +1,5 @@
 ﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace Optivem.Template.Core.Domain.Orders
             }
         }
 
-        public void AddOrderDetail(OrderItem orderDetail)
+        public void AddOrderItem(OrderItem orderDetail)
         {
             if (orderDetail == null)
             {
@@ -65,7 +66,7 @@ namespace Optivem.Template.Core.Domain.Orders
             _orderItems.Add(orderDetail);
         }
 
-        public void RemoveOrderDetail(OrderItemIdentity orderDetailId)
+        public void RemoveOrderItem(OrderItemIdentity orderDetailId)
         {
             var orderDetail = _orderItems.FirstOrDefault(e => e.Id == orderDetailId);
 
