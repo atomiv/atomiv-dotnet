@@ -20,7 +20,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task UpdateAsync(Product product)
         {
-            var productRecordId = product.Id.Id;
+            var productRecordId = product.Id.Value;
             var productRecord = await Context.Products.FindAsync(productRecordId);
 
             UpdateProductRecord(productRecord, product);
@@ -40,7 +40,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         private ProductRecord GetProductRecord(Product product)
         {
-            var id = product.Id.Id;
+            var id = product.Id.Value;
             var productCode = product.ProductCode;
             var productName = product.ProductName;
             var listPrice = product.ListPrice;
@@ -60,13 +60,13 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
         {
             return new ProductRecord
             {
-                Id = productId.Id,
+                Id = productId.Value,
             };
         }
 
         private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            var id = product.Id.Id;
+            var id = product.Id.Value;
             var productCode = product.ProductCode;
             var productName = product.ProductName;
             var listPrice = product.ListPrice;

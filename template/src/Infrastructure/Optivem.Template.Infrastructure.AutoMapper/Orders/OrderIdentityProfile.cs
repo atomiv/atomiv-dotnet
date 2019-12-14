@@ -9,10 +9,10 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Orders
         public OrderIdentityProfile()
         {
             CreateMap<OrderIdentity, Guid>()
-                .ConvertUsing(src => src.Id);
+                .ConvertUsing(src => src.Value);
 
             CreateMap<OrderItemIdentity, Guid>()
-                .ConvertUsing(src => src.Id);
+                .ConvertUsing(src => src.Value);
         }
     }
 }

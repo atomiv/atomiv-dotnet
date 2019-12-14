@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace Optivem.Framework.Core.Domain.UnitTest
@@ -43,8 +44,10 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         [Fact]
         public void TestEquals5()
         {
-            var a = new Identity<string>("hello");
-            var b = new Identity<string>("hello");
+            var guid = Guid.NewGuid();
+
+            var a = new Identity<Guid>(guid);
+            var b = new Identity<Guid>(guid);
 
             Assert.True(a.Equals(b));
         }
@@ -52,29 +55,10 @@ namespace Optivem.Framework.Core.Domain.UnitTest
         [Fact]
         public void TestEquals6()
         {
-            var a = new Identity<string>("hello");
-            var b = new Identity<string>("hello2");
+            var a = new Identity<Guid>(Guid.NewGuid());
+            var b = new Identity<Guid>(Guid.NewGuid());
 
             Assert.False(a.Equals(b));
-        }
-
-        [Fact]
-        public void TestEquals7()
-        {
-            var a = new Identity<string>("hello");
-            var b = new Identity<string>(null);
-
-            Assert.False(a.Equals(b));
-        }
-
-        [Fact]
-        public void TestEquals8()
-        {
-            var a = new Identity<string>(null);
-            var b = new Identity<string>(null);
-
-            // TODO: VC: Check
-            Assert.True(a.Equals(b));
         }
 
         [Fact]

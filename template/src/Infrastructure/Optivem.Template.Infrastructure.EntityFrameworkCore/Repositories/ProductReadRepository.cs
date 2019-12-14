@@ -16,7 +16,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public Task<bool> ExistsAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.Id;
+            var productRecordId = productId.Value;
 
             return Context.Products.AsNoTracking()
                 .AnyAsync(e => e.Id == productRecordId);
@@ -24,7 +24,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.Id;
+            var productRecordId = productId.Value;
 
             var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productRecordId);

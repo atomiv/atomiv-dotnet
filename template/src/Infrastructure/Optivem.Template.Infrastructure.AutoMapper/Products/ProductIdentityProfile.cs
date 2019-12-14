@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Products
         public ProductIdentityProfile()
         {
             CreateMap<ProductIdentity, Guid>()
-                .ConvertUsing(src => src.Id);
+                .ConvertUsing(src => src.Value);
         }
     }
 }

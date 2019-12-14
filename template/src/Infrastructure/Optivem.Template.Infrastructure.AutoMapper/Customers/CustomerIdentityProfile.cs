@@ -9,7 +9,7 @@ namespace Optivem.Template.Infrastructure.AutoMapper.Customers
         public CustomerIdentityProfile()
         {
             CreateMap<CustomerIdentity, Guid>()
-                .ConvertUsing(src => src.Id);
+                .ConvertUsing(src => src.Value);
         }
     }
 }

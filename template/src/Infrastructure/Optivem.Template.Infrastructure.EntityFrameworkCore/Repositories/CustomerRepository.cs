@@ -26,7 +26,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task UpdateAsync(Customer customer)
         {
-            var customerRecordId = customer.Id.Id;
+            var customerRecordId = customer.Id.Value;
             var customerRecord = await Context.Customers.FindAsync(customerRecordId);
 
             UpdateCustomerRecord(customerRecord, customer);
@@ -43,7 +43,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         private CustomerRecord GetCustomerRecord(Customer customer)
         {
-            var id = customer.Id.Id;
+            var id = customer.Id.Value;
             var firstName = customer.FirstName;
             var lastName = customer.LastName;
 
@@ -57,7 +57,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         private CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
         {
-            var id = customerId.Id;
+            var id = customerId.Value;
 
             return new CustomerRecord
             {
@@ -67,7 +67,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            var id = customer.Id.Id;
+            var id = customer.Id.Value;
             var firstName = customer.FirstName;
             var lastName = customer.LastName;
 

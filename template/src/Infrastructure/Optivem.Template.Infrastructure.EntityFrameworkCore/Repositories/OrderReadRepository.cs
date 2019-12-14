@@ -20,7 +20,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public Task<bool> ExistsAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.Id;
+            var orderRecordId = orderId.Value;
 
             return Context.Orders.AsNoTracking()
                 .AnyAsync(e => e.Id == orderRecordId);
@@ -28,7 +28,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.Id;
+            var orderRecordId = orderId.Value;
 
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)

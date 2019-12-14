@@ -19,7 +19,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public Task<bool> ExistsAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Id;
+            var customerRecordId = customerId.Value;
 
             return Context.Customers.AsNoTracking()
                 .AnyAsync(e => e.Id == customerRecordId);
@@ -27,7 +27,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Id;
+            var customerRecordId = customerId.Value;
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);
@@ -42,7 +42,7 @@ namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
 
         public async Task<CustomerDetailReadModel> GetDetailAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Id;
+            var customerRecordId = customerId.Value;
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)
