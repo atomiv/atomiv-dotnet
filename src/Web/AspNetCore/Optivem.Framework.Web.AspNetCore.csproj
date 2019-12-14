@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Optivem</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
     <Copyright>? Optivem. All rights reserved.</Copyright>
