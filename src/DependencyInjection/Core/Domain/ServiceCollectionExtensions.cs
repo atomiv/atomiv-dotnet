@@ -10,6 +10,8 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
     public static class ServiceCollectionExtensions
     {
         private static Type RepositoryType = typeof(IRepository);
+        private static Type FactoryType = typeof(IFactory);
+        private static Type ServiceType = typeof(IService);
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -24,6 +26,22 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
         {
             var implementationTypes = types.GetConcreteImplementationsOfInterface(RepositoryType);
             services.AddScopedMarkedTypes(RepositoryType, implementationTypes);
+
+            return services;
+        }
+
+        private static IServiceCollection AddFactories(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfInterface(FactoryType);
+            services.AddScopedMarkedTypes(FactoryType, implementationTypes);
+
+            return services;
+        }
+
+        private static IServiceCollection AddServices(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfInterface(ServiceType);
+            services.AddScopedMarkedTypes(ServiceType, implementationTypes);
 
             return services;
         }
