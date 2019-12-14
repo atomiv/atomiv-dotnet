@@ -64,12 +64,6 @@ namespace Optivem.Template.DependencyInjection
         {
             services.AddApplicationCore(assemblies);
             services.AddDomainCore(assemblies);
-
-            // TODO: VC: This should be in framework
-            services.AddScoped<IIdentityGenerator<CustomerIdentity>, CustomerIdentityGenerator>();
-            services.AddScoped<IIdentityGenerator<OrderIdentity>, OrderIdentityGenerator>();
-            services.AddScoped<IIdentityGenerator<OrderItemIdentity>, OrderItemIdentityGenerator>();
-            services.AddScoped<IIdentityGenerator<ProductIdentity>, ProductIdentityGenerator>();
         }
 
         private static void AddInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)

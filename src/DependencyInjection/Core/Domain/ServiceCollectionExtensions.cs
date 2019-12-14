@@ -12,6 +12,7 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
         private static Type RepositoryType = typeof(IRepository);
         private static Type FactoryType = typeof(IFactory);
         private static Type ServiceType = typeof(IService);
+        private static Type IdentityGeneratorType = typeof(IIdentityGenerator<>);
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -20,6 +21,7 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
             services.AddRepositories(types);
             services.AddFactories(types);
             services.AddServices(types);
+            services.AddIdentityGenerators(types);
 
             return services;
         }
@@ -44,6 +46,14 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
         {
             var implementationTypes = types.GetConcreteImplementationsOfInterface(ServiceType);
             services.AddScopedMarkedTypes(ServiceType, implementationTypes);
+
+            return services;
+        }
+
+        private static IServiceCollection AddIdentityGenerators(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(IdentityGeneratorType);
+            services.AddScopedOpenType(IdentityGeneratorType, implementationTypes);
 
             return services;
         }
