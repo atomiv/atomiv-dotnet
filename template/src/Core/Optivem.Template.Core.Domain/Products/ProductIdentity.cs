@@ -7,8 +7,8 @@ namespace Optivem.Template.Core.Domain.Products
     {
         public static ProductIdentity New() => new ProductIdentity(Guid.NewGuid());
 
-        public ProductIdentity(Guid id)
-            : base(id)
+        public ProductIdentity(Guid value)
+            : base(value)
         {
         }
     }

@@ -30,11 +30,6 @@ namespace Optivem.Framework.Core.Domain
 
         public override int GetHashCode()
         {
-            if(ReferenceEquals(Value, null))
-            {
-                return 0;
-            }
-
             return Value.GetHashCode();
         }
 
@@ -95,21 +90,6 @@ namespace Optivem.Framework.Core.Domain
                 return false;
             }
 
-            if (ReferenceEquals(a.Value, b.Value))
-            {
-                return true;
-            }
-
-            if(ReferenceEquals(a.Value, null))
-            {
-                return false;
-            }
-
-            if(ReferenceEquals(b.Value, null))
-            {
-                return false;
-            }
-
             return a.Value.Equals(b.Value);
         }
 
@@ -126,21 +106,6 @@ namespace Optivem.Framework.Core.Domain
             }
 
             if (ReferenceEquals(b, null))
-            {
-                return 1;
-            }
-
-            if(ReferenceEquals(a.Value, b.Value))
-            {
-                return 0;
-            }
-
-            if(ReferenceEquals(a.Value, null))
-            {
-                return -1;
-            }
-
-            if(ReferenceEquals(b.Value, null))
             {
                 return 1;
             }

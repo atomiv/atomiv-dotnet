@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Domain.Customers
     {
         public static CustomerIdentity New() => new CustomerIdentity(Guid.NewGuid());
 
-        public CustomerIdentity(Guid id) : base(id)
+        public CustomerIdentity(Guid value) : base(value)
         {
         }
     }

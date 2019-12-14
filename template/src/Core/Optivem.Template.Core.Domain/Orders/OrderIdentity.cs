@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Domain.Orders
     {
         public static OrderIdentity New() => new OrderIdentity(Guid.NewGuid());
 
-        public OrderIdentity(Guid id) : base(id)
+        public OrderIdentity(Guid value) : base(value)
         {
         }
     }
