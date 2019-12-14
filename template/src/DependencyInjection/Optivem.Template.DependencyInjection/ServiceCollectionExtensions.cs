@@ -67,6 +67,11 @@ namespace Optivem.Template.DependencyInjection
             services.AddScoped<IIdentityGenerator<OrderIdentity>, OrderIdentityGenerator>();
             services.AddScoped<IIdentityGenerator<OrderItemIdentity>, OrderItemIdentityGenerator>();
             services.AddScoped<IIdentityGenerator<ProductIdentity>, ProductIdentityGenerator>();
+
+            // TODO: VC: This should be in framework
+            services.AddScoped<ICustomerFactory, CustomerFactory>();
+            services.AddScoped<IOrderFactory, OrderFactory>();
+            services.AddScoped<IProductFactory, ProductFactory>();
         }
 
         private static void AddInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
