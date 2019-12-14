@@ -13,12 +13,14 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerFactory _customerFactory;
 
-        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, ICustomerFactory customerFactory)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
+            _customerFactory = customerFactory;
         }
 
         public async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
@@ -33,11 +35,10 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
         protected Customer GetCustomer(CreateCustomerRequest request)
         {
-            var id = CustomerIdentity.New();
             var firstName = request.FirstName;
             var lastName = request.LastName;
 
-            return new Customer(id, firstName, lastName);
+            return _customerFactory.Create(firstName, lastName);
         }
 
         /*

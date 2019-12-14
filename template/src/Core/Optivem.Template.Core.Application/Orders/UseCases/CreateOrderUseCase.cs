@@ -19,14 +19,21 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         private readonly IOrderRepository _orderRepository;
         private readonly ICustomerReadRepository _customerReadRepository;
         private readonly IProductReadRepository _productReadRepository;
+        private readonly IOrderFactory _orderFactory;
 
-        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, ICustomerReadRepository customerReadRepository, IProductReadRepository productReadRepository)
+        public CreateOrderUseCase(IMapper mapper, 
+            IUnitOfWork unitOfWork, 
+            IOrderRepository orderRepository, 
+            ICustomerReadRepository customerReadRepository, 
+            IProductReadRepository productReadRepository,
+            IOrderFactory orderFactory)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _customerReadRepository = customerReadRepository;
             _productReadRepository = productReadRepository;
+            _orderFactory = orderFactory;
         }
 
         public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
@@ -69,7 +76,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 }
             }
 
-            return OrderFactory.CreateNewOrder(customerId, orderDetails);
+            return _orderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemRequest requestOrderDetail)
@@ -84,7 +91,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var quantity = requestOrderDetail.Quantity;
 
-            return OrderFactory.CreateNewOrderItem(product, quantity);
+            return _orderFactory.CreateNewOrderItem(product, quantity);
         }
     }
 }

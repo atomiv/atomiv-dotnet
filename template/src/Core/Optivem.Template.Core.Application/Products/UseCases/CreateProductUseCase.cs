@@ -13,12 +13,14 @@ namespace Optivem.Template.Core.Application.Products.UseCases
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
+        private readonly IProductFactory _productFactory;
 
-        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository, IProductFactory productFactory)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
+            _productFactory = productFactory;
         }
 
         public async Task<CreateProductResponse> HandleAsync(CreateProductRequest request)
@@ -37,7 +39,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
             var productName = request.Description;
             var listPrice = request.UnitPrice;
 
-            return ProductFactory.CreateNewProduct(productCode, productName, listPrice);
+            return _productFactory.CreateNewProduct(productCode, productName, listPrice);
         }
     }
 }

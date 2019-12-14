@@ -17,13 +17,19 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly IProductReadRepository _productReadRepository;
+        private readonly IOrderFactory _orderFactory;
 
-        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, IProductReadRepository productReadRepository)
+        public UpdateOrderUseCase(IMapper mapper, 
+            IUnitOfWork unitOfWork, 
+            IOrderRepository orderRepository, 
+            IProductReadRepository productReadRepository,
+            IOrderFactory orderFactory)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _productReadRepository = productReadRepository;
+            _orderFactory = orderFactory;
         }
 
         public async Task<UpdateOrderResponse> HandleAsync(UpdateOrderRequest request)
@@ -62,7 +68,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                     throw new InvalidRequestException($"Product {productId} does not exist");
                 }
 
-                var orderDetail = OrderFactory.CreateNewOrderItem(product, added.Quantity);
+                var orderDetail = _orderFactory.CreateNewOrderItem(product, added.Quantity);
                 order.AddOrderItem(orderDetail);
             }
 

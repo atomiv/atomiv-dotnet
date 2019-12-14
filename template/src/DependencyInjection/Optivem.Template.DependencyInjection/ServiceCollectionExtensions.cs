@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Optivem.Framework.Core.Domain;
 using Optivem.Framework.DependencyInjection.Core.Application;
 using Optivem.Framework.DependencyInjection.Core.Domain;
 using Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper;
@@ -10,6 +11,9 @@ using Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Framework.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson;
+using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -57,6 +61,12 @@ namespace Optivem.Template.DependencyInjection
         {
             services.AddApplicationCore(assemblies);
             services.AddDomainCore(assemblies);
+
+            // TODO: VC: This should be in framework
+            services.AddScoped<IIdentityGenerator<CustomerIdentity>, CustomerIdentityGenerator>();
+            services.AddScoped<IIdentityGenerator<OrderIdentity>, OrderIdentityGenerator>();
+            services.AddScoped<IIdentityGenerator<OrderItemIdentity>, OrderItemIdentityGenerator>();
+            services.AddScoped<IIdentityGenerator<ProductIdentity>, ProductIdentityGenerator>();
         }
 
         private static void AddInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
