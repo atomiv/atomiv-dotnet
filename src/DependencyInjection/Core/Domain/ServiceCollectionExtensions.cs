@@ -18,6 +18,8 @@ namespace Optivem.Framework.DependencyInjection.Core.Domain
             var types = assemblies.GetTypes();
 
             services.AddRepositories(types);
+            services.AddFactories(types);
+            services.AddServices(types);
 
             return services;
         }
