@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Framework.Core.Common.Time;
+using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Products;
@@ -9,21 +10,24 @@ namespace Optivem.Template.Core.Domain.Orders
 {
     public class OrderFactory : IOrderFactory
     {
-        // TODO: VC: Consider IClock to be injected
-
         private readonly IIdentityGenerator<OrderIdentity> _orderIdentityGenerator;
         private readonly IIdentityGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
+        private readonly IClock _clock;
 
-        public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator)
+        public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, 
+            IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator,
+            IClock clock)
         {
             _orderIdentityGenerator = orderIdentityGenerator;
             _orderItemIdentityGenerator = orderItemIdentityGenerator;
+            _clock = clock;
         }
 
         public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
         {
             var id = _orderIdentityGenerator.Next();
-            return new Order(id, customerId, DateTime.Now, OrderStatus.New, orderDetails);
+            var orderDate = _clock.Now;
+            return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
         }
 
         public OrderItem CreateNewOrderItem(Product product, decimal quantity)

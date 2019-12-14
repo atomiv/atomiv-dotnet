@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Internal;
+using Optivem.Framework.Core.Common.Time;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.DependencyInjection.Core.Application;
 using Optivem.Framework.DependencyInjection.Core.Domain;
@@ -11,6 +13,7 @@ using Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Framework.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson;
+using Optivem.Framework.DependencyInjection.Infrastructure.System;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
@@ -87,6 +90,7 @@ namespace Optivem.Template.DependencyInjection
             services.AddFluentValidationInfrastructure(assemblies);
             services.AddMediatRInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
+            services.AddSystemInfrastructure(assemblies);
         }
     }
 }

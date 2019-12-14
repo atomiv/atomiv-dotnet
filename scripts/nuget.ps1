@@ -70,7 +70,7 @@ $projects = @(
     'src\DependencyInjection\Infrastructure\MediatR\Optivem.Framework.DependencyInjection.Infrastructure.MediatR.csproj',
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
     # 'src\DependencyInjection\Infrastructure\Selenium\Optivem.Framework.DependencyInjection.Infrastructure.Selenium.csproj',
-    # 'src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj',	
+    'src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj',	
 
 
 	# ### ============================== WEB ============================== ###
