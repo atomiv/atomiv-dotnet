@@ -12,30 +12,31 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class CreateOrderUseCase : RequestHandler<CreateOrderRequest, CreateOrderResponse>
+    public class CreateOrderUseCase : IRequestHandler<CreateOrderRequest, CreateOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly ICustomerReadRepository _customerReadRepository;
         private readonly IProductReadRepository _productReadRepository;
 
         public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, ICustomerReadRepository customerReadRepository, IProductReadRepository productReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _customerReadRepository = customerReadRepository;
             _productReadRepository = productReadRepository;
         }
 
-        public override async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
+        public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
         {
             var order = await GetOrderAsync(request);
 
             _orderRepository.Add(order);
             await _unitOfWork.SaveChangesAsync();
 
-            var response = Mapper.Map<Order, CreateOrderResponse>(order);
+            var response = _mapper.Map<Order, CreateOrderResponse>(order);
             return response;
         }
 

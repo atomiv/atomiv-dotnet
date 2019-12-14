@@ -8,21 +8,22 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class ListCustomersUseCase : RequestHandler<ListCustomersRequest, ListCustomersResponse>
+    public class ListCustomersUseCase : IRequestHandler<ListCustomersRequest, ListCustomersResponse>
     {
+        private readonly IMapper _mapper;
         private readonly ICustomerReadRepository _customerReadRepository;
 
         public ListCustomersUseCase(IMapper mapper, ICustomerReadRepository customerReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _customerReadRepository = customerReadRepository;
         }
 
-        public override async Task<ListCustomersResponse> HandleAsync(ListCustomersRequest request)
+        public async Task<ListCustomersResponse> HandleAsync(ListCustomersRequest request)
         {
             var listResult = await _customerReadRepository.ListAsync(request.NameSearch, request.Limit);
 
-            return Mapper.Map<ListReadModel<CustomerIdNameReadModel>, ListCustomersResponse>(listResult);
+            return _mapper.Map<ListReadModel<CustomerIdNameReadModel>, ListCustomersResponse>(listResult);
         }
     }
 }

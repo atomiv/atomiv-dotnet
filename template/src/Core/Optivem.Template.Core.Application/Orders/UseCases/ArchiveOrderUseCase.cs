@@ -9,19 +9,20 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class ArchiveOrderUseCase : RequestHandler<ArchiveOrderRequest, ArchiveOrderResponse>
+    public class ArchiveOrderUseCase : IRequestHandler<ArchiveOrderRequest, ArchiveOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
         public ArchiveOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
-        public override async Task<ArchiveOrderResponse> HandleAsync(ArchiveOrderRequest request)
+        public async Task<ArchiveOrderResponse> HandleAsync(ArchiveOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -36,7 +37,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Order, ArchiveOrderResponse>(order);
+            return _mapper.Map<Order, ArchiveOrderResponse>(order);
         }
     }
 }

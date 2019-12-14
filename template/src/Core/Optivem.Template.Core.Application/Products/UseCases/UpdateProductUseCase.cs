@@ -9,19 +9,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class UpdateProductUseCase : RequestHandler<UpdateProductRequest, UpdateProductResponse>
+    public class UpdateProductUseCase : IRequestHandler<UpdateProductRequest, UpdateProductResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
         public UpdateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
         }
 
-        public override async Task<UpdateProductResponse> HandleAsync(UpdateProductRequest request)
+        public async Task<UpdateProductResponse> HandleAsync(UpdateProductRequest request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -36,7 +37,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 
             await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
-            var response = Mapper.Map<Product, UpdateProductResponse>(product);
+            var response = _mapper.Map<Product, UpdateProductResponse>(product);
             return response;
         }
 

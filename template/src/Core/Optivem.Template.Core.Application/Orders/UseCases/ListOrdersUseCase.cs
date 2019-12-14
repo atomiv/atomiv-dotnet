@@ -8,21 +8,22 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class ListOrdersUseCase : RequestHandler<ListOrdersRequest, ListOrdersResponse>
+    public class ListOrdersUseCase : IRequestHandler<ListOrdersRequest, ListOrdersResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
         public ListOrdersUseCase(IMapper mapper, IOrderReadRepository orderReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _orderReadRepository = orderReadRepository;
         }
 
-        public override async Task<ListOrdersResponse> HandleAsync(ListOrdersRequest request)
+        public async Task<ListOrdersResponse> HandleAsync(ListOrdersRequest request)
         {
             var listResult = await _orderReadRepository.ListAsync();
 
-            return Mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersResponse>(listResult);
+            return _mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersResponse>(listResult);
         }
     }
 }

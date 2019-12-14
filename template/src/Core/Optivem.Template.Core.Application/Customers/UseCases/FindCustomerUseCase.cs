@@ -8,17 +8,18 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class FindCustomerUseCase : RequestHandler<FindCustomerRequest, FindCustomerResponse>
+    public class FindCustomerUseCase : IRequestHandler<FindCustomerRequest, FindCustomerResponse>
     {
+        private readonly IMapper _mapper;
         private readonly ICustomerReadRepository _customerReadRepository;
 
         public FindCustomerUseCase(IMapper mapper, ICustomerReadRepository customerReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _customerReadRepository = customerReadRepository;
         }
 
-        public override async Task<FindCustomerResponse> HandleAsync(FindCustomerRequest request)
+        public async Task<FindCustomerResponse> HandleAsync(FindCustomerRequest request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
@@ -29,7 +30,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
                 throw new NotFoundRequestException();
             }
 
-            return Mapper.Map<CustomerDetailReadModel, FindCustomerResponse>(customerDetail);
+            return _mapper.Map<CustomerDetailReadModel, FindCustomerResponse>(customerDetail);
         }
     }
 }

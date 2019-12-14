@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class CreateCustomerUseCase : RequestHandler<CreateCustomerRequest, CreateCustomerResponse>
+    public class CreateCustomerUseCase : IRequestHandler<CreateCustomerRequest, CreateCustomerResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
 
         public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
         }
 
-        public override async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
+        public async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
         {
             var customer = GetCustomer(request);
 
             _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync();
 
-            return Mapper.Map<Customer, CreateCustomerResponse>(customer);
+            return _mapper.Map<Customer, CreateCustomerResponse>(customer);
         }
 
         protected Customer GetCustomer(CreateCustomerRequest request)
