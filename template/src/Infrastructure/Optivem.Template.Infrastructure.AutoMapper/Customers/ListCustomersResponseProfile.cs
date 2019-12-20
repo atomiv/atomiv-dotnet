@@ -3,7 +3,7 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
 
-namespace Optivem.Template.Infrastructure.AutoMapper.Customers
+namespace Optivem.Template.Infrastructure.Mapping.Customers
 {
     public class ListCustomersResponseProfile : Profile
     {

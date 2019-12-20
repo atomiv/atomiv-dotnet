@@ -2,7 +2,7 @@
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore
+namespace Optivem.Template.Infrastructure.Persistence
 {
     public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {

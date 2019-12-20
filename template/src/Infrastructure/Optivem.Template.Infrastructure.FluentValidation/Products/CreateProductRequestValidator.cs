@@ -2,7 +2,7 @@
 using Optivem.Framework.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Products.Requests;
 
-namespace Optivem.Template.Infrastructure.FluentValidation.Products
+namespace Optivem.Template.Infrastructure.Validation.Products
 {
     public class CreateProductRequestValidator : BaseValidator<CreateProductRequest>
     {

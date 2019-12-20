@@ -3,7 +3,7 @@ using Optivem.Template.Core.Common.Orders;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Records
+namespace Optivem.Template.Infrastructure.Persistence.Records
 {
     public class OrderRecord : Record<Guid>
     {

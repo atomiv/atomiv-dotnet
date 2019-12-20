@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Common.Orders;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
+using Optivem.Template.Infrastructure.Persistence.Configuration;
+using Optivem.Template.Infrastructure.Persistence.Records;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore
+namespace Optivem.Template.Infrastructure.Persistence
 {
     public partial class DatabaseContext : DbContext
     {

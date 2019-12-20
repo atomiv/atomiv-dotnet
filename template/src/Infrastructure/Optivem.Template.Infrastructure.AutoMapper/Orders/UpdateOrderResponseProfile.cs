@@ -2,7 +2,7 @@
 using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders;
 
-namespace Optivem.Template.Infrastructure.AutoMapper.Orders
+namespace Optivem.Template.Infrastructure.Mapping.Orders
 {
     public class UpdateOrderResponseProfile : Profile
     {

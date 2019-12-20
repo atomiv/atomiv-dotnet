@@ -5,12 +5,12 @@ using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
+using Optivem.Template.Infrastructure.Persistence.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
+namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
     public class OrderReadRepository : Repository, IOrderReadRepository
     {

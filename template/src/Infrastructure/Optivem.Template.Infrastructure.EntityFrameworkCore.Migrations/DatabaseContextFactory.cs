@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Optivem.Template.DependencyInjection;
+using Optivem.Template.Infrastructure.Persistence;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations
+namespace Optivem.Template.Tools.Migrator
 {
     public class DatabaseContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
     {

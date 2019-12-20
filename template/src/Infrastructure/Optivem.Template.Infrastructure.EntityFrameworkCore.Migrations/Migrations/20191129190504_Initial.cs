@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.Migrations
+namespace Optivem.Template.Tools.Migrator.Migrations
 {
     public partial class Initial : Migration
     {

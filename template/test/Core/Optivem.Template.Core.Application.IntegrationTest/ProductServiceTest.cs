@@ -3,7 +3,7 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
+using Optivem.Template.Infrastructure.Persistence.Records;
 using System;
 using System.Collections.Generic;
 using System.Linq;

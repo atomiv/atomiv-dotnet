@@ -5,7 +5,7 @@ using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Orders;
 using Optivem.Template.Core.Application.Products;
 using Optivem.Template.DependencyInjection;
-using Optivem.Template.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Infrastructure.Persistence;
 using System;
 
 namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures

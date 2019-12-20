@@ -3,7 +3,7 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Responses;
 using Optivem.Template.Core.Domain.Products;
 
-namespace Optivem.Template.Infrastructure.AutoMapper.Products
+namespace Optivem.Template.Infrastructure.Mapping.Products
 {
     public class ListProductsResponseProfile : Profile
     {

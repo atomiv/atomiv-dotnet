@@ -27,7 +27,7 @@
     <ProjectReference Include="..\..\..\..\test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations\Optivem.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />
   </ItemGroup>

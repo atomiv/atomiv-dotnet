@@ -2,11 +2,11 @@
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Domain.Products;
-using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
+using Optivem.Template.Infrastructure.Persistence.Records;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Repositories
+namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
     public class ProductReadRepository : Repository, IProductReadRepository
     {

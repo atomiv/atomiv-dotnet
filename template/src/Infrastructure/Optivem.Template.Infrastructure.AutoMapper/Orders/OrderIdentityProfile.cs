@@ -2,7 +2,7 @@
 using Optivem.Template.Core.Domain.Orders;
 using System;
 
-namespace Optivem.Template.Infrastructure.AutoMapper.Orders
+namespace Optivem.Template.Infrastructure.Mapping.Orders
 {
     public class OrderIdentityProfile : Profile
     {

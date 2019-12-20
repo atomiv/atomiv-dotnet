@@ -2,7 +2,7 @@
 using Optivem.Framework.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Orders.Requests;
 
-namespace Optivem.Template.Infrastructure.FluentValidation.Orders
+namespace Optivem.Template.Infrastructure.Validation.Orders
 {
     public class UpdateOrderRequestValidator : BaseValidator<UpdateOrderRequest>
     {

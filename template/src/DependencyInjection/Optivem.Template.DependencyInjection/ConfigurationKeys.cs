@@ -7,6 +7,6 @@ namespace Optivem.Template.DependencyInjection
     {
         public const string DatabaseConnectionKey = "DefaultConnection";
 
-        public static Action<SqlServerDbContextOptionsBuilder> SqlServerOptionsAction = b => b.MigrationsAssembly("Optivem.Template.Infrastructure.EntityFrameworkCore.Migrations");
+        public static Action<SqlServerDbContextOptionsBuilder> SqlServerOptionsAction = b => b.MigrationsAssembly("Optivem.Template.Tools.Migrator");
     }
 }

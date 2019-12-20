@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Test.AspNetCore;
 using Optivem.Framework.Test.EntityFrameworkCore;
 using Optivem.Template.DependencyInjection;
-using Optivem.Template.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Infrastructure.Persistence;
 using Optivem.Template.Web.RestClient.Http;
 using Optivem.Template.Web.RestClient.Interface;
 
