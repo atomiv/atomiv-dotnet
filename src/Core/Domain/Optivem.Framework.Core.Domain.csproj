@@ -19,8 +19,4 @@
     <None Remove="Services\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Optivem.Framework.Core.Common.csproj" />
-  </ItemGroup>
-
 </Project>

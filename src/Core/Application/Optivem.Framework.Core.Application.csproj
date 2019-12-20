@@ -21,7 +21,6 @@
     
   <ItemGroup>
     <ProjectReference Include="..\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\Common\Optivem.Framework.Core.Common.csproj" />
     <ProjectReference Include="..\Domain\Optivem.Framework.Core.Domain.csproj" />
   </ItemGroup>
 
