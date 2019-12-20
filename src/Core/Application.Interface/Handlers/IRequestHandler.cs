@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Common
+namespace Optivem.Framework.Core.Application
 {
     public interface IRequestHandler<TRequest>
         where TRequest : IRequest

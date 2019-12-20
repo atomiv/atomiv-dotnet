@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Infrastructure.MediatR
 {
     public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TRequest, TResponse>, TResponse>
-        where TRequest : Core.Common.IRequest<TResponse>
+        where TRequest : Core.Application.IRequest<TResponse>
     {
         private IRequestValidationHandler<TRequest> _validationHandler;
 

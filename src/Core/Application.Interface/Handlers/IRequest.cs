@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Common
+﻿namespace Optivem.Framework.Core.Application
 {
     public interface IRequest
     {

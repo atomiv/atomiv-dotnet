@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Common.Orders;
-using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 

@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application

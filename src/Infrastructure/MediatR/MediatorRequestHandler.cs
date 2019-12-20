@@ -1,16 +1,16 @@
 ﻿using MediatR;
-using Optivem.Framework.Core.Common;
+using Optivem.Framework.Core.Application;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.MediatR
 {
     public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
-        where TRequest : Core.Common.IRequest<TResponse>
+        where TRequest : Core.Application.IRequest<TResponse>
     {
-        private Core.Common.IRequestHandler<TRequest, TResponse> _requestHandler;
+        private Core.Application.IRequestHandler<TRequest, TResponse> _requestHandler;
 
-        public MediatorRequestHandler(Core.Common.IRequestHandler<TRequest, TResponse> requestHandler)
+        public MediatorRequestHandler(Core.Application.IRequestHandler<TRequest, TResponse> requestHandler)
         {
             _requestHandler = requestHandler;
         }
@@ -31,7 +31,7 @@ namespace Optivem.Framework.Infrastructure.MediatR
         }
 
         public Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : Core.Common.IRequest<TResponse>
+            where TRequest : Core.Application.IRequest<TResponse>
         {
             // TODO: VC:
             var mediatorRequest = new MediatorRequest<TRequest, TResponse>

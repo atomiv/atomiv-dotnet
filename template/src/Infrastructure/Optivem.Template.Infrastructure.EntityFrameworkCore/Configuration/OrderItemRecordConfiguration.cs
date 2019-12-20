@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 
 namespace Optivem.Template.Infrastructure.EntityFrameworkCore.Configuration

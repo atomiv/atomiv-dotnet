@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
 using Optivem.Framework.DependencyInjection.Common;
 using Optivem.Framework.Infrastructure.MediatR;
 using System;
@@ -13,7 +12,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
 {
     public static class ServiceCollectionExtensions
     {
-        private static Type RequestHandlerType = typeof(Core.Common.IRequestHandler<,>);
+        private static Type RequestHandlerType = typeof(Core.Application.IRequestHandler<,>);
         private static Type RequestValidatorType = typeof(IRequestValidator<>);
         private static Type PipelineBehaviorType = typeof(IPipelineBehavior<,>);
         private static Type MediatorRequestType = typeof(MediatorRequest<,>);

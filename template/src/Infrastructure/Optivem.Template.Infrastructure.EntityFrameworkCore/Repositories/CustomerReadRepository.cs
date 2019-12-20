@@ -3,7 +3,6 @@ using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
-using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Infrastructure.EntityFrameworkCore.Records;
 using System;
 using System.Linq;

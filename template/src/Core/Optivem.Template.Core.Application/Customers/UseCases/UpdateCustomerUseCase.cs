@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
 using Optivem.Framework.Core.Common.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
