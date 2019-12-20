@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Application.Mapping;
 
 namespace Optivem.Framework.Infrastructure.AutoMapper
 {

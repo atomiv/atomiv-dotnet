@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Common.Mapping
+﻿namespace Optivem.Framework.Core.Application.Mapping
 {
     public interface IMapper
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
 using Optivem.Template.Core.Domain.Orders;
