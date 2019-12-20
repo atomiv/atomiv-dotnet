@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Template.Infrastructure.AutoMapper\Optivem.Template.Infrastructure.Mapping.csproj" />
-    <ProjectReference Include="..\Optivem.Template.Infrastructure.EntityFrameworkCore\Optivem.Template.Infrastructure.Persistence.csproj" />
-    <ProjectReference Include="..\Optivem.Template.Infrastructure.FluentValidation\Optivem.Template.Infrastructure.Validation.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Infrastructure.Mapping\Optivem.Template.Infrastructure.Mapping.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Infrastructure.Persistence\Optivem.Template.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Optivem.Template.Infrastructure.Validation\Optivem.Template.Infrastructure.Validation.csproj" />
   </ItemGroup>
 
 </Project>
