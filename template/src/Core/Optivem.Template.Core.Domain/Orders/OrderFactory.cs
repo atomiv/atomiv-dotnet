@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Core.Common.Time;
-using Optivem.Framework.Core.Domain;
+﻿using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Products;
@@ -12,21 +11,21 @@ namespace Optivem.Template.Core.Domain.Orders
     {
         private readonly IIdentityGenerator<OrderIdentity> _orderIdentityGenerator;
         private readonly IIdentityGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
-        private readonly IClock _clock;
+        private readonly ITimeService _timeService;
 
         public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, 
             IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator,
-            IClock clock)
+            ITimeService timeService)
         {
             _orderIdentityGenerator = orderIdentityGenerator;
             _orderItemIdentityGenerator = orderItemIdentityGenerator;
-            _clock = clock;
+            _timeService = timeService;
         }
 
         public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
         {
             var id = _orderIdentityGenerator.Next();
-            var orderDate = _clock.Now;
+            var orderDate = _timeService.Now;
             return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
         }
 

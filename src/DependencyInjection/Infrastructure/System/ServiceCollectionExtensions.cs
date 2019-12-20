@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Common.Time;
+using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.System;
 using System.Reflection;
 
@@ -9,7 +9,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.System
     {
         public static IServiceCollection AddSystemInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-            services.AddScoped<IClock, SystemClock>();
+            services.AddScoped<ITimeService, SystemTimeService>();
 
             return services;
         }
