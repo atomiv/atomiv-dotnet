@@ -11,6 +11,13 @@ namespace Optivem.Template.Web.RestApi
 {
     public class Startup
     {
+        private const string SwaggerTitle = "Optivem.Template REST API";
+        private const string SwaggerVersion = "v1";
+        private const string SwaggerUrl = "../swagger/v1/swagger.json";
+
+        private static readonly string SwaggerEndpointName = $"{SwaggerTitle} {SwaggerVersion}";
+        private static readonly string SwaggerRoutePrefix = string.Empty;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,7 +37,7 @@ namespace Optivem.Template.Web.RestApi
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "REST API", Version = "v1" });
+                c.SwaggerDoc(SwaggerVersion, new OpenApiInfo { Title = SwaggerTitle, Version = SwaggerVersion });
             });
         }
 
@@ -51,9 +58,11 @@ namespace Optivem.Template.Web.RestApi
 
             app.UseSwagger();
 
+
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "REST API V1");
+                c.SwaggerEndpoint(SwaggerUrl, SwaggerEndpointName);
+                c.RoutePrefix = SwaggerRoutePrefix;
             });
 
             app.UseHttpsRedirection();

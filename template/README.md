@@ -21,11 +21,10 @@ Development certificates need to be enabled:
 If using Postman (optional), then turn off SSL vertification when working locally:
 * File > Settings > SSL certificate verification: OFF
 
-## Migrations
-
-dotnet ef database update --project .\src\Tools\Optivem.Template.Tools.Migrator
-
 ## Execution
 
-dotnet run --project .\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj
-start https://localhost:5101/swagger
+Execute the following script in powershell:
+.\run.ps1
+
+This script will apply database migrations, run the REST API and also start up the swagger page.
+Go to https://localhost:5101/swagger and run some swagger commands.
