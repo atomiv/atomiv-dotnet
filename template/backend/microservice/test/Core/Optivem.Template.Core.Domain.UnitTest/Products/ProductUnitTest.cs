@@ -1,4 +1,5 @@
 ﻿using Optivem.Template.Core.Domain.Products;
+using System;
 using Xunit;
 
 namespace Optivem.Template.Core.Domain.UnitTest.Products
@@ -8,8 +9,7 @@ namespace Optivem.Template.Core.Domain.UnitTest.Products
         [Fact]
         public void Constructor_CanCreateValid()
         {
-            var productIdentityGenerator = new ProductIdentityGenerator();
-            var identity = productIdentityGenerator.Next();
+            var identity = new ProductIdentity(Guid.NewGuid());
             var code = "ABC";
             var name = "My name";
             decimal price = 10.50m;

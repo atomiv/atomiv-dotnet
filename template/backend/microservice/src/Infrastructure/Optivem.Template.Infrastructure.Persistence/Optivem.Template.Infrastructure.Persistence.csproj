@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\src\Infrastructure\EntityFrameworkCore\Optivem.Framework.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\Infrastructure\SequentialGuid\Optivem.Framework.Infrastructure.SequentialGuid.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
