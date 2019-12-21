@@ -49,6 +49,7 @@ $projects = @(
     'src\Infrastructure\MediatR\Optivem.Framework.Infrastructure.MediatR.csproj',
     'src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj',	
     'src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj',
+    'src\Infrastructure\SequentialGuid\Optivem.Framework.Infrastructure.SequentialGuid.csproj',
     'src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj',
 	
 	# ### ============================== DEPENDENCY INJECTION ============================== ###
