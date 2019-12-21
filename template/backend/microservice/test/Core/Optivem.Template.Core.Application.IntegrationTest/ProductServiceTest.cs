@@ -68,7 +68,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Id = id,
             };
 
-            var activateResponse = await Fixture.Products.RelistProductAsync(activateRequest);
+            var activateResponse = await Fixture.ProductService.RelistProductAsync(activateRequest);
 
             AssertUtilities.NotEmpty(activateResponse.Id);
             Assert.Equal(record.Id, activateResponse.Id);
@@ -79,7 +79,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindProductRequest { Id = activateResponse.Id };
 
-            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
 
             Assert.Equal(activateResponse.Id, findResponse.Id);
             Assert.Equal(activateResponse.Code, findResponse.Code);
@@ -99,7 +99,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Id = id,
             };
 
-            await Assert.ThrowsAsync<DomainException>(() => Fixture.Products.RelistProductAsync(activateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.RelistProductAsync(activateRequest));
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Size = 5,
             };
 
-            var browseResponse = await Fixture.Products.BrowseProductsAsync(browseRequest);
+            var browseResponse = await Fixture.ProductService.BrowseProductsAsync(browseRequest);
 
             Assert.Equal(_productRecords.Count, browseResponse.TotalRecords);
 
@@ -156,7 +156,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 UnitPrice = 123.56m,
             };
 
-            var createResponse = await Fixture.Products.CreateProductAsync(createRequest);
+            var createResponse = await Fixture.ProductService.CreateProductAsync(createRequest);
 
             AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.Code, createResponse.Code);
@@ -166,7 +166,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindProductRequest { Id = createResponse.Id };
 
-            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
 
             Assert.Equal(findRequest.Id, findResponse.Id);
             Assert.Equal(createRequest.Code, findResponse.Code);
@@ -185,7 +185,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 UnitPrice = 123,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Products.CreateProductAsync(createRequest));
+            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.ProductService.CreateProductAsync(createRequest));
         }
 
         [Fact]
@@ -199,7 +199,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Id = id,
             };
 
-            var deactivateResponse = await Fixture.Products.UnlistProductAsync(dectivateRequest);
+            var deactivateResponse = await Fixture.ProductService.UnlistProductAsync(dectivateRequest);
 
             AssertUtilities.NotEmpty(deactivateResponse.Id);
             Assert.Equal(record.Id, deactivateResponse.Id);
@@ -210,7 +210,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindProductRequest { Id = deactivateResponse.Id };
 
-            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
 
             Assert.Equal(deactivateResponse.Id, findResponse.Id);
             Assert.Equal(deactivateResponse.Code, findResponse.Code);
@@ -230,7 +230,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Id = id,
             };
 
-            await Assert.ThrowsAsync<DomainException>(() => Fixture.Products.UnlistProductAsync(deactivateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.UnlistProductAsync(deactivateRequest));
         }
 
         [Fact]
@@ -240,7 +240,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = customerRecord.Id;
 
             var findRequest = new FindProductRequest { Id = id };
-            var findResponse = await Fixture.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
 
             Assert.Equal(customerRecord.Id, findResponse.Id);
             Assert.Equal(customerRecord.ProductCode, findResponse.Code);
@@ -256,7 +256,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindProductRequest { Id = id };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Products.FindProductAsync(findRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.ProductService.FindProductAsync(findRequest));
         }
 
         [Fact]
@@ -266,7 +266,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             {
             };
 
-            var response = await Fixture.Products.ListProductsAsync(request);
+            var response = await Fixture.ProductService.ListProductsAsync(request);
 
             Assert.Equal(_productRecords.Count, response.TotalRecords);
 
@@ -294,7 +294,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 UnitPrice = 300m,
             };
 
-            var updateResponse = await Fixture.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.ProductService.UpdateProductAsync(updateRequest);
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(productRecord.ProductCode, updateResponse.Code);
@@ -315,7 +315,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 UnitPrice = 300m,
             };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Products.UpdateProductAsync(updateRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.ProductService.UpdateProductAsync(updateRequest));
         }
 
         [Fact]
@@ -330,7 +330,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 UnitPrice = -20m,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Products.UpdateProductAsync(updateRequest));
+            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.ProductService.UpdateProductAsync(updateRequest));
         }
     }
 }

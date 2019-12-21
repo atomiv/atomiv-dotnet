@@ -22,9 +22,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
             ServiceProvider = services.BuildServiceProvider();
 
-            Customers = GetService<ICustomerService>();
-            Orders = GetService<IOrderService>();
-            Products = GetService<IProductService>();
+            CustomerService = GetService<ICustomerService>();
+            OrderService = GetService<IOrderService>();
+            ProductService = GetService<IProductService>();
         }
 
         public DbTestClient<DatabaseContext> Db { get; }
@@ -36,11 +36,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return ServiceProvider.GetService<TService>();
         }
 
-        public ICustomerService Customers { get; }
+        public ICustomerService CustomerService { get; }
 
-        public IOrderService Orders { get; }
+        public IOrderService OrderService { get; }
 
-        public IProductService Products { get; }
+        public IProductService ProductService { get; }
 
         public void Dispose()
         {

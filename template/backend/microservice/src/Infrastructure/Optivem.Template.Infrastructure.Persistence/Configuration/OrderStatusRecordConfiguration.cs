@@ -8,6 +8,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<OrderStatusRecord> builder)
         {
+            builder.Property(e => e.Id)
+                .ValueGeneratedNever();
+
             builder.Property(e => e.Code)
                 .IsRequired()
                 .HasMaxLength(20);

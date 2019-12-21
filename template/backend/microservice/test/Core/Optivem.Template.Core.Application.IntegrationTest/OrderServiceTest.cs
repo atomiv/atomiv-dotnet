@@ -159,7 +159,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            var createResponse = await Fixture.Orders.CreateOrderAsync(createRequest);
+            var createResponse = await Fixture.OrderService.CreateOrderAsync(createRequest);
 
             AssertUtilities.NotEmpty(createResponse.Id);
             Assert.Equal(createRequest.CustomerId, createResponse.CustomerId);
@@ -182,7 +182,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = createResponse.Id };
 
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
 
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
@@ -220,7 +220,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderItems = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.CreateOrderAsync(createRequest));
+            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.OrderService.CreateOrderAsync(createRequest));
         }
 
         [Fact]
@@ -230,7 +230,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = orderRecord.Id;
 
             var findRequest = new FindOrderRequest { Id = id };
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
             Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
@@ -259,7 +259,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = id };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.FindOrderAsync(findRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.OrderService.FindOrderAsync(findRequest));
         }
 
         [Fact]
@@ -293,7 +293,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            var updateResponse = await Fixture.Orders.UpdateOrderAsync(updateRequest);
+            var updateResponse = await Fixture.OrderService.UpdateOrderAsync(updateRequest);
 
             Assert.Equal(updateRequest.Id, updateResponse.Id);
             Assert.Equal(orderRecord.CustomerId, updateResponse.CustomerId);
@@ -324,7 +324,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var findRequest = new FindOrderRequest { Id = updateResponse.Id };
 
-            var findResponse = await Fixture.Orders.FindOrderAsync(findRequest);
+            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
 
             Assert.Equal(updateResponse.Id, findResponse.Id);
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
@@ -370,7 +370,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.OrderService.UpdateOrderAsync(updateRequest));
         }
 
         [Fact]
@@ -384,7 +384,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderItems = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.Orders.UpdateOrderAsync(updateRequest));
+            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.OrderService.UpdateOrderAsync(updateRequest));
         }
     }
 }

@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Infrastructure.Persistence.Records;
@@ -34,30 +35,32 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task ListCustomers_OK()
         {
             var listRequest = new ListCustomersRequest { };
 
-            var actual = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
+            var listHttpResponse = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
 
-            Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
+            listHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
-            var actualContent = actual.Data;
+            var listResponse = listHttpResponse.Data;
 
-            Assert.Equal(2, actualContent.Records.Count);
+            listResponse.Records.Count.Should().Be(2);
 
             var expectedFirst = _customerRecords[0];
-            var actualFirst = actualContent.Records[0];
+            var actualFirst = listResponse.Records[0];
 
-            AssertUtilities.NotEmpty(actualFirst.Id);
-            Assert.Equal(expectedFirst.FirstName + " " + expectedFirst.LastName, actualFirst.Name);
+            actualFirst.Id.Should().NotBeEmpty();
+
+            actualFirst.Name.Should().Be(expectedFirst.FirstName + " " + expectedFirst.LastName);
 
             var expectedSecond = _customerRecords[1];
-            var actualSecond = actualContent.Records[1];
+            var actualSecond = listResponse.Records[1];
 
-            AssertUtilities.NotEmpty(actualSecond.Id);
-            Assert.Equal(expectedSecond.FirstName + " " + expectedSecond.LastName, actualSecond.Name);
+            actualSecond.Id.Should().NotBeEmpty();
+
+            actualSecond.Name.Should().Be(expectedSecond.FirstName + " " + expectedSecond.LastName);
         }
 
         [Fact]
