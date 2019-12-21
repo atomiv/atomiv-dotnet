@@ -1,6 +1,6 @@
 ﻿Write-Host "Starting updates..."
 
-$filePath = 'template\\backend\\test\\Web\\Optivem.Template.Web.RestApi.IntegrationTest\\appsettings.Test.json'
+$filePath = 'template\\backend\\microservice\\test\\Web\\Optivem.Template.Web.RestApi.IntegrationTest\\appsettings.Test.json'
 
 Write-Host "File path is: $filePath"
 
