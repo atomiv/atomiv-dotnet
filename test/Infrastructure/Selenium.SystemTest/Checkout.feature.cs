@@ -19,7 +19,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CheckoutFeature : Xunit.IClassFixture<CheckoutFeature.FixtureData>, System.IDisposable
+    public partial class CheckoutFeature : object, Xunit.IClassFixture<CheckoutFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;

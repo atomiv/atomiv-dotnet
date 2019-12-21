@@ -19,7 +19,7 @@ namespace Optivem.Template.Web.UI.SystemTest
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CustomerFeature : Xunit.IClassFixture<CustomerFeature.FixtureData>, System.IDisposable
+    public partial class CustomerFeature : object, Xunit.IClassFixture<CustomerFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;

@@ -19,7 +19,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ProductFeature : Xunit.IClassFixture<ProductFeature.FixtureData>, System.IDisposable
+    public partial class ProductFeature : object, Xunit.IClassFixture<ProductFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
