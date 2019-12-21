@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Optivem",
-  "classifications": [ "Template", "Web" ],
-  "identity": "Optivem.Template.CSharp",
-  "name": "Optivem .NET Core 3.0 Application",
-  "shortName": "optivem",
+  "classifications": [ "Template", "Microservice" ],
+  "identity": "Optivem.Templates.Microservice.CSharp",
+  "name": "Optivem ASP.NET Core 3.1 Microservice",
+  "shortName": "ovm-microservice",
   "sourceName": "Optivem.Template"
 }

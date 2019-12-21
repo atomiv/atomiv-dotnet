@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class BrowseOrdersUseCase : RequestHandler<BrowseOrdersRequest, BrowseOrdersResponse>
+    public class BrowseOrdersUseCase : IRequestHandler<BrowseOrdersRequest, BrowseOrdersResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
         public BrowseOrdersUseCase(IMapper mapper, IOrderReadRepository orderReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _orderReadRepository = orderReadRepository;
         }
 
-        public override async Task<BrowseOrdersResponse> HandleAsync(BrowseOrdersRequest request)
+        public async Task<BrowseOrdersResponse> HandleAsync(BrowseOrdersRequest request)
         {
             var pageQuery = new PageQuery(request.Page, request.Size);
             var pageResult = await _orderReadRepository.GetPageAsync(pageQuery);
 
-            return Mapper.Map<PageReadModel<OrderHeaderReadModel>, BrowseOrdersResponse>(pageResult);
+            return _mapper.Map<PageReadModel<OrderHeaderReadModel>, BrowseOrdersResponse>(pageResult);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
@@ -9,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class UpdateCustomerUseCase : RequestHandler<UpdateCustomerRequest, UpdateCustomerResponse>
+    public class UpdateCustomerUseCase : IRequestHandler<UpdateCustomerRequest, UpdateCustomerResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
 
         public UpdateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
         }
 
-        public override async Task<UpdateCustomerResponse> HandleAsync(UpdateCustomerRequest request)
+        public async Task<UpdateCustomerResponse> HandleAsync(UpdateCustomerRequest request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
             await _customerRepository.UpdateAsync(customer);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Customer, UpdateCustomerResponse>(customer);
+            return _mapper.Map<Customer, UpdateCustomerResponse>(customer);
         }
 
         private void Update(Customer customer, UpdateCustomerRequest request)

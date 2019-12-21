@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
@@ -9,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class UnlistProductUseCase : RequestHandler<UnlistProductRequest, UnlistProductResponse>
+    public class UnlistProductUseCase : IRequestHandler<UnlistProductRequest, UnlistProductResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
         public UnlistProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
         }
 
-        public override async Task<UnlistProductResponse> HandleAsync(UnlistProductRequest request)
+        public async Task<UnlistProductResponse> HandleAsync(UnlistProductRequest request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
 
             await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Product, UnlistProductResponse>(product);
+            return _mapper.Map<Product, UnlistProductResponse>(product);
         }
     }
 }

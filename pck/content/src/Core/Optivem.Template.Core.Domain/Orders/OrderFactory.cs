@@ -1,4 +1,5 @@
-﻿using Optivem.Template.Core.Common.Orders;
+﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Products;
 using System;
@@ -6,17 +7,29 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public class OrderFactory
+    public class OrderFactory : IOrderFactory
     {
-        // TODO: VC: Consider IClock to be injected
+        private readonly IIdentityGenerator<OrderIdentity> _orderIdentityGenerator;
+        private readonly IIdentityGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
+        private readonly ITimeService _timeService;
 
-        public static Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
+        public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, 
+            IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator,
+            ITimeService timeService)
         {
-            var id = OrderIdentity.New();
-            return new Order(id, customerId, DateTime.Now, OrderStatus.New, orderDetails);
+            _orderIdentityGenerator = orderIdentityGenerator;
+            _orderItemIdentityGenerator = orderItemIdentityGenerator;
+            _timeService = timeService;
         }
 
-        public static OrderItem CreateNewOrderItem(Product product, decimal quantity)
+        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
+        {
+            var id = _orderIdentityGenerator.Next();
+            var orderDate = _timeService.Now;
+            return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
+        }
+
+        public OrderItem CreateNewOrderItem(Product product, decimal quantity)
         {
             if (product == null)
             {
@@ -28,10 +41,7 @@ namespace Optivem.Template.Core.Domain.Orders
                 throw new ArgumentException();
             }
 
-            // TODO: VC: Need to get the product price from repository, perhaps need customer mapper... or do it in the use case?
-            // perhaps to be able to write a custom mapper...
-
-            var id = OrderItemIdentity.New();
+            var id = _orderItemIdentityGenerator.Next();
 
             return new OrderItem(id, product.Id, quantity, product.ListPrice, OrderItemStatus.Allocated);
         }

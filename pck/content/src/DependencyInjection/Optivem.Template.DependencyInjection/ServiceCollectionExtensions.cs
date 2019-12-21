@@ -10,7 +10,8 @@ using Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Framework.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson;
-using Optivem.Template.Infrastructure.EntityFrameworkCore;
+using Optivem.Framework.DependencyInjection.Infrastructure.System;
+using Optivem.Template.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +41,9 @@ namespace Optivem.Template.DependencyInjection
 
             var infrastructureModuleTypes = new List<Type>
             {
-                typeof(Infrastructure.AutoMapper.Module),
-                typeof(Infrastructure.EntityFrameworkCore.Module),
-                typeof(Infrastructure.FluentValidation.Module),
-                typeof(Infrastructure.MediatR.Module),
+                typeof(Infrastructure.Mapping.Module),
+                typeof(Infrastructure.Persistence.Module),
+                typeof(Infrastructure.Validation.Module),
             };
 
             var moduleTypes = new List<Type>();
@@ -72,6 +72,7 @@ namespace Optivem.Template.DependencyInjection
             services.AddFluentValidationInfrastructure(assemblies);
             services.AddMediatRInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
+            services.AddSystemInfrastructure(assemblies);
         }
     }
 }

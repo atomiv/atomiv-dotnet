@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
@@ -8,26 +8,29 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class CreateProductUseCase : RequestHandler<CreateProductRequest, CreateProductResponse>
+    public class CreateProductUseCase : IRequestHandler<CreateProductRequest, CreateProductResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
+        private readonly IProductFactory _productFactory;
 
-        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
-            : base(mapper)
+        public CreateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository, IProductFactory productFactory)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
+            _productFactory = productFactory;
         }
 
-        public override async Task<CreateProductResponse> HandleAsync(CreateProductRequest request)
+        public async Task<CreateProductResponse> HandleAsync(CreateProductRequest request)
         {
             var product = GetProduct(request);
 
             _productRepository.Add(product);
             await _unitOfWork.SaveChangesAsync();
 
-            return Mapper.Map<Product, CreateProductResponse>(product);
+            return _mapper.Map<Product, CreateProductResponse>(product);
         }
 
         private Product GetProduct(CreateProductRequest request)
@@ -36,7 +39,7 @@ namespace Optivem.Template.Core.Application.Products.UseCases
             var productName = request.Description;
             var listPrice = request.UnitPrice;
 
-            return ProductFactory.CreateNewProduct(productCode, productName, listPrice);
+            return _productFactory.CreateNewProduct(productCode, productName, listPrice);
         }
     }
 }

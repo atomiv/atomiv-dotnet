@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -9,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class CancelOrderUseCase : RequestHandler<CancelOrderRequest, CancelOrderResponse>
+    public class CancelOrderUseCase : IRequestHandler<CancelOrderRequest, CancelOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
         public CancelOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
-        public override async Task<CancelOrderResponse> HandleAsync(CancelOrderRequest request)
+        public async Task<CancelOrderResponse> HandleAsync(CancelOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Order, CancelOrderResponse>(order);
+            return _mapper.Map<Order, CancelOrderResponse>(order);
         }
     }
 }

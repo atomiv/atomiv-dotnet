@@ -1,5 +1,4 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
 using System.Threading.Tasks;

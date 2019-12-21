@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -12,30 +11,38 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class CreateOrderUseCase : RequestHandler<CreateOrderRequest, CreateOrderResponse>
+    public class CreateOrderUseCase : IRequestHandler<CreateOrderRequest, CreateOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly ICustomerReadRepository _customerReadRepository;
         private readonly IProductReadRepository _productReadRepository;
+        private readonly IOrderFactory _orderFactory;
 
-        public CreateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, ICustomerReadRepository customerReadRepository, IProductReadRepository productReadRepository)
-            : base(mapper)
+        public CreateOrderUseCase(IMapper mapper, 
+            IUnitOfWork unitOfWork, 
+            IOrderRepository orderRepository, 
+            ICustomerReadRepository customerReadRepository, 
+            IProductReadRepository productReadRepository,
+            IOrderFactory orderFactory)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _customerReadRepository = customerReadRepository;
             _productReadRepository = productReadRepository;
+            _orderFactory = orderFactory;
         }
 
-        public override async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
+        public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
         {
             var order = await GetOrderAsync(request);
 
             _orderRepository.Add(order);
             await _unitOfWork.SaveChangesAsync();
 
-            var response = Mapper.Map<Order, CreateOrderResponse>(order);
+            var response = _mapper.Map<Order, CreateOrderResponse>(order);
             return response;
         }
 
@@ -68,7 +75,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                 }
             }
 
-            return OrderFactory.CreateNewOrder(customerId, orderDetails);
+            return _orderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemRequest requestOrderDetail)
@@ -83,7 +90,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var quantity = requestOrderDetail.Quantity;
 
-            return OrderFactory.CreateNewOrderItem(product, quantity);
+            return _orderFactory.CreateNewOrderItem(product, quantity);
         }
     }
 }

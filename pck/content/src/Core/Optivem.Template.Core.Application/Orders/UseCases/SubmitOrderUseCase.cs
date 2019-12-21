@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -9,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class SubmitOrderUseCase : RequestHandler<SubmitOrderRequest, SubmitOrderResponse>
+    public class SubmitOrderUseCase : IRequestHandler<SubmitOrderRequest, SubmitOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
         public SubmitOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
-        public override async Task<SubmitOrderResponse> HandleAsync(SubmitOrderRequest request)
+        public async Task<SubmitOrderResponse> HandleAsync(SubmitOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Order, SubmitOrderResponse>(order);
+            return _mapper.Map<Order, SubmitOrderResponse>(order);
         }
     }
 }

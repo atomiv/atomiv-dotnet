@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
@@ -8,35 +8,37 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class CreateCustomerUseCase : RequestHandler<CreateCustomerRequest, CreateCustomerResponse>
+    public class CreateCustomerUseCase : IRequestHandler<CreateCustomerRequest, CreateCustomerResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerFactory _customerFactory;
 
-        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
-            : base(mapper)
+        public CreateCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, ICustomerFactory customerFactory)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
+            _customerFactory = customerFactory;
         }
 
-        public override async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
+        public async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
         {
             var customer = GetCustomer(request);
 
             _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync();
 
-            return Mapper.Map<Customer, CreateCustomerResponse>(customer);
+            return _mapper.Map<Customer, CreateCustomerResponse>(customer);
         }
 
         protected Customer GetCustomer(CreateCustomerRequest request)
         {
-            var id = CustomerIdentity.New();
             var firstName = request.FirstName;
             var lastName = request.LastName;
 
-            return new Customer(id, firstName, lastName);
+            return _customerFactory.Create(firstName, lastName);
         }
 
         /*

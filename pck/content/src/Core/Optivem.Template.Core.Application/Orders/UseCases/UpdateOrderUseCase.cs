@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
@@ -11,21 +10,28 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class UpdateOrderUseCase : RequestHandler<UpdateOrderRequest, UpdateOrderResponse>
+    public class UpdateOrderUseCase : IRequestHandler<UpdateOrderRequest, UpdateOrderResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly IProductReadRepository _productReadRepository;
+        private readonly IOrderFactory _orderFactory;
 
-        public UpdateOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository, IProductReadRepository productReadRepository)
-            : base(mapper)
+        public UpdateOrderUseCase(IMapper mapper, 
+            IUnitOfWork unitOfWork, 
+            IOrderRepository orderRepository, 
+            IProductReadRepository productReadRepository,
+            IOrderFactory orderFactory)
         {
+            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _productReadRepository = productReadRepository;
+            _orderFactory = orderFactory;
         }
 
-        public override async Task<UpdateOrderResponse> HandleAsync(UpdateOrderRequest request)
+        public async Task<UpdateOrderResponse> HandleAsync(UpdateOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -40,7 +46,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return Mapper.Map<Order, UpdateOrderResponse>(order);
+            return _mapper.Map<Order, UpdateOrderResponse>(order);
         }
 
         private async Task UpdateAsync(Order order, UpdateOrderRequest request)
@@ -49,7 +55,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var addedOrderRequestDetails = request.OrderItems.Where(e => e.Id == null).ToList();
             var updatedOrderRequestDetails = request.OrderItems.Where(e => e.Id != null).ToList();
-            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderItems.Any(f => f.Id == e.Id.Id)).ToList();
+            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderItems.Any(f => f.Id == e.Id.Value)).ToList();
 
             foreach (var added in addedOrderRequestDetails)
             {
@@ -61,7 +67,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
                     throw new InvalidRequestException($"Product {productId} does not exist");
                 }
 
-                var orderDetail = OrderFactory.CreateNewOrderItem(product, added.Quantity);
+                var orderDetail = _orderFactory.CreateNewOrderItem(product, added.Quantity);
                 order.AddOrderItem(orderDetail);
             }
 

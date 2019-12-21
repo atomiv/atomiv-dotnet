@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common;
-using Optivem.Framework.Core.Common.Mapping;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.UseCases
 {
-    public class BrowseProductsUseCase : RequestHandler<BrowseProductsRequest, BrowseProductsResponse>
+    public class BrowseProductsUseCase : IRequestHandler<BrowseProductsRequest, BrowseProductsResponse>
     {
+        private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
         public BrowseProductsUseCase(IMapper mapper, IProductReadRepository productReadRepository)
-            : base(mapper)
         {
+            _mapper = mapper;
             _productReadRepository = productReadRepository;
         }
 
-        public override async Task<BrowseProductsResponse> HandleAsync(BrowseProductsRequest request)
+        public async Task<BrowseProductsResponse> HandleAsync(BrowseProductsRequest request)
         {
             var pageQuery = new PageQuery(request.Page, request.Size);
             var pageResult = await _productReadRepository.GetPageAsync(pageQuery);
 
-            return Mapper.Map<PageReadModel<ProductHeaderReadModel>, BrowseProductsResponse>(pageResult);
+            return _mapper.Map<PageReadModel<ProductHeaderReadModel>, BrowseProductsResponse>(pageResult);
         }
     }
 }

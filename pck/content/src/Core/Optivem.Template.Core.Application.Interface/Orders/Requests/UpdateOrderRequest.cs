@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Common;
+﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Orders.Responses;
 using System;
 using System.Collections.Generic;
