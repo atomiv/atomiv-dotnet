@@ -20,10 +20,10 @@
     <PackageReference Include="FluentAssertions" Version="5.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="77.0.0" />
-    <PackageReference Include="SpecFlow" Version="3.1.67" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.67" />
-    <PackageReference Include="SpecFlow.xUnit" Version="3.1.67" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="79.0.0" />
+    <PackageReference Include="SpecFlow" Version="3.1.74" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.74" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.1.74" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
