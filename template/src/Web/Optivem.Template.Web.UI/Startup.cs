@@ -12,9 +12,9 @@ using Optivem.Framework.Infrastructure.NewtonsoftJson;
 using Optivem.Framework.Infrastructure.System.Reflection;
 using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Web.RestClient;
-using Optivem.Template.Web.RestClient.Http;
 using Optivem.Template.Web.RestClient.Interface;
 using Optivem.Template.Web.UI.Services;
+using Optivem.Template.Web.UI.Services.Application;
 using Optivem.Template.Web.UI.Services.Interfaces;
 
 namespace Optivem.Template.Web.UI

@@ -6,7 +6,7 @@ using Optivem.Template.Web.RestClient.Interface;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.RestClient.Http
+namespace Optivem.Template.Web.RestClient
 {
     public class OrderHttpService : BaseControllerClient, IOrderHttpService
     {

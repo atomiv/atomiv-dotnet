@@ -5,7 +5,7 @@ using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Web.RestClient.Interface;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Web.RestClient
+namespace Optivem.Template.Web.UI.Services.Application
 {
     public class CustomerService : BaseHttpService<ICustomerHttpService>, ICustomerService
     {

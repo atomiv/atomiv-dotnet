@@ -2,7 +2,7 @@
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Web.RestClient.Interface;
 
-namespace Optivem.Template.Web.RestClient.Http
+namespace Optivem.Template.Web.RestClient
 {
     public class ApiHttpService : BaseApiClient, IApiHttpService
     {
