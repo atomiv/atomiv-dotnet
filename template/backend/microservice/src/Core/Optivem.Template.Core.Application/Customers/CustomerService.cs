@@ -16,14 +16,14 @@ namespace Optivem.Template.Core.Application.Customers
             return HandleAsync<BrowseCustomersRequest, BrowseCustomersResponse>(request);
         }
 
-        public Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<CustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
         {
-            return HandleAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+            return HandleAsync<CreateCustomerRequest, CustomerResponse>(request);
         }
 
-        public Task<DeleteCustomerResponse> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task<VoidResponse> DeleteCustomerAsync(DeleteCustomerRequest request)
         {
-            return HandleAsync<DeleteCustomerRequest, DeleteCustomerResponse>(request);
+            return HandleAsync<DeleteCustomerRequest, VoidResponse>(request);
         }
 
         public Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request)
@@ -36,9 +36,9 @@ namespace Optivem.Template.Core.Application.Customers
             return HandleAsync<ListCustomersRequest, ListCustomersResponse>(request);
         }
 
-        public Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<CustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
         {
-            return HandleAsync<UpdateCustomerRequest, UpdateCustomerResponse>(request);
+            return HandleAsync<UpdateCustomerRequest, CustomerResponse>(request);
         }
     }
 }

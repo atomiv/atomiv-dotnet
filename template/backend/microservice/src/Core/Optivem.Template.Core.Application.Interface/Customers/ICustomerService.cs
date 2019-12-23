@@ -9,14 +9,14 @@ namespace Optivem.Template.Core.Application.Customers
     {
         Task<BrowseCustomersResponse> BrowseCustomersAsync(BrowseCustomersRequest request);
 
-        Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request);
+        Task<CustomerResponse> CreateCustomerAsync(CreateCustomerRequest request);
 
-        Task<DeleteCustomerResponse> DeleteCustomerAsync(DeleteCustomerRequest request);
+        Task<VoidResponse> DeleteCustomerAsync(DeleteCustomerRequest request);
 
         Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request);
 
         Task<ListCustomersResponse> ListCustomersAsync(ListCustomersRequest request);
 
-        Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request);
+        Task<CustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request);
     }
 }

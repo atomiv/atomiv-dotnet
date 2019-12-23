@@ -3,25 +3,22 @@ using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class DeleteCustomerUseCase : IRequestHandler<DeleteCustomerRequest, DeleteCustomerResponse>
+    public class DeleteCustomerUseCase : IRequestHandler<DeleteCustomerRequest, VoidResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
 
-        public DeleteCustomerUseCase(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+        public DeleteCustomerUseCase(IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
         {
-            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
         }
 
-        public async Task<DeleteCustomerResponse> HandleAsync(DeleteCustomerRequest request)
+        public async Task<VoidResponse> HandleAsync(DeleteCustomerRequest request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
@@ -36,7 +33,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
             await _unitOfWork.SaveChangesAsync();
 
-            return new DeleteCustomerResponse();
+            return VoidResponse.Instance;
         }
     }
 }

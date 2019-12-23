@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.UseCases
 {
-    public class UpdateCustomerUseCase : IRequestHandler<UpdateCustomerRequest, UpdateCustomerResponse>
+    public class UpdateCustomerUseCase : IRequestHandler<UpdateCustomerRequest, CustomerResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -21,7 +21,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
             _customerRepository = customerRepository;
         }
 
-        public async Task<UpdateCustomerResponse> HandleAsync(UpdateCustomerRequest request)
+        public async Task<CustomerResponse> HandleAsync(UpdateCustomerRequest request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Customers.UseCases
 
             await _customerRepository.UpdateAsync(customer);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<Customer, UpdateCustomerResponse>(customer);
+            return _mapper.Map<Customer, CustomerResponse>(customer);
         }
 
         private void Update(Customer customer, UpdateCustomerRequest request)

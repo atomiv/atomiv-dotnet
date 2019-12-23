@@ -1,4 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Http;
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
@@ -20,15 +21,15 @@ namespace Optivem.Template.Web.RestClient
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<IObjectClientResponse<CustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
-            return Client.PostAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+            return Client.PostAsync<CreateCustomerRequest, CustomerResponse>(request);
         }
 
-        public Task<IObjectClientResponse<DeleteCustomerResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task<IObjectClientResponse<VoidResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<Guid, DeleteCustomerResponse>(id);
+            return Client.DeleteByIdAsync<Guid, VoidResponse>(id);
         }
 
         public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(FindCustomerRequest request)
@@ -42,9 +43,9 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetAsync<ListCustomersResponse>();
         }
 
-        public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<IObjectClientResponse<CustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
         {
-            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, CustomerResponse>(request.Id, request);
         }
     }
 }

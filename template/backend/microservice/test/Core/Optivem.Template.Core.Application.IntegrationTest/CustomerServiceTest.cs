@@ -1,10 +1,8 @@
 ﻿using FluentAssertions;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Template.Infrastructure.Persistence.Records;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +16,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         public CustomerServiceTest(ServiceFixture fixture) : base(fixture)
         {
         }
-
-
 
         [Fact]
         public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
@@ -85,7 +81,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecordResponses = new List<CreateCustomerResponse>
+            var expectedRecordResponses = new List<CustomerResponse>
             {
                 createResponses[3],
                 createResponses[4],
@@ -142,8 +138,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             await createFunc.Should().ThrowAsync<InvalidRequestException>();
         }
 
-
-
         [Fact]
         public async Task DeleteCustomer_ValidRequest_ReturnsResponse()
         {
@@ -181,7 +175,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Assert
 
             var findRequest = new FindCustomerRequest { Id = id };
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
             Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
             await findFunc.Should().ThrowAsync<NotFoundRequestException>();
         }
@@ -370,7 +363,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecords = new List<CreateCustomerResponse>
+            var expectedRecords = new List<CustomerResponse>
             {
                 createResponses[3],
                 createResponses[5],

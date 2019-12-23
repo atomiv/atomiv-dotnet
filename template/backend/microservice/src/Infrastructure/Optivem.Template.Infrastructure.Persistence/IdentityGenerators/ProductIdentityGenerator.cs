@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.SequentialGuid;
+﻿using Optivem.Framework.Infrastructure.SequentialGuid;
 using Optivem.Template.Core.Domain.Products;
 using System;
 

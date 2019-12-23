@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.Mapping.Customers
     {
         public CreateCustomerResponseProfile()
         {
-            CreateMap<Customer, CreateCustomerResponse>();
+            CreateMap<Customer, CustomerResponse>();
         }
     }
 }

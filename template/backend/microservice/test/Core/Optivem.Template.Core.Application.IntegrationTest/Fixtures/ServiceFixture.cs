@@ -14,6 +14,27 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
     {
         public ServiceFixture()
         {
+
+        }
+
+        public DbTestClient<DatabaseContext> Db => new ServiceProviderWrapper().Db;
+
+        public ICustomerService CustomerService => new ServiceProviderWrapper().CustomerService;
+
+        public IOrderService OrderService => new ServiceProviderWrapper().OrderService;
+
+        public IProductService ProductService => new ServiceProviderWrapper().ProductService;
+
+        public void Dispose()
+        {
+            // ServiceProvider.Dispose();
+        }
+    }
+
+    public class ServiceProviderWrapper
+    {
+        public ServiceProviderWrapper()
+        {
             var configuration = ConfigurationRootFactory.Create();
             var services = new ServiceCollection();
             services.AddModules(configuration);
@@ -36,15 +57,15 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return ServiceProvider.GetService<TService>();
         }
 
+        public IServiceScope CreateScope()
+        {
+            return ServiceProvider.CreateScope();
+        }
+
         public ICustomerService CustomerService { get; }
 
         public IOrderService OrderService { get; }
 
         public IProductService ProductService { get; }
-
-        public void Dispose()
-        {
-            ServiceProvider.Dispose();
-        }
     }
 }

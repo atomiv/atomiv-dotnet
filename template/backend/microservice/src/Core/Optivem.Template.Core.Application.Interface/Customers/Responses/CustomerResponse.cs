@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Customers.Responses
 {
-    public class UpdateCustomerResponse
+    public class CustomerResponse
     {
         public Guid Id { get; set; }
 
