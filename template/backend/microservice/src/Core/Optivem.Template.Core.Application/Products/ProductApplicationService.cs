@@ -1,20 +1,16 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products
 {
-    public class ProductService : ApplicationService, IProductService
+    public class ProductApplicationService : ApplicationService, IProductApplicationService
     {
-        public ProductService(IRequestHandler requestHandler)
+        public ProductApplicationService(IRequestHandler requestHandler)
             : base(requestHandler)
         {
-        }
-
-        public Task<ProductResponse> RelistProductAsync(RelistProductRequest request)
-        {
-            return HandleAsync<RelistProductRequest, ProductResponse>(request);
         }
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
@@ -27,8 +23,13 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<CreateProductRequest, ProductResponse>(request);
         }
 
-        public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
+        public Task<FindProductResponse> FindProductAsync(Guid id)
         {
+            var request = new FindProductRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<FindProductRequest, FindProductResponse>(request);
         }
 
@@ -37,8 +38,23 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<ListProductRequest, ListProductsResponse>(request);
         }
 
-        public Task<ProductResponse> UnlistProductAsync(UnlistProductRequest request)
+        public Task<ProductResponse> RelistProductAsync(Guid id)
         {
+            var request = new RelistProductRequest
+            {
+                Id = id,
+            };
+
+            return HandleAsync<RelistProductRequest, ProductResponse>(request);
+        }
+
+        public Task<ProductResponse> UnlistProductAsync(Guid id)
+        {
+            var request = new UnlistProductRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<UnlistProductRequest, ProductResponse>(request);
         }
 

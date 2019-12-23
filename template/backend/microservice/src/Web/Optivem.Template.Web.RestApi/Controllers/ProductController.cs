@@ -9,9 +9,9 @@ namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/products")]
     [ApiController]
-    public class ProductController : BaseController<IProductService>
+    public class ProductController : BaseController<IProductApplicationService>
     {
-        public ProductController(IProductService service)
+        public ProductController(IProductApplicationService service)
             : base(service)
         {
         }

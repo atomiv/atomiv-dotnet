@@ -67,12 +67,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var record = _productRecords.Where(e => !e.IsListed).First();
             var id = record.Id;
 
-            var activateRequest = new RelistProductRequest
-            {
-                Id = id,
-            };
-
-            var activateResponse = await Fixture.ProductService.RelistProductAsync(activateRequest);
+            var activateResponse = await Fixture.ProductService.RelistProductAsync(id);
 
             AssertUtilities.NotEmpty(activateResponse.Id);
             Assert.Equal(record.Id, activateResponse.Id);
@@ -81,9 +76,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(record.ListPrice, activateResponse.UnitPrice);
             Assert.True(activateResponse.IsListed);
 
-            var findRequest = new FindProductRequest { Id = activateResponse.Id };
-
-            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(id);
 
             Assert.Equal(activateResponse.Id, findResponse.Id);
             Assert.Equal(activateResponse.Code, findResponse.Code);
@@ -98,12 +91,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var record = _productRecords.Where(e => e.IsListed).First();
             var id = record.Id;
 
-            var activateRequest = new RelistProductRequest
-            {
-                Id = id,
-            };
-
-            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.RelistProductAsync(activateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.RelistProductAsync(id));
         }
 
         [Fact]
@@ -169,11 +157,10 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(createRequest.UnitPrice, createResponse.UnitPrice);
             Assert.True(createResponse.IsListed);
 
-            var findRequest = new FindProductRequest { Id = createResponse.Id };
+            var id = createResponse.Id;
+            var findResponse = await Fixture.ProductService.FindProductAsync(id);
 
-            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
-
-            Assert.Equal(findRequest.Id, findResponse.Id);
+            Assert.Equal(id, findResponse.Id);
             Assert.Equal(createRequest.Code, findResponse.Code);
             Assert.Equal(createRequest.Description, findResponse.Description);
             Assert.Equal(createRequest.UnitPrice, findResponse.UnitPrice);
@@ -199,12 +186,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var record = _productRecords.Where(e => e.IsListed).First();
             var id = record.Id;
 
-            var dectivateRequest = new UnlistProductRequest
-            {
-                Id = id,
-            };
-
-            var deactivateResponse = await Fixture.ProductService.UnlistProductAsync(dectivateRequest);
+            var deactivateResponse = await Fixture.ProductService.UnlistProductAsync(id);
 
             AssertUtilities.NotEmpty(deactivateResponse.Id);
             Assert.Equal(record.Id, deactivateResponse.Id);
@@ -213,9 +195,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(record.ListPrice, deactivateResponse.UnitPrice);
             Assert.False(deactivateResponse.IsListed);
 
-            var findRequest = new FindProductRequest { Id = deactivateResponse.Id };
-
-            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(id);
 
             Assert.Equal(deactivateResponse.Id, findResponse.Id);
             Assert.Equal(deactivateResponse.Code, findResponse.Code);
@@ -230,12 +210,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var record = _productRecords.Where(e => !e.IsListed).First();
             var id = record.Id;
 
-            var deactivateRequest = new UnlistProductRequest
-            {
-                Id = id,
-            };
-
-            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.UnlistProductAsync(deactivateRequest));
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.UnlistProductAsync(id));
         }
 
         [Fact]
@@ -244,8 +219,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var customerRecord = _productRecords[0];
             var id = customerRecord.Id;
 
-            var findRequest = new FindProductRequest { Id = id };
-            var findResponse = await Fixture.ProductService.FindProductAsync(findRequest);
+            var findResponse = await Fixture.ProductService.FindProductAsync(id);
 
             Assert.Equal(customerRecord.Id, findResponse.Id);
             Assert.Equal(customerRecord.ProductCode, findResponse.Code);
@@ -259,9 +233,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindProductRequest { Id = id };
-
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.ProductService.FindProductAsync(findRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.ProductService.FindProductAsync(id));
         }
 
         [Fact]

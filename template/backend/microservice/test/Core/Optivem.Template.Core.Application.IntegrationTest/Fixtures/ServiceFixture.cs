@@ -23,7 +23,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public IOrderService OrderService => new ServiceProviderWrapper().OrderService;
 
-        public IProductService ProductService => new ServiceProviderWrapper().ProductService;
+        public IProductApplicationService ProductService => new ServiceProviderWrapper().ProductService;
 
         public void Dispose()
         {
@@ -45,7 +45,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
             CustomerService = GetService<ICustomerApplicationService>();
             OrderService = GetService<IOrderService>();
-            ProductService = GetService<IProductService>();
+            ProductService = GetService<IProductApplicationService>();
         }
 
         public DbTestClient<DatabaseContext> Db { get; }
@@ -66,6 +66,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public IOrderService OrderService { get; }
 
-        public IProductService ProductService { get; }
+        public IProductApplicationService ProductService { get; }
     }
 }
