@@ -11,9 +11,9 @@ namespace Optivem.Template.Core.Application.Orders
         {
         }
 
-        public Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public Task<OrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
-            return HandleAsync<ArchiveOrderRequest, ArchiveOrderResponse>(request);
+            return HandleAsync<ArchiveOrderRequest, OrderResponse>(request);
         }
 
         public Task<BrowseOrdersResponse> BrowseOrdersAsync(BrowseOrdersRequest request)
@@ -21,14 +21,14 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<BrowseOrdersRequest, BrowseOrdersResponse>(request);
         }
 
-        public Task<CancelOrderResponse> CancelOrderAsync(CancelOrderRequest request)
+        public Task<OrderResponse> CancelOrderAsync(CancelOrderRequest request)
         {
-            return HandleAsync<CancelOrderRequest, CancelOrderResponse>(request);
+            return HandleAsync<CancelOrderRequest, OrderResponse>(request);
         }
 
-        public Task<CreateOrderResponse> CreateOrderAsync(CreateOrderRequest request)
+        public Task<OrderResponse> CreateOrderAsync(CreateOrderRequest request)
         {
-            return HandleAsync<CreateOrderRequest, CreateOrderResponse>(request);
+            return HandleAsync<CreateOrderRequest, OrderResponse>(request);
         }
 
         public Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request)
@@ -41,14 +41,14 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<ListOrdersRequest, ListOrdersResponse>(request);
         }
 
-        public Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
+        public Task<OrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
         {
-            return HandleAsync<SubmitOrderRequest, SubmitOrderResponse>(request);
+            return HandleAsync<SubmitOrderRequest, OrderResponse>(request);
         }
 
-        public Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
+        public Task<OrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            return HandleAsync<UpdateOrderRequest, UpdateOrderResponse>(request);
+            return HandleAsync<UpdateOrderRequest, OrderResponse>(request);
         }
     }
 }

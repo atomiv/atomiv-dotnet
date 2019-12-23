@@ -17,8 +17,8 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpPost("{id}/archive", Name = "archive-order")]
-        [ProducesResponseType(typeof(ArchiveOrderResponse), 200)]
-        public async Task<ActionResult<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
+        [ProducesResponseType(typeof(OrderResponse), 200)]
+        public async Task<ActionResult<OrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
             var response = await Service.ArchiveOrderAsync(request);
             return Ok(response);
@@ -39,16 +39,16 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpPost("{id}/cancel", Name = "cancel-order")]
-        [ProducesResponseType(typeof(CancelOrderResponse), 200)]
-        public async Task<ActionResult<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
+        [ProducesResponseType(typeof(OrderResponse), 200)]
+        public async Task<ActionResult<OrderResponse>> CancelOrderAsync(CancelOrderRequest request)
         {
             var response = await Service.CancelOrderAsync(request);
             return Ok(response);
         }
 
         [HttpPost(Name = "create-order")]
-        [ProducesResponseType(typeof(CreateOrderResponse), 201)]
-        public async Task<ActionResult<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
+        [ProducesResponseType(typeof(OrderResponse), 201)]
+        public async Task<ActionResult<OrderResponse>> CreateOrderAsync(CreateOrderRequest request)
         {
             var response = await Service.CreateOrderAsync(request);
             return CreatedAtRoute("find-order", new { id = response.Id }, response);
@@ -75,16 +75,16 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpPost("{id}/submit", Name = "submit-order")]
-        [ProducesResponseType(typeof(SubmitOrderResponse), 200)]
-        public async Task<ActionResult<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
+        [ProducesResponseType(typeof(OrderResponse), 200)]
+        public async Task<ActionResult<OrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
         {
             var response = await Service.SubmitOrderAsync(request);
             return Ok(response);
         }
 
         [HttpPut("{id}", Name = "update-order")]
-        [ProducesResponseType(typeof(UpdateOrderResponse), 201)]
-        public async Task<ActionResult<UpdateOrderResponse>> UpdateOrderAsync(Guid id, UpdateOrderRequest request)
+        [ProducesResponseType(typeof(OrderResponse), 201)]
+        public async Task<ActionResult<OrderResponse>> UpdateOrderAsync(Guid id, UpdateOrderRequest request)
         {
             var response = await Service.UpdateOrderAsync(request);
             return Ok(response);

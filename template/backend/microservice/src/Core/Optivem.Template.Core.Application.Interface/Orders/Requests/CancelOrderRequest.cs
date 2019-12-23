@@ -4,7 +4,7 @@ using System;
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class CancelOrderRequest : IRequest<CancelOrderResponse>
+    public class CancelOrderRequest : IRequest<OrderResponse>
     {
         public Guid Id { get; set; }
     }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.UseCases
 {
-    public class UpdateOrderUseCase : IRequestHandler<UpdateOrderRequest, UpdateOrderResponse>
+    public class UpdateOrderUseCase : IRequestHandler<UpdateOrderRequest, OrderResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -31,7 +31,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
             _orderFactory = orderFactory;
         }
 
-        public async Task<UpdateOrderResponse> HandleAsync(UpdateOrderRequest request)
+        public async Task<OrderResponse> HandleAsync(UpdateOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -46,7 +46,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<Order, UpdateOrderResponse>(order);
+            return _mapper.Map<Order, OrderResponse>(order);
         }
 
         private async Task UpdateAsync(Order order, UpdateOrderRequest request)

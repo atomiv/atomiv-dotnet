@@ -4,14 +4,14 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Infrastructure.Mapping.Orders
 {
-    public class CreateOrderResponseProfile : Profile
+    public class OrderResponseProfile : Profile
     {
-        public CreateOrderResponseProfile()
+        public OrderResponseProfile()
         {
-            CreateMap<Order, CreateOrderResponse>()
+            CreateMap<Order, OrderResponse>()
                 .ForMember(dest => dest.OrderItems, opt => opt.MapFrom(e => e.OrderItems));
 
-            CreateMap<OrderItem, CreateOrderItemResponse>();
+            CreateMap<OrderItem, OrderItemResponse>();
         }
     }
 }

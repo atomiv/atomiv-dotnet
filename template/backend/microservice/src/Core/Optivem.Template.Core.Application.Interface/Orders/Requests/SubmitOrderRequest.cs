@@ -4,7 +4,7 @@ using System;
 
 namespace Optivem.Template.Core.Application.Orders.Requests
 {
-    public class SubmitOrderRequest : IRequest<SubmitOrderResponse>
+    public class SubmitOrderRequest : IRequest<OrderResponse>
     {
         public Guid Id { get; set; }
     }
