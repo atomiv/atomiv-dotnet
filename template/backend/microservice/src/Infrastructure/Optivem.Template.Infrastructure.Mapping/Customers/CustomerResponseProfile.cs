@@ -4,9 +4,9 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.Mapping.Customers
 {
-    public class CreateCustomerResponseProfile : Profile
+    public class CustomerResponseProfile : Profile
     {
-        public CreateCustomerResponseProfile()
+        public CustomerResponseProfile()
         {
             CreateMap<Customer, CustomerResponse>();
         }
