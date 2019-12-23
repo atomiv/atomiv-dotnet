@@ -1,13 +1,14 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Customers.Requests;
 using Optivem.Template.Core.Application.Customers.Responses;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers
 {
-    public class CustomerService : ApplicationService, ICustomerService
+    public class CustomerApplicationService : ApplicationService, ICustomerApplicationService
     {
-        public CustomerService(IRequestHandler requestHandler) : base(requestHandler)
+        public CustomerApplicationService(IRequestHandler requestHandler) : base(requestHandler)
         {
         }
 
@@ -21,13 +22,23 @@ namespace Optivem.Template.Core.Application.Customers
             return HandleAsync<CreateCustomerRequest, CustomerResponse>(request);
         }
 
-        public Task<VoidResponse> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task DeleteCustomerAsync(Guid id)
         {
+            var request = new DeleteCustomerRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<DeleteCustomerRequest, VoidResponse>(request);
         }
 
-        public Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request)
+        public Task<FindCustomerResponse> FindCustomerAsync(Guid id)
         {
+            var request = new FindCustomerRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<FindCustomerRequest, FindCustomerResponse>(request);
         }
 

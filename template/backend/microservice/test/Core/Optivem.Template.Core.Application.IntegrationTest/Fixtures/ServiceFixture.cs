@@ -19,7 +19,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public DbTestClient<DatabaseContext> Db => new ServiceProviderWrapper().Db;
 
-        public ICustomerService CustomerService => new ServiceProviderWrapper().CustomerService;
+        public ICustomerApplicationService CustomerService => new ServiceProviderWrapper().CustomerService;
 
         public IOrderService OrderService => new ServiceProviderWrapper().OrderService;
 
@@ -43,7 +43,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
             ServiceProvider = services.BuildServiceProvider();
 
-            CustomerService = GetService<ICustomerService>();
+            CustomerService = GetService<ICustomerApplicationService>();
             OrderService = GetService<IOrderService>();
             ProductService = GetService<IProductService>();
         }
@@ -62,7 +62,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return ServiceProvider.CreateScope();
         }
 
-        public ICustomerService CustomerService { get; }
+        public ICustomerApplicationService CustomerService { get; }
 
         public IOrderService OrderService { get; }
 
