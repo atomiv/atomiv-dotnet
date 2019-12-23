@@ -10,17 +10,17 @@ namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/orders")]
     [ApiController]
-    public class OrderController : BaseController<IOrderService>
+    public class OrderController : BaseController<IOrderApplicationService>
     {
-        public OrderController(IOrderService service) : base(service)
+        public OrderController(IOrderApplicationService service) : base(service)
         {
         }
 
         [HttpPost("{id}/archive", Name = "archive-order")]
         [ProducesResponseType(typeof(OrderResponse), 200)]
-        public async Task<ActionResult<OrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public async Task<ActionResult<OrderResponse>> ArchiveOrderAsync(Guid id)
         {
-            var response = await Service.ArchiveOrderAsync(request);
+            var response = await Service.ArchiveOrderAsync(id);
             return Ok(response);
         }
 
@@ -40,9 +40,9 @@ namespace Optivem.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/cancel", Name = "cancel-order")]
         [ProducesResponseType(typeof(OrderResponse), 200)]
-        public async Task<ActionResult<OrderResponse>> CancelOrderAsync(CancelOrderRequest request)
+        public async Task<ActionResult<OrderResponse>> CancelOrderAsync(Guid id)
         {
-            var response = await Service.CancelOrderAsync(request);
+            var response = await Service.CancelOrderAsync(id);
             return Ok(response);
         }
 
@@ -60,8 +60,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(500)]
         public async Task<ActionResult<FindOrderResponse>> FindOrderAsync(Guid id)
         {
-            var request = new FindOrderRequest { Id = id };
-            var response = await Service.FindOrderAsync(request);
+            var response = await Service.FindOrderAsync(id);
             return Ok(response);
         }
 
@@ -76,9 +75,9 @@ namespace Optivem.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/submit", Name = "submit-order")]
         [ProducesResponseType(typeof(OrderResponse), 200)]
-        public async Task<ActionResult<OrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
+        public async Task<ActionResult<OrderResponse>> SubmitOrderAsync(Guid id)
         {
-            var response = await Service.SubmitOrderAsync(request);
+            var response = await Service.SubmitOrderAsync(id);
             return Ok(response);
         }
 

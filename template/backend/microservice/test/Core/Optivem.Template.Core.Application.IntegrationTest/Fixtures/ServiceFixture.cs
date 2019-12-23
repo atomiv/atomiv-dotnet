@@ -21,7 +21,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public ICustomerApplicationService CustomerService => new ServiceProviderWrapper().CustomerService;
 
-        public IOrderService OrderService => new ServiceProviderWrapper().OrderService;
+        public IOrderApplicationService OrderService => new ServiceProviderWrapper().OrderService;
 
         public IProductApplicationService ProductService => new ServiceProviderWrapper().ProductService;
 
@@ -44,7 +44,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             ServiceProvider = services.BuildServiceProvider();
 
             CustomerService = GetService<ICustomerApplicationService>();
-            OrderService = GetService<IOrderService>();
+            OrderService = GetService<IOrderApplicationService>();
             ProductService = GetService<IProductApplicationService>();
         }
 
@@ -64,7 +64,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public ICustomerApplicationService CustomerService { get; }
 
-        public IOrderService OrderService { get; }
+        public IOrderApplicationService OrderService { get; }
 
         public IProductApplicationService ProductService { get; }
     }

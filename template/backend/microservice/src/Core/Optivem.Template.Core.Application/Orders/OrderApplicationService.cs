@@ -1,18 +1,24 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Orders.Requests;
 using Optivem.Template.Core.Application.Orders.Responses;
+using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders
 {
-    public class OrderService : ApplicationService, IOrderService
+    public class OrderApplicationService : ApplicationService, IOrderApplicationService
     {
-        public OrderService(IRequestHandler requestHandler) : base(requestHandler)
+        public OrderApplicationService(IRequestHandler requestHandler) : base(requestHandler)
         {
         }
 
-        public Task<OrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public Task<OrderResponse> ArchiveOrderAsync(Guid id)
         {
+            var request = new ArchiveOrderRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<ArchiveOrderRequest, OrderResponse>(request);
         }
 
@@ -21,8 +27,13 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<BrowseOrdersRequest, BrowseOrdersResponse>(request);
         }
 
-        public Task<OrderResponse> CancelOrderAsync(CancelOrderRequest request)
+        public Task<OrderResponse> CancelOrderAsync(Guid id)
         {
+            var request = new CancelOrderRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<CancelOrderRequest, OrderResponse>(request);
         }
 
@@ -31,8 +42,13 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<CreateOrderRequest, OrderResponse>(request);
         }
 
-        public Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request)
+        public Task<FindOrderResponse> FindOrderAsync(Guid id)
         {
+            var request = new FindOrderRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<FindOrderRequest, FindOrderResponse>(request);
         }
 
@@ -41,8 +57,13 @@ namespace Optivem.Template.Core.Application.Orders
             return HandleAsync<ListOrdersRequest, ListOrdersResponse>(request);
         }
 
-        public Task<OrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
+        public Task<OrderResponse> SubmitOrderAsync(Guid id)
         {
+            var request = new SubmitOrderRequest
+            {
+                Id = id,
+            };
+
             return HandleAsync<SubmitOrderRequest, OrderResponse>(request);
         }
 

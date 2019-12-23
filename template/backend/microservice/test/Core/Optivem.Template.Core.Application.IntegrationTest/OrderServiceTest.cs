@@ -193,9 +193,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(OrderItemStatus.Allocated, createResponseOrderDetail.Status);
             }
 
-            var findRequest = new FindOrderRequest { Id = createResponse.Id };
-
-            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
+            var id = createResponse.Id;
+            var findResponse = await Fixture.OrderService.FindOrderAsync(id);
 
             Assert.Equal(createResponse.Id, findResponse.Id);
             Assert.Equal(createResponse.CustomerId, createResponse.CustomerId);
@@ -242,8 +241,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var orderRecord = _orderRecords[0];
             var id = orderRecord.Id;
 
-            var findRequest = new FindOrderRequest { Id = id };
-            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
+            var findResponse = await Fixture.OrderService.FindOrderAsync(id);
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
             Assert.Equal(orderRecord.CustomerId, findResponse.CustomerId);
@@ -270,9 +268,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindOrderRequest { Id = id };
-
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.OrderService.FindOrderAsync(findRequest));
+            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.OrderService.FindOrderAsync(id));
         }
 
         [Fact]
@@ -335,9 +331,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Assert.Equal(OrderItemStatus.Allocated, updateResponseOrderDetail.Status);
             }
 
-            var findRequest = new FindOrderRequest { Id = updateResponse.Id };
-
-            var findResponse = await Fixture.OrderService.FindOrderAsync(findRequest);
+            var id = updateResponse.Id;
+            var findResponse = await Fixture.OrderService.FindOrderAsync(id);
 
             Assert.Equal(updateResponse.Id, findResponse.Id);
             Assert.Equal(updateResponse.CustomerId, updateResponse.CustomerId);
