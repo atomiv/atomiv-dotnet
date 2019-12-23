@@ -23,6 +23,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             {
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "APP",
                     ProductName = "Apple",
                     ListPrice = 10.50m,
@@ -31,6 +32,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "BAN",
                     ProductName = "Banana",
                     ListPrice = 30.99m,
@@ -39,6 +41,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "ONG",
                     ProductName = "Orange",
                     ListPrice = 35.99m,
@@ -47,6 +50,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "STR",
                     ProductName = "Strawberry",
                     ListPrice = 40.00m,
@@ -109,6 +113,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             {
                 var productRecord = new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = $"P{i.ToString("0000")}",
                     ProductName = $"Product {i.ToString("0000")}",
                     ListPrice = 100 + i,

@@ -28,10 +28,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public async Task UpdateAsync(Order order)
         {
-            var orderRecordId = order.Id.Value;
             var orderRecord = await Context.Orders
                 .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+                .FirstOrDefaultAsync(e => e.Id == order.Id);
 
             UpdateOrderRecord(orderRecord, order);
 
@@ -48,16 +47,14 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private OrderRecord GetOrderRecord(Order order)
         {
-            var orderRecordId = order.Id.Value;
-
             var orderItemRecords = order.OrderItems
-                .Select(e => GetOrderItemRecord(e, orderRecordId))
+                .Select(e => GetOrderItemRecord(e, order.Id))
                 .ToList();
 
             return new OrderRecord
             {
-                Id = orderRecordId,
-                CustomerId = order.CustomerId.Value,
+                Id = order.Id,
+                CustomerId = order.CustomerId,
                 OrderStatusId = order.Status,
                 OrderItems = orderItemRecords,
             };
@@ -65,11 +62,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private OrderRecord GetOrderRecord(OrderIdentity orderId)
         {
-            var id = orderId.Value;
-
             return new OrderRecord
             {
-                Id = id,
+                Id = orderId,
             };
         }
 
@@ -77,9 +72,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
             return new OrderItemRecord
             {
-                Id = orderItem.Id.Value,
+                Id = orderItem.Id,
                 OrderId = orderRecordId,
-                ProductId = orderItem.ProductId.Value,
+                ProductId = orderItem.ProductId,
                 StatusId = orderItem.Status,
                 Quantity = orderItem.Quantity,
                 UnitPrice = orderItem.UnitPrice,
@@ -88,11 +83,11 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private void UpdateOrderRecord(OrderRecord record, Order order)
         {
-            record.CustomerId = order.CustomerId.Value;
+            record.CustomerId = order.CustomerId;
             record.OrderStatusId = order.Status;
 
             var addedOrderDetails = order.OrderItems
-                .Where(e => !record.OrderItems.Any(f => f.Id == e.Id.Value))
+                .Where(e => !record.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             var addedOrderDetailRecords = addedOrderDetails
@@ -100,11 +95,11 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
                 .ToList();
 
             var removedOrderDetailRecords = record.OrderItems
-                .Where(e => !order.OrderItems.Any(f => f.Id.Value == e.Id))
+                .Where(e => !order.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             var updatedOrderDetailRecords = record.OrderItems
-                .Where(e => order.OrderItems.Any(f => f.Id.Value == e.Id))
+                .Where(e => order.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             foreach (var addedOrderDetailRecord in addedOrderDetailRecords)
@@ -119,7 +114,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
             foreach (var updatedOrderDetailRecord in updatedOrderDetailRecords)
             {
-                var orderDetail = order.OrderItems.Single(e => e.Id.Value == updatedOrderDetailRecord.Id);
+                var orderDetail = order.OrderItems.Single(e => e.Id == updatedOrderDetailRecord.Id);
 
                 UpdateOrderItemRecord(updatedOrderDetailRecord, orderDetail);
             }
@@ -129,7 +124,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
             return new OrderItemRecord
             {
-                ProductId = orderItem.ProductId.Value,
+                ProductId = orderItem.ProductId,
                 StatusId = orderItem.Status,
                 Quantity = orderItem.Quantity,
                 UnitPrice = orderItem.UnitPrice,
@@ -138,7 +133,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, OrderItem orderItem)
         {
-            orderItemRecord.ProductId = orderItem.ProductId.Value;
+            orderItemRecord.ProductId = orderItem.ProductId;
             orderItemRecord.StatusId = orderItem.Status;
             orderItemRecord.Quantity = orderItem.Quantity;
             orderItemRecord.UnitPrice = orderItem.UnitPrice;

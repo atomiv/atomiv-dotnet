@@ -20,8 +20,8 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public async Task UpdateAsync(Product product)
         {
-            var productRecordId = product.Id.Value;
-            var productRecord = await Context.Products.FindAsync(productRecordId);
+            var productRecord = await Context.Products
+                .FirstOrDefaultAsync(e => e.Id == product.Id);
 
             UpdateProductRecord(productRecord, product);
 
@@ -40,19 +40,13 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private ProductRecord GetProductRecord(Product product)
         {
-            var id = product.Id.Value;
-            var productCode = product.ProductCode;
-            var productName = product.ProductName;
-            var listPrice = product.ListPrice;
-            var isListed = product.IsListed;
-
             return new ProductRecord
             {
-                Id = id,
-                ProductCode = productCode,
-                ProductName = productName,
-                ListPrice = listPrice,
-                IsListed = isListed,
+                Id = product.Id,
+                ProductCode = product.ProductCode,
+                ProductName = product.ProductName,
+                ListPrice = product.ListPrice,
+                IsListed = product.IsListed,
             };
         }
 
@@ -60,23 +54,17 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
             return new ProductRecord
             {
-                Id = productId.Value,
+                Id = productId,
             };
         }
 
         private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            var id = product.Id.Value;
-            var productCode = product.ProductCode;
-            var productName = product.ProductName;
-            var listPrice = product.ListPrice;
-            var isListed = product.IsListed;
-
-            productRecord.Id = id;
-            productRecord.ProductCode = productCode;
-            productRecord.ProductName = productName;
-            productRecord.ListPrice = listPrice;
-            productRecord.IsListed = isListed;
+            productRecord.Id = product.Id;
+            productRecord.ProductCode = product.ProductCode;
+            productRecord.ProductName = product.ProductName;
+            productRecord.ListPrice = product.ListPrice;
+            productRecord.IsListed = product.IsListed;
         }
 
         #endregion

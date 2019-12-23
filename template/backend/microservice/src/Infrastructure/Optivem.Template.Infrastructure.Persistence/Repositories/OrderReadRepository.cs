@@ -20,19 +20,15 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public Task<bool> ExistsAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.Value;
-
             return Context.Orders.AsNoTracking()
-                .AnyAsync(e => e.Id == orderRecordId);
+                .AnyAsync(e => e.Id == orderId);
         }
 
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.Value;
-
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+                .FirstOrDefaultAsync(e => e.Id == orderId);
 
             if (orderRecord == null)
             {

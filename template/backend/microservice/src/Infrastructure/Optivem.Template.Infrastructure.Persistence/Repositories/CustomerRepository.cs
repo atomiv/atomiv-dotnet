@@ -26,8 +26,8 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public async Task UpdateAsync(Customer customer)
         {
-            var customerRecordId = customer.Id.Value;
-            var customerRecord = await Context.Customers.FindAsync(customerRecordId);
+            var customerRecord = await Context.Customers
+                .FirstOrDefaultAsync(e => e.Id == customer.Id);
 
             UpdateCustomerRecord(customerRecord, customer);
 
@@ -43,37 +43,27 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         private CustomerRecord GetCustomerRecord(Customer customer)
         {
-            var id = customer.Id.Value;
-            var firstName = customer.FirstName;
-            var lastName = customer.LastName;
-
             return new CustomerRecord
             {
-                Id = id,
-                FirstName = firstName,
-                LastName = lastName,
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
             };
         }
 
         private CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
         {
-            var id = customerId.Value;
-
             return new CustomerRecord
             {
-                Id = id,
+                Id = customerId,
             };
         }
 
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            var id = customer.Id.Value;
-            var firstName = customer.FirstName;
-            var lastName = customer.LastName;
-
-            customerRecord.Id = id;
-            customerRecord.FirstName = firstName;
-            customerRecord.LastName = lastName;
+            customerRecord.Id = customer.Id;
+            customerRecord.FirstName = customer.FirstName;
+            customerRecord.LastName = customer.LastName;
         }
     }
 }

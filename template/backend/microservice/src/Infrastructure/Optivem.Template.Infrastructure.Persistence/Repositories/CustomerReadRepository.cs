@@ -18,18 +18,14 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public Task<bool> ExistsAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Value;
-
             return Context.Customers.AsNoTracking()
-                .AnyAsync(e => e.Id == customerRecordId);
+                .AnyAsync(e => e.Id == customerId);
         }
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Value;
-
             var customerRecord = await Context.Customers.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customerId);
 
             if(customerRecord == null)
             {
@@ -41,13 +37,11 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         public async Task<CustomerDetailReadModel> GetDetailAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.Value;
-
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)
                     .ThenInclude(e => e.OrderItems)
                         .ThenInclude(e => e.Product)
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customerId);
 
             if(customerRecord == null)
             {

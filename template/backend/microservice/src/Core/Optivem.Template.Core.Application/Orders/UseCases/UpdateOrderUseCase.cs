@@ -55,7 +55,7 @@ namespace Optivem.Template.Core.Application.Orders.UseCases
 
             var addedOrderRequestDetails = request.OrderItems.Where(e => e.Id == null).ToList();
             var updatedOrderRequestDetails = request.OrderItems.Where(e => e.Id != null).ToList();
-            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderItems.Any(f => f.Id == e.Id.Value)).ToList();
+            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderItems.Any(f => f.Id == e.Id)).ToList();
 
             foreach (var added in addedOrderRequestDetails)
             {

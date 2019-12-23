@@ -68,6 +68,11 @@ namespace Optivem.Framework.Core.Domain
             return CompareTo(a, b) >= 0;
         }
 
+        public static implicit operator TValue(Identity<TValue> identity)
+        {
+            return identity.Value;
+        }
+
         private static bool Equals(Identity<TValue> a, Identity<TValue> b)
         {
             if (ReferenceEquals(a, b))
