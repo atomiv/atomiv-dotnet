@@ -4,11 +4,11 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Infrastructure.Mapping.Products
 {
-    public class UnlistProductResponseProfile : Profile
+    public class ProductResponseProfile : Profile
     {
-        public UnlistProductResponseProfile()
+        public ProductResponseProfile()
         {
-            CreateMap<Product, UnlistProductResponse>()
+            CreateMap<Product, ProductResponse>()
                 .ForMember(dest => dest.Code, opt => opt.MapFrom(e => e.ProductCode))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(e => e.ProductName))
                 .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(e => e.ListPrice));

@@ -211,7 +211,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(record.ProductCode, deactivateResponse.Code);
             Assert.Equal(record.ProductName, deactivateResponse.Description);
             Assert.Equal(record.ListPrice, deactivateResponse.UnitPrice);
-            Assert.False(deactivateResponse.IsActive);
+            Assert.False(deactivateResponse.IsListed);
 
             var findRequest = new FindProductRequest { Id = deactivateResponse.Id };
 
@@ -221,7 +221,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             Assert.Equal(deactivateResponse.Code, findResponse.Code);
             Assert.Equal(deactivateResponse.Description, findResponse.Description);
             Assert.Equal(deactivateResponse.UnitPrice, findResponse.UnitPrice);
-            Assert.Equal(deactivateResponse.IsActive, findResponse.IsListed);
+            Assert.Equal(deactivateResponse.IsListed, findResponse.IsListed);
         }
 
         [Fact]

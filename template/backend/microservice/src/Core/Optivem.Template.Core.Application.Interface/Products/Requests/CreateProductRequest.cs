@@ -3,7 +3,7 @@ using Optivem.Template.Core.Application.Products.Responses;
 
 namespace Optivem.Template.Core.Application.Products.Requests
 {
-    public class CreateProductRequest : IRequest<CreateProductResponse>
+    public class CreateProductRequest : IRequest<ProductResponse>
     {
         public string Code { get; set; }
 

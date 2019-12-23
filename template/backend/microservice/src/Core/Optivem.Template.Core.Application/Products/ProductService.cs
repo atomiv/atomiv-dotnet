@@ -12,9 +12,9 @@ namespace Optivem.Template.Core.Application.Products
         {
         }
 
-        public Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request)
+        public Task<ProductResponse> RelistProductAsync(RelistProductRequest request)
         {
-            return HandleAsync<RelistProductRequest, RelistProductResponse>(request);
+            return HandleAsync<RelistProductRequest, ProductResponse>(request);
         }
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
@@ -22,9 +22,9 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
         }
 
-        public Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request)
+        public Task<ProductResponse> CreateProductAsync(CreateProductRequest request)
         {
-            return HandleAsync<CreateProductRequest, CreateProductResponse>(request);
+            return HandleAsync<CreateProductRequest, ProductResponse>(request);
         }
 
         public Task<FindProductResponse> FindProductAsync(FindProductRequest request)
@@ -37,14 +37,14 @@ namespace Optivem.Template.Core.Application.Products
             return HandleAsync<ListProductRequest, ListProductsResponse>(request);
         }
 
-        public Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request)
+        public Task<ProductResponse> UnlistProductAsync(UnlistProductRequest request)
         {
-            return HandleAsync<UnlistProductRequest, UnlistProductResponse>(request);
+            return HandleAsync<UnlistProductRequest, ProductResponse>(request);
         }
 
-        public Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request)
+        public Task<ProductResponse> UpdateProductAsync(UpdateProductRequest request)
         {
-            return HandleAsync<UpdateProductRequest, UpdateProductResponse>(request);
+            return HandleAsync<UpdateProductRequest, ProductResponse>(request);
         }
     }
 }
