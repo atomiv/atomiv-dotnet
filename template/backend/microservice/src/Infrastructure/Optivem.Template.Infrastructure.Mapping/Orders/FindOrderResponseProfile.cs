@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Template.Core.Application.Orders.Responses;
+using Optivem.Template.Core.Application.Orders.Queries;
 using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Infrastructure.Mapping.Orders

@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Optivem.Framework.Test.Xunit;
-using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Commands;
+using Optivem.Template.Core.Application.Customers.Queries;
 using Optivem.Template.Infrastructure.Persistence.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System;

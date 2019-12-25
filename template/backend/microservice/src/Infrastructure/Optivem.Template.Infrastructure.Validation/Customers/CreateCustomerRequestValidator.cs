@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using Optivem.Framework.Infrastructure.FluentValidation;
-using Optivem.Template.Core.Application.Customers.Requests;
+using Optivem.Template.Core.Application.Customers.Commands;
 
 namespace Optivem.Template.Infrastructure.Validation.Customers
 {

@@ -1,15 +1,4 @@
-using FluentAssertions;
-using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Test.Xunit;
 using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Infrastructure.Persistence.Records;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace Optivem.Template.Core.Application.IntegrationTest
 {

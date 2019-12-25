@@ -1,5 +1,6 @@
 ﻿using Optivem.Framework.Test.Xunit;
-using Optivem.Template.Core.Application.Orders.Requests;
+using Optivem.Template.Core.Application.Orders.Commands;
+using Optivem.Template.Core.Application.Orders.Queries;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Infrastructure.Persistence.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;

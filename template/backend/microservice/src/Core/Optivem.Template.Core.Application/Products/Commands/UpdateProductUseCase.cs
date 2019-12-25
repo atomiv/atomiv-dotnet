@@ -1,0 +1,47 @@
+﻿using Optivem.Framework.Core.Application;
+using Optivem.Framework.Core.Application.Mapping;
+using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Domain.Products;
+using System.Threading.Tasks;
+
+namespace Optivem.Template.Core.Application.Products.Commands
+{
+    public class UpdateProductUseCase : IRequestHandler<UpdateProductRequest, ProductResponse>
+    {
+        private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IProductRepository _productRepository;
+
+        public UpdateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        {
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
+            _productRepository = productRepository;
+        }
+
+        public async Task<ProductResponse> HandleAsync(UpdateProductRequest request)
+        {
+            var productId = new ProductIdentity(request.Id);
+
+            var product = await _productRepository.FindAsync(productId);
+
+            if (product == null)
+            {
+                throw new NotFoundRequestException();
+            }
+
+            Update(product, request);
+
+            await _productRepository.UpdateAsync(product);
+            await _unitOfWork.SaveChangesAsync();
+            var response = _mapper.Map<Product, ProductResponse>(product);
+            return response;
+        }
+
+        private void Update(Product product, UpdateProductRequest request)
+        {
+            product.ProductName = request.Description;
+            product.ListPrice = request.UnitPrice;
+        }
+    }
+}

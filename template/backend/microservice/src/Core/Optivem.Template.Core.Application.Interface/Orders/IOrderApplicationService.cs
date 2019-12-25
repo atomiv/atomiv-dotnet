@@ -1,6 +1,6 @@
 ﻿using Optivem.Framework.Core.Application;
-using Optivem.Template.Core.Application.Orders.Requests;
-using Optivem.Template.Core.Application.Orders.Responses;
+using Optivem.Template.Core.Application.Orders.Commands;
+using Optivem.Template.Core.Application.Orders.Queries;
 using System;
 using System.Threading.Tasks;
 

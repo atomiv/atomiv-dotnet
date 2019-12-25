@@ -1,8 +1,6 @@
 ﻿using Optivem.Framework.Test.Xunit;
-using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
-using Optivem.Template.Core.Application.Products.Requests;
-using Optivem.Template.Core.Application.Products.Responses;
+using Optivem.Template.Core.Application.Customers.Commands;
+using Optivem.Template.Core.Application.Products.Commands;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

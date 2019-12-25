@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Template.Core.Application.Products.Responses;
+using Optivem.Template.Core.Application.Products.Queries;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Infrastructure.Mapping.Products

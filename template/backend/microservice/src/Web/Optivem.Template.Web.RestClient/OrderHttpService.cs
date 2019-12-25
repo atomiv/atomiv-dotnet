@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Infrastructure.AspNetCore;
-using Optivem.Template.Core.Application.Orders.Requests;
-using Optivem.Template.Core.Application.Orders.Responses;
+using Optivem.Template.Core.Application.Orders.Commands;
+using Optivem.Template.Core.Application.Orders.Queries;
 using Optivem.Template.Web.RestClient.Interface;
 using System;
 using System.Threading.Tasks;

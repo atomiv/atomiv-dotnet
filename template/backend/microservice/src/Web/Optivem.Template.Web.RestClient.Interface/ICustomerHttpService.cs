@@ -1,7 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Common.Http;
-using Optivem.Template.Core.Application.Customers.Requests;
-using Optivem.Template.Core.Application.Customers.Responses;
+using Optivem.Template.Core.Application.Customers.Commands;
+using Optivem.Template.Core.Application.Customers.Queries;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Interface
