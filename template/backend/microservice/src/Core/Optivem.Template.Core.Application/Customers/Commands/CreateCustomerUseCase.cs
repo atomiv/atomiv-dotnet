@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {
-    public class CreateCustomerUseCase : IRequestHandler<CreateCustomerRequest, CustomerResponse>
+    public class CreateCustomerUseCase : IRequestHandler<CreateCustomerRequest, CreateCustomerResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -21,14 +21,14 @@ namespace Optivem.Template.Core.Application.Customers.Commands
             _customerFactory = customerFactory;
         }
 
-        public async Task<CustomerResponse> HandleAsync(CreateCustomerRequest request)
+        public async Task<CreateCustomerResponse> HandleAsync(CreateCustomerRequest request)
         {
             var customer = GetCustomer(request);
 
             _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync();
 
-            return _mapper.Map<Customer, CustomerResponse>(customer);
+            return _mapper.Map<Customer, CreateCustomerResponse>(customer);
         }
 
         protected Customer GetCustomer(CreateCustomerRequest request)

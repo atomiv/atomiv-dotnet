@@ -1,10 +1,11 @@
 ﻿using Optivem.Template.Core.Common.Orders;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class OrderResponse
+    public class CreateOrderResponse
     {
         public Guid Id { get; set; }
 
@@ -12,10 +13,10 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
         public OrderStatus Status { get; set; }
 
-        public List<OrderItemResponse> OrderItems { get; set; }
+        public List<CreateOrderItemResponse> OrderItems { get; set; }
     }
 
-    public class OrderItemResponse
+    public class CreateOrderItemResponse
     {
         public Guid Id { get; set; }
 

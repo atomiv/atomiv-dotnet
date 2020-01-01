@@ -15,6 +15,43 @@ namespace Optivem.Template.Core.Application.Products
 
         public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
         {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductResponse> CreateProductAsync(CreateProductRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<FindProductResponse> FindProductAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ListProductsResponse> ListProductsAsync(ListProductRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductResponse> RelistProductAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductResponse> UnlistProductAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductResponse> UpdateProductAsync(UpdateProductRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
+
+        public Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request)
+        {
             return HandleAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
         }
 
@@ -62,5 +99,7 @@ namespace Optivem.Template.Core.Application.Products
         {
             return HandleAsync<UpdateProductRequest, ProductResponse>(request);
         }
+
+        */
     }
 }

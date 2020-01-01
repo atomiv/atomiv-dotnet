@@ -1,9 +1,13 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {
-    public class CreateCustomerRequest : IRequest<CreateCustomerResponse>
+    public class UpdateCustomerResponse
     {
+        public Guid Id { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

@@ -22,12 +22,14 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new CustomerRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
                 new CustomerRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     FirstName = "John",
                     LastName = "McDonald",
                 }
@@ -36,7 +38,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Fixture.Db.AddRange(_customerRecords);
         }
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task ListCustomers_OK()
         {
             var listRequest = new ListCustomersRequest { };

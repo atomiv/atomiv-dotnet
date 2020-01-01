@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class SubmitOrderUseCase : IRequestHandler<SubmitOrderRequest, OrderResponse>
+    public class SubmitOrderUseCase : IRequestHandler<SubmitOrderRequest, SubmitOrderResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,7 +19,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             _orderRepository = orderRepository;
         }
 
-        public async Task<OrderResponse> HandleAsync(SubmitOrderRequest request)
+        public async Task<SubmitOrderResponse> HandleAsync(SubmitOrderRequest request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             await _orderRepository.UpdateAsync(order);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<Order, OrderResponse>(order);
+            return _mapper.Map<Order, SubmitOrderResponse>(order);
         }
     }
 }

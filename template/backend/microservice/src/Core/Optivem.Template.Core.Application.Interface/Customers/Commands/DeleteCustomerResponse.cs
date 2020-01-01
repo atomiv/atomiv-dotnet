@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {
-    public class CustomerResponse
+    public class DeleteCustomerResponse
     {
         public Guid Id { get; set; }
 

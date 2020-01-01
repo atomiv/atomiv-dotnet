@@ -4,11 +4,11 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Infrastructure.Mapping.Customers
 {
-    public class CustomerResponseProfile : Profile
+    public class DeleteCustomerResponseProfile : Profile
     {
-        public CustomerResponseProfile()
+        public DeleteCustomerResponseProfile()
         {
-            CreateMap<Customer, CustomerResponse>();
+            CreateMap<Customer, DeleteCustomerResponse>();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.MediatR
 {
-    public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TRequest, TResponse>, TResponse>
+    public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TResponse>, TResponse>
         where TRequest : Core.Application.IRequest<TResponse>
     {
         private Core.Application.IRequestHandler<TRequest, TResponse> _requestHandler;
@@ -15,9 +15,9 @@ namespace Optivem.Framework.Infrastructure.MediatR
             _requestHandler = requestHandler;
         }
 
-        public Task<TResponse> Handle(MediatorRequest<TRequest, TResponse> request, CancellationToken cancellationToken)
+        public Task<TResponse> Handle(MediatorRequest<TResponse> request, CancellationToken cancellationToken)
         {
-            return _requestHandler.HandleAsync(request.Request);
+            return _requestHandler.HandleAsync((TRequest) request.Request);
         }
     }
 
@@ -30,11 +30,10 @@ namespace Optivem.Framework.Infrastructure.MediatR
             _mediator = mediator;
         }
 
-        public Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request)
-            where TRequest : Core.Application.IRequest<TResponse>
+        public Task<TResponse> HandleAsync<TResponse>(Core.Application.IRequest<TResponse> request)
         {
             // TODO: VC:
-            var mediatorRequest = new MediatorRequest<TRequest, TResponse>
+            var mediatorRequest = new MediatorRequest<TResponse>
             {
                 Request = request,
             };

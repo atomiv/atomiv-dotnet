@@ -15,7 +15,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
         private static Type RequestHandlerType = typeof(Core.Application.IRequestHandler<,>);
         private static Type RequestValidatorType = typeof(IRequestValidator<>);
         private static Type PipelineBehaviorType = typeof(IPipelineBehavior<,>);
-        private static Type MediatorRequestType = typeof(MediatorRequest<,>);
+        private static Type MediatorRequestType = typeof(MediatorRequest<>);
         private static Type ValidationPipelineBehaviorType = typeof(ValidationPipelineBehavior<,>);
         private static Type MediatorRequestHandlerType = typeof(MediatorRequestHandler<,>);
         private static Type MediatorRequestHandlerInterfaceType = typeof(global::MediatR.IRequestHandler<,>);
@@ -43,7 +43,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
                 var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
                 var responseType = requestHandlerInterfaceType.GenericTypeArguments[1];
 
-                var mediatorRequestImplementationType = MediatorRequestType.MakeGenericType(requestType, responseType);
+                var mediatorRequestImplementationType = MediatorRequestType.MakeGenericType(responseType);
                 var mediatorRequestHandlerImplementationType = MediatorRequestHandlerType.MakeGenericType(requestType, responseType);
 
                 var serviceType = MediatorRequestHandlerInterfaceType.MakeGenericType(mediatorRequestImplementationType, responseType);
@@ -95,7 +95,7 @@ namespace Optivem.Framework.DependencyInjection.Infrastructure.MediatR
             var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
             var responseType = requestHandlerInterfaceType.GenericTypeArguments[1];
 
-            var mediatorRequestServiceType = MediatorRequestType.MakeGenericType(requestType, responseType);
+            var mediatorRequestServiceType = MediatorRequestType.MakeGenericType(responseType);
             var pipelineBehaviorServiceType = PipelineBehaviorType.MakeGenericType(mediatorRequestServiceType, responseType);
             var validationPipelineBehaviorImplementationType = ValidationPipelineBehaviorType.MakeGenericType(requestType, responseType);
 

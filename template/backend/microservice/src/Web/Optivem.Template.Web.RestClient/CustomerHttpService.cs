@@ -21,15 +21,15 @@ namespace Optivem.Template.Web.RestClient
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<CustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<IObjectClientResponse<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
-            return Client.PostAsync<CreateCustomerRequest, CustomerResponse>(request);
+            return Client.PostAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
         }
 
-        public Task<IObjectClientResponse<VoidResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task<IObjectClientResponse<DeleteCustomerResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<Guid, VoidResponse>(id);
+            return Client.DeleteByIdAsync<Guid, DeleteCustomerResponse>(id);
         }
 
         public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(FindCustomerRequest request)
@@ -43,9 +43,9 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetAsync<ListCustomersResponse>();
         }
 
-        public Task<IObjectClientResponse<CustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
         {
-            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, CustomerResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
         }
     }
 }

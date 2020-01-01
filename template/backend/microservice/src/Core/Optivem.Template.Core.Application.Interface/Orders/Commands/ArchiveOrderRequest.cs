@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class ArchiveOrderRequest : IRequest<OrderResponse>
+    public class ArchiveOrderRequest : IRequest<ArchiveOrderResponse>
     {
         public Guid Id { get; set; }
     }

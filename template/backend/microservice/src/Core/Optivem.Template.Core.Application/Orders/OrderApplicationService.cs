@@ -12,64 +12,44 @@ namespace Optivem.Template.Core.Application.Orders
         {
         }
 
-        public Task<OrderResponse> ArchiveOrderAsync(Guid id)
+        public Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
-            var request = new ArchiveOrderRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<ArchiveOrderRequest, OrderResponse>(request);
+            return HandleAsync(request);
         }
 
         public Task<BrowseOrdersResponse> BrowseOrdersAsync(BrowseOrdersRequest request)
         {
-            return HandleAsync<BrowseOrdersRequest, BrowseOrdersResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<OrderResponse> CancelOrderAsync(Guid id)
+        public Task<CancelOrderResponse> CancelOrderAsync(CancelOrderRequest request)
         {
-            var request = new CancelOrderRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<CancelOrderRequest, OrderResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<OrderResponse> CreateOrderAsync(CreateOrderRequest request)
+        public Task<CreateOrderResponse> CreateOrderAsync(CreateOrderRequest request)
         {
-            return HandleAsync<CreateOrderRequest, OrderResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<FindOrderResponse> FindOrderAsync(Guid id)
+        public Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request)
         {
-            var request = new FindOrderRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<FindOrderRequest, FindOrderResponse>(request);
+            return HandleAsync(request);
         }
 
         public Task<ListOrdersResponse> ListOrdersAsync(ListOrdersRequest request)
         {
-            return HandleAsync<ListOrdersRequest, ListOrdersResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<OrderResponse> SubmitOrderAsync(Guid id)
+        public Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
         {
-            var request = new SubmitOrderRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<SubmitOrderRequest, OrderResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<OrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
+        public Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            return HandleAsync<UpdateOrderRequest, OrderResponse>(request);
+            return HandleAsync(request);
         }
     }
 }

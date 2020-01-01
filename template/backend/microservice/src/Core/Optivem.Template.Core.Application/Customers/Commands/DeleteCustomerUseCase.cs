@@ -5,7 +5,7 @@ using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {
-    public class DeleteCustomerUseCase : IRequestHandler<DeleteCustomerRequest, VoidResponse>
+    public class DeleteCustomerUseCase : IRequestHandler<DeleteCustomerRequest, DeleteCustomerResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Customers.Commands
             _customerRepository = customerRepository;
         }
 
-        public async Task<VoidResponse> HandleAsync(DeleteCustomerRequest request)
+        public async Task<DeleteCustomerResponse> HandleAsync(DeleteCustomerRequest request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
@@ -31,7 +31,7 @@ namespace Optivem.Template.Core.Application.Customers.Commands
 
             await _unitOfWork.SaveChangesAsync();
 
-            return VoidResponse.Instance;
+            return new DeleteCustomerResponse();
         }
     }
 }

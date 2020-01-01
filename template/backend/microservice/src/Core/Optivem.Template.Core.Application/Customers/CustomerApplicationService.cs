@@ -14,42 +14,32 @@ namespace Optivem.Template.Core.Application.Customers
 
         public Task<BrowseCustomersResponse> BrowseCustomersAsync(BrowseCustomersRequest request)
         {
-            return HandleAsync<BrowseCustomersRequest, BrowseCustomersResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<CustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
         {
-            return HandleAsync<CreateCustomerRequest, CustomerResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task DeleteCustomerAsync(Guid id)
+        public Task<DeleteCustomerResponse> DeleteCustomerAsync(DeleteCustomerRequest request)
         {
-            var request = new DeleteCustomerRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<DeleteCustomerRequest, VoidResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<FindCustomerResponse> FindCustomerAsync(Guid id)
+        public Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request)
         {
-            var request = new FindCustomerRequest
-            {
-                Id = id,
-            };
-
-            return HandleAsync<FindCustomerRequest, FindCustomerResponse>(request);
+            return HandleAsync(request);
         }
 
         public Task<ListCustomersResponse> ListCustomersAsync(ListCustomersRequest request)
         {
-            return HandleAsync<ListCustomersRequest, ListCustomersResponse>(request);
+            return HandleAsync(request);
         }
 
-        public Task<CustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
         {
-            return HandleAsync<UpdateCustomerRequest, CustomerResponse>(request);
+            return HandleAsync(request);
         }
     }
 }

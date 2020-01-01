@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class CreateOrderRequest : IRequest<OrderResponse>
+    public class CreateOrderRequest : IRequest<CreateOrderResponse>
     {
         public Guid CustomerId { get; set; }
 

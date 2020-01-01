@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {
-    public class UpdateCustomerRequest : IRequest<CustomerResponse>
+    public class UpdateCustomerRequest : IRequest<UpdateCustomerResponse>
     {
         public Guid Id { get; set; }
 

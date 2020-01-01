@@ -8,20 +8,20 @@ namespace Optivem.Template.Core.Application.Orders
 {
     public interface IOrderApplicationService : IApplicationService
     {
-        Task<OrderResponse> ArchiveOrderAsync(Guid id);
+        Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request);
 
         Task<BrowseOrdersResponse> BrowseOrdersAsync(BrowseOrdersRequest request);
 
-        Task<OrderResponse> CancelOrderAsync(Guid id);
+        Task<CancelOrderResponse> CancelOrderAsync(CancelOrderRequest request);
 
-        Task<OrderResponse> CreateOrderAsync(CreateOrderRequest request);
+        Task<CreateOrderResponse> CreateOrderAsync(CreateOrderRequest request);
 
-        Task<FindOrderResponse> FindOrderAsync(Guid id);
+        Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request);
 
         Task<ListOrdersResponse> ListOrdersAsync(ListOrdersRequest request);
 
-        Task<OrderResponse> SubmitOrderAsync(Guid id);
+        Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request);
 
-        Task<OrderResponse> UpdateOrderAsync(UpdateOrderRequest request);
+        Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request);
     }
 }

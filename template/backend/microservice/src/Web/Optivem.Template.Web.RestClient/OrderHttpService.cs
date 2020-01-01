@@ -15,10 +15,10 @@ namespace Optivem.Template.Web.RestClient
         {
         }
 
-        public Task<IObjectClientResponse<OrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public Task<IObjectClientResponse<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
         {
             var id = request.Id;
-            return Client.PostAsync<OrderResponse>($"{id}/archive");
+            return Client.PostAsync<ArchiveOrderResponse>($"{id}/archive");
         }
 
         public Task<IObjectClientResponse<BrowseOrdersResponse>> BrowseOrdersAsync(BrowseOrdersRequest request)
@@ -26,15 +26,15 @@ namespace Optivem.Template.Web.RestClient
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<OrderResponse>> CancelOrderAsync(CancelOrderRequest request)
+        public Task<IObjectClientResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
         {
             var id = request.Id;
-            return Client.PostAsync<OrderResponse>($"{id}/cancel");
+            return Client.PostAsync<CancelOrderResponse>($"{id}/cancel");
         }
 
-        public Task<IObjectClientResponse<OrderResponse>> CreateOrderAsync(CreateOrderRequest request)
+        public Task<IObjectClientResponse<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
         {
-            return Client.PostAsync<CreateOrderRequest, OrderResponse>(request);
+            return Client.PostAsync<CreateOrderRequest, CreateOrderResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindOrderResponse>> FindOrderAsync(FindOrderRequest request)
@@ -48,15 +48,15 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetAsync<ListOrdersResponse>("list");
         }
 
-        public Task<IObjectClientResponse<OrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
+        public Task<IObjectClientResponse<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
         {
             var id = request.Id;
-            return Client.PostAsync<OrderResponse>($"{id}/submit");
+            return Client.PostAsync<SubmitOrderResponse>($"{id}/submit");
         }
 
-        public Task<IObjectClientResponse<OrderResponse>> UpdateOrderAsync(UpdateOrderRequest request)
+        public Task<IObjectClientResponse<UpdateOrderResponse>> UpdateOrderAsync(UpdateOrderRequest request)
         {
-            return Client.PutByIdAsync<Guid, UpdateOrderRequest, OrderResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateOrderRequest, UpdateOrderResponse>(request.Id, request);
         }
     }
 }

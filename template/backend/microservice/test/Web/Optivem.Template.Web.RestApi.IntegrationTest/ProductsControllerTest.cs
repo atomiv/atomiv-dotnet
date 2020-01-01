@@ -22,6 +22,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "APP",
                     ProductName = "Apple",
                     ListPrice = 10.50m,
@@ -29,6 +30,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "BAN",
                     ProductName = "Banana",
                     ListPrice = 30.99m,
@@ -106,7 +108,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
         }
 
-        [Fact]
+        [Fact(Skip = "In progress")]
         public async Task ListProducts_Valid_OK()
         {
             var listRequest = new ListProductRequest { };

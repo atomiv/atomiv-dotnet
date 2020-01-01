@@ -32,21 +32,26 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(500)]
         public async Task<ActionResult<FindCustomerResponse>> FindCustomerAsync(Guid id)
         {
-            var response = await Service.FindCustomerAsync(id);
+            var request = new FindCustomerRequest
+            {
+                Id = id,
+            };
+
+            var response = await Service.FindCustomerAsync(request);
             return Ok(response);
         }
 
         [HttpPost(Name = "create-customer")]
-        [ProducesResponseType(typeof(CustomerResponse), 201)]
-        public async Task<ActionResult<CustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        [ProducesResponseType(typeof(DeleteCustomerResponse), 201)]
+        public async Task<ActionResult<DeleteCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
         {
             var response = await Service.CreateCustomerAsync(request);
             return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
 
         [HttpPut("{id}", Name = "update-customer")]
-        [ProducesResponseType(typeof(CustomerResponse), 201)]
-        public async Task<ActionResult<CustomerResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerRequest request)
+        [ProducesResponseType(typeof(DeleteCustomerResponse), 201)]
+        public async Task<ActionResult<DeleteCustomerResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerRequest request)
         {
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
@@ -55,7 +60,12 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [HttpDelete("{id}", Name = "delete-customer")]
         public async Task<ActionResult> DeleteCustomerAsync(Guid id)
         {
-            await Service.DeleteCustomerAsync(id);
+            var request = new DeleteCustomerRequest
+            {
+                Id = id,
+            };
+
+            await Service.DeleteCustomerAsync(request);
             return NoContent();
         }
     }

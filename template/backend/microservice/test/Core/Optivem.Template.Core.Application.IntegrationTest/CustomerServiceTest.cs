@@ -81,7 +81,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecordResponses = new List<CustomerResponse>
+            var expectedRecordResponses = new List<CreateCustomerResponse>
             {
                 createResponses[3],
                 createResponses[4],
@@ -114,7 +114,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             createResponse.Should().BeEquivalentTo(createRequest);
 
             var id = createResponse.Id;
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
             findResponse.Should().BeEquivalentTo(createResponse);
         }
 
@@ -169,11 +170,13 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = createResponses[1].Id;
-            await Fixture.CustomerService.DeleteCustomerAsync(id);
+            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            await Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
 
             // Assert
 
-            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
             await findFunc.Should().ThrowAsync<NotFoundRequestException>();
         }
 
@@ -208,7 +211,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = Guid.NewGuid();
-            Func<Task> deleteFunc = () => Fixture.CustomerService.DeleteCustomerAsync(id);
+            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            Func<Task> deleteFunc = () => Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
 
             // Assert
 
@@ -247,7 +251,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var someCreateResponse = createResponses[1];
             var id = someCreateResponse.Id;
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
 
             // Assert
             
@@ -286,7 +291,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = Guid.NewGuid();
-            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
 
             // Assert
 
@@ -358,7 +364,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecords = new List<CustomerResponse>
+            var expectedRecords = new List<CreateCustomerResponse>
             {
                 createResponses[3],
                 createResponses[5],
@@ -423,7 +429,8 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             updateResponse.Should().BeEquivalentTo(updateRequest);
 
             var id = updateRequest.Id;
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(id);
+            var findRequest = new FindCustomerRequest { Id = id };
+            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
             findResponse.Should().BeEquivalentTo(updateResponse);
         }
 

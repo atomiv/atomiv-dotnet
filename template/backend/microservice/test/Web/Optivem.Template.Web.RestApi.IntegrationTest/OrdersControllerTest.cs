@@ -25,18 +25,21 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new CustomerRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     FirstName = "Mary2",
                     LastName = "Smith2",
                 },
 
                 new CustomerRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     FirstName = "John2",
                     LastName = "McDonald2",
                 },
 
                 new CustomerRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     FirstName = "Jake2",
                     LastName = "McDonald2",
                 }
@@ -48,6 +51,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "APP2",
                     ProductName = "Apple2",
                     ListPrice = 102.50m,
@@ -55,6 +59,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "BAN2",
                     ProductName = "Banana2",
                     ListPrice = 302.99m,
@@ -62,6 +67,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "ORG2",
                     ProductName = "Orange2",
                     ListPrice = 102.50m,
@@ -69,6 +75,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 new ProductRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     ProductCode = "MAN2",
                     ProductName = "Mango2",
                     ListPrice = 500.99m,
@@ -81,6 +88,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             {
                 new OrderRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     CustomerId = _customerRecords[0].Id,
                     OrderStatusId = OrderStatus.Invoiced,
 
@@ -88,6 +96,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                     {
                         new OrderItemRecord
                         {
+                            Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                             ProductId = _productRecords[0].Id,
                             UnitPrice = _productRecords[0].ListPrice,
                             Quantity = 30,
@@ -96,6 +105,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                         new OrderItemRecord
                         {
+                            Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 60,
@@ -106,6 +116,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                 new OrderRecord
                 {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                     CustomerId = _customerRecords[1].Id,
                     OrderStatusId = OrderStatus.Shipped,
 
@@ -113,6 +124,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                     {
                         new OrderItemRecord
                         {
+                            Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                             ProductId = _productRecords[1].Id,
                             UnitPrice = _productRecords[1].ListPrice,
                             Quantity = 40,
@@ -121,6 +133,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
                         new OrderItemRecord
                         {
+                            Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
                             ProductId = _productRecords[2].Id,
                             UnitPrice = _productRecords[2].ListPrice,
                             Quantity = 50,

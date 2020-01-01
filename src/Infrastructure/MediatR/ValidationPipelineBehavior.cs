@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.MediatR
 {
-    public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TRequest, TResponse>, TResponse>
+    public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TResponse>, TResponse>
         where TRequest : Core.Application.IRequest<TResponse>
     {
         private IRequestValidationHandler<TRequest> _validationHandler;
@@ -15,9 +15,9 @@ namespace Optivem.Framework.Infrastructure.MediatR
             _validationHandler = validationHandler;
         }
 
-        public async Task<TResponse> Handle(MediatorRequest<TRequest, TResponse> request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(MediatorRequest<TResponse> request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            await _validationHandler.HandleAsync(request.Request);
+            await _validationHandler.HandleAsync((TRequest) request.Request);
             return await next();
         }
     }

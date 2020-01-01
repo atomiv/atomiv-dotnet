@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class CreateOrderUseCase : IRequestHandler<CreateOrderRequest, OrderResponse>
+    public class CreateOrderUseCase : IRequestHandler<CreateOrderRequest, CreateOrderResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -33,14 +33,14 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             _orderFactory = orderFactory;
         }
 
-        public async Task<OrderResponse> HandleAsync(CreateOrderRequest request)
+        public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
         {
             var order = await GetOrderAsync(request);
 
             _orderRepository.Add(order);
             await _unitOfWork.SaveChangesAsync();
 
-            var response = _mapper.Map<Order, OrderResponse>(order);
+            var response = _mapper.Map<Order, CreateOrderResponse>(order);
             return response;
         }
 

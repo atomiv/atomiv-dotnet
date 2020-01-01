@@ -1,8 +1,7 @@
 ﻿namespace Optivem.Framework.Infrastructure.MediatR
 {
-    public class MediatorRequest<TRequest, TResponse> : IMediatorRequest<TRequest, TResponse>
-        where TRequest : Core.Application.IRequest<TResponse>
+    public class MediatorRequest<TResponse> : IMediatorRequest<TResponse>
     {
-        public TRequest Request { get; set; }
+        public Core.Application.IRequest<TResponse> Request { get; set; }
     }
 }
