@@ -2,18 +2,15 @@
 using Optivem.Framework.Core.Application;
 using Optivem.Framework.Test.EntityFrameworkCore;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
-using Optivem.Template.Core.Application.Customers;
-using Optivem.Template.Core.Application.Orders;
-using Optivem.Template.Core.Application.Products;
 using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.Persistence;
 using System;
 
-namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
+namespace Optivem.Template.Core.Application.IntegrationTest
 {
-    public class ServiceFixture : IDisposable
+    public class Fixture : IDisposable
     {
-        public ServiceFixture()
+        public Fixture()
         {
 
         }

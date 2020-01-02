@@ -1,6 +1,4 @@
-﻿using MediatR;
-using Optivem.Framework.Core.Application;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.MediatR

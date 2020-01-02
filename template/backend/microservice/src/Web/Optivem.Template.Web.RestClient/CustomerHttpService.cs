@@ -1,5 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Common.Http;
+﻿using Optivem.Framework.Core.Common.Http;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;

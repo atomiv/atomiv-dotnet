@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Web.AspNetCore;
-using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Products.Queries;
 using System.Threading.Tasks;
 

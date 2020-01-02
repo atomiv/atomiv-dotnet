@@ -1,6 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Test.Xunit;
-using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Template.Core.Application.Orders.Commands;
 using Optivem.Template.Core.Application.Orders.Queries;
 using Optivem.Template.Core.Common.Orders;
@@ -13,13 +12,13 @@ using Xunit;
 
 namespace Optivem.Template.Core.Application.IntegrationTest
 {
-    public class OrderServiceTest : ServiceTest
+    public class OrderServiceTest : Test
     {
         private readonly List<CustomerRecord> _customerRecords;
         private readonly List<ProductRecord> _productRecords;
         private readonly List<OrderRecord> _orderRecords;
 
-        public OrderServiceTest(ServiceFixture fixture) : base(fixture)
+        public OrderServiceTest(Fixture fixture) : base(fixture)
         {
             _customerRecords = new List<CustomerRecord>
             {

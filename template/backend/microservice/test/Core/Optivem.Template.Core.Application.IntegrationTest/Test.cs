@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
+namespace Optivem.Template.Core.Application.IntegrationTest
 {
-    public class ServiceTest : FixtureTest<ServiceFixture>, IDisposable
+    public class Test : FixtureTest<Fixture>, IDisposable
     {
-        public ServiceTest(ServiceFixture fixture)
+        public Test(Fixture fixture)
             : base(fixture)
         {
         }

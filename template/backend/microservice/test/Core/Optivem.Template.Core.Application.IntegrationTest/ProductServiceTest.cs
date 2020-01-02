@@ -1,10 +1,8 @@
-using Optivem.Template.Core.Application.IntegrationTest.Fixtures;
-
 namespace Optivem.Template.Core.Application.IntegrationTest
 {
-    public class ProductServiceTest : ServiceTest
+    public class ProductServiceTest : Test
     {
-        public ProductServiceTest(ServiceFixture fixture)
+        public ProductServiceTest(Fixture fixture)
             : base(fixture)
         {
 
