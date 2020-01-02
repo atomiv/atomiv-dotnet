@@ -10,16 +10,16 @@ namespace Optivem.Template.Core.Application.Products
     {
         Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request);
 
-        Task<ProductResponse> CreateProductAsync(CreateProductRequest request);
+        Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request);
 
-        Task<FindProductResponse> FindProductAsync(Guid id);
+        Task<FindProductResponse> FindProductAsync(FindProductRequest request);
 
         Task<ListProductsResponse> ListProductsAsync(ListProductRequest request);
 
-        Task<ProductResponse> RelistProductAsync(Guid id);
+        Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request);
 
-        Task<ProductResponse> UnlistProductAsync(Guid id);
+        Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request);
 
-        Task<ProductResponse> UpdateProductAsync(UpdateProductRequest request);
+        Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request);
     }
 }

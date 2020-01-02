@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class ProductResponse
+    public class UpdateProductResponse
     {
         public Guid Id { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class UpdateProductUseCase : IRequestHandler<UpdateProductRequest, ProductResponse>
+    public class UpdateProductUseCase : IRequestHandler<UpdateProductRequest, UpdateProductResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,7 +19,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
             _productRepository = productRepository;
         }
 
-        public async Task<ProductResponse> HandleAsync(UpdateProductRequest request)
+        public async Task<UpdateProductResponse> HandleAsync(UpdateProductRequest request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
 
             await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
-            var response = _mapper.Map<Product, ProductResponse>(product);
+            var response = _mapper.Map<Product, UpdateProductResponse>(product);
             return response;
         }
 

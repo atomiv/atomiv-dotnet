@@ -6,7 +6,7 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class RelistProductUseCase : IRequestHandler<RelistProductRequest, ProductResponse>
+    public class RelistProductUseCase : IRequestHandler<RelistProductRequest, RelistProductResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,7 +19,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
             _productRepository = productRepository;
         }
 
-        public async Task<ProductResponse> HandleAsync(RelistProductRequest request)
+        public async Task<RelistProductResponse> HandleAsync(RelistProductRequest request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -34,7 +34,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
 
             await _productRepository.UpdateAsync(product);
             await _unitOfWork.SaveChangesAsync();
-            return _mapper.Map<Product, ProductResponse>(product);
+            return _mapper.Map<Product, RelistProductResponse>(product);
         }
     }
 }

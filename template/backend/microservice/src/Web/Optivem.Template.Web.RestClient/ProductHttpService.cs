@@ -20,9 +20,9 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetAsync<BrowseProductsRequest, BrowseProductsResponse>(request);
         }
 
-        public Task<IObjectClientResponse<ProductResponse>> CreateProductAsync(CreateProductRequest request)
+        public Task<IObjectClientResponse<CreateProductResponse>> CreateProductAsync(CreateProductRequest request)
         {
-            return Client.PostAsync<CreateProductRequest, ProductResponse>(request);
+            return Client.PostAsync<CreateProductRequest, CreateProductResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(FindProductRequest request)
@@ -36,19 +36,19 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetAsync<ListProductsResponse>("list");
         }
 
-        public Task<IObjectClientResponse<ProductResponse>> RelistProductAsync(RelistProductRequest request)
+        public Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request)
         {
-            return Client.PostAsync<RelistProductRequest, ProductResponse>(request);
+            return Client.PostAsync<RelistProductRequest, RelistProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<ProductResponse>> UnlistProductAsync(UnlistProductRequest request)
+        public Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request)
         {
-            return Client.PostAsync<UnlistProductRequest, ProductResponse>(request);
+            return Client.PostAsync<UnlistProductRequest, UnlistProductResponse>(request);
         }
 
-        public Task<IObjectClientResponse<ProductResponse>> UpdateProductAsync(UpdateProductRequest request)
+        public Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request)
         {
-            return Client.PutByIdAsync<Guid, UpdateProductRequest, ProductResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateProductRequest, UpdateProductResponse>(request.Id, request);
         }
     }
 }

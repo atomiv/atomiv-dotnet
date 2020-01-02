@@ -202,7 +202,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.UnitPrice, findResponseContent.UnitPrice);
         }
 
-        [Fact(Skip = "Pending implement")]
+        [Fact]
         public async Task UpdateProduct_Valid_OK()
         {
             var productRecord = _productRecords[0];

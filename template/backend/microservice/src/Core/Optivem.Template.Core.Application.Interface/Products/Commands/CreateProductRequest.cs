@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class CreateProductRequest : IRequest<ProductResponse>
+    public class CreateProductRequest : IRequest<CreateProductResponse>
     {
         public string Code { get; set; }
 
