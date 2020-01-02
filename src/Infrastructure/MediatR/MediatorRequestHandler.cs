@@ -20,25 +20,4 @@ namespace Optivem.Framework.Infrastructure.MediatR
             return _requestHandler.HandleAsync((TRequest) request.Request);
         }
     }
-
-    public class MediatorRequestHandler : IRequestHandler
-    {
-        private readonly IMediator _mediator;
-
-        public MediatorRequestHandler(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-
-        public Task<TResponse> HandleAsync<TResponse>(Core.Application.IRequest<TResponse> request)
-        {
-            // TODO: VC:
-            var mediatorRequest = new MediatorRequest<TResponse>
-            {
-                Request = request,
-            };
-
-            return _mediator.Send(mediatorRequest);
-        }
-    }
 }

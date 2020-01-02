@@ -77,7 +77,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Size = 3,
             };
 
-            var browseResponse = await Fixture.CustomerService.BrowseCustomersAsync(browseRequest);
+            var browseResponse = await Fixture.MessageBus.SendAsync(browseRequest);
 
             // Assert
 
@@ -106,7 +106,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Act
 
-            var createResponse = await Fixture.CustomerService.CreateCustomerAsync(createRequest);
+            var createResponse = await Fixture.MessageBus.SendAsync(createRequest);
 
             // Assert
 
@@ -115,7 +115,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = createResponse.Id;
             var findRequest = new FindCustomerQuery { Id = id };
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
+            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
             findResponse.Should().BeEquivalentTo(createResponse);
         }
 
@@ -132,7 +132,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Act
 
-            Func<Task> createFunc = () => Fixture.CustomerService.CreateCustomerAsync(createRequest);
+            Func<Task> createFunc = () => Fixture.MessageBus.SendAsync(createRequest);
 
             // Assert
 
@@ -171,12 +171,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = createResponses[1].Id;
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            await Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
+            await Fixture.MessageBus.SendAsync(deleteRequest);
 
             // Assert
 
             var findRequest = new FindCustomerQuery { Id = id };
-            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
+            Func<Task> findFunc = () => Fixture.MessageBus.SendAsync(findRequest);
             await findFunc.Should().ThrowAsync<NotFoundRequestException>();
         }
 
@@ -212,7 +212,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = Guid.NewGuid();
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            Func<Task> deleteFunc = () => Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
+            Func<Task> deleteFunc = () => Fixture.MessageBus.SendAsync(deleteRequest);
 
             // Assert
 
@@ -252,7 +252,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var someCreateResponse = createResponses[1];
             var id = someCreateResponse.Id;
             var findRequest = new FindCustomerQuery { Id = id };
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
+            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
 
             // Assert
             
@@ -292,7 +292,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = Guid.NewGuid();
             var findRequest = new FindCustomerQuery { Id = id };
-            Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
+            Func<Task> findFunc = () => Fixture.MessageBus.SendAsync(findRequest);
 
             // Assert
 
@@ -360,7 +360,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 Limit = 10,
             };
 
-            var listResponse = await Fixture.CustomerService.ListCustomersAsync(listRequest);
+            var listResponse = await Fixture.MessageBus.SendAsync(listRequest);
 
             // Assert
 
@@ -422,7 +422,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 LastName = "New last name",
             };
 
-            var updateResponse = await Fixture.CustomerService.UpdateCustomerAsync(updateRequest);
+            var updateResponse = await Fixture.MessageBus.SendAsync(updateRequest);
 
             // Assert
 
@@ -430,7 +430,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = updateRequest.Id;
             var findRequest = new FindCustomerQuery { Id = id };
-            var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
+            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
             findResponse.Should().BeEquivalentTo(updateResponse);
         }
 
@@ -473,7 +473,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 LastName = "New last name",
             };
 
-            Func<Task> updateFunc = () => Fixture.CustomerService.UpdateCustomerAsync(updateRequest);
+            Func<Task> updateFunc = () => Fixture.MessageBus.SendAsync(updateRequest);
 
             // Assert
 
@@ -519,7 +519,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 LastName = null,
             };
 
-            Func<Task> updateFunc = () => Fixture.CustomerService.UpdateCustomerAsync(updateRequest);
+            Func<Task> updateFunc = () => Fixture.MessageBus.SendAsync(updateRequest);
 
             // Assert
 

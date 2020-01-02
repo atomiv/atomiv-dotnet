@@ -52,12 +52,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         protected Task<CreateCustomerCommandResponse> CreateCustomerAsync(CreateCustomerCommand createRequest)
         {
-            return Fixture.CustomerService.CreateCustomerAsync(createRequest);
+            return Fixture.MessageBus.SendAsync(createRequest);
         }
 
         protected Task<CreateProductCommandResponse> CreateProductAsync(CreateProductCommand createRequest)
         {
-            return Fixture.ProductService.CreateProductAsync(createRequest);
+            return Fixture.MessageBus.SendAsync(createRequest);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.Core.Application.Customers;
 using Optivem.Template.Core.Application.Customers.Commands;
@@ -10,11 +11,13 @@ namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/customers")]
     [ApiController]
-    public class CustomerController : BaseController<ICustomerApplicationService>
+    public class CustomerController : ControllerBase
     {
-        public CustomerController(ICustomerApplicationService service)
-            : base(service)
+        private readonly IMessageBus _messageBus;
+
+        public CustomerController(IMessageBus messageBus)
         {
+            _messageBus = messageBus;
         }
 
         [HttpGet(Name = "list-customers")]
@@ -22,7 +25,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync()
         {
             var request = new ListCustomersQuery();
-            var response = await Service.ListCustomersAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -37,7 +40,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            var response = await Service.FindCustomerAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -45,7 +48,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
         public async Task<ActionResult<DeleteCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
-            var response = await Service.CreateCustomerAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
 
@@ -53,7 +56,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
         public async Task<ActionResult<DeleteCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
         {
-            var response = await Service.UpdateCustomerAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -65,7 +68,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            await Service.DeleteCustomerAsync(request);
+            await _messageBus.SendAsync(request);
             return NoContent();
         }
     }

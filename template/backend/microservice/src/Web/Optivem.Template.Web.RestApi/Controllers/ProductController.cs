@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Products.Queries;
@@ -8,11 +9,13 @@ namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/products")]
     [ApiController]
-    public class ProductController : BaseController<IProductApplicationService>
+    public class ProductController : ControllerBase
     {
-        public ProductController(IProductApplicationService service)
-            : base(service)
+        private readonly IMessageBus _messageBus;
+
+        public ProductController(IMessageBus messageBus)
         {
+            _messageBus = messageBus;
         }
 
         [HttpGet(Name = "browse-products")]
@@ -25,7 +28,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
                 Size = size.Value,
             };
 
-            var response = await Service.BrowseProductsAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -34,7 +37,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
         {
             var request = new ListProductQuery { };
-            var response = await Service.ListProductsAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
     }

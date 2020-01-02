@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Web.AspNetCore;
 using Optivem.Template.Core.Application.Orders;
 using Optivem.Template.Core.Application.Orders.Commands;
@@ -10,10 +11,13 @@ namespace Optivem.Template.Web.RestApi.Controllers
 {
     [Route("api/orders")]
     [ApiController]
-    public class OrderController : BaseController<IOrderApplicationService>
+    public class OrderController : ControllerBase
     {
-        public OrderController(IOrderApplicationService service) : base(service)
+        private readonly IMessageBus _messageBus;
+
+        public OrderController(IMessageBus messageBus)
         {
+            _messageBus = messageBus;
         }
 
         [HttpPost("{id}/archive", Name = "archive-order")]
@@ -21,7 +25,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<ArchiveOrderCommandResponse>> ArchiveOrderAsync(Guid id)
         {
             var request = new ArchiveOrderCommand { Id = id };
-            var response = await Service.ArchiveOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -35,7 +39,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
                 Size = size.Value,
             };
 
-            var response = await Service.BrowseOrdersAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -44,7 +48,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CancelOrderCommandResponse>> CancelOrderAsync(Guid id)
         {
             var request = new CancelOrderCommand { Id = id };
-            var response = await Service.CancelOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -52,7 +56,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(CreateOrderCommandResponse), 201)]
         public async Task<ActionResult<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request)
         {
-            var response = await Service.CreateOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return CreatedAtRoute("find-order", new { id = response.Id }, response);
         }
 
@@ -63,7 +67,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<FindOrderQueryResponse>> FindOrderAsync(Guid id)
         {
             var request = new FindOrderQuery { Id = id };
-            var response = await Service.FindOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -72,7 +76,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<ListOrdersQueryResponse>> ListOrdersAsync()
         {
             var request = new ListOrdersQuery();
-            var response = await Service.ListOrdersAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -81,7 +85,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         public async Task<ActionResult<SubmitOrderCommandResponse>> SubmitOrderAsync(Guid id)
         {
             var request = new SubmitOrderCommand { Id = id };
-            var response = await Service.SubmitOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -89,7 +93,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(UpdateOrderCommandResponse), 201)]
         public async Task<ActionResult<UpdateOrderCommandResponse>> UpdateOrderAsync(Guid id, UpdateOrderCommand request)
         {
-            var response = await Service.UpdateOrderAsync(request);
+            var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
     }

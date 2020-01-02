@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Optivem.Framework.Core.Application;
 using Optivem.Framework.Test.EntityFrameworkCore;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.Core.Application.Customers;
@@ -19,11 +20,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
         public DbTestClient<DatabaseContext> Db => new ServiceProviderWrapper().Db;
 
-        public ICustomerApplicationService CustomerService => new ServiceProviderWrapper().CustomerService;
-
-        public IOrderApplicationService OrderService => new ServiceProviderWrapper().OrderService;
-
-        public IProductApplicationService ProductService => new ServiceProviderWrapper().ProductService;
+        public IMessageBus MessageBus => new ServiceProviderWrapper().MessageBus;
 
         public void Dispose()
         {
@@ -43,9 +40,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
 
             ServiceProvider = services.BuildServiceProvider();
 
-            CustomerService = GetService<ICustomerApplicationService>();
-            OrderService = GetService<IOrderApplicationService>();
-            ProductService = GetService<IProductApplicationService>();
+            MessageBus = GetService<IMessageBus>();
         }
 
         public DbTestClient<DatabaseContext> Db { get; }
@@ -57,15 +52,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return ServiceProvider.GetService<TService>();
         }
 
+        public IMessageBus MessageBus { get; }
+
         public IServiceScope CreateScope()
         {
             return ServiceProvider.CreateScope();
         }
-
-        public ICustomerApplicationService CustomerService { get; }
-
-        public IOrderApplicationService OrderService { get; }
-
-        public IProductApplicationService ProductService { get; }
     }
 }

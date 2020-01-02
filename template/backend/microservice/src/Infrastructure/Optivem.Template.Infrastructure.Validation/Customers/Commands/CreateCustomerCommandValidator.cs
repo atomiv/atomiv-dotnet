@@ -4,9 +4,9 @@ using Optivem.Template.Core.Application.Customers.Commands;
 
 namespace Optivem.Template.Infrastructure.Validation.Customers
 {
-    public class UpdateCustomerRequestValidator : BaseValidator<UpdateCustomerCommand>
+    public class CreateCustomerCommandValidator : BaseValidator<CreateCustomerCommand>
     {
-        public UpdateCustomerRequestValidator()
+        public CreateCustomerCommandValidator()
         {
             RuleFor(e => e.FirstName).NotNull();
             RuleFor(e => e.LastName).NotNull();

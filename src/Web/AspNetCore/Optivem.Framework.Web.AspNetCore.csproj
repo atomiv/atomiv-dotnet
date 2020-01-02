@@ -22,4 +22,8 @@
     <ProjectReference Include="..\..\Core\Common\Optivem.Framework.Core.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
