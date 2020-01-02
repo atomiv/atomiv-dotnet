@@ -15,48 +15,48 @@ namespace Optivem.Template.Web.RestClient
         {
         }
 
-        public Task<IObjectClientResponse<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public Task<IObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request)
         {
             var id = request.Id;
-            return Client.PostAsync<ArchiveOrderResponse>($"{id}/archive");
+            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive");
         }
 
-        public Task<IObjectClientResponse<BrowseOrdersResponse>> BrowseOrdersAsync(BrowseOrdersRequest request)
+        public Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
+        public Task<IObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request)
         {
             var id = request.Id;
-            return Client.PostAsync<CancelOrderResponse>($"{id}/cancel");
+            return Client.PostAsync<CancelOrderCommandResponse>($"{id}/cancel");
         }
 
-        public Task<IObjectClientResponse<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request)
+        public Task<IObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request)
         {
-            return Client.PostAsync<CreateOrderRequest, CreateOrderResponse>(request);
+            return Client.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request);
         }
 
-        public Task<IObjectClientResponse<FindOrderResponse>> FindOrderAsync(FindOrderRequest request)
-        {
-            var id = request.Id;
-            return Client.GetByIdAsync<Guid, FindOrderResponse>(id);
-        }
-
-        public Task<IObjectClientResponse<ListOrdersResponse>> ListOrdersAsync(ListOrdersRequest request)
-        {
-            return Client.GetAsync<ListOrdersResponse>("list");
-        }
-
-        public Task<IObjectClientResponse<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request)
+        public Task<IObjectClientResponse<FindOrderQueryResponse>> FindOrderAsync(FindOrderQuery request)
         {
             var id = request.Id;
-            return Client.PostAsync<SubmitOrderResponse>($"{id}/submit");
+            return Client.GetByIdAsync<Guid, FindOrderQueryResponse>(id);
         }
 
-        public Task<IObjectClientResponse<UpdateOrderResponse>> UpdateOrderAsync(UpdateOrderRequest request)
+        public Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request)
         {
-            return Client.PutByIdAsync<Guid, UpdateOrderRequest, UpdateOrderResponse>(request.Id, request);
+            return Client.GetAsync<ListOrdersQueryResponse>("list");
+        }
+
+        public Task<IObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request)
+        {
+            var id = request.Id;
+            return Client.PostAsync<SubmitOrderCommandResponse>($"{id}/submit");
+        }
+
+        public Task<IObjectClientResponse<UpdateOrderCommandResponse>> UpdateOrderAsync(UpdateOrderCommand request)
+        {
+            return Client.PutByIdAsync<Guid, UpdateOrderCommand, UpdateOrderCommandResponse>(request.Id, request);
         }
     }
 }

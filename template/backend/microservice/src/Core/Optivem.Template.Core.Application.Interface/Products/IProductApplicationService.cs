@@ -8,18 +8,18 @@ namespace Optivem.Template.Core.Application.Products
 {
     public interface IProductApplicationService : IApplicationService
     {
-        Task<BrowseProductsResponse> BrowseProductsAsync(BrowseProductsRequest request);
+        Task<BrowseProductsQueryResponse> BrowseProductsAsync(BrowseProductsQuery request);
 
-        Task<CreateProductResponse> CreateProductAsync(CreateProductRequest request);
+        Task<CreateProductCommandResponse> CreateProductAsync(CreateProductCommand request);
 
-        Task<FindProductResponse> FindProductAsync(FindProductRequest request);
+        Task<FindProductQueryResponse> FindProductAsync(FindProductQuery request);
 
-        Task<ListProductsResponse> ListProductsAsync(ListProductRequest request);
+        Task<ListProductsQueryResponse> ListProductsAsync(ListProductQuery request);
 
-        Task<RelistProductResponse> RelistProductAsync(RelistProductRequest request);
+        Task<RelistProductCommandResponse> RelistProductAsync(RelistProductCommand request);
 
-        Task<UnlistProductResponse> UnlistProductAsync(UnlistProductRequest request);
+        Task<UnlistProductCommandResponse> UnlistProductAsync(UnlistProductCommand request);
 
-        Task<UpdateProductResponse> UpdateProductAsync(UpdateProductRequest request);
+        Task<UpdateProductCommandResponse> UpdateProductAsync(UpdateProductCommand request);
     }
 }

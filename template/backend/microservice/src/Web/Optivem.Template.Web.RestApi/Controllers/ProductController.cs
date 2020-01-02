@@ -16,10 +16,10 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpGet(Name = "browse-products")]
-        [ProducesResponseType(typeof(BrowseProductsResponse), 200)]
-        public async Task<ActionResult<BrowseProductsResponse>> BrowseProductsAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
+        [ProducesResponseType(typeof(BrowseProductsQueryResponse), 200)]
+        public async Task<ActionResult<BrowseProductsQueryResponse>> BrowseProductsAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
         {
-            var request = new BrowseProductsRequest
+            var request = new BrowseProductsQuery
             {
                 Page = page.Value,
                 Size = size.Value,
@@ -30,10 +30,10 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpGet("list", Name = "list-products")]
-        [ProducesResponseType(typeof(ListProductsResponse), 200)]
-        public async Task<ActionResult<ListProductsResponse>> ListProductsAsync()
+        [ProducesResponseType(typeof(ListProductsQueryResponse), 200)]
+        public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
         {
-            var request = new ListProductRequest { };
+            var request = new ListProductQuery { };
             var response = await Service.ListProductsAsync(request);
             return Ok(response);
         }

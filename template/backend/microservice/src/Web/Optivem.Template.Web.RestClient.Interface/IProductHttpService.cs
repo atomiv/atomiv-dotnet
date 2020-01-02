@@ -7,18 +7,18 @@ namespace Optivem.Template.Web.RestClient.Interface
 {
     public interface IProductHttpService : IHttpService
     {
-        Task<IObjectClientResponse<BrowseProductsResponse>> BrowseProductsAsync(BrowseProductsRequest request);
+        Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
 
-        Task<IObjectClientResponse<CreateProductResponse>> CreateProductAsync(CreateProductRequest request);
+        Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request);
 
-        Task<IObjectClientResponse<FindProductResponse>> FindProductAsync(FindProductRequest request);
+        Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request);
 
-        Task<IObjectClientResponse<ListProductsResponse>> ListProductsAsync(ListProductRequest request);
+        Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductQuery request);
 
-        Task<IObjectClientResponse<RelistProductResponse>> RelistProductAsync(RelistProductRequest request);
+        Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request);
 
-        Task<IObjectClientResponse<UnlistProductResponse>> UnlistProductAsync(UnlistProductRequest request);
+        Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request);
 
-        Task<IObjectClientResponse<UpdateProductResponse>> UpdateProductAsync(UpdateProductRequest request);
+        Task<IObjectClientResponse<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request);
     }
 }

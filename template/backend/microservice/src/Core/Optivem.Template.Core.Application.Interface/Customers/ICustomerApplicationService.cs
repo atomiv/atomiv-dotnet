@@ -8,16 +8,16 @@ namespace Optivem.Template.Core.Application.Customers
 {
     public interface ICustomerApplicationService : IApplicationService
     {
-        Task<BrowseCustomersResponse> BrowseCustomersAsync(BrowseCustomersRequest request);
+        Task<BrowseCustomersQueryResponse> BrowseCustomersAsync(BrowseCustomersQuery request);
 
-        Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request);
+        Task<CreateCustomerCommandResponse> CreateCustomerAsync(CreateCustomerCommand request);
 
-        Task<DeleteCustomerResponse> DeleteCustomerAsync(DeleteCustomerRequest request);
+        Task<DeleteCustomerCommandResponse> DeleteCustomerAsync(DeleteCustomerCommand request);
 
-        Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request);
+        Task<FindCustomerQueryResponse> FindCustomerAsync(FindCustomerQuery request);
 
-        Task<ListCustomersResponse> ListCustomersAsync(ListCustomersRequest request);
+        Task<ListCustomersQueryResponse> ListCustomersAsync(ListCustomersQuery request);
 
-        Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request);
+        Task<UpdateCustomerCommandResponse> UpdateCustomerAsync(UpdateCustomerCommand request);
     }
 }

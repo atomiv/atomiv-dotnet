@@ -41,7 +41,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact(Skip = "In progress")]
         public async Task ListCustomers_OK()
         {
-            var listRequest = new ListCustomersRequest { };
+            var listRequest = new ListCustomersQuery { };
 
             var listHttpResponse = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
 
@@ -72,7 +72,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var customerRecord = _customerRecords[0];
             var id = customerRecord.Id;
 
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
 
             var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
@@ -90,7 +90,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
 
             var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
@@ -100,7 +100,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task CreateCustomer_Valid_Created()
         {
-            var createRequest = new CreateCustomerRequest
+            var createRequest = new CreateCustomerCommand
             {
                 FirstName = "First name 1",
                 LastName = "Last name 1",
@@ -117,7 +117,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.FirstName, createResponseContent.FirstName);
             Assert.Equal(createRequest.LastName, createResponseContent.LastName);
 
-            var findRequest = new FindCustomerRequest { Id = createResponseContent.Id };
+            var findRequest = new FindCustomerQuery { Id = createResponseContent.Id };
 
             var findResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
 
@@ -133,7 +133,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact]
         public async Task CreateCustomer_Invalid_UnprocessableEntity()
         {
-            var createRequest = new CreateCustomerRequest
+            var createRequest = new CreateCustomerCommand
             {
                 FirstName = null,
                 LastName = "Last name 1",
@@ -155,7 +155,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var customerRecord = _customerRecords[0];
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = customerRecord.Id,
                 FirstName = "New first name",
@@ -178,7 +178,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = id,
                 FirstName = "New first name",
@@ -195,7 +195,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var customerRecord = _customerRecords[0];
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = customerRecord.Id,
                 FirstName = "New first name",
@@ -215,7 +215,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var customerRecord = _customerRecords[0];
             var id = customerRecord.Id;
 
-            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            var deleteRequest = new DeleteCustomerCommand { Id = id };
 
             var deleteResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 
@@ -227,7 +227,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            var deleteRequest = new DeleteCustomerCommand { Id = id };
 
             var deleteResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 

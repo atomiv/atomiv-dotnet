@@ -154,18 +154,18 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var product1Record = _productRecords[0];
             var product2Record = _productRecords[1];
 
-            var createRequest = new CreateOrderRequest
+            var createRequest = new CreateOrderCommand
             {
                 CustomerId = customerRecord.Id,
-                OrderItems = new List<CreateOrderItemRequest>
+                OrderItems = new List<CreateOrderItemCommand>
                 {
-                    new CreateOrderItemRequest
+                    new CreateOrderItemCommand
                     {
                         ProductId = product1Record.Id,
                         Quantity = 10,
                     },
 
-                    new CreateOrderItemRequest
+                    new CreateOrderItemCommand
                     {
                         ProductId = product2Record.Id,
                         Quantity = 20,
@@ -198,7 +198,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(OrderItemStatus.Allocated, createResponseOrderDetail.Status);
             }
 
-            var findRequest = new FindOrderRequest { Id = createResponse.Id };
+            var findRequest = new FindOrderQuery { Id = createResponse.Id };
 
             var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
             var findResponse = findApiResponse.Data;
@@ -228,7 +228,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var customerId = Guid.NewGuid();
 
-            var createRequest = new CreateOrderRequest
+            var createRequest = new CreateOrderCommand
             {
                 CustomerId = customerId,
                 OrderItems = null,
@@ -245,7 +245,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var orderRecord = _orderRecords[0];
             var id = orderRecord.Id;
 
-            var findRequest = new FindOrderRequest { Id = id };
+            var findRequest = new FindOrderQuery { Id = id };
 
             var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
 
@@ -278,7 +278,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindOrderRequest { Id = id };
+            var findRequest = new FindOrderQuery { Id = id };
 
             var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
 
@@ -295,19 +295,19 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             var orderStatusId = orderRecord.OrderStatusId;
 
-            var updateRequest = new UpdateOrderRequest
+            var updateRequest = new UpdateOrderCommand
             {
                 Id = orderRecord.Id,
-                OrderItems = new List<UpdateOrderItemRequest>
+                OrderItems = new List<UpdateOrderItemCommand>
                 {
-                    new UpdateOrderItemRequest
+                    new UpdateOrderItemCommand
                     {
                         Id = orderRecord.OrderItems.ElementAt(0).Id,
                         ProductId = product1Record.Id,
                         Quantity = 72,
                     },
 
-                    new UpdateOrderItemRequest
+                    new UpdateOrderItemCommand
                     {
                         Id = null,
                         ProductId = product2Record.Id,
@@ -349,7 +349,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
                 Assert.Equal(OrderItemStatus.Allocated, updateResponseOrderDetail.Status);
             }
 
-            var findRequest = new FindOrderRequest { Id = updateResponse.Id };
+            var findRequest = new FindOrderQuery { Id = updateResponse.Id };
 
             var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
 
@@ -383,12 +383,12 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
             var id = Guid.NewGuid();
             var orderItemId = Guid.NewGuid();
 
-            var updateRequest = new UpdateOrderRequest
+            var updateRequest = new UpdateOrderCommand
             {
                 Id = id,
-                OrderItems = new List<UpdateOrderItemRequest>
+                OrderItems = new List<UpdateOrderItemCommand>
                 {
-                    new UpdateOrderItemRequest
+                    new UpdateOrderItemCommand
                     {
                         Id = orderItemId,
                         ProductId = _productRecords[0].Id,
@@ -407,7 +407,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         {
             var orderRecord = _orderRecords[0];
 
-            var updateRequest = new UpdateOrderRequest
+            var updateRequest = new UpdateOrderCommand
             {
                 Id = orderRecord.Id,
                 OrderItems = null,

@@ -7,20 +7,20 @@ namespace Optivem.Template.Web.RestClient.Interface
 {
     public interface IOrderHttpService : IHttpService
     {
-        Task<IObjectClientResponse<ArchiveOrderResponse>> ArchiveOrderAsync(ArchiveOrderRequest request);
+        Task<IObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request);
 
-        Task<IObjectClientResponse<BrowseOrdersResponse>> BrowseOrdersAsync(BrowseOrdersRequest request);
+        Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request);
 
-        Task<IObjectClientResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request);
+        Task<IObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request);
 
-        Task<IObjectClientResponse<CreateOrderResponse>> CreateOrderAsync(CreateOrderRequest request);
+        Task<IObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request);
 
-        Task<IObjectClientResponse<FindOrderResponse>> FindOrderAsync(FindOrderRequest request);
+        Task<IObjectClientResponse<FindOrderQueryResponse>> FindOrderAsync(FindOrderQuery request);
 
-        Task<IObjectClientResponse<ListOrdersResponse>> ListOrdersAsync(ListOrdersRequest request);
+        Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request);
 
-        Task<IObjectClientResponse<SubmitOrderResponse>> SubmitOrderAsync(SubmitOrderRequest request);
+        Task<IObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request);
 
-        Task<IObjectClientResponse<UpdateOrderResponse>> UpdateOrderAsync(UpdateOrderRequest request);
+        Task<IObjectClientResponse<UpdateOrderCommandResponse>> UpdateOrderAsync(UpdateOrderCommand request);
     }
 }

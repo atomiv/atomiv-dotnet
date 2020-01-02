@@ -6,7 +6,7 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class ListProductsUseCase : IRequestHandler<ListProductRequest, ListProductsResponse>
+    public class ListProductsUseCase : IRequestHandler<ListProductQuery, ListProductsQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
@@ -17,11 +17,11 @@ namespace Optivem.Template.Core.Application.Products.Queries
             _productReadRepository = productReadRepository;
         }
 
-        public async Task<ListProductsResponse> HandleAsync(ListProductRequest request)
+        public async Task<ListProductsQueryResponse> HandleAsync(ListProductQuery request)
         {
             var listResult = await _productReadRepository.ListAsync();
 
-            return _mapper.Map<ListReadModel<ProductIdNameReadModel>, ListProductsResponse>(listResult);
+            return _mapper.Map<ListReadModel<ProductIdNameReadModel>, ListProductsQueryResponse>(listResult);
         }
     }
 }

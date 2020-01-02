@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class BrowseProductsUseCase : IRequestHandler<BrowseProductsRequest, BrowseProductsResponse>
+    public class BrowseProductsUseCase : IRequestHandler<BrowseProductsQuery, BrowseProductsQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
@@ -17,12 +17,12 @@ namespace Optivem.Template.Core.Application.Products.Queries
             _productReadRepository = productReadRepository;
         }
 
-        public async Task<BrowseProductsResponse> HandleAsync(BrowseProductsRequest request)
+        public async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery request)
         {
             var pageQuery = new PageQuery(request.Page, request.Size);
             var pageResult = await _productReadRepository.GetPageAsync(pageQuery);
 
-            return _mapper.Map<PageReadModel<ProductHeaderReadModel>, BrowseProductsResponse>(pageResult);
+            return _mapper.Map<PageReadModel<ProductHeaderReadModel>, BrowseProductsQueryResponse>(pageResult);
         }
     }
 }

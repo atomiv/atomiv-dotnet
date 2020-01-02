@@ -18,21 +18,21 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpGet(Name = "list-customers")]
-        [ProducesResponseType(typeof(ListCustomersResponse), 200)]
-        public async Task<ActionResult<ListCustomersResponse>> ListCustomersAsync()
+        [ProducesResponseType(typeof(ListCustomersQueryResponse), 200)]
+        public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync()
         {
-            var request = new ListCustomersRequest();
+            var request = new ListCustomersQuery();
             var response = await Service.ListCustomersAsync(request);
             return Ok(response);
         }
 
         [HttpGet("{id}", Name = "find-customer")]
-        [ProducesResponseType(typeof(FindCustomerResponse), 200)]
+        [ProducesResponseType(typeof(FindCustomerQueryResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<FindCustomerResponse>> FindCustomerAsync(Guid id)
+        public async Task<ActionResult<FindCustomerQueryResponse>> FindCustomerAsync(Guid id)
         {
-            var request = new FindCustomerRequest
+            var request = new FindCustomerQuery
             {
                 Id = id,
             };
@@ -42,16 +42,16 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpPost(Name = "create-customer")]
-        [ProducesResponseType(typeof(DeleteCustomerResponse), 201)]
-        public async Task<ActionResult<DeleteCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
+        public async Task<ActionResult<DeleteCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
             var response = await Service.CreateCustomerAsync(request);
             return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
 
         [HttpPut("{id}", Name = "update-customer")]
-        [ProducesResponseType(typeof(DeleteCustomerResponse), 201)]
-        public async Task<ActionResult<DeleteCustomerResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerRequest request)
+        [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
+        public async Task<ActionResult<DeleteCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
         {
             var response = await Service.UpdateCustomerAsync(request);
             return Ok(response);
@@ -60,7 +60,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [HttpDelete("{id}", Name = "delete-customer")]
         public async Task<ActionResult> DeleteCustomerAsync(Guid id)
         {
-            var request = new DeleteCustomerRequest
+            var request = new DeleteCustomerCommand
             {
                 Id = id,
             };

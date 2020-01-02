@@ -12,42 +12,42 @@ namespace Optivem.Template.Core.Application.Orders
         {
         }
 
-        public Task<ArchiveOrderResponse> ArchiveOrderAsync(ArchiveOrderRequest request)
+        public Task<ArchiveOrderCommandResponse> ArchiveOrderAsync(ArchiveOrderCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<BrowseOrdersResponse> BrowseOrdersAsync(BrowseOrdersRequest request)
+        public Task<BrowseOrdersQueryResponse> BrowseOrdersAsync(BrowseOrdersQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<CancelOrderResponse> CancelOrderAsync(CancelOrderRequest request)
+        public Task<CancelOrderCommandResponse> CancelOrderAsync(CancelOrderCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<CreateOrderResponse> CreateOrderAsync(CreateOrderRequest request)
+        public Task<CreateOrderCommandResponse> CreateOrderAsync(CreateOrderCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<FindOrderResponse> FindOrderAsync(FindOrderRequest request)
+        public Task<FindOrderQueryResponse> FindOrderAsync(FindOrderQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<ListOrdersResponse> ListOrdersAsync(ListOrdersRequest request)
+        public Task<ListOrdersQueryResponse> ListOrdersAsync(ListOrdersQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<SubmitOrderResponse> SubmitOrderAsync(SubmitOrderRequest request)
+        public Task<SubmitOrderCommandResponse> SubmitOrderAsync(SubmitOrderCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<UpdateOrderResponse> UpdateOrderAsync(UpdateOrderRequest request)
+        public Task<UpdateOrderCommandResponse> UpdateOrderAsync(UpdateOrderCommand request)
         {
             return HandleAsync(request);
         }

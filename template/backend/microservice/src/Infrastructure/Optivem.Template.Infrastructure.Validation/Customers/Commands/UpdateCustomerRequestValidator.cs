@@ -1,0 +1,15 @@
+﻿using FluentValidation;
+using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Template.Core.Application.Customers.Commands;
+
+namespace Optivem.Template.Infrastructure.Validation.Customers
+{
+    public class UpdateCustomerRequestValidator : BaseValidator<UpdateCustomerCommand>
+    {
+        public UpdateCustomerRequestValidator()
+        {
+            RuleFor(e => e.FirstName).NotNull();
+            RuleFor(e => e.LastName).NotNull();
+        }
+    }
+}

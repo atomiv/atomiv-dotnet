@@ -24,9 +24,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             }
         }
 
-        protected async Task<List<CreateCustomerResponse>> CreateCustomersAsync(IEnumerable<CreateCustomerRequest> createRequests)
+        protected async Task<List<CreateCustomerCommandResponse>> CreateCustomersAsync(IEnumerable<CreateCustomerCommand> createRequests)
         {
-            var createResponses = new List<CreateCustomerResponse>();
+            var createResponses = new List<CreateCustomerCommandResponse>();
 
             foreach (var createRequest in createRequests)
             {
@@ -37,9 +37,9 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return createResponses;
         }
 
-        protected async Task<List<CreateProductResponse>> CreateProductsAsync(IEnumerable<CreateProductRequest> createRequests)
+        protected async Task<List<CreateProductCommandResponse>> CreateProductsAsync(IEnumerable<CreateProductCommand> createRequests)
         {
-            var createResponses = new List<CreateProductResponse>();
+            var createResponses = new List<CreateProductCommandResponse>();
 
             foreach (var createRequest in createRequests)
             {
@@ -50,12 +50,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Fixtures
             return createResponses;
         }
 
-        protected Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest createRequest)
+        protected Task<CreateCustomerCommandResponse> CreateCustomerAsync(CreateCustomerCommand createRequest)
         {
             return Fixture.CustomerService.CreateCustomerAsync(createRequest);
         }
 
-        protected Task<CreateProductResponse> CreateProductAsync(CreateProductRequest createRequest)
+        protected Task<CreateProductCommandResponse> CreateProductAsync(CreateProductCommand createRequest)
         {
             return Fixture.ProductService.CreateProductAsync(createRequest);
         }

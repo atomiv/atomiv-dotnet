@@ -16,36 +16,36 @@ namespace Optivem.Template.Web.RestClient
         {
         }
 
-        public Task<IObjectClientResponse<BrowseCustomersResponse>> BrowseCustomersAsync(BrowseCustomersRequest request)
+        public Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<CreateCustomerResponse>> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
-            return Client.PostAsync<CreateCustomerRequest, CreateCustomerResponse>(request);
+            return Client.PostAsync<CreateCustomerCommand, CreateCustomerCommandResponse>(request);
         }
 
-        public Task<IObjectClientResponse<DeleteCustomerResponse>> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task<IObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<Guid, DeleteCustomerResponse>(id);
+            return Client.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id);
         }
 
-        public Task<IObjectClientResponse<FindCustomerResponse>> FindCustomerAsync(FindCustomerRequest request)
+        public Task<IObjectClientResponse<FindCustomerQueryResponse>> FindCustomerAsync(FindCustomerQuery request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, FindCustomerResponse>(id);
+            return Client.GetByIdAsync<Guid, FindCustomerQueryResponse>(id);
         }
 
-        public Task<IObjectClientResponse<ListCustomersResponse>> ListCustomersAsync(ListCustomersRequest request)
+        public Task<IObjectClientResponse<ListCustomersQueryResponse>> ListCustomersAsync(ListCustomersQuery request)
         {
-            return Client.GetAsync<ListCustomersResponse>();
+            return Client.GetAsync<ListCustomersQueryResponse>();
         }
 
-        public Task<IObjectClientResponse<UpdateCustomerResponse>> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<IObjectClientResponse<UpdateCustomerCommandResponse>> UpdateCustomerAsync(UpdateCustomerCommand request)
         {
-            return Client.PutByIdAsync<Guid, UpdateCustomerRequest, UpdateCustomerResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, UpdateCustomerCommand, UpdateCustomerCommandResponse>(request.Id, request);
         }
     }
 }

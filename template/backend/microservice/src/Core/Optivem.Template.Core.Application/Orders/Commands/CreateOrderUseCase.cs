@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class CreateOrderUseCase : IRequestHandler<CreateOrderRequest, CreateOrderResponse>
+    public class CreateOrderUseCase : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -33,18 +33,18 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             _orderFactory = orderFactory;
         }
 
-        public async Task<CreateOrderResponse> HandleAsync(CreateOrderRequest request)
+        public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand request)
         {
             var order = await GetOrderAsync(request);
 
             _orderRepository.Add(order);
             await _unitOfWork.SaveChangesAsync();
 
-            var response = _mapper.Map<Order, CreateOrderResponse>(order);
+            var response = _mapper.Map<Order, CreateOrderCommandResponse>(order);
             return response;
         }
 
-        private async Task<Order> GetOrderAsync(CreateOrderRequest request)
+        private async Task<Order> GetOrderAsync(CreateOrderCommand request)
         {
             var customerId = new CustomerIdentity(request.CustomerId);
 
@@ -76,7 +76,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             return _orderFactory.CreateNewOrder(customerId, orderDetails);
         }
 
-        private async Task<OrderItem> GetOrderItem(CreateOrderItemRequest requestOrderDetail)
+        private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
             var product = await _productReadRepository.FindAsync(productId);

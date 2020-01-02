@@ -12,32 +12,32 @@ namespace Optivem.Template.Core.Application.Customers
         {
         }
 
-        public Task<BrowseCustomersResponse> BrowseCustomersAsync(BrowseCustomersRequest request)
+        public Task<BrowseCustomersQueryResponse> BrowseCustomersAsync(BrowseCustomersQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<CreateCustomerResponse> CreateCustomerAsync(CreateCustomerRequest request)
+        public Task<CreateCustomerCommandResponse> CreateCustomerAsync(CreateCustomerCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<DeleteCustomerResponse> DeleteCustomerAsync(DeleteCustomerRequest request)
+        public Task<DeleteCustomerCommandResponse> DeleteCustomerAsync(DeleteCustomerCommand request)
         {
             return HandleAsync(request);
         }
 
-        public Task<FindCustomerResponse> FindCustomerAsync(FindCustomerRequest request)
+        public Task<FindCustomerQueryResponse> FindCustomerAsync(FindCustomerQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<ListCustomersResponse> ListCustomersAsync(ListCustomersRequest request)
+        public Task<ListCustomersQueryResponse> ListCustomersAsync(ListCustomersQuery request)
         {
             return HandleAsync(request);
         }
 
-        public Task<UpdateCustomerResponse> UpdateCustomerAsync(UpdateCustomerRequest request)
+        public Task<UpdateCustomerCommandResponse> UpdateCustomerAsync(UpdateCustomerCommand request)
         {
             return HandleAsync(request);
         }

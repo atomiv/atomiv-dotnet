@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Queries
 {
-    public class ListOrdersUseCase : IRequestHandler<ListOrdersRequest, ListOrdersResponse>
+    public class ListOrdersUseCase : IRequestHandler<ListOrdersQuery, ListOrdersQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
@@ -17,11 +17,11 @@ namespace Optivem.Template.Core.Application.Orders.Queries
             _orderReadRepository = orderReadRepository;
         }
 
-        public async Task<ListOrdersResponse> HandleAsync(ListOrdersRequest request)
+        public async Task<ListOrdersQueryResponse> HandleAsync(ListOrdersQuery request)
         {
             var listResult = await _orderReadRepository.ListAsync();
 
-            return _mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersResponse>(listResult);
+            return _mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersQueryResponse>(listResult);
         }
     }
 }

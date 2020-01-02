@@ -5,7 +5,7 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class FindProductUseCase : IRequestHandler<FindProductRequest, FindProductResponse>
+    public class FindProductUseCase : IRequestHandler<FindProductQuery, FindProductQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Products.Queries
             _productReadRepository = productReadRepository;
         }
 
-        public async Task<FindProductResponse> HandleAsync(FindProductRequest request)
+        public async Task<FindProductQueryResponse> HandleAsync(FindProductQuery request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -27,7 +27,7 @@ namespace Optivem.Template.Core.Application.Products.Queries
                 throw new NotFoundRequestException();
             }
 
-            return _mapper.Map<Product, FindProductResponse>(product);
+            return _mapper.Map<Product, FindProductQueryResponse>(product);
         }
     }
 }

@@ -22,45 +22,45 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Markson",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Jake",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mark",
                     LastName = "McPhil",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Susan",
                     LastName = "McDonald",
@@ -71,7 +71,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Act
 
-            var browseRequest = new BrowseCustomersRequest
+            var browseRequest = new BrowseCustomersQuery
             {
                 Page = 2,
                 Size = 3,
@@ -81,7 +81,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecordResponses = new List<CreateCustomerResponse>
+            var expectedRecordResponses = new List<CreateCustomerCommandResponse>
             {
                 createResponses[3],
                 createResponses[4],
@@ -98,7 +98,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequest = new CreateCustomerRequest
+            var createRequest = new CreateCustomerCommand
             {
                 FirstName = "First name 1",
                 LastName = "Last name 1",
@@ -114,7 +114,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             createResponse.Should().BeEquivalentTo(createRequest);
 
             var id = createResponse.Id;
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
             var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
             findResponse.Should().BeEquivalentTo(createResponse);
         }
@@ -124,7 +124,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequest = new CreateCustomerRequest
+            var createRequest = new CreateCustomerCommand
             {
                 FirstName = null,
                 LastName = "Last name 1",
@@ -144,21 +144,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -170,12 +170,12 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = createResponses[1].Id;
-            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            var deleteRequest = new DeleteCustomerCommand { Id = id };
             await Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
 
             // Assert
 
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
             Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
             await findFunc.Should().ThrowAsync<NotFoundRequestException>();
         }
@@ -185,21 +185,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -211,7 +211,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = Guid.NewGuid();
-            var deleteRequest = new DeleteCustomerRequest { Id = id };
+            var deleteRequest = new DeleteCustomerCommand { Id = id };
             Func<Task> deleteFunc = () => Fixture.CustomerService.DeleteCustomerAsync(deleteRequest);
 
             // Assert
@@ -224,21 +224,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -251,7 +251,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var someCreateResponse = createResponses[1];
             var id = someCreateResponse.Id;
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
             var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
 
             // Assert
@@ -265,21 +265,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -291,7 +291,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             // Act
 
             var id = Guid.NewGuid();
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
             Func<Task> findFunc = () => Fixture.CustomerService.FindCustomerAsync(findRequest);
 
             // Assert
@@ -305,45 +305,45 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Markson",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Jake",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mark",
                     LastName = "McPhil",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Susan",
                     LastName = "McDonald",
@@ -354,7 +354,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Act
 
-            var listRequest = new ListCustomersRequest
+            var listRequest = new ListCustomersQuery
             {
                 NameSearch = "ark",
                 Limit = 10,
@@ -364,7 +364,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             // Assert
 
-            var expectedRecords = new List<CreateCustomerResponse>
+            var expectedRecords = new List<CreateCustomerCommandResponse>
             {
                 createResponses[3],
                 createResponses[5],
@@ -388,21 +388,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -415,7 +415,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var someCreateResponse = createResponses[1];
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = someCreateResponse.Id,
                 FirstName = "New first name",
@@ -429,7 +429,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             updateResponse.Should().BeEquivalentTo(updateRequest);
 
             var id = updateRequest.Id;
-            var findRequest = new FindCustomerRequest { Id = id };
+            var findRequest = new FindCustomerQuery { Id = id };
             var findResponse = await Fixture.CustomerService.FindCustomerAsync(findRequest);
             findResponse.Should().BeEquivalentTo(updateResponse);
         }
@@ -439,21 +439,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -466,7 +466,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var id = Guid.NewGuid();
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = id,
                 FirstName = "New first name",
@@ -485,21 +485,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         {
             // Arrange
 
-            var createRequests = new List<CreateCustomerRequest>
+            var createRequests = new List<CreateCustomerCommand>
             {
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Mary",
                     LastName = "Smith",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "John",
                     LastName = "McDonald",
                 },
 
-                new CreateCustomerRequest
+                new CreateCustomerCommand
                 {
                     FirstName = "Rob",
                     LastName = "McDonald",
@@ -512,7 +512,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
             var someCreateResponse = createResponses[2];
 
-            var updateRequest = new UpdateCustomerRequest
+            var updateRequest = new UpdateCustomerCommand
             {
                 Id = someCreateResponse.Id,
                 FirstName = "New first name",
