@@ -14,6 +14,8 @@ namespace Optivem.Framework.Infrastructure.FluentValidation
 
         public string PropertyName => _failure.PropertyName;
 
+        public string ErrorCode => _failure.ErrorCode;
+
         public string ErrorMessage => _failure.ErrorMessage;
     }
 }

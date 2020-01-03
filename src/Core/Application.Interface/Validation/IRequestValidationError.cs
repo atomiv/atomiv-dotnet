@@ -4,6 +4,8 @@
     {
         string PropertyName { get; }
 
+        string ErrorCode { get; }
+
         string ErrorMessage { get; }
     }
 }
