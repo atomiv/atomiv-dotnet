@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Customers.Commands
     public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, UpdateCustomerCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
 
-        public UpdateCustomerCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+        public UpdateCustomerCommandHandler(IMapper mapper, ICustomerRepository customerRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
         }
 
@@ -33,7 +31,6 @@ namespace Optivem.Template.Core.Application.Customers.Commands
             Update(customer, request);
 
             await _customerRepository.UpdateAsync(customer);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Customer, UpdateCustomerCommandResponse>(customer);
         }
 

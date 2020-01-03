@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     public class SubmitOrderCommandHandler : IRequestHandler<SubmitOrderCommand, SubmitOrderCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
-        public SubmitOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+        public SubmitOrderCommandHandler(IMapper mapper, IOrderRepository orderRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
@@ -33,7 +31,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             order.Submit();
 
             await _orderRepository.UpdateAsync(order);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Order, SubmitOrderCommandResponse>(order);
         }
     }

@@ -7,9 +7,10 @@ namespace Optivem.Template.Core.Domain.Customers
     {
         Task AddAsync(Customer customer);
 
-        Task UpdateAsync(Customer customer);
+        Task<Customer> FindAsync(CustomerIdentity customerId);
 
         Task RemoveAsync(CustomerIdentity customerId);
-        Task<Customer> FindAsync(CustomerIdentity customerId);
+
+        Task UpdateAsync(Customer customer);
     }
 }

@@ -12,10 +12,11 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public void Add(Product product)
+        public async Task AddAsync(Product product)
         {
             var productRecord = GetProductRecord(product);
             Context.Products.Add(productRecord);
+            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Product product)

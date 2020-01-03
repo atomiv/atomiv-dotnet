@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Products.Commands
     public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
-        public UpdateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public UpdateProductCommandHandler(IMapper mapper, IProductRepository productRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _productRepository = productRepository;
         }
 
@@ -33,7 +31,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
             Update(product, request);
 
             await _productRepository.UpdateAsync(product);
-            await _unitOfWork.SaveChangesAsync();
+
             var response = _mapper.Map<Product, UpdateProductCommandResponse>(product);
             return response;
         }

@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Products.Commands
     public class UnlistProductCommandHandler : IRequestHandler<UnlistProductCommand, UnlistProductCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
-        public UnlistProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public UnlistProductCommandHandler(IMapper mapper, IProductRepository productRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _productRepository = productRepository;
         }
 
@@ -33,7 +31,6 @@ namespace Optivem.Template.Core.Application.Products.Commands
             product.Unlist();
 
             await _productRepository.UpdateAsync(product);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Product, UnlistProductCommandResponse>(product);
         }
     }

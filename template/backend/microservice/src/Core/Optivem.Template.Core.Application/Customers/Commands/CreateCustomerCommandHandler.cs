@@ -34,21 +34,5 @@ namespace Optivem.Template.Core.Application.Customers.Commands
 
             return _customerFactory.Create(firstName, lastName);
         }
-
-        /*
-         * 
-        public override async Task<TResponse> HandleAsync(TRequest request)
-        {
-            var aggregateRoot = await CreateAggregateRootAsync(request);
-
-            var repository = GetRepository();
-            aggregateRoot = await repository.AddAsync(aggregateRoot);
-            await UnitOfWork.SaveChangesAsync();
-
-            var response = Mapper.Map<TAggregateRoot, TResponse>(aggregateRoot);
-            return response;
-        }
-         * 
-         */
     }
 }

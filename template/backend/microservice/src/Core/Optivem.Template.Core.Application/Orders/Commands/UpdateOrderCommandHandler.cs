@@ -13,19 +13,16 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
         public UpdateOrderCommandHandler(IMapper mapper, 
-            IUnitOfWork unitOfWork, 
             IOrderRepository orderRepository, 
             IProductReadRepository productReadRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _productReadRepository = productReadRepository;
             _orderFactory = orderFactory;
@@ -45,7 +42,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             await UpdateAsync(order, request);
 
             await _orderRepository.UpdateAsync(order);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Order, UpdateOrderCommandResponse>(order);
         }
 

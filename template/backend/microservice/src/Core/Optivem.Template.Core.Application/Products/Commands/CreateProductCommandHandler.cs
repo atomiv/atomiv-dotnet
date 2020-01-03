@@ -9,14 +9,12 @@ namespace Optivem.Template.Core.Application.Products.Commands
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
         private readonly IProductFactory _productFactory;
 
-        public CreateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository, IProductFactory productFactory)
+        public CreateProductCommandHandler(IMapper mapper, IProductRepository productRepository, IProductFactory productFactory)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _productRepository = productRepository;
             _productFactory = productFactory;
         }
@@ -25,8 +23,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
         {
             var product = GetProduct(request);
 
-            _productRepository.Add(product);
-            await _unitOfWork.SaveChangesAsync();
+            await _productRepository.AddAsync(product);
 
             return _mapper.Map<Product, CreateProductCommandResponse>(product);
         }

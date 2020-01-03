@@ -16,16 +16,18 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public void Add(Order order)
+        public async Task AddAsync(Order order)
         {
             var orderRecord = GetOrderRecord(order);
             Context.Orders.Add(orderRecord);
+            await Context.SaveChangesAsync();
         }
 
-        public void Remove(OrderIdentity orderId)
+        public async Task RemoveAsync(OrderIdentity orderId)
         {
             var orderRecord = GetOrderRecord(orderId);
             Context.Remove(orderRecord);
+            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Order order)

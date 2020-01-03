@@ -14,21 +14,18 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
         private readonly ICustomerReadRepository _customerReadRepository;
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
         public CreateOrderCommandHandler(IMapper mapper, 
-            IUnitOfWork unitOfWork, 
             IOrderRepository orderRepository, 
             ICustomerReadRepository customerReadRepository, 
             IProductReadRepository productReadRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
             _customerReadRepository = customerReadRepository;
             _productReadRepository = productReadRepository;
@@ -39,8 +36,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         {
             var order = await GetOrderAsync(request);
 
-            _orderRepository.Add(order);
-            await _unitOfWork.SaveChangesAsync();
+            await _orderRepository.AddAsync(order);
 
             var response = _mapper.Map<Order, CreateOrderCommandResponse>(order);
             return response;

@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     public class ArchiveOrderCommandHandler : IRequestHandler<ArchiveOrderCommand, ArchiveOrderCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
-        public ArchiveOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+        public ArchiveOrderCommandHandler(IMapper mapper, IOrderRepository orderRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
@@ -33,7 +31,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             order.Archive();
 
             await _orderRepository.UpdateAsync(order);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Order, ArchiveOrderCommandResponse>(order);
         }
     }

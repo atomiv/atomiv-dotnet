@@ -5,12 +5,12 @@ namespace Optivem.Template.Core.Domain.Orders
 {
     public interface IOrderRepository : IRepository
     {
-        void Add(Order order);
-
-        Task UpdateAsync(Order order);
-
-        void Remove(OrderIdentity orderId);
+        Task AddAsync(Order order);
 
         Task<Order> FindAsync(OrderIdentity orderId);
+
+        Task RemoveAsync(OrderIdentity orderId);
+
+        Task UpdateAsync(Order order);
     }
 }

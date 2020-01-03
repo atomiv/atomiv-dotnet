@@ -9,13 +9,11 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, CancelOrderCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
-        public CancelOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+        public CancelOrderCommandHandler(IMapper mapper, IOrderRepository orderRepository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
@@ -33,7 +31,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             order.Cancel();
 
             await _orderRepository.UpdateAsync(order);
-            await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Order, CancelOrderCommandResponse>(order);
         }
     }
