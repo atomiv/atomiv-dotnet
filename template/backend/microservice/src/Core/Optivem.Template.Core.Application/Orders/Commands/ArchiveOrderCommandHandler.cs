@@ -6,13 +6,13 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class ArchiveOrderUseCase : IRequestHandler<ArchiveOrderCommand, ArchiveOrderCommandResponse>
+    public class ArchiveOrderCommandHandler : IRequestHandler<ArchiveOrderCommand, ArchiveOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
-        public ArchiveOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+        public ArchiveOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

@@ -5,12 +5,12 @@ using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.Queries
 {
-    public class FindOrderUseCase : IRequestHandler<FindOrderQuery, FindOrderQueryResponse>
+    public class FindOrderQueryHandler : IRequestHandler<FindOrderQuery, FindOrderQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
-        public FindOrderUseCase(IMapper mapper, IOrderReadRepository orderReadRepository)
+        public FindOrderQueryHandler(IMapper mapper, IOrderReadRepository orderReadRepository)
         {
             _mapper = mapper;
             _orderReadRepository = orderReadRepository;

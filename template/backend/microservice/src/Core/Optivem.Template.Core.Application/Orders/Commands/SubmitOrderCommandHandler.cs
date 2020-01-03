@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class SubmitOrderUseCase : IRequestHandler<SubmitOrderCommand, SubmitOrderCommandResponse>
+    public class SubmitOrderCommandHandler : IRequestHandler<SubmitOrderCommand, SubmitOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IOrderRepository _orderRepository;
 
-        public SubmitOrderUseCase(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
+        public SubmitOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IOrderRepository orderRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

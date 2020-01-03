@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class UpdateOrderUseCase : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
+    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -16,7 +16,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
-        public UpdateOrderUseCase(IMapper mapper, 
+        public UpdateOrderCommandHandler(IMapper mapper, 
             IUnitOfWork unitOfWork, 
             IOrderRepository orderRepository, 
             IProductReadRepository productReadRepository,

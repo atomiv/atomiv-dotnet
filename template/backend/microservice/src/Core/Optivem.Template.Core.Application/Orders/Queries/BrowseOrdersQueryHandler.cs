@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Queries
 {
-    public class BrowseOrdersUseCase : IRequestHandler<BrowseOrdersQuery, BrowseOrdersQueryResponse>
+    public class BrowseOrdersQueryHandler : IRequestHandler<BrowseOrdersQuery, BrowseOrdersQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
-        public BrowseOrdersUseCase(IMapper mapper, IOrderReadRepository orderReadRepository)
+        public BrowseOrdersQueryHandler(IMapper mapper, IOrderReadRepository orderReadRepository)
         {
             _mapper = mapper;
             _orderReadRepository = orderReadRepository;

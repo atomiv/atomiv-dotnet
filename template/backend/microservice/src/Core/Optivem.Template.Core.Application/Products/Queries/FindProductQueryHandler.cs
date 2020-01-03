@@ -5,12 +5,12 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class FindProductUseCase : IRequestHandler<FindProductQuery, FindProductQueryResponse>
+    public class FindProductQueryHandler : IRequestHandler<FindProductQuery, FindProductQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
-        public FindProductUseCase(IMapper mapper, IProductReadRepository productReadRepository)
+        public FindProductQueryHandler(IMapper mapper, IProductReadRepository productReadRepository)
         {
             _mapper = mapper;
             _productReadRepository = productReadRepository;

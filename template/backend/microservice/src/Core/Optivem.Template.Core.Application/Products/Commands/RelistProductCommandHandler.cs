@@ -6,13 +6,13 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class RelistProductUseCase : IRequestHandler<RelistProductCommand, RelistProductCommandResponse>
+    public class RelistProductCommandHandler : IRequestHandler<RelistProductCommand, RelistProductCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
-        public RelistProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public RelistProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

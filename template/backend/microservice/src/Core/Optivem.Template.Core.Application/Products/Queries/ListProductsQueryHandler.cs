@@ -6,12 +6,12 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class ListProductsUseCase : IRequestHandler<ListProductQuery, ListProductsQueryResponse>
+    public class ListProductsQueryHandler : IRequestHandler<ListProductQuery, ListProductsQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
-        public ListProductsUseCase(IMapper mapper, IProductReadRepository productReadRepository)
+        public ListProductsQueryHandler(IMapper mapper, IProductReadRepository productReadRepository)
         {
             _mapper = mapper;
             _productReadRepository = productReadRepository;

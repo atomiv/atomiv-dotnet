@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.Commands
 {
-    public class UpdateProductUseCase : IRequestHandler<UpdateProductCommand, UpdateProductCommandResponse>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
-        public UpdateProductUseCase(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public UpdateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IProductRepository productRepository)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

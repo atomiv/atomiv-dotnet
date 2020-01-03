@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class BrowseProductsUseCase : IRequestHandler<BrowseProductsQuery, BrowseProductsQueryResponse>
+    public class BrowseProductsQueryHandler : IRequestHandler<BrowseProductsQuery, BrowseProductsQueryResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
-        public BrowseProductsUseCase(IMapper mapper, IProductReadRepository productReadRepository)
+        public BrowseProductsQueryHandler(IMapper mapper, IProductReadRepository productReadRepository)
         {
             _mapper = mapper;
             _productReadRepository = productReadRepository;

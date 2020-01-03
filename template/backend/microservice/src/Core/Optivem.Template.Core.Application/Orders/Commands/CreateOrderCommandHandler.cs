@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Application.Orders.Commands
 {
-    public class CreateOrderUseCase : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -18,7 +18,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
-        public CreateOrderUseCase(IMapper mapper, 
+        public CreateOrderCommandHandler(IMapper mapper, 
             IUnitOfWork unitOfWork, 
             IOrderRepository orderRepository, 
             ICustomerReadRepository customerReadRepository, 
