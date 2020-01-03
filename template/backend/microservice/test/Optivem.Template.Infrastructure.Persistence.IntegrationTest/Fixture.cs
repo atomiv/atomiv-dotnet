@@ -3,8 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 {
@@ -23,6 +21,11 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
             var databaseContext = _serviceProvider.GetRequiredService<DatabaseContext>();
 
             databaseContext.Database.Migrate();
+        }
+
+        public IServiceScope CreateScope()
+        {
+            return _serviceProvider.CreateScope();
         }
 
         public TService GetService<TService>()

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Customers.Queries.Repositories;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
@@ -8,17 +8,21 @@ namespace Optivem.Template.Core.Application.Customers.Commands
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {
         private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerReadRepository _customerReadRepository;
 
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
+        // TODO: VC: Add just like there is RequestValidator, also ExistenceValidator or see if response code of validator can be customized?
+
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository, ICustomerReadRepository customerReadRepository)
         {
             _customerRepository = customerRepository;
+            _customerReadRepository = customerReadRepository;
         }
 
         public async Task<DeleteCustomerCommandResponse> HandleAsync(DeleteCustomerCommand request)
         {
             var customerId = new CustomerIdentity(request.Id);
 
-            var exists = await _customerRepository.ExistsAsync(customerId);
+            var exists = await _customerReadRepository.ExistsAsync(customerId);
 
             if (!exists)
             {

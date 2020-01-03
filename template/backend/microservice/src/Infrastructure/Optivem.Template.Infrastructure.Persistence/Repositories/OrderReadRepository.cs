@@ -41,7 +41,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         public async Task<PageReadModel<OrderHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
-                .Page(pageQuery)
+                .GetPage(pageQuery.Page, pageQuery.Size)
                 .ToListAsync();
 
             var orderHeaderReadModels = orderRecords

@@ -3,12 +3,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Customers
 {
+    // TODO: VC: Remove dependency on domain for IRepository
     public interface ICustomerReadRepository : IRepository
     {
-        Task<Customer> FindAsync(CustomerIdentity customerId);
-
-        Task<bool> ExistsAsync(CustomerIdentity customerId);
-
         Task<ListReadModel<CustomerIdNameReadModel>> ListAsync(string nameSearch, int limit);
 
         Task<PageReadModel<CustomerHeaderReadModel>> GetPageAsync(PageQuery pageQuery);

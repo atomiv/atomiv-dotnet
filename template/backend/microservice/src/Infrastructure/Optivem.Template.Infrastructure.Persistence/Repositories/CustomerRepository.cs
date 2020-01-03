@@ -6,22 +6,37 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
-    public class CustomerRepository : CustomerReadRepository, ICustomerRepository
+    public class CustomerRepository : Repository, ICustomerRepository
     {
         public CustomerRepository(DatabaseContext context) : base(context)
         {
         }
 
+        public async Task<Customer> FindAsync(CustomerIdentity customerId)
+        {
+            var customerRecord = await Context.Customers.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == customerId);
+
+            if (customerRecord == null)
+            {
+                return null;
+            }
+
+            return GetCustomer(customerRecord);
+        }
+
         public async Task AddAsync(Customer customer)
         {
-            var customerRecord = GetCustomerRecord(customer);
+            var customerRecord = CreateCustomerRecord(customer);
             Context.Customers.Add(customerRecord);
             await Context.SaveChangesAsync();
         }
 
         public async Task RemoveAsync(CustomerIdentity customerId)
         {
-            var customerRecord = GetCustomerRecord(customerId);
+            var customerRecord = await Context.Customers
+                .FirstOrDefaultAsync(e => e.Id == customerId);
+
             Context.Remove(customerRecord);
             await Context.SaveChangesAsync();
         }
@@ -44,7 +59,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             }
         }
 
-        private CustomerRecord GetCustomerRecord(Customer customer)
+        private CustomerRecord CreateCustomerRecord(Customer customer)
         {
             return new CustomerRecord
             {
@@ -54,19 +69,20 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
-        {
-            return new CustomerRecord
-            {
-                Id = customerId,
-            };
-        }
-
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
             customerRecord.Id = customer.Id;
             customerRecord.FirstName = customer.FirstName;
             customerRecord.LastName = customer.LastName;
+        }
+
+        private Customer GetCustomer(CustomerRecord customerRecord)
+        {
+            var identity = new CustomerIdentity(customerRecord.Id);
+            var firstName = customerRecord.FirstName;
+            var lastName = customerRecord.LastName;
+
+            return new Customer(identity, firstName, lastName);
         }
     }
 }

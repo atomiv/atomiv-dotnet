@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Customers.Queries.Repositories;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
@@ -48,9 +49,9 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         {
             var customerId = new CustomerIdentity(request.CustomerId);
 
-            var customer = await _customerReadRepository.FindAsync(customerId);
+            var customerExists = await _customerReadRepository.ExistsAsync(request.CustomerId);
 
-            if (customer == null)
+            if (!customerExists)
             {
                 throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
             }

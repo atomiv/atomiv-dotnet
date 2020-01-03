@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Application.Customers.Queries
     {
         public List<ListCustomersRecordResponse> Records { get; set; }
 
-        public int TotalRecords { get; set; }
+        public long TotalRecords { get; set; }
     }
 
     public class ListCustomersRecordResponse
