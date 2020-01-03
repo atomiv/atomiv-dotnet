@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Common.Orders;
+using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Core.Domain.Products;
 using Optivem.Template.Infrastructure.Persistence.Records;
 using System;
 using System.Linq;
@@ -8,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
-    public class OrderRepository : OrderReadRepository, IOrderRepository
+    public class OrderRepository : Repository, IOrderRepository
     {
         public OrderRepository(DatabaseContext context) : base(context)
         {
@@ -43,6 +46,19 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
+        }
+        public async Task<Order> FindAsync(OrderIdentity orderId)
+        {
+            var orderRecord = await Context.Orders.AsNoTracking()
+                .Include(e => e.OrderItems)
+                .FirstOrDefaultAsync(e => e.Id == orderId);
+
+            if (orderRecord == null)
+            {
+                return null;
+            }
+
+            return GetOrder(orderRecord);
         }
 
         private OrderRecord GetOrderRecord(Order order)
@@ -137,6 +153,29 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             orderItemRecord.StatusId = orderItem.Status;
             orderItemRecord.Quantity = orderItem.Quantity;
             orderItemRecord.UnitPrice = orderItem.UnitPrice;
+        }
+
+        private Order GetOrder(OrderRecord record)
+        {
+            var id = new OrderIdentity(record.Id);
+            var customerId = new CustomerIdentity(record.CustomerId);
+            var status = record.OrderStatusId;
+            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
+
+            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
+
+            return new Order(id, customerId, DateTime.Now, status, orderDetails);
+        }
+
+        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
+        {
+            var id = new OrderItemIdentity(orderItemRecord.Id);
+            var productId = new ProductIdentity(orderItemRecord.ProductId);
+            var quantity = orderItemRecord.Quantity;
+            var unitPrice = orderItemRecord.UnitPrice;
+            var status = orderItemRecord.StatusId;
+
+            return new OrderItem(id, productId, quantity, unitPrice, status);
         }
     }
 }

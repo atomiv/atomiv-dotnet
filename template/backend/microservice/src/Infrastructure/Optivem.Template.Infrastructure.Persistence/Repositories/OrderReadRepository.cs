@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Application.Orders.Queries;
+using Optivem.Template.Core.Application.Orders.Queries.Repositories;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
@@ -18,42 +20,31 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public Task<bool> ExistsAsync(OrderIdentity orderId)
-        {
-            return Context.Orders.AsNoTracking()
-                .AnyAsync(e => e.Id == orderId);
-        }
-
-        public async Task<Order> FindAsync(OrderIdentity orderId)
-        {
-            var orderRecord = await Context.Orders.AsNoTracking()
-                .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderId);
-
-            if (orderRecord == null)
-            {
-                return null;
-            }
-
-            return GetOrder(orderRecord);
-        }
-
-        public async Task<PageReadModel<OrderHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
+        public async Task<BrowseOrdersQueryResponse> QueryAsync(BrowseOrdersQuery query)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
-                .GetPage(pageQuery.Page, pageQuery.Size)
+                .GetPage(query.Page, query.Size)
                 .ToListAsync();
 
-            var orderHeaderReadModels = orderRecords
+            var recordResponses = orderRecords
                 .Select(GetOrderHeaderReadModel)
                 .ToList();
 
             var totalRecords = await CountAsync();
 
-            return PageReadModel<OrderHeaderReadModel>.Create(pageQuery, orderHeaderReadModels, totalRecords);
+            return new BrowseOrdersQueryResponse
+            {
+                Records = recordResponses,
+                TotalRecords = totalRecords,
+            };
         }
 
-        public async Task<ListReadModel<OrderIdNameReadModel>> ListAsync()
+        public Task<FindOrderQueryResponse> QueryAsync(FindOrderQuery query)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ListOrdersQueryResponse> QueryAsync(ListOrdersQuery query)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
                 .OrderBy(e => e.Id)
@@ -62,7 +53,17 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             var resultRecords = orderRecords.Select(GetIdNameResult).ToList();
             var totalRecords = await CountAsync();
 
-            return new ListReadModel<OrderIdNameReadModel>(resultRecords, totalRecords);
+            return new ListOrdersQueryResponse
+            {
+                Records = resultRecords,
+                TotalRecords = totalRecords,
+            };
+        }
+
+        public Task<bool> ExistsAsync(Guid orderId)
+        {
+            return Context.Orders.AsNoTracking()
+                .AnyAsync(e => e.Id == orderId);
         }
 
         public Task<long> CountAsync()
@@ -70,46 +71,29 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             return Context.Orders.LongCountAsync();
         }
 
-        private Order GetOrder(OrderRecord record)
+        private BrowseOrdersRecordQueryResponse GetOrderHeaderReadModel(OrderRecord record)
         {
-            var id = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerId);
-            OrderStatus status = (OrderStatus)record.OrderStatusId; // TODO: VC
-            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
-
-            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
-
-            return new Order(id, customerId, DateTime.Now, status, orderDetails);
-        }
-
-        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
-        {
-            var id = new OrderItemIdentity(orderItemRecord.Id);
-            var productId = new ProductIdentity(orderItemRecord.ProductId);
-            var quantity = orderItemRecord.Quantity;
-            var unitPrice = orderItemRecord.UnitPrice;
-            var status = orderItemRecord.StatusId;
-
-            return new OrderItem(id, productId, quantity, unitPrice, status);
-        }
-
-        private OrderHeaderReadModel GetOrderHeaderReadModel(OrderRecord record)
-        {
-            var orderId = new OrderIdentity(record.Id);
-            var customerId = new CustomerIdentity(record.CustomerId);
-            var orderDate = record.OrderDate;
-            var status = (OrderStatus) record.OrderStatusId;
             var totalPrice = record.OrderItems.Sum(e => e.UnitPrice * e.Quantity);
 
-            return new OrderHeaderReadModel(orderId, customerId, orderDate, status, totalPrice);
+            return new BrowseOrdersRecordQueryResponse
+            {
+                Id = record.Id,
+                CustomerId = record.CustomerId,
+                OrderDate = record.OrderDate,
+                OrderStatus = record.OrderStatusId,
+                TotalPrice = totalPrice,
+            };
         }
 
-        private OrderIdNameReadModel GetIdNameResult(OrderRecord record)
+        private ListOrdersRecordQueryResponse GetIdNameResult(OrderRecord record)
         {
-            var id = new OrderIdentity(record.Id);
             var name = record.Id.ToString();
 
-            return new OrderIdNameReadModel(id, name);
+            return new ListOrdersRecordQueryResponse
+            {
+                Id = record.Id,
+                Name = name,
+            };
         }
     }
 }

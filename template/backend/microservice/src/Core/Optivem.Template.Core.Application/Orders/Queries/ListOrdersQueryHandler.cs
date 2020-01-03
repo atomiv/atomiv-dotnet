@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Orders.Queries.Repositories;
 using Optivem.Template.Core.Domain.Orders;
 using System.Threading.Tasks;
 
@@ -8,20 +9,16 @@ namespace Optivem.Template.Core.Application.Orders.Queries
 {
     public class ListOrdersQueryHandler : IRequestHandler<ListOrdersQuery, ListOrdersQueryResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
-        public ListOrdersQueryHandler(IMapper mapper, IOrderReadRepository orderReadRepository)
+        public ListOrdersQueryHandler(IOrderReadRepository orderReadRepository)
         {
-            _mapper = mapper;
             _orderReadRepository = orderReadRepository;
         }
 
-        public async Task<ListOrdersQueryResponse> HandleAsync(ListOrdersQuery request)
+        public Task<ListOrdersQueryResponse> HandleAsync(ListOrdersQuery request)
         {
-            var listResult = await _orderReadRepository.ListAsync();
-
-            return _mapper.Map<ListReadModel<OrderIdNameReadModel>, ListOrdersQueryResponse>(listResult);
+            return _orderReadRepository.QueryAsync(request);
         }
     }
 }

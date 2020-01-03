@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Optivem.Framework.Core.Common.Utilities;
 using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Application.Customers.Queries;
@@ -35,8 +36,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
             // TODO: VC: Move to utilities for computations
 
-            var totalPagesDecimal = (decimal)totalRecords / size;
-            var totalPages = (long)Math.Ceiling(totalPagesDecimal);
+            var totalPages = MathUtilities.GetTotalPages(totalRecords, size);
 
             return new BrowseCustomersQueryResponse
             {

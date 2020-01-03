@@ -1,18 +1,17 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
+using Optivem.Template.Core.Application.Orders.Queries.Repositories;
 using Optivem.Template.Core.Domain.Orders;
 
 namespace Optivem.Template.Core.Application.Orders.Queries
 {
     public class FindOrderQueryHandler : IRequestHandler<FindOrderQuery, FindOrderQueryResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IOrderReadRepository _orderReadRepository;
 
         public FindOrderQueryHandler(IMapper mapper, IOrderReadRepository orderReadRepository)
         {
-            _mapper = mapper;
             _orderReadRepository = orderReadRepository;
         }
 
@@ -20,14 +19,13 @@ namespace Optivem.Template.Core.Application.Orders.Queries
         {
             var orderId = new OrderIdentity(request.Id);
 
-            var order = await _orderReadRepository.FindAsync(orderId);
+            var response = await _orderReadRepository.QueryAsync(request);
 
-            if (order == null)
+            if (response == null)
             {
                 throw new NotFoundRequestException();
             }
 
-            var response = _mapper.Map<Order, FindOrderQueryResponse>(order);
             return response;
         }
     }
