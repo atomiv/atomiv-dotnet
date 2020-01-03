@@ -1,3 +1,12 @@
+using FluentAssertions;
+using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Products.Commands;
+using Optivem.Template.Core.Application.Products.Queries;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xunit;
+
 namespace Optivem.Template.Core.Application.IntegrationTest
 {
     public class ProductServiceTest : Test
@@ -10,37 +19,35 @@ namespace Optivem.Template.Core.Application.IntegrationTest
 
         // TODO: VC: Implement
 
-        /*
-
         [Fact]
         public async Task RelistProduct_ValidRequest_ReturnsResponse()
         {
             // Arrange
 
-            var createRequests = new List<CreateProductRequest>
+            var createRequests = new List<CreateProductCommand>
             {
-                new CreateProductRequest
+                new CreateProductCommand
                 {
                     Code = "APP",
                     Description = "Apple",
                     UnitPrice = 10.50m,
                 },
 
-                new CreateProductRequest
+                new CreateProductCommand
                 {
                     Code = "BAN",
                     Description = "Banana",
                     UnitPrice = 30.99m,
                 },
 
-                new CreateProductRequest
+                new CreateProductCommand
                 {
                     Code = "ONG",
                     Description = "Orange",
                     UnitPrice = 35.99m,
                 },
 
-                new CreateProductRequest
+                new CreateProductCommand
                 {
                     Code = "STR",
                     Description = "Strawberry",
@@ -51,43 +58,90 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var createResponses = await CreateProductsAsync(createRequests);
 
             var someCreateResponse = createResponses[2];
-
             var id = someCreateResponse.Id;
-            var unlistResponse = await Fixture.ProductService.UnlistProductAsync(id);
 
-            unlistResponse.IsListed.Should().BeFalse();
+            var unlistRequest = new UnlistProductCommand { Id = id };
+            var unlistResponse = await Fixture.MessageBus.SendAsync(unlistRequest);
 
+            var expectedUnlistResponse = new UnlistProductCommandResponse
+            {
+                Id = id,
+                IsListed = false,
+            };
 
+            unlistResponse.Should().BeEquivalentTo(expectedUnlistResponse);
 
-            var record = _productRecords.Where(e => !e.IsListed).First();
-            var id = record.Id;
+            // Act
 
-            var activateResponse = await Fixture.ProductService.RelistProductAsync(id);
+            var relistRequest = new RelistProductCommand { Id = id };
+            var relistResponse = await Fixture.MessageBus.SendAsync(relistRequest);
 
-            AssertUtilities.NotEmpty(activateResponse.Id);
-            Assert.Equal(record.Id, activateResponse.Id);
-            Assert.Equal(record.ProductCode, activateResponse.Code);
-            Assert.Equal(record.ProductName, activateResponse.Description);
-            Assert.Equal(record.ListPrice, activateResponse.UnitPrice);
-            Assert.True(activateResponse.IsListed);
+            // Assert
 
-            var findResponse = await Fixture.ProductService.FindProductAsync(id);
+            var expectedRelistResponse = new RelistProductCommandResponse
+            {
+                Id = id,
+                IsListed = true,
+            };
 
-            Assert.Equal(activateResponse.Id, findResponse.Id);
-            Assert.Equal(activateResponse.Code, findResponse.Code);
-            Assert.Equal(activateResponse.Description, findResponse.Description);
-            Assert.Equal(activateResponse.UnitPrice, findResponse.UnitPrice);
-            Assert.Equal(activateResponse.IsListed, findResponse.IsListed);
+            relistResponse.Should().BeEquivalentTo(expectedRelistResponse);
+
+            var findRequest = new FindProductQuery { Id = id };
+            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
+
+            findResponse.Should().BeEquivalentTo(someCreateResponse);
         }
 
         [Fact]
         public async Task RelistProduct_InvalidRequest_ThrowsInvalidRequestException()
         {
-            var record = _productRecords.Where(e => e.IsListed).First();
-            var id = record.Id;
+            // Arrange
 
-            await Assert.ThrowsAsync<DomainException>(() => Fixture.ProductService.RelistProductAsync(id));
+            var createRequests = new List<CreateProductCommand>
+            {
+                new CreateProductCommand
+                {
+                    Code = "APP",
+                    Description = "Apple",
+                    UnitPrice = 10.50m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "BAN",
+                    Description = "Banana",
+                    UnitPrice = 30.99m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "ONG",
+                    Description = "Orange",
+                    UnitPrice = 35.99m,
+                },
+            };
+
+            var createResponses = await CreateProductsAsync(createRequests);
+
+            var someCreateResponse = createResponses[1];
+            var id = someCreateResponse.Id;
+
+            // Act
+
+            var relistRequest = new RelistProductCommand { Id = id };
+
+            Func<Task> relistFunc = () => Fixture.MessageBus.SendAsync(relistRequest);
+
+
+            await Assert.ThrowsAsync<DomainException>(() => Fixture.MessageBus.SendAsync(relistRequest));
+
+            // Assert
+
+            await relistFunc.Should().ThrowAsync<DomainException>();
         }
+
+
+        /*
 
         [Fact]
         public async Task BrowseProducts_ValidRequest_ReturnsResponse()
@@ -305,6 +359,6 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.ProductService.UpdateProductAsync(updateRequest));
         }
 
-        */
+    */
+        }
     }
-}
