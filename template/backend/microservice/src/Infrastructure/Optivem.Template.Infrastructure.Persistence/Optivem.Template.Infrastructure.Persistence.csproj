@@ -10,9 +10,4 @@
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="QueryHandlers\Orders\" />
-    <Folder Include="QueryHandlers\Products\" />
-  </ItemGroup>
-
 </Project>
