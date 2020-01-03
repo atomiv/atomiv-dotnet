@@ -1,7 +1,8 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Application.Customers.Queries.Repositories;
+using Optivem.Template.Core.Application.Customers.Repositories;
+using Optivem.Template.Core.Application.Products.Repositories;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
@@ -79,17 +80,18 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
-            var productId = new ProductIdentity(requestOrderDetail.ProductId);
-            var product = await _productReadRepository.FindAsync(productId);
+            var productPrice = await _productReadRepository.GetPriceAsync(requestOrderDetail.ProductId);
 
-            if (product == null)
+            if (productPrice == null)
             {
                 throw new InvalidRequestException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
             }
 
+            var productId = new ProductIdentity(requestOrderDetail.ProductId);
+
             var quantity = requestOrderDetail.Quantity;
 
-            return _orderFactory.CreateNewOrderItem(product, quantity);
+            return _orderFactory.CreateNewOrderItem(productId, quantity, productPrice.Value);
         }
     }
 }

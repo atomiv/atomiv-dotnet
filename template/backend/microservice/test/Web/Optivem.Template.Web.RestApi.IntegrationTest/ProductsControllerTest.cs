@@ -111,7 +111,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
         [Fact(Skip = "In progress")]
         public async Task ListProducts_Valid_OK()
         {
-            var listRequest = new ListProductQuery { };
+            var listRequest = new ListProductsQuery { };
 
             var actual = await Fixture.Api.Products.ListProductsAsync(listRequest);
 

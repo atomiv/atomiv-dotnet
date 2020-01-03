@@ -1,33 +1,30 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
+using Optivem.Template.Core.Application.Products.Repositories;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
     public class FindProductQueryHandler : IRequestHandler<FindProductQuery, FindProductQueryResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
-        public FindProductQueryHandler(IMapper mapper, IProductReadRepository productReadRepository)
+        public FindProductQueryHandler(IProductReadRepository productReadRepository)
         {
-            _mapper = mapper;
             _productReadRepository = productReadRepository;
         }
 
         public async Task<FindProductQueryResponse> HandleAsync(FindProductQuery request)
         {
-            var productId = new ProductIdentity(request.Id);
+            var response = await _productReadRepository.QueryAsync(request);
 
-            var product = await _productReadRepository.FindAsync(productId);
-
-            if (product == null)
+            if (response == null)
             {
                 throw new NotFoundRequestException();
             }
 
-            return _mapper.Map<Product, FindProductQueryResponse>(product);
+            return response;
         }
     }
 }

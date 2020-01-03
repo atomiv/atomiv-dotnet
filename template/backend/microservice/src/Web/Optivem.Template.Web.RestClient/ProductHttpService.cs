@@ -31,7 +31,7 @@ namespace Optivem.Template.Web.RestClient
             return Client.GetByIdAsync<Guid, FindProductQueryResponse>(id);
         }
 
-        public Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductQuery request)
+        public Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request)
         {
             return Client.GetAsync<ListProductsQueryResponse>("list");
         }

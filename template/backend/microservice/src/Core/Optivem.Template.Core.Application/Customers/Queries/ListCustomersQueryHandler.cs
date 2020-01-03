@@ -1,8 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Mapping;
-using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Application.Customers.Queries.Repositories;
+using Optivem.Template.Core.Application.Customers.Repositories;
 
 namespace Optivem.Template.Core.Application.Customers.Queries
 {

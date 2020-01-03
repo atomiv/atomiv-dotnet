@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
-    public class ProductRepository : ProductReadRepository, IProductRepository
+    public class ProductRepository : Repository, IProductRepository
     {
         public ProductRepository(DatabaseContext context) : base(context)
         {
@@ -34,6 +34,19 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             {
                 throw new ConcurrentUpdateException(ex.Message, ex);
             }
+        }
+
+        public async Task<Product> FindAsync(ProductIdentity productId)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == productId);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
         }
 
         #region Helper
@@ -65,6 +78,17 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             productRecord.ProductName = product.ProductName;
             productRecord.ListPrice = product.ListPrice;
             productRecord.IsListed = product.IsListed;
+        }
+
+        private Product GetProduct(ProductRecord productRecord)
+        {
+            var id = new ProductIdentity(productRecord.Id);
+            var productCode = productRecord.ProductCode;
+            var productName = productRecord.ProductName;
+            var listPrice = productRecord.ListPrice;
+            var isListed = productRecord.IsListed;
+
+            return new Product(id, productCode, productName, listPrice, isListed);
         }
 
         #endregion

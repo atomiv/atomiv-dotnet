@@ -34,7 +34,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(ListProductsQueryResponse), 200)]
         public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
         {
-            var request = new ListProductQuery { };
+            var request = new ListProductsQuery { };
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }

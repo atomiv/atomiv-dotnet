@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Framework.Core.Common.Utilities;
-using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Application.Customers.Queries;
-using Optivem.Template.Core.Application.Customers.Queries.Repositories;
+using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.Persistence.Records;

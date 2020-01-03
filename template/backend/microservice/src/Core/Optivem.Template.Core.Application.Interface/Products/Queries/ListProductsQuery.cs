@@ -2,7 +2,7 @@
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class ListProductQuery : IRequest<ListProductsQueryResponse>
+    public class ListProductsQuery : IRequest<ListProductsQueryResponse>
     {
     }
 }

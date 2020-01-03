@@ -1,6 +1,8 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
 using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Products.Queries;
+using Optivem.Template.Core.Application.Products.Repositories;
 using Optivem.Template.Core.Domain.Orders;
 using Optivem.Template.Core.Domain.Products;
 using System.Linq;
@@ -57,15 +59,16 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             foreach (var added in addedOrderRequestDetails)
             {
-                var productId = new ProductIdentity(added.ProductId);
-                var product = await _productReadRepository.FindAsync(productId);
+                var productPrice = await _productReadRepository.GetPriceAsync(added.ProductId);
 
-                if (product == null)
+                if (productPrice == null)
                 {
-                    throw new InvalidRequestException($"Product {productId} does not exist");
+                    throw new InvalidRequestException($"Product {added.ProductId} does not exist");
                 }
 
-                var orderDetail = _orderFactory.CreateNewOrderItem(product, added.Quantity);
+                var productId = new ProductIdentity(added.ProductId);
+
+                var orderDetail = _orderFactory.CreateNewOrderItem(productId, added.Quantity, productPrice.Value);
                 order.AddOrderItem(orderDetail);
             }
 
@@ -74,15 +77,16 @@ namespace Optivem.Template.Core.Application.Orders.Commands
                 var orderDetailId = new OrderItemIdentity(updated.Id.Value);
                 var orderDetail = order.OrderItems.First(e => e.Id == orderDetailId);
 
-                var productId = new ProductIdentity(updated.ProductId);
-                var product = await _productReadRepository.FindAsync(productId);
+                var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
 
-                if (product == null)
+                if (productPrice == null)
                 {
-                    throw new InvalidRequestException($"Product {productId} does not exist");
+                    throw new InvalidRequestException($"Product {updated.ProductId} does not exist");
                 }
 
-                orderDetail.SetProduct(product);
+                var productId = new ProductIdentity(updated.ProductId);
+
+                orderDetail.SetProduct(productId, productPrice.Value);
                 orderDetail.Quantity = updated.Quantity;
             }
 

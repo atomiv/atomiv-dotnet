@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\Queries\Repositories\" />
+  </ItemGroup>
+
 </Project>

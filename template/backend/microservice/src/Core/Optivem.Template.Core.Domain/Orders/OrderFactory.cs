@@ -29,13 +29,8 @@ namespace Optivem.Template.Core.Domain.Orders
             return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
         }
 
-        public OrderItem CreateNewOrderItem(Product product, decimal quantity)
+        public OrderItem CreateNewOrderItem(ProductIdentity productId, decimal quantity, decimal listPrice)
         {
-            if (product == null)
-            {
-                throw new ArgumentException();
-            }
-
             if (quantity < 0)
             {
                 throw new ArgumentException();
@@ -43,7 +38,7 @@ namespace Optivem.Template.Core.Domain.Orders
 
             var id = _orderItemIdentityGenerator.Next();
 
-            return new OrderItem(id, product.Id, quantity, product.ListPrice, OrderItemStatus.Allocated);
+            return new OrderItem(id, productId, quantity, listPrice, OrderItemStatus.Allocated);
         }
     }
 }

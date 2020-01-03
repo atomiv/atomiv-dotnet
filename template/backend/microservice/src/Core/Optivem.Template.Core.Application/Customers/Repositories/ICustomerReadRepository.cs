@@ -1,8 +1,9 @@
 ﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Customers.Queries;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.Customers.Queries.Repositories
+namespace Optivem.Template.Core.Application.Customers.Repositories
 {
     // TODO: VC: Base read repository, not related to domain
     public interface ICustomerReadRepository : IRepository

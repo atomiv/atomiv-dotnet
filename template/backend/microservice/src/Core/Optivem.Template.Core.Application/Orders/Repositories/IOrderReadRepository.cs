@@ -1,10 +1,9 @@
 ﻿using Optivem.Framework.Core.Domain;
+using Optivem.Template.Core.Application.Orders.Queries;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Template.Core.Application.Orders.Queries.Repositories
+namespace Optivem.Template.Core.Application.Orders.Repositories
 {
     public interface IOrderReadRepository : IRepository
     {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Template.Core.Application.Customers.Queries.Repositories;
-using Optivem.Template.Core.Common.Orders;
-using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Application.Customers.Repositories;
 
 namespace Optivem.Template.Core.Application.Customers.Queries
 {

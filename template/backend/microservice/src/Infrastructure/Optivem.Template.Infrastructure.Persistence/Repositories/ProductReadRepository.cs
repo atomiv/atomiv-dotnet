@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Application.Products.Queries;
+using Optivem.Template.Core.Application.Products.Repositories;
 using Optivem.Template.Infrastructure.Persistence.Records;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,29 +15,10 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public Task<bool> ExistsAsync(ProductIdentity productId)
-        {
-            return Context.Products.AsNoTracking()
-                .AnyAsync(e => e.Id == productId);
-        }
-
-        public async Task<Product> FindAsync(ProductIdentity productId)
-        {
-            var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productId);
-
-            if (productRecord == null)
-            {
-                return null;
-            }
-
-            return GetProduct(productRecord);
-        }
-
-        public async Task<PageReadModel<ProductHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
+        public async Task<BrowseProductsQueryResponse> QueryAsync(BrowseProductsQuery query)
         {
             var productRecords = await Context.Products.AsNoTracking()
-                .GetPage(pageQuery.Page, pageQuery.Size)
+                .GetPage(query.Page, query.Size)
                 .ToListAsync();
 
             var productHeaderReadModels = productRecords
@@ -45,10 +27,29 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
             var totalRecords = await CountAsync();
 
-            return PageReadModel<ProductHeaderReadModel>.Create(pageQuery, productHeaderReadModels, totalRecords);
+            return new BrowseProductsQueryResponse
+            {
+                Records = productHeaderReadModels,
+                TotalRecords = totalRecords,
+            };
         }
 
-        public async Task<ListReadModel<ProductIdNameReadModel>> ListAsync()
+        public async Task<FindProductQueryResponse> QueryAsync(FindProductQuery query)
+        {
+            var productId = query.Id;
+
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == productId);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetFindProductQueryResponse(productRecord);
+        }
+
+        public async Task<ListProductsQueryResponse> QueryAsync(ListProductsQuery query)
         {
             var productRecords = await Context.Products.AsNoTracking()
                 .OrderBy(e => e.ProductCode)
@@ -57,7 +58,17 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             var resultRecords = productRecords.Select(GetIdNameResult).ToList();
             var totalRecords = await CountAsync();
 
-            return new ListReadModel<ProductIdNameReadModel>(resultRecords, totalRecords);
+            return new ListProductsQueryResponse
+            {
+                Records = resultRecords,
+                TotalRecords = totalRecords,
+            };
+        }
+
+        public Task<bool> ExistsAsync(Guid productId)
+        {
+            return Context.Products.AsNoTracking()
+                .AnyAsync(e => e.Id == productId);
         }
 
         public Task<long> CountAsync()
@@ -65,36 +76,54 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             return Context.Products.LongCountAsync();
         }
 
+        public async Task<decimal?> GetPriceAsync(Guid productId)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == productId);
+
+            if(productRecord == null)
+            {
+                return null;
+            }
+
+            return productRecord.ListPrice;
+        }
+
         #region Helper
 
-        protected Product GetProduct(ProductRecord productRecord)
+        private static BrowseProductsRecordResponse GetProductHeaderReadModel(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id);
-            var productCode = productRecord.ProductCode;
-            var productName = productRecord.ProductName;
-            var listPrice = productRecord.ListPrice;
-            var isListed = productRecord.IsListed;
-
-            return new Product(id, productCode, productName, listPrice, isListed);
+            return new BrowseProductsRecordResponse
+            {
+                Id = productRecord.Id,
+                Code = productRecord.ProductCode,
+                Description = productRecord.ProductName,
+                UnitPrice = productRecord.ListPrice,
+                IsListed = productRecord.IsListed,
+            };
         }
 
-        protected ProductHeaderReadModel GetProductHeaderReadModel(ProductRecord productRecord)
+        private static ListProductsRecordQueryResponse GetIdNameResult(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id);
-            var productCode = productRecord.ProductCode;
-            var productName = productRecord.ProductName;
-            var listPrice = productRecord.ListPrice;
-            var isListed = productRecord.IsListed;
-
-            return new ProductHeaderReadModel(id, productCode, productName, listPrice, isListed);
-        }
-
-        protected ProductIdNameReadModel GetIdNameResult(ProductRecord productRecord)
-        {
-            var id = new ProductIdentity(productRecord.Id);
             var name = $"{productRecord.ProductCode} - {productRecord.ProductName}";
 
-            return new ProductIdNameReadModel(id, name);
+            return new ListProductsRecordQueryResponse
+            {
+                Id = productRecord.Id,
+                Name = name,
+            };
+        }
+
+        private static FindProductQueryResponse GetFindProductQueryResponse(ProductRecord productRecord)
+        {
+            return new FindProductQueryResponse
+            {
+                Id = productRecord.Id,
+                Code = productRecord.ProductCode,
+                Description = productRecord.ProductName,
+                UnitPrice = productRecord.ListPrice,
+                IsListed = productRecord.IsListed,
+            };
         }
 
         #endregion

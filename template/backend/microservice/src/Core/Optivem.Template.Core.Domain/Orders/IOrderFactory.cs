@@ -9,6 +9,6 @@ namespace Optivem.Template.Core.Domain.Orders
     {
         Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails);
 
-        OrderItem CreateNewOrderItem(Product product, decimal quantity);
+        OrderItem CreateNewOrderItem(ProductIdentity productId, decimal quantity, decimal listPrice);
     }
 }

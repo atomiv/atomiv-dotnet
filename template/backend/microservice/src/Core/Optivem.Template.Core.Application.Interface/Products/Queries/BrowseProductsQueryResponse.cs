@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Application.Products.Queries
     {
         public List<BrowseProductsRecordResponse> Records { get; set; }
 
-        public int TotalRecords { get; set; }
+        public long TotalRecords { get; set; }
     }
 
     public class BrowseProductsRecordResponse

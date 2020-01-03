@@ -19,10 +19,10 @@ namespace Optivem.Template.Core.Domain.Orders
 
         public decimal UnitPrice { get; private set; }
 
-        public void SetProduct(Product product)
+        public void SetProduct(ProductIdentity productId, decimal listPrice)
         {
-            ProductId = product.Id;
-            UnitPrice = product.ListPrice;
+            ProductId = productId;
+            UnitPrice = listPrice;
         }
 
         public decimal Quantity { get; set; }

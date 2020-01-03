@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Domain;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Application.Orders.Queries;
-using Optivem.Template.Core.Application.Orders.Queries.Repositories;
-using Optivem.Template.Core.Common.Orders;
-using Optivem.Template.Core.Domain.Customers;
-using Optivem.Template.Core.Domain.Orders;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Application.Orders.Repositories;
 using Optivem.Template.Infrastructure.Persistence.Records;
 using System;
 using System.Linq;
@@ -39,9 +34,20 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        public Task<FindOrderQueryResponse> QueryAsync(FindOrderQuery query)
+        public async Task<FindOrderQueryResponse> QueryAsync(FindOrderQuery query)
         {
-            throw new NotImplementedException();
+            var orderId = query.Id;
+
+            var orderRecord = await Context.Orders.AsNoTracking()
+                .Include(e => e.OrderItems)
+                .FirstOrDefaultAsync(e => e.Id == orderId);
+
+            if (orderRecord == null)
+            {
+                return null;
+            }
+
+            return GetOrder(orderRecord);
         }
 
         public async Task<ListOrdersQueryResponse> QueryAsync(ListOrdersQuery query)
@@ -95,5 +101,33 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
                 Name = name,
             };
         }
+
+        private FindOrderQueryResponse GetOrder(OrderRecord record)
+        {
+            var orderItems = record.OrderItems
+                .Select(GetFindOrderItemQueryResponse)
+                .ToList();
+
+            return new FindOrderQueryResponse
+            {
+                Id = record.Id,
+                CustomerId = record.CustomerId,
+                Status = record.OrderStatusId,
+                OrderItems = orderItems,
+            };
+        }
+
+        private FindOrderItemQueryResponse GetFindOrderItemQueryResponse(OrderItemRecord orderItemRecord)
+        {
+            return new FindOrderItemQueryResponse
+            {
+                Id = orderItemRecord.Id,
+                ProductId = orderItemRecord.ProductId,
+                Quantity = orderItemRecord.Quantity,
+                UnitPrice = orderItemRecord.UnitPrice,
+                Status = orderItemRecord.StatusId,
+            };
+        }
+
     }
 }

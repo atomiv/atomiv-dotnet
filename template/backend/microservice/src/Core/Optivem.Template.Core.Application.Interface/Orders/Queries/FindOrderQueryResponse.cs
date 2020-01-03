@@ -23,6 +23,8 @@ namespace Optivem.Template.Core.Application.Orders.Queries
 
         public decimal Quantity { get; set; }
 
+        public decimal UnitPrice { get; set; }
+
         public OrderItemStatus Status { get; set; }
     }
 }

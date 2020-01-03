@@ -1,27 +1,21 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Mapping;
-using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Domain.Products;
+using Optivem.Template.Core.Application.Products.Repositories;
 
 namespace Optivem.Template.Core.Application.Products.Queries
 {
-    public class ListProductsQueryHandler : IRequestHandler<ListProductQuery, ListProductsQueryResponse>
+    public class ListProductsQueryHandler : IRequestHandler<ListProductsQuery, ListProductsQueryResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IProductReadRepository _productReadRepository;
 
-        public ListProductsQueryHandler(IMapper mapper, IProductReadRepository productReadRepository)
+        public ListProductsQueryHandler(IProductReadRepository productReadRepository)
         {
-            _mapper = mapper;
             _productReadRepository = productReadRepository;
         }
 
-        public async Task<ListProductsQueryResponse> HandleAsync(ListProductQuery request)
+        public Task<ListProductsQueryResponse> HandleAsync(ListProductsQuery request)
         {
-            var listResult = await _productReadRepository.ListAsync();
-
-            return _mapper.Map<ListReadModel<ProductIdNameReadModel>, ListProductsQueryResponse>(listResult);
+            return _productReadRepository.QueryAsync(request);
         }
     }
 }
