@@ -63,7 +63,7 @@ namespace Optivem.Template.DependencyInjection
         {
             var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
             var connection = configuration.GetConnectionString(connectionKey);
-            
+
             services.AddDbContext<DatabaseContext>(options =>
             {
                 options.UseSqlServer(connection);

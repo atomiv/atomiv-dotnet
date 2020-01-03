@@ -12,16 +12,18 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public void Add(Customer customer)
+        public async Task AddAsync(Customer customer)
         {
             var customerRecord = GetCustomerRecord(customer);
             Context.Customers.Add(customerRecord);
+            await Context.SaveChangesAsync();
         }
 
-        public void Remove(CustomerIdentity customerId)
+        public async Task RemoveAsync(CustomerIdentity customerId)
         {
             var customerRecord = GetCustomerRecord(customerId);
             Context.Remove(customerRecord);
+            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Customer customer)
@@ -34,6 +36,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             try
             {
                 Context.Customers.Update(customerRecord);
+                await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
             {

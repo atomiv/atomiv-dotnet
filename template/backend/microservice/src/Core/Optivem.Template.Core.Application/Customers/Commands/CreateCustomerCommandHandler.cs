@@ -9,14 +9,12 @@ namespace Optivem.Template.Core.Application.Customers.Commands
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
         private readonly ICustomerFactory _customerFactory;
 
-        public CreateCustomerCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, ICustomerRepository customerRepository, ICustomerFactory customerFactory)
+        public CreateCustomerCommandHandler(IMapper mapper, ICustomerRepository customerRepository, ICustomerFactory customerFactory)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
             _customerFactory = customerFactory;
         }
@@ -25,8 +23,7 @@ namespace Optivem.Template.Core.Application.Customers.Commands
         {
             var customer = GetCustomer(request);
 
-            _customerRepository.Add(customer);
-            await _unitOfWork.SaveChangesAsync();
+            await _customerRepository.AddAsync(customer);
 
             return _mapper.Map<Customer, CreateCustomerCommandResponse>(customer);
         }

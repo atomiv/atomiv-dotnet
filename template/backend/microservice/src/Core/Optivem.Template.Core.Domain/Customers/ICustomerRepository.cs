@@ -4,10 +4,10 @@ namespace Optivem.Template.Core.Domain.Customers
 {
     public interface ICustomerRepository : ICustomerReadRepository
     {
-        void Add(Customer customer);
+        Task AddAsync(Customer customer);
 
         Task UpdateAsync(Customer customer);
 
-        void Remove(CustomerIdentity customerId);
+        Task RemoveAsync(CustomerIdentity customerId);
     }
 }

@@ -7,12 +7,10 @@ namespace Optivem.Template.Core.Application.Customers.Commands
 {
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ICustomerRepository _customerRepository;
 
-        public DeleteCustomerCommandHandler(IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
         {
-            _unitOfWork = unitOfWork;
             _customerRepository = customerRepository;
         }
 
@@ -27,9 +25,7 @@ namespace Optivem.Template.Core.Application.Customers.Commands
                 throw new NotFoundRequestException();
             }
 
-            _customerRepository.Remove(customerId);
-
-            await _unitOfWork.SaveChangesAsync();
+            await _customerRepository.RemoveAsync(customerId);
 
             return new DeleteCustomerCommandResponse();
         }

@@ -199,6 +199,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Framework.Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FF6243DB-6AF1-4B65-AB13-770788BCCC0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Persistence.IntegrationTest", "template\backend\microservice\test\Optivem.Template.Infrastructure.Persistence.IntegrationTest\Optivem.Template.Infrastructure.Persistence.IntegrationTest.csproj", "{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -453,6 +455,10 @@ Global
 		{F3F87069-E87E-43CC-B2B9-DB51FFE81038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3F87069-E87E-43CC-B2B9-DB51FFE81038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3F87069-E87E-43CC-B2B9-DB51FFE81038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -554,6 +560,7 @@ Global
 		{7ECDAC34-F9FF-4E4A-A01F-4374BC9EF9AB} = {04BFF208-657F-4024-8725-BD473BD76F44}
 		{F3F87069-E87E-43CC-B2B9-DB51FFE81038} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{FF6243DB-6AF1-4B65-AB13-770788BCCC0B} = {AC63F853-51D6-464A-9D51-CE421A323541}
+		{E997A4ED-FC8A-4F42-9A9E-1067E831E0D8} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

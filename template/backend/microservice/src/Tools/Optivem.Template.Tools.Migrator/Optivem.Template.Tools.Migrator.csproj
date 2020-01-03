@@ -48,7 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.Persistence\Optivem.Template.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
