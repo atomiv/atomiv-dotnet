@@ -25,7 +25,7 @@ namespace Optivem.Template.Core.Application.Products.Commands
 
             if (product == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             product.Relist();

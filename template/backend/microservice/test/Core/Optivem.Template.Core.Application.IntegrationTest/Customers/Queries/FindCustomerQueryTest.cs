@@ -92,7 +92,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Queries
 
             // Assert
 
-            await findFunc.Should().ThrowAsync<NotFoundRequestException>();
+            await findFunc.Should().ThrowAsync<ExistenceException>();
         }
     }
 }

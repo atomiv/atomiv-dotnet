@@ -13,10 +13,4 @@
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Customers\Queries\" />
-    <Folder Include="Orders\Queries\" />
-    <Folder Include="Products\Queries\" />
-  </ItemGroup>
-
 </Project>

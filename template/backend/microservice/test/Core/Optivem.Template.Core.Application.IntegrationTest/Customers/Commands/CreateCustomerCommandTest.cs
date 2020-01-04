@@ -57,7 +57,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Assert
 
-            await createFunc.Should().ThrowAsync<InvalidRequestException>();
+            await createFunc.Should().ThrowAsync<ValidationException>();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             var findRequest = new FindCustomerQuery { Id = id };
             Func<Task> findFunc = () => Fixture.MessageBus.SendAsync(findRequest);
-            await findFunc.Should().ThrowAsync<NotFoundRequestException>();
+            await findFunc.Should().ThrowAsync<ExistenceException>();
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Assert
 
-            await deleteFunc.Should().ThrowAsync<NotFoundRequestException>();
+            await deleteFunc.Should().ThrowAsync<ExistenceException>();
         }
     }
 }

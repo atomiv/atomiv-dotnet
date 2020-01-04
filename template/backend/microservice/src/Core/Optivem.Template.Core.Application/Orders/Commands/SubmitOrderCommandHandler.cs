@@ -25,7 +25,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             if (order == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             order.Submit();

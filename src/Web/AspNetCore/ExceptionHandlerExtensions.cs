@@ -44,7 +44,7 @@ namespace Optivem.Framework.Web.AspNetCore
 
                         // TODO: VC: Check if NotFound should be here or move below
 
-                        if (exception.GetType() == typeof(NotFoundRequestException))
+                        if (exception.GetType() == typeof(ExistenceException))
                         {
                             context.Response.StatusCode = (int)HttpStatusCode.NotFound;
                             return;

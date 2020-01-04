@@ -17,5 +17,7 @@ namespace Optivem.Framework.Infrastructure.FluentValidation
         public string ErrorCode => _failure.ErrorCode;
 
         public string ErrorMessage => _failure.ErrorMessage;
+
+        public ValidationErrorType ErrorType => throw new System.NotImplementedException();
     }
 }

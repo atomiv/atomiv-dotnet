@@ -36,7 +36,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             if (order == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             await UpdateAsync(order, request);
@@ -59,7 +59,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
                 if (productPrice == null)
                 {
-                    throw new InvalidRequestException($"Product {added.ProductId} does not exist");
+                    throw new ValidationException($"Product {added.ProductId} does not exist");
                 }
 
                 var productId = new ProductIdentity(added.ProductId);
@@ -77,7 +77,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
                 if (productPrice == null)
                 {
-                    throw new InvalidRequestException($"Product {updated.ProductId} does not exist");
+                    throw new ValidationException($"Product {updated.ProductId} does not exist");
                 }
 
                 var productId = new ProductIdentity(updated.ProductId);

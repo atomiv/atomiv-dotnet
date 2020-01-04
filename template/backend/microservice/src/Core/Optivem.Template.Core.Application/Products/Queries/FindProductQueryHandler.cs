@@ -21,7 +21,7 @@ namespace Optivem.Template.Core.Application.Products.Queries
 
             if (response == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             return response;

@@ -23,7 +23,7 @@ namespace Optivem.Template.Core.Application.Orders.Queries
 
             if (response == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             return response;

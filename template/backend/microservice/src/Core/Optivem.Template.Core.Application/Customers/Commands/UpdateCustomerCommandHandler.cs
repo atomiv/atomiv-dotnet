@@ -23,11 +23,6 @@ namespace Optivem.Template.Core.Application.Customers.Commands
 
             var customer = await _customerRepository.FindAsync(customerId);
 
-            if (customer == null)
-            {
-                throw new NotFoundRequestException();
-            }
-
             Update(customer, request);
 
             await _customerRepository.UpdateAsync(customer);

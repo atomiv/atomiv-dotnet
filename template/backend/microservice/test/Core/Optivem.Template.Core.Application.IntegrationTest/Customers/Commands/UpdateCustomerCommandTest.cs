@@ -109,7 +109,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Assert
 
-            await updateFunc.Should().ThrowAsync<NotFoundRequestException>();
+            await updateFunc.Should().ThrowAsync<ExistenceException>();
         }
 
         [Fact]
@@ -155,7 +155,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Assert
 
-            await updateFunc.Should().ThrowAsync<InvalidRequestException>();
+            await updateFunc.Should().ThrowAsync<ValidationException>();
         }
     }
 }

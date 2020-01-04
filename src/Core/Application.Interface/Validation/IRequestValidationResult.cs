@@ -6,6 +6,6 @@ namespace Optivem.Framework.Core.Application
     {
         bool IsValid { get; }
 
-        IList<IRequestValidationError> Errors { get; }
+        IEnumerable<IRequestValidationError> Errors { get; }
     }
 }

@@ -22,13 +22,6 @@ namespace Optivem.Template.Core.Application.Customers.Commands
         {
             var customerId = new CustomerIdentity(request.Id);
 
-            var exists = await _customerReadRepository.ExistsAsync(customerId);
-
-            if (!exists)
-            {
-                throw new NotFoundRequestException();
-            }
-
             await _customerRepository.RemoveAsync(customerId);
 
             return new DeleteCustomerCommandResponse();

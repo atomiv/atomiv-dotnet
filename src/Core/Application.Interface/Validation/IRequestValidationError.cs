@@ -6,6 +6,8 @@
 
         string ErrorCode { get; }
 
+        ValidationErrorType ErrorType { get; }
+
         string ErrorMessage { get; }
     }
 }

@@ -24,6 +24,8 @@ namespace Optivem.Framework.DependencyInjection.Core.Application
             // services.AddUseCases(types);
             services.AddApplicationServices(types);
 
+            services.AddScoped(typeof(IRequestValidationHandler<>), typeof(RequestValidationHandler<>));
+
             return services;
         }
 

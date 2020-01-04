@@ -50,7 +50,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             if (!customerExists)
             {
-                throw new InvalidRequestException($"Customer {request.CustomerId} does not exist");
+                throw new ValidationException($"Customer {request.CustomerId} does not exist");
             }
 
             var orderDetails = new List<OrderItem>();
@@ -64,10 +64,10 @@ namespace Optivem.Template.Core.Application.Orders.Commands
                     var orderDetail = await GetOrderItem(requestOrderDetail);
                     orderDetails.Add(orderDetail);
                 }
-                catch (InvalidRequestException ex)
+                catch (ValidationException ex)
                 {
                     var position = i + 1;
-                    throw new InvalidRequestException($"Order detail at position {position} is invalid", ex);
+                    throw new ValidationException($"Order detail at position {position} is invalid", ex);
                 }
             }
 
@@ -80,7 +80,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             if (productPrice == null)
             {
-                throw new InvalidRequestException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
+                throw new ValidationException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
             }
 
             var productId = new ProductIdentity(requestOrderDetail.ProductId);

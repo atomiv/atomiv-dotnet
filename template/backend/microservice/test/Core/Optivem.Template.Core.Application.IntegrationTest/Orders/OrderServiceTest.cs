@@ -233,7 +233,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderItems = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.MessageBus.SendAsync(createRequest));
+            await Assert.ThrowsAsync<ValidationException>(() => Fixture.MessageBus.SendAsync(createRequest));
         }
 
         [Fact]
@@ -271,7 +271,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
             var id = Guid.NewGuid();
 
             var findRequest = new FindOrderQuery { Id = id };
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.MessageBus.SendAsync(findRequest));
+            await Assert.ThrowsAsync<ExistenceException>(() => Fixture.MessageBus.SendAsync(findRequest));
         }
 
         [Fact]
@@ -382,7 +382,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 },
             };
 
-            await Assert.ThrowsAsync<NotFoundRequestException>(() => Fixture.MessageBus.SendAsync(updateRequest));
+            await Assert.ThrowsAsync<ExistenceException>(() => Fixture.MessageBus.SendAsync(updateRequest));
         }
 
         [Fact]
@@ -396,7 +396,7 @@ namespace Optivem.Template.Core.Application.IntegrationTest
                 OrderItems = null,
             };
 
-            await Assert.ThrowsAsync<InvalidRequestException>(() => Fixture.MessageBus.SendAsync(updateRequest));
+            await Assert.ThrowsAsync<ValidationException>(() => Fixture.MessageBus.SendAsync(updateRequest));
         }
     }
 }

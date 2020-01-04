@@ -16,7 +16,7 @@ namespace Optivem.Framework.Infrastructure.FluentValidation
 
         public bool IsValid => _result.IsValid;
 
-        public IList<IRequestValidationError> Errors => _result.Errors.Select(GetValidationError).ToList();
+        public IEnumerable<IRequestValidationError> Errors => _result.Errors.Select(GetValidationError).ToList();
 
         private static IRequestValidationError GetValidationError(ValidationFailure failure)
         {

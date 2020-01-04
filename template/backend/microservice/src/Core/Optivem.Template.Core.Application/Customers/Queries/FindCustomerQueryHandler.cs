@@ -21,7 +21,7 @@ namespace Optivem.Template.Core.Application.Customers.Queries
 
             if (customerDetail == null)
             {
-                throw new NotFoundRequestException();
+                throw new ExistenceException();
             }
 
             return customerDetail;

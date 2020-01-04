@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 
 namespace Optivem.Framework.Core.Application
 {
@@ -16,9 +17,20 @@ namespace Optivem.Framework.Core.Application
         {
             var result = await _validator.ValidateAsync(request);
 
+            // TODO: VC: Map here custom status code to http status code
+            // or return ValidationException and inside can see codes?
+
+
             if (!result.IsValid)
             {
-                throw new InvalidRequestException(result);
+                var hasNotFound = result.Errors.Any(e => e.ErrorCode == ValidationErrorCodes.NotFound);
+
+                if(hasNotFound)
+                {
+                    throw new ExistenceException();
+                }
+
+                throw new ValidationException(result);
             }
         }
     }
