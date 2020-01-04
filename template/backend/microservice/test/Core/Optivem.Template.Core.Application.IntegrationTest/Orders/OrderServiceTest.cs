@@ -237,6 +237,28 @@ namespace Optivem.Template.Core.Application.IntegrationTest
         }
 
         [Fact]
+        public async Task CreateOrder_InvalidProducts_ThrowsInvalidRequestException()
+        {
+            var customerRecord = _customerRecords[0];
+            var customerId = customerRecord.Id;
+
+            var createRequest = new CreateOrderCommand
+            {
+                CustomerId = customerId,
+                OrderItems = new List<CreateOrderItemCommand>
+                {
+                    new CreateOrderItemCommand
+                    {
+                        ProductId = Guid.NewGuid(),
+                        Quantity = 4,
+                    },
+                },
+            };
+
+            await Assert.ThrowsAsync<ValidationException>(() => Fixture.MessageBus.SendAsync(createRequest));
+        }
+
+        [Fact]
         public async Task FindOrder_ValidRequest_ReturnsOrder()
         {
             var orderRecord = _orderRecords[0];

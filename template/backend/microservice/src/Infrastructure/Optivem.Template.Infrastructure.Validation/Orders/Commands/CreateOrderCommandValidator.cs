@@ -8,7 +8,7 @@ namespace Optivem.Template.Infrastructure.Validation.Orders
 {
     public class CreateOrderCommandValidator : BaseValidator<CreateOrderCommand>
     {
-        public CreateOrderCommandValidator(ICustomerReadRepository customerReadRepository)
+        public CreateOrderCommandValidator(ICustomerReadRepository customerReadRepository, IProductReadRepository productReadRepository)
         {
             RuleFor(e => e.CustomerId)
                 .NotEmpty()
@@ -17,6 +17,9 @@ namespace Optivem.Template.Infrastructure.Validation.Orders
 
             RuleFor(e => e.CustomerId).NotEmpty();
             RuleFor(e => e.OrderItems).NotNull();
+
+            RuleForEach(e => e.OrderItems)
+                .SetValidator(new CreateOrderItemCommandValidator(productReadRepository));
         }
     }
 

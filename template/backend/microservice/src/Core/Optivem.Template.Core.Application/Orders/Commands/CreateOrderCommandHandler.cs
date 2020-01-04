@@ -45,20 +45,10 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             var orderDetails = new List<OrderItem>();
 
-            for (int i = 0; i < request.OrderItems.Count; i++)
+            foreach(var createOrderItemRequest in request.OrderItems)
             {
-                var requestOrderDetail = request.OrderItems[i];
-
-                try
-                {
-                    var orderDetail = await GetOrderItem(requestOrderDetail);
-                    orderDetails.Add(orderDetail);
-                }
-                catch (ValidationException ex)
-                {
-                    var position = i + 1;
-                    throw new ValidationException($"Order detail at position {position} is invalid", ex);
-                }
+                var orderDetail = await GetOrderItem(createOrderItemRequest);
+                orderDetails.Add(orderDetail);
             }
 
             return _orderFactory.CreateNewOrder(customerId, orderDetails);
@@ -67,13 +57,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
             var productPrice = await _productReadRepository.GetPriceAsync(requestOrderDetail.ProductId);
-
-            // TODO: VC: Move to validator
-
-            if (productPrice == null)
-            {
-                throw new ValidationException($"Product id {requestOrderDetail.ProductId} is not valid because that product does not exist");
-            }
 
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
 
