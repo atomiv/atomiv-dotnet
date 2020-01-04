@@ -43,17 +43,23 @@ namespace Optivem.Template.Web.RestApi.Controllers
         }
 
         [HttpPost(Name = "create-customer")]
-        [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
-        public async Task<ActionResult<DeleteCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
+        [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
+        public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
             var response = await _messageBus.SendAsync(request);
             return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
 
         [HttpPut("{id}", Name = "update-customer")]
-        [ProducesResponseType(typeof(DeleteCustomerCommandResponse), 201)]
-        public async Task<ActionResult<DeleteCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
+        [ProducesResponseType(typeof(UpdateCustomerCommandResponse), 201)]
+        public async Task<ActionResult<UpdateCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
         {
+            if(id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
+
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }

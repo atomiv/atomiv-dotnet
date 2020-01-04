@@ -91,6 +91,12 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(UpdateOrderCommandResponse), 201)]
         public async Task<ActionResult<UpdateOrderCommandResponse>> UpdateOrderAsync(Guid id, UpdateOrderCommand request)
         {
+            if (id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
+
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
