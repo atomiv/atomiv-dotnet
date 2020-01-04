@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Interface
 {
-    public interface IOrderHttpService : IHttpService
+    public interface IOrderControllerClient : IHttpControllerClient
     {
         Task<IObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request);
 

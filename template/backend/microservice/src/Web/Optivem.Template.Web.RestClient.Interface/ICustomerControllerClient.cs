@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient.Interface
 {
-    public interface ICustomerHttpService : IHttpService
+    public interface ICustomerControllerClient : IHttpControllerClient
     {
         Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request);
 

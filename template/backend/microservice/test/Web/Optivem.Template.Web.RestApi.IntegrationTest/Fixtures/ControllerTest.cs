@@ -12,12 +12,16 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
 
         public void Dispose()
         {
+            /*
+
             using (var context = Fixture.Db.CreateContext())
             {
                 context.Customers.RemoveRange(context.Customers);
                 context.Products.RemoveRange(context.Products);
                 context.SaveChanges();
             }
+
+            */
         }
     }
 }

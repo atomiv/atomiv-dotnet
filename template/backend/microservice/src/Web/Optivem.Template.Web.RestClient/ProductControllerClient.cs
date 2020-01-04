@@ -1,54 +1,58 @@
 ﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products.Commands;
 using Optivem.Template.Core.Application.Products.Queries;
 using Optivem.Template.Web.RestClient.Interface;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient
 {
-    public class ProductHttpService : BaseControllerClient, IProductHttpService
+    public class ProductControllerClient : IProductControllerClient
     {
-        public ProductHttpService(IControllerClientFactory clientFactory)
-            : base(clientFactory, "api/products")
+        private readonly JsonHttpControllerClient _controllerClient;
+
+        public ProductControllerClient(HttpClient httpClient, IJsonSerializer jsonSerializer)
         {
+            _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/products");
         }
 
         public Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request)
         {
-            return Client.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
+            return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
         public Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
-            return Client.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
+            return _controllerClient.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, FindProductQueryResponse>(id);
+            return _controllerClient.GetByIdAsync<Guid, FindProductQueryResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request)
         {
-            return Client.GetAsync<ListProductsQueryResponse>("list");
+            return _controllerClient.GetAsync<ListProductsQueryResponse>("list");
         }
 
         public Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
         {
-            return Client.PostAsync<RelistProductCommand, RelistProductCommandResponse>(request);
+            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>(request);
         }
 
         public Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
         {
-            return Client.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>(request);
+            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>(request);
         }
 
         public Task<IObjectClientResponse<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request)
         {
-            return Client.PutByIdAsync<Guid, UpdateProductCommand, UpdateProductCommandResponse>(request.Id, request);
+            return _controllerClient.PutByIdAsync<Guid, UpdateProductCommand, UpdateProductCommandResponse>(request.Id, request);
         }
     }
 }

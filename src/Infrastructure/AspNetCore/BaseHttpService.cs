@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Framework.Infrastructure.AspNetCore
 {
-    public class BaseHttpService<TService> : IHttpService where TService : IHttpService
+    public class BaseHttpService<TService> : IHttpControllerClient where TService : IHttpControllerClient
     {
         public BaseHttpService(TService service)
         {

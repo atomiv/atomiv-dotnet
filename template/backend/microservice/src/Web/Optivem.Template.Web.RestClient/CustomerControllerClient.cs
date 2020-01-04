@@ -1,18 +1,22 @@
 ﻿using Optivem.Framework.Core.Common.Http;
+using Optivem.Framework.Core.Common.Serialization;
 using Optivem.Framework.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;
 using Optivem.Template.Web.RestClient.Interface;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestClient
 {
-    public class CustomerHttpService : BaseControllerClient, ICustomerHttpService
+    public class CustomerControllerClient : ICustomerControllerClient
     {
-        public CustomerHttpService(IControllerClientFactory clientFactory)
-            : base(clientFactory, "api/customers")
+        private readonly JsonHttpControllerClient _controllerClient;
+
+        public CustomerControllerClient(HttpClient httpClient, IJsonSerializer jsonSerializer)
         {
+            _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/customers");
         }
 
         public Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
@@ -22,29 +26,29 @@ namespace Optivem.Template.Web.RestClient
 
         public Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
-            return Client.PostAsync<CreateCustomerCommand, CreateCustomerCommandResponse>(request);
+            return _controllerClient.PostAsync<CreateCustomerCommand, CreateCustomerCommandResponse>(request);
         }
 
         public Task<IObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id);
+            return _controllerClient.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id);
         }
 
         public Task<IObjectClientResponse<FindCustomerQueryResponse>> FindCustomerAsync(FindCustomerQuery request)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, FindCustomerQueryResponse>(id);
+            return _controllerClient.GetByIdAsync<Guid, FindCustomerQueryResponse>(id);
         }
 
         public Task<IObjectClientResponse<ListCustomersQueryResponse>> ListCustomersAsync(ListCustomersQuery request)
         {
-            return Client.GetAsync<ListCustomersQueryResponse>();
+            return _controllerClient.GetAsync<ListCustomersQueryResponse>();
         }
 
         public Task<IObjectClientResponse<UpdateCustomerCommandResponse>> UpdateCustomerAsync(UpdateCustomerCommand request)
         {
-            return Client.PutByIdAsync<Guid, UpdateCustomerCommand, UpdateCustomerCommandResponse>(request.Id, request);
+            return _controllerClient.PutByIdAsync<Guid, UpdateCustomerCommand, UpdateCustomerCommandResponse>(request.Id, request);
         }
     }
 }

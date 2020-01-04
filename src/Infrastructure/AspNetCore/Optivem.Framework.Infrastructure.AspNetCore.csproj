@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\All\Optivem.Framework.Core.All.csproj" />
+    <ProjectReference Include="..\System\Optivem.Framework.Infrastructure.System.csproj" />
   </ItemGroup>
 
 </Project>
