@@ -3,7 +3,6 @@
 namespace Optivem.Framework.Core.Application
 {
     public interface IRequestHandler<TRequest>
-        where TRequest : IRequest
     {
         Task HandleAsync(TRequest request);
     }

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 namespace Optivem.Framework.Infrastructure.FluentValidation
 {
     public class FluentValidationRequestValidator<TRequest> : IRequestValidator<TRequest>
-        where TRequest : IRequest
     {
         private IValidator<TRequest> _validator;
 
