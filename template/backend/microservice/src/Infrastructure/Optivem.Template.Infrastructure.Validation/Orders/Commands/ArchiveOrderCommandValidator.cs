@@ -8,5 +8,9 @@ namespace Optivem.Template.Infrastructure.Validation.Orders.Commands
 {
     public class ArchiveOrderCommandValidator : BaseValidator<ArchiveOrderCommand>
     {
+        public ArchiveOrderCommandValidator()
+        {
+
+        }
     }
 }

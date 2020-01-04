@@ -8,5 +8,9 @@ namespace Optivem.Template.Infrastructure.Validation.Products.Queries
 {
     public class FindProductQueryValidator : BaseValidator<FindProductQuery>
     {
+        public FindProductQueryValidator()
+        {
+
+        }
     }
 }

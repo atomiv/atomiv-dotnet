@@ -8,5 +8,9 @@ namespace Optivem.Template.Infrastructure.Validation.Customers.Queries
 {
     public class FindCustomerQueryValidator : BaseValidator<FindCustomerQuery>
     {
+        public FindCustomerQueryValidator()
+        {
+
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace Optivem.Template.Infrastructure.Validation.Orders.Commands
 {
     public class CancelOrderCommandValidator : BaseValidator<CancelOrderCommand>
     {
+        public CancelOrderCommandValidator()
+        {
+
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace Optivem.Template.Infrastructure.Validation.Products.Commands
 {
     public class RelistProductCommandValidator : BaseValidator<RelistProductCommand>
     {
+        public RelistProductCommandValidator()
+        {
+
+        }
     }
 }
