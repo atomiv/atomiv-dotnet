@@ -23,11 +23,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             var order = await _orderRepository.FindAsync(orderId);
 
-            if (order == null)
-            {
-                throw new ExistenceException();
-            }
-
             order.Submit();
 
             await _orderRepository.UpdateAsync(order);

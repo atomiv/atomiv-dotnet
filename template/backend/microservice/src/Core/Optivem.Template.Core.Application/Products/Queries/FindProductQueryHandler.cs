@@ -19,11 +19,6 @@ namespace Optivem.Template.Core.Application.Products.Queries
         {
             var response = await _productReadRepository.QueryAsync(request);
 
-            if (response == null)
-            {
-                throw new ExistenceException();
-            }
-
             return response;
         }
     }

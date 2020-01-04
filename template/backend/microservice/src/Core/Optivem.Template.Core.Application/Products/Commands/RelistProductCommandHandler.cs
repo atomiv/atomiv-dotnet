@@ -23,11 +23,6 @@ namespace Optivem.Template.Core.Application.Products.Commands
 
             var product = await _productRepository.FindAsync(productId);
 
-            if (product == null)
-            {
-                throw new ExistenceException();
-            }
-
             product.Relist();
 
             await _productRepository.UpdateAsync(product);

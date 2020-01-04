@@ -17,14 +17,7 @@ namespace Optivem.Template.Core.Application.Orders.Queries
 
         public async Task<FindOrderQueryResponse> HandleAsync(FindOrderQuery request)
         {
-            var orderId = new OrderIdentity(request.Id);
-
             var response = await _orderReadRepository.QueryAsync(request);
-
-            if (response == null)
-            {
-                throw new ExistenceException();
-            }
 
             return response;
         }
