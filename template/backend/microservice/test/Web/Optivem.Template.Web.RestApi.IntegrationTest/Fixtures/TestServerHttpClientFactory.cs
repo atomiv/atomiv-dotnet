@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
 {

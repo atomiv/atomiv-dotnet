@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
-using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Application.Products.Commands

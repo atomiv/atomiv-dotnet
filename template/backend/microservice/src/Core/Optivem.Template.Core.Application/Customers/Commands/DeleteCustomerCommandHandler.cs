@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Framework.Core.Application;
-using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Domain.Customers;
 
 namespace Optivem.Template.Core.Application.Customers.Commands

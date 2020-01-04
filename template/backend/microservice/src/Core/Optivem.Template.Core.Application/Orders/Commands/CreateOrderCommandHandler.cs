@@ -1,7 +1,5 @@
 ﻿using Optivem.Framework.Core.Application;
 using Optivem.Framework.Core.Application.Mapping;
-using Optivem.Framework.Core.Domain;
-using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Application.Products.Repositories;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Core.Domain.Orders;

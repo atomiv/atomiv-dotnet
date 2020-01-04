@@ -4,7 +4,6 @@ using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;
 using Optivem.Template.Infrastructure.Persistence.Records;
 using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
-using Optivem.Template.Web.RestClient.Interface;
 using System;
 using System.Collections.Generic;
 using System.Net;

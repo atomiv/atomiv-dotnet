@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.DependencyInjection;
 using System;
 
@@ -12,7 +12,11 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 
         public Fixture()
         {
-            var configuration = ConfigurationRootFactory.Create();
+            var configurationBuilder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.Test.json");
+
+            var configuration = configurationBuilder.Build();
+
             var services = new ServiceCollection();
             services.AddModules(configuration);
 
