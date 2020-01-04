@@ -8,14 +8,10 @@ namespace Optivem.Template.Core.Application.Customers.Commands
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly ICustomerReadRepository _customerReadRepository;
 
-        // TODO: VC: Add just like there is RequestValidator, also ExistenceValidator or see if response code of validator can be customized?
-
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository, ICustomerReadRepository customerReadRepository)
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
-            _customerReadRepository = customerReadRepository;
         }
 
         public async Task<DeleteCustomerCommandResponse> HandleAsync(DeleteCustomerCommand request)

@@ -15,19 +15,16 @@ namespace Optivem.Template.Core.Application.Orders.Commands
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
-        private readonly ICustomerReadRepository _customerReadRepository;
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
         public CreateOrderCommandHandler(IMapper mapper, 
             IOrderRepository orderRepository, 
-            ICustomerReadRepository customerReadRepository, 
             IProductReadRepository productReadRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;
             _orderRepository = orderRepository;
-            _customerReadRepository = customerReadRepository;
             _productReadRepository = productReadRepository;
             _orderFactory = orderFactory;
         }
