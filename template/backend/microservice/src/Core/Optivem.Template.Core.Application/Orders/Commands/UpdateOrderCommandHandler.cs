@@ -52,6 +52,8 @@ namespace Optivem.Template.Core.Application.Orders.Commands
             {
                 var productPrice = await _productReadRepository.GetPriceAsync(added.ProductId);
 
+                // TODO: VC: Move to validator
+
                 if (productPrice == null)
                 {
                     throw new ValidationException($"Product {added.ProductId} does not exist");
@@ -69,6 +71,8 @@ namespace Optivem.Template.Core.Application.Orders.Commands
                 var orderDetail = order.OrderItems.First(e => e.Id == orderDetailId);
 
                 var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
+
+                // TODO: VC: Move to validator
 
                 if (productPrice == null)
                 {

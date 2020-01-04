@@ -46,13 +46,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         {
             var customerId = new CustomerIdentity(request.CustomerId);
 
-            var customerExists = await _customerReadRepository.ExistsAsync(request.CustomerId);
-
-            if (!customerExists)
-            {
-                throw new ValidationException($"Customer {request.CustomerId} does not exist");
-            }
-
             var orderDetails = new List<OrderItem>();
 
             for (int i = 0; i < request.OrderItems.Count; i++)
@@ -77,6 +70,8 @@ namespace Optivem.Template.Core.Application.Orders.Commands
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
             var productPrice = await _productReadRepository.GetPriceAsync(requestOrderDetail.ProductId);
+
+            // TODO: VC: Move to validator
 
             if (productPrice == null)
             {
