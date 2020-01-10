@@ -10,7 +10,7 @@ namespace Optivem.Template.Core.Application.Customers.Commands
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;
 
-        public UpdateCustomerCommandHandler(IMapper mapper, ICustomerRepository customerRepository)
+        public UpdateCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _mapper = mapper;
             _customerRepository = customerRepository;

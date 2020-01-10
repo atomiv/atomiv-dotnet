@@ -27,14 +27,13 @@ namespace Optivem.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
-            var customerIdentity = new CustomerIdentity(id);
-            var customer = new Customer(customerIdentity, "Mary", "Smith"); ;
+            var customer = new Customer(new CustomerIdentity(id), "Mary", "Smith"); ;
 
             var expectedResponse = new CreateCustomerCommandResponse
             {
                 Id = id,
                 FirstName = "Mary",
-                LastName = "Smith"
+                LastName = "Smith",
             };
 
             customerFactoryMock
