@@ -1,4 +1,7 @@
-﻿namespace Optivem.Template.Web.RestClient.Interface
+﻿using Optivem.Template.Core.Application.Customers.Commands;
+using System.Threading.Tasks;
+
+namespace Optivem.Template.Web.RestClient.Interface
 {
     public interface IApiClient
     {

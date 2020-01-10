@@ -12,11 +12,11 @@ using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
-    public class ProductsControllerTest : ControllerTest
+    public class ProductsControllerTest : Test
     {
         private List<ProductRecord> _productRecords;
 
-        public ProductsControllerTest(ControllerFixture fixture) : base(fixture)
+        public ProductsControllerTest(Fixture fixture) : base(fixture)
         {
             _productRecords = new List<ProductRecord>
             {

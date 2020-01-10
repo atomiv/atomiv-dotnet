@@ -1,13 +1,15 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;
+using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
+namespace Optivem.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
     public class DeleteCustomerCommandTest : Test
     {
@@ -41,19 +43,21 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
                 },
             };
 
-            var createResponses = await CreateCustomersAsync(createRequests);
+            var createHttpResponses = await CreateCustomersAsync(createRequests);
 
             // Act
 
-            var id = createResponses[1].Id;
+            var id = createHttpResponses[1].Data.Id;
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            await Fixture.MessageBus.SendAsync(deleteRequest);
+            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 
             // Assert
 
+            deleteHttpResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
+
             var findRequest = new FindCustomerQuery { Id = id };
-            Func<Task> findFunc = () => Fixture.MessageBus.SendAsync(findRequest);
-            await findFunc.Should().ThrowAsync<ExistenceException>();
+            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            findHttpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -88,11 +92,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             var id = Guid.NewGuid();
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            Func<Task> deleteFunc = () => Fixture.MessageBus.SendAsync(deleteRequest);
+            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
 
             // Assert
 
-            await deleteFunc.Should().ThrowAsync<ExistenceException>();
+            deleteHttpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
     }
 }

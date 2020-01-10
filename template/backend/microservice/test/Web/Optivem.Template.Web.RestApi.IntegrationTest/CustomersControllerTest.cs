@@ -12,11 +12,11 @@ using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
-    public class CustomersControllerTest : ControllerTest
+    public class CustomersControllerTest : Test
     {
         private List<CustomerRecord> _customerRecords;
 
-        public CustomersControllerTest(ControllerFixture fixture) : base(fixture)
+        public CustomersControllerTest(Fixture fixture) : base(fixture)
         {
             _customerRecords = new List<CustomerRecord>
             {
@@ -37,6 +37,28 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Fixture.Db.AddRange(_customerRecords);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
 
         [Fact(Skip = "In progress")]
         public async Task ListCustomers_OK()
@@ -233,5 +255,7 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest
 
             Assert.Equal(HttpStatusCode.NotFound, deleteResponse.StatusCode);
         }
+
+        */
     }
 }

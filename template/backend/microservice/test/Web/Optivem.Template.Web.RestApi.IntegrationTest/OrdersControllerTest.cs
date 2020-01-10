@@ -13,13 +13,13 @@ using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest
 {
-    public class OrdersControllerTest : ControllerTest
+    public class OrdersControllerTest : Test
     {
         private readonly List<CustomerRecord> _customerRecords;
         private readonly List<ProductRecord> _productRecords;
         private readonly List<OrderRecord> _orderRecords;
 
-        public OrdersControllerTest(ControllerFixture fixture) : base(fixture)
+        public OrdersControllerTest(Fixture fixture) : base(fixture)
         {
             _customerRecords = new List<CustomerRecord>
             {

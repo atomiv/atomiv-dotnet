@@ -13,9 +13,9 @@ using System.Net.Http;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
 {
-    public class ControllerFixture
+    public class Fixture
     {
-        public ControllerFixture()
+        public Fixture()
         {
             Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e), ConfigurationKeys.SqlServerOptionsAction);
 

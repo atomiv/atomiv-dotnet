@@ -8,6 +8,8 @@ namespace Optivem.Framework.Core.Common.Http
     {
         Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request);
 
+        Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(string uri, TRequest request);
+
         Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>();
 
         Task<IClientResponse> GetNoResponseAsync();

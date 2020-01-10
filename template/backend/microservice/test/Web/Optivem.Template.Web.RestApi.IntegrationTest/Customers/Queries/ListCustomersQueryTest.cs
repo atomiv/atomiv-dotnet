@@ -1,20 +1,25 @@
 ﻿using FluentAssertions;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;
+using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Queries
+namespace Optivem.Template.Web.RestApi.IntegrationTest.Customers.Queries
 {
-    public class BrowseCustomersQueryTest : Test
+    public class ListCustomersQueryTest : Test
     {
-        public BrowseCustomersQueryTest(Fixture fixture) : base(fixture)
+        public ListCustomersQueryTest(Fixture fixture) : base(fixture)
         {
         }
 
+
         [Fact]
-        public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
+        public async Task ListCustomers_ValidRequest_ReturnsResponse()
         {
             // Arrange
 
@@ -63,30 +68,38 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Queries
                 },
             };
 
-            var createResponses = await CreateCustomersAsync(createRequests);
+            var createHttpResponses = await CreateCustomersAsync(createRequests);
 
             // Act
 
-            var browseRequest = new BrowseCustomersQuery
+            var listRequest = new ListCustomersQuery
             {
-                Page = 2,
-                Size = 3,
+                NameSearch = "ark",
+                Limit = 10,
             };
 
-            var browseResponse = await Fixture.MessageBus.SendAsync(browseRequest);
+            var listHttpResponse = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
 
             // Assert
 
-            var expectedRecordResponses = new List<CreateCustomerCommandResponse>
+            listHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var expectedRecords = new List<CreateCustomerCommandResponse>
             {
-                createResponses[3],
-                createResponses[4],
-                createResponses[5],
-            };
+                createHttpResponses[3].Data,
+                createHttpResponses[5].Data,
+            }
+            .Select(e => new ListCustomersRecordResponse
+            {
+                Id = e.Id,
+                Name = $"{e.FirstName} {e.LastName}",
+            });
 
-            browseResponse.TotalRecords.Should().Be(createRequests.Count);
+            var listResponse = listHttpResponse.Data;
 
-            browseResponse.Records.Should().BeEquivalentTo(expectedRecordResponses);
+            listResponse.TotalRecords.Should().Be(createRequests.Count);
+
+            listResponse.Records.Should().BeEquivalentTo(expectedRecords);
         }
     }
 }

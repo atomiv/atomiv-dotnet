@@ -1,12 +1,15 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Core.Application;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Customers.Queries;
+using Optivem.Template.Web.RestApi.IntegrationTest.Fixtures;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
+namespace Optivem.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
     public class CreateCustomerCommandTest : Test
     {
@@ -27,16 +30,22 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Act
 
-            var createResponse = await Fixture.MessageBus.SendAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
 
             // Assert
+
+            createHttpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+
+            var createResponse = createHttpResponse.Data;
 
             createResponse.Id.Should().NotBeEmpty();
             createResponse.Should().BeEquivalentTo(createRequest);
 
             var id = createResponse.Id;
             var findRequest = new FindCustomerQuery { Id = id };
-            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            var findResponse = findHttpResponse.Data;
+            findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             findResponse.Should().BeEquivalentTo(createResponse);
         }
 
@@ -53,11 +62,11 @@ namespace Optivem.Template.Core.Application.IntegrationTest.Customers.Commands
 
             // Act
 
-            Func<Task> createFunc = () => Fixture.MessageBus.SendAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
 
             // Assert
 
-            await createFunc.Should().ThrowAsync<ValidationException>();
+            createHttpResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
         }
     }
 }

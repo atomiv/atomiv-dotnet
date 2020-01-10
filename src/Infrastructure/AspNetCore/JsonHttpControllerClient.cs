@@ -36,6 +36,13 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
             return ObjectClient.GetAsync<TResponse>(relativeUri);
         }
 
+        public Task<IObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(string uri, TRequest request)
+        {
+            var queryString = GetQueryString(request);
+            var relativeUri = GetRelativeByPathQuery(uri, queryString);
+            return ObjectClient.GetAsync<TResponse>(relativeUri);
+        }
+
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
         {
             var relativeUri = GetRelativeByPath();
@@ -223,6 +230,11 @@ namespace Optivem.Framework.Infrastructure.AspNetCore
         private string GetRelativeByQuery(string query)
         {
             return $"{ControllerUri}?{query}";
+        }
+
+        private string GetRelativeByPathQuery(string path, string query)
+        {
+            return $"{ControllerUri}/{path}?{query}";
         }
 
         private string GetRelativeByPath(string path)

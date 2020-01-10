@@ -21,7 +21,7 @@ namespace Optivem.Template.Web.RestClient
 
         public Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
         {
-            throw new NotImplementedException();
+            return _controllerClient.GetAsync<BrowseCustomersQuery, BrowseCustomersQueryResponse>(request);
         }
 
         public Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
@@ -43,7 +43,7 @@ namespace Optivem.Template.Web.RestClient
 
         public Task<IObjectClientResponse<ListCustomersQueryResponse>> ListCustomersAsync(ListCustomersQuery request)
         {
-            return _controllerClient.GetAsync<ListCustomersQueryResponse>();
+            return _controllerClient.GetAsync<ListCustomersQuery, ListCustomersQueryResponse>("list", request);
         }
 
         public Task<IObjectClientResponse<UpdateCustomerCommandResponse>> UpdateCustomerAsync(UpdateCustomerCommand request)

@@ -18,29 +18,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
             _messageBus = messageBus;
         }
 
-        [HttpGet(Name = "list-customers")]
-        [ProducesResponseType(typeof(ListCustomersQueryResponse), 200)]
-        public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync()
-        {
-            var request = new ListCustomersQuery();
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-        [HttpGet("{id}", Name = "find-customer")]
-        [ProducesResponseType(typeof(FindCustomerQueryResponse), 200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult<FindCustomerQueryResponse>> FindCustomerAsync(Guid id)
-        {
-            var request = new FindCustomerQuery
-            {
-                Id = id,
-            };
-
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
+        #region Commands
 
         [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
@@ -54,7 +32,7 @@ namespace Optivem.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(UpdateCustomerCommandResponse), 201)]
         public async Task<ActionResult<UpdateCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
         {
-            if(id != request.Id)
+            if (id != request.Id)
             {
                 // TODO: VC: Move to translations
                 return BadRequest("Mismatching id in route and request");
@@ -75,5 +53,54 @@ namespace Optivem.Template.Web.RestApi.Controllers
             await _messageBus.SendAsync(request);
             return NoContent();
         }
+
+        #endregion
+
+        #region Queries
+
+        [HttpGet(Name = "browse-customers")]
+        [ProducesResponseType(typeof(BrowseCustomersQueryResponse), 200)]
+        public async Task<ActionResult<BrowseCustomersQueryResponse>> BrowseCustomersAsync(int page, int size)
+        {
+            var request = new BrowseCustomersQuery
+            {
+                Page = page,
+                Size = size,
+            };
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "find-customer")]
+        [ProducesResponseType(typeof(FindCustomerQueryResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<FindCustomerQueryResponse>> FindCustomerAsync(Guid id)
+        {
+            var request = new FindCustomerQuery
+            {
+                Id = id,
+            };
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("list", Name = "list-customers")]
+        [ProducesResponseType(typeof(ListCustomersQueryResponse), 200)]
+        public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync(int limit, string nameSearch)
+        {
+            var request = new ListCustomersQuery
+            {
+                Limit = limit,
+                NameSearch = nameSearch,
+            };
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        #endregion
     }
 }
