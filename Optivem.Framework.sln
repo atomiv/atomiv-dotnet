@@ -203,6 +203,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.UnitTest", "template\backend\microservice\test\Core\Optivem.Template.Core.Application.UnitTest\Optivem.Template.Core.Application.UnitTest.csproj", "{17616C3B-B793-48C2-9ABC-936C8C6BF568}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Mapping.IntegrationTest", "template\backend\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Mapping.IntegrationTest\Optivem.Template.Infrastructure.Mapping.IntegrationTest.csproj", "{624F436F-9CE4-45A6-B063-0FA855B31619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Validation.IntegrationTest", "template\backend\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Validation.IntegrationTest\Optivem.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -465,6 +469,14 @@ Global
 		{17616C3B-B793-48C2-9ABC-936C8C6BF568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17616C3B-B793-48C2-9ABC-936C8C6BF568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17616C3B-B793-48C2-9ABC-936C8C6BF568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624F436F-9CE4-45A6-B063-0FA855B31619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624F436F-9CE4-45A6-B063-0FA855B31619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624F436F-9CE4-45A6-B063-0FA855B31619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624F436F-9CE4-45A6-B063-0FA855B31619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A3CF1F-1660-4C14-9961-627F97B3304B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A3CF1F-1660-4C14-9961-627F97B3304B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A3CF1F-1660-4C14-9961-627F97B3304B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A3CF1F-1660-4C14-9961-627F97B3304B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -568,6 +580,8 @@ Global
 		{FF6243DB-6AF1-4B65-AB13-770788BCCC0B} = {AC63F853-51D6-464A-9D51-CE421A323541}
 		{235AA383-CC0F-4953-84A0-B25AB52CD04A} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 		{17616C3B-B793-48C2-9ABC-936C8C6BF568} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
+		{624F436F-9CE4-45A6-B063-0FA855B31619} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
+		{C6A3CF1F-1660-4C14-9961-627F97B3304B} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
