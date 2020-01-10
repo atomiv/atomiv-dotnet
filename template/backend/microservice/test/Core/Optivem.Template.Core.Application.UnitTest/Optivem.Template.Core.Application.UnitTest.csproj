@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\template\backend\microservice\src\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj" />
   </ItemGroup>
 
 </Project>
