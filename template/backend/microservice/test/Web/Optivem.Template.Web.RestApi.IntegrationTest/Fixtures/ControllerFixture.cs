@@ -19,15 +19,6 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Fixtures
         {
             Db = DbTestClientFactory.Create<DatabaseContext>(ConfigurationKeys.DatabaseConnectionKey, e => new DatabaseContext(e), ConfigurationKeys.SqlServerOptionsAction);
 
-
-            /*
-            Web = WebTestClientFactory.Create<Startup>();
-
-
-            Api = new ApiHttpService(Web.ControllerClientFactory);
-            */
-
-
             var configurationBuilder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.Test.json");
 

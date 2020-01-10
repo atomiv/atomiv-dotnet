@@ -22,13 +22,13 @@ namespace Optivem.Template.Core.Application.Customers.Commands
 
             var customer = await _customerRepository.FindAsync(customerId);
 
-            Update(customer, request);
+            UpdateCustomer(customer, request);
 
             await _customerRepository.UpdateAsync(customer);
             return _mapper.Map<Customer, UpdateCustomerCommandResponse>(customer);
         }
 
-        private void Update(Customer customer, UpdateCustomerCommand request)
+        private void UpdateCustomer(Customer customer, UpdateCustomerCommand request)
         {
             customer.FirstName = request.FirstName;
             customer.LastName = request.LastName;
