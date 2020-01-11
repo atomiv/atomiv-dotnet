@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Orders\Commands\" />
     <Folder Include="Products\Commands\" />
   </ItemGroup>
 

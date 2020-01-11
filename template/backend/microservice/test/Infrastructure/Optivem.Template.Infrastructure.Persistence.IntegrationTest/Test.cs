@@ -2,9 +2,9 @@
 
 namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 {
-    public class BaseTest : IClassFixture<Fixture>
+    public class Test : IClassFixture<Fixture>
     {
-        public BaseTest(Fixture fixture)
+        public Test(Fixture fixture)
         {
             Fixture = fixture;
         }

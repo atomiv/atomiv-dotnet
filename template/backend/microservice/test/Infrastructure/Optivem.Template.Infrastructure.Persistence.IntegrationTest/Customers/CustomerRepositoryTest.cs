@@ -5,7 +5,7 @@ using Xbehave;
 
 namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest.Customers
 {
-    public class CustomerRepositoryTest : BaseTest
+    public class CustomerRepositoryTest : Test
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly ICustomerFactory _customerFactory;

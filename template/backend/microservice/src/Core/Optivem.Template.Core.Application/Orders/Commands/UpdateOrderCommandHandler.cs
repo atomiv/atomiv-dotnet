@@ -10,20 +10,21 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 {
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
         private readonly IProductReadRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
+        private readonly IMapper _mapper;
 
-        public UpdateOrderCommandHandler(IMapper mapper, 
-            IOrderRepository orderRepository, 
+        public UpdateOrderCommandHandler(
+            IOrderRepository orderRepository,
             IProductReadRepository productReadRepository,
-            IOrderFactory orderFactory)
+            IOrderFactory orderFactory,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _orderRepository = orderRepository;
             _productReadRepository = productReadRepository;
             _orderFactory = orderFactory;
+            _mapper = mapper;
         }
 
         public async Task<UpdateOrderCommandResponse> HandleAsync(UpdateOrderCommand request)
@@ -52,21 +53,24 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
                 var productId = new ProductIdentity(added.ProductId);
 
-                var orderDetail = _orderFactory.CreateNewOrderItem(productId, added.Quantity, productPrice.Value);
-                order.AddOrderItem(orderDetail);
+                var orderItem = _orderFactory.CreateNewOrderItem(productId, added.Quantity, productPrice.Value);
+                order.AddOrderItem(orderItem);
             }
 
             foreach (var updated in updatedOrderRequestDetails)
             {
                 var orderDetailId = new OrderItemIdentity(updated.Id.Value);
-                var orderDetail = order.OrderItems.First(e => e.Id == orderDetailId);
-
-                var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
+                var orderItem = order.OrderItems.First(e => e.Id == orderDetailId);
 
                 var productId = new ProductIdentity(updated.ProductId);
 
-                orderDetail.SetProduct(productId, productPrice.Value);
-                orderDetail.Quantity = updated.Quantity;
+                if(orderItem.ProductId != productId)
+                {
+                    var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
+                    orderItem.SetProduct(productId, productPrice.Value);
+                }
+
+                orderItem.Quantity = updated.Quantity;
             }
 
             foreach (var deleted in deletedOrderDetails)

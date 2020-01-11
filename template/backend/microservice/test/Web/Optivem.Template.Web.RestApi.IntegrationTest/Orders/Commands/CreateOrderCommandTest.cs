@@ -28,8 +28,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             var customerId_0 = createCustomerResponses[0].Data.Id;
 
-            var productId_1 = createProductResponses[0].Data.Id;
-            var productId_2 = createProductResponses[1].Data.Id;
+            var productId_0 = createProductResponses[0].Data.Id;
+            var productId_1 = createProductResponses[1].Data.Id;
 
             var createRequest = new CreateOrderCommand
             {
@@ -38,13 +38,13 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
                 {
                     new CreateOrderItemCommand
                     {
-                        ProductId = productId_1,
+                        ProductId = productId_0,
                         Quantity = 10,
                     },
 
                     new CreateOrderItemCommand
                     {
-                        ProductId = productId_2,
+                        ProductId = productId_1,
                         Quantity = 20,
                     }
                 },
