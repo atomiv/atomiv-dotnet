@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest.Orders
 {
-    class OrderRepositoryTest
+    public class OrderRepositoryTest : Test
     {
+        public OrderRepositoryTest(Fixture fixture) : base(fixture)
+        {
+        }
     }
 }
