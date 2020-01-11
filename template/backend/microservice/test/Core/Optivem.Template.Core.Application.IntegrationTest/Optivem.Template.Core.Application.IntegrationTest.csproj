@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Orders\Commands\**" />
+    <Compile Remove="Orders\Queries\**" />
+    <Compile Remove="Products\Commands\**" />
+    <Compile Remove="Products\Queries\**" />
+    <EmbeddedResource Remove="Orders\Commands\**" />
+    <EmbeddedResource Remove="Orders\Queries\**" />
+    <EmbeddedResource Remove="Products\Commands\**" />
+    <EmbeddedResource Remove="Products\Queries\**" />
+    <None Remove="Orders\Commands\**" />
+    <None Remove="Orders\Queries\**" />
+    <None Remove="Products\Commands\**" />
+    <None Remove="Products\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.Test.json" />
   </ItemGroup>
 
@@ -39,14 +54,6 @@
     <None Update="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Orders\Commands\" />
-    <Folder Include="Orders\Queries\" />
-    <Folder Include="Products\Commands\" />
-    <Folder Include="Products\Queries\" />
   </ItemGroup>
 
 </Project>
