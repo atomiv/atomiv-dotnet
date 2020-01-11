@@ -7,7 +7,7 @@ namespace Optivem.Template.Core.Domain.Orders
 {
     public interface IOrderFactory : IFactory
     {
-        Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails);
+        Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderItems);
 
         OrderItem CreateNewOrderItem(ProductIdentity productId, decimal quantity, decimal listPrice);
     }

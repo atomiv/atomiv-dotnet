@@ -1,4 +1,6 @@
 ﻿using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Orders;
+using Optivem.Template.Core.Domain.Products;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -7,15 +9,26 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 {
     public class Test : IClassFixture<Fixture>
     {
-        private readonly ICustomerRepository _customerRepository;
         private readonly ICustomerFactory _customerFactory;
+        private readonly IOrderFactory _orderFactory;
+        private readonly IProductFactory _productFactory;
+
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IProductRepository _productRepository;
+
 
         public Test(Fixture fixture)
         {
             Fixture = fixture;
 
-            _customerRepository = Fixture.GetService<ICustomerRepository>();
             _customerFactory = Fixture.GetService<ICustomerFactory>();
+            _orderFactory = Fixture.GetService<IOrderFactory>();
+            _productFactory = Fixture.GetService<IProductFactory>();
+
+            _customerRepository = Fixture.GetService<ICustomerRepository>();
+            _orderRepository = Fixture.GetService<IOrderRepository>();
+            _productRepository = Fixture.GetService<IProductRepository>();
         }
 
         public Fixture Fixture { get; }
@@ -32,6 +45,47 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
             }
 
             return customers;
+        }
+
+        protected async Task<List<Product>> CreateSomeProductsAsync()
+        {
+            var products = new List<Product>();
+
+            for (var i = 0; i < 10; i++)
+            {
+                var product = _productFactory.CreateNewProduct($"PRD{i}", $"Product {i}", 50 + i);
+                await _productRepository.AddAsync(product);
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+        protected async Task<List<Order>> CreateSomeOrdersAsync(List<Customer> customers, List<Product> products)
+        {
+            var customerId = customers[1].Id;
+            var productId1 = products[1].Id;
+            var productId2 = products[2].Id;
+
+            var orders = new List<Order>();
+
+            for (var i = 0; i < 10; i++)
+            {
+                var orderItem1 = _orderFactory.CreateNewOrderItem(productId1, 40, 56.92m);
+                var orderItem2 = _orderFactory.CreateNewOrderItem(productId2, 50, 72.46m);
+
+                var orderItems = new List<OrderItem>
+                {
+                    orderItem1,
+                    orderItem2,
+                };
+
+                var order = _orderFactory.CreateNewOrder(customerId, orderItems);
+
+                await _orderRepository.AddAsync(order);
+            }
+
+            return orders;
         }
     }
 }

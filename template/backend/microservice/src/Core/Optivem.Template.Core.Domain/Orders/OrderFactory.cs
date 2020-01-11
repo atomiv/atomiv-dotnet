@@ -22,11 +22,11 @@ namespace Optivem.Template.Core.Domain.Orders
             _timeService = timeService;
         }
 
-        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
+        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderItems)
         {
             var id = _orderIdentityGenerator.Next();
             var orderDate = _timeService.Now;
-            return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
+            return new Order(id, customerId, orderDate, OrderStatus.New, orderItems);
         }
 
         public OrderItem CreateNewOrderItem(ProductIdentity productId, decimal quantity, decimal listPrice)

@@ -13,13 +13,13 @@ namespace Optivem.Template.Core.Domain.Orders
         private CustomerIdentity _customerId;
         private List<OrderItem> _orderItems;
 
-        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<OrderItem> orderDetails)
+        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<OrderItem> orderItems)
             : base(id)
         {
             CustomerId = customerId;
             OrderDate = orderDate;
             Status = status;
-            OrderItems = orderDetails.ToList().AsReadOnly();
+            OrderItems = orderItems.ToList().AsReadOnly();
         }
 
         public CustomerIdentity CustomerId
