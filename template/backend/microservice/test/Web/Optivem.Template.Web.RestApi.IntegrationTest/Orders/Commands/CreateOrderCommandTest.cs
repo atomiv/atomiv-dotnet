@@ -21,6 +21,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
         [Fact]
         public async Task CreateOrder_ValidRequest_ReturnsResponse()
         {
+            // Arrange
+
             var createCustomerResponses = await CreateSampleCustomersAsync();
             var createProductResponses = await CreateSampleProductsAsync();
 
@@ -48,7 +50,11 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
                 },
             };
 
+            // Act
+
             var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+
+            // Assert
 
             createHttpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
 
@@ -86,6 +92,8 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
         [Fact]
         public async Task CreateOrder_InvalidRequest_ThrowsInvalidRequestException()
         {
+            // Arrange
+
             var customerId = Guid.NewGuid();
 
             var createRequest = new CreateOrderCommand
@@ -94,7 +102,11 @@ namespace Optivem.Template.Web.RestApi.IntegrationTest.Orders.Commands
                 OrderItems = null,
             };
 
+            // Act
+
             var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+
+            // Assert
 
             createHttpResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
         }
