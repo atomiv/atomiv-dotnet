@@ -9,13 +9,13 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 {
     public class Test : IClassFixture<Fixture>
     {
-        private readonly ICustomerFactory _customerFactory;
-        private readonly IOrderFactory _orderFactory;
-        private readonly IProductFactory _productFactory;
+        protected readonly ICustomerFactory _customerFactory;
+        protected readonly IOrderFactory _orderFactory;
+        protected readonly IProductFactory _productFactory;
 
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly IProductRepository _productRepository;
+        protected readonly ICustomerRepository _customerRepository;
+        protected readonly IOrderRepository _orderRepository;
+        protected readonly IProductRepository _productRepository;
 
 
         public Test(Fixture fixture)
@@ -71,8 +71,8 @@ namespace Optivem.Template.Infrastructure.Persistence.IntegrationTest
 
             for (var i = 0; i < 10; i++)
             {
-                var orderItem1 = _orderFactory.CreateNewOrderItem(productId1, 40, 56.92m);
-                var orderItem2 = _orderFactory.CreateNewOrderItem(productId2, 50, 72.46m);
+                var orderItem1 = _orderFactory.CreateNewOrderItem(productId1, 56.92m, 40);
+                var orderItem2 = _orderFactory.CreateNewOrderItem(productId2, 72.46m, 50);
 
                 var orderItems = new List<OrderItem>
                 {

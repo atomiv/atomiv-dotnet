@@ -53,24 +53,26 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
                 var productId = new ProductIdentity(added.ProductId);
 
-                var orderItem = _orderFactory.CreateNewOrderItem(productId, added.Quantity, productPrice.Value);
+                var orderItem = _orderFactory.CreateNewOrderItem(productId, productPrice.Value, added.Quantity);
                 order.AddOrderItem(orderItem);
             }
 
             foreach (var updated in updatedOrderRequestDetails)
             {
-                var orderDetailId = new OrderItemIdentity(updated.Id.Value);
-                var orderItem = order.OrderItems.First(e => e.Id == orderDetailId);
+                var orderItemId = new OrderItemIdentity(updated.Id.Value);
+                var orderItem = order.OrderItems.First(e => e.Id == orderItemId);
 
                 var productId = new ProductIdentity(updated.ProductId);
+
+                var unitPrice = orderItem.UnitPrice;
 
                 if(orderItem.ProductId != productId)
                 {
                     var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
-                    orderItem.SetProduct(productId, productPrice.Value);
+                    unitPrice = productPrice.Value;
                 }
 
-                orderItem.Quantity = updated.Quantity;
+                order.UpdateOrderItem(orderItemId, productId, unitPrice, updated.Quantity);
             }
 
             foreach (var deleted in deletedOrderDetails)

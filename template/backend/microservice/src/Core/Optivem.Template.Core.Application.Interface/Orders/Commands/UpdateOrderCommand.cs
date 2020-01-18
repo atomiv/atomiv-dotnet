@@ -17,6 +17,6 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
         public Guid ProductId { get; set; }
 
-        public decimal Quantity { get; set; }
+        public int Quantity { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Optivem.Framework.Core.Domain;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
+using Optivem.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,7 @@ namespace Optivem.Template.Core.Domain.Orders
         private CustomerIdentity _customerId;
         private List<OrderItem> _orderItems;
 
-        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<OrderItem> orderItems)
+        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<IReadonlyOrderItem> orderItems)
             : base(id)
         {
             CustomerId = customerId;
@@ -35,9 +36,14 @@ namespace Optivem.Template.Core.Domain.Orders
 
         public OrderStatus Status { get; private set; }
 
-        public ReadOnlyCollection<OrderItem> OrderItems
+        public ReadOnlyCollection<IReadonlyOrderItem> OrderItems
         {
-            get { return _orderItems.AsReadOnly(); }
+            get
+            {
+                return _orderItems
+                    .Cast<IReadonlyOrderItem>()
+                    .ToList()
+                    .AsReadOnly(); }
             set
             {
                 if (value == null)
@@ -50,32 +56,51 @@ namespace Optivem.Template.Core.Domain.Orders
                     throw new ArgumentException("There are no order items");
                 }
 
-                _orderItems = value.ToList();
+                _orderItems = value.Select(e => new OrderItem(e)).ToList();
             }
         }
 
-        public void AddOrderItem(OrderItem orderDetail)
+
+
+        public void AddOrderItem(IReadonlyOrderItem orderItem)
         {
-            if (orderDetail == null)
+            if (orderItem == null)
             {
                 throw new ArgumentNullException();
             }
 
-            // TODO: VC: Checking if id exists
-
-            _orderItems.Add(orderDetail);
-        }
-
-        public void RemoveOrderItem(OrderItemIdentity orderDetailId)
-        {
-            var orderDetail = _orderItems.FirstOrDefault(e => e.Id == orderDetailId);
-
-            if (orderDetail == null)
+            if(_orderItems.Any(e => e.Id == orderItem.Id))
             {
-                throw new ArgumentException($"Order detail {orderDetailId} does not exist in the order");
+                throw new ArgumentException($"Cannot add order item because order item id {orderItem.Id} already exists in the order");
             }
 
-            _orderItems.Remove(orderDetail);
+            _orderItems.Add(new OrderItem(orderItem));
+        }
+
+        public void RemoveOrderItem(OrderItemIdentity orderItemId)
+        {
+            var orderItem = _orderItems.FirstOrDefault(e => e.Id == orderItemId);
+
+            if (orderItem == null)
+            {
+                throw new ArgumentException($"Order detail {orderItemId} does not exist in the order");
+            }
+
+            _orderItems.Remove(orderItem);
+        }
+
+        public void UpdateOrderItem(OrderItemIdentity orderItemId, ProductIdentity productId, decimal unitPrice, int quantity)
+        {
+            var orderItem = _orderItems.FirstOrDefault(e => e.Id == orderItemId);
+
+            if (orderItem == null)
+            {
+                throw new ArgumentException($"Order detail {orderItemId} does not exist in the order");
+            }
+
+            orderItem.ProductId = productId;
+            orderItem.UnitPrice = unitPrice;
+            orderItem.Quantity = quantity;
         }
 
         public void Archive()

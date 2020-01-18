@@ -85,7 +85,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private OrderItemRecord GetOrderItemRecord(OrderItem orderItem, Guid orderRecordId)
+        private OrderItemRecord GetOrderItemRecord(IReadonlyOrderItem orderItem, Guid orderRecordId)
         {
             return new OrderItemRecord
             {
@@ -131,13 +131,13 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
             foreach (var updatedOrderDetailRecord in updatedOrderDetailRecords)
             {
-                var orderDetail = order.OrderItems.Single(e => e.Id == updatedOrderDetailRecord.Id);
+                var orderItem = order.OrderItems.Single(e => e.Id == updatedOrderDetailRecord.Id);
 
-                UpdateOrderItemRecord(updatedOrderDetailRecord, orderDetail);
+                UpdateOrderItemRecord(updatedOrderDetailRecord, orderItem);
             }
         }
 
-        private OrderItemRecord CreateOrderItemRecord(OrderItem orderItem)
+        private OrderItemRecord CreateOrderItemRecord(IReadonlyOrderItem orderItem)
         {
             return new OrderItemRecord
             {
@@ -148,7 +148,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, OrderItem orderItem)
+        private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, IReadonlyOrderItem orderItem)
         {
             orderItemRecord.ProductId = orderItem.ProductId;
             orderItemRecord.StatusId = orderItem.Status;
@@ -172,11 +172,11 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
             var id = new OrderItemIdentity(orderItemRecord.Id);
             var productId = new ProductIdentity(orderItemRecord.ProductId);
-            var quantity = orderItemRecord.Quantity;
+            var quantity = (int)orderItemRecord.Quantity; // TODO: VC: Make int
             var unitPrice = orderItemRecord.UnitPrice;
             var status = orderItemRecord.StatusId;
 
-            return new OrderItem(id, productId, quantity, unitPrice, status);
+            return new OrderItem(id, productId, unitPrice, quantity, status);
         }
     }
 }

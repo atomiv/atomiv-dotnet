@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Framework.Core.Domain
 {
-    public class Entity<TIdentity>
+    public class Entity<TIdentity> : IReadonlyEntity<TIdentity>
         where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
         private List<Event> _events;

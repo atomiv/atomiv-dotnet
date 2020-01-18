@@ -60,7 +60,7 @@ namespace Optivem.Template.Core.Application.Orders.Commands
 
             var quantity = requestOrderDetail.Quantity;
 
-            return _orderFactory.CreateNewOrderItem(productId, quantity, productPrice.Value);
+            return _orderFactory.CreateNewOrderItem(productId, productPrice.Value, quantity);
         }
     }
 }
