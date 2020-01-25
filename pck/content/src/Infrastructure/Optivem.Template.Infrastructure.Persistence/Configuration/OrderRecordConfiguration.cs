@@ -8,6 +8,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<OrderRecord> builder)
         {
+            builder.Property(e => e.Id)
+                .ValueGeneratedNever();
+
             builder.HasOne(e => e.Customer)
                 .WithMany(e => e.Orders)
                 .HasForeignKey(e => e.CustomerId);

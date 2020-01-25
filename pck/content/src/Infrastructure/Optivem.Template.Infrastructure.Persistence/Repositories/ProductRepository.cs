@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
-    public class ProductRepository : ProductReadRepository, IProductRepository
+    public class ProductRepository : Repository, IProductRepository
     {
         public ProductRepository(DatabaseContext context) : base(context)
         {
         }
 
-        public void Add(Product product)
+        public async Task AddAsync(Product product)
         {
             var productRecord = GetProductRecord(product);
             Context.Products.Add(productRecord);
+            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Product product)
         {
-            var productRecordId = product.Id.Value;
-            var productRecord = await Context.Products.FindAsync(productRecordId);
+            var productRecord = await Context.Products
+                .FirstOrDefaultAsync(e => e.Id == product.Id);
 
             UpdateProductRecord(productRecord, product);
 
@@ -36,23 +37,30 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             }
         }
 
+        public async Task<Product> FindAsync(ProductIdentity productId)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == productId);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
         #region Helper
 
         private ProductRecord GetProductRecord(Product product)
         {
-            var id = product.Id.Value;
-            var productCode = product.ProductCode;
-            var productName = product.ProductName;
-            var listPrice = product.ListPrice;
-            var isListed = product.IsListed;
-
             return new ProductRecord
             {
-                Id = id,
-                ProductCode = productCode,
-                ProductName = productName,
-                ListPrice = listPrice,
-                IsListed = isListed,
+                Id = product.Id,
+                ProductCode = product.ProductCode,
+                ProductName = product.ProductName,
+                ListPrice = product.ListPrice,
+                IsListed = product.IsListed,
             };
         }
 
@@ -60,23 +68,28 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
             return new ProductRecord
             {
-                Id = productId.Value,
+                Id = productId,
             };
         }
 
         private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            var id = product.Id.Value;
-            var productCode = product.ProductCode;
-            var productName = product.ProductName;
-            var listPrice = product.ListPrice;
-            var isListed = product.IsListed;
+            productRecord.Id = product.Id;
+            productRecord.ProductCode = product.ProductCode;
+            productRecord.ProductName = product.ProductName;
+            productRecord.ListPrice = product.ListPrice;
+            productRecord.IsListed = product.IsListed;
+        }
 
-            productRecord.Id = id;
-            productRecord.ProductCode = productCode;
-            productRecord.ProductName = productName;
-            productRecord.ListPrice = listPrice;
-            productRecord.IsListed = isListed;
+        private Product GetProduct(ProductRecord productRecord)
+        {
+            var id = new ProductIdentity(productRecord.Id);
+            var productCode = productRecord.ProductCode;
+            var productName = productRecord.ProductName;
+            var listPrice = productRecord.ListPrice;
+            var isListed = productRecord.IsListed;
+
+            return new Product(id, productCode, productName, listPrice, isListed);
         }
 
         #endregion

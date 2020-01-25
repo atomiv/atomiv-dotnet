@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using Optivem.Framework.Core.Domain;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Products
 {
-    public interface IProductRepository : IProductReadRepository
+    public interface IProductRepository : IRepository
     {
-        void Add(Product product);
+        Task AddAsync(Product product);
+
+        Task<Product> FindAsync(ProductIdentity productId);
 
         Task UpdateAsync(Product product);
     }

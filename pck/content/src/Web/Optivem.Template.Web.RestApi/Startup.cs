@@ -31,7 +31,9 @@ namespace Optivem.Template.Web.RestApi
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            })
+                .AddNewtonsoftJson()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddModules(Configuration);
 

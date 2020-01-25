@@ -6,14 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.22" />
+<PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.23" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
   </ItemGroup>

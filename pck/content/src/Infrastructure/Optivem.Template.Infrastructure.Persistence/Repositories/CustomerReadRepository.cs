@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Domain;
+using Optivem.Framework.Core.Common.Utilities;
 using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Template.Core.Application.Customers.Queries;
+using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Core.Domain.Customers;
 using Optivem.Template.Infrastructure.Persistence.Records;
@@ -16,65 +18,55 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
         {
         }
 
-        public Task<bool> ExistsAsync(CustomerIdentity customerId)
+        public async Task<BrowseCustomersQueryResponse> QueryAsync(BrowseCustomersQuery query)
         {
-            var customerRecordId = customerId.Value;
+            var page = query.Page;
+            var size = query.Size;
 
-            return Context.Customers.AsNoTracking()
-                .AnyAsync(e => e.Id == customerRecordId);
-        }
+            var customerRecords = await Context.Customers.AsNoTracking()
+                .GetPage(page, size)
+                .ToListAsync();
 
-        public async Task<Customer> FindAsync(CustomerIdentity customerId)
-        {
-            var customerRecordId = customerId.Value;
+            var responseRecords = customerRecords
+                .Select(GetBrowseCustomersQueryRecordResponse)
+                .ToList();
 
-            var customerRecord = await Context.Customers.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+            var totalRecords = await Context.Customers.CountAsync();
 
-            if(customerRecord == null)
+            // TODO: VC: Move to utilities for computations
+
+            var totalPages = MathUtilities.GetTotalPages(totalRecords, size);
+
+            return new BrowseCustomersQueryResponse
             {
-                return null;
-            }
-
-            return GetCustomer(customerRecord);
+                Records = responseRecords,
+                TotalRecords = totalRecords,
+            };
         }
 
-        public async Task<CustomerDetailReadModel> GetDetailAsync(CustomerIdentity customerId)
+        public async Task<FindCustomerQueryResponse> QueryAsync(FindCustomerQuery query)
         {
-            var customerRecordId = customerId.Value;
+            var customerId = query.Id;
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)
                     .ThenInclude(e => e.OrderItems)
                         .ThenInclude(e => e.Product)
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customerId);
 
-            if(customerRecord == null)
+            if (customerRecord == null)
             {
                 return null;
             }
 
-            return GetCustomerDetailReadModel(customerRecord);
+            return GetFindCustomerQueryResponse(customerRecord);
         }
 
-        public async Task<PageReadModel<CustomerHeaderReadModel>> GetPageAsync(PageQuery pageQuery)
+        public async Task<ListCustomersQueryResponse> QueryAsync(ListCustomersQuery query)
         {
-            var customerRecords = await Context.Customers.AsNoTracking()
-                .Page(pageQuery)
-                .ToListAsync();
+            var nameSearch = query.NameSearch;
+            var limit = query.Limit;
 
-            var customerHeaderReadModels = customerRecords
-                .Select(GetCustomerHeaderReadModel)
-                .ToList();
-
-            var totalRecords = await CountAsync();
-
-            return PageReadModel<CustomerHeaderReadModel>.Create(pageQuery, customerHeaderReadModels, totalRecords);
-
-        }
-
-        public async Task<ListReadModel<CustomerIdNameReadModel>> ListAsync(string nameSearch, int limit)
-        {
             var customerRecords = await Context.Customers.AsNoTracking()
                 .Where(e => e.FirstName.Contains(nameSearch) || e.LastName.Contains(nameSearch))
                 .OrderBy(e => e.FirstName)
@@ -82,10 +74,24 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
                 .Take(limit)
                 .ToListAsync();
 
-            var resultRecords = customerRecords.Select(GetIdNameResult).ToList();
+            var resultRecords = customerRecords
+                .Select(GetListCustomersQueryResponse)
+                .ToList();
+
             var totalRecords = await CountAsync();
 
-            return new ListReadModel<CustomerIdNameReadModel>(resultRecords, totalRecords);
+            return new ListCustomersQueryResponse
+            {
+                Records = resultRecords,
+                TotalRecords = totalRecords,
+            };
+        }
+
+
+        public Task<bool> ExistsAsync(Guid customerId)
+        {
+            return Context.Customers.AsNoTracking()
+                .AnyAsync(e => e.Id == customerId);
         }
 
         public Task<long> CountAsync()
@@ -95,11 +101,16 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
 
         #region Helper
 
-        private CustomerIdNameReadModel GetIdNameResult(CustomerRecord customerRecord)
+        private ListCustomersRecordResponse GetListCustomersQueryResponse(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var name = $"{customerRecord.FirstName} {customerRecord.LastName}";
-            return new CustomerIdNameReadModel(id, name);
+
+            return new ListCustomersRecordResponse
+            {
+                Id = id,
+                Name = name,
+            };
         }
 
         private Customer GetCustomer(CustomerRecord customerRecord)
@@ -111,7 +122,7 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             return new Customer(identity, firstName, lastName);
         }
 
-        private CustomerHeaderReadModel GetCustomerHeaderReadModel(CustomerRecord customerRecord)
+        private static BrowseCustomersRecordResponse GetBrowseCustomersQueryRecordResponse(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -121,10 +132,15 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
                 .Where(e => e.OrderStatusId != OrderStatus.Closed)
                 .Count();
 
-            return new CustomerHeaderReadModel(id, firstName, lastName, openOrders);
+            return new BrowseCustomersRecordResponse
+            {
+                Id = customerRecord.Id,
+                FirstName = customerRecord.FirstName,
+                LastName = customerRecord.LastName,
+            };
         }
 
-        private CustomerDetailReadModel GetCustomerDetailReadModel(CustomerRecord customerRecord)
+        private FindCustomerQueryResponse GetFindCustomerQueryResponse(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -153,8 +169,20 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
                 .Select(e => e.Key.ProductName)
                 .ToList();
 
-            return new CustomerDetailReadModel(id, firstName, lastName, openOrders, lastOrderDate, totalOrders, totalOrderValue, topProducts);
+            return new FindCustomerQueryResponse
+            {
+                Id = id,
+                FirstName = firstName,
+                LastName = lastName,
+                OpenOrders = openOrders,
+                LastOrderDate = lastOrderDate,
+                TotalOrders = totalOrders,
+                TotalOrderValue = totalOrderValue,
+                TopProducts = topProducts
+            };
         }
+
+
 
         #endregion
     }

@@ -1,13 +1,16 @@
-﻿using System.Threading.Tasks;
+﻿using Optivem.Framework.Core.Domain;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Customers
 {
-    public interface ICustomerRepository : ICustomerReadRepository
+    public interface ICustomerRepository : IRepository
     {
-        void Add(Customer customer);
+        Task AddAsync(Customer customer);
+
+        Task<Customer> FindAsync(CustomerIdentity customerId);
+
+        Task RemoveAsync(CustomerIdentity customerId);
 
         Task UpdateAsync(Customer customer);
-
-        void Remove(CustomerIdentity customerId);
     }
 }

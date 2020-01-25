@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.Persistence;
 
 namespace Optivem.Template.Tools.Migrator
@@ -23,13 +22,15 @@ namespace Optivem.Template.Tools.Migrator
 
 
             // TODO: VC: Check if dependency is allowed
-            var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
+            var connectionKey = "DefaultConnection"; // TODO: VC:
             var connection = configuration.GetConnectionString(connectionKey);
+
+            // TODO: VC: Perhaps make some external migrator console app?
 
             // throw new Exception("Connection is: " + connection);
 
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer(connection, ConfigurationKeys.SqlServerOptionsAction);
+            optionsBuilder.UseSqlServer(connection, options => options.MigrationsAssembly("Optivem.Template.Tools.Migrator"));
 
             return new DatabaseContext(optionsBuilder.Options);
         }

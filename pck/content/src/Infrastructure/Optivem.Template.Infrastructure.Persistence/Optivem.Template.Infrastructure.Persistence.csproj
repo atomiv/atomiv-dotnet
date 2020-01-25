@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.22" />
+<PackageReference Include="Optivem.Framework.Infrastructure.EntityFrameworkCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Framework.Infrastructure.SequentialGuid" Version="1.0.23" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
   </ItemGroup>
 

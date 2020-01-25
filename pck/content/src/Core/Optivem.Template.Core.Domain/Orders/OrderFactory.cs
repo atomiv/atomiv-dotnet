@@ -22,20 +22,15 @@ namespace Optivem.Template.Core.Domain.Orders
             _timeService = timeService;
         }
 
-        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderDetails)
+        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderItems)
         {
             var id = _orderIdentityGenerator.Next();
             var orderDate = _timeService.Now;
-            return new Order(id, customerId, orderDate, OrderStatus.New, orderDetails);
+            return new Order(id, customerId, orderDate, OrderStatus.New, orderItems);
         }
 
-        public OrderItem CreateNewOrderItem(Product product, decimal quantity)
+        public OrderItem CreateNewOrderItem(ProductIdentity productId, decimal unitPrice, int quantity)
         {
-            if (product == null)
-            {
-                throw new ArgumentException();
-            }
-
             if (quantity < 0)
             {
                 throw new ArgumentException();
@@ -43,7 +38,7 @@ namespace Optivem.Template.Core.Domain.Orders
 
             var id = _orderItemIdentityGenerator.Next();
 
-            return new OrderItem(id, product.Id, quantity, product.ListPrice, OrderItemStatus.Allocated);
+            return new OrderItem(id, productId, unitPrice, quantity, OrderItemStatus.Allocated);
         }
     }
 }

@@ -4,29 +4,45 @@ using Optivem.Template.Core.Domain.Products;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public class OrderItem : Entity<OrderItemIdentity>
+    public class OrderItem : Entity<OrderItemIdentity>, IReadonlyOrderItem
     {
-        public OrderItem(OrderItemIdentity id, ProductIdentity productId, decimal quantity, decimal unitPrice, OrderItemStatus status)
+        public OrderItem(OrderItemIdentity id, ProductIdentity productId, decimal unitPrice, int quantity, OrderItemStatus status)
             : base(id)
         {
             ProductId = productId;
-            Quantity = quantity;
             UnitPrice = unitPrice;
+            Quantity = quantity;
             Status = status;
         }
 
-        public ProductIdentity ProductId { get; private set; }
-
-        public decimal UnitPrice { get; private set; }
-
-        public void SetProduct(Product product)
+        public OrderItem(IReadonlyOrderItem orderItem)
+            : this(orderItem.Id, orderItem.ProductId, orderItem.UnitPrice, orderItem.Quantity, orderItem.Status)
         {
-            ProductId = product.Id;
-            UnitPrice = product.ListPrice;
+
         }
 
-        public decimal Quantity { get; set; }
+        public ProductIdentity ProductId { get; set; }
+
+        public decimal UnitPrice { get; set; }
+
+        public int Quantity { get; set; }
 
         public OrderItemStatus Status { get; }
+
+        // TODO: VC: CHeck if needed
+
+        /*
+        public void ChangeProduct(ProductIdentity productId, decimal unitPrice, int quantity)
+        {
+            ProductId = productId;
+            UnitPrice = unitPrice;
+            Quantity = quantity;
+        }
+
+        public void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+        }
+        */
     }
 }

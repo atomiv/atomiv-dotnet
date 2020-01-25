@@ -8,6 +8,9 @@ namespace Optivem.Template.Infrastructure.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<OrderItemRecord> builder)
         {
+            builder.Property(e => e.Id)
+                .ValueGeneratedNever();
+
             builder.Property(e => e.Quantity)
                 .HasColumnType("decimal(18,2)");
 

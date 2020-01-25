@@ -1,13 +1,16 @@
-﻿using System.Threading.Tasks;
+﻿using Optivem.Framework.Core.Domain;
+using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Orders
 {
-    public interface IOrderRepository : IOrderReadRepository
+    public interface IOrderRepository : IRepository
     {
-        void Add(Order order);
+        Task AddAsync(Order order);
+
+        Task<Order> FindAsync(OrderIdentity orderId);
+
+        Task RemoveAsync(OrderIdentity orderId);
 
         Task UpdateAsync(Order order);
-
-        void Remove(OrderIdentity orderId);
     }
 }

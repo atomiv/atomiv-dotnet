@@ -6,34 +6,52 @@ using System.Threading.Tasks;
 
 namespace Optivem.Template.Infrastructure.Persistence.Repositories
 {
-    public class CustomerRepository : CustomerReadRepository, ICustomerRepository
+    public class CustomerRepository : Repository, ICustomerRepository
     {
         public CustomerRepository(DatabaseContext context) : base(context)
         {
         }
 
-        public void Add(Customer customer)
+        public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecord = GetCustomerRecord(customer);
-            Context.Customers.Add(customerRecord);
+            var customerRecord = await Context.Customers.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.Id == customerId);
+
+            if (customerRecord == null)
+            {
+                return null;
+            }
+
+            return GetCustomer(customerRecord);
         }
 
-        public void Remove(CustomerIdentity customerId)
+        public async Task AddAsync(Customer customer)
         {
-            var customerRecord = GetCustomerRecord(customerId);
+            var customerRecord = CreateCustomerRecord(customer);
+            Context.Customers.Add(customerRecord);
+            await Context.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync(CustomerIdentity customerId)
+        {
+            var customerRecord = await Context.Customers
+                .FirstOrDefaultAsync(e => e.Id == customerId);
+
             Context.Remove(customerRecord);
+            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Customer customer)
         {
-            var customerRecordId = customer.Id.Value;
-            var customerRecord = await Context.Customers.FindAsync(customerRecordId);
+            var customerRecord = await Context.Customers
+                .FirstOrDefaultAsync(e => e.Id == customer.Id);
 
             UpdateCustomerRecord(customerRecord, customer);
 
             try
             {
                 Context.Customers.Update(customerRecord);
+                await Context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -41,39 +59,30 @@ namespace Optivem.Template.Infrastructure.Persistence.Repositories
             }
         }
 
-        private CustomerRecord GetCustomerRecord(Customer customer)
+        private CustomerRecord CreateCustomerRecord(Customer customer)
         {
-            var id = customer.Id.Value;
-            var firstName = customer.FirstName;
-            var lastName = customer.LastName;
-
             return new CustomerRecord
             {
-                Id = id,
-                FirstName = firstName,
-                LastName = lastName,
-            };
-        }
-
-        private CustomerRecord GetCustomerRecord(CustomerIdentity customerId)
-        {
-            var id = customerId.Value;
-
-            return new CustomerRecord
-            {
-                Id = id,
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
             };
         }
 
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            var id = customer.Id.Value;
-            var firstName = customer.FirstName;
-            var lastName = customer.LastName;
+            customerRecord.Id = customer.Id;
+            customerRecord.FirstName = customer.FirstName;
+            customerRecord.LastName = customer.LastName;
+        }
 
-            customerRecord.Id = id;
-            customerRecord.FirstName = firstName;
-            customerRecord.LastName = lastName;
+        private Customer GetCustomer(CustomerRecord customerRecord)
+        {
+            var identity = new CustomerIdentity(customerRecord.Id);
+            var firstName = customerRecord.FirstName;
+            var lastName = customerRecord.LastName;
+
+            return new Customer(identity, firstName, lastName);
         }
     }
 }

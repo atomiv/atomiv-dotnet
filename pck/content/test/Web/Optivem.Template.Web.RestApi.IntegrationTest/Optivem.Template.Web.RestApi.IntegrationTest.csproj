@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -23,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.22" />
-<PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.22" />
-<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.22" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.22" />
+<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.23" />
     <ProjectReference Include="..\..\..\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />
