@@ -1,4 +1,4 @@
-# Optivem.Template
+# Optivem.Atomiv.Template
 
 ## Prerequisites
 

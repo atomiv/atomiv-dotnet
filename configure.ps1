@@ -1,6 +1,6 @@
 ﻿Write-Host "Starting updates..."
 
-$filePath = 'template\\backend\\microservice\\test\\Web\\Optivem.Template.Web.RestApi.IntegrationTest\\appsettings.Test.json'
+$filePath = 'template\\backend\\microservice\\test\\Web\\Optivem.Atomiv.Template.Web.RestApi.IntegrationTest\\appsettings.Test.json'
 
 Write-Host "File path is: $filePath"
 
@@ -11,7 +11,7 @@ if(!$filePathExists)
 	Write-Error -Message "File path does not exist: $projectPath"  -ErrorAction Stop
 }
 
-$connection = 'Server=(local)\SQL2017;Database=Optivem.Template;User ID=sa;Password=Password12!;MultipleActiveResultSets=True;'
+$connection = 'Server=(local)\SQL2017;Database=Optivem.Atomiv.Template;User ID=sa;Password=Password12!;MultipleActiveResultSets=True;'
 
 Write-Host "Connection is: $connection"
 

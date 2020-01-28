@@ -49,7 +49,7 @@ To install the Optivem Template:
 3. Run the following command inside the Package Manager Console
 
 ```ps
-PM> dotnet new -i Optivem.Template
+PM> dotnet new -i Optivem.Atomiv.Template
 ```
 
 4. In the future, you can run this same command to get updated versions of the template
@@ -125,7 +125,7 @@ Content root path: D:\GitHub\optivem\framework-dotnetcore\template\src\Web\RestA
 Now listening on: https://localhost:5001
 Now listening on: http://localhost:5000
 
-dotnet run Optivem.Template.Web.UI.csproj
+dotnet run Optivem.Atomiv.Template.Web.UI.csproj
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
       User profile is available. Using 'C:\Users\Valentina.Cupac\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
 Hosting environment: Development
@@ -211,7 +211,7 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 
 ### Optivem Template
 
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Template.svg)](https://www.nuget.org/packages/Optivem.Template) Optivem.Template
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Template.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Template) Optivem.Atomiv.Template
 
 <a name="support" />
 ## Getting support

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Mapping\Optivem.Atomiv.Template.Infrastructure.Mapping.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Validation\Optivem.Atomiv.Template.Infrastructure.Validation.csproj" />
+  </ItemGroup>
+
+</Project>
