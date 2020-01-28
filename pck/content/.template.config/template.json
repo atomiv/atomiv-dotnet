@@ -5,5 +5,5 @@
   "identity": "Optivem.Atomiv.Templates.Microservice.CSharp",
   "name": "Atomiv Microservice",
   "shortName": "atomiv-microservice",
-  "sourceName": "Optivem.Atomiv.Templates.Microservice"
+  "sourceName": "Optivem.Atomiv.Template"
 }
