@@ -33,8 +33,8 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -44,8 +44,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Test.EntityFrameworkCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Atomiv.Test.Xunit" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.EntityFrameworkCore" Version="1.0.24" />
+<PackageReference Include="Optivem.Atomiv.Test.Xunit" Version="1.0.24" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Atomiv.Template.DependencyInjection\Optivem.Atomiv.Template.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\src\Tools\Optivem.Atomiv.Template.Tools.Migrator\Optivem.Atomiv.Template.Tools.Migrator.csproj" />
   </ItemGroup>

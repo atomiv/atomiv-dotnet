@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Core.Domain" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Core.Domain" Version="1.0.24" />
   </ItemGroup>
 
 </Project>
