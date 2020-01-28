@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
-    public class CreateCustomerCommandTest : Test
+    public class CreateCustomerCommandTest : Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures.BaseTest
     {
         public CreateCustomerCommandTest(Fixture fixture) : base(fixture)
         {

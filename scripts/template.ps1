@@ -28,7 +28,7 @@ foreach($projectFile in $projectFiles)
 		$line = $lines[$i]
 		# Write-Host $line
 	
-		if($line -like '*ProjectReference*' -and $line -like '*Optivem.Atomiv*') {
+		if($line -like '*ProjectReference*' -and $line -like '*Optivem.Atomiv*' -and $line -notlike '*Optivem.Atomiv.Template*') {
 		
 			Write-Host "Line: " $line
 		

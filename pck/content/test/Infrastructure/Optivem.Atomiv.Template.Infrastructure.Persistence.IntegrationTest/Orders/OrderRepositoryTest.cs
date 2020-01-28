@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest.Orders
 {
-    public class OrderRepositoryTest : Test
+    public class OrderRepositoryTest : BaseTest
     {
         public OrderRepositoryTest(Fixture fixture) : base(fixture)
         {

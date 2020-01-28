@@ -3,7 +3,7 @@
   <metadata>
     <id>Optivem.Atomiv.Templates</id>
     <version>1.0.23</version>
-    <description>Optivem Templates</description>
+    <description>Atomiv Templates</description>
     <authors>Optivem</authors>
     <packageTypes>
       <packageType name="Template" />

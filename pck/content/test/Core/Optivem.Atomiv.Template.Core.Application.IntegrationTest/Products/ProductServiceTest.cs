@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
 {
-    public class ProductServiceTest : Test
+    public class ProductServiceTest : BaseTest
     {
         public ProductServiceTest(Fixture fixture)
             : base(fixture)

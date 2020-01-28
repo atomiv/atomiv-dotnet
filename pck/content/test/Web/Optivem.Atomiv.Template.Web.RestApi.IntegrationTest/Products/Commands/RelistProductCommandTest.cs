@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
-    public class RelistProductCommandTest : Test
+    public class RelistProductCommandTest : BaseTest
     {
         public RelistProductCommandTest(Fixture fixture) : base(fixture)
         {
