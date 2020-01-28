@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest
 {
-    public class Test : IClassFixture<Fixture>
+    public class BaseTest : IClassFixture<Fixture>
     {
         protected readonly ICustomerFactory _customerFactory;
         protected readonly IOrderFactory _orderFactory;
@@ -18,7 +18,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest
         protected readonly IProductRepository _productRepository;
 
 
-        public Test(Fixture fixture)
+        public BaseTest(Fixture fixture)
         {
             Fixture = fixture;
 

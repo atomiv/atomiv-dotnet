@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
-    public class DeleteCustomerCommandTest : Test
+    public class DeleteCustomerCommandTest : BaseTest
     {
         public DeleteCustomerCommandTest(Fixture fixture) : base(fixture)
         {

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest.Customers
 {
-    public class CustomerRepositoryTest : Test
+    public class CustomerRepositoryTest : BaseTest
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly ICustomerFactory _customerFactory;

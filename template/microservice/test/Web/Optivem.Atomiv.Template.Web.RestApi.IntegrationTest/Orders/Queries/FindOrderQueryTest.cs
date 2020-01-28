@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 {
-    public class FindOrderQueryTest : Test
+    public class FindOrderQueryTest : BaseTest
     {
         public FindOrderQueryTest(Fixture fixture) : base(fixture)
         {

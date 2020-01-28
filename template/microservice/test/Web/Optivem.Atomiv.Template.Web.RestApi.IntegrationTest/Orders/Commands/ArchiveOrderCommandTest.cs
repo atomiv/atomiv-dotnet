@@ -13,7 +13,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 {
-    public class ArchiveOrderCommandTest : Test
+    public class ArchiveOrderCommandTest : BaseTest
     {
         public ArchiveOrderCommandTest(Fixture fixture) : base(fixture)
         {

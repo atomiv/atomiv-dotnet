@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
-    public class UnlistProductCommandTest : Test
+    public class UnlistProductCommandTest : BaseTest
     {
         public UnlistProductCommandTest(Fixture fixture) : base(fixture)
         {

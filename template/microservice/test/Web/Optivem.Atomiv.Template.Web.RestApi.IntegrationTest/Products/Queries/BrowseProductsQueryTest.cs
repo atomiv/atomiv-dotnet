@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
 {
-    public class BrowseProductsQueryTest : Test
+    public class BrowseProductsQueryTest : BaseTest
     {
         public BrowseProductsQueryTest(Fixture fixture) : base(fixture)
         {

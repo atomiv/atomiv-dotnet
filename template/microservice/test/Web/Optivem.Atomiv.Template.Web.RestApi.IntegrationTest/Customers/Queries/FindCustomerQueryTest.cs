@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 {
-    public class FindCustomerQueryTest : Test
+    public class FindCustomerQueryTest : BaseTest
     {
         public FindCustomerQueryTest(Fixture fixture) : base(fixture)
         {

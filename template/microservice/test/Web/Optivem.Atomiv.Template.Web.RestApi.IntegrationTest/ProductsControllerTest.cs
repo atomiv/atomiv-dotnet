@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
-    public class ProductsControllerTest : Test
+    public class ProductsControllerTest : BaseTest
     {
         private List<ProductRecord> _productRecords;
 

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 {
-    public class CreateOrderCommandTest : Test
+    public class CreateOrderCommandTest : BaseTest
     {
         public CreateOrderCommandTest(Fixture fixture) : base(fixture)
         {

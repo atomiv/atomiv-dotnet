@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
 {
-    public class Test : FixtureTest<Fixture>, IDisposable
+    public class BaseTest : FixtureTest<Fixture>, IDisposable
     {
-        public Test(Fixture fixture)
+        public BaseTest(Fixture fixture)
             : base(fixture)
         {
         }

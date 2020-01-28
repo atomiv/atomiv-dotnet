@@ -12,7 +12,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
 {
-    public class OrderServiceTest : Test
+    public class OrderServiceTest : BaseTest
     {
         private readonly List<CustomerRecord> _customerRecords;
         private readonly List<ProductRecord> _productRecords;
