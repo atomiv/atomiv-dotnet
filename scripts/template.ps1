@@ -28,11 +28,11 @@ foreach($projectFile in $projectFiles)
 		$line = $lines[$i]
 		# Write-Host $line
 	
-		if($line -like '*ProjectReference*' -and $line -like '*Optivem.Framework*') {
+		if($line -like '*ProjectReference*' -and $line -like '*Optivem.Atomiv*') {
 		
 			Write-Host "Line: " $line
 		
-			$indexStart = $line.IndexOf('Optivem.Framework')
+			$indexStart = $line.IndexOf('Optivem.Atomiv')
 			$indexEnd = $line.IndexOf('.csproj')
 			
 			$length = $indexEnd - $indexStart

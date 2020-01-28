@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Application" Version="1.0.15" />
+    <PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.15" />
   </ItemGroup>
 
   <ItemGroup>

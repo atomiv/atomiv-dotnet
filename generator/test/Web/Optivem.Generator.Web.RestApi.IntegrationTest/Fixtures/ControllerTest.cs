@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Test.Xunit;
+﻿using Optivem.Atomiv.Test.Xunit;
 using System;
 
 namespace Optivem.Generator.Web.RestApi.IntegrationTest.Fixtures

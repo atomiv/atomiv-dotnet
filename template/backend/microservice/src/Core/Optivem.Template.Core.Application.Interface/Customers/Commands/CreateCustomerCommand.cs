@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Atomiv.Core.Application;
 
 namespace Optivem.Template.Core.Application.Customers.Commands
 {

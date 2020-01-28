@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Mappers;
+﻿using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Core.Application.Mappers;
 using Optivem.Generator.Core.Application.Products.Requests;
 using Optivem.Generator.Core.Application.Products.Responses;
 using Optivem.Generator.Core.Domain.Products;

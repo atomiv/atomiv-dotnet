@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Optivem</Authors>
+    <Version>1.0.23</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Application.Interface\Optivem.Atomiv.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Optivem.Atomiv.Core.Application.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.Atomiv.DependencyInjection.Common.csproj" />
+  </ItemGroup>
+
+</Project>

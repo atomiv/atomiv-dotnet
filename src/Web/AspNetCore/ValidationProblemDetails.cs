@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Web.AspNetCore
+namespace Optivem.Atomiv.Web.AspNetCore
 {
     public class ValidationProblemDetails : ProblemDetails
     {

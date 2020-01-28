@@ -1,6 +1,6 @@
-﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Core.Common.Serialization;
-using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Core.Common.Serialization;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products.Commands;
 using Optivem.Template.Core.Application.Products.Queries;
 using Optivem.Template.Web.RestClient.Interface;

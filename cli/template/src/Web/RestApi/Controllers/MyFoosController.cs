@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Framework.Web.AspNetCore;
+using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using Optivem.Cli.Core.Application.MyFoos.Services;

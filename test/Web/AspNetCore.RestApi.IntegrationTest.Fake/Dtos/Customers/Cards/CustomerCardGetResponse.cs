@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards
+﻿namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards
 {
     public class CustomerCardGetResponse
     {

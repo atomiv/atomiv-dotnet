@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 
 namespace Optivem.Generator.Core.Domain
 {

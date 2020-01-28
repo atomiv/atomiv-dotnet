@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common;
+using Optivem.Atomiv.Core.Common;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Test.EntityFrameworkCore
+namespace Optivem.Atomiv.Test.EntityFrameworkCore
 {
     public class DbTestClient<TContext> where TContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Framework.Core.Application.Interface.Exceptions
+namespace Optivem.Atomiv.Core.Application.Interface.Exceptions
 {
     public class AuthorizationException : ApplicationException
     {

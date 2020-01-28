@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Test.Xunit;
+﻿using Optivem.Atomiv.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Products.Commands;
 using System;

@@ -11,11 +11,11 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Framework.Core.Application.Interface.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\System\Optivem.Framework.Infrastructure.System.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Framework.Web.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Optivem.Atomiv.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Atomiv.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\System\Optivem.Atomiv.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Optivem.Atomiv.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />
   </ItemGroup>
 

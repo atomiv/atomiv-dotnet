@@ -1,9 +1,9 @@
-﻿using Optivem.Framework.Core.Common.Data;
-using Optivem.Framework.Core.Common.Reflection;
+﻿using Optivem.Atomiv.Core.Common.Data;
+using Optivem.Atomiv.Core.Common.Reflection;
 using System.Collections.Generic;
 using System.Data;
 
-namespace Optivem.Framework.Infrastructure.System.Data
+namespace Optivem.Atomiv.Infrastructure.System.Data
 {
     public class DataRowMapper<T> : IDataRowMapper<T>
     {

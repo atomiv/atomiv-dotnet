@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures;
-using Optivem.Framework.Test.FluentAssertions.WebAutomation;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Test.FluentAssertions.WebAutomation;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest
+namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 

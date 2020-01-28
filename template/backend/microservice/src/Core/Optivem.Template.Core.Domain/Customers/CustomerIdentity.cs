@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using System;
 
 namespace Optivem.Template.Core.Domain.Customers

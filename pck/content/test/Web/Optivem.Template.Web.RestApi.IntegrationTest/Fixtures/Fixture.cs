@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Common.Serialization;
-using Optivem.Framework.Infrastructure.NewtonsoftJson;
-using Optivem.Framework.Test.EntityFrameworkCore;
+using Optivem.Atomiv.Core.Common.Serialization;
+using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
+using Optivem.Atomiv.Test.EntityFrameworkCore;
 using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.Persistence;
 using Optivem.Template.Web.RestClient;

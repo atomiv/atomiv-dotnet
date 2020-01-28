@@ -1,7 +1,7 @@
-﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Core.Common.Reflection;
-using Optivem.Framework.Core.Common.Serialization;
-using Optivem.Framework.Infrastructure.System.Reflection;
+﻿using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Core.Common.Reflection;
+using Optivem.Atomiv.Core.Common.Serialization;
+using Optivem.Atomiv.Infrastructure.System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Optivem.Framework.Infrastructure.AspNetCore
+namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class JsonHttpControllerClient : IControllerClient
     {

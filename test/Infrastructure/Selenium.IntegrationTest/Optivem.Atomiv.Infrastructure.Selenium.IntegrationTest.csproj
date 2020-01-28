@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="79.0.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Infrastructure\Selenium\Optivem.Atomiv.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\..\Base\FluentAssertions\Optivem.Atomiv.Test.FluentAssertions.csproj" />
+    <ProjectReference Include="..\..\Base\Selenium\Optivem.Atomiv.Test.Selenium.csproj" />
+    <ProjectReference Include="..\..\Base\Xunit\Optivem.Atomiv.Test.Xunit.csproj" />
+  </ItemGroup>
+
+</Project>

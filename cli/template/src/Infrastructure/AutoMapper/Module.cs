@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.AutoMapper;
+﻿using Optivem.Atomiv.Infrastructure.AutoMapper;
 
 namespace Optivem.Cli.Infrastructure.AutoMapper
 {

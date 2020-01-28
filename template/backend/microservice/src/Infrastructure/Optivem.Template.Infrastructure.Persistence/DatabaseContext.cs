@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Common.Orders;
 using Optivem.Template.Infrastructure.Persistence.Configuration;
 using Optivem.Template.Infrastructure.Persistence.Records;

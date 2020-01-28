@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Atomiv.Infrastructure.Selenium.csproj" />
     <ProjectReference Include="..\Optivem.Template.Web.UI.Client.Interface\Optivem.Template.Web.UI.Client.Interface.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,7 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Impl.Pages
 {
     public class CheckoutOverviewPage : Page, ICheckoutOverviewPage
     {

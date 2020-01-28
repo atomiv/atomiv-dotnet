@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Atomiv.Core.Domain;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using System;
 
 namespace Optivem.Template.Infrastructure.Persistence

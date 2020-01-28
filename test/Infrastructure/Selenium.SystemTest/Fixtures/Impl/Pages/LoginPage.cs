@@ -1,6 +1,6 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 {
     public class LoginPage : Page, ILoginPage
     {

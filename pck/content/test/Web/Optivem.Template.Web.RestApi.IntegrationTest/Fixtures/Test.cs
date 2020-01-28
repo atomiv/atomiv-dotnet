@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Test.Xunit;
+using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Test.Xunit;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Application.Orders.Commands;
 using Optivem.Template.Core.Application.Products.Commands;

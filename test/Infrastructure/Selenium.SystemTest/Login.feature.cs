@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest
 {
     using TechTalk.SpecFlow;
     using System;
@@ -31,7 +31,7 @@ namespace Optivem.Framework.Infrastructure.Selenium.SystemTest
 #line 1 "Login.feature"
 #line hidden
         
-        public LoginFeature(LoginFeature.FixtureData fixtureData, Optivem_Framework_Infrastructure_Selenium_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public LoginFeature(LoginFeature.FixtureData fixtureData, Optivem_Atomiv_Infrastructure_Selenium_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();

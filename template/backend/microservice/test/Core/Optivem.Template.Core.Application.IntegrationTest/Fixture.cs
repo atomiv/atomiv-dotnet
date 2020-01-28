@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Application;
-using Optivem.Framework.Test.EntityFrameworkCore;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Test.EntityFrameworkCore;
+using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
 using Optivem.Template.DependencyInjection;
 using Optivem.Template.Infrastructure.Persistence;
 using System;

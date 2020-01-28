@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Generator.Core.Domain.Products;
 
 namespace Optivem.Generator.Core.Domain.Orders

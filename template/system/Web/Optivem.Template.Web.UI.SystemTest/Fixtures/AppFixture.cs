@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Infrastructure.Selenium;
-using Optivem.Framework.Test.Selenium;
+﻿using Optivem.Atomiv.Infrastructure.Selenium;
+using Optivem.Atomiv.Test.Selenium;
 using Optivem.Template.Web.UI.Client;
 using Optivem.Template.Web.UI.Client.Interface;
 

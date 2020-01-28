@@ -11,14 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Core\Application\Optivem.Framework.DependencyInjection.Core.Application.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.Framework.DependencyInjection.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\MediatR\Optivem.Framework.DependencyInjection.Infrastructure.MediatR.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Optivem.Framework.DependencyInjection.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Core\Application\Optivem.Atomiv.DependencyInjection.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.Atomiv.DependencyInjection.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\MediatR\Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Optivem.Atomiv.DependencyInjection.Infrastructure.System.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.All\Optivem.Template.Infrastructure.All.csproj" />
   </ItemGroup>

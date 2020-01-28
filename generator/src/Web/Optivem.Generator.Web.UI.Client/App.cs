@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.Selenium;
+﻿using Optivem.Atomiv.Infrastructure.Selenium;
 using Optivem.Generator.Web.UI.Client.Interface;
 using Optivem.Generator.Web.UI.Client.Interface.Pages;
 using Optivem.Generator.Web.UI.Client.Pages;

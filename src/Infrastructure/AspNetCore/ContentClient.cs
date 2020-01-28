@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Core.Common.Http;
+﻿using Optivem.Atomiv.Core.Common.Http;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.AspNetCore
+namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class ContentClient : IContentClient
     {

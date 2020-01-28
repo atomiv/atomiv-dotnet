@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Generator.Core.Application.Customers.Requests;
 
 namespace Optivem.Generator.Infrastructure.FluentValidation.Customers

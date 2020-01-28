@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Framework.Core.Application
+namespace Optivem.Atomiv.Core.Application
 {
     public class ExistenceException : ApplicationException
     {

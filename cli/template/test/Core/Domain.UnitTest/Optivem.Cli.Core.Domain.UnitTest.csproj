@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Domain" Version="1.0.15" />
+    <PackageReference Include="Optivem.Atomiv.Core.Domain" Version="1.0.15" />
     <ProjectReference Include="..\..\..\src\Core\Domain\Optivem.Cli.Core.Domain.csproj" />
   </ItemGroup>
 

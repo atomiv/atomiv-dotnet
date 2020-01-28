@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Services;
+﻿using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Core.Application.Services;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using System.Threading.Tasks;

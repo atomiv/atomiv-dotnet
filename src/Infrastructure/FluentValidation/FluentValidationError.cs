@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
-using Optivem.Framework.Core.Application;
+using Optivem.Atomiv.Core.Application;
 
-namespace Optivem.Framework.Infrastructure.FluentValidation
+namespace Optivem.Atomiv.Infrastructure.FluentValidation
 {
     public class FluentValidationError : IRequestValidationError
     {

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
+﻿using Optivem.Atomiv.Web.AspNetCore.RazorPages;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using Optivem.Cli.Core.Application.MyFoos.Services;

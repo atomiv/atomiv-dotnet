@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Application.Services;
+using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Core.Application.Services;
 using Optivem.Generator.Core.Application.Orders.Requests;
 using Optivem.Generator.Core.Application.Orders.Responses;
 

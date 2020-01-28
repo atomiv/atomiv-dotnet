@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Optivem.Framework.Core.Domain;
+using Optivem.Atomiv.Core.Domain;
 using Optivem.Template.Core.Application.Products.Commands;
 using Optivem.Template.Core.Application.Products.Queries;
 using System;

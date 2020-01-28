@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 

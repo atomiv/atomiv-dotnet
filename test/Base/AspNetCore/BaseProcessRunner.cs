@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Test.AspNetCore
+namespace Optivem.Atomiv.Test.AspNetCore
 {
     public abstract class BaseProcessRunner : IDisposable
     {

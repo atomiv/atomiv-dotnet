@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Atomiv.Core.Application;
 using System.Collections.Generic;
 
 namespace Optivem.Cli.Core.Application.MyFoos.Responses

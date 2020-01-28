@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Pages
+﻿namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.Pages
 {
     public class ToolsQAAutomationPracticeFormPage : Page
     {

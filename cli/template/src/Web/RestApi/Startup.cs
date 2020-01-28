@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Web.AspNetCore;
+using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Cli.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 

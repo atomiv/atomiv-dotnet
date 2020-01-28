@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.Test.AspNetCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Infrastructure.AspNetCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.AspNetCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.EntityFrameworkCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.Xunit" Version="1.0.23" />
     <ProjectReference Include="..\..\..\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />

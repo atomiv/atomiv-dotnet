@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Core.Common" Version="1.0.15" />
-    <PackageReference Include="Optivem.Framework.Infrastructure.AspNetCore" Version="1.0.15" />
+    <PackageReference Include="Optivem.Atomiv.Core.Common" Version="1.0.15" />
+    <PackageReference Include="Optivem.Atomiv.Infrastructure.AspNetCore" Version="1.0.15" />
     <ProjectReference Include="..\..\Core\Application.Interface\Optivem.Cli.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\RestClient.Interface\Optivem.Cli.Web.RestClient.Interface.csproj" />
   </ItemGroup>

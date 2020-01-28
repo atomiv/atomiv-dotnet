@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Infrastructure.AutoMapper;
+using Optivem.Atomiv.Infrastructure.AutoMapper;
 using Optivem.Generator.Core.Application.Products.Responses;
 using Optivem.Generator.Core.Domain.Products;
 using System.Collections.Generic;

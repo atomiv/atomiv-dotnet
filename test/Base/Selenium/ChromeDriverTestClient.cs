@@ -1,6 +1,6 @@
-﻿using Optivem.Framework.Infrastructure.Selenium;
+﻿using Optivem.Atomiv.Infrastructure.Selenium;
 
-namespace Optivem.Framework.Test.Selenium
+namespace Optivem.Atomiv.Test.Selenium
 {
     public class ChromeDriverTestClient
     {

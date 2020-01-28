@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.MediatR
+﻿namespace Optivem.Atomiv.Infrastructure.MediatR
 {
     // TODO: VC: Implement transaction interceptor
 

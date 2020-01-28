@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
+﻿using Optivem.Atomiv.Web.AspNetCore.RazorPages;
 using Optivem.Generator.Core.Application.Customers;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Application
+namespace Optivem.Atomiv.Core.Application
 {
     public interface IRequestValidationResult
     {

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Cli.Core.Domain.MyFoos.ValueObjects;
 
 namespace Optivem.Cli.Core.Domain.MyFoos.Entities

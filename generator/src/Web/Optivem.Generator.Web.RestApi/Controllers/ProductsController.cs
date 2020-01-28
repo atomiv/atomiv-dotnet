@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Framework.Web.AspNetCore;
+using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Generator.Core.Application.Products;
 using Optivem.Generator.Core.Application.Products.Requests;
 using Optivem.Generator.Core.Application.Products.Responses;

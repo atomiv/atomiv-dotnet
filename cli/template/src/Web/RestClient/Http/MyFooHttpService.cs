@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using Optivem.Cli.Web.RestClient.Interface;

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities
+﻿namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities
 {
     public class CardExpiration
     {

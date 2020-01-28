@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Optivem.Framework.Web.AspNetCore.RazorPages;
+using Optivem.Atomiv.Web.AspNetCore.RazorPages;
 using Optivem.Generator.Web.UI.Models;
 using Optivem.Generator.Web.UI.Services.Interfaces;
 

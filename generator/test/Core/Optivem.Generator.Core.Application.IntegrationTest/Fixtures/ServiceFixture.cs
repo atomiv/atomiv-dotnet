@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Optivem.Generator.DependencyInjection;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore;
-using Optivem.Framework.Test.EntityFrameworkCore;
+using Optivem.Atomiv.Test.EntityFrameworkCore;
 using System;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
 using Optivem.Generator.Core.Application.Customers;
 using Optivem.Generator.Core.Application.Products;
 

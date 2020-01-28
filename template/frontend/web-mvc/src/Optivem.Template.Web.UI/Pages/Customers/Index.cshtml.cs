@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Web.AspNetCore.RazorPages;
+﻿using Optivem.Atomiv.Web.AspNetCore.RazorPages;
 using Optivem.Template.Web.UI.Models;
 using Optivem.Template.Web.UI.Services.Interfaces;
 using System;

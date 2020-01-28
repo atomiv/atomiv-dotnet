@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Generator.Core.Domain.Products;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore.Products.Records;
 

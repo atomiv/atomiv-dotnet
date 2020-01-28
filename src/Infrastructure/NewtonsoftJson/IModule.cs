@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.NewtonsoftJson
+﻿namespace Optivem.Atomiv.Infrastructure.NewtonsoftJson
 {
     public interface IModule
     {

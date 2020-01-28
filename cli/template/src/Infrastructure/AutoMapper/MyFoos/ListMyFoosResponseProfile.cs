@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Infrastructure.AutoMapper;
+using Optivem.Atomiv.Infrastructure.AutoMapper;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using Optivem.Cli.Core.Domain.MyFoos.Entities;
 using System.Collections.Generic;

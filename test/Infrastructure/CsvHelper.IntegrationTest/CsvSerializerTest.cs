@@ -1,9 +1,9 @@
-using Optivem.Framework.Test.Xunit;
+using Optivem.Atomiv.Test.Xunit;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.CsvHelper.IntegrationTest
+namespace Optivem.Atomiv.Infrastructure.CsvHelper.IntegrationTest
 {
     public class CsvSerializerTest
     {

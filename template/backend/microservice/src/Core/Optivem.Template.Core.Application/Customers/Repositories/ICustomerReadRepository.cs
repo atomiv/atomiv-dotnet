@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Template.Core.Application.Customers.Queries;
 using System;
 using System.Threading.Tasks;

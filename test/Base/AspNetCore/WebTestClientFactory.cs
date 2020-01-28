@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
-using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Infrastructure.AspNetCore;
-using Optivem.Framework.Infrastructure.NewtonsoftJson;
-using Optivem.Framework.Infrastructure.System.Reflection;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
+using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
+using Optivem.Atomiv.Infrastructure.System.Reflection;
+using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
 using System;
 
-namespace Optivem.Framework.Test.AspNetCore
+namespace Optivem.Atomiv.Test.AspNetCore
 {
     public static class WebTestClientFactory
     {

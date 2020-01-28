@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Atomiv.Core.Common.WebAutomation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Selenium
+namespace Optivem.Atomiv.Infrastructure.Selenium
 {
     public class ComboBox : Element, IComboBox
     {

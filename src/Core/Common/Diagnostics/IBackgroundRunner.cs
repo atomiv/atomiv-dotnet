@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Common.Diagnostics
+namespace Optivem.Atomiv.Core.Common.Diagnostics
 {
     public interface IBackgroundRunner
     {

@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controllers
+namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controllers
 {
     [Route("api/customers")]
     [ApiController]

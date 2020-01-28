@@ -1,7 +1,7 @@
-﻿using Optivem.Framework.Core.Common.Reflection;
+﻿using Optivem.Atomiv.Core.Common.Reflection;
 using System;
 
-namespace Optivem.Framework.Infrastructure.System.Reflection
+namespace Optivem.Atomiv.Infrastructure.System.Reflection
 {
     public class TypeProperty : ITypeProperty
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
 {
     public static class QueryableExtensions
     {

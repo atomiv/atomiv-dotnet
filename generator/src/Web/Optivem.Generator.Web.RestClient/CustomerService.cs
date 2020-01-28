@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Generator.Core.Application.Customers;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;

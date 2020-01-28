@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Customers.Queries;
 using Optivem.Template.Core.Application.Customers.Repositories;
 

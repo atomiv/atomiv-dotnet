@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Common
+﻿namespace Optivem.Atomiv.Core.Common
 {
     public interface IFactory<TResult>
     {

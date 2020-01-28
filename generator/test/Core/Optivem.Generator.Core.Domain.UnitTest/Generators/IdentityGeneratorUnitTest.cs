@@ -12,7 +12,7 @@ namespace Optivem.Generator.Core.Domain.UnitTest.Generators
         [Fact]
         public void TestGenerate()
         {
-            var code = @"using Optivem.Framework.Core.Domain;
+            var code = @"using Optivem.Atomiv.Core.Domain;
 
 namespace Optivem.Generator.Core.Domain.MyCats
 {

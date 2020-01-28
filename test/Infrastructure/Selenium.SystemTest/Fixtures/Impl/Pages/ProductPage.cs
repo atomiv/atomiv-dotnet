@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Records;
+using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
+using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Records;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages
 {
     public class ProductPage : Page, IProductPage
     {

@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium.Firefox;
-using Optivem.Framework.Core.Common;
+using Optivem.Atomiv.Core.Common;
 using System.IO;
 using System.Reflection;
 
-namespace Optivem.Framework.Infrastructure.Selenium
+namespace Optivem.Atomiv.Infrastructure.Selenium
 {
     public class FirefoxDriverFactory : IFactory<Driver>
     {

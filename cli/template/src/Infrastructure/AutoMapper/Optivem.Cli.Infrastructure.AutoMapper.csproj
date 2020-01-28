@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Optivem.Framework.Infrastructure.AutoMapper" Version="1.0.15" />
+    <PackageReference Include="Optivem.Atomiv.Infrastructure.AutoMapper" Version="1.0.15" />
     <ProjectReference Include="..\..\Core\All\Optivem.Cli.Core.All.csproj" />
   </ItemGroup>
 

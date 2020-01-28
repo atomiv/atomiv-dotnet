@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Test.AspNetCore
+namespace Optivem.Atomiv.Test.AspNetCore
 {
     public class WebPinger
     {

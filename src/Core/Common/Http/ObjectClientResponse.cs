@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Optivem.Framework.Core.Common.Http
+namespace Optivem.Atomiv.Core.Common.Http
 {
     public class ObjectClientResponse<T> : IObjectClientResponse<T>
     {

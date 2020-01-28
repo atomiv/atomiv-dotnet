@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.System;
+using Optivem.Atomiv.Core.Domain;
+using Optivem.Atomiv.Infrastructure.System;
 using System.Reflection;
 
-namespace Optivem.Framework.DependencyInjection.Infrastructure.System
+namespace Optivem.Atomiv.DependencyInjection.Infrastructure.System
 {
     public static class ServiceCollectionExtensions
     {

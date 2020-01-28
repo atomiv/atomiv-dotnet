@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Moq;
-using Optivem.Framework.Core.Application.Mapping;
+using Optivem.Atomiv.Core.Application.Mapping;
 using Optivem.Template.Core.Application.Customers.Commands;
 using Optivem.Template.Core.Domain.Customers;
 using System;

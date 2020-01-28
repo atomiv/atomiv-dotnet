@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Framework.Core.Common.Diagnostics
+namespace Optivem.Atomiv.Core.Common.Diagnostics
 {
     public interface IRunner : IDisposable
     {

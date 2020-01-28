@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+﻿namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
 {
     // TODO: VC: Consider deleting
 

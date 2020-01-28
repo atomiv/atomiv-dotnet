@@ -1,4 +1,4 @@
-using Optivem.Framework.Test.AspNetCore;
+using Optivem.Atomiv.Test.AspNetCore;
 using Xunit;
 
 namespace Optivem.Template.Web.RestApi.IntegrationTest

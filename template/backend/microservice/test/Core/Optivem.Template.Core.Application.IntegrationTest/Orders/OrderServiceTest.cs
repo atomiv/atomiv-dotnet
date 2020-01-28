@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Test.Xunit;
+﻿using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Test.Xunit;
 using Optivem.Template.Core.Application.Orders.Commands;
 using Optivem.Template.Core.Application.Orders.Queries;
 using Optivem.Template.Core.Common.Orders;

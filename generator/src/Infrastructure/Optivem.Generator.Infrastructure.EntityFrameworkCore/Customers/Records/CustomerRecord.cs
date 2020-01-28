@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore.Orders.Records;
 using System.Collections.Generic;
 

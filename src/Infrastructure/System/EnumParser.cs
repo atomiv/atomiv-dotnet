@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Framework.Infrastructure.System
+namespace Optivem.Atomiv.Infrastructure.System
 {
     // TODO: VC: Base enum constraint
 

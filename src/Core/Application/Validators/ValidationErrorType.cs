@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Application.Validators
+﻿namespace Optivem.Atomiv.Core.Application.Validators
 {
     public enum ValidationErrorType
     {

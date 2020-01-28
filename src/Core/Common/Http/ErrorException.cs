@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Framework.Core.Common.Http
+namespace Optivem.Atomiv.Core.Common.Http
 {
     public class ErrorException : Exception
     {

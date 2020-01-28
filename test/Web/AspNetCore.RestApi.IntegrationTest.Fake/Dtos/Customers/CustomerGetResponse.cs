@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards;
+﻿using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Cards;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
+namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models
 {
     public class CustomerGetResponse
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.System
+namespace Optivem.Atomiv.Infrastructure.System
 {
     /// <summary>
     /// Parses string data into objects, using specified data types

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 
 namespace Optivem.Cli.Infrastructure.FluentValidation.MyFoos

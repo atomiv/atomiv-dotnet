@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Test.FluentAssertions.WebAutomation
+﻿namespace Optivem.Atomiv.Test.FluentAssertions.WebAutomation
 {
     internal class CheckBoxExtensions
     {

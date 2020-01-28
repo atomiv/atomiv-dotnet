@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Generator.Core.Domain.Customers;
 using Optivem.Generator.Infrastructure.EntityFrameworkCore.Customers.Records;
 

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Atomiv.Core.Application;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.IntegrationTest.Fixtures;
 using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;

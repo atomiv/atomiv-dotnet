@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Optivem.Framework.Core.Application;
+using Optivem.Atomiv.Core.Application;
 using Optivem.Template.Core.Application.Customers.Repositories;
 
 namespace Optivem.Template.Core.Application.Customers.Queries

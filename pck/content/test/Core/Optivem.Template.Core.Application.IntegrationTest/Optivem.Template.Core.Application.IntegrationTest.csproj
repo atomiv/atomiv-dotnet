@@ -44,8 +44,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Test.EntityFrameworkCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.Test.Xunit" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.EntityFrameworkCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Test.Xunit" Version="1.0.23" />
     <ProjectReference Include="..\..\..\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\..\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj" />
   </ItemGroup>

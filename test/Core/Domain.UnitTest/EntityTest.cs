@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Optivem.Framework.Core.Domain.UnitTest
+namespace Optivem.Atomiv.Core.Domain.UnitTest
 {
     public class EntityTest
     {

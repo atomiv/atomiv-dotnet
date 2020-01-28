@@ -1,9 +1,9 @@
-﻿using Optivem.Framework.Core.Common.Data;
+﻿using Optivem.Atomiv.Core.Common.Data;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Optivem.Framework.Infrastructure.System.Data
+namespace Optivem.Atomiv.Infrastructure.System.Data
 {
     public class DataTableMapper<T> : IDataTableMapper<T>
     {

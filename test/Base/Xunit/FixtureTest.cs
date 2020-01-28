@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Framework.Test.Xunit
+namespace Optivem.Atomiv.Test.Xunit
 {
     public class FixtureTest<TFixture> : IClassFixture<TFixture>, IAsyncLifetime
         where TFixture : class

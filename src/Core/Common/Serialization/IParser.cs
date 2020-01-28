@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Common.Serialization
+﻿namespace Optivem.Atomiv.Core.Common.Serialization
 {
     public interface IParser
     {

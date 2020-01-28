@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.MediatR
+﻿namespace Optivem.Atomiv.Infrastructure.MediatR
 {
     public interface IMediatorRequest<TResponse> : global::MediatR.IRequest<TResponse>
     {

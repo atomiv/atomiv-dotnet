@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Web.AspNetCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Web.AspNetCore" Version="1.0.23" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj" />
   </ItemGroup>

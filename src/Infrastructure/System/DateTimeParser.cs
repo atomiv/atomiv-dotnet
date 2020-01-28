@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Optivem.Framework.Infrastructure.System
+namespace Optivem.Atomiv.Infrastructure.System
 {
     public class DateTimeParser : BaseParser<DateTime?>
     {

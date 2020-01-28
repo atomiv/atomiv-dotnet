@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records
+﻿namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records
 {
     public interface IProductRecord
     {

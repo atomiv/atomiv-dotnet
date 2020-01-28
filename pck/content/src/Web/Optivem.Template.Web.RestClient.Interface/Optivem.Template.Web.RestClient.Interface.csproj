@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.Core.Common" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.Core.Common" Version="1.0.23" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj" />
   </ItemGroup>
 

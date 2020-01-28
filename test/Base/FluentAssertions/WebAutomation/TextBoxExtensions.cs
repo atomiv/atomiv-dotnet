@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Atomiv.Core.Common.WebAutomation;
 
-namespace Optivem.Framework.Test.FluentAssertions.WebAutomation
+namespace Optivem.Atomiv.Test.FluentAssertions.WebAutomation
 {
     public static class TextBoxExtensions
     {

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Common.Http;
+﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
 using System.Threading.Tasks;

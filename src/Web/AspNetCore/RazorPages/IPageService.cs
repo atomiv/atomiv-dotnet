@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Web.AspNetCore.RazorPages
+﻿namespace Optivem.Atomiv.Web.AspNetCore.RazorPages
 {
     public interface IPageService
     {

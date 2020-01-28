@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Framework.Core.Common.Utilities;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+using Optivem.Atomiv.Core.Common.Utilities;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Template.Core.Application.Customers.Queries;
 using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Common.Orders;

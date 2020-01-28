@@ -1,7 +1,7 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Data
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Data
 {
     public interface IDatabase
     {

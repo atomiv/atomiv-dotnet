@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Framework.Core.Domain
+namespace Optivem.Atomiv.Core.Domain
 {
     public class Identity<TValue> : IEquatable<Identity<TValue>>, IComparable<Identity<TValue>> 
         where TValue : struct, IEquatable<TValue>, IComparable<TValue>

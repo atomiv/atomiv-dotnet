@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Application;
-using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Core.Domain;
 using Optivem.Cli.Core.Application.MyFoos.Requests;
 using Optivem.Cli.Core.Application.MyFoos.Responses;
 using Optivem.Cli.Core.Domain.MyFoos.Entities;

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Test.Xunit;
+﻿using Optivem.Atomiv.Test.Xunit;
 using System;
 
 namespace Optivem.Cli.Core.Application.IntegrationTest.Fixtures

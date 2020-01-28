@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Framework.Core.Application;
-using Optivem.Framework.DependencyInjection.Common;
-using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.DependencyInjection.Common;
+using Optivem.Atomiv.Infrastructure.FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation
+namespace Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation
 {
     public static class ServiceCollectionExtensions
     {

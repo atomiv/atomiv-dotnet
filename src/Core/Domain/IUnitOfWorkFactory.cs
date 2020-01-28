@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Domain
+﻿namespace Optivem.Atomiv.Core.Domain
 {
     public interface IUnitOfWorkFactory
     {

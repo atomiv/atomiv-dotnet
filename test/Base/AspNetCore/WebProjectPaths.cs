@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Optivem.Framework.Test.AspNetCore
+namespace Optivem.Atomiv.Test.AspNetCore
 {
     public class WebProjectPaths
     {

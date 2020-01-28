@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Domain;
+﻿using Optivem.Atomiv.Core.Domain;
 using System.Threading.Tasks;
 
 namespace Optivem.Template.Core.Domain.Orders

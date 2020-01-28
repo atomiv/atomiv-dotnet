@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Common.Reflection
+namespace Optivem.Atomiv.Core.Common.Reflection
 {
     public interface IPropertyMapper
     {

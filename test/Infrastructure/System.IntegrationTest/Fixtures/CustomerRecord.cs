@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures
+namespace Optivem.Atomiv.Infrastructure.System.IntegrationTest.Fixtures
 {
     public class CustomerRecord
     {

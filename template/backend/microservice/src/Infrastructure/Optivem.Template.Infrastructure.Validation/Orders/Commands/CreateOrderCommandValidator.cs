@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Optivem.Framework.Infrastructure.FluentValidation;
+using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Customers.Repositories;
 using Optivem.Template.Core.Application.Orders.Commands;
 using Optivem.Template.Core.Application.Products.Repositories;

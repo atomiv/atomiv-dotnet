@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\test\Base\EntityFrameworkCore\Optivem.Framework.Test.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\test\Base\AspNetCore\Optivem.Atomiv.Test.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\test\Base\EntityFrameworkCore\Optivem.Atomiv.Test.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\test\Base\Xunit\Optivem.Atomiv.Test.Xunit.csproj" />
     <ProjectReference Include="..\..\..\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj" />

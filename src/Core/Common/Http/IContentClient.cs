@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Common.Http
+namespace Optivem.Atomiv.Core.Common.Http
 {
     public interface IContentClient : IDisposable
     {

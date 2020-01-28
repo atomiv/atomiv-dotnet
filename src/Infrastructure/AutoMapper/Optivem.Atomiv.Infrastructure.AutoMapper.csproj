@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.0.23</Version>
+    <Authors>Optivem</Authors>
+    <Description>Implementation for mapping using AutoMapper</Description>
+    <Copyright>? Optivem. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Optivem Framework DotNetCore Infrastructure Mapping AutoMapper</PackageTags>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\All\Optivem.Atomiv.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.FluentValidation;
+﻿using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Template.Core.Application.Products.Queries;
 
 namespace Optivem.Template.Infrastructure.Validation.Products.Queries

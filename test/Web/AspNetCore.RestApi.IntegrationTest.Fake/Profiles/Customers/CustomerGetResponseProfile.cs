@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
-using Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
 
-namespace Optivem.Framework.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers
+namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers
 {
     public class CustomerGetResponseProfile : Profile
     {

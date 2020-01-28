@@ -1,11 +1,11 @@
-using Optivem.Framework.Infrastructure.System.Data;
-using Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures;
-using Optivem.Framework.Infrastructure.System.Reflection;
+using Optivem.Atomiv.Infrastructure.System.Data;
+using Optivem.Atomiv.Infrastructure.System.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Infrastructure.System.Reflection;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Data
+namespace Optivem.Atomiv.Infrastructure.System.IntegrationTest.Data
 {
     public class DataTableConverterTest
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace Optivem.Framework.Infrastructure.EntityFrameworkCore
+namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
 {
     public class DbContextFactory<TDbContext> : BaseDbContextFactory<TDbContext>
         where TDbContext : DbContext

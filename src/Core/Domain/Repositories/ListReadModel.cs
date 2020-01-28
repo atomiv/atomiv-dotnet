@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Domain
+namespace Optivem.Atomiv.Core.Domain
 {
     public class ListReadModel<T>
     {

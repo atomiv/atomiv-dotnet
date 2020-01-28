@@ -1,4 +1,4 @@
-﻿namespace Optivem.Framework.Core.Common.Files
+﻿namespace Optivem.Atomiv.Core.Common.Files
 {
     public interface IExcelWriter
     {

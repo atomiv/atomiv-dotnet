@@ -8,7 +8,7 @@ namespace Optivem.Generator.Core.Domain.Generators
 {
     public class IdentityGenerator : Generator
     {
-        private const string SourceCode = @"using Optivem.Framework.Core.Domain;
+        private const string SourceCode = @"using Optivem.Atomiv.Core.Domain;
 
 namespace Optivem.Generator.Core.Domain.Customers
 {

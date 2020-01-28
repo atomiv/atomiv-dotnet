@@ -1,11 +1,11 @@
-﻿using Optivem.Framework.Core.Common.Reflection;
-using Optivem.Framework.Infrastructure.System.IntegrationTest.Fixtures;
-using Optivem.Framework.Infrastructure.System.Reflection;
+﻿using Optivem.Atomiv.Core.Common.Reflection;
+using Optivem.Atomiv.Infrastructure.System.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Infrastructure.System.Reflection;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace Optivem.Framework.Infrastructure.System.IntegrationTest.Reflection
+namespace Optivem.Atomiv.Infrastructure.System.IntegrationTest.Reflection
 {
     public class PropertyFactoryTest
     {

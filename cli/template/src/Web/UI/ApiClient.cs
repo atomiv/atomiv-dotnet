@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
-using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
 using System;
 using System.Net.Http;
 

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.SequentialGuid;
+﻿using Optivem.Atomiv.Infrastructure.SequentialGuid;
 using Optivem.Template.Core.Domain.Orders;
 using System;
 

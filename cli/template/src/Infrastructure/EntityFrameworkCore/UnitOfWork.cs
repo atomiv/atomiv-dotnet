@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Domain;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
+﻿using Optivem.Atomiv.Core.Domain;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Cli.Core.Domain.MyFoos.Repositories;
 using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Repositories;
 

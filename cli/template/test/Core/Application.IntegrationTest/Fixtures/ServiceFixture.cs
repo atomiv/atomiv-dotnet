@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Optivem.Cli.DependencyInjection;
 using Optivem.Cli.Infrastructure.EntityFrameworkCore;
-using Optivem.Framework.Test.EntityFrameworkCore;
+using Optivem.Atomiv.Test.EntityFrameworkCore;
 using System;
 using Optivem.Cli.Core.Application.MyFoos.Services;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
 
 namespace Optivem.Cli.Core.Application.IntegrationTest.Fixtures
 {

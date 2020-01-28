@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Framework.Core.Common.WebAutomation;
+using Optivem.Atomiv.Core.Common.WebAutomation;
 
-namespace Optivem.Framework.Infrastructure.Selenium
+namespace Optivem.Atomiv.Infrastructure.Selenium
 {
     public class CheckBox : Element, ICheckBox
     {

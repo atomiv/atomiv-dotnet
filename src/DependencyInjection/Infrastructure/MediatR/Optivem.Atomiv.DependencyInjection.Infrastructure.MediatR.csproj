@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.0.23</Version>
+    <Authors>Optivem</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\MediatR\Optivem.Atomiv.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\Base\DependencyInjection\Optivem.Atomiv.DependencyInjection.Common.csproj" />
+  </ItemGroup>
+
+</Project>

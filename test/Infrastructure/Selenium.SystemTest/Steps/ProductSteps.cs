@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures;
-using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
+using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures;
+using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces;
 using TechTalk.SpecFlow;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Steps
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Steps
 {
     [Binding]
     public class ProductSteps : AppTest

@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Template.Core.Application.Products;
 using Optivem.Template.Core.Application.Products.Requests;
 using Optivem.Template.Core.Application.Products.Responses;

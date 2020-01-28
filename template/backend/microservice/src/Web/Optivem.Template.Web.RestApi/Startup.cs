@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Optivem.Framework.Web.AspNetCore;
+using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Template.DependencyInjection;
 
 namespace Optivem.Template.Web.RestApi

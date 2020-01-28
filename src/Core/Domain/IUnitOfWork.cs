@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Core.Domain
+namespace Optivem.Atomiv.Core.Domain
 {
     public interface IUnitOfWork : IDisposable
     {

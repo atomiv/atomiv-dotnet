@@ -1,4 +1,4 @@
-﻿using Optivem.Framework.Core.Application;
+﻿using Optivem.Atomiv.Core.Application;
 using Optivem.Template.Core.Application.Products.Repositories;
 using System.Threading.Tasks;
 

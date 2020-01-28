@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
-using Optivem.Framework.Core.Common.Serialization;
+using Optivem.Atomiv.Core.Common.Serialization;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Web.AspNetCore
+namespace Optivem.Atomiv.Web.AspNetCore
 {
     public class CsvInputFormatter : TextInputFormatter
     {

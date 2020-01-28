@@ -1,5 +1,5 @@
-﻿using Optivem.Framework.Core.Common.Http;
-using Optivem.Framework.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Core.Common.Http;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Generator.Core.Application.Customers.Requests;
 using Optivem.Generator.Core.Application.Customers.Responses;
 using Optivem.Generator.Web.RestClient.Interface;

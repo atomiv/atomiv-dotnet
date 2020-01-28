@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.Framework.DependencyInjection.Common
+namespace Optivem.Atomiv.DependencyInjection.Common
 {
     public static class ServiceCollectionExtensions
     {

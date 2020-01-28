@@ -32,12 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Framework.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Framework.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Framework.Infrastructure.Selenium.csproj" />
-    <ProjectReference Include="..\..\..\..\test\Base\AspNetCore\Optivem.Framework.Test.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\test\Base\Selenium\Optivem.Framework.Test.Selenium.csproj" />
-    <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Framework.Test.Xunit.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Optivem.Atomiv.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Optivem.Atomiv.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\AspNetCore\Optivem.Atomiv.Test.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\Selenium\Optivem.Atomiv.Test.Selenium.csproj" />
+    <ProjectReference Include="..\..\..\..\test\Base\Xunit\Optivem.Atomiv.Test.Xunit.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Optivem.Template.Web.UI.Client\Optivem.Template.Web.UI.Client.csproj" />
   </ItemGroup>
 

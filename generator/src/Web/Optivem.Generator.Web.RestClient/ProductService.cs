@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Optivem.Framework.Infrastructure.AspNetCore;
+using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Generator.Core.Application.Products;
 using Optivem.Generator.Core.Application.Products.Requests;
 using Optivem.Generator.Core.Application.Products.Responses;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Core.Common.Serialization
+namespace Optivem.Atomiv.Core.Common.Serialization
 {
     public interface IFormatSerializer
     {

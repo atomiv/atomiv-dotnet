@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
-using Optivem.Framework.Infrastructure.EntityFrameworkCore;
-using Optivem.Framework.Test.MicrosoftExtensions.Configuration;
+using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
+using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
 using System;
 
-namespace Optivem.Framework.Test.EntityFrameworkCore
+namespace Optivem.Atomiv.Test.EntityFrameworkCore
 {
     public static class DbTestClientFactory
     {

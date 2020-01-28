@@ -1,8 +1,8 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.IntegrationTest.App;
-using Optivem.Framework.Test.Selenium;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.App;
+using Optivem.Atomiv.Test.Selenium;
 using System;
 
-namespace Optivem.Framework.Infrastructure.Selenium.IntegrationTest.Fixtures
+namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.Fixtures
 {
     public class ToolsQAFixture : IDisposable
     {

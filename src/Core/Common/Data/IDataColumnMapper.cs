@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace Optivem.Framework.Core.Common.Data
+namespace Optivem.Atomiv.Core.Common.Data
 {
     public interface IDataColumnMapper<T>
     {

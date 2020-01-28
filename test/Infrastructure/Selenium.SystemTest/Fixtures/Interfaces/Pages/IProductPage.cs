@@ -1,7 +1,7 @@
-﻿using Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 using System.Collections.Generic;
 
-namespace Optivem.Framework.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces
+namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Pages.Interfaces
 {
     public interface IProductPage
     {

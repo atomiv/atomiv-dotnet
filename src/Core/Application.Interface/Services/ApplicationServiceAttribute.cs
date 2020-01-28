@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Framework.Core.Application
+namespace Optivem.Atomiv.Core.Application
 {
     public class ApplicationServiceAttribute : Attribute
     {

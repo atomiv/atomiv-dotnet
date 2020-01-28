@@ -11,14 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Framework.DependencyInjection.Core.Application" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Core.Domain" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.MediatR" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.23" />
-<PackageReference Include="Optivem.Framework.DependencyInjection.Infrastructure.System" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Application" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Domain" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.23" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.23" />
     <ProjectReference Include="..\..\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Template.Infrastructure.All\Optivem.Template.Infrastructure.All.csproj" />
   </ItemGroup>

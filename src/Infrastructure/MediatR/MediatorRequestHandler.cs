@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Framework.Infrastructure.MediatR
+namespace Optivem.Atomiv.Infrastructure.MediatR
 {
     public class MediatorRequestHandler<TRequest, TResponse> : global::MediatR.IRequestHandler<MediatorRequest<TResponse>, TResponse>
         where TRequest : Core.Application.IRequest<TResponse>
