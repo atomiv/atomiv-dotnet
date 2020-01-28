@@ -3,6 +3,7 @@ using Optivem.Atomiv.Core.Common.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -12,13 +13,15 @@ namespace Optivem.Atomiv.Infrastructure.CsvHelper
     {
         // TODO: VC: Constructor enable type-based specific serializers that override reflection mechanism
 
+        // TODO: VC: Check culture info
+
         public string Serialize(object data, Type type)
         {
             var enumerable = (IEnumerable)data;
 
             using (var textWriter = new StringWriter())
             {
-                using (var writer = new CsvWriter(textWriter))
+                using (var writer = new CsvWriter(textWriter, CultureInfo.InvariantCulture))
                 {
                     writer.WriteRecords(enumerable);
                     return textWriter.ToString();
@@ -32,7 +35,7 @@ namespace Optivem.Atomiv.Infrastructure.CsvHelper
 
             using (var textReader = new StringReader(data))
             {
-                using (var reader = new CsvReader(textReader))
+                using (var reader = new CsvReader(textReader, CultureInfo.InvariantCulture))
                 {
                     // TODO: VC: Cleanup
 
@@ -111,7 +114,7 @@ namespace Optivem.Atomiv.Infrastructure.CsvHelper
         {
             using (var textWriter = new StringWriter())
             {
-                using (var writer = new CsvWriter(textWriter, true))
+                using (var writer = new CsvWriter(textWriter, CultureInfo.InvariantCulture, true))
                 {
                     writer.WriteRecords(data);
                     return textWriter.ToString();
@@ -123,7 +126,7 @@ namespace Optivem.Atomiv.Infrastructure.CsvHelper
         {
             using (var textReader = new StringReader(data))
             {
-                using (var reader = new CsvReader(textReader))
+                using (var reader = new CsvReader(textReader, CultureInfo.InvariantCulture))
                 {
                     return reader.GetRecords<E>().ToList();
                 }

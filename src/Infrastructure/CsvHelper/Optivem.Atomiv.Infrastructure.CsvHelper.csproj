@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Optivem</Authors>
-    <Version>1.0.23</Version>
+    <Version>1.0.24</Version>
     <Description>Implementation for CSV Serialization using CsvHelper</Description>
     <Copyright>? Optivem. All rights reserved.</Copyright>
     <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="12.3.2" />
+    <PackageReference Include="CsvHelper" Version="13.0.0" />
   </ItemGroup>
 
   <ItemGroup>
