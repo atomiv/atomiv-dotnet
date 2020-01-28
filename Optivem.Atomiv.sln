@@ -161,51 +161,51 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{DB13EC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5E364892-CD3A-48EC-B7B9-898F1CD50670}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domain", "template\backend\microservice\src\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj", "{3002832F-F345-4449-8FB1-988726FD4785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domain", "template\microservice\src\Core\Optivem.Template.Core.Domain\Optivem.Template.Core.Domain.csproj", "{3002832F-F345-4449-8FB1-988726FD4785}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Common", "template\backend\microservice\src\Core\Optivem.Template.Core.Common\Optivem.Template.Core.Common.csproj", "{CA184F98-842A-42EB-809C-B5408960FC9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Common", "template\microservice\src\Core\Optivem.Template.Core.Common\Optivem.Template.Core.Common.csproj", "{CA184F98-842A-42EB-809C-B5408960FC9C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application", "template\backend\microservice\src\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj", "{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application", "template\microservice\src\Core\Optivem.Template.Core.Application\Optivem.Template.Core.Application.csproj", "{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.Interface", "template\backend\microservice\src\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj", "{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.Interface", "template\microservice\src\Core\Optivem.Template.Core.Application.Interface\Optivem.Template.Core.Application.Interface.csproj", "{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.All", "template\backend\microservice\src\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj", "{32C93850-BFBD-4AA2-B638-9B319864CF9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.All", "template\microservice\src\Core\Optivem.Template.Core.All\Optivem.Template.Core.All.csproj", "{32C93850-BFBD-4AA2-B638-9B319864CF9B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Mapping", "template\backend\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Mapping\Optivem.Template.Infrastructure.Mapping.csproj", "{8AB33983-1AC9-45DB-B8AB-EF7D066727FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Mapping", "template\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Mapping\Optivem.Template.Infrastructure.Mapping.csproj", "{8AB33983-1AC9-45DB-B8AB-EF7D066727FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Persistence", "template\backend\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Persistence\Optivem.Template.Infrastructure.Persistence.csproj", "{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Persistence", "template\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Persistence\Optivem.Template.Infrastructure.Persistence.csproj", "{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Validation", "template\backend\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Validation\Optivem.Template.Infrastructure.Validation.csproj", "{33FF7575-F83A-4676-B6D1-469F3B58799F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Validation", "template\microservice\src\Infrastructure\Optivem.Template.Infrastructure.Validation\Optivem.Template.Infrastructure.Validation.csproj", "{33FF7575-F83A-4676-B6D1-469F3B58799F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.All", "template\backend\microservice\src\Infrastructure\Optivem.Template.Infrastructure.All\Optivem.Template.Infrastructure.All.csproj", "{D3E850FF-C65A-450B-A485-D5520D28E57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.All", "template\microservice\src\Infrastructure\Optivem.Template.Infrastructure.All\Optivem.Template.Infrastructure.All.csproj", "{D3E850FF-C65A-450B-A485-D5520D28E57D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.DependencyInjection", "template\backend\microservice\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj", "{BC15CD7B-D092-4531-8E42-97C5C105BFE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.DependencyInjection", "template\microservice\src\DependencyInjection\Optivem.Template.DependencyInjection\Optivem.Template.DependencyInjection.csproj", "{BC15CD7B-D092-4531-8E42-97C5C105BFE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Tools.Migrator", "template\backend\microservice\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj", "{759AEDF3-A3B9-4043-899F-1012A0E68605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Tools.Migrator", "template\microservice\src\Tools\Optivem.Template.Tools.Migrator\Optivem.Template.Tools.Migrator.csproj", "{759AEDF3-A3B9-4043-899F-1012A0E68605}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi", "template\backend\microservice\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj", "{DB5A3793-45F8-4E29-993C-9735D540505D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi", "template\microservice\src\Web\Optivem.Template.Web.RestApi\Optivem.Template.Web.RestApi.csproj", "{DB5A3793-45F8-4E29-993C-9735D540505D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestClient", "template\backend\microservice\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj", "{D9127F9E-FA52-43EB-A83A-862E1F742053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestClient", "template\microservice\src\Web\Optivem.Template.Web.RestClient\Optivem.Template.Web.RestClient.csproj", "{D9127F9E-FA52-43EB-A83A-862E1F742053}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestClient.Interface", "template\backend\microservice\src\Web\Optivem.Template.Web.RestClient.Interface\Optivem.Template.Web.RestClient.Interface.csproj", "{D505BA4A-24C8-407B-8E29-7D5B21A2C014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestClient.Interface", "template\microservice\src\Web\Optivem.Template.Web.RestClient.Interface\Optivem.Template.Web.RestClient.Interface.csproj", "{D505BA4A-24C8-407B-8E29-7D5B21A2C014}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.IntegrationTest", "template\backend\microservice\test\Core\Optivem.Template.Core.Application.IntegrationTest\Optivem.Template.Core.Application.IntegrationTest.csproj", "{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.IntegrationTest", "template\microservice\test\Core\Optivem.Template.Core.Application.IntegrationTest\Optivem.Template.Core.Application.IntegrationTest.csproj", "{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domain.UnitTest", "template\backend\microservice\test\Core\Optivem.Template.Core.Domain.UnitTest\Optivem.Template.Core.Domain.UnitTest.csproj", "{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Domain.UnitTest", "template\microservice\test\Core\Optivem.Template.Core.Domain.UnitTest\Optivem.Template.Core.Domain.UnitTest.csproj", "{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.IntegrationTest", "template\backend\microservice\test\Web\Optivem.Template.Web.RestApi.IntegrationTest\Optivem.Template.Web.RestApi.IntegrationTest.csproj", "{7ECDAC34-F9FF-4E4A-A01F-4374BC9EF9AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Web.RestApi.IntegrationTest", "template\microservice\test\Web\Optivem.Template.Web.RestApi.IntegrationTest\Optivem.Template.Web.RestApi.IntegrationTest.csproj", "{7ECDAC34-F9FF-4E4A-A01F-4374BC9EF9AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Infrastructure.SequentialGuid", "src\Infrastructure\SequentialGuid\Optivem.Atomiv.Infrastructure.SequentialGuid.csproj", "{F3F87069-E87E-43CC-B2B9-DB51FFE81038}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FF6243DB-6AF1-4B65-AB13-770788BCCC0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Persistence.IntegrationTest", "template\backend\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Persistence.IntegrationTest\Optivem.Template.Infrastructure.Persistence.IntegrationTest.csproj", "{235AA383-CC0F-4953-84A0-B25AB52CD04A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Infrastructure.Persistence.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Persistence.IntegrationTest\Optivem.Template.Infrastructure.Persistence.IntegrationTest.csproj", "{235AA383-CC0F-4953-84A0-B25AB52CD04A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.UnitTest", "template\backend\microservice\test\Core\Optivem.Template.Core.Application.UnitTest\Optivem.Template.Core.Application.UnitTest.csproj", "{17616C3B-B793-48C2-9ABC-936C8C6BF568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Template.Core.Application.UnitTest", "template\microservice\test\Core\Optivem.Template.Core.Application.UnitTest\Optivem.Template.Core.Application.UnitTest.csproj", "{17616C3B-B793-48C2-9ABC-936C8C6BF568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Mapping.IntegrationTest", "template\backend\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Mapping.IntegrationTest\Optivem.Template.Infrastructure.Mapping.IntegrationTest.csproj", "{624F436F-9CE4-45A6-B063-0FA855B31619}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Mapping.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Mapping.IntegrationTest\Optivem.Template.Infrastructure.Mapping.IntegrationTest.csproj", "{624F436F-9CE4-45A6-B063-0FA855B31619}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Validation.IntegrationTest", "template\backend\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Validation.IntegrationTest\Optivem.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Template.Infrastructure.Validation.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Template.Infrastructure.Validation.IntegrationTest\Optivem.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
