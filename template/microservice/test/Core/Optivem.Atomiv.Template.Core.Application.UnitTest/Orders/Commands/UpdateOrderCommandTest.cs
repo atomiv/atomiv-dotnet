@@ -18,14 +18,14 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
     public class UpdateOrderCommandTest
     {
         private readonly Mock<IOrderRepository> _orderRepositoryMock;
-        private readonly Mock<IProductReadRepository> _productReadRepositoryMock;
+        private readonly Mock<IProductQueryRepository> _productReadRepositoryMock;
         private readonly Mock<IOrderFactory> _orderFactoryMock;
         private readonly Mock<IMapper> _mapperMock;
 
         public UpdateOrderCommandTest()
         {
             _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
-            _productReadRepositoryMock = new Mock<IProductReadRepository>(MockBehavior.Strict);
+            _productReadRepositoryMock = new Mock<IProductQueryRepository>(MockBehavior.Strict);
             _orderFactoryMock = new Mock<IOrderFactory>(MockBehavior.Strict);
             _mapperMock = new Mock<IMapper>(MockBehavior.Strict);
         }

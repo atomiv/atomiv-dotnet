@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products.Queries
 {
     public class FindProductQueryValidator : BaseValidator<FindProductQuery>
     {
-        public FindProductQueryValidator(IProductReadRepository productReadRepository)
+        public FindProductQueryValidator(IProductQueryRepository productReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

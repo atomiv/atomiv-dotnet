@@ -6,9 +6,9 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
     public class BrowseOrdersQueryHandler : IRequestHandler<BrowseOrdersQuery, BrowseOrdersQueryResponse>
     {
-        private readonly IOrderReadRepository _orderReadRepository;
+        private readonly IOrderQueryRepository _orderReadRepository;
 
-        public BrowseOrdersQueryHandler(IOrderReadRepository orderReadRepository)
+        public BrowseOrdersQueryHandler(IOrderQueryRepository orderReadRepository)
         {
             _orderReadRepository = orderReadRepository;
         }

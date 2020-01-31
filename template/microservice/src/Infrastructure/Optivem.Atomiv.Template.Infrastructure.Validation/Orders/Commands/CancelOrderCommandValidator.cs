@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Commands
 {
     public class CancelOrderCommandValidator : BaseValidator<CancelOrderCommand>
     {
-        public CancelOrderCommandValidator(IOrderReadRepository orderReadRepository)
+        public CancelOrderCommandValidator(IOrderQueryRepository orderReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

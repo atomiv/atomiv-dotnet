@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Queries
 {
     public class FindOrderQueryValidator : BaseValidator<FindOrderQuery>
     {
-        public FindOrderQueryValidator(IOrderReadRepository orderReadRepository)
+        public FindOrderQueryValidator(IOrderQueryRepository orderReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

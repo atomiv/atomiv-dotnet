@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Repositories
 {
-    public interface IProductReadRepository : IRepository
+    public interface IProductQueryRepository : IRepository
     {
         Task<BrowseProductsQueryResponse> QueryAsync(BrowseProductsQuery query);
 

@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products
 {
     public class UpdateProductRequestValidator : BaseValidator<UpdateProductCommand>
     {
-        public UpdateProductRequestValidator(IProductReadRepository productReadRepository)
+        public UpdateProductRequestValidator(IProductQueryRepository productReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

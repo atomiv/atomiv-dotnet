@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Commands
 {
     public class DeleteCustomerCommandValidator : BaseValidator<DeleteCustomerCommand>
     {
-        public DeleteCustomerCommandValidator(ICustomerReadRepository customerReadRepository)
+        public DeleteCustomerCommandValidator(ICustomerQueryRepository customerReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

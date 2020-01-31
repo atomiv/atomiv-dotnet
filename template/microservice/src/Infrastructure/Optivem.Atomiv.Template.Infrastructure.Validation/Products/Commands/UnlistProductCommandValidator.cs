@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products.Commands
 {
     public class UnlistProductCommandValidator : BaseValidator<UnlistProductCommand>
     {
-        public UnlistProductCommandValidator(IProductReadRepository productReadRepository)
+        public UnlistProductCommandValidator(IProductQueryRepository productReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

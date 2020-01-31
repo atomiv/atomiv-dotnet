@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers
 {
     public class UpdateCustomerCommandValidator : BaseValidator<UpdateCustomerCommand>
     {
-        public UpdateCustomerCommandValidator(ICustomerReadRepository customerReadRepository)
+        public UpdateCustomerCommandValidator(ICustomerQueryRepository customerReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

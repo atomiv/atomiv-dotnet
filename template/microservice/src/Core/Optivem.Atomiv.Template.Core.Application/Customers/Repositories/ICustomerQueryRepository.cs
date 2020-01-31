@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Repositories
 {
     // TODO: VC: Base read repository, not related to domain
-    public interface ICustomerReadRepository : IRepository
+    public interface ICustomerQueryRepository : IRepository
     {
         Task<BrowseCustomersQueryResponse> QueryAsync(BrowseCustomersQuery query);
 

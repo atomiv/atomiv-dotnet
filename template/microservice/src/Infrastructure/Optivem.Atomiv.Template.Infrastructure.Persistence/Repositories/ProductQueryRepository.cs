@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
 {
-    public class ProductReadRepository : Repository, IProductReadRepository
+    public class ProductQueryRepository : Repository, IProductQueryRepository
     {
-        public ProductReadRepository(DatabaseContext context) : base(context)
+        public ProductQueryRepository(DatabaseContext context) : base(context)
         {
         }
 

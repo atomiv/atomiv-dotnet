@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
 {
-    public class OrderReadRepository : Repository, IOrderReadRepository
+    public class OrderQueryRepository : Repository, IOrderQueryRepository
     {
-        public OrderReadRepository(DatabaseContext context) : base(context)
+        public OrderQueryRepository(DatabaseContext context) : base(context)
         {
         }
 

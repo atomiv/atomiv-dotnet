@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Queries
 {
     public class FindCustomerQueryValidator : BaseValidator<FindCustomerQuery>
     {
-        public FindCustomerQueryValidator(ICustomerReadRepository customerReadRepository)
+        public FindCustomerQueryValidator(ICustomerQueryRepository customerReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

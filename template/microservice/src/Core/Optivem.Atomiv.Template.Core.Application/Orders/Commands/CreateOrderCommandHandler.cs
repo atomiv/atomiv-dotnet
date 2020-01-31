@@ -13,12 +13,12 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
-        private readonly IProductReadRepository _productReadRepository;
+        private readonly IProductQueryRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
 
         public CreateOrderCommandHandler(IMapper mapper, 
             IOrderRepository orderRepository, 
-            IProductReadRepository productReadRepository,
+            IProductQueryRepository productReadRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;

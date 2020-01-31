@@ -7,7 +7,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Commands
 {
     public class ArchiveOrderCommandValidator : BaseValidator<ArchiveOrderCommand>
     {
-        public ArchiveOrderCommandValidator(IOrderReadRepository orderReadRepository)
+        public ArchiveOrderCommandValidator(IOrderQueryRepository orderReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

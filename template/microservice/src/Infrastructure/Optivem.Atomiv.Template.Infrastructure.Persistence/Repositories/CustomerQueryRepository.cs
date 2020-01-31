@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
 {
-    public class CustomerReadRepository : Repository, ICustomerReadRepository
+    public class CustomerQueryRepository : Repository, ICustomerQueryRepository
     {
-        public CustomerReadRepository(DatabaseContext context) : base(context)
+        public CustomerQueryRepository(DatabaseContext context) : base(context)
         {
         }
 

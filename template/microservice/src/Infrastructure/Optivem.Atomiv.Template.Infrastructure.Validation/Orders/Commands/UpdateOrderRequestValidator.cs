@@ -8,7 +8,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
 {
     public class UpdateOrderRequestValidator : BaseValidator<UpdateOrderCommand>
     {
-        public UpdateOrderRequestValidator(IOrderReadRepository orderReadRepository, IProductReadRepository productReadRepository)
+        public UpdateOrderRequestValidator(IOrderQueryRepository orderReadRepository, IProductQueryRepository productReadRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
@@ -25,7 +25,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
 
     public class UpdateOrderItemCommandValidator : BaseValidator<UpdateOrderItemCommand>
     {
-        public UpdateOrderItemCommandValidator(IProductReadRepository productReadRepository)
+        public UpdateOrderItemCommandValidator(IProductQueryRepository productReadRepository)
         {
             RuleFor(e => e.ProductId)
                 .MustAsync((command, context, cancellation)

@@ -8,9 +8,9 @@ namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 
     public class FindCustomerQueryHandler : IRequestHandler<FindCustomerQuery, FindCustomerQueryResponse>
     {
-        private readonly ICustomerReadRepository _customerReadRepository;
+        private readonly ICustomerQueryRepository _customerReadRepository;
 
-        public FindCustomerQueryHandler(ICustomerReadRepository customerReadRepository)
+        public FindCustomerQueryHandler(ICustomerQueryRepository customerReadRepository)
         {
             _customerReadRepository = customerReadRepository;
         }

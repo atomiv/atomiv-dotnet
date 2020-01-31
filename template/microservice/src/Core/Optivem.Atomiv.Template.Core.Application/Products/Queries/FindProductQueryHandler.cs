@@ -6,9 +6,9 @@ namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
 {
     public class FindProductQueryHandler : IRequestHandler<FindProductQuery, FindProductQueryResponse>
     {
-        private readonly IProductReadRepository _productReadRepository;
+        private readonly IProductQueryRepository _productReadRepository;
 
-        public FindProductQueryHandler(IProductReadRepository productReadRepository)
+        public FindProductQueryHandler(IProductQueryRepository productReadRepository)
         {
             _productReadRepository = productReadRepository;
         }

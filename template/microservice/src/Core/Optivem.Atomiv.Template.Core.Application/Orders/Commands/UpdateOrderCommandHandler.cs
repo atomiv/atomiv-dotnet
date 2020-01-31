@@ -11,13 +11,13 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IProductReadRepository _productReadRepository;
+        private readonly IProductQueryRepository _productReadRepository;
         private readonly IOrderFactory _orderFactory;
         private readonly IMapper _mapper;
 
         public UpdateOrderCommandHandler(
             IOrderRepository orderRepository,
-            IProductReadRepository productReadRepository,
+            IProductQueryRepository productReadRepository,
             IOrderFactory orderFactory,
             IMapper mapper)
         {

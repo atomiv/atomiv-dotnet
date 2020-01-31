@@ -7,9 +7,9 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
     public class FindOrderQueryHandler : IRequestHandler<FindOrderQuery, FindOrderQueryResponse>
     {
-        private readonly IOrderReadRepository _orderReadRepository;
+        private readonly IOrderQueryRepository _orderReadRepository;
 
-        public FindOrderQueryHandler(IMapper mapper, IOrderReadRepository orderReadRepository)
+        public FindOrderQueryHandler(IMapper mapper, IOrderQueryRepository orderReadRepository)
         {
             _orderReadRepository = orderReadRepository;
         }
