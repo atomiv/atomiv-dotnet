@@ -13,9 +13,5 @@ namespace Optivem.Atomiv.Template.Core.Application.Customers.Repositories
         Task<FindCustomerQueryResponse> QueryAsync(FindCustomerQuery query);
 
         Task<ListCustomersQueryResponse> QueryAsync(ListCustomersQuery query);
-
-        Task<bool> ExistsAsync(Guid customerId);
-
-        Task<long> CountAsync();
     }
 }

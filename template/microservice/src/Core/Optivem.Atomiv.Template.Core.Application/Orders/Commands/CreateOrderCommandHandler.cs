@@ -13,17 +13,17 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
-        private readonly IProductQueryRepository _productReadRepository;
+        private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
 
         public CreateOrderCommandHandler(IMapper mapper, 
-            IOrderRepository orderRepository, 
-            IProductQueryRepository productReadRepository,
+            IOrderRepository orderRepository,
+            IProductReadonlyRepository productReadonlyRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;
             _orderRepository = orderRepository;
-            _productReadRepository = productReadRepository;
+            _productReadonlyRepository = productReadonlyRepository;
             _orderFactory = orderFactory;
         }
 
@@ -54,7 +54,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
-            var productPrice = await _productReadRepository.GetPriceAsync(requestOrderDetail.ProductId);
+            var productPrice = await _productReadonlyRepository.GetPriceAsync(requestOrderDetail.ProductId);
 
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
 

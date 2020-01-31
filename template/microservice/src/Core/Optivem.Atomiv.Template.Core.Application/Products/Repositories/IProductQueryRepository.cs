@@ -13,10 +13,6 @@ namespace Optivem.Atomiv.Template.Core.Application.Products.Repositories
 
         Task<ListProductsQueryResponse> QueryAsync(ListProductsQuery query);
 
-        Task<bool> ExistsAsync(Guid productId);
 
-        Task<long> CountAsync();
-
-        Task<decimal?> GetPriceAsync(Guid productId);
     }
 }

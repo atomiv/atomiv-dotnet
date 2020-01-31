@@ -78,7 +78,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .Select(GetListCustomersQueryResponse)
                 .ToList();
 
-            var totalRecords = await CountAsync();
+            var totalRecords = await Context.Customers.LongCountAsync();
 
             return new ListCustomersQueryResponse
             {
@@ -88,16 +88,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
         }
 
 
-        public Task<bool> ExistsAsync(Guid customerId)
-        {
-            return Context.Customers.AsNoTracking()
-                .AnyAsync(e => e.Id == customerId);
-        }
 
-        public Task<long> CountAsync()
-        {
-            return Context.Customers.LongCountAsync();
-        }
 
         #region Helper
 

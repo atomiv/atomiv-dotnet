@@ -12,9 +12,5 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Repositories
         Task<FindOrderQueryResponse> QueryAsync(FindOrderQuery query);
 
         Task<ListOrdersQueryResponse> QueryAsync(ListOrdersQuery query);
-        
-        Task<bool> ExistsAsync(Guid orderId);
-
-        Task<long> CountAsync();
     }
 }

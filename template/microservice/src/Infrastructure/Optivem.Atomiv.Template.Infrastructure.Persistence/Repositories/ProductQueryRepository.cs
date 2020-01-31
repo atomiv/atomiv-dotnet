@@ -25,7 +25,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .Select(GetProductHeaderReadModel)
                 .ToList();
 
-            var totalRecords = await CountAsync();
+            var totalRecords = await Context.Products.LongCountAsync();
 
             return new BrowseProductsQueryResponse
             {
@@ -56,7 +56,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .ToListAsync();
 
             var resultRecords = productRecords.Select(GetIdNameResult).ToList();
-            var totalRecords = await CountAsync();
+            var totalRecords = await Context.Products.LongCountAsync();
 
             return new ListProductsQueryResponse
             {
@@ -65,29 +65,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        public Task<bool> ExistsAsync(Guid productId)
-        {
-            return Context.Products.AsNoTracking()
-                .AnyAsync(e => e.Id == productId);
-        }
 
-        public Task<long> CountAsync()
-        {
-            return Context.Products.LongCountAsync();
-        }
-
-        public async Task<decimal?> GetPriceAsync(Guid productId)
-        {
-            var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productId);
-
-            if(productRecord == null)
-            {
-                return null;
-            }
-
-            return productRecord.ListPrice;
-        }
 
         #region Helper
 

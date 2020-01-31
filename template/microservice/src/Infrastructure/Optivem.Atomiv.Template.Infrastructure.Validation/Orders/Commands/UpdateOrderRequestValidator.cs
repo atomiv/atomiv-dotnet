@@ -3,33 +3,35 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Application.Orders.Repositories;
 using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
+using Optivem.Atomiv.Template.Core.Domain.Orders;
+using Optivem.Atomiv.Template.Core.Domain.Products;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
 {
     public class UpdateOrderRequestValidator : BaseValidator<UpdateOrderCommand>
     {
-        public UpdateOrderRequestValidator(IOrderQueryRepository orderReadRepository, IProductQueryRepository productReadRepository)
+        public UpdateOrderRequestValidator(IOrderReadonlyRepository orderReadonlyRepository, IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
                 .MustAsync((command, context, cancellation)
-                    => orderReadRepository.ExistsAsync(command.Id))
+                    => orderReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
 
             RuleFor(e => e.OrderItems).NotNull();
 
             RuleForEach(e => e.OrderItems)
-                .SetValidator(new UpdateOrderItemCommandValidator(productReadRepository));
+                .SetValidator(new UpdateOrderItemCommandValidator(productReadonlyRepository));
         }
     }
 
     public class UpdateOrderItemCommandValidator : BaseValidator<UpdateOrderItemCommand>
     {
-        public UpdateOrderItemCommandValidator(IProductQueryRepository productReadRepository)
+        public UpdateOrderItemCommandValidator(IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.ProductId)
                 .MustAsync((command, context, cancellation)
-                    => productReadRepository.ExistsAsync(command.ProductId));
+                    => productReadonlyRepository.ExistsAsync(command.ProductId));
         }
     }
 }

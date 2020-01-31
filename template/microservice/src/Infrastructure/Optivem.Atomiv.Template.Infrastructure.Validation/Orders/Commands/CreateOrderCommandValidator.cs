@@ -3,33 +3,35 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Customers.Repositories;
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
+using Optivem.Atomiv.Template.Core.Domain.Customers;
+using Optivem.Atomiv.Template.Core.Domain.Products;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
 {
     public class CreateOrderCommandValidator : BaseValidator<CreateOrderCommand>
     {
-        public CreateOrderCommandValidator(ICustomerQueryRepository customerReadRepository, IProductQueryRepository productReadRepository)
+        public CreateOrderCommandValidator(ICustomerReadonlyRepository customerReadonlyRepository, IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.CustomerId)
                 .NotEmpty()
                 .MustAsync((command, context, cancellation)
-                    => customerReadRepository.ExistsAsync(command.CustomerId));
+                    => customerReadonlyRepository.ExistsAsync(command.CustomerId));
 
             RuleFor(e => e.CustomerId).NotEmpty();
             RuleFor(e => e.OrderItems).NotNull();
 
             RuleForEach(e => e.OrderItems)
-                .SetValidator(new CreateOrderItemCommandValidator(productReadRepository));
+                .SetValidator(new CreateOrderItemCommandValidator(productReadonlyRepository));
         }
     }
 
     public class CreateOrderItemCommandValidator : BaseValidator<CreateOrderItemCommand>
     {
-        public CreateOrderItemCommandValidator(IProductQueryRepository productReadRepository)
+        public CreateOrderItemCommandValidator(IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.ProductId)
                 .MustAsync((command, context, cancellation)
-                    => productReadRepository.ExistsAsync(command.ProductId));
+                    => productReadonlyRepository.ExistsAsync(command.ProductId));
         }
     }
 }

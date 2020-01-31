@@ -11,18 +11,18 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
     public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IProductQueryRepository _productReadRepository;
+        private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
         private readonly IMapper _mapper;
 
         public UpdateOrderCommandHandler(
             IOrderRepository orderRepository,
-            IProductQueryRepository productReadRepository,
+            IProductReadonlyRepository productReadonlyRepository,
             IOrderFactory orderFactory,
             IMapper mapper)
         {
             _orderRepository = orderRepository;
-            _productReadRepository = productReadRepository;
+            _productReadonlyRepository = productReadonlyRepository;
             _orderFactory = orderFactory;
             _mapper = mapper;
         }
@@ -49,7 +49,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 
             foreach (var added in addedOrderRequestDetails)
             {
-                var productPrice = await _productReadRepository.GetPriceAsync(added.ProductId);
+                var productPrice = await _productReadonlyRepository.GetPriceAsync(added.ProductId);
 
                 var productId = new ProductIdentity(added.ProductId);
 
@@ -68,7 +68,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 
                 if(orderItem.ProductId != productId)
                 {
-                    var productPrice = await _productReadRepository.GetPriceAsync(updated.ProductId);
+                    var productPrice = await _productReadonlyRepository.GetPriceAsync(updated.ProductId);
                     unitPrice = productPrice.Value;
                 }
 

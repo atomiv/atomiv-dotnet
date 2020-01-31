@@ -25,7 +25,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .Select(GetOrderHeaderReadModel)
                 .ToList();
 
-            var totalRecords = await CountAsync();
+            var totalRecords = await Context.Orders.LongCountAsync();
 
             return new BrowseOrdersQueryResponse
             {
@@ -57,24 +57,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .ToListAsync();
 
             var resultRecords = orderRecords.Select(GetIdNameResult).ToList();
-            var totalRecords = await CountAsync();
+            var totalRecords = await Context.Orders.LongCountAsync();
 
             return new ListOrdersQueryResponse
             {
                 Records = resultRecords,
                 TotalRecords = totalRecords,
             };
-        }
-
-        public Task<bool> ExistsAsync(Guid orderId)
-        {
-            return Context.Orders.AsNoTracking()
-                .AnyAsync(e => e.Id == orderId);
-        }
-
-        public Task<long> CountAsync()
-        {
-            return Context.Orders.LongCountAsync();
         }
 
         private BrowseOrdersRecordQueryResponse GetOrderHeaderReadModel(OrderRecord record)
