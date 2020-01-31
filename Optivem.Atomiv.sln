@@ -141,26 +141,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice", "Microservic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{3793589B-F777-4436-AA48-AD54B1CB4D90}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{160F3509-5E5E-456A-BF6E-3906C65F147F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{AF760A3D-786E-43F9-BF3A-2D0761ACD84E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{126D99D4-F5ED-4D4B-A758-E1922C5AE380}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{A916FE96-E484-49F6-81AE-E543ED1FA752}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvc", "Mvc", "{69DBCAD9-C92F-4EFE-B852-DB8F4A517559}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{AEDDB971-7DCA-4714-A7A3-06BA6426925B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cli", "Cli", "{DD54130D-7705-42CA-900F-C43F1DDF8091}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{E8E170FE-1A50-4409-B021-FA322181D133}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{DB13ECA8-8FF0-4E1B-A27A-C48FA13675D1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5E364892-CD3A-48EC-B7B9-898F1CD50670}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Domain", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Domain\Optivem.Atomiv.Template.Core.Domain.csproj", "{3002832F-F345-4449-8FB1-988726FD4785}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Common", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Common\Optivem.Atomiv.Template.Core.Common.csproj", "{CA184F98-842A-42EB-809C-B5408960FC9C}"
@@ -203,9 +183,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.UnitTest", "template\microservice\test\Core\Optivem.Atomiv.Template.Core.Application.UnitTest\Optivem.Atomiv.Template.Core.Application.UnitTest.csproj", "{17616C3B-B793-48C2-9ABC-936C8C6BF568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest\Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest.csproj", "{624F436F-9CE4-45A6-B063-0FA855B31619}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest\Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest.csproj", "{624F436F-9CE4-45A6-B063-0FA855B31619}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -547,18 +527,8 @@ Global
 		{8635DD4F-E619-454E-9830-7C236A73DA85} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
 		{BB2D907C-B966-4006-88EB-083522DB4030} = {16AA06BB-E046-4584-BA22-F14A56ADD50A}
 		{5D4A7AC1-3784-400B-B560-2551CDE174D4} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
-		{A5AE00F5-F7CF-4483-9A52-78C3C7F12C34} = {126D99D4-F5ED-4D4B-A758-E1922C5AE380}
+		{A5AE00F5-F7CF-4483-9A52-78C3C7F12C34} = {E43A4277-A2B4-4ACE-92D1-4B62860E3C68}
 		{3793589B-F777-4436-AA48-AD54B1CB4D90} = {3D617A9C-8C41-4CDE-9F5C-D83AE8412B08}
-		{160F3509-5E5E-456A-BF6E-3906C65F147F} = {126D99D4-F5ED-4D4B-A758-E1922C5AE380}
-		{AF760A3D-786E-43F9-BF3A-2D0761ACD84E} = {E43A4277-A2B4-4ACE-92D1-4B62860E3C68}
-		{126D99D4-F5ED-4D4B-A758-E1922C5AE380} = {E43A4277-A2B4-4ACE-92D1-4B62860E3C68}
-		{A916FE96-E484-49F6-81AE-E543ED1FA752} = {126D99D4-F5ED-4D4B-A758-E1922C5AE380}
-		{69DBCAD9-C92F-4EFE-B852-DB8F4A517559} = {AF760A3D-786E-43F9-BF3A-2D0761ACD84E}
-		{AEDDB971-7DCA-4714-A7A3-06BA6426925B} = {69DBCAD9-C92F-4EFE-B852-DB8F4A517559}
-		{DD54130D-7705-42CA-900F-C43F1DDF8091} = {AF760A3D-786E-43F9-BF3A-2D0761ACD84E}
-		{E8E170FE-1A50-4409-B021-FA322181D133} = {DD54130D-7705-42CA-900F-C43F1DDF8091}
-		{DB13ECA8-8FF0-4E1B-A27A-C48FA13675D1} = {E43A4277-A2B4-4ACE-92D1-4B62860E3C68}
-		{5E364892-CD3A-48EC-B7B9-898F1CD50670} = {DB13ECA8-8FF0-4E1B-A27A-C48FA13675D1}
 		{3002832F-F345-4449-8FB1-988726FD4785} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{CA184F98-842A-42EB-809C-B5408960FC9C} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{DA73D6CE-1996-4FEA-ACC7-C90A846D3008} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
