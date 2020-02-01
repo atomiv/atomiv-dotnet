@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
 {
-    public class FindProductQuery : IRequest<FindProductQueryResponse>
+    public class ViewProductQuery : IRequest<ViewProductQueryResponse>
     {
         public Guid Id { get; set; }
     }

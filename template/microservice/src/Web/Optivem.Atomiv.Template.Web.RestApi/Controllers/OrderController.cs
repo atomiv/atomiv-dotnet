@@ -43,7 +43,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-order", new { id = response.Id }, response);
+            return CreatedAtRoute("view-order", new { id = response.Id }, response);
         }
 
         [HttpPut("{id}", Name = "edit-order")]
@@ -87,22 +87,22 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "find-order")]
-        [ProducesResponseType(typeof(FindOrderQueryResponse), 200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult<FindOrderQueryResponse>> FindOrderAsync(Guid id)
-        {
-            var request = new FindOrderQuery { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
         [HttpGet("list", Name = "list-orders")]
         [ProducesResponseType(typeof(ListOrdersQueryResponse), 200)]
         public async Task<ActionResult<ListOrdersQueryResponse>> ListOrdersAsync()
         {
             var request = new ListOrdersQuery();
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "view-order")]
+        [ProducesResponseType(typeof(ViewOrderQueryResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<ViewOrderQueryResponse>> ViewOrderAsync(Guid id)
+        {
+            var request = new ViewOrderQuery { Id = id };
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }

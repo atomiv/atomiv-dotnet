@@ -10,9 +10,9 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 {
-    public class FindOrderQueryTest : BaseTest
+    public class ViewOrderQueryTest : BaseTest
     {
-        public FindOrderQueryTest(Fixture fixture) : base(fixture)
+        public ViewOrderQueryTest(Fixture fixture) : base(fixture)
         {
         }
 
@@ -28,9 +28,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 
             // Act
 
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
 
-            var findHttpResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
 
             // Assert
 
@@ -48,11 +48,11 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 
             var id = Guid.NewGuid();
 
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
 
             // Act
 
-            var findApiResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findApiResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
 
             // Assert
 

@@ -5,16 +5,16 @@ using Optivem.Atomiv.Template.Core.Application.Orders.Repositories;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class FindOrderQueryHandler : IRequestHandler<FindOrderQuery, FindOrderQueryResponse>
+    public class ViewOrderQueryHandler : IRequestHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
         private readonly IOrderQueryRepository _orderReadRepository;
 
-        public FindOrderQueryHandler(IMapper mapper, IOrderQueryRepository orderReadRepository)
+        public ViewOrderQueryHandler(IMapper mapper, IOrderQueryRepository orderReadRepository)
         {
             _orderReadRepository = orderReadRepository;
         }
 
-        public async Task<FindOrderQueryResponse> HandleAsync(FindOrderQuery request)
+        public async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
         {
             var response = await _orderReadRepository.QueryAsync(request);
 

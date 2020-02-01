@@ -6,9 +6,9 @@ using Optivem.Atomiv.Template.Core.Domain.Customers;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Queries
 {
-    public class FindCustomerQueryValidator : BaseValidator<FindCustomerQuery>
+    public class ViewCustomerQueryValidator : BaseValidator<ViewCustomerQuery>
     {
-        public FindCustomerQueryValidator(ICustomerReadonlyRepository customerReadonlyRepository)
+        public ViewCustomerQueryValidator(ICustomerReadonlyRepository customerReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

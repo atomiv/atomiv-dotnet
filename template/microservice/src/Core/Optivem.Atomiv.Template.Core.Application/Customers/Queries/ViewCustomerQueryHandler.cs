@@ -6,16 +6,16 @@ namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 {
     // TODO: VC: Make base class with AsNoTracking
 
-    public class FindCustomerQueryHandler : IRequestHandler<FindCustomerQuery, FindCustomerQueryResponse>
+    public class ViewCustomerQueryHandler : IRequestHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
     {
         private readonly ICustomerQueryRepository _customerReadRepository;
 
-        public FindCustomerQueryHandler(ICustomerQueryRepository customerReadRepository)
+        public ViewCustomerQueryHandler(ICustomerQueryRepository customerReadRepository)
         {
             _customerReadRepository = customerReadRepository;
         }
 
-        public async Task<FindCustomerQueryResponse> HandleAsync(FindCustomerQuery request)
+        public async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
         {
             var customerDetail = await _customerReadRepository.QueryAsync(request);
 

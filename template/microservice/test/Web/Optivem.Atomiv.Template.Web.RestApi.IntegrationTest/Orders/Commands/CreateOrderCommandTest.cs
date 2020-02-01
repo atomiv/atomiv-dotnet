@@ -79,8 +79,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
                 createResponseOrderDetail.Status.Should().Be(OrderItemStatus.Allocated);
             }
 
-            var findRequest = new FindOrderQuery { Id = createResponse.Id };
-            var findHttpResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findRequest = new ViewOrderQuery { Id = createResponse.Id };
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

@@ -6,9 +6,9 @@ using Optivem.Atomiv.Template.Core.Domain.Products;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products.Queries
 {
-    public class FindProductQueryValidator : BaseValidator<FindProductQuery>
+    public class ViewProductQueryValidator : BaseValidator<ViewProductQuery>
     {
-        public FindProductQueryValidator(IProductReadonlyRepository productReadonlyRepository)
+        public ViewProductQueryValidator(IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

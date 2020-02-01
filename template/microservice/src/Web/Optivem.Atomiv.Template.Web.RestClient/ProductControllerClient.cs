@@ -50,15 +50,15 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
-        public Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request)
-        {
-            var id = request.Id;
-            return _controllerClient.GetByIdAsync<Guid, FindProductQueryResponse>(id);
-        }
-
         public Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request)
         {
             return _controllerClient.GetAsync<ListProductsQueryResponse>("list");
+        }
+
+        public Task<IObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request)
+        {
+            var id = request.Id;
+            return _controllerClient.GetByIdAsync<Guid, ViewProductQueryResponse>(id);
         }
 
         #endregion

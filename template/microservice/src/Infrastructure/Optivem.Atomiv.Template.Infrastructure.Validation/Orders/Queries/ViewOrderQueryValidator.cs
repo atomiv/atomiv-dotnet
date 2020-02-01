@@ -6,9 +6,9 @@ using Optivem.Atomiv.Template.Core.Domain.Orders;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Queries
 {
-    public class FindOrderQueryValidator : BaseValidator<FindOrderQuery>
+    public class ViewOrderQueryValidator : BaseValidator<ViewOrderQuery>
     {
-        public FindOrderQueryValidator(IOrderReadonlyRepository orderReadonlyRepository)
+        public ViewOrderQueryValidator(IOrderReadonlyRepository orderReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

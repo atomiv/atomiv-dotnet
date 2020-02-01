@@ -140,9 +140,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             var productRecord = _productRecords[0];
             var id = productRecord.Id;
 
-            var findRequest = new FindProductQuery { Id = id };
+            var findRequest = new ViewProductQuery { Id = id };
 
-            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 
@@ -159,9 +159,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindProductQuery { Id = id };
+            var findRequest = new ViewProductQuery { Id = id };
 
-            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, findResponse.StatusCode);
         }
@@ -188,9 +188,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             Assert.Equal(createRequest.Description, createResponseContent.Description);
             Assert.Equal(createRequest.UnitPrice, createResponseContent.UnitPrice);
 
-            var findRequest = new FindProductQuery { Id = createResponseContent.Id };
+            var findRequest = new ViewProductQuery { Id = createResponseContent.Id };
 
-            var findResponse = await Fixture.Api.Products.FindProductAsync(findRequest);
+            var findResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
 
             Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
 

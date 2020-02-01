@@ -47,8 +47,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             archiveResponse.Should().BeEquivalentTo(expectedArchiveResponse);
 
-            var findRequest = new FindOrderQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findRequest = new ViewOrderQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

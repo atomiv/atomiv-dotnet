@@ -34,7 +34,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        public async Task<FindProductQueryResponse> QueryAsync(FindProductQuery query)
+        public async Task<ViewProductQueryResponse> QueryAsync(ViewProductQuery query)
         {
             var productId = query.Id;
 
@@ -92,9 +92,9 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private static FindProductQueryResponse GetFindProductQueryResponse(ProductRecord productRecord)
+        private static ViewProductQueryResponse GetFindProductQueryResponse(ProductRecord productRecord)
         {
-            return new FindProductQueryResponse
+            return new ViewProductQueryResponse
             {
                 Id = productRecord.Id,
                 Code = productRecord.ProductCode,

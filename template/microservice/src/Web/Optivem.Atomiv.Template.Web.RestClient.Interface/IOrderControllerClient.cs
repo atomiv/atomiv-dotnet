@@ -25,9 +25,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
 
         Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request);
 
-        Task<IObjectClientResponse<FindOrderQueryResponse>> FindOrderAsync(FindOrderQuery request);
-
         Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request);
+
+        Task<IObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request);
 
         #endregion
     }

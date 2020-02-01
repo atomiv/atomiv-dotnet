@@ -25,7 +25,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-customer", new { id = response.Id }, response);
+            return CreatedAtRoute("view-customer", new { id = response.Id }, response);
         }
 
         [HttpPut("{id}", Name = "edit-customer")]
@@ -72,21 +72,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "find-customer")]
-        [ProducesResponseType(typeof(FindCustomerQueryResponse), 200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult<FindCustomerQueryResponse>> FindCustomerAsync(Guid id)
-        {
-            var request = new FindCustomerQuery
-            {
-                Id = id,
-            };
-
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
         [HttpGet("list", Name = "list-customers")]
         [ProducesResponseType(typeof(ListCustomersQueryResponse), 200)]
         public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync(int limit, string nameSearch)
@@ -95,6 +80,21 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             {
                 Limit = limit,
                 NameSearch = nameSearch,
+            };
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "view-customer")]
+        [ProducesResponseType(typeof(ViewCustomerQueryResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<ViewCustomerQueryResponse>> ViewCustomerAsync(Guid id)
+        {
+            var request = new ViewCustomerQuery
+            {
+                Id = id,
             };
 
             var response = await _messageBus.SendAsync(request);

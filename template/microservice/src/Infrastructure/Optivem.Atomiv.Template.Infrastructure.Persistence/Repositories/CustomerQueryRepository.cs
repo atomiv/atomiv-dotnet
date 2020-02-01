@@ -44,7 +44,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        public async Task<FindCustomerQueryResponse> QueryAsync(FindCustomerQuery query)
+        public async Task<ViewCustomerQueryResponse> QueryAsync(ViewCustomerQuery query)
         {
             var customerId = query.Id;
 
@@ -131,7 +131,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private FindCustomerQueryResponse GetFindCustomerQueryResponse(CustomerRecord customerRecord)
+        private ViewCustomerQueryResponse GetFindCustomerQueryResponse(CustomerRecord customerRecord)
         {
             var id = new CustomerIdentity(customerRecord.Id);
             var firstName = customerRecord.FirstName;
@@ -160,7 +160,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
                 .Select(e => e.Key.ProductName)
                 .ToList();
 
-            return new FindCustomerQueryResponse
+            return new ViewCustomerQueryResponse
             {
                 Id = id,
                 FirstName = firstName,

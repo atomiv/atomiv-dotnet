@@ -86,7 +86,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
 
             relistResponse.Should().BeEquivalentTo(expectedRelistResponse);
 
-            var findRequest = new FindProductQuery { Id = id };
+            var findRequest = new ViewProductQuery { Id = id };
             var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
 
             findResponse.Should().BeEquivalentTo(someCreateResponse);

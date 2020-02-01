@@ -194,7 +194,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
             }
 
             var id = createResponse.Id;
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
             var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
 
             Assert.Equal(createResponse.Id, findResponse.Id);
@@ -264,7 +264,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
             var orderRecord = _orderRecords[0];
             var id = orderRecord.Id;
 
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
             var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
 
             Assert.Equal(orderRecord.Id, findResponse.Id);
@@ -292,7 +292,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
             await Assert.ThrowsAsync<ExistenceException>(() => Fixture.MessageBus.SendAsync(findRequest));
         }
 
@@ -357,7 +357,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
             }
 
             var id = updateResponse.Id;
-            var findRequest = new FindOrderQuery { Id = id };
+            var findRequest = new ViewOrderQuery { Id = id };
             var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
 
             Assert.Equal(updateResponse.Id, findResponse.Id);

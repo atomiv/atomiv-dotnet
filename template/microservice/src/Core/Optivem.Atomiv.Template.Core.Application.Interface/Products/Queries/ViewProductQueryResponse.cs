@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
 {
-    public class FindProductQueryResponse
+    public class ViewProductQueryResponse
     {
         public Guid Id { get; set; }
 

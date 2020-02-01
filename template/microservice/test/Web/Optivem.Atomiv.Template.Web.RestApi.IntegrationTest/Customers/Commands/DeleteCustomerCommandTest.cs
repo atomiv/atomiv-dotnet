@@ -55,8 +55,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             deleteHttpResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
-            var findRequest = new FindCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            var findRequest = new ViewCustomerQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 

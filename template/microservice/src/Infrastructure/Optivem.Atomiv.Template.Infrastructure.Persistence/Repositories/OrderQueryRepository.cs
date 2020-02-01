@@ -34,7 +34,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        public async Task<FindOrderQueryResponse> QueryAsync(FindOrderQuery query)
+        public async Task<ViewOrderQueryResponse> QueryAsync(ViewOrderQuery query)
         {
             var orderId = query.Id;
 
@@ -91,13 +91,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             };
         }
 
-        private FindOrderQueryResponse GetOrder(OrderRecord record)
+        private ViewOrderQueryResponse GetOrder(OrderRecord record)
         {
             var orderItems = record.OrderItems
                 .Select(GetFindOrderItemQueryResponse)
                 .ToList();
 
-            return new FindOrderQueryResponse
+            return new ViewOrderQueryResponse
             {
                 Id = record.Id,
                 CustomerId = record.CustomerId,

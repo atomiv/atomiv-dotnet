@@ -58,15 +58,15 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<FindOrderQueryResponse>> FindOrderAsync(FindOrderQuery request)
-        {
-            var id = request.Id;
-            return _controllerClient.GetByIdAsync<Guid, FindOrderQueryResponse>(id);
-        }
-
         public Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request)
         {
             return _controllerClient.GetAsync<ListOrdersQueryResponse>("list");
+        }
+
+        public Task<IObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request)
+        {
+            var id = request.Id;
+            return _controllerClient.GetByIdAsync<Guid, ViewOrderQueryResponse>(id);
         }
 
         #endregion

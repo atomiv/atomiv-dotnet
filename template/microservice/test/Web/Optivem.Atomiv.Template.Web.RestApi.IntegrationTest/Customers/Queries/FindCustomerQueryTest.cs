@@ -50,8 +50,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             var someCreateResponse = createHttpResponses[1].Data;
             var id = someCreateResponse.Id;
-            var findRequest = new FindCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            var findRequest = new ViewCustomerQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
 
             // Assert
 
@@ -94,8 +94,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
             // Act
 
             var id = Guid.NewGuid();
-            var findRequest = new FindCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            var findRequest = new ViewCustomerQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
 
             // Assert
 

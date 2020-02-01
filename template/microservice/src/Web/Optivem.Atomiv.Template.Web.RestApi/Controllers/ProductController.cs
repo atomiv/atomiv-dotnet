@@ -25,7 +25,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-product", new { id = response.Id }, response);
+            return CreatedAtRoute("view-product", new { id = response.Id }, response);
         }
 
 
@@ -81,25 +81,24 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "find-product")]
-        [ProducesResponseType(typeof(FindProductQueryResponse), 200)]
-        public async Task<ActionResult<FindProductQueryResponse>> FindProductAsync(Guid id)
-        {
-            var request = new FindProductQuery
-            {
-                Id = id,
-            };
-
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-
         [HttpGet("list", Name = "list-products")]
         [ProducesResponseType(typeof(ListProductsQueryResponse), 200)]
         public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
         {
             var request = new ListProductsQuery { };
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "view-product")]
+        [ProducesResponseType(typeof(ViewProductQueryResponse), 200)]
+        public async Task<ActionResult<ViewProductQueryResponse>> ViewProductAsync(Guid id)
+        {
+            var request = new ViewProductQuery
+            {
+                Id = id,
+            };
+
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }

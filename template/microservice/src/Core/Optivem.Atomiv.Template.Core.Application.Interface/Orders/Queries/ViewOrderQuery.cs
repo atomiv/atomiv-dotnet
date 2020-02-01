@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class FindOrderQuery : IRequest<FindOrderQueryResponse>
+    public class ViewOrderQuery : IRequest<ViewOrderQueryResponse>
     {
         public Guid Id { get; set; }
     }

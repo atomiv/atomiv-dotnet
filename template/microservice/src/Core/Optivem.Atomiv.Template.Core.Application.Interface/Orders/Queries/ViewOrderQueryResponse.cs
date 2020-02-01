@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class FindOrderQueryResponse
+    public class ViewOrderQueryResponse
     {
         public Guid Id { get; set; }
 

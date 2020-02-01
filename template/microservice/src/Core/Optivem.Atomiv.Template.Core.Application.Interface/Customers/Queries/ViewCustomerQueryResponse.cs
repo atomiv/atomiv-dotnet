@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 {
-    public class FindCustomerQueryResponse
+    public class ViewCustomerQueryResponse
     {
         public Guid Id { get; set; }
 
