@@ -169,8 +169,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Web.RestClient.Interface", "template\microservice\src\Web\Optivem.Atomiv.Template.Web.RestClient.Interface\Optivem.Atomiv.Template.Web.RestClient.Interface.csproj", "{D505BA4A-24C8-407B-8E29-7D5B21A2C014}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.IntegrationTest", "template\microservice\test\Core\Optivem.Atomiv.Template.Core.Application.IntegrationTest\Optivem.Atomiv.Template.Core.Application.IntegrationTest.csproj", "{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Domain.UnitTest", "template\microservice\test\Core\Optivem.Atomiv.Template.Core.Domain.UnitTest\Optivem.Atomiv.Template.Core.Domain.UnitTest.csproj", "{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Web.RestApi.IntegrationTest", "template\microservice\test\Web\Optivem.Atomiv.Template.Web.RestApi.IntegrationTest\Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.csproj", "{7ECDAC34-F9FF-4E4A-A01F-4374BC9EF9AB}"
@@ -425,10 +423,6 @@ Global
 		{D505BA4A-24C8-407B-8E29-7D5B21A2C014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D505BA4A-24C8-407B-8E29-7D5B21A2C014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D505BA4A-24C8-407B-8E29-7D5B21A2C014}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -543,7 +537,6 @@ Global
 		{DB5A3793-45F8-4E29-993C-9735D540505D} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{D9127F9E-FA52-43EB-A83A-862E1F742053} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
 		{D505BA4A-24C8-407B-8E29-7D5B21A2C014} = {C2076B96-2334-44C1-98D4-BD2CAE651A14}
-		{B31BE5EB-5BA6-45B1-ACA2-2D6830FBB2D4} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{498C9C20-3AAA-4CB0-8A34-62A8C09B0C51} = {10F5E068-60AC-4F31-A3A9-838BF68FAE94}
 		{7ECDAC34-F9FF-4E4A-A01F-4374BC9EF9AB} = {04BFF208-657F-4024-8725-BD473BD76F44}
 		{F3F87069-E87E-43CC-B2B9-DB51FFE81038} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
