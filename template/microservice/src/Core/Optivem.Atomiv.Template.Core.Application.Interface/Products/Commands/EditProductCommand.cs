@@ -3,7 +3,7 @@ using System;
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
 {
-    public class UpdateProductCommand : IRequest<UpdateProductCommandResponse>
+    public class EditProductCommand : IRequest<EditProductCommandResponse>
     {
         public Guid Id { get; set; }
 

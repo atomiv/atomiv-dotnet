@@ -1,4 +1,4 @@
-﻿using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+﻿using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 {
-    public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, UpdateOrderCommandResponse>
+    public class EditOrderCommandHandler : IRequestHandler<EditOrderCommand, EditOrderCommandResponse>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
         private readonly IMapper _mapper;
 
-        public UpdateOrderCommandHandler(
+        public EditOrderCommandHandler(
             IOrderRepository orderRepository,
             IProductReadonlyRepository productReadonlyRepository,
             IOrderFactory orderFactory,
@@ -27,7 +27,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
             _mapper = mapper;
         }
 
-        public async Task<UpdateOrderCommandResponse> HandleAsync(UpdateOrderCommand request)
+        public async Task<EditOrderCommandResponse> HandleAsync(EditOrderCommand request)
         {
             var orderId = new OrderIdentity(request.Id);
 
@@ -36,10 +36,10 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
             await UpdateAsync(order, request);
 
             await _orderRepository.UpdateAsync(order);
-            return _mapper.Map<Order, UpdateOrderCommandResponse>(order);
+            return _mapper.Map<Order, EditOrderCommandResponse>(order);
         }
 
-        private async Task UpdateAsync(Order order, UpdateOrderCommand request)
+        private async Task UpdateAsync(Order order, EditOrderCommand request)
         {
             var currentOrderDetails = order.OrderItems;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 {
-    public class UpdateOrderCommand : IRequest<UpdateOrderCommandResponse>
+    public class EditOrderCommand : IRequest<EditOrderCommandResponse>
     {
         public Guid Id { get; set; }
 

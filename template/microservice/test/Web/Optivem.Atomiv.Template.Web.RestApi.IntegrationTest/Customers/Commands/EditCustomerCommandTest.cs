@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
-    public class UpdateCustomerCommandTest
+    public class EditCustomerCommandTest
     {
     }
 }

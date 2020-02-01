@@ -306,7 +306,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
 
             var orderStatusId = orderRecord.OrderStatusId;
 
-            var updateRequest = new UpdateOrderCommand
+            var updateRequest = new EditOrderCommand
             {
                 Id = orderRecord.Id,
                 OrderItems = new List<UpdateOrderItemCommand>
@@ -390,7 +390,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
             var id = Guid.NewGuid();
             var orderItemId = Guid.NewGuid();
 
-            var updateRequest = new UpdateOrderCommand
+            var updateRequest = new EditOrderCommand
             {
                 Id = id,
                 OrderItems = new List<UpdateOrderItemCommand>
@@ -412,7 +412,7 @@ namespace Optivem.Atomiv.Template.Core.Application.IntegrationTest
         {
             var orderRecord = _orderRecords[0];
 
-            var updateRequest = new UpdateOrderCommand
+            var updateRequest = new EditOrderCommand
             {
                 Id = orderRecord.Id,
                 OrderItems = null,

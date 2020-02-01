@@ -18,25 +18,13 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             _messageBus = messageBus;
         }
 
+        #region Commands
+
         [HttpPost("{id}/archive", Name = "archive-order")]
         [ProducesResponseType(typeof(ArchiveOrderCommandResponse), 200)]
         public async Task<ActionResult<ArchiveOrderCommandResponse>> ArchiveOrderAsync(Guid id)
         {
             var request = new ArchiveOrderCommand { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-        [HttpGet("browse", Name = "browse-orders")]
-        [ProducesResponseType(typeof(BrowseOrdersQueryResponse), 200)]
-        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
-        {
-            var request = new BrowseOrdersQuery
-            {
-                Page = page.Value,
-                Size = size.Value,
-            };
-
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
@@ -56,6 +44,47 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         {
             var response = await _messageBus.SendAsync(request);
             return CreatedAtRoute("find-order", new { id = response.Id }, response);
+        }
+
+        [HttpPut("{id}", Name = "edit-order")]
+        [ProducesResponseType(typeof(EditOrderCommandResponse), 201)]
+        public async Task<ActionResult<EditOrderCommandResponse>> UpdateOrderAsync(Guid id, EditOrderCommand request)
+        {
+            if (id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpPost("{id}/submit", Name = "submit-order")]
+        [ProducesResponseType(typeof(SubmitOrderCommandResponse), 200)]
+        public async Task<ActionResult<SubmitOrderCommandResponse>> SubmitOrderAsync(Guid id)
+        {
+            var request = new SubmitOrderCommand { Id = id };
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        #endregion
+
+        #region Queries
+
+        [HttpGet("browse", Name = "browse-orders")]
+        [ProducesResponseType(typeof(BrowseOrdersQueryResponse), 200)]
+        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
+        {
+            var request = new BrowseOrdersQuery
+            {
+                Page = page.Value,
+                Size = size.Value,
+            };
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
         }
 
         [HttpGet("{id}", Name = "find-order")]
@@ -78,27 +107,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPost("{id}/submit", Name = "submit-order")]
-        [ProducesResponseType(typeof(SubmitOrderCommandResponse), 200)]
-        public async Task<ActionResult<SubmitOrderCommandResponse>> SubmitOrderAsync(Guid id)
-        {
-            var request = new SubmitOrderCommand { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-        [HttpPut("{id}", Name = "update-order")]
-        [ProducesResponseType(typeof(UpdateOrderCommandResponse), 201)]
-        public async Task<ActionResult<UpdateOrderCommandResponse>> UpdateOrderAsync(Guid id, UpdateOrderCommand request)
-        {
-            if (id != request.Id)
-            {
-                // TODO: VC: Move to translations
-                return BadRequest("Mismatching id in route and request");
-            }
-
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
+        #endregion
     }
 }

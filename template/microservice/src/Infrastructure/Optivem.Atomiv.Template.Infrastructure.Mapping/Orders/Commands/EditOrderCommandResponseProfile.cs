@@ -4,11 +4,11 @@ using Optivem.Atomiv.Template.Core.Domain.Orders;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Mapping.Orders
 {
-    public class UpdateOrderCommandResponseProfile : Profile
+    public class EditOrderCommandResponseProfile : Profile
     {
-        public UpdateOrderCommandResponseProfile()
+        public EditOrderCommandResponseProfile()
         {
-            CreateMap<Order, UpdateOrderCommandResponse>();
+            CreateMap<Order, EditOrderCommandResponse>();
 
             CreateMap<OrderItem, UpdateOrderItemCommandResponse>();
         }

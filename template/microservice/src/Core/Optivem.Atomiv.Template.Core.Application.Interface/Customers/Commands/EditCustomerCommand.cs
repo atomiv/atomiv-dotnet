@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Optivem.Atomiv.Core.Application;
+using System;
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Commands
 {
-    public class UpdateCustomerCommandResponse
+    public class EditCustomerCommand : IRequest<EditCustomerCommandResponse>
     {
         public Guid Id { get; set; }
 

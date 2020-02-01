@@ -28,9 +28,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return CreatedAtRoute("find-customer", new { id = response.Id }, response);
         }
 
-        [HttpPut("{id}", Name = "update-customer")]
-        [ProducesResponseType(typeof(UpdateCustomerCommandResponse), 201)]
-        public async Task<ActionResult<UpdateCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
+        [HttpPut("{id}", Name = "edit-customer")]
+        [ProducesResponseType(typeof(EditCustomerCommandResponse), 201)]
+        public async Task<ActionResult<EditCustomerCommandResponse>> EditCustomerAsync(Guid id, EditCustomerCommand request)
         {
             if (id != request.Id)
             {

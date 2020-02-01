@@ -19,14 +19,35 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/products");
         }
 
-        public Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request)
-        {
-            return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
-        }
+        #region Commands
 
         public Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
             return _controllerClient.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
+        }
+
+        public Task<IObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request)
+        {
+            return _controllerClient.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request);
+        }
+
+        public Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
+        {
+            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>(request);
+        }
+
+        public Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
+        {
+            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>(request);
+        }
+
+        #endregion
+
+        #region Queries
+
+        public Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request)
+        {
+            return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request)
@@ -40,19 +61,6 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.GetAsync<ListProductsQueryResponse>("list");
         }
 
-        public Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
-        {
-            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>(request);
-        }
-
-        public Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
-        {
-            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>(request);
-        }
-
-        public Task<IObjectClientResponse<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request)
-        {
-            return _controllerClient.PutByIdAsync<Guid, UpdateProductCommand, UpdateProductCommandResponse>(request.Id, request);
-        }
+        #endregion
     }
 }

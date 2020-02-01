@@ -8,9 +8,9 @@ using Optivem.Atomiv.Template.Core.Domain.Products;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
 {
-    public class UpdateOrderRequestValidator : BaseValidator<UpdateOrderCommand>
+    public class EditOrderRequestValidator : BaseValidator<EditOrderCommand>
     {
-        public UpdateOrderRequestValidator(IOrderReadonlyRepository orderReadonlyRepository, IProductReadonlyRepository productReadonlyRepository)
+        public EditOrderRequestValidator(IOrderReadonlyRepository orderReadonlyRepository, IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

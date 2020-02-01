@@ -28,6 +28,15 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return CreatedAtRoute("find-product", new { id = response.Id }, response);
         }
 
+
+        [HttpPut(Name = "edit-product")]
+        [ProducesResponseType(typeof(EditProductCommandResponse), 200)]
+        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(EditProductCommand request)
+        {
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
         [HttpPost("{id}/relist", Name = "relist-product")]
         [ProducesResponseType(typeof(RelistProductCommandResponse), 200)]
         public async Task<ActionResult<RelistProductCommandResponse>> RelistProductAsync(Guid id)
@@ -50,14 +59,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-        [HttpPut(Name = "update-product")]
-        [ProducesResponseType(typeof(UpdateProductCommandResponse), 200)]
-        public async Task<ActionResult<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request)
-        {
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
@@ -104,9 +105,5 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         }
 
         #endregion
-
-
-
-
     }
 }

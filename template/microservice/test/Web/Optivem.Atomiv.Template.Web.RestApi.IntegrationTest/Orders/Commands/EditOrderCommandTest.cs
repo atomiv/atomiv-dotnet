@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
 using Optivem.Atomiv.Template.Core.Common.Orders;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 {
-    public class UpdateOrderCommandTest : BaseTest
+    public class EditOrderCommandTest : BaseTest
     {
-        public UpdateOrderCommandTest(Fixture fixture) : base(fixture)
+        public EditOrderCommandTest(Fixture fixture) : base(fixture)
         {
         }
 
@@ -36,7 +36,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             var orderCustomerId = createOrderResponse.CustomerId;
             var orderStatus = createOrderResponse.Status;
 
-            var updateRequest = new UpdateOrderCommand
+            var updateRequest = new EditOrderCommand
             {
                 Id = id,
                 OrderItems = new List<UpdateOrderItemCommand>
@@ -59,7 +59,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             // Act
 
-            var updateHttpResponse = await Fixture.Api.Orders.UpdateOrderAsync(updateRequest);
+            var updateHttpResponse = await Fixture.Api.Orders.EditOrderAsync(updateRequest);
 
             // Assert
 

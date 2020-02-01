@@ -19,10 +19,7 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/customers");
         }
 
-        public Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
-        {
-            return _controllerClient.GetAsync<BrowseCustomersQuery, BrowseCustomersQueryResponse>(request);
-        }
+        #region Commands
 
         public Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
@@ -33,6 +30,20 @@ namespace Optivem.Atomiv.Template.Web.RestClient
         {
             var id = request.Id;
             return _controllerClient.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id);
+        }
+
+        public Task<IObjectClientResponse<EditCustomerCommandResponse>> EditCustomerAsync(EditCustomerCommand request)
+        {
+            return _controllerClient.PutByIdAsync<Guid, EditCustomerCommand, EditCustomerCommandResponse>(request.Id, request);
+        }
+
+        #endregion
+
+        #region Queries
+
+        public Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
+        {
+            return _controllerClient.GetAsync<BrowseCustomersQuery, BrowseCustomersQueryResponse>(request);
         }
 
         public Task<IObjectClientResponse<FindCustomerQueryResponse>> FindCustomerAsync(FindCustomerQuery request)
@@ -46,9 +57,6 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.GetAsync<ListCustomersQuery, ListCustomersQueryResponse>("list", request);
         }
 
-        public Task<IObjectClientResponse<UpdateCustomerCommandResponse>> UpdateCustomerAsync(UpdateCustomerCommand request)
-        {
-            return _controllerClient.PutByIdAsync<Guid, UpdateCustomerCommand, UpdateCustomerCommandResponse>(request.Id, request);
-        }
+        #endregion
     }
 }

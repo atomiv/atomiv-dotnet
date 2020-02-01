@@ -6,9 +6,9 @@ using Optivem.Atomiv.Template.Core.Domain.Products;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products
 {
-    public class UpdateProductRequestValidator : BaseValidator<UpdateProductCommand>
+    public class EditProductRequestValidator : BaseValidator<EditProductCommand>
     {
-        public UpdateProductRequestValidator(IProductReadonlyRepository productReadonlyRepository)
+        public EditProductRequestValidator(IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()

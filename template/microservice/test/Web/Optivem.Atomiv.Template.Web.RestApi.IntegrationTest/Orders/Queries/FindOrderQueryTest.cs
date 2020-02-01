@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;

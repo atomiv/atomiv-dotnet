@@ -11,7 +11,7 @@ using Optivem.Atomiv.Template.Web.RestClient;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
 using System.Net.Http;
 
-namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures
+namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
     public class Fixture
     {

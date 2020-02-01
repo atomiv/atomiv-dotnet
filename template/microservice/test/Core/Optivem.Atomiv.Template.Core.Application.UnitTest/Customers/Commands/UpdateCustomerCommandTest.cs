@@ -21,7 +21,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 
             var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
 
-            var command = new UpdateCustomerCommand
+            var command = new EditCustomerCommand
             {
                 Id = id,
                 FirstName = "Mary 2",
@@ -33,7 +33,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 
             var updatedCustomer = new Customer(customerId, "Mary 2", "Smith 2");
 
-            var expectedResponse = new UpdateCustomerCommandResponse
+            var expectedResponse = new EditCustomerCommandResponse
             {
                 Id = id,
                 FirstName = "Mary 2",
@@ -48,17 +48,17 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 .Setup(e => e.UpdateAsync(updatedCustomer));
 
             mapperMock
-                .Setup(e => e.Map<Customer, UpdateCustomerCommandResponse>(updatedCustomer))
+                .Setup(e => e.Map<Customer, EditCustomerCommandResponse>(updatedCustomer))
                 .Returns(expectedResponse);
 
-            var handler = new UpdateCustomerCommandHandler(customerRepositoryMock.Object,
+            var handler = new EditCustomerCommandHandler(customerRepositoryMock.Object,
                 mapperMock.Object);
 
             var response = await handler.HandleAsync(command);
 
             customerRepositoryMock.Verify(e => e.FindAsync(customerId), Times.Once());
             customerRepositoryMock.Verify(e => e.UpdateAsync(updatedCustomer), Times.Once());
-            mapperMock.Verify(e => e.Map<Customer, UpdateCustomerCommandResponse>(customer), Times.Once());
+            mapperMock.Verify(e => e.Map<Customer, EditCustomerCommandResponse>(customer), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

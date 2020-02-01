@@ -59,7 +59,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                     new OrderItem(new OrderItemIdentity(orderItemId2), new ProductIdentity(productId2), productId2Price, 60, OrderItemStatus.OnOrder),
                 });
 
-            var command = new UpdateOrderCommand
+            var command = new EditOrderCommand
             {
                 Id = id,
                 OrderItems = new List<UpdateOrderItemCommand>
@@ -90,7 +90,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                     new OrderItem(new OrderItemIdentity(orderItemId3), new ProductIdentity(productId3), productId3Price, 84, OrderItemStatus.Allocated),
                 });
 
-            var expectedResponse = new UpdateOrderCommandResponse
+            var expectedResponse = new EditOrderCommandResponse
             {
                 Id = id,
                 CustomerId = customerId,
@@ -134,13 +134,13 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 .Returns(Task.CompletedTask);
 
             _mapperMock
-                .Setup(e => e.Map<Order, UpdateOrderCommandResponse>(expectedUpdatedOrder))
+                .Setup(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder))
                 .Returns(expectedResponse);
 
 
             // Act
 
-            var handler = new UpdateOrderCommandHandler(_orderRepositoryMock.Object,
+            var handler = new EditOrderCommandHandler(_orderRepositoryMock.Object,
                 _productReadonlyRepositoryMock.Object,
                 _orderFactoryMock.Object,
                 _mapperMock.Object);
@@ -154,7 +154,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId3), Times.Once());
             _orderFactoryMock.Verify(e => e.CreateNewOrderItem(new ProductIdentity(productId3), productId3Price, 84), Times.Once());
             _orderRepositoryMock.Verify(e => e.UpdateAsync(expectedUpdatedOrder), Times.Once());
-            _mapperMock.Verify(e => e.Map<Order, UpdateOrderCommandResponse>(expectedUpdatedOrder), Times.Once());
+            _mapperMock.Verify(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

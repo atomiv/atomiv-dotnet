@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
 using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
-    public class CreateCustomerCommandTest : Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures.BaseTest
+    public class CreateCustomerCommandTest : BaseTest
     {
         public CreateCustomerCommandTest(Fixture fixture) : base(fixture)
         {

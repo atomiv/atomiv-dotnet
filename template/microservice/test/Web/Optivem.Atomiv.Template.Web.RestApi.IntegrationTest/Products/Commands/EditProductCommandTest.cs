@@ -1,4 +1,4 @@
-﻿using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+﻿using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
-    public class UpdateProductCommandTest : BaseTest
+    public class EditProductCommandTest : BaseTest
     {
-        public UpdateProductCommandTest(Fixture fixture) : base(fixture)
+        public EditProductCommandTest(Fixture fixture) : base(fixture)
         {
         }
     }

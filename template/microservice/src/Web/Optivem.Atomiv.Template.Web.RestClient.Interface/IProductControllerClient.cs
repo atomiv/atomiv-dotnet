@@ -7,18 +7,26 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
 {
     public interface IProductControllerClient : IHttpControllerClient
     {
-        Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
+        #region Commands
 
         Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request);
 
-        Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request);
-
-        Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request);
+        Task<IObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request);
 
         Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request);
 
         Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request);
 
-        Task<IObjectClientResponse<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request);
+        #endregion
+
+        #region Queries
+
+        Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
+
+        Task<IObjectClientResponse<FindProductQueryResponse>> FindProductAsync(FindProductQuery request);
+
+        Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request);
+
+        #endregion
     }
 }

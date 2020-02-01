@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, UpdateProductCommandResponse>
+    public class EditProductCommandHandler : IRequestHandler<EditProductCommand, EditProductCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
 
-        public UpdateProductCommandHandler(IMapper mapper, IProductRepository productRepository)
+        public EditProductCommandHandler(IMapper mapper, IProductRepository productRepository)
         {
             _mapper = mapper;
             _productRepository = productRepository;
         }
 
-        public async Task<UpdateProductCommandResponse> HandleAsync(UpdateProductCommand request)
+        public async Task<EditProductCommandResponse> HandleAsync(EditProductCommand request)
         {
             var productId = new ProductIdentity(request.Id);
 
@@ -26,11 +26,11 @@ namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
 
             await _productRepository.UpdateAsync(product);
 
-            var response = _mapper.Map<Product, UpdateProductCommandResponse>(product);
+            var response = _mapper.Map<Product, EditProductCommandResponse>(product);
             return response;
         }
 
-        private void Update(Product product, UpdateProductCommand request)
+        private void Update(Product product, EditProductCommand request)
         {
             product.ProductName = request.Description;
             product.ListPrice = request.UnitPrice;

@@ -2,7 +2,7 @@ using Optivem.Atomiv.Test.Xunit;
 using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using Optivem.Atomiv.Template.Core.Application.Products.Queries;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
+using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -207,14 +207,14 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         {
             var productRecord = _productRecords[0];
 
-            var updateRequest = new UpdateProductCommand
+            var updateRequest = new EditProductCommand
             {
                 Id = productRecord.Id,
                 Description = "New desc",
                 UnitPrice = 130,
             };
 
-            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
 
@@ -230,14 +230,14 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         {
             var id = Guid.NewGuid();
 
-            var updateRequest = new UpdateProductCommand
+            var updateRequest = new EditProductCommand
             {
                 Id = id,
                 Description = "New desc 2",
                 UnitPrice = 140,
             };
 
-            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
 
             Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
         }
@@ -247,14 +247,14 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         {
             var productRecord = _productRecords[0];
 
-            var updateRequest = new UpdateProductCommand
+            var updateRequest = new EditProductCommand
             {
                 Id = productRecord.Id,
                 Description = "New desc 3",
                 UnitPrice = 150,
             };
 
-            var updateResponse = await Fixture.Api.Products.UpdateProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
             Assert.Equal(HttpStatusCode.UnprocessableEntity, updateResponse.StatusCode);
 
             var problemDetails = updateResponse.ProblemDetails;

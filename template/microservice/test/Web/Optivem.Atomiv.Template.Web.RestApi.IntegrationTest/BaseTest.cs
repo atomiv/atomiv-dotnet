@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures
+namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
     public class BaseTest : FixtureTest<Fixture>, IDisposable
     {

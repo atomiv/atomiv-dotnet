@@ -4,11 +4,11 @@ using Optivem.Atomiv.Template.Core.Domain.Customers;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Mapping.Customers
 {
-    public class UpdateCustomerCommandResponseProfile : Profile
+    public class EditCustomerCommandResponseProfile : Profile
     {
-        public UpdateCustomerCommandResponseProfile()
+        public EditCustomerCommandResponseProfile()
         {
-            CreateMap<Customer, UpdateCustomerCommandResponse>();
+            CreateMap<Customer, EditCustomerCommandResponse>();
         }
     }
 }

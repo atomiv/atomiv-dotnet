@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
 {
-    public class UpdateProductCommandResponse
+    public class EditProductCommandResponse
     {
         public Guid Id { get; set; }
 
