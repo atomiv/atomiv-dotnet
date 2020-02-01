@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class ListOrdersQueryHandler : IRequestHandler<ListOrdersQuery, ListOrdersQueryResponse>
+    public class FilterOrdersQueryHandler : IRequestHandler<FilterOrdersQuery, FilterOrdersQueryResponse>
     {
         private readonly IOrderQueryRepository _orderReadRepository;
 
-        public ListOrdersQueryHandler(IOrderQueryRepository orderReadRepository)
+        public FilterOrdersQueryHandler(IOrderQueryRepository orderReadRepository)
         {
             _orderReadRepository = orderReadRepository;
         }
 
-        public Task<ListOrdersQueryResponse> HandleAsync(ListOrdersQuery request)
+        public Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery request)
         {
             return _orderReadRepository.QueryAsync(request);
         }

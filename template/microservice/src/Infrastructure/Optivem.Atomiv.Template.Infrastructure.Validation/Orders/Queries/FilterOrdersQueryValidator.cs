@@ -3,9 +3,9 @@ using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Queries
 {
-    public class ListOrdersQueryValidator : BaseValidator<ListOrdersQuery>
+    public class FilterOrdersQueryValidator : BaseValidator<FilterOrdersQuery>
     {
-        public ListOrdersQueryValidator()
+        public FilterOrdersQueryValidator()
         {
 
         }

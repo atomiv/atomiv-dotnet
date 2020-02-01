@@ -11,9 +11,9 @@ using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 {
-    public class ListCustomersQueryTest : BaseTest
+    public class FilterCustomersQueryTest : BaseTest
     {
-        public ListCustomersQueryTest(Fixture fixture) : base(fixture)
+        public FilterCustomersQueryTest(Fixture fixture) : base(fixture)
         {
         }
 
@@ -72,13 +72,13 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             // Act
 
-            var listRequest = new ListCustomersQuery
+            var listRequest = new FilterCustomersQuery
             {
                 NameSearch = "ark",
                 Limit = 10,
             };
 
-            var listHttpResponse = await Fixture.Api.Customers.ListCustomersAsync(listRequest);
+            var listHttpResponse = await Fixture.Api.Customers.FilterCustomersAsync(listRequest);
 
             // Assert
 

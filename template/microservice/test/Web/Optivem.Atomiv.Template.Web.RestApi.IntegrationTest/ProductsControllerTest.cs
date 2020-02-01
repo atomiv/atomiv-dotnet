@@ -111,9 +111,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         [Fact(Skip = "In progress")]
         public async Task ListProducts_Valid_OK()
         {
-            var listRequest = new ListProductsQuery { };
+            var listRequest = new FilterProductsQuery { };
 
-            var actual = await Fixture.Api.Products.ListProductsAsync(listRequest);
+            var actual = await Fixture.Api.Products.FilterProductsAsync(listRequest);
 
             Assert.Equal(HttpStatusCode.OK, actual.StatusCode);
 

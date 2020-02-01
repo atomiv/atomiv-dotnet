@@ -81,11 +81,11 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("list", Name = "list-products")]
-        [ProducesResponseType(typeof(ListProductsQueryResponse), 200)]
-        public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
+        [HttpGet("filter", Name = "filter-products")]
+        [ProducesResponseType(typeof(FilterProductsQueryResponse), 200)]
+        public async Task<ActionResult<FilterProductsQueryResponse>> FilterProductsAsync()
         {
-            var request = new ListProductsQuery { };
+            var request = new FilterProductsQuery { };
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }

@@ -58,9 +58,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             throw new NotImplementedException();
         }
 
-        public Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request)
+        public Task<IObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request)
         {
-            return _controllerClient.GetAsync<ListOrdersQueryResponse>("list");
+            return _controllerClient.GetAsync<FilterOrdersQueryResponse>("filter");
         }
 
         public Task<IObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request)

@@ -9,7 +9,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Products.Repositories
     {
         Task<BrowseProductsQueryResponse> QueryAsync(BrowseProductsQuery query);
 
-        Task<ListProductsQueryResponse> QueryAsync(ListProductsQuery query);
+        Task<FilterProductsQueryResponse> QueryAsync(FilterProductsQuery query);
 
         Task<ViewProductQueryResponse> QueryAsync(ViewProductQuery query);
     }

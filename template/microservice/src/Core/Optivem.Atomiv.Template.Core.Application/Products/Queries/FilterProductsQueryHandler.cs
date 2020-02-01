@@ -4,16 +4,16 @@ using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 
 namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
 {
-    public class ListProductsQueryHandler : IRequestHandler<ListProductsQuery, ListProductsQueryResponse>
+    public class FilterProductsQueryHandler : IRequestHandler<FilterProductsQuery, FilterProductsQueryResponse>
     {
         private readonly IProductQueryRepository _productReadRepository;
 
-        public ListProductsQueryHandler(IProductQueryRepository productReadRepository)
+        public FilterProductsQueryHandler(IProductQueryRepository productReadRepository)
         {
             _productReadRepository = productReadRepository;
         }
 
-        public Task<ListProductsQueryResponse> HandleAsync(ListProductsQuery request)
+        public Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery request)
         {
             return _productReadRepository.QueryAsync(request);
         }

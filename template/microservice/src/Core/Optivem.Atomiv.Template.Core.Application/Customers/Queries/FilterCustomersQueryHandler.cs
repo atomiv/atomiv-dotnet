@@ -4,16 +4,16 @@ using Optivem.Atomiv.Template.Core.Application.Customers.Repositories;
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 {
-    public class ListCustomersQueryHandler : IRequestHandler<ListCustomersQuery, ListCustomersQueryResponse>
+    public class FilterCustomersQueryHandler : IRequestHandler<FilterCustomersQuery, FilterCustomersQueryResponse>
     {
         private readonly ICustomerQueryRepository _customerReadRepository;
 
-        public ListCustomersQueryHandler(ICustomerQueryRepository customerReadRepository)
+        public FilterCustomersQueryHandler(ICustomerQueryRepository customerReadRepository)
         {
             _customerReadRepository = customerReadRepository;
         }
 
-        public Task<ListCustomersQueryResponse> HandleAsync(ListCustomersQuery request)
+        public Task<FilterCustomersQueryResponse> HandleAsync(FilterCustomersQuery request)
         {
             return _customerReadRepository.QueryAsync(request);
         }

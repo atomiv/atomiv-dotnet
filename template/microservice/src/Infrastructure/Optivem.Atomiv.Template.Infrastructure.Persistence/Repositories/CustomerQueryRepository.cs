@@ -62,7 +62,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             return GetFindCustomerQueryResponse(customerRecord);
         }
 
-        public async Task<ListCustomersQueryResponse> QueryAsync(ListCustomersQuery query)
+        public async Task<FilterCustomersQueryResponse> QueryAsync(FilterCustomersQuery query)
         {
             var nameSearch = query.NameSearch;
             var limit = query.Limit;
@@ -80,7 +80,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
 
             var totalRecords = await Context.Customers.LongCountAsync();
 
-            return new ListCustomersQueryResponse
+            return new FilterCustomersQueryResponse
             {
                 Records = resultRecords,
                 TotalRecords = totalRecords,

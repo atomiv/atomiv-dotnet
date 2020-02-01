@@ -50,9 +50,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
-        public Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request)
+        public Task<IObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request)
         {
-            return _controllerClient.GetAsync<ListProductsQueryResponse>("list");
+            return _controllerClient.GetAsync<FilterProductsQueryResponse>("filter");
         }
 
         public Task<IObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request)

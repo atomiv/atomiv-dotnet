@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class ListOrdersQuery : IRequest<ListOrdersQueryResponse>
+    public class FilterOrdersQuery : IRequest<FilterOrdersQueryResponse>
     {
     }
 }

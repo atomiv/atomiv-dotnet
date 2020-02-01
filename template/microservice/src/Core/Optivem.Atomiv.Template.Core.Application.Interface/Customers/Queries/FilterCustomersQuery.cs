@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 {
-    public class ListCustomersQuery : IRequest<ListCustomersQueryResponse>
+    public class FilterCustomersQuery : IRequest<FilterCustomersQueryResponse>
     {
         public int Limit { get; set; }
 

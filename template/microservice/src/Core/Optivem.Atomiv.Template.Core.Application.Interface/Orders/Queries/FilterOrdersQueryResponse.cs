@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
 {
-    public class ListOrdersQueryResponse
+    public class FilterOrdersQueryResponse
     {
         public List<ListOrdersRecordQueryResponse> Records { get; set; }
 

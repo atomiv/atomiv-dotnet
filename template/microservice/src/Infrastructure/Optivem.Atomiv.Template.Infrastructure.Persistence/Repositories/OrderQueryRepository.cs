@@ -50,7 +50,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             return GetOrder(orderRecord);
         }
 
-        public async Task<ListOrdersQueryResponse> QueryAsync(ListOrdersQuery query)
+        public async Task<FilterOrdersQueryResponse> QueryAsync(FilterOrdersQuery query)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
                 .OrderBy(e => e.Id)
@@ -59,7 +59,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             var resultRecords = orderRecords.Select(GetIdNameResult).ToList();
             var totalRecords = await Context.Orders.LongCountAsync();
 
-            return new ListOrdersQueryResponse
+            return new FilterOrdersQueryResponse
             {
                 Records = resultRecords,
                 TotalRecords = totalRecords,

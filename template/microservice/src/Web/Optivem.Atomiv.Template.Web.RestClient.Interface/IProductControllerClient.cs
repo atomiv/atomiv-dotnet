@@ -23,7 +23,7 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
 
         Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
 
-        Task<IObjectClientResponse<ListProductsQueryResponse>> ListProductsAsync(ListProductsQuery request);
+        Task<IObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request);
 
         Task<IObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request);
 

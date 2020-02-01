@@ -3,9 +3,9 @@ using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Queries
 {
-    public class ListCustomersQueryValidator : BaseValidator<ListCustomersQuery>
+    public class FilterCustomersQueryValidator : BaseValidator<FilterCustomersQuery>
     {
-        public ListCustomersQueryValidator()
+        public FilterCustomersQueryValidator()
         {
 
         }
