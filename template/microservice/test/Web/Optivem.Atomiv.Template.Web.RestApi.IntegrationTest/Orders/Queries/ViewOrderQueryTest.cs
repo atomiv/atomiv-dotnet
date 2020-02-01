@@ -17,7 +17,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
         }
 
         [Fact]
-        public async Task FindOrder_ValidRequest_ReturnsOrder()
+        public async Task ViewOrder_ValidRequest_ReturnsOrder()
         {
             // Arrange
 
