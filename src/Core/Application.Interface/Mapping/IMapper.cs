@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Core.Application.Mapping
+﻿namespace Optivem.Atomiv.Core.Application
 {
     public interface IMapper
     {

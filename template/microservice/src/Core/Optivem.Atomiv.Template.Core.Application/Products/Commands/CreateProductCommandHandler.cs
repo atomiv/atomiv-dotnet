@@ -1,5 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Application.Mapping;
+using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using System.Threading.Tasks;
 

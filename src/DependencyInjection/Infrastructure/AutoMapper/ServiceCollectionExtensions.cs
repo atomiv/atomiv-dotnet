@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using IMapper = Optivem.Atomiv.Core.Application.Mapping.IMapper;
+using IMapper = Optivem.Atomiv.Core.Application.IMapper;
 using Mapper = Optivem.Atomiv.Infrastructure.AutoMapper.Mapper;
 
 namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper

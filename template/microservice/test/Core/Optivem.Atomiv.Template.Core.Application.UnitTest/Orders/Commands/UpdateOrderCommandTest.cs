@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using Moq;
-using Optivem.Atomiv.Core.Application.Mapping;
+using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 using Optivem.Atomiv.Template.Core.Common.Orders;
