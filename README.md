@@ -1,11 +1,11 @@
-## Optivem Framework
+## Atomiv
 
 [![Build Status](https://img.shields.io/appveyor/ci/optivem/framework-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/framework-dotnetcore)
 [![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=develop)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=develop)
 [![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=master)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=master)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-Welcome to the Optivem Framework! The Optivem Framework was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Optivem Framework in your .NET Core 2.2 software projects. 
+Welcome to the Atomiv! The Atomiv was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Atomiv in your .NET Core 2.2 software projects. 
 
 ## Table of Contents
 
@@ -18,9 +18,9 @@ Welcome to the Optivem Framework! The Optivem Framework was created to help you 
 <a name="introduction" />
 ## Introduction
 
-Optivem Framework was created to accelerate the development of enterprise applications, so that you can quickly create new projects for your customers.
+Atomiv was created to accelerate the development of enterprise applications, so that you can quickly create new projects for your customers.
 
-The Optivem Framework is founded upon Clean Architecture principles and supports:
+The Atomiv is founded upon Clean Architecture principles and supports:
 * Modularity & re-usability
 * Extensibility & flexibility
 * Maintainability & testibility
@@ -43,13 +43,13 @@ We are using Visual Studio 2019 and .NET Core 2.2.
 <a name="installation" />
 ### Installation
 
-To install the Optivem Template:
+To install the Atomiv Templates:
 1. Run Visual Studio
 2. Open the Package Manager Console (Visual Studio main menu: Tools > NuGet Package Manager > Package Manager Console)
 3. Run the following command inside the Package Manager Console
 
 ```ps
-PM> dotnet new -i Optivem.Atomiv.Template
+PM> dotnet new -i Optivem.Atomiv.Templates
 ```
 
 4. In the future, you can run this same command to get updated versions of the template
@@ -71,10 +71,10 @@ PM> mkdir C:\Users\Valentina.Cupac\source\repos\MyWebShop
 ```ps
 PM> cd C:\Users\Valentina.Cupac\source\repos\MyWebShop
 ```
-5. Create the Visual Studio Solution based on the Optivem Template:
+5. Create the Visual Studio Solution based on the Atomiv template for microservices:
 
 ```ps
-PM> dotnet new optivem
+PM> dotnet new atomiv-microservice
 ```
 
 6. Open the solution (Visual Studio main menu: File > Open Project/Solution, selecting the folder and inside it the solution MyWebShop.sln)
@@ -150,7 +150,7 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 ## Technical Reference
 
 <a name="core-packages" />
-### Optivem Framework Core
+### Atomiv Core
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Core.Common.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Core.Common) Optivem.Atomiv.Core.Common
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Core.Domain.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Core.Domain) Optivem.Atomiv.Core.Domain
@@ -159,7 +159,7 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Core.All.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Core.All) Optivem.Atomiv.Core.All
 
 <a name="infrastructure-packages" />
-### Optivem Framework Infrastructure
+### Atomiv Infrastructure
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Infrastructure.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Infrastructure.AspNetCore) Optivem.Atomiv.Infrastructure.AspNetCore
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Infrastructure.AutoMapper) Optivem.Atomiv.Infrastructure.AutoMapper
@@ -174,7 +174,7 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 <!-- Infrastructure.EPPlus -->
 	
 <a name="dependency-injection-packages" />
-### Optivem Framework Dependency Injection
+### Atomiv Dependency Injection
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.DependencyInjection.Common.svg)](https://www.nuget.org/packages/Optivem.Atomiv.DependencyInjection.Common) Optivem.Atomiv.DependencyInjection.Common
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.DependencyInjection.Core.Domain.svg)](https://www.nuget.org/packages/Optivem.Atomiv.DependencyInjection.Core.Domain) Optivem.Atomiv.DependencyInjection.Core.Domain
@@ -195,12 +195,12 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 	-->
 
 <a name="web-packages" />
-### Optivem Framework Web
+### Atomiv Web
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Web.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Web.AspNetCore) Optivem.Atomiv.Web.AspNetCore
 
 <a name="test-packages" />
-### Optivem Framework Test
+### Atomiv Test
 
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Test.AspNetCore.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Test.AspNetCore) Optivem.Atomiv.Test.AspNetCore
 * [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Test.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Test.EntityFrameworkCore) Optivem.Atomiv.Test.EntityFrameworkCore
@@ -211,7 +211,7 @@ Then when you run it via CLI (see above), https://localhost:5001/api/customers
 
 ### Optivem Template
 
-* [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Template.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Template) Optivem.Atomiv.Template
+* [![NuGet](https://img.shields.io/nuget/v/Optivem.Atomiv.Templates.svg)](https://www.nuget.org/packages/Optivem.Atomiv.Templates) Optivem.Atomiv.Templates
 
 <a name="support" />
 ## Getting support
