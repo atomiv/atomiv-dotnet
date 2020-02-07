@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories

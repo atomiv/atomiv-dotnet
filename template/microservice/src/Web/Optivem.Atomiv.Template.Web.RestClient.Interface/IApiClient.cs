@@ -1,7 +1,4 @@
-﻿using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using System.Threading.Tasks;
-
-namespace Optivem.Atomiv.Template.Web.RestClient.Interface
+﻿namespace Optivem.Atomiv.Template.Web.RestClient.Interface
 {
     public interface IApiClient
     {

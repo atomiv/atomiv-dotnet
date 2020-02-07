@@ -1,6 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
-using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Repositories

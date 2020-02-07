@@ -2,14 +2,12 @@
 using Moq;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

@@ -3,7 +3,6 @@ using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Atomiv.Template.Core.Application.Products.Queries;
 using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
