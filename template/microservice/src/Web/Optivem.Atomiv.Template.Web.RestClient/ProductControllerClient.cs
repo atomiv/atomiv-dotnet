@@ -33,12 +33,14 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
         {
-            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>(request);
+            var id = request.Id;
+            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request);
         }
 
         public Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
         {
-            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>(request);
+            var id = request.Id;
+            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request);
         }
 
         #endregion

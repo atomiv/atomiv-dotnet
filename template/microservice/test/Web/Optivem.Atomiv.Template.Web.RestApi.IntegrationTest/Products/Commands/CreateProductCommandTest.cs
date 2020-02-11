@@ -1,4 +1,12 @@
-﻿namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
+﻿using FluentAssertions;
+using Optivem.Atomiv.Template.Core.Application.Products.Commands;
+using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
     public class CreateProductCommandTest : BaseTest
     {
@@ -6,75 +14,11 @@
         {
         }
 
-
-        // TODO: VC: THis is fixture
-
-        /*
-         * 
-        public ProductsControllerTest(Fixture fixture) : base(fixture)
+        [Fact]
+        public async Task CreateProduct_ValidRequest_ReturnsResponse()
         {
-            _productRecords = new List<ProductRecord>
-            {
-                new ProductRecord
-                {
-                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
-                    ProductCode = "APP",
-                    ProductName = "Apple",
-                    ListPrice = 10.50m,
-                },
+            // Arrange
 
-                new ProductRecord
-                {
-                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
-                    ProductCode = "BAN",
-                    ProductName = "Banana",
-                    ListPrice = 30.99m,
-                },
-            };
-
-            Fixture.Db.AddRange(_productRecords);
-        }
-
-         * 
-         */
-
-
-
-
-
-
-
-
-
-        /*
-         * 
-        [Fact(Skip = "In progress")]
-        public async Task CreateProduct_Invalid_UnprocessableEntity()
-        {
-            var createRequest = new CreateProductCommand
-            {
-                Code = null,
-                Description = "My desc",
-                UnitPrice = 112,
-            };
-
-            var createResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
-
-            Assert.Equal(HttpStatusCode.UnprocessableEntity, createResponse.StatusCode);
-
-            var createResponseContent = createResponse.Data;
-
-            var problemDetails = createResponse.ProblemDetails;
-
-            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
-        }
-
-
-
-
-        [Fact(Skip = "In progress")]
-        public async Task CreateProduct_Valid_Created()
-        {
             var createRequest = new CreateProductCommand
             {
                 Code = "My code 1",
@@ -82,58 +26,55 @@
                 UnitPrice = 100.56m,
             };
 
-            var createResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
+            // Act
 
-            Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
+            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
 
-            var createResponseContent = createResponse.Data;
+            // Assert
 
-            AssertUtilities.NotEmpty(createResponseContent.Id);
+            createHttpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
 
-            Assert.Equal(createRequest.Code, createResponseContent.Code);
-            Assert.Equal(createRequest.Description, createResponseContent.Description);
-            Assert.Equal(createRequest.UnitPrice, createResponseContent.UnitPrice);
+            var createResponse = createHttpResponse.Data;
 
-            var findRequest = new ViewProductQuery { Id = createResponseContent.Id };
+            createResponse.Id.Should().NotBeEmpty();
 
-            var findResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
+            createResponse.Should().BeEquivalentTo(createRequest);
 
-            Assert.Equal(HttpStatusCode.OK, findResponse.StatusCode);
+            var findRequest = new ViewProductQuery { Id = createResponse.Id };
 
-            var findResponseContent = findResponse.Data;
+            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
 
-            Assert.Equal(createResponseContent.Id, findResponseContent.Id);
-            Assert.Equal(createRequest.Code, findResponseContent.Code);
-            Assert.Equal(createRequest.Description, findResponseContent.Description);
-            Assert.Equal(createRequest.UnitPrice, findResponseContent.UnitPrice);
+            findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var findResponse = findHttpResponse.Data;
+
+            findResponse.Should().BeEquivalentTo(createResponse);
         }
 
+        [Fact]
+        public async Task CreateProduct_Invalid_UnprocessableEntity()
+        {
+            // Arrange
 
-         * 
-         */
+            var createRequest = new CreateProductCommand
+            {
+                Code = null,
+                Description = "My desc",
+                UnitPrice = 112,
+            };
 
+            // Act
 
+            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
 
+            // Assert
 
+            createHttpResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
 
+            var problemDetails = createHttpResponse.ProblemDetails;
 
-
-
-
-
-
-
-
-
-
-
-
-
-        // TODO: VC: DELETE From old service
-
-        /*
-
-        // TODO: VC: Implement
+            problemDetails.Status.Should().Be((int)HttpStatusCode.UnprocessableEntity);
+        }
 
         [Fact]
         public async Task RelistProduct_ValidRequest_ReturnsResponse()
@@ -171,13 +112,16 @@
                 },
             };
 
-            var createResponses = await CreateProductsAsync(createRequests);
+            var createHttpResponses = await CreateProductsAsync(createRequests);
 
-            var someCreateResponse = createResponses[2];
+            var someCreateHttpResponse = createHttpResponses[2];
+            var someCreateResponse = someCreateHttpResponse.Data;
             var id = someCreateResponse.Id;
 
             var unlistRequest = new UnlistProductCommand { Id = id };
-            var unlistResponse = await Fixture.MessageBus.SendAsync(unlistRequest);
+            var unlistHttpResponse = await Fixture.Api.Products.UnlistProductAsync(unlistRequest);
+
+            unlistHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var expectedUnlistResponse = new UnlistProductCommandResponse
             {
@@ -185,12 +129,14 @@
                 IsListed = false,
             };
 
+            var unlistResponse = unlistHttpResponse.Data;
+
             unlistResponse.Should().BeEquivalentTo(expectedUnlistResponse);
 
             // Act
 
             var relistRequest = new RelistProductCommand { Id = id };
-            var relistResponse = await Fixture.MessageBus.SendAsync(relistRequest);
+            var relistHttpResponse = await Fixture.Api.Products.RelistProductAsync(relistRequest);
 
             // Assert
 
@@ -200,13 +146,52 @@
                 IsListed = true,
             };
 
+            var relistResponse = relistHttpResponse.Data;
+
             relistResponse.Should().BeEquivalentTo(expectedRelistResponse);
 
             var findRequest = new ViewProductQuery { Id = id };
-            var findResponse = await Fixture.MessageBus.SendAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
+
+            findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var findResponse = findHttpResponse.Data;
 
             findResponse.Should().BeEquivalentTo(someCreateResponse);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // TODO: VC: DELETE From old service
+
+        /*
+
+        // TODO: VC: Implement
+
+
 
         [Fact]
         public async Task RelistProduct_InvalidRequest_ThrowsInvalidRequestException()
@@ -476,5 +461,47 @@
         }
 
     */
+
+
+
+
+
+
+
+
+        // TODO: VC: THis is fixture
+
+        /*
+         * 
+        public ProductsControllerTest(Fixture fixture) : base(fixture)
+        {
+            _productRecords = new List<ProductRecord>
+            {
+                new ProductRecord
+                {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
+                    ProductCode = "APP",
+                    ProductName = "Apple",
+                    ListPrice = 10.50m,
+                },
+
+                new ProductRecord
+                {
+                    Id = SequentialGuid.SequentialSqlGuidGenerator.Instance.NewGuid(),
+                    ProductCode = "BAN",
+                    ProductName = "Banana",
+                    ListPrice = 30.99m,
+                },
+            };
+
+            Fixture.Db.AddRange(_productRecords);
+        }
+
+         * 
+         */
+
+
+
+
     }
 }
