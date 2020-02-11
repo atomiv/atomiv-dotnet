@@ -1,4 +1,13 @@
-﻿namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
+﻿using FluentAssertions;
+using Optivem.Atomiv.Template.Core.Application.Products.Commands;
+using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
 {
     public class BrowseProductsQueryTest : BaseTest
     {
@@ -6,23 +15,29 @@
         {
         }
 
-        /*
-         * 
-        [Fact(Skip = "In progress")]
+        [Fact]
         public async Task BrowseProducts_Valid_OK()
         {
-            for (int i = 0; i < 30; i++)
+            // Arrange
+
+            var createProductResponses = new List<CreateProductCommandResponse>();
+
+            for (int i = 1; i <= 30; i++)
             {
-                var productRecord = new ProductRecord
+                var createProductRequest = new CreateProductCommand
                 {
-                    ProductCode = $"P{i}",
-                    ProductName = $"Product {i}",
-                    ListPrice = 100 + i,
+                    Code = $"P{i}",
+                    Description = $"Product {i}",
+                    UnitPrice = 100 + i,
                 };
 
-                _productRecords.Add(productRecord);
+                var createProductHttpResponse = await Fixture.Api.Products.CreateProductAsync(createProductRequest);
 
-                Fixture.Db.Add(productRecord);
+                createProductHttpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
+
+                var createProductResponse = createProductHttpResponse.Data;
+
+                createProductResponses.Add(createProductResponse);
             }
 
             var browseRequest = new BrowseProductsQuery
@@ -31,30 +46,28 @@
                 Size = 5,
             };
 
-            var browseResponse = await Fixture.Api.Products.BrowseProductsAsync(browseRequest);
+            // Act
 
-            Assert.Equal(HttpStatusCode.OK, browseResponse.StatusCode);
+            var browseHttpResponse = await Fixture.Api.Products.BrowseProductsAsync(browseRequest);
 
-            var browseResponseContent = browseResponse.Data;
+            // Assert
 
-            Assert.Equal(browseRequest.Size, browseResponseContent.TotalRecords);
+            browseHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
-            var skip = browseRequest.Page * browseRequest.Size;
-            var take = browseRequest.Size;
+            var browseResponse = browseHttpResponse.Data;
 
-            var expected = _productRecords.Skip(skip).Take(take).ToList();
+            // TODO: VC: Check
+            // browseResponse.TotalRecords.Should().Be(browseRequest.Size);
+
+            var expected = createProductResponses.Skip(10).Take(5).ToList();
 
             for (int i = 0; i < expected.Count; i++)
             {
                 var expectedRecord = expected[i];
-                var actualRecord = browseResponseContent.Records[i];
-                Assert.Equal(expectedRecord.Id, actualRecord.Id);
-                Assert.Equal(expectedRecord.ProductCode, actualRecord.Code);
-                Assert.Equal(expectedRecord.ProductName, actualRecord.Description);
-                Assert.Equal(expectedRecord.ListPrice, actualRecord.UnitPrice);
+                var actualRecord = browseResponse.Records[i];
+
+                actualRecord.Should().BeEquivalentTo(expectedRecord);
             }
         }
-         * 
-         */
     }
 }

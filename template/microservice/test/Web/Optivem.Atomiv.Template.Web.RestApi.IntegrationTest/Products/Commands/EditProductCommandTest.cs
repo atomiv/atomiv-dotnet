@@ -1,4 +1,12 @@
-﻿namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
+﻿using FluentAssertions;
+using Optivem.Atomiv.Template.Core.Application.Products.Commands;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Threading.Tasks;
+using Xunit;
+
+namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
     public class EditProductCommandTest : BaseTest
     {
@@ -6,34 +14,73 @@
         {
         }
 
-        /*
-         * 
-        [Fact(Skip = "Pending implement")]
+        [Fact]
         public async Task UpdateProduct_Valid_OK()
         {
-            var productRecord = _productRecords[0];
+            // Arrange
+
+            var createRequests = new List<CreateProductCommand>
+            {
+                new CreateProductCommand
+                {
+                    Code = "APP",
+                    Description = "Apple",
+                    UnitPrice = 10.50m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "BAN",
+                    Description = "Banana",
+                    UnitPrice = 30.99m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "ONG",
+                    Description = "Orange",
+                    UnitPrice = 35.99m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "STR",
+                    Description = "Strawberry",
+                    UnitPrice = 40.00m,
+                },
+            };
+
+            var createHttpResponses = await CreateProductsAsync(createRequests);
+
+            var someCreateHttpResponse = createHttpResponses[2];
+            var someCreateResponse = someCreateHttpResponse.Data;
+            var id = someCreateResponse.Id;
 
             var updateRequest = new EditProductCommand
             {
-                Id = productRecord.Id,
+                Id = id,
                 Description = "New desc",
                 UnitPrice = 130,
             };
 
-            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+            // Act
 
-            Assert.Equal(HttpStatusCode.OK, updateResponse.StatusCode);
+            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
 
-            var updateResponseContent = updateResponse.Data;
+            // Assert
 
-            Assert.Equal(updateRequest.Id, updateResponseContent.Id);
-            Assert.Equal(updateRequest.Description, updateResponseContent.Description);
-            Assert.Equal(updateRequest.UnitPrice, updateResponseContent.UnitPrice);
+            updateHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            var updateResponse = updateHttpResponse.Data;
+
+            updateResponse.Should().BeEquivalentTo(updateRequest);
         }
 
         [Fact]
         public async Task UpdateProduct_NotExist_NotFound()
         {
+            // Arrange
+
             var id = Guid.NewGuid();
 
             var updateRequest = new EditProductCommand
@@ -43,30 +90,75 @@
                 UnitPrice = 140,
             };
 
-            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+            // Act
 
-            Assert.Equal(HttpStatusCode.NotFound, updateResponse.StatusCode);
+            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+
+            // Assert
+
+            updateHttpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
-        [Fact(Skip = "Pending implement")]
+        [Fact]
         public async Task UpdateProduct_Invalid_UnprocessableEntity()
         {
-            var productRecord = _productRecords[0];
+            // Arrange
+
+            var createRequests = new List<CreateProductCommand>
+            {
+                new CreateProductCommand
+                {
+                    Code = "APP",
+                    Description = "Apple",
+                    UnitPrice = 10.50m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "BAN",
+                    Description = "Banana",
+                    UnitPrice = 30.99m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "ONG",
+                    Description = "Orange",
+                    UnitPrice = 35.99m,
+                },
+
+                new CreateProductCommand
+                {
+                    Code = "STR",
+                    Description = "Strawberry",
+                    UnitPrice = 40.00m,
+                },
+            };
+
+            var createHttpResponses = await CreateProductsAsync(createRequests);
+
+            var someCreateHttpResponse = createHttpResponses[2];
+            var someCreateResponse = someCreateHttpResponse.Data;
+            var id = someCreateResponse.Id;
 
             var updateRequest = new EditProductCommand
             {
-                Id = productRecord.Id,
+                Id = id,
                 Description = "New desc 3",
-                UnitPrice = 150,
+                UnitPrice = -2,
             };
 
+            // Act
+
             var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
-            Assert.Equal(HttpStatusCode.UnprocessableEntity, updateResponse.StatusCode);
+
+            // Assert
+
+            updateResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
 
             var problemDetails = updateResponse.ProblemDetails;
-            Assert.Equal((int)HttpStatusCode.UnprocessableEntity, problemDetails.Status);
+
+            problemDetails.Status.Should().Be((int)HttpStatusCode.UnprocessableEntity);
         }
-         * 
-         */
     }
 }

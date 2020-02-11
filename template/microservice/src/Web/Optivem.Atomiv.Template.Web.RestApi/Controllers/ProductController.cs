@@ -29,10 +29,16 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         }
 
 
-        [HttpPut(Name = "edit-product")]
+        [HttpPut("{id}", Name = "edit-product")]
         [ProducesResponseType(typeof(EditProductCommandResponse), 200)]
-        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(EditProductCommand request)
+        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(Guid id, EditProductCommand request)
         {
+            if(id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
+
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
