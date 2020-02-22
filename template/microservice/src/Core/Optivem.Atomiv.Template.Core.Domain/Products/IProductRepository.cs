@@ -1,4 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Domain;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Core.Domain.Products
@@ -10,5 +11,7 @@ namespace Optivem.Atomiv.Template.Core.Domain.Products
         Task<Product> FindAsync(ProductIdentity productId);
 
         Task UpdateAsync(Product product);
+
+        Task SyncAsync(IEnumerable<Product> products);
     }
 }

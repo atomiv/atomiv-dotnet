@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Mapping\Optivem.Atomiv.Template.Infrastructure.Mapping.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Validation\Optivem.Atomiv.Template.Infrastructure.Validation.csproj" />

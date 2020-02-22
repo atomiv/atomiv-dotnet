@@ -2,6 +2,8 @@
 using Optivem.Atomiv.Core.Domain;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
@@ -48,6 +50,17 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             }
 
             return GetProduct(productRecord);
+        }
+
+        public async Task SyncAsync(IEnumerable<Product> products)
+        {
+            // TODO: VC: Implement list differences
+
+            var productRecords = products.Select(GetProductRecord).ToList();
+
+            Context.Products.AddRange(productRecords);
+
+            await Context.SaveChangesAsync();
         }
 
         #region Helper

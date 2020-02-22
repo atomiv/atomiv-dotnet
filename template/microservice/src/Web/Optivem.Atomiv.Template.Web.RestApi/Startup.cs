@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Atomiv.Template.DependencyInjection;
 using System;
+using Optivem.Atomiv.Template.Web.RestApi.Services;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -57,6 +58,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddModules(Configuration);
+
+            services.AddHostedService<ProductSynchronizationService>();
 
             services.AddSwaggerGen(c =>
             {
