@@ -15,8 +15,13 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             new RequestHeader(HttpRequestHeader.ContentType.ToString(), MediaType),
         };
 
+        public JsonClient(IClient client, IJsonSerializer serializer, IEnumerable<RequestHeader> headers)
+            : base(client, serializer, headers)
+        {
+        }
+
         public JsonClient(IClient client, IJsonSerializer serializer)
-            : base(client, serializer, DefaultHeaders)
+            : this(client, serializer, DefaultHeaders)
         {
         }
     }
