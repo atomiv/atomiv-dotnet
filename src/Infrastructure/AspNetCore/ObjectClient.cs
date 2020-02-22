@@ -36,21 +36,6 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Deserialize<TResponse>(response);
         }
 
-        public Task<IClientResponse> GetAsync(string uri)
-        {
-            return Client.GetAsync(uri);
-        }
-
-        public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IClientResponse> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             var content = Serialize(request);
@@ -61,12 +46,12 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            return Client.PostAsync(uri, content, ContentType);
+            return Client.PostAsync(uri, content, ContentType, AcceptType);
         }
 
         public async Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
         {
-            var response = await Client.PostAsync(uri, ContentType, AcceptType);
+            var response = await Client.PostAsync(uri, null, ContentType, AcceptType);
             return Deserialize<TResponse>(response);
         }
 
@@ -80,18 +65,13 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            return Client.PutAsync(uri, content, ContentType);
+            return Client.PutAsync(uri, content, ContentType, AcceptType);
         }
 
         public async Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
         {
             var response = await Client.DeleteAsync(uri, AcceptType);
             return Deserialize<TResponse>(response);
-        }
-
-        public Task<IClientResponse> DeleteAsync(string uri)
-        {
-            return Client.DeleteAsync(uri);
         }
 
         #region Helper

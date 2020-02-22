@@ -24,12 +24,6 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> GetAsync(string uri)
-        {
-            var message = CreateMessage(HttpMethod.Get, uri, null, null, null);
-            return SendNoResponseAsync(message);
-        }
-
         public Task<IClientResponse> PostAsync(string uri, string content, string contentType, string acceptType)
         {
             var message = CreateMessage(HttpMethod.Post, uri, content, contentType, acceptType);
@@ -52,23 +46,6 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         {
             var message = CreateMessage(HttpMethod.Post, uri, content, contentType, null);
             return SendNoResponseAsync(message);
-        }
-
-        public Task<IClientResponse> PutAsync(string uri, string content, string contentType)
-        {
-            var message = CreateMessage(HttpMethod.Put, uri, content, contentType, null);
-            return SendNoResponseAsync(message);
-        }
-
-        public Task<IClientResponse> DeleteAsync(string uri)
-        {
-            var message = CreateMessage(HttpMethod.Delete, uri, null, null, null);
-            return SendNoResponseAsync(message);
-        }
-
-        public void Dispose()
-        {
-            // No action
         }
 
         #region Helper

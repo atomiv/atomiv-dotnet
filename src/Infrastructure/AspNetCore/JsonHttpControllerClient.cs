@@ -52,19 +52,13 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public Task<IClientResponse> GetNoResponseAsync()
         {
             var relativeUri = GetRelativeByPath();
-            return Client.GetAsync(relativeUri);
+            return Client.GetAsync(relativeUri, null);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
         {
             var relativeUri = GetRelativeByPath(uri);
             return ObjectClient.GetAsync<TResponse>(relativeUri);
-        }
-
-        public Task<IClientResponse> GetAsync(string uri)
-        {
-            var relativeUri = GetRelativeByPath(uri);
-            return Client.GetAsync(relativeUri);
         }
 
         public Task<IObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id)
@@ -76,7 +70,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public Task<IClientResponse> GetByIdNoResponseAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
-            return Client.GetAsync(relativeUri);
+            return Client.GetAsync(relativeUri, null);
         }
 
         public Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
@@ -144,12 +138,6 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return ObjectClient.DeleteAsync<TResponse>(relativeUri);
         }
 
-        public Task<IClientResponse> DeleteAsync(string uri)
-        {
-            var relativeUri = GetRelativeByPath(uri);
-            return Client.DeleteAsync(relativeUri);
-        }
-
         public Task<IObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
@@ -159,7 +147,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public Task<IClientResponse> DeleteByIdNoResponseAsync<TId>(TId id)
         {
             var relativeUri = GetRelativeUriById(id);
-            return Client.DeleteAsync(relativeUri);
+            return Client.DeleteAsync(relativeUri, null);
         }
 
         public Task<IClientResponse> GetAsync(string uri, string acceptType)
@@ -174,22 +162,10 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Client.PostAsync(relativeUri, content, contentType, acceptType);
         }
 
-        public Task<IClientResponse> PostAsync(string uri, string content, string contentType)
-        {
-            var relativeUri = GetRelativeByPath(uri);
-            return Client.PostAsync(relativeUri, content, contentType);
-        }
-
         public Task<IClientResponse> PutAsync(string uri, string content, string contentType, string acceptType)
         {
             var relativeUri = GetRelativeByPath(uri);
             return Client.PutAsync(relativeUri, content, contentType, acceptType);
-        }
-
-        public Task<IClientResponse> PutAsync(string uri, string content, string contentType)
-        {
-            var relativeUri = GetRelativeByPath(uri);
-            return Client.PutAsync(relativeUri, content, contentType);
         }
 
         public Task<IClientResponse> DeleteAsync(string uri, string acceptType)

@@ -18,14 +18,9 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return ExecuteAsync(e => e.DeleteAsync<TResponse>(uri));
         }
 
-        public Task<string> DeleteAsync(string uri)
-        {
-            return ExecuteAsync(e => e.DeleteAsync(uri));
-        }
-
         public Task<string> DeleteAsync(string uri, string acceptType)
         {
-            throw new NotImplementedException();
+            return ExecuteAsync(e => e.DeleteAsync(uri, acceptType));
         }
 
         public Task<TResponse> DeleteByIdAsync<TId, TResponse>(TId id)
