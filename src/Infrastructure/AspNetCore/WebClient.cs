@@ -84,7 +84,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
                 Headers =
                 {
                     { HttpRequestHeader.ContentType.ToString(), contentType },
-                    { HttpRequestHeader.Accept.ToString(), acceptType }
+                    { HttpRequestHeader.Accept.ToString(), acceptType },
                 },
             };
 
@@ -93,9 +93,6 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
                 var requestContent = new StringContent(content, StringContentEncoding, contentType);
                 requestMessage.Content = requestContent;
             }
-
-            // TODO: VC:
-            var hasHeaders = contentType != null || acceptType != null;
 
             return requestMessage;
         }

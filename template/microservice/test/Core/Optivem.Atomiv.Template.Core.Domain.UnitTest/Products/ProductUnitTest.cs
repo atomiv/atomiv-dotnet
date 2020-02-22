@@ -1,4 +1,5 @@
-﻿using Optivem.Atomiv.Template.Core.Domain.Products;
+﻿using FluentAssertions;
+using Optivem.Atomiv.Template.Core.Domain.Products;
 using System;
 using Xunit;
 
@@ -7,19 +8,21 @@ namespace Optivem.Atomiv.Template.Core.Domain.UnitTest.Products
     public class ProductUnitTest
     {
         [Fact]
-        public void Constructor_CanCreateValid()
+        public void CanCreateValidProduct()
         {
             var identity = new ProductIdentity(Guid.NewGuid());
             var code = "ABC";
             var name = "My name";
             decimal price = 10.50m;
+            var isListed = true;
 
-            var product = new Product(identity, code, name, price, true);
+            var product = new Product(identity, code, name, price, isListed);
 
-            Assert.Equal(identity, product.Id);
-            Assert.Equal(code, product.ProductCode);
-            Assert.Equal(name, product.ProductName);
-            Assert.Equal(price, product.ListPrice);
+            product.Id.Should().Be(identity);
+            product.ProductCode.Should().Be(code);
+            product.ProductName.Should().Be(name);
+            product.ListPrice.Should().Be(price);
+            product.IsListed.Should().Be(isListed);
         }
     }
 }
