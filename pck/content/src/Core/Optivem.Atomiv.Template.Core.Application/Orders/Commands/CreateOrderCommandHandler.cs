@@ -1,6 +1,4 @@
 ﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Application.Mapping;
-using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Products;
@@ -13,17 +11,17 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
-        private readonly IProductReadRepository _productReadRepository;
+        private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
 
         public CreateOrderCommandHandler(IMapper mapper, 
-            IOrderRepository orderRepository, 
-            IProductReadRepository productReadRepository,
+            IOrderRepository orderRepository,
+            IProductReadonlyRepository productReadonlyRepository,
             IOrderFactory orderFactory)
         {
             _mapper = mapper;
             _orderRepository = orderRepository;
-            _productReadRepository = productReadRepository;
+            _productReadonlyRepository = productReadonlyRepository;
             _orderFactory = orderFactory;
         }
 
@@ -54,7 +52,7 @@ namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
         {
-            var productPrice = await _productReadRepository.GetPriceAsync(requestOrderDetail.ProductId);
+            var productPrice = await _productReadonlyRepository.GetPriceAsync(requestOrderDetail.ProductId);
 
             var productId = new ProductIdentity(requestOrderDetail.ProductId);
 

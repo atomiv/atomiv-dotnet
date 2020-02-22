@@ -7,16 +7,24 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
 {
     public interface ICustomerControllerClient : IHttpControllerClient
     {
-        Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request);
+        #region Commands
 
         Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request);
 
         Task<IObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request);
 
-        Task<IObjectClientResponse<FindCustomerQueryResponse>> FindCustomerAsync(FindCustomerQuery request);
+        Task<IObjectClientResponse<EditCustomerCommandResponse>> EditCustomerAsync(EditCustomerCommand request);
 
-        Task<IObjectClientResponse<ListCustomersQueryResponse>> ListCustomersAsync(ListCustomersQuery request);
+        #endregion
 
-        Task<IObjectClientResponse<UpdateCustomerCommandResponse>> UpdateCustomerAsync(UpdateCustomerCommand request);
+        #region Queries
+
+        Task<IObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request);
+
+        Task<IObjectClientResponse<FilterCustomersQueryResponse>> FilterCustomersAsync(FilterCustomersQuery request);
+
+        Task<IObjectClientResponse<ViewCustomerQueryResponse>> ViewCustomerAsync(ViewCustomerQuery request);
+
+        #endregion
     }
 }

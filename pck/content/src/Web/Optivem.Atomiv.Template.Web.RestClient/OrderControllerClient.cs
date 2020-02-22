@@ -19,15 +19,12 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/orders");
         }
 
+        #region Commands
+
         public Task<IObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request)
         {
             var id = request.Id;
             return _controllerClient.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive");
-        }
-
-        public Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request)
-        {
-            throw new NotImplementedException();
         }
 
         public Task<IObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request)
@@ -41,15 +38,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request);
         }
 
-        public Task<IObjectClientResponse<FindOrderQueryResponse>> FindOrderAsync(FindOrderQuery request)
+        public Task<IObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request)
         {
-            var id = request.Id;
-            return _controllerClient.GetByIdAsync<Guid, FindOrderQueryResponse>(id);
-        }
-
-        public Task<IObjectClientResponse<ListOrdersQueryResponse>> ListOrdersAsync(ListOrdersQuery request)
-        {
-            return _controllerClient.GetAsync<ListOrdersQueryResponse>("list");
+            return _controllerClient.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request);
         }
 
         public Task<IObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request)
@@ -58,9 +49,26 @@ namespace Optivem.Atomiv.Template.Web.RestClient
             return _controllerClient.PostAsync<SubmitOrderCommandResponse>($"{id}/submit");
         }
 
-        public Task<IObjectClientResponse<UpdateOrderCommandResponse>> UpdateOrderAsync(UpdateOrderCommand request)
+        #endregion
+
+        #region Queries
+
+        public Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request)
         {
-            return _controllerClient.PutByIdAsync<Guid, UpdateOrderCommand, UpdateOrderCommandResponse>(request.Id, request);
+            throw new NotImplementedException();
         }
+
+        public Task<IObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request)
+        {
+            return _controllerClient.GetAsync<FilterOrdersQueryResponse>("filter");
+        }
+
+        public Task<IObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request)
+        {
+            var id = request.Id;
+            return _controllerClient.GetByIdAsync<Guid, ViewOrderQueryResponse>(id);
+        }
+
+        #endregion
     }
 }

@@ -7,14 +7,17 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.9" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.9" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.9" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Web.AspNetCore" Version="1.0.24" />
+<PackageReference Include="Optivem.Atomiv.Web.AspNetCore" Version="1.0.25" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\DependencyInjection\Optivem.Atomiv.Template.DependencyInjection\Optivem.Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>

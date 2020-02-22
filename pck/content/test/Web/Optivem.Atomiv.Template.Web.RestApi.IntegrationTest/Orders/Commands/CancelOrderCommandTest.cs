@@ -2,10 +2,6 @@
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
 using Optivem.Atomiv.Template.Core.Common.Orders;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
@@ -46,8 +42,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             archiveResponse.Should().BeEquivalentTo(expectedArchiveResponse);
 
-            var findRequest = new FindOrderQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Orders.FindOrderAsync(findRequest);
+            var findRequest = new ViewOrderQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

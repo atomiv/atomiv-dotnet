@@ -25,12 +25,12 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-customer", new { id = response.Id }, response);
+            return CreatedAtRoute("view-customer", new { id = response.Id }, response);
         }
 
-        [HttpPut("{id}", Name = "update-customer")]
-        [ProducesResponseType(typeof(UpdateCustomerCommandResponse), 201)]
-        public async Task<ActionResult<UpdateCustomerCommandResponse>> UpdateCustomerAsync(Guid id, UpdateCustomerCommand request)
+        [HttpPut("{id}", Name = "edit-customer")]
+        [ProducesResponseType(typeof(EditCustomerCommandResponse), 201)]
+        public async Task<ActionResult<EditCustomerCommandResponse>> EditCustomerAsync(Guid id, EditCustomerCommand request)
         {
             if (id != request.Id)
             {
@@ -72,29 +72,29 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "find-customer")]
-        [ProducesResponseType(typeof(FindCustomerQueryResponse), 200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult<FindCustomerQueryResponse>> FindCustomerAsync(Guid id)
+        [HttpGet("filter", Name = "filter-customers")]
+        [ProducesResponseType(typeof(FilterCustomersQueryResponse), 200)]
+        public async Task<ActionResult<FilterCustomersQueryResponse>> FilterCustomersAsync(int limit, string nameSearch)
         {
-            var request = new FindCustomerQuery
+            var request = new FilterCustomersQuery
             {
-                Id = id,
+                Limit = limit,
+                NameSearch = nameSearch,
             };
 
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
 
-        [HttpGet("list", Name = "list-customers")]
-        [ProducesResponseType(typeof(ListCustomersQueryResponse), 200)]
-        public async Task<ActionResult<ListCustomersQueryResponse>> ListCustomersAsync(int limit, string nameSearch)
+        [HttpGet("{id}", Name = "view-customer")]
+        [ProducesResponseType(typeof(ViewCustomerQueryResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<ViewCustomerQueryResponse>> ViewCustomerAsync(Guid id)
         {
-            var request = new ListCustomersQuery
+            var request = new ViewCustomerQuery
             {
-                Limit = limit,
-                NameSearch = nameSearch,
+                Id = id,
             };
 
             var response = await _messageBus.SendAsync(request);

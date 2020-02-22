@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 

@@ -25,7 +25,22 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-product", new { id = response.Id }, response);
+            return CreatedAtRoute("view-product", new { id = response.Id }, response);
+        }
+
+
+        [HttpPut("{id}", Name = "edit-product")]
+        [ProducesResponseType(typeof(EditProductCommandResponse), 200)]
+        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(Guid id, EditProductCommand request)
+        {
+            if(id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
+
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
         }
 
         [HttpPost("{id}/relist", Name = "relist-product")]
@@ -54,14 +69,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPut(Name = "update-product")]
-        [ProducesResponseType(typeof(UpdateProductCommandResponse), 200)]
-        public async Task<ActionResult<UpdateProductCommandResponse>> UpdateProductAsync(UpdateProductCommand request)
-        {
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
         #endregion
 
         #region Queries
@@ -80,11 +87,20 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "find-product")]
-        [ProducesResponseType(typeof(FindProductQueryResponse), 200)]
-        public async Task<ActionResult<FindProductQueryResponse>> FindProductAsync(Guid id)
+        [HttpGet("filter", Name = "filter-products")]
+        [ProducesResponseType(typeof(FilterProductsQueryResponse), 200)]
+        public async Task<ActionResult<FilterProductsQueryResponse>> FilterProductsAsync()
         {
-            var request = new FindProductQuery
+            var request = new FilterProductsQuery { };
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "view-product")]
+        [ProducesResponseType(typeof(ViewProductQueryResponse), 200)]
+        public async Task<ActionResult<ViewProductQueryResponse>> ViewProductAsync(Guid id)
+        {
+            var request = new ViewProductQuery
             {
                 Id = id,
             };
@@ -93,20 +109,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-
-        [HttpGet("list", Name = "list-products")]
-        [ProducesResponseType(typeof(ListProductsQueryResponse), 200)]
-        public async Task<ActionResult<ListProductsQueryResponse>> ListProductsAsync()
-        {
-            var request = new ListProductsQuery { };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
         #endregion
-
-
-
-
     }
 }

@@ -1,17 +1,13 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
 using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
-using Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
-    public class CreateCustomerCommandTest : Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Fixtures.BaseTest
+    public class CreateCustomerCommandTest : BaseTest
     {
         public CreateCustomerCommandTest(Fixture fixture) : base(fixture)
         {
@@ -42,8 +38,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
             createResponse.Should().BeEquivalentTo(createRequest);
 
             var id = createResponse.Id;
-            var findRequest = new FindCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.FindCustomerAsync(findRequest);
+            var findRequest = new ViewCustomerQuery { Id = id };
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
             var findResponse = findHttpResponse.Data;
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             findResponse.Should().BeEquivalentTo(createResponse);

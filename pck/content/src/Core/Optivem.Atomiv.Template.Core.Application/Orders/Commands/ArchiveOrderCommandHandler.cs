@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Application.Mapping;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 
 namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands

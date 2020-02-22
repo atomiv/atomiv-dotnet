@@ -1,15 +1,13 @@
 ﻿using FluentAssertions;
 using Moq;
-using Optivem.Atomiv.Core.Application.Mapping;
+using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Repositories;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -18,14 +16,14 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
     public class UpdateOrderCommandTest
     {
         private readonly Mock<IOrderRepository> _orderRepositoryMock;
-        private readonly Mock<IProductReadRepository> _productReadRepositoryMock;
+        private readonly Mock<IProductReadonlyRepository> _productReadonlyRepositoryMock;
         private readonly Mock<IOrderFactory> _orderFactoryMock;
         private readonly Mock<IMapper> _mapperMock;
 
         public UpdateOrderCommandTest()
         {
             _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
-            _productReadRepositoryMock = new Mock<IProductReadRepository>(MockBehavior.Strict);
+            _productReadonlyRepositoryMock = new Mock<IProductReadonlyRepository>(MockBehavior.Strict);
             _orderFactoryMock = new Mock<IOrderFactory>(MockBehavior.Strict);
             _mapperMock = new Mock<IMapper>(MockBehavior.Strict);
         }
@@ -59,7 +57,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                     new OrderItem(new OrderItemIdentity(orderItemId2), new ProductIdentity(productId2), productId2Price, 60, OrderItemStatus.OnOrder),
                 });
 
-            var command = new UpdateOrderCommand
+            var command = new EditOrderCommand
             {
                 Id = id,
                 OrderItems = new List<UpdateOrderItemCommand>
@@ -90,7 +88,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                     new OrderItem(new OrderItemIdentity(orderItemId3), new ProductIdentity(productId3), productId3Price, 84, OrderItemStatus.Allocated),
                 });
 
-            var expectedResponse = new UpdateOrderCommandResponse
+            var expectedResponse = new EditOrderCommandResponse
             {
                 Id = id,
                 CustomerId = customerId,
@@ -117,11 +115,11 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 .Setup(e => e.FindAsync(new OrderIdentity(id)))
                 .ReturnsAsync(order);
 
-            _productReadRepositoryMock
+            _productReadonlyRepositoryMock
                 .Setup(e => e.GetPriceAsync(productId2))
                 .ReturnsAsync(productId2Price);
 
-            _productReadRepositoryMock
+            _productReadonlyRepositoryMock
                 .Setup(e => e.GetPriceAsync(productId3))
                 .ReturnsAsync(productId3Price);
 
@@ -134,14 +132,14 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 .Returns(Task.CompletedTask);
 
             _mapperMock
-                .Setup(e => e.Map<Order, UpdateOrderCommandResponse>(expectedUpdatedOrder))
+                .Setup(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder))
                 .Returns(expectedResponse);
 
 
             // Act
 
-            var handler = new UpdateOrderCommandHandler(_orderRepositoryMock.Object,
-                _productReadRepositoryMock.Object,
+            var handler = new EditOrderCommandHandler(_orderRepositoryMock.Object,
+                _productReadonlyRepositoryMock.Object,
                 _orderFactoryMock.Object,
                 _mapperMock.Object);
 
@@ -150,11 +148,11 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var response = await handler.HandleAsync(command);
 
             _orderRepositoryMock.Verify(e => e.FindAsync(new OrderIdentity(id)), Times.Once());
-            _productReadRepositoryMock.Verify(e => e.GetPriceAsync(productId2), Times.Once());
-            _productReadRepositoryMock.Verify(e => e.GetPriceAsync(productId3), Times.Once());
+            _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId2), Times.Once());
+            _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId3), Times.Once());
             _orderFactoryMock.Verify(e => e.CreateNewOrderItem(new ProductIdentity(productId3), productId3Price, 84), Times.Once());
             _orderRepositoryMock.Verify(e => e.UpdateAsync(expectedUpdatedOrder), Times.Once());
-            _mapperMock.Verify(e => e.Map<Order, UpdateOrderCommandResponse>(expectedUpdatedOrder), Times.Once());
+            _mapperMock.Verify(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

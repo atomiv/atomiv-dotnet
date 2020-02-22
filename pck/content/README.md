@@ -28,3 +28,8 @@ Execute the following script in powershell:
 
 This script will apply database migrations, run the REST API and also start up the swagger page.
 Go to https://localhost:5101/swagger and run some swagger commands.
+
+## Entity Framework
+
+Update database
+dotnet ef database update --project .\src\Tools\Optivem.Atomiv.Template.Tools.Migrator

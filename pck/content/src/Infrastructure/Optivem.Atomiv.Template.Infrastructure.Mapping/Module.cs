@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Infrastructure.Mapping
 {
-    public class Module : IModule
+    public class Module
     {
     }
 }

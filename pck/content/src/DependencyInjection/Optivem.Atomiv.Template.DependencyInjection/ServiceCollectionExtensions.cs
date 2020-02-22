@@ -41,6 +41,7 @@ namespace Optivem.Atomiv.Template.DependencyInjection
 
             var infrastructureModuleTypes = new List<Type>
             {
+                typeof(Infrastructure.External.Module),
                 typeof(Infrastructure.Mapping.Module),
                 typeof(Infrastructure.Persistence.Module),
                 typeof(Infrastructure.Validation.Module),

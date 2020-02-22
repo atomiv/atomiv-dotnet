@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Core.Domain
 {
-    public class Module : IModule
+    public class Module
     {
     }
 }

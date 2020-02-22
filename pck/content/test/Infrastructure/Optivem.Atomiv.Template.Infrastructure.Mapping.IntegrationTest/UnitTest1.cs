@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Mapping.IntegrationTest

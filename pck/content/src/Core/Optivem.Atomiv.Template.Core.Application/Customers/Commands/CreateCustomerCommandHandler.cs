@@ -1,5 +1,4 @@
 ﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Application.Mapping;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 

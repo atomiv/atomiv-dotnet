@@ -18,25 +18,13 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             _messageBus = messageBus;
         }
 
+        #region Commands
+
         [HttpPost("{id}/archive", Name = "archive-order")]
         [ProducesResponseType(typeof(ArchiveOrderCommandResponse), 200)]
         public async Task<ActionResult<ArchiveOrderCommandResponse>> ArchiveOrderAsync(Guid id)
         {
             var request = new ArchiveOrderCommand { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
-        [HttpGet("browse", Name = "browse-orders")]
-        [ProducesResponseType(typeof(BrowseOrdersQueryResponse), 200)]
-        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
-        {
-            var request = new BrowseOrdersQuery
-            {
-                Page = page.Value,
-                Size = size.Value,
-            };
-
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
@@ -55,25 +43,19 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request)
         {
             var response = await _messageBus.SendAsync(request);
-            return CreatedAtRoute("find-order", new { id = response.Id }, response);
+            return CreatedAtRoute("view-order", new { id = response.Id }, response);
         }
 
-        [HttpGet("{id}", Name = "find-order")]
-        [ProducesResponseType(typeof(FindOrderQueryResponse), 200)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<ActionResult<FindOrderQueryResponse>> FindOrderAsync(Guid id)
+        [HttpPut("{id}", Name = "edit-order")]
+        [ProducesResponseType(typeof(EditOrderCommandResponse), 201)]
+        public async Task<ActionResult<EditOrderCommandResponse>> UpdateOrderAsync(Guid id, EditOrderCommand request)
         {
-            var request = new FindOrderQuery { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
+            if (id != request.Id)
+            {
+                // TODO: VC: Move to translations
+                return BadRequest("Mismatching id in route and request");
+            }
 
-        [HttpGet("list", Name = "list-orders")]
-        [ProducesResponseType(typeof(ListOrdersQueryResponse), 200)]
-        public async Task<ActionResult<ListOrdersQueryResponse>> ListOrdersAsync()
-        {
-            var request = new ListOrdersQuery();
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
@@ -87,18 +69,44 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{id}", Name = "update-order")]
-        [ProducesResponseType(typeof(UpdateOrderCommandResponse), 201)]
-        public async Task<ActionResult<UpdateOrderCommandResponse>> UpdateOrderAsync(Guid id, UpdateOrderCommand request)
+        #endregion
+
+        #region Queries
+
+        [HttpGet("browse", Name = "browse-orders")]
+        [ProducesResponseType(typeof(BrowseOrdersQueryResponse), 200)]
+        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
         {
-            if (id != request.Id)
+            var request = new BrowseOrdersQuery
             {
-                // TODO: VC: Move to translations
-                return BadRequest("Mismatching id in route and request");
-            }
+                Page = page.Value,
+                Size = size.Value,
+            };
 
             var response = await _messageBus.SendAsync(request);
             return Ok(response);
         }
+
+        [HttpGet("filter", Name = "filter-orders")]
+        [ProducesResponseType(typeof(FilterOrdersQueryResponse), 200)]
+        public async Task<ActionResult<FilterOrdersQueryResponse>> FilterOrdersAsync()
+        {
+            var request = new FilterOrdersQuery();
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}", Name = "view-order")]
+        [ProducesResponseType(typeof(ViewOrderQueryResponse), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<ViewOrderQueryResponse>> ViewOrderAsync(Guid id)
+        {
+            var request = new ViewOrderQuery { Id = id };
+            var response = await _messageBus.SendAsync(request);
+            return Ok(response);
+        }
+
+        #endregion
     }
 }
