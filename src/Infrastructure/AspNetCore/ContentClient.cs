@@ -1,5 +1,6 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
@@ -13,24 +14,24 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public IClient Client { get; }
 
-        public Task<string> DeleteAsync(string uri, string acceptType)
+        public Task<string> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
         {
-            return ExecuteAsync(e => e.DeleteAsync(uri, acceptType));
+            return ExecuteAsync(e => e.DeleteAsync(uri, headers));
         }
 
-        public Task<string> GetAsync(string uri, string acceptType)
+        public Task<string> GetAsync(string uri, IEnumerable<RequestHeader> headers)
         {
-            return ExecuteAsync(e => e.GetAsync(uri, acceptType));
+            return ExecuteAsync(e => e.GetAsync(uri, headers));
         }
 
-        public Task<string> PostAsync(string uri, string content, string contentType, string acceptType)
+        public Task<string> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
-            return ExecuteAsync(e => e.PostAsync(uri, content, contentType, acceptType));
+            return ExecuteAsync(e => e.PostAsync(uri, content, headers));
         }
 
-        public Task<string> PutAsync(string uri, string content, string contentType, string acceptType)
+        public Task<string> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
-            return ExecuteAsync(e => e.PutAsync(uri, content, contentType, acceptType));
+            return ExecuteAsync(e => e.PutAsync(uri, content, headers));
         }
 
         private async Task<string> ExecuteAsync(Func<IClient, Task<IClientResponse>> action)

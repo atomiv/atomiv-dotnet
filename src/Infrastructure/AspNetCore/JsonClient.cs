@@ -1,5 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
@@ -7,8 +9,14 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
     {
         private const string MediaType = "application/json";
 
+        private static IEnumerable<RequestHeader> DefaultHeaders = new List<RequestHeader>
+        {
+            new RequestHeader(HttpRequestHeader.Accept.ToString(), MediaType),
+            new RequestHeader(HttpRequestHeader.ContentType.ToString(), MediaType),
+        };
+
         public JsonClient(IClient client, IJsonSerializer serializer)
-            : base(client, serializer, MediaType, MediaType)
+            : base(client, serializer, DefaultHeaders)
         {
         }
     }

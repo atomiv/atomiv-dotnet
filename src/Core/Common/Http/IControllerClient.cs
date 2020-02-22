@@ -20,8 +20,6 @@ namespace Optivem.Atomiv.Core.Common.Http
 
         Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request);
 
-        Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri);
-
         Task<IClientResponse> PostNoResponseAsync<TRequest>(TRequest request);
 
         Task<IObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request);

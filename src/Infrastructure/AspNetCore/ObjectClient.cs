@@ -1,6 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,69 +9,66 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {
-        public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType, Encoding encoding)
+        public ObjectClient(IClient client, IFormatSerializer serializer, IEnumerable<RequestHeader> headers, Encoding encoding)
         {
             Client = client;
             Serializer = serializer;
-            AcceptType = acceptType;
-            ContentType = contentType;
+            Headers = headers;
             DefaultEncoding = encoding;
         }
 
-        public ObjectClient(IClient client, IFormatSerializer serializer, string acceptType, string contentType)
-            : this(client, serializer, acceptType, contentType, Encoding.UTF8) { }
+        public ObjectClient(IClient client, IFormatSerializer serializer, IEnumerable<RequestHeader> headers)
+            : this(client, serializer, headers, Encoding.UTF8) { }
 
         public IClient Client { get; private set; }
 
         public IFormatSerializer Serializer { get; private set; }
 
-        public string AcceptType { get; private set; }
-
-        public string ContentType { get; private set; }
+        public IEnumerable<RequestHeader> Headers { get; private set; }
 
         public Encoding DefaultEncoding { get; private set; }
 
         public async Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
         {
-            var response = await Client.GetAsync(uri, AcceptType);
+            var response = await Client.GetAsync(uri, Headers);
             return Deserialize<TResponse>(response);
         }
 
         public async Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            var response = await Client.PostAsync(uri, content, ContentType, AcceptType);
+            var response = await Client.PostAsync(uri, content, Headers);
             return Deserialize<TResponse>(response);
         }
 
         public Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            return Client.PostAsync(uri, content, ContentType, AcceptType);
+            return Client.PostAsync(uri, content, Headers);
         }
 
         public async Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
         {
-            var response = await Client.PostAsync(uri, null, ContentType, AcceptType);
+            var response = await Client.PostAsync(uri, null, Headers);
             return Deserialize<TResponse>(response);
         }
 
         public async Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            var response = await Client.PutAsync(uri, content, ContentType, AcceptType);
+            var response = await Client.PutAsync(uri, content, Headers);
             return Deserialize<TResponse>(response);
         }
 
         public Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
-            return Client.PutAsync(uri, content, ContentType, AcceptType);
+            return Client.PutAsync(uri, content, Headers);
         }
 
         public async Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
         {
-            var response = await Client.DeleteAsync(uri, AcceptType);
+            var response = await Client.DeleteAsync(uri, Headers);
             return Deserialize<TResponse>(response);
         }
 

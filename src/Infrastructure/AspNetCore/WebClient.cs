@@ -1,5 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -18,56 +20,54 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         protected HttpClient HttpClient { get; private set; }
 
-        public Task<IClientResponse> GetAsync(string uri, string accept)
+        public Task<IClientResponse> GetAsync(string uri, IEnumerable<RequestHeader> headers)
         {
-            var message = CreateMessage(HttpMethod.Get, uri, null, null, accept);
+            var message = CreateMessage(HttpMethod.Get, uri, null, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> PostAsync(string uri, string content, string contentType, string acceptType)
+        public Task<IClientResponse> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
-            var message = CreateMessage(HttpMethod.Post, uri, content, contentType, acceptType);
+            var message = CreateMessage(HttpMethod.Post, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> PutAsync(string uri, string content, string contentType, string acceptType)
+        public Task<IClientResponse> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
-            var message = CreateMessage(HttpMethod.Put, uri, content, contentType, acceptType);
+            var message = CreateMessage(HttpMethod.Put, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> DeleteAsync(string uri, string acceptType)
+        public Task<IClientResponse> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
         {
-            var message = CreateMessage(HttpMethod.Delete, uri, null, null, acceptType);
+            var message = CreateMessage(HttpMethod.Delete, uri, null, headers);
             return SendReadResponseAsync(message);
-        }
-
-        public Task<IClientResponse> PostAsync(string uri, string content, string contentType)
-        {
-            var message = CreateMessage(HttpMethod.Post, uri, content, contentType, null);
-            return SendNoResponseAsync(message);
         }
 
         #region Helper
 
-        private HttpRequestMessage CreateMessage(HttpMethod method, string uri, string content, string contentType, string acceptType)
+        private HttpRequestMessage CreateMessage(HttpMethod method, string uri, string content, IEnumerable<RequestHeader> requestHeaders)
         {
             var requestUri = new Uri(HttpClient.BaseAddress, uri);
+
+            var headers = requestHeaders.Select(e => new { e.Name, e.Value }).ToList();
 
             var requestMessage = new HttpRequestMessage
             {
                 Method = method,
                 RequestUri = requestUri,
-                Headers =
-                {
-                    { HttpRequestHeader.ContentType.ToString(), contentType },
-                    { HttpRequestHeader.Accept.ToString(), acceptType },
-                },
             };
+
+            foreach(var header in headers)
+            {
+                requestMessage.Headers.Add(header.Name, header.Value);
+            }
 
             if (content != null)
             {
-                var requestContent = new StringContent(content, StringContentEncoding, contentType);
+                var requestHeader = requestHeaders.FirstOrDefault(e => e.Name == HttpRequestHeader.ContentType.ToString());
+                var mediaType = requestHeader?.Value;
+                var requestContent = new StringContent(content, StringContentEncoding, mediaType);
                 requestMessage.Content = requestContent;
             }
 

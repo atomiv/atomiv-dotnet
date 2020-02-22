@@ -147,28 +147,28 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Client.DeleteAsync(relativeUri, null);
         }
 
-        public Task<IClientResponse> GetAsync(string uri, string acceptType)
+        public Task<IClientResponse> GetAsync(string uri, IEnumerable<RequestHeader> headers)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return Client.GetAsync(relativeUri, acceptType);
+            return Client.GetAsync(relativeUri, headers);
         }
 
-        public Task<IClientResponse> PostAsync(string uri, string content, string contentType, string acceptType)
+        public Task<IClientResponse> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return Client.PostAsync(relativeUri, content, contentType, acceptType);
+            return Client.PostAsync(relativeUri, content, headers);
         }
 
-        public Task<IClientResponse> PutAsync(string uri, string content, string contentType, string acceptType)
+        public Task<IClientResponse> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return Client.PutAsync(relativeUri, content, contentType, acceptType);
+            return Client.PutAsync(relativeUri, content, headers);
         }
 
-        public Task<IClientResponse> DeleteAsync(string uri, string acceptType)
+        public Task<IClientResponse> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
         {
             var relativeUri = GetRelativeByPath(uri);
-            return Client.DeleteAsync(relativeUri, acceptType);
+            return Client.DeleteAsync(relativeUri, headers);
         }
 
         #region Helper

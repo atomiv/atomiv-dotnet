@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Optivem.Atomiv.Core.Common.Http
 {
     public class RequestHeader
     {
-        public RequestHeader(string header, string value)
+        public RequestHeader(string name, string value)
         {
-            Header = header;
+            Name = name;
             Value = value;
         }
 
-        public string Header { get; }
+        public string Name { get; }
 
         public string Value { get; }
     }

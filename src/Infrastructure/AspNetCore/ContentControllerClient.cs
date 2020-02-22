@@ -1,5 +1,6 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
@@ -18,9 +19,9 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return ExecuteAsync(e => e.DeleteAsync<TResponse>(uri));
         }
 
-        public Task<string> DeleteAsync(string uri, string acceptType)
+        public Task<string> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
         {
-            return ExecuteAsync(e => e.DeleteAsync(uri, acceptType));
+            return ExecuteAsync(e => e.DeleteAsync(uri, headers));
         }
 
         public Task<TResponse> DeleteByIdAsync<TId, TResponse>(TId id)
@@ -58,12 +59,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        public Task<string> GetAsync(string uri)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> GetAsync(string uri, string acceptType)
+        public Task<string> GetAsync(string uri, IEnumerable<RequestHeader> headers)
         {
             throw new NotImplementedException();
         }
@@ -98,12 +94,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        public Task<string> PostAsync(string uri, string content, string contentType, string acceptType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> PostAsync(string uri, string content, string contentType)
+        public Task<string> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             throw new NotImplementedException();
         }
@@ -123,12 +114,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        public Task<string> PutAsync(string uri, string content, string contentType, string acceptType)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> PutAsync(string uri, string content, string contentType)
+        public Task<string> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             throw new NotImplementedException();
         }

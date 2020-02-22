@@ -5,6 +5,7 @@ using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake;
 using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
 using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
@@ -70,13 +71,24 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
 
         public Task<IClientResponse> GetCsvExportsAsync()
         {
+            var headers = new List<RequestHeader>
+            {
+                new RequestHeader(HttpRequestHeader.Accept.ToString(), "text/csv"),
+            };
+
             // TODO: VC: Returning raw...
-            return Client.GetAsync("exports", "text/csv");
+            return Client.GetAsync("exports", headers);
         }
 
         public Task<IClientResponse> PostImportsAsync(string content)
         {
-            return Client.PostAsync("imports", content, "text/csv", "application/json");
+            var headers = new List<RequestHeader>
+            {
+                new RequestHeader(HttpRequestHeader.ContentType.ToString(), "text/csv"),
+                new RequestHeader(HttpRequestHeader.Accept.ToString(), "application/json"),
+            };
+
+            return Client.PostAsync("imports", content, headers);
         }
 
         public Task<IObjectClientResponse<CustomerPostResponse>> PostAsync(CustomerPostRequest request)

@@ -13,14 +13,14 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest
         {
         }
 
-        [Fact]
+        [Fact(Skip = "Check if method needed")]
         public async Task TestGetAsyncReturnsInternalServerError()
         {
             var response = await Fixture.Exceptions.GetAsync(500);
             Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
         }
 
-        [Fact]
+        [Fact(Skip = "Check if method needed")]
         public async Task TestGetAsyncReturnsBadRequestError()
         {
             var response = await Fixture.Exceptions.GetAsync(400);
