@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Optivem.Atomiv.Templates</id>
-    <version>1.0.25.1</version>
+    <version>1.0.26</version>
     <description>Atomiv Templates</description>
     <authors>Optivem</authors>
     <packageTypes>
