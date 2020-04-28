@@ -85,6 +85,21 @@ namespace Optivem.Atomiv.Core.Domain
 
         public static implicit operator TValue(Identity<TValue> identity)
         {
+            if(identity == null)
+            {
+                return default;
+            }
+
+            return identity.Value;
+        }
+
+        public static implicit operator TValue?(Identity<TValue> identity)
+        {
+            if (identity == null)
+            {
+                return null;
+            }
+
             return identity.Value;
         }
 

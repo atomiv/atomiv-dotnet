@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Optivem.Atomiv.Core.Domain.UnitTest
 {
@@ -10,7 +11,7 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Entity<CustomerIdentity>(new CustomerIdentity(4));
             var b = new Entity<CustomerIdentity>(new CustomerIdentity(4));
 
-            Assert.True(a.Equals(b));
+            a.Should().Be(b);
         }
 
         [Fact]
@@ -19,7 +20,7 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = (object) new Entity<CustomerIdentity>(new CustomerIdentity(4));
             var b = new Entity<CustomerIdentity>(new CustomerIdentity(4));
 
-            Assert.True(a.Equals(b));
+            a.Should().Be(b);
         }
 
         // TODO: VC: DELETE implements

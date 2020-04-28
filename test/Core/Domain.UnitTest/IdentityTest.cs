@@ -12,7 +12,7 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             var b = new Identity<int>(5);
 
-            Assert.True(a.Equals(b));
+            a.Should().Be(b);
         }
 
         [Fact]
@@ -21,17 +21,20 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             Identity<int> b = null;
 
-            Assert.False(a.Equals(b));
+            a.Should().NotBe(b);
         }
 
+        // TODO: VC: DELETE
+/*
         [Fact]
         public void TestEquals3()
         {
             var a = new Identity<int>(5);
             object b = null;
 
-            Assert.False(a.Equals(b));
+            a.Should().NotBe(b);
         }
+        */
 
         [Fact]
         public void TestEquals4()
@@ -39,7 +42,7 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             var b = new Identity<int>(4);
 
-            Assert.False(a.Equals(b));
+            a.Should().NotBe(b);
         }
 
         [Fact]
@@ -50,7 +53,7 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Identity<Guid>(guid);
             var b = new Identity<Guid>(guid);
 
-            Assert.True(a.Equals(b));
+            a.Should().Be(b);
         }
 
         [Fact]
@@ -59,9 +62,10 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var a = new Identity<Guid>(Guid.NewGuid());
             var b = new Identity<Guid>(Guid.NewGuid());
 
-            Assert.False(a.Equals(b));
+            a.Should().NotBe(b);
         }
 
+        /*
         [Fact]
         public void TestEquals9()
         {
@@ -69,8 +73,10 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var b = 5;
 
             // TODO: VC: Check
+            a.Should().NotBe(b);
             Assert.False(a.Equals(b));
         }
+        */
 
         [Fact]
         public void TestEqualsOperator1()
@@ -152,10 +158,28 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
         }
 
         [Fact]
-        public void IntIdentityCannotBeEmptyGuidValue()
+        public void IntIdentityCannotBeZeroValue()
         {
             Action action = () => new CustomerIdentity(0);
             action.Should().Throw<DomainException>();
+        }
+
+        [Fact]
+        public void NullIdentityConvertsToDefaultIdValue()
+        {
+            CustomerIdentity customerId = null;
+            int value = customerId;
+
+            value.Should().Be(0);
+        }
+
+        [Fact]
+        public void NullIdentityConvertsToNullIdValue()
+        {
+            CustomerIdentity customerId = null;
+            int? value = customerId;
+
+            value.Should().Be(null);
         }
 
         private class CustomerIdentity : Identity<int>
