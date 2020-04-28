@@ -5,12 +5,12 @@ namespace Optivem.Atomiv.Core.Common.Http
 {
     public class ErrorException : Exception
     {
-        public ErrorException(IClientResponse clientResponse)
+        public ErrorException(ClientResponse clientResponse)
         {
             ClientResponse = clientResponse;
         }
 
-        public IClientResponse ClientResponse { get; private set; }
+        public ClientResponse ClientResponse { get; private set; }
 
         public ErrorException(string message) : base(message)
         {

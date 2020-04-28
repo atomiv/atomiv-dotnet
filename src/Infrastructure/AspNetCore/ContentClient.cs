@@ -34,7 +34,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return ExecuteAsync(e => e.PutAsync(uri, content, headers));
         }
 
-        private async Task<string> ExecuteAsync(Func<IClient, Task<IClientResponse>> action)
+        private async Task<string> ExecuteAsync(Func<IClient, Task<ClientResponse>> action)
         {
             var response = await action(Client);
 

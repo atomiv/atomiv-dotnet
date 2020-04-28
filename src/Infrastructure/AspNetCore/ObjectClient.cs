@@ -28,45 +28,45 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public Encoding DefaultEncoding { get; private set; }
 
-        public async Task<IObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
         {
             var response = await Client.GetAsync(uri, Headers);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<IObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             var content = Serialize(request);
             var response = await Client.PostAsync(uri, content, Headers);
             return Deserialize<TResponse>(response);
         }
 
-        public Task<IClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
+        public Task<ClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
             return Client.PostAsync(uri, content, Headers);
         }
 
-        public async Task<IObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
         {
             var response = await Client.PostAsync(uri, null, Headers);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<IObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
+        public async Task<ObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
         {
             var content = Serialize(request);
             var response = await Client.PutAsync(uri, content, Headers);
             return Deserialize<TResponse>(response);
         }
 
-        public Task<IClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
+        public Task<ClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
         {
             var content = Serialize(request);
             return Client.PutAsync(uri, content, Headers);
         }
 
-        public async Task<IObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
         {
             var response = await Client.DeleteAsync(uri, Headers);
             return Deserialize<TResponse>(response);
@@ -79,7 +79,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Serializer.Serialize(data);
         }
 
-        private IObjectClientResponse<T> Deserialize<T>(IClientResponse response)
+        private ObjectClientResponse<T> Deserialize<T>(ClientResponse response)
         {
             var contentString = response.ContentString;
             var content = Serializer.Deserialize<T>(contentString);

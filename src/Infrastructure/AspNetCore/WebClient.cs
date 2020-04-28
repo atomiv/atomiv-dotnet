@@ -20,25 +20,25 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         protected HttpClient HttpClient { get; private set; }
 
-        public Task<IClientResponse> GetAsync(string uri, IEnumerable<RequestHeader> headers)
+        public Task<ClientResponse> GetAsync(string uri, IEnumerable<RequestHeader> headers)
         {
             var message = CreateMessage(HttpMethod.Get, uri, null, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
+        public Task<ClientResponse> PostAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             var message = CreateMessage(HttpMethod.Post, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
+        public Task<ClientResponse> PutAsync(string uri, string content, IEnumerable<RequestHeader> headers)
         {
             var message = CreateMessage(HttpMethod.Put, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<IClientResponse> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
+        public Task<ClientResponse> DeleteAsync(string uri, IEnumerable<RequestHeader> headers)
         {
             var message = CreateMessage(HttpMethod.Delete, uri, null, headers);
             return SendReadResponseAsync(message);
@@ -74,7 +74,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return requestMessage;
         }
 
-        private async Task<IClientResponse> SendAsync(HttpRequestMessage message, bool expectContent)
+        private async Task<ClientResponse> SendAsync(HttpRequestMessage message, bool expectContent)
         {
             using (var response = await HttpClient.SendAsync(message))
             {
@@ -109,13 +109,13 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             }
         }
 
-        protected async Task<IClientResponse> SendReadResponseAsync(HttpRequestMessage message)
+        protected async Task<ClientResponse> SendReadResponseAsync(HttpRequestMessage message)
         {
             var response = await SendAsync(message, true);
             return response;
         }
 
-        protected Task<IClientResponse> SendNoResponseAsync(HttpRequestMessage message)
+        protected Task<ClientResponse> SendNoResponseAsync(HttpRequestMessage message)
         {
             return SendAsync(message, false);
         }

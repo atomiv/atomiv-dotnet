@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Core.Common.Http
 {
-    public class ClientResponse : IClientResponse
+    public class ClientResponse
     {
         public ClientResponse(bool isSuccessStatusCode, HttpStatusCode statusCode, string contentString)
         {

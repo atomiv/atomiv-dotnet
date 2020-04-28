@@ -9,23 +9,23 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
     {
         #region Commands
 
-        Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request);
+        Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request);
 
-        Task<IObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request);
+        Task<ObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request);
 
-        Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request);
+        Task<ObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request);
 
-        Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request);
+        Task<ObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request);
 
         #endregion
 
         #region Queries
 
-        Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
+        Task<ObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request);
 
-        Task<IObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request);
+        Task<ObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request);
 
-        Task<IObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request);
+        Task<ObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request);
 
         #endregion
     }

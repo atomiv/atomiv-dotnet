@@ -38,7 +38,7 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
         {
         }
 
-        public Task<IObjectClientResponse<List<string>>> GetAllAsync()
+        public Task<ObjectClientResponse<List<string>>> GetAllAsync()
         {
             return Client.GetAsync<List<string>>();
         }
@@ -51,7 +51,7 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
         {
         }
 
-        public Task<IClientResponse> GetAsync(int id)
+        public Task<ClientResponse> GetAsync(int id)
         {
             return Client.GetByIdNoResponseAsync(id);
         }
@@ -64,12 +64,12 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
         {
         }
 
-        public Task<IObjectClientResponse<CustomerGetAllResponse>> GetAllAsync()
+        public Task<ObjectClientResponse<CustomerGetAllResponse>> GetAllAsync()
         {
             return Client.GetAsync<CustomerGetAllResponse>();
         }
 
-        public Task<IClientResponse> GetCsvExportsAsync()
+        public Task<ClientResponse> GetCsvExportsAsync()
         {
             var headers = new List<RequestHeader>
             {
@@ -80,7 +80,7 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
             return Client.GetAsync("exports", headers);
         }
 
-        public Task<IClientResponse> PostImportsAsync(string content)
+        public Task<ClientResponse> PostImportsAsync(string content)
         {
             var headers = new List<RequestHeader>
             {
@@ -91,7 +91,7 @@ namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
             return Client.PostAsync("imports", content, headers);
         }
 
-        public Task<IObjectClientResponse<CustomerPostResponse>> PostAsync(CustomerPostRequest request)
+        public Task<ObjectClientResponse<CustomerPostResponse>> PostAsync(CustomerPostRequest request)
         {
             return Client.PostAsync<CustomerPostRequest, CustomerPostResponse>(request);
         }

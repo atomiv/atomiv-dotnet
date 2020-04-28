@@ -129,7 +129,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        private async Task<TResponse> ExecuteAsync<TResponse>(Func<IControllerClient, Task<IObjectClientResponse<TResponse>>> action)
+        private async Task<TResponse> ExecuteAsync<TResponse>(Func<IControllerClient, Task<ObjectClientResponse<TResponse>>> action)
         {
             var response = await action(Client);
 
@@ -141,7 +141,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return response.Data;
         }
 
-        private async Task<string> ExecuteAsync(Func<IControllerClient, Task<IClientResponse>> action)
+        private async Task<string> ExecuteAsync(Func<IControllerClient, Task<ClientResponse>> action)
         {
             var response = await action(Client);
 

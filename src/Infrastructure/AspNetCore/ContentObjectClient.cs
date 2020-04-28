@@ -43,7 +43,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return ExecuteAsync(e => e.PutNoResponseAsync<TRequest>(uri, request));
         }
 
-        private async Task<TResponse> ExecuteAsync<TResponse>(Func<IObjectClient, Task<IObjectClientResponse<TResponse>>> action)
+        private async Task<TResponse> ExecuteAsync<TResponse>(Func<IObjectClient, Task<ObjectClientResponse<TResponse>>> action)
         {
             var response = await action(Client);
 
@@ -55,7 +55,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return response.Data;
         }
 
-        private async Task<string> ExecuteAsync(Func<IObjectClient, Task<IClientResponse>> action)
+        private async Task<string> ExecuteAsync(Func<IObjectClient, Task<ClientResponse>> action)
         {
             var response = await action(Client);
 

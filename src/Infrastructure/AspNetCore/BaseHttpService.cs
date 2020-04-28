@@ -13,7 +13,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public TService Service { get; }
 
-        protected async Task<TResponse> ExecuteAsync<TResponse>(Func<TService, Task<IObjectClientResponse<TResponse>>> action)
+        protected async Task<TResponse> ExecuteAsync<TResponse>(Func<TService, Task<ObjectClientResponse<TResponse>>> action)
         {
             var response = await action(Service);
 

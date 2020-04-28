@@ -52,38 +52,38 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore.IntegrationTest
         {
         }
 
-        public Task<IObjectClientResponse<PostDto>> GetAsync(int id)
+        public Task<ObjectClientResponse<PostDto>> GetAsync(int id)
         {
             return Client.GetByIdAsync<int, PostDto>(id);
         }
 
-        public Task<IObjectClientResponse<List<PostDto>>> GetAsync()
+        public Task<ObjectClientResponse<List<PostDto>>> GetAsync()
         {
             return Client.GetAsync<List<PostDto>>();
         }
 
-        public Task<IObjectClientResponse<PostDto>> CreateAsync(PostDto post)
+        public Task<ObjectClientResponse<PostDto>> CreateAsync(PostDto post)
         {
             return Client.PostAsync<PostDto, PostDto>(post);
         }
 
-        public Task<IObjectClientResponse<PostDto>> PutAsync(int id, PostDto post)
+        public Task<ObjectClientResponse<PostDto>> PutAsync(int id, PostDto post)
         {
             return Client.PutByIdAsync<int, PostDto, PostDto>(id, post);
         }
 
-        public Task<IClientResponse> DeleteAsync(int id)
+        public Task<ClientResponse> DeleteAsync(int id)
         {
             return Client.DeleteByIdNoResponseAsync(id);
         }
 
-        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdRawAsync(int userId)
+        public Task<ObjectClientResponse<List<PostDto>>> GetByUserIdRawAsync(int userId)
         {
             // TODO: VC: Consider dto for filtering..
             return Client.GetAsync<List<PostDto>>($"?userId={userId}");
         }
 
-        public Task<IObjectClientResponse<List<PostDto>>> GetByUserIdAsync(int userId)
+        public Task<ObjectClientResponse<List<PostDto>>> GetByUserIdAsync(int userId)
         {
             var query = new PostQueryDto
             {
@@ -93,7 +93,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore.IntegrationTest
             return Client.GetAsync<PostQueryDto, List<PostDto>>(query);
         }
 
-        public Task<IObjectClientResponse<List<CommentDto>>> GetCommentsRawAsync(int id)
+        public Task<ObjectClientResponse<List<CommentDto>>> GetCommentsRawAsync(int id)
         {
             return Client.GetAsync<List<CommentDto>>($"{id}/comments");
         }

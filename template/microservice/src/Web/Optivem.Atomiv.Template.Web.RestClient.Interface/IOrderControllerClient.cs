@@ -9,25 +9,25 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
     {
         #region Commands
 
-        Task<IObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request);
+        Task<ObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request);
 
-        Task<IObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request);
+        Task<ObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request);
 
-        Task<IObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request);
+        Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request);
 
-        Task<IObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request);
+        Task<ObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request);
 
-        Task<IObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request);
+        Task<ObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request);
 
         #endregion
 
         #region Queries
 
-        Task<IObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request);
+        Task<ObjectClientResponse<BrowseOrdersQueryResponse>> BrowseOrdersAsync(BrowseOrdersQuery request);
 
-        Task<IObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request);
+        Task<ObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request);
 
-        Task<IObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request);
+        Task<ObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request);
 
         #endregion
     }
