@@ -6,6 +6,8 @@ namespace Optivem.Atomiv.Core.Domain
     public class Entity<TIdentity> : IReadonlyEntity<TIdentity>
         where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
+        private TIdentity _id;
+
         private List<Event> _events;
 
         public Entity(TIdentity id)
@@ -14,7 +16,23 @@ namespace Optivem.Atomiv.Core.Domain
             _events = new List<Event>();
         }
 
-        public TIdentity Id { get; }
+        public TIdentity Id
+        {
+            get
+            {
+                return _id;
+            }
+            private set
+            {
+                if (value == null)
+                {
+                    // TODO: VC: Resources
+                    throw new DomainException("Id cannot be null");
+                }
+
+                _id = value;
+            }
+        }
 
         public IEnumerable<Event> GetEvents()
         {
