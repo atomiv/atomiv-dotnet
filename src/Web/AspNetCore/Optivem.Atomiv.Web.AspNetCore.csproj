@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
     <PackageTags>Optivem Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
-    <Version>1.0.25</Version>
+    <Version>1.0.26</Version>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
 

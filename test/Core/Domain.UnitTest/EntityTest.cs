@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System;
 using Xunit;
 
 namespace Optivem.Atomiv.Core.Domain.UnitTest
@@ -21,6 +22,13 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             var b = new Entity<CustomerIdentity>(new CustomerIdentity(4));
 
             a.Should().Be(b);
+        }
+
+        [Fact]
+        public void EntityCannotHaveNullId()
+        {
+            Action action = () => new Entity<CustomerIdentity>(null);
+            action.Should().Throw<DomainException>();
         }
 
         // TODO: VC: DELETE implements
