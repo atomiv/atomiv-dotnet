@@ -5,11 +5,6 @@ namespace Optivem.Atomiv.Core.Application
 {
     public class ValidationException : ApplicationException
     {
-        public ValidationException(IRequestValidationResult result)
-        {
-            Result = result;
-        }
-
         public ValidationException()
         {
         }
@@ -20,6 +15,15 @@ namespace Optivem.Atomiv.Core.Application
 
         public ValidationException(string message, Exception innerException) : base(message, innerException)
         {
+        }
+
+        public ValidationException(Exception innerException) : base(innerException)
+        {
+        }
+
+        public ValidationException(IRequestValidationResult result)
+        {
+            Result = result;
         }
 
         protected ValidationException(SerializationInfo info, StreamingContext context) : base(info, context)

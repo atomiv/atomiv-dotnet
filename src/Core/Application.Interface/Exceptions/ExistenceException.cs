@@ -17,6 +17,10 @@ namespace Optivem.Atomiv.Core.Application
         {
         }
 
+        public ExistenceException(Exception innerException) : base(innerException)
+        {
+        }
+
         protected ExistenceException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }

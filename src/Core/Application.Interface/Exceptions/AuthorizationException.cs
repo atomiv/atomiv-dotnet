@@ -17,6 +17,10 @@ namespace Optivem.Atomiv.Core.Application
         {
         }
 
+        public AuthorizationException(Exception innerException) : base(innerException)
+        {
+        }
+
         protected AuthorizationException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
