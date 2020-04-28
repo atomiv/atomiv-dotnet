@@ -5,12 +5,27 @@ namespace Optivem.Atomiv.Core.Domain
     public class Identity<TValue> : IEquatable<Identity<TValue>>, IComparable<Identity<TValue>> 
         where TValue : struct, IEquatable<TValue>, IComparable<TValue>
     {
+        private TValue _value;
+
         public Identity(TValue value)
         {
             Value = value;
         }
 
-        public TValue Value { get; }
+        public TValue Value
+        {
+            get { return _value; }
+            private set
+            {
+                if(value.Equals(default))
+                {
+                    // TODO: VC: Resources
+                    throw new DomainException("Identity cannot have default value");
+                }
+
+                _value = value;
+            }
+        }
 
         public override string ToString()
         {

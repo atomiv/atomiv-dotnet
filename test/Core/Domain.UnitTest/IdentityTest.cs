@@ -1,3 +1,4 @@
+using FluentAssertions;
 using System;
 using Xunit;
 
@@ -143,16 +144,37 @@ namespace Optivem.Atomiv.Core.Domain.UnitTest
             Assert.False(a < b);
         }
 
+        [Fact]
+        public void GuidIdentityCannotBeEmptyGuidValue()
+        {
+            Action action = () => new GuidIdentity(Guid.Empty);
+            action.Should().Throw<DomainException>();
+        }
+
+        [Fact]
+        public void IntIdentityCannotBeEmptyGuidValue()
+        {
+            Action action = () => new CustomerIdentity(0);
+            action.Should().Throw<DomainException>();
+        }
+
         private class CustomerIdentity : Identity<int>
         {
-            public CustomerIdentity(int id) : base(id)
+            public CustomerIdentity(int value) : base(value)
             {
             }
         }
 
         private class OrderIdentity : Identity<int>
         {
-            public OrderIdentity(int id) : base(id)
+            public OrderIdentity(int value) : base(value)
+            {
+            }
+        }
+
+        private class GuidIdentity : Identity<Guid>
+        {
+            public GuidIdentity(Guid value) : base(value)
             {
             }
         }
