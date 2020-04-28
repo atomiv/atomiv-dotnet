@@ -9,70 +9,87 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {
-        public ObjectClient(IClient client, IFormatSerializer serializer, IEnumerable<RequestHeader> headers, Encoding encoding)
+        public ObjectClient(IClient client, IFormatSerializer serializer, RequestHeaderCollection headers, Encoding encoding)
         {
             Client = client;
             Serializer = serializer;
             Headers = headers;
-            DefaultEncoding = encoding;
+            Encoding = encoding;
         }
 
-        public ObjectClient(IClient client, IFormatSerializer serializer, IEnumerable<RequestHeader> headers)
+        public ObjectClient(IClient client, IFormatSerializer serializer, RequestHeaderCollection headers)
             : this(client, serializer, headers, Encoding.UTF8) { }
 
-        public IClient Client { get; private set; }
+        public IClient Client { get; }
 
-        public IFormatSerializer Serializer { get; private set; }
+        public IFormatSerializer Serializer { get; }
 
-        public IEnumerable<RequestHeader> Headers { get; private set; }
+        public RequestHeaderCollection Headers { get; }
 
-        public Encoding DefaultEncoding { get; private set; }
+        public Encoding Encoding { get; }
 
-        public async Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
         {
-            var response = await Client.GetAsync(uri, Headers);
+            var headerUnion = Union(headers);
+            var response = await Client.GetAsync(uri, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
             var content = Serialize(request);
-            var response = await Client.PostAsync(uri, content, Headers);
+            var headerUnion = Union(headers);
+            var response = await Client.PostAsync(uri, content, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public Task<ClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request)
+        public Task<ClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
             var content = Serialize(request);
-            return Client.PostAsync(uri, content, Headers);
+            var headerUnion = Union(headers);
+            return Client.PostAsync(uri, content, headerUnion);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
         {
-            var response = await Client.PostAsync(uri, null, Headers);
+            var headerUnion = Union(headers);
+            var response = await Client.PostAsync(uri, null, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request)
+        public async Task<ObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
             var content = Serialize(request);
-            var response = await Client.PutAsync(uri, content, Headers);
+            var headerUnion = Union(headers);
+            var response = await Client.PutAsync(uri, content, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public Task<ClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request)
+        public Task<ClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
             var content = Serialize(request);
-            return Client.PutAsync(uri, content, Headers);
+            var headerUnion = Union(headers);
+            return Client.PutAsync(uri, content, headerUnion);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri)
+        public async Task<ObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
         {
-            var response = await Client.DeleteAsync(uri, Headers);
+            var headerUnion = Union(headers);
+            var response = await Client.DeleteAsync(uri, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
         #region Helper
+
+        private RequestHeaderCollection Union(RequestHeaderCollection other)
+        {
+            if(other == null)
+            {
+                return Headers;
+            }
+
+            return Headers.Union(other);
+        }
 
         private string Serialize<T>(T data)
         {

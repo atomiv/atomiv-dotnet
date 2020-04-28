@@ -6,30 +6,30 @@ namespace Optivem.Atomiv.Core.Common.Http
 
     public interface IControllerClient : IObjectClient, IClient
     {
-        Task<ObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request);
+        Task<ObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(string uri, TRequest request);
+        Task<ObjectClientResponse<TResponse>> GetAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>();
+        Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(RequestHeaderCollection headers = null);
 
-        Task<ClientResponse> GetNoResponseAsync();
+        Task<ClientResponse> GetNoResponseAsync(RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id);
+        Task<ObjectClientResponse<TResponse>> GetByIdAsync<TId, TResponse>(TId id, RequestHeaderCollection headers = null);
 
-        Task<ClientResponse> GetByIdNoResponseAsync<TId>(TId id);
+        Task<ClientResponse> GetByIdNoResponseAsync<TId>(TId id, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request);
+        Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ClientResponse> PostNoResponseAsync<TRequest>(TRequest request);
+        Task<ClientResponse> PostNoResponseAsync<TRequest>(TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request);
+        Task<ObjectClientResponse<TResponse>> PostSubAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request);
+        Task<ObjectClientResponse<TResponse>> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ClientResponse> PutByIdNoResponseAsync<TId, TRequest>(TId id, TRequest request);
+        Task<ClientResponse> PutByIdNoResponseAsync<TId, TRequest>(TId id, TRequest request, RequestHeaderCollection headers = null);
 
-        Task<ObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id);
+        Task<ObjectClientResponse<TResponse>> DeleteByIdAsync<TId, TResponse>(TId id, RequestHeaderCollection headers = null);
 
-        Task<ClientResponse> DeleteByIdNoResponseAsync<TId>(TId id);
+        Task<ClientResponse> DeleteByIdNoResponseAsync<TId>(TId id, RequestHeaderCollection headers = null);
     }
 }

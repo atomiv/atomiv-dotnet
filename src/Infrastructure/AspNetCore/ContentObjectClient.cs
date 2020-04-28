@@ -13,34 +13,34 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public IObjectClient Client { get; }
 
-        public Task<TResponse> DeleteAsync<TResponse>(string uri)
+        public Task<TResponse> DeleteAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.DeleteAsync<TResponse>(uri));
+            return ExecuteAsync(e => e.DeleteAsync<TResponse>(uri, headers));
         }
 
-        public Task<TResponse> GetAsync<TResponse>(string uri)
+        public Task<TResponse> GetAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.GetAsync<TResponse>(uri));
+            return ExecuteAsync(e => e.GetAsync<TResponse>(uri, headers));
         }
 
-        public Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request)
+        public Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.PostAsync<TRequest, TResponse>(uri, request));
+            return ExecuteAsync(e => e.PostAsync<TRequest, TResponse>(uri, request, headers));
         }
 
-        public Task<string> PostAsync<TRequest>(string uri, TRequest request)
+        public Task<string> PostAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.PostNoResponseAsync<TRequest>(uri, request));
+            return ExecuteAsync(e => e.PostNoResponseAsync<TRequest>(uri, request, headers));
         }
 
-        public Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request)
+        public Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.PutAsync<TRequest, TResponse>(uri, request));
+            return ExecuteAsync(e => e.PutAsync<TRequest, TResponse>(uri, request, headers));
         }
 
-        public Task<string> PutAsync<TRequest>(string uri, TRequest request)
+        public Task<string> PutAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
         {
-            return ExecuteAsync(e => e.PutNoResponseAsync<TRequest>(uri, request));
+            return ExecuteAsync(e => e.PutNoResponseAsync<TRequest>(uri, request, headers));
         }
 
         private async Task<TResponse> ExecuteAsync<TResponse>(Func<IObjectClient, Task<ObjectClientResponse<TResponse>>> action)

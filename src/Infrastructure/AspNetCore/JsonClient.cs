@@ -9,13 +9,13 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
     {
         private const string MediaType = "application/json";
 
-        private static IEnumerable<RequestHeader> DefaultHeaders = new List<RequestHeader>
-        {
+        private static RequestHeaderCollection DefaultHeaders = new RequestHeaderCollection
+        (
             new RequestHeader(HttpRequestHeader.Accept.ToString(), MediaType),
-            new RequestHeader(HttpRequestHeader.ContentType.ToString(), MediaType),
-        };
+            new RequestHeader(HttpRequestHeader.ContentType.ToString(), MediaType)
+        );
 
-        public JsonClient(IClient client, IJsonSerializer serializer, IEnumerable<RequestHeader> headers)
+        public JsonClient(IClient client, IJsonSerializer serializer, RequestHeaderCollection headers)
             : base(client, serializer, headers)
         {
         }
