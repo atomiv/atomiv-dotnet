@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
 using Optivem.Atomiv.Core.Application;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Infrastructure.FluentValidation
@@ -13,10 +15,11 @@ namespace Optivem.Atomiv.Infrastructure.FluentValidation
             _validator = validator;
         }
 
-        public async Task<IRequestValidationResult> ValidateAsync(TRequest request)
+        public async Task<RequestValidationResult> ValidateAsync(TRequest request)
         {
             var result = await _validator.ValidateAsync(request);
-            return new FluentValidationResult(result);
+
+            return result.ToRequestValidationResult();
         }
     }
 }

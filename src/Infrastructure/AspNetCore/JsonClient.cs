@@ -1,6 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
-using System.Collections.Generic;
 using System.Net;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore

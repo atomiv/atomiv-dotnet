@@ -1,6 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore

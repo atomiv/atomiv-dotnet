@@ -21,7 +21,7 @@ namespace Optivem.Atomiv.Core.Application
         {
         }
 
-        public ValidationException(IRequestValidationResult result)
+        public ValidationException(RequestValidationResult result)
         {
             Result = result;
         }
@@ -30,6 +30,6 @@ namespace Optivem.Atomiv.Core.Application
         {
         }
 
-        public IRequestValidationResult Result { get; private set; }
+        public RequestValidationResult Result { get; private set; }
     }
 }

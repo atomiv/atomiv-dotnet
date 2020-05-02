@@ -1,7 +1,6 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 

@@ -2,7 +2,6 @@
 using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using Optivem.Atomiv.Template.Core.Application.Products.Queries;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Atomiv.Core.Common.Http
+﻿namespace Optivem.Atomiv.Core.Common.Http
 {
     // TODO: VC: DELETE
 

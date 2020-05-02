@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Atomiv.Core.Application.Interface.Authorization
+﻿namespace Optivem.Atomiv.Core.Application
 {
     public class RequestAuthorizationError
     {

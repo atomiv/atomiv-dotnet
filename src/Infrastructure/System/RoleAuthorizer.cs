@@ -1,7 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Application;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Infrastructure.System
