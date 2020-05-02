@@ -6,9 +6,4 @@ namespace Optivem.Atomiv.Core.Application
     {
         Task<IRequestValidationResult> ValidateAsync(TRequest request);
     }
-
-    public interface IRequestValidator
-    {
-        Task<IRequestValidationResult> ValidateAsync<TRequest>(TRequest request);
-    }
 }

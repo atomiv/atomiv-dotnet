@@ -185,7 +185,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest", "template\microservice\test\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest\Optivem.Atomiv.Template.Infrastructure.Validation.IntegrationTest.csproj", "{C6A3CF1F-1660-4C14-9961-627F97B3304B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.External", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj", "{4F2968EA-4D5F-42F0-B702-DC68417D79DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.External", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj", "{4F2968EA-4D5F-42F0-B702-DC68417D79DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Authorization", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Authorization\Optivem.Atomiv.Template.Infrastructure.Authorization.csproj", "{0280603E-EF80-4795-8446-B582411A9519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Authentication", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Authentication\Optivem.Atomiv.Template.Infrastructure.Authentication.csproj", "{96F5D684-ACBC-4646-9AD1-BBD42D26476E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -457,6 +461,14 @@ Global
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0280603E-EF80-4795-8446-B582411A9519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0280603E-EF80-4795-8446-B582411A9519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0280603E-EF80-4795-8446-B582411A9519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0280603E-EF80-4795-8446-B582411A9519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -552,6 +564,8 @@ Global
 		{624F436F-9CE4-45A6-B063-0FA855B31619} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 		{C6A3CF1F-1660-4C14-9961-627F97B3304B} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{0280603E-EF80-4795-8446-B582411A9519} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{96F5D684-ACBC-4646-9AD1-BBD42D26476E} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
