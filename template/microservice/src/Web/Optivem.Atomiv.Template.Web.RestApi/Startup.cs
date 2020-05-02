@@ -11,6 +11,7 @@ using Optivem.Atomiv.Template.DependencyInjection;
 using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
+using Optivem.Atomiv.Template.Infrastructure.Authentication;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -63,6 +64,13 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddHostedService<ProductSynchronizationService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "CustomScheme";
+            }).AddCustomAuthentication("CustomScheme", "Custom Scheme", options =>
+            {
+            });
 
             services.AddSwaggerGen(c =>
             {
