@@ -10,6 +10,7 @@ using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Atomiv.Template.DependencyInjection;
 using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -60,6 +61,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddModules(Configuration);
 
             services.AddHostedService<ProductSynchronizationService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddSwaggerGen(c =>
             {
