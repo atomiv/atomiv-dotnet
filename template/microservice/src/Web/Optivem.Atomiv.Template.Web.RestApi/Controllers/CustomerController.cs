@@ -22,6 +22,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         #region Commands
 
+        // [Authorize(AuthenticationSchemes = CustomAuthenticationDefaults.AuthenticationScheme, Roles = "User")]
+        // [Authorize]
         [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)

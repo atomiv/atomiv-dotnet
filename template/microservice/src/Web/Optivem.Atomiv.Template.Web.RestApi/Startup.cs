@@ -55,11 +55,11 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddHangfireServer();
 
             var authorizationPolicyBuilder
-                = new AuthorizationPolicyBuilder(CustomAuthenticationDefaults.AuthenticationScheme);
+                = new AuthorizationPolicyBuilder( /* CustomAuthenticationDefaults.AuthenticationScheme */);
 
             var authorizationPolicy = authorizationPolicyBuilder
-                .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
-                .RequireRole("User")
+                // .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
+                // .RequireRole("User")
                 .RequireAuthenticatedUser()
                 .Build();
 
