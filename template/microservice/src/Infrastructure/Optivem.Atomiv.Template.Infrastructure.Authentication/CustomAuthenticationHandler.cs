@@ -36,7 +36,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication
 
             */
 
-            var identity = new ClaimsIdentity(); // TODO: VC: Username and password
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, "My name"),
+                new Claim(ClaimTypes.Role, "User"),
+            };
+
+            var identity = new ClaimsIdentity(claims); // TODO: VC: Username and password
 
             var principal = new ClaimsPrincipal(identity); // TODO: VC: Check other constructors
             var properties = new AuthenticationProperties();

@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
 using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Infrastructure.Authentication;
 using System;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 {
     [Route("api/customers")]
+    [Authorize(AuthenticationSchemes = CustomAuthenticationDefaults.AuthenticationScheme, Roles = "User")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
@@ -20,6 +23,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         #region Commands
 
+        // [Authorize]
         [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)

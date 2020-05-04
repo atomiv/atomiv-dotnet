@@ -63,10 +63,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
                 // TODO: VC: This produces forbidden error
 
                 /*
-
-                var schemes = new string[] { CustomAuthenticationDefaults.AuthenticationScheme };
-
-                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder(schemes);
+                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder();
 
                 var authorizationPolicy = authorizationPolicyBuilder
                     .RequireAuthenticatedUser()
@@ -75,7 +72,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi
                 var authorizeFilter = new AuthorizeFilter(authorizationPolicy);
 
                 options.Filters.Add(authorizeFilter);
-
                 */
             })
                 .AddNewtonsoftJson()
@@ -92,6 +88,19 @@ namespace Optivem.Atomiv.Template.Web.RestApi
                 options.DefaultScheme = CustomAuthenticationDefaults.AuthenticationScheme;
             }).AddCustomAuthentication(options =>
             {
+            });
+
+            services.AddAuthorization(options =>
+            {
+                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder();
+
+                var authorizationPolicy = authorizationPolicyBuilder
+                    .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
+                    .RequireRole("User")
+                    .RequireAuthenticatedUser()
+                    .Build();
+
+                options.DefaultPolicy = authorizationPolicy;
             });
 
             services.AddSwaggerGen(c =>
@@ -127,8 +136,20 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             app.UseHangfireDashboard();
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
+            // TODO: VC: Check if needed
+            // app.UseAuthentication();
+            // app.UseAuthorization();
+
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            /*
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers()
+                    .RequireAuthorization();
+            });
+            */
         }
     }
 }
