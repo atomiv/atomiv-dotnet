@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 {
     [Route("api/customers")]
-    [Authorize(AuthenticationSchemes = CustomAuthenticationDefaults.AuthenticationScheme, Roles = "User")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
@@ -23,7 +22,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         #region Commands
 
-        // [Authorize]
         [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)

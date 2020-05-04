@@ -54,6 +54,15 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             // Add the processing server as IHostedService
             services.AddHangfireServer();
 
+            var authorizationPolicyBuilder
+                = new AuthorizationPolicyBuilder(CustomAuthenticationDefaults.AuthenticationScheme);
+
+            var authorizationPolicy = authorizationPolicyBuilder
+                .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
+                .RequireRole("User")
+                .RequireAuthenticatedUser()
+                .Build();
+
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
@@ -61,18 +70,12 @@ namespace Optivem.Atomiv.Template.Web.RestApi
                 // Adding custom authorization filter
 
                 // TODO: VC: This produces forbidden error
-
+                
                 /*
-                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder();
-
-                var authorizationPolicy = authorizationPolicyBuilder
-                    .RequireAuthenticatedUser()
-                    .Build();
-
                 var authorizeFilter = new AuthorizeFilter(authorizationPolicy);
-
                 options.Filters.Add(authorizeFilter);
                 */
+                
             })
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -92,14 +95,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             services.AddAuthorization(options =>
             {
-                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder();
-
-                var authorizationPolicy = authorizationPolicyBuilder
-                    .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
-                    .RequireRole("User")
-                    .RequireAuthenticatedUser()
-                    .Build();
-
                 options.DefaultPolicy = authorizationPolicy;
             });
 
@@ -137,8 +132,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
             // TODO: VC: Check if needed
-            // app.UseAuthentication();
-            // app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseHttpsRedirection();
             app.UseMvc();

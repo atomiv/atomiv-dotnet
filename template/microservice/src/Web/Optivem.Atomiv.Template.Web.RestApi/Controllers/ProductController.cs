@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using Optivem.Atomiv.Template.Infrastructure.Authentication;
 using System;
 using System.Threading.Tasks;
 
