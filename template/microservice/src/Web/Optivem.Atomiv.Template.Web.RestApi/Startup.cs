@@ -12,6 +12,8 @@ using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Template.Infrastructure.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -55,6 +57,26 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
+
+                // Adding custom authorization filter
+
+                // TODO: VC: This produces forbidden error
+
+                /*
+
+                var schemes = new string[] { CustomAuthenticationDefaults.AuthenticationScheme };
+
+                var authorizationPolicyBuilder = new AuthorizationPolicyBuilder(schemes);
+
+                var authorizationPolicy = authorizationPolicyBuilder
+                    .RequireAuthenticatedUser()
+                    .Build();
+
+                var authorizeFilter = new AuthorizeFilter(authorizationPolicy);
+
+                options.Filters.Add(authorizeFilter);
+
+                */
             })
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -67,8 +89,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             services.AddAuthentication(options =>
             {
-                options.DefaultScheme = "CustomScheme";
-            }).AddCustomAuthentication("CustomScheme", "Custom Scheme", options =>
+                options.DefaultScheme = CustomAuthenticationDefaults.AuthenticationScheme;
+            }).AddCustomAuthentication(options =>
             {
             });
 

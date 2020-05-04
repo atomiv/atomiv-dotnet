@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -18,9 +20,23 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication
 
         }
 
+        // TODO: VC: Continue from https://github.com/ignas-sakalauskas/CustomAuthenticationNetCore/blob/master/CustomAuthNetCore21/Authentication/CustomAuthHandler.cs
+
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            var identity = Options.Identity;
+            // TODO: VC: Enable later
+
+            /*
+            if (!Request.Headers.TryGetValue(HeaderNames.Authorization, out var authorization))
+            {
+                return Task.FromResult(AuthenticateResult.Fail($"Cannot get {HeaderNames.Authorization} header value"));
+            }
+
+            // authorization[0]
+
+            */
+
+            var identity = new ClaimsIdentity(); // TODO: VC: Username and password
 
             var principal = new ClaimsPrincipal(identity); // TODO: VC: Check other constructors
             var properties = new AuthenticationProperties();
