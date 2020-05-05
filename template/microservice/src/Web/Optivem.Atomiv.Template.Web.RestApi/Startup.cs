@@ -131,7 +131,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             app.UseHangfireDashboard();
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
-            // TODO: VC: Check if needed
             app.UseAuthentication();
             app.UseAuthorization();
 
