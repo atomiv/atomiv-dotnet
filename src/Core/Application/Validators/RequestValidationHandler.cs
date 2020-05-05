@@ -1,34 +1,48 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Core.Application
 {
     public class RequestValidationHandler<TRequest> : IRequestValidationHandler<TRequest>
     {
-        private IRequestValidator<TRequest> _validator;
+        private IEnumerable<IRequestValidator<TRequest>> _validators;
 
-        public RequestValidationHandler(IRequestValidator<TRequest> validator)
+        public RequestValidationHandler(IEnumerable<IRequestValidator<TRequest>> validators)
         {
-            _validator = validator;
+            _validators = validators;
         }
 
         public async Task HandleAsync(TRequest request)
         {
-            var result = await _validator.ValidateAsync(request);
+            var isValid = true;
+            var errors = new List<RequestValidationError>();
 
-            // TODO: VC: Map here custom status code to http status code
-            // or return ValidationException and inside can see codes?
-
-
-            if (!result.IsValid)
+            foreach(var validator in _validators)
             {
-                var hasNotFound = result.Errors.Any(e => e.ErrorCode == ValidationErrorCodes.NotFound);
+                var result = await validator.ValidateAsync(request);
 
-                if(hasNotFound)
+                // TODO: VC: Map here custom status code to http status code
+                // or return ValidationException and inside can see codes?
+
+                if (!result.IsValid)
                 {
-                    throw new ExistenceException();
-                }
+                    var hasNotFound = result.Errors
+                        .Any(e => e.ErrorCode == ValidationErrorCodes.NotFound);
 
+                    if (hasNotFound)
+                    {
+                        throw new ExistenceException();
+                    }
+
+                    isValid = false;
+                    errors.AddRange(result.Errors);
+                }
+            }
+
+            if (!isValid)
+            {
+                var result = new RequestValidationResult(isValid, errors);
                 throw new ValidationException(result);
             }
         }
