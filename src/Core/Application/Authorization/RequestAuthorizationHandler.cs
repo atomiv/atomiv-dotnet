@@ -1,23 +1,27 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Core.Application
 {
     public class RequestAuthorizationHandler<TRequest> : IRequestAuthorizationHandler<TRequest>
     {
-        private IRequestAuthorizer<TRequest> _authorizer;
+        private IEnumerable<IRequestAuthorizer<TRequest>> _authorizers;
 
-        public RequestAuthorizationHandler(IRequestAuthorizer<TRequest> authorizer)
+        public RequestAuthorizationHandler(IEnumerable<IRequestAuthorizer<TRequest>> authorizers)
         {
-            _authorizer = authorizer;
+            _authorizers = authorizers;
         }
 
         public async Task HandleAsync(TRequest request)
         {
-            var result = await _authorizer.AuthorizeAsync(request);
-
-            if (!result.IsAuthorized)
+            foreach(var authorizer in _authorizers)
             {
-                throw new AuthorizationException(result);
+                var result = await authorizer.AuthorizeAsync(request);
+
+                if (!result.IsAuthorized)
+                {
+                    throw new AuthorizationException(result);
+                }
             }
         }
     }

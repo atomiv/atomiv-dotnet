@@ -111,7 +111,7 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR
         {
             var requestAuthorizerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RequestAuthorizerType);
 
-            var requestTypes = new Dictionary<string, Type>();
+            var requestTypeNames = new HashSet<string>();
 
             foreach (var requestAuthorizerImplementationType in requestAuthorizerImplementationTypes)
             {
@@ -121,7 +121,7 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR
                 services.AddScoped(requestAuthorizerInterfaceType, requestAuthorizerImplementationType);
 
                 var requestType = requestAuthorizerInterfaceType.GenericTypeArguments[0];
-                requestTypes.Add(requestType.Name, requestType);
+                requestTypeNames.Add(requestType.Name);
             }
 
             var requestHandlerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(RequestHandlerType);
@@ -133,7 +133,7 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR
 
                 var requestType = requestHandlerInterfaceType.GenericTypeArguments[0];
 
-                if (!requestTypes.ContainsKey(requestType.Name))
+                if (!requestTypeNames.Contains(requestType.Name))
                 {
                     continue;
                 }
