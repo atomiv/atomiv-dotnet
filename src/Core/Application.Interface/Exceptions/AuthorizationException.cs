@@ -21,8 +21,15 @@ namespace Optivem.Atomiv.Core.Application
         {
         }
 
+        public AuthorizationException(RequestAuthorizationResult result)
+        {
+            Result = result;
+        }
+
         protected AuthorizationException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
+
+        public RequestAuthorizationResult Result { get; private set; }
     }
 }

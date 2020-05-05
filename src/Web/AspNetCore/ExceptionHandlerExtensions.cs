@@ -40,6 +40,14 @@ namespace Optivem.Atomiv.Web.AspNetCore
 
                         // TODO: VC: Consider if this fails, perhaps outer try-catch?
 
+                        // Unauthorized
+
+                        if(exception.GetType() == typeof(AuthorizationException))
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+                            return;
+                        }
+
                         // NotFound
 
                         // TODO: VC: Check if NotFound should be here or move below
