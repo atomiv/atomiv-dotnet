@@ -1,9 +1,6 @@
 ﻿using FluentValidation.Results;
 using Optivem.Atomiv.Core.Application;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Optivem.Atomiv.Infrastructure.FluentValidation
 {

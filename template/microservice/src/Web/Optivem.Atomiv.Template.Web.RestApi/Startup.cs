@@ -13,7 +13,6 @@ using Optivem.Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Template.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {

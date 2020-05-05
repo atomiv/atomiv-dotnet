@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Template.Core.Application;
-using System;
-using System.Collections.Generic;
 using System.Security.Principal;
-using System.Text;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authentication
 {
