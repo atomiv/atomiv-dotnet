@@ -1,8 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authorization.Customers

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 

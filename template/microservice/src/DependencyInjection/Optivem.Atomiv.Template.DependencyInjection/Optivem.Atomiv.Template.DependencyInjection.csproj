@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Application\Optivem.Atomiv.DependencyInjection.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Domain\Optivem.Atomiv.DependencyInjection.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj" />

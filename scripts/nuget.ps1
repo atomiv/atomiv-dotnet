@@ -62,7 +62,7 @@ $projects = @(
     'src\DependencyInjection\Core\Domain\Optivem.Atomiv.DependencyInjection.Core.Domain.csproj',
 	
 	# Infrastructure
-	# 'src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj',
+	'src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj',
     'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj',
     # 'src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Atomiv.DependencyInjection.Infrastructure.CsvHelper.csproj',
     'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',

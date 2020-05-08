@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Core.Application;
-using System.Security.Principal;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {

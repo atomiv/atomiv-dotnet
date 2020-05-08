@@ -1,9 +1,8 @@
 ﻿using Optivem.Atomiv.Core.Application;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
-using System.Text;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
@@ -13,19 +12,21 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public ApplicationUser(ClaimsPrincipal principal)
         {
-
+            _principal = principal;
         }
 
-        public IIdentity Identity => throw new NotImplementedException();
+        public IIdentity Identity => _principal.Identity;
 
         public bool HasActionPermission(string action)
         {
-            throw new NotImplementedException();
+            return _principal.Claims
+                .Any(e => e.Type == ClaimTypes.ActionType
+                    && e.Value == action);
         }
 
         public bool IsInRole(string role)
         {
-            throw new NotImplementedException();
+            return _principal.IsInRole(role);
         }
     }
 }

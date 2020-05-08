@@ -36,6 +36,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication
             {
                 new Claim(ClaimTypes.NameIdentifier, "My name"),
                 new Claim(ClaimTypes.Role, "User"),
+                new Claim(Atomiv.Infrastructure.AspNetCore.ClaimTypes.ActionType, "CreateCustomerCommand"),
             };
 
             var identity = new ClaimsIdentity(claims); // TODO: VC: Username and password
