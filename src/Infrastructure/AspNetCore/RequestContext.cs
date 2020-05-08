@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Optivem.Atomiv.Template.Core.Application;
+using Optivem.Atomiv.Core.Application;
 using System.Security.Principal;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication
+namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class RequestContext : IRequestContext
     {
@@ -13,6 +13,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IPrincipal User => _httpContextAccessor.HttpContext.User;
+        public IApplicationUser User
+        {
+            get
+            {
+                var principal = _httpContextAccessor.HttpContext.User;
+                return new ApplicationUser(principal);
+            }
+        }
     }
 }

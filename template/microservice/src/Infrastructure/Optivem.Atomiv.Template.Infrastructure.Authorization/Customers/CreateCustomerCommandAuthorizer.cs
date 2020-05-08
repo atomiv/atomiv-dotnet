@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authorization.Customers
 {
-    public class CreateCustomerCommandAuthorizer : IRequestAuthorizer<CreateCustomerCommand>
+    public class CreateCustomerCommandAuthorizer : BaseRequestAuthorizer<CreateCustomerCommand>
     {
-        public Task<RequestAuthorizationResult> AuthorizeAsync(CreateCustomerCommand request)
+        public override Task<RequestAuthorizationResult> AuthorizeAsync(CreateCustomerCommand request)
         {
             // TODO: VC: Create BaseRequestAuthorizer for returning these results
 
-            var result = new RequestAuthorizationResult(true, new List<RequestAuthorizationError>());
+            var result = Success();
             // var result = new RequestAuthorizationResult(false, new List<RequestAuthorizationError>());
 
             return Task.FromResult(result);
