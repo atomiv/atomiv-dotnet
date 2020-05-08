@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Atomiv.DependencyInjection.Core.Application;
 using Optivem.Atomiv.DependencyInjection.Core.Domain;
+using Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation;
@@ -36,11 +37,14 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             var coreModuleTypes = new List<Type>
             {
                 typeof(Core.Application.Module),
+                typeof(Core.Application.Interface.Module),
                 typeof(Core.Domain.Module),
             };
 
             var infrastructureModuleTypes = new List<Type>
             {
+                typeof(Infrastructure.Authentication.Module),
+                typeof(Infrastructure.Authorization.Module),
                 typeof(Infrastructure.External.Module),
                 typeof(Infrastructure.Mapping.Module),
                 typeof(Infrastructure.Persistence.Module),
@@ -74,6 +78,7 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);
 
+            services.AddAspNetCoreInfrastructure(assemblies);
             services.AddEntityFrameworkCoreInfrastructure(assemblies);
             services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);

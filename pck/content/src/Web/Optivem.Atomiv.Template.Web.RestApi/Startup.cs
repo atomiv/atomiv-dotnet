@@ -10,6 +10,9 @@ using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Atomiv.Template.DependencyInjection;
 using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
+using Microsoft.AspNetCore.Http;
+using Optivem.Atomiv.Template.Infrastructure.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -50,9 +53,28 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             // Add the processing server as IHostedService
             services.AddHangfireServer();
 
+            var authorizationPolicyBuilder
+                = new AuthorizationPolicyBuilder( /* CustomAuthenticationDefaults.AuthenticationScheme */);
+
+            var authorizationPolicy = authorizationPolicyBuilder
+                // .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
+                // .RequireRole("User")
+                .RequireAuthenticatedUser()
+                .Build();
+
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
+
+                // Adding custom authorization filter
+
+                // TODO: VC: This produces forbidden error
+                
+                /*
+                var authorizeFilter = new AuthorizeFilter(authorizationPolicy);
+                options.Filters.Add(authorizeFilter);
+                */
+                
             })
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -60,6 +82,20 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddModules(Configuration);
 
             services.AddHostedService<ProductSynchronizationService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CustomAuthenticationDefaults.AuthenticationScheme;
+            }).AddCustomAuthentication(options =>
+            {
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.DefaultPolicy = authorizationPolicy;
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -94,8 +130,19 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             app.UseHangfireDashboard();
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            /*
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers()
+                    .RequireAuthorization();
+            });
+            */
         }
     }
 }

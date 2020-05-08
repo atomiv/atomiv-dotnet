@@ -28,9 +28,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             }
         }
 
-        protected async Task<List<IObjectClientResponse<CreateCustomerCommandResponse>>> CreateCustomersAsync(IEnumerable<CreateCustomerCommand> createRequests)
+        protected async Task<List<ObjectClientResponse<CreateCustomerCommandResponse>>> CreateCustomersAsync(IEnumerable<CreateCustomerCommand> createRequests)
         {
-            var createResponses = new List<IObjectClientResponse<CreateCustomerCommandResponse>>();
+            var createResponses = new List<ObjectClientResponse<CreateCustomerCommandResponse>>();
 
             foreach (var createRequest in createRequests)
             {
@@ -41,9 +41,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return createResponses;
         }
 
-        protected async Task<List<IObjectClientResponse<CreateOrderCommandResponse>>> CreateOrdersAsync(IEnumerable<CreateOrderCommand> createRequests)
+        protected async Task<List<ObjectClientResponse<CreateOrderCommandResponse>>> CreateOrdersAsync(IEnumerable<CreateOrderCommand> createRequests)
         {
-            var createResponses = new List<IObjectClientResponse<CreateOrderCommandResponse>>();
+            var createResponses = new List<ObjectClientResponse<CreateOrderCommandResponse>>();
 
             foreach (var createRequest in createRequests)
             {
@@ -54,9 +54,9 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return createResponses;
         }
 
-        protected async Task<List<IObjectClientResponse<CreateProductCommandResponse>>> CreateProductsAsync(IEnumerable<CreateProductCommand> createRequests)
+        protected async Task<List<ObjectClientResponse<CreateProductCommandResponse>>> CreateProductsAsync(IEnumerable<CreateProductCommand> createRequests)
         {
-            var createResponses = new List<IObjectClientResponse<CreateProductCommandResponse>>();
+            var createResponses = new List<ObjectClientResponse<CreateProductCommandResponse>>();
 
             foreach (var createRequest in createRequests)
             {
@@ -67,28 +67,28 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return createResponses;
         }
 
-        protected async Task<IObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand command)
+        protected async Task<ObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand command)
         {
             var httpResponse = await Fixture.Api.Customers.CreateCustomerAsync(command);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
-        protected async Task<IObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand command)
+        protected async Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand command)
         {
             var httpResponse = await Fixture.Api.Orders.CreateOrderAsync(command);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
-        protected async Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand command)
+        protected async Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand command)
         {
             var httpResponse = await Fixture.Api.Products.CreateProductAsync(command);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
-        protected Task<List<IObjectClientResponse<CreateCustomerCommandResponse>>> CreateSampleCustomersAsync()
+        protected Task<List<ObjectClientResponse<CreateCustomerCommandResponse>>> CreateSampleCustomersAsync()
         {
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -114,7 +114,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return CreateCustomersAsync(createRequests);
         }
 
-        protected async Task<List<IObjectClientResponse<CreateOrderCommandResponse>>> CreateSampleOrdersAsync()
+        protected async Task<List<ObjectClientResponse<CreateOrderCommandResponse>>> CreateSampleOrdersAsync()
         {
             var createCustomerResponses = await CreateSampleCustomersAsync();
             var createProductResponses = await CreateSampleProductsAsync();
@@ -122,8 +122,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return await CreateSampleOrdersAsync(createCustomerResponses, createProductResponses);
         }
 
-        protected Task<List<IObjectClientResponse<CreateOrderCommandResponse>>> CreateSampleOrdersAsync(List<IObjectClientResponse<CreateCustomerCommandResponse>> createCustomerResponses,
-            List<IObjectClientResponse<CreateProductCommandResponse>> createProductResponses)
+        protected Task<List<ObjectClientResponse<CreateOrderCommandResponse>>> CreateSampleOrdersAsync(List<ObjectClientResponse<CreateCustomerCommandResponse>> createCustomerResponses,
+            List<ObjectClientResponse<CreateProductCommandResponse>> createProductResponses)
         {
             var customerId_0 = createCustomerResponses[0].Data.Id;
             var customerId_1 = createCustomerResponses[1].Data.Id;
@@ -178,7 +178,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             return CreateOrdersAsync(createRequests);
         }
 
-        protected Task<List<IObjectClientResponse<CreateProductCommandResponse>>> CreateSampleProductsAsync()
+        protected Task<List<ObjectClientResponse<CreateProductCommandResponse>>> CreateSampleProductsAsync()
         {
             var createRequests = new List<CreateProductCommand>
             {

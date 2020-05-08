@@ -1,6 +1,4 @@
-﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Persistence
 {
     public class Module
     {

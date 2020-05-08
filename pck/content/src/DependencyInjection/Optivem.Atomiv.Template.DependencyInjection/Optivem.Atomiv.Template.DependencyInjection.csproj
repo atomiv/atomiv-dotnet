@@ -5,20 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Application" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Domain" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.25" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.25" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Application" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Domain" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.29" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.29" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.All\Optivem.Atomiv.Template.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj" />

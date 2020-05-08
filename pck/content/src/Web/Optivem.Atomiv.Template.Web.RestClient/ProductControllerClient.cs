@@ -21,23 +21,23 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         #region Commands
 
-        public Task<IObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
+        public Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
             return _controllerClient.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
         }
 
-        public Task<IObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request)
+        public Task<ObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request)
         {
             return _controllerClient.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request);
         }
 
-        public Task<IObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
+        public Task<ObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request)
         {
             var id = request.Id;
             return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request);
         }
 
-        public Task<IObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
+        public Task<ObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request)
         {
             var id = request.Id;
             return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request);
@@ -47,17 +47,17 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         #region Queries
 
-        public Task<IObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request)
+        public Task<ObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request)
         {
             return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
-        public Task<IObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request)
+        public Task<ObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request)
         {
             return _controllerClient.GetAsync<FilterProductsQueryResponse>("filter");
         }
 
-        public Task<IObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request)
+        public Task<ObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request)
         {
             var id = request.Id;
             return _controllerClient.GetByIdAsync<Guid, ViewProductQueryResponse>(id);
