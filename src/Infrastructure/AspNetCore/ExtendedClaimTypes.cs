@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
-    public static class ClaimTypes
+    public static class ExtendedClaimTypes
     {
         public const string ActionType = "ActionType";
     }

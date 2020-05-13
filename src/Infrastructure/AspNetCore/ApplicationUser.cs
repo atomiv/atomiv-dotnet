@@ -20,7 +20,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
         public bool HasActionPermission(string action)
         {
             return _principal.Claims
-                .Any(e => e.Type == ClaimTypes.ActionType
+                .Any(e => e.Type == ExtendedClaimTypes.ActionType
                     && e.Value == action);
         }
 
