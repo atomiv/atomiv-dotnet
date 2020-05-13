@@ -3,11 +3,11 @@ using Optivem.Atomiv.Core.Application;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
-    public class RequestContext : IUserContext
+    public class UserContext : IUserContext
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RequestContext(IHttpContextAccessor httpContextAccessor)
+        public UserContext(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
         }
@@ -17,7 +17,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             get
             {
                 var principal = _httpContextAccessor.HttpContext.User;
-                return new ApplicationUser(principal);
+                return new User(principal);
             }
         }
     }

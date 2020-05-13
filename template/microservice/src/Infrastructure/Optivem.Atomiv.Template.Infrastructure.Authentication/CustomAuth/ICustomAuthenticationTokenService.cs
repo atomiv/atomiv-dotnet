@@ -1,7 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication
+namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 {
     public interface ICustomAuthenticationTokenService : IApplicationService
     {

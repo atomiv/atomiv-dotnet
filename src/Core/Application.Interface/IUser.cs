@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Core.Application
 {
-    public interface IApplicationUser : IPrincipal
+    public interface IUser : IPrincipal
     {
         bool HasActionPermission(string action);
     }

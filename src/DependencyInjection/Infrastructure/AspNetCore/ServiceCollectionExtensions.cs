@@ -12,7 +12,7 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore
         {
             var types = assemblies.GetTypes();
 
-            services.AddScoped<IRequestContext, RequestContext>();
+            services.AddScoped<IUserContext, UserContext>();
 
             return services;
         }

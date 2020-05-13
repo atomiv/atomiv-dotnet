@@ -6,11 +6,11 @@ using System.Security.Principal;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
-    public class ApplicationUser : IUser
+    public class User : IUser
     {
         private readonly ClaimsPrincipal _principal;
 
-        public ApplicationUser(ClaimsPrincipal principal)
+        public User(ClaimsPrincipal principal)
         {
             _principal = principal;
         }

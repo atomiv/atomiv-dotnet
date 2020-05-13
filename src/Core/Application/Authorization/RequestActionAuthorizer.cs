@@ -5,9 +5,9 @@ namespace Optivem.Atomiv.Core.Application.Authorization
 {
     public class RequestActionAuthorizer<TRequest> : BaseRequestAuthorizer<TRequest>
     {
-        private readonly IRequestContext _requestContext;
+        private readonly IUserContext _requestContext;
 
-        public RequestActionAuthorizer(IRequestContext requestContext)
+        public RequestActionAuthorizer(IUserContext requestContext)
         {
             _requestContext = requestContext;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication
+namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 {
     public class CustomAuthenticationTokenService : ICustomAuthenticationTokenService
     {
