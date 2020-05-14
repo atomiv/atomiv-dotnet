@@ -88,7 +88,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             services.AddAuthentication(options =>
             {
-                options.DefaultScheme = CustomAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CustomAuthDefaults.AuthenticationScheme;
             }).AddCustomAuthentication(options =>
             {
             });

@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 {
-    public class CustomAuthenticationHandler : AuthenticationHandler<CustomAuthenticationOptions>
+    public class CustomAuthHandler : AuthenticationHandler<CustomAuthOptions>
     {
         private readonly IUserInfoService _userInfoService;
 
         private const string Bearer = "Bearer";
 
-        public CustomAuthenticationHandler(IOptionsMonitor<CustomAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserInfoService userInfoService)
+        public CustomAuthHandler(IOptionsMonitor<CustomAuthOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserInfoService userInfoService)
             : base(options, logger, encoder, clock)
         {
             _userInfoService = userInfoService;

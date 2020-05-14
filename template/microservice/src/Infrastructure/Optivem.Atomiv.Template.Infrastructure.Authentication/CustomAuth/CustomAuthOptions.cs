@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 {
-    public class CustomAuthenticationOptions : AuthenticationSchemeOptions
+    public class CustomAuthOptions : AuthenticationSchemeOptions
     {
     }
 }
