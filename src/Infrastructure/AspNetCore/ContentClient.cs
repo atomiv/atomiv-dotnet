@@ -13,22 +13,22 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public IClient Client { get; }
 
-        public Task<string> DeleteAsync(string uri, RequestHeaderCollection headers)
+        public Task<string> DeleteAsync(string uri, HeaderDictionary headers)
         {
             return ExecuteAsync(e => e.DeleteAsync(uri, headers));
         }
 
-        public Task<string> GetAsync(string uri, RequestHeaderCollection headers)
+        public Task<string> GetAsync(string uri, HeaderDictionary headers)
         {
             return ExecuteAsync(e => e.GetAsync(uri, headers));
         }
 
-        public Task<string> PostAsync(string uri, string content, RequestHeaderCollection headers)
+        public Task<string> PostAsync(string uri, string content, HeaderDictionary headers)
         {
             return ExecuteAsync(e => e.PostAsync(uri, content, headers));
         }
 
-        public Task<string> PutAsync(string uri, string content, RequestHeaderCollection headers)
+        public Task<string> PutAsync(string uri, string content, HeaderDictionary headers)
         {
             return ExecuteAsync(e => e.PutAsync(uri, content, headers));
         }

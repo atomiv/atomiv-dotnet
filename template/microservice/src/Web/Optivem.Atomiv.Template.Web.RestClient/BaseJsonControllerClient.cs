@@ -18,13 +18,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         protected JsonHttpControllerClient Client { get; }
 
-        // TODO: VC: Continue
-
-            /*
-        protected RequestHeaderCollection GetHeaders(HeaderData headerData)
+        protected HeaderDictionary GetHeaders(HeaderData headerData)
         {
-            var headers = new List<RequestHeader>();
+            throw new NotImplementedException();
         }
-        */
     }
 }

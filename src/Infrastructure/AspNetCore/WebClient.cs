@@ -19,25 +19,25 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         protected HttpClient HttpClient { get; private set; }
 
-        public Task<ClientResponse> GetAsync(string uri, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> GetAsync(string uri, HeaderDictionary headers = null)
         {
             var message = CreateMessage(HttpMethod.Get, uri, null, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<ClientResponse> PostAsync(string uri, string content, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> PostAsync(string uri, string content, HeaderDictionary headers = null)
         {
             var message = CreateMessage(HttpMethod.Post, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<ClientResponse> PutAsync(string uri, string content, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> PutAsync(string uri, string content, HeaderDictionary headers = null)
         {
             var message = CreateMessage(HttpMethod.Put, uri, content, headers);
             return SendReadResponseAsync(message);
         }
 
-        public Task<ClientResponse> DeleteAsync(string uri, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> DeleteAsync(string uri, HeaderDictionary headers = null)
         {
             var message = CreateMessage(HttpMethod.Delete, uri, null, headers);
             return SendReadResponseAsync(message);
@@ -45,7 +45,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         #region Helper
 
-        private HttpRequestMessage CreateMessage(HttpMethod method, string uri, string content, RequestHeaderCollection headers = null)
+        private HttpRequestMessage CreateMessage(HttpMethod method, string uri, string content, HeaderDictionary headers = null)
         {
             var requestUri = new Uri(HttpClient.BaseAddress, uri);
 
@@ -63,16 +63,16 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
             if(headers != null)
             {
-                foreach (var header in headers.Headers)
+                foreach (var header in headers)
                 {
-                    requestMessage.Headers.Add(header.Name, header.Value);
+                    requestMessage.Headers.Add(header.Key, header.Value.AsEnumerable());
                 }
             }
 
             if (content != null)
             {
-                var requestHeader = headers != null ? headers.Headers.FirstOrDefault(e => e.Name == HttpRequestHeader.ContentType.ToString()) : null;
-                var mediaType = requestHeader?.Value;
+                var mediaTypeHeader = headers?.FirstOrDefault(e => e.Key == HttpRequestHeader.ContentType.ToString());
+                var mediaType = mediaTypeHeader?.Value;
                 var requestContent = new StringContent(content, StringContentEncoding, mediaType);
                 requestMessage.Content = requestContent;
             }

@@ -4,12 +4,12 @@ namespace Optivem.Atomiv.Core.Common.Http
 {
     public interface IContentClient
     {
-        Task<string> GetAsync(string uri, RequestHeaderCollection headers = null);
+        Task<string> GetAsync(string uri, HeaderDictionary headers = null);
 
-        Task<string> PostAsync(string uri, string content, RequestHeaderCollection headers = null);
+        Task<string> PostAsync(string uri, string content, HeaderDictionary headers = null);
 
-        Task<string> PutAsync(string uri, string content, RequestHeaderCollection headers = null);
+        Task<string> PutAsync(string uri, string content, HeaderDictionary headers = null);
 
-        Task<string> DeleteAsync(string uri, RequestHeaderCollection headers = null);
+        Task<string> DeleteAsync(string uri, HeaderDictionary headers = null);
     }
 }

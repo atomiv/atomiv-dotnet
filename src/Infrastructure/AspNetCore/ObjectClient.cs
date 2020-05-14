@@ -8,7 +8,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public class ObjectClient : IObjectClient
     {
-        public ObjectClient(IClient client, IFormatSerializer serializer, RequestHeaderCollection headers, Encoding encoding)
+        public ObjectClient(IClient client, IFormatSerializer serializer, HeaderDictionary headers, Encoding encoding)
         {
             Client = client;
             Serializer = serializer;
@@ -16,25 +16,25 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             Encoding = encoding;
         }
 
-        public ObjectClient(IClient client, IFormatSerializer serializer, RequestHeaderCollection headers)
+        public ObjectClient(IClient client, IFormatSerializer serializer, HeaderDictionary headers)
             : this(client, serializer, headers, Encoding.UTF8) { }
 
         public IClient Client { get; }
 
         public IFormatSerializer Serializer { get; }
 
-        public RequestHeaderCollection Headers { get; }
+        public HeaderDictionary Headers { get; }
 
         public Encoding Encoding { get; }
 
-        public async Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
+        public async Task<ObjectClientResponse<TResponse>> GetAsync<TResponse>(string uri, HeaderDictionary headers = null)
         {
             var headerUnion = Union(headers);
             var response = await Client.GetAsync(uri, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TRequest, TResponse>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             var content = Serialize(request);
             var headerUnion = Union(headers);
@@ -42,21 +42,21 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Deserialize<TResponse>(response);
         }
 
-        public Task<ClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> PostNoResponseAsync<TRequest>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             var content = Serialize(request);
             var headerUnion = Union(headers);
             return Client.PostAsync(uri, content, headerUnion);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
+        public async Task<ObjectClientResponse<TResponse>> PostAsync<TResponse>(string uri, HeaderDictionary headers = null)
         {
             var headerUnion = Union(headers);
             var response = await Client.PostAsync(uri, null, headerUnion);
             return Deserialize<TResponse>(response);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public async Task<ObjectClientResponse<TResponse>> PutAsync<TRequest, TResponse>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             var content = Serialize(request);
             var headerUnion = Union(headers);
@@ -64,14 +64,14 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             return Deserialize<TResponse>(response);
         }
 
-        public Task<ClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<ClientResponse> PutNoResponseAsync<TRequest>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             var content = Serialize(request);
             var headerUnion = Union(headers);
             return Client.PutAsync(uri, content, headerUnion);
         }
 
-        public async Task<ObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
+        public async Task<ObjectClientResponse<TResponse>> DeleteAsync<TResponse>(string uri, HeaderDictionary headers = null)
         {
             var headerUnion = Union(headers);
             var response = await Client.DeleteAsync(uri, headerUnion);
@@ -80,7 +80,7 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         #region Helper
 
-        private RequestHeaderCollection Union(RequestHeaderCollection other)
+        private HeaderDictionary Union(HeaderDictionary other)
         {
             if(other == null)
             {

@@ -13,22 +13,22 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
 
         public IControllerClient Client { get; }
 
-        public Task<TResponse> DeleteAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
+        public Task<TResponse> DeleteAsync<TResponse>(string uri, HeaderDictionary headers = null)
         {
             return ExecuteAsync(e => e.DeleteAsync<TResponse>(uri, headers));
         }
 
-        public Task<string> DeleteAsync(string uri, RequestHeaderCollection headers = null)
+        public Task<string> DeleteAsync(string uri, HeaderDictionary headers = null)
         {
             return ExecuteAsync(e => e.DeleteAsync(uri, headers));
         }
 
-        public Task<TResponse> DeleteByIdAsync<TId, TResponse>(TId id, RequestHeaderCollection headers = null)
+        public Task<TResponse> DeleteByIdAsync<TId, TResponse>(TId id, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> DeleteByIdAsync<TId>(TId id, RequestHeaderCollection headers = null)
+        public Task<string> DeleteByIdAsync<TId>(TId id, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
@@ -38,92 +38,92 @@ namespace Optivem.Atomiv.Infrastructure.AspNetCore
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> GetAsync<TRequest, TResponse>(TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> GetAsync<TRequest, TResponse>(TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> GetAsync<TResponse>(RequestHeaderCollection headers = null)
+        public Task<TResponse> GetAsync<TResponse>(HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetAsync(RequestHeaderCollection headers = null)
+        public Task<string> GetAsync(HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> GetAsync<TResponse>(string uri, RequestHeaderCollection headers = null)
+        public Task<TResponse> GetAsync<TResponse>(string uri, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetAsync(string uri, RequestHeaderCollection headers = null)
+        public Task<string> GetAsync(string uri, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> GetByIdAsync<TId, TResponse>(TId id, RequestHeaderCollection headers = null)
+        public Task<TResponse> GetByIdAsync<TId, TResponse>(TId id, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> GetByIdAsync<TId>(TId id, RequestHeaderCollection headers = null)
+        public Task<string> GetByIdAsync<TId>(TId id, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> PostAsync<TRequest, TResponse>(TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> PostAsync<TRequest, TResponse>(TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PostAsync<TRequest>(TRequest request, RequestHeaderCollection headers = null)
+        public Task<string> PostAsync<TRequest>(TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> PostAsync<TRequest, TResponse>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PostAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<string> PostAsync<TRequest>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PostAsync(string uri, string content, RequestHeaderCollection headers = null)
+        public Task<string> PostAsync(string uri, string content, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> PostSubAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> PostSubAsync<TRequest, TResponse>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> PutAsync<TRequest, TResponse>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PutAsync<TRequest>(string uri, TRequest request, RequestHeaderCollection headers = null)
+        public Task<string> PutAsync<TRequest>(string uri, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PutAsync(string uri, string content, RequestHeaderCollection headers = null)
+        public Task<string> PutAsync(string uri, string content, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TResponse> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request, RequestHeaderCollection headers = null)
+        public Task<TResponse> PutByIdAsync<TId, TRequest, TResponse>(TId id, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> PutByIdAsync<TId, TRequest>(TId id, TRequest request, RequestHeaderCollection headers = null)
+        public Task<string> PutByIdAsync<TId, TRequest>(TId id, TRequest request, HeaderDictionary headers = null)
         {
             throw new NotImplementedException();
         }
