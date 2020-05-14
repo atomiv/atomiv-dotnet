@@ -9,6 +9,6 @@ namespace Optivem.Atomiv.Template.Web.RestClient.Interface
     {
         public string Token { get; set; }
 
-        public string Locale { get; set; }
+        public string Language { get; set; }
     }
 }

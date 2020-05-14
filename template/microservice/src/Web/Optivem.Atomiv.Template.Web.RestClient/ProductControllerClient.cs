@@ -21,24 +21,24 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request, HeaderData header)
         {
-            return Client.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
+            return Client.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request, HeaderData header)
         {
-            return Client.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request);
+            return Client.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request);
+            return Client.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request, GetHeaders(header));
         }
 
         #endregion
@@ -47,18 +47,18 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request, HeaderData header)
         {
-            return Client.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
+            return Client.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request, HeaderData header)
         {
-            return Client.GetAsync<FilterProductsQueryResponse>("filter");
+            return Client.GetAsync<FilterProductsQueryResponse>("filter", GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request, HeaderData header)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, ViewProductQueryResponse>(id);
+            return Client.GetByIdAsync<Guid, ViewProductQueryResponse>(id, GetHeaders(header));
         }
 
         #endregion

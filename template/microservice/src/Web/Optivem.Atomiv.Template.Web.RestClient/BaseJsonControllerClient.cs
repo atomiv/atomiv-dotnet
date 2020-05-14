@@ -1,4 +1,5 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
+﻿using Microsoft.Net.Http.Headers;
+using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
 using Optivem.Atomiv.Infrastructure.AspNetCore;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
@@ -20,7 +21,9 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         protected HeaderDictionary GetHeaders(HeaderData headerData)
         {
-            throw new NotImplementedException();
+            return new HeaderDictionary(
+                (HeaderNames.Authorization, $"Bearer {headerData.Token}"),
+                (HeaderNames.AcceptLanguage, headerData.Language));
         }
     }
 }

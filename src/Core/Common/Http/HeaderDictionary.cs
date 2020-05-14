@@ -58,19 +58,15 @@ namespace Optivem.Atomiv.Core.Common.Http
             }
         }
 
-        public HeaderDictionary Union(HeaderDictionary other)
+        public HeaderDictionary Union(HeaderDictionary otherHeaders)
         {
-            // throw new NotImplementedException();
-
-            var otherHeaders = other._headers;
-
-            var resultHeaders = new Dictionary<string, StringValues>();
+            var resultHeaders = _headers.ToDictionary(e => e.Key, e => e.Value);
 
             foreach(var otherHeader in otherHeaders)
             {
-                if(_headers.ContainsKey(otherHeader.Key))
+                if(ContainsKey(otherHeader.Key))
                 {
-                    var array = _headers[otherHeader.Key]
+                    var array = this[otherHeader.Key]
                         .Union(otherHeader.Value)
                         .ToArray();
 

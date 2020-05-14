@@ -227,7 +227,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
             var result = new HeaderData
             {
                 Token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7",
-                Locale = "en",
+                Language = "en",
             };
 
             return Task.FromResult(result);

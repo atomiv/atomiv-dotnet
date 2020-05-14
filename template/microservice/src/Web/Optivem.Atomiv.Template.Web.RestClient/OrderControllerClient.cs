@@ -22,29 +22,29 @@ namespace Optivem.Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive");
+            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive", GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.PostAsync<CancelOrderCommandResponse>($"{id}/cancel");
+            return Client.PostAsync<CancelOrderCommandResponse>($"{id}/cancel", GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request, HeaderData header)
         {
-            return Client.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request);
+            return Client.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request, HeaderData header)
         {
-            return Client.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.PostAsync<SubmitOrderCommandResponse>($"{id}/submit");
+            return Client.PostAsync<SubmitOrderCommandResponse>($"{id}/submit", GetHeaders(header));
         }
 
         #endregion
@@ -58,13 +58,13 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request, HeaderData header)
         {
-            return Client.GetAsync<FilterOrdersQueryResponse>("filter");
+            return Client.GetAsync<FilterOrdersQueryResponse>("filter", GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request, HeaderData header)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, ViewOrderQueryResponse>(id);
+            return Client.GetByIdAsync<Guid, ViewOrderQueryResponse>(id, GetHeaders(header));
         }
 
         #endregion
