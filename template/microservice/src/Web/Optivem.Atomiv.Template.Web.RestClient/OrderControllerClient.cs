@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestClient
 {
-    public class OrderControllerClient : IOrderControllerClient
+    public class OrderControllerClient : BaseJsonControllerClient, IOrderControllerClient
     {
-        private readonly JsonHttpControllerClient _controllerClient;
-
         public OrderControllerClient(HttpClient httpClient, IJsonSerializer jsonSerializer)
+            : base(httpClient, jsonSerializer, "api/orders")
         {
-            _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/orders");
         }
 
         #region Commands
@@ -24,29 +22,29 @@ namespace Optivem.Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive");
+            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive");
         }
 
         public Task<ObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.PostAsync<CancelOrderCommandResponse>($"{id}/cancel");
+            return Client.PostAsync<CancelOrderCommandResponse>($"{id}/cancel");
         }
 
         public Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand request, HeaderData header)
         {
-            return _controllerClient.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request);
+            return Client.PostAsync<CreateOrderCommand, CreateOrderCommandResponse>(request);
         }
 
         public Task<ObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request, HeaderData header)
         {
-            return _controllerClient.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request);
         }
 
         public Task<ObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.PostAsync<SubmitOrderCommandResponse>($"{id}/submit");
+            return Client.PostAsync<SubmitOrderCommandResponse>($"{id}/submit");
         }
 
         #endregion
@@ -60,13 +58,13 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<FilterOrdersQueryResponse>> FilterOrdersAsync(FilterOrdersQuery request, HeaderData header)
         {
-            return _controllerClient.GetAsync<FilterOrdersQueryResponse>("filter");
+            return Client.GetAsync<FilterOrdersQueryResponse>("filter");
         }
 
         public Task<ObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.GetByIdAsync<Guid, ViewOrderQueryResponse>(id);
+            return Client.GetByIdAsync<Guid, ViewOrderQueryResponse>(id);
         }
 
         #endregion

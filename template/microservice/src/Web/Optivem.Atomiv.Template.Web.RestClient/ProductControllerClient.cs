@@ -10,37 +10,35 @@ using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestClient
 {
-    public class ProductControllerClient : IProductControllerClient
+    public class ProductControllerClient : BaseJsonControllerClient, IProductControllerClient
     {
-        private readonly JsonHttpControllerClient _controllerClient;
-
         public ProductControllerClient(HttpClient httpClient, IJsonSerializer jsonSerializer)
+            : base(httpClient, jsonSerializer, "api/products")
         {
-            _controllerClient = new JsonHttpControllerClient(httpClient, jsonSerializer, "api/products");
         }
 
         #region Commands
 
         public Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request, HeaderData header)
         {
-            return _controllerClient.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
+            return Client.PostAsync<CreateProductCommand, CreateProductCommandResponse>(request);
         }
 
         public Task<ObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request, HeaderData header)
         {
-            return _controllerClient.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request);
+            return Client.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request);
         }
 
         public Task<ObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request);
+            return Client.PostAsync<RelistProductCommand, RelistProductCommandResponse>($"{id}/relist", request);
         }
 
         public Task<ObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request);
+            return Client.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request);
         }
 
         #endregion
@@ -49,18 +47,18 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<BrowseProductsQueryResponse>> BrowseProductsAsync(BrowseProductsQuery request, HeaderData header)
         {
-            return _controllerClient.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
+            return Client.GetAsync<BrowseProductsQuery, BrowseProductsQueryResponse>(request);
         }
 
         public Task<ObjectClientResponse<FilterProductsQueryResponse>> FilterProductsAsync(FilterProductsQuery request, HeaderData header)
         {
-            return _controllerClient.GetAsync<FilterProductsQueryResponse>("filter");
+            return Client.GetAsync<FilterProductsQueryResponse>("filter");
         }
 
         public Task<ObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request, HeaderData header)
         {
             var id = request.Id;
-            return _controllerClient.GetByIdAsync<Guid, ViewProductQueryResponse>(id);
+            return Client.GetByIdAsync<Guid, ViewProductQueryResponse>(id);
         }
 
         #endregion
