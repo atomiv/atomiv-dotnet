@@ -3,15 +3,15 @@
 namespace Optivem.Atomiv.Core.Application
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public class BaseRequestActionAttribute : Attribute
+    public class RequestActionAttribute : Attribute
     {
-        public BaseRequestActionAttribute(string action)
+        public RequestActionAttribute(string action)
         {
             Action = action;
         }
 
-        public BaseRequestActionAttribute(object action)
-            : this(action?.ToString())
+        public RequestActionAttribute(object action)
+            : this(ToString(action))
         {
 
         }
@@ -21,6 +21,11 @@ namespace Optivem.Atomiv.Core.Application
         public override string ToString()
         {
             return Action;
+        }
+
+        private static string ToString(object action)
+        {
+            return action?.ToString();
         }
     }
 }

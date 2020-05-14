@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequests = new List<CreateProductCommand>
             {
                 new CreateProductCommand
@@ -65,7 +67,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             // Act
 
-            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest, header);
 
             // Assert
 
@@ -81,6 +83,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var id = Guid.NewGuid();
 
             var updateRequest = new EditProductCommand
@@ -92,7 +96,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             // Act
 
-            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+            var updateHttpResponse = await Fixture.Api.Products.EditProductAsync(updateRequest, header);
 
             // Assert
 
@@ -103,6 +107,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         public async Task UpdateProduct_Invalid_UnprocessableEntity()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateProductCommand>
             {
@@ -150,7 +156,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             // Act
 
-            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest);
+            var updateResponse = await Fixture.Api.Products.EditProductAsync(updateRequest, header);
 
             // Assert
 

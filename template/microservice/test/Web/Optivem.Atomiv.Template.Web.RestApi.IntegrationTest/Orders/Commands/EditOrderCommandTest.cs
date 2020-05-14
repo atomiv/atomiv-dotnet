@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createCustomerResponses = await CreateSampleCustomersAsync();
             var createProductResponses = await CreateSampleProductsAsync();
             var createOrderResponses = await CreateSampleOrdersAsync(createCustomerResponses, createProductResponses);
@@ -55,7 +57,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             // Act
 
-            var updateHttpResponse = await Fixture.Api.Orders.EditOrderAsync(updateRequest);
+            var updateHttpResponse = await Fixture.Api.Orders.EditOrderAsync(updateRequest, header);
 
             // Assert
 

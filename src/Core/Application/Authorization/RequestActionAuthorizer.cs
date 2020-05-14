@@ -15,8 +15,8 @@ namespace Optivem.Atomiv.Core.Application.Authorization
         public override Task<RequestAuthorizationResult> AuthorizeAsync(TRequest request)
         {
             var type = typeof(TRequest);
-            var customAttributeType = typeof(BaseRequestActionAttribute);
-            var customAttribute = type.GetCustomAttributes(customAttributeType, false).FirstOrDefault() as BaseRequestActionAttribute;
+            var customAttributeType = typeof(RequestActionAttribute);
+            var customAttribute = type.GetCustomAttributes(customAttributeType, false).FirstOrDefault() as RequestActionAttribute;
 
             if(customAttribute == null)
             {

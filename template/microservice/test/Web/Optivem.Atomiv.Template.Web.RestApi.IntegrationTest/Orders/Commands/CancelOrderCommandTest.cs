@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createResponses = await CreateSampleOrdersAsync();
             var someCreateResponse = createResponses[1];
 
@@ -26,7 +28,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             var id = someCreateResponse.Data.Id;
             var cancelRequest = new CancelOrderCommand { Id = id };
-            var cancelHttpResponse = await Fixture.Api.Orders.CancelOrderAsync(cancelRequest);
+            var cancelHttpResponse = await Fixture.Api.Orders.CancelOrderAsync(cancelRequest, header);
 
             // Assert
 
@@ -43,7 +45,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             archiveResponse.Should().BeEquivalentTo(expectedArchiveResponse);
 
             var findRequest = new ViewOrderQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest, header);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

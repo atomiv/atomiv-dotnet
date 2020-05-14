@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using FluentValidation.Results;
+using Optivem.Atomiv.Template.Web.RestClient.Interface;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
@@ -69,21 +71,24 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 
         protected async Task<ObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand command)
         {
-            var httpResponse = await Fixture.Api.Customers.CreateCustomerAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Customers.CreateCustomerAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
         protected async Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand command)
         {
-            var httpResponse = await Fixture.Api.Orders.CreateOrderAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Orders.CreateOrderAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
         protected async Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand command)
         {
-            var httpResponse = await Fixture.Api.Products.CreateProductAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Products.CreateProductAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
@@ -215,15 +220,17 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         }
 
 
-        /*
-         * 
+        protected Task<HeaderData> GetDefaultHeaderDataAsync()
+        {
+            // TODO: VC: Make call to service to get token for user
 
+            var result = new HeaderData
+            {
+                Token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7",
+                Locale = "en",
+            };
 
-
-
-
-         * 
-         */
-
+            return Task.FromResult(result);
+        }
     }
 }

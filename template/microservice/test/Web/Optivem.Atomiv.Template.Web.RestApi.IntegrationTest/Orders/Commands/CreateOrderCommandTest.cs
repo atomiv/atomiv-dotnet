@@ -21,6 +21,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createCustomerResponses = await CreateSampleCustomersAsync();
             var createProductResponses = await CreateSampleProductsAsync();
 
@@ -50,7 +52,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest, header);
 
             // Assert
 
@@ -78,7 +80,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             }
 
             var findRequest = new ViewOrderQuery { Id = createResponse.Id };
-            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest, header);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -92,6 +94,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var customerId = Guid.NewGuid();
 
             var createRequest = new CreateOrderCommand
@@ -102,7 +106,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Orders.CreateOrderAsync(createRequest, header);
 
             // Assert
 

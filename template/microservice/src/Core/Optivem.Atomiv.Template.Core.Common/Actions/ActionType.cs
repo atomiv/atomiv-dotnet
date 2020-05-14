@@ -6,9 +6,9 @@
 
         #region Customers
 
-        CreateCustomerCommand = 1,
-        DeleteCustomerCommand = 2,
-        EditCustomerCommand = 3,
+        CreateCustomer = 1,
+        DeleteCustomer = 2,
+        EditCustomer = 3,
         
         BrowseCustomers = 4,
         FilterCustomers = 5,

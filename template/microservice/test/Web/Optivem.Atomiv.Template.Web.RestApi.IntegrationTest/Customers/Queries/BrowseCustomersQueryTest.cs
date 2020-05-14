@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequests = new List<CreateCustomerCommand>
             {
                 new CreateCustomerCommand
@@ -73,7 +75,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
                 Size = 3,
             };
 
-            var browseHttpResponse = await Fixture.Api.Customers.BrowseCustomersAsync(browseRequest);
+            var browseHttpResponse = await Fixture.Api.Customers.BrowseCustomersAsync(browseRequest, header);
 
             // Assert
 

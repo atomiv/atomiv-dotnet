@@ -21,18 +21,18 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         #region Commands
 
-        public Task<ObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
+        public Task<ObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request, HeaderData header)
         {
             return _controllerClient.PostAsync<CreateCustomerCommand, CreateCustomerCommandResponse>(request);
         }
 
-        public Task<ObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request)
+        public Task<ObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request, HeaderData header)
         {
             var id = request.Id;
             return _controllerClient.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id);
         }
 
-        public Task<ObjectClientResponse<EditCustomerCommandResponse>> EditCustomerAsync(EditCustomerCommand request)
+        public Task<ObjectClientResponse<EditCustomerCommandResponse>> EditCustomerAsync(EditCustomerCommand request, HeaderData header)
         {
             return _controllerClient.PutByIdAsync<Guid, EditCustomerCommand, EditCustomerCommandResponse>(request.Id, request);
         }
@@ -41,17 +41,17 @@ namespace Optivem.Atomiv.Template.Web.RestClient
 
         #region Queries
 
-        public Task<ObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request)
+        public Task<ObjectClientResponse<BrowseCustomersQueryResponse>> BrowseCustomersAsync(BrowseCustomersQuery request, HeaderData header)
         {
             return _controllerClient.GetAsync<BrowseCustomersQuery, BrowseCustomersQueryResponse>(request);
         }
 
-        public Task<ObjectClientResponse<FilterCustomersQueryResponse>> FilterCustomersAsync(FilterCustomersQuery request)
+        public Task<ObjectClientResponse<FilterCustomersQueryResponse>> FilterCustomersAsync(FilterCustomersQuery request, HeaderData header)
         {
             return _controllerClient.GetAsync<FilterCustomersQuery, FilterCustomersQueryResponse>("filter", request);
         }
 
-        public Task<ObjectClientResponse<ViewCustomerQueryResponse>> ViewCustomerAsync(ViewCustomerQuery request)
+        public Task<ObjectClientResponse<ViewCustomerQueryResponse>> ViewCustomerAsync(ViewCustomerQuery request, HeaderData header)
         {
             var id = request.Id;
             return _controllerClient.GetByIdAsync<Guid, ViewCustomerQueryResponse>(id);

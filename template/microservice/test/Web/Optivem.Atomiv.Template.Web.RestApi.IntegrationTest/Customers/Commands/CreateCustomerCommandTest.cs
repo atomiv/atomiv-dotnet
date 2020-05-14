@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequest = new CreateCustomerCommand
             {
                 FirstName = "First name 1",
@@ -26,7 +28,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest, header);
 
             // Assert
 
@@ -39,7 +41,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             var id = createResponse.Id;
             var findRequest = new ViewCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
             var findResponse = findHttpResponse.Data;
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             findResponse.Should().BeEquivalentTo(createResponse);
@@ -50,6 +52,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequest = new CreateCustomerCommand
             {
                 FirstName = null,
@@ -58,7 +62,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest, header);
 
             // Assert
 

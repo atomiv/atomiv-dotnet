@@ -52,13 +52,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
 
             foreach(var role in Roles)
             {
-                var roleValue = ((byte)role).ToString();
+                var roleValue = role.ToString();
                 claims.Add(new Claim(ClaimTypes.Role, roleValue));
             }
 
             foreach(var action in Actions)
             {
-                var actionValue = ((byte)action).ToString();
+                var actionValue = action.ToString();
                 claims.Add(new Claim(ExtendedClaimTypes.ActionType, actionValue));
             }
 

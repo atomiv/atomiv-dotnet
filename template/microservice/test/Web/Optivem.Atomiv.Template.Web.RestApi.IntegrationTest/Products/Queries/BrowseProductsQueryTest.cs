@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createProductResponses = new List<CreateProductCommandResponse>();
 
             for (int i = 1; i <= 30; i++)
@@ -30,7 +32,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
                     UnitPrice = 100 + i,
                 };
 
-                var createProductHttpResponse = await Fixture.Api.Products.CreateProductAsync(createProductRequest);
+                var createProductHttpResponse = await Fixture.Api.Products.CreateProductAsync(createProductRequest, header);
 
                 createProductHttpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
 
@@ -47,7 +49,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
 
             // Act
 
-            var browseHttpResponse = await Fixture.Api.Products.BrowseProductsAsync(browseRequest);
+            var browseHttpResponse = await Fixture.Api.Products.BrowseProductsAsync(browseRequest, header);
 
             // Assert
 
