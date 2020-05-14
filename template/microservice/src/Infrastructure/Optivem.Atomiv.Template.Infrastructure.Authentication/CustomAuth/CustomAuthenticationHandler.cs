@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
 using Optivem.Atomiv.Infrastructure.AspNetCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -14,25 +15,24 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
     {
         private readonly IUserInfoService _userInfoService;
 
+        private const string Bearer = "Bearer";
+
         public CustomAuthenticationHandler(IOptionsMonitor<CustomAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserInfoService userInfoService)
             : base(options, logger, encoder, clock)
         {
             _userInfoService = userInfoService;
         }
 
-
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            /*
             if (!Request.Headers.TryGetValue(HeaderNames.Authorization, out var authorization))
             {
                 return AuthenticateResult.Fail($"Cannot get {HeaderNames.Authorization} header value");
             }
-            */
 
-            var token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7"; // TODO: VC: Get from header
+            var bearer = authorization.FirstOrDefault();
 
-            // var token = "lala";
+            var token = bearer.Replace($"{Bearer} ", string.Empty);
 
             var userInfo = await _userInfoService.GetUserInfoAsync(token);
 
