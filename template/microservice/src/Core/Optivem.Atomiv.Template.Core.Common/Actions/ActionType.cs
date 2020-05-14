@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Atomiv.Template.Core.Common.Actions
 {
-    public enum ActionType
+    public enum ActionType : byte
     {
         None = 0,
 

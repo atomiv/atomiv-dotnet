@@ -11,15 +11,17 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 {
     public class CustomAuthenticationHandler : AuthenticationHandler<CustomAuthenticationOptions>
     {
-        public CustomAuthenticationHandler(IOptionsMonitor<CustomAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)
+        private readonly IUserInfoService _userInfoService;
+
+        public CustomAuthenticationHandler(IOptionsMonitor<CustomAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserInfoService userInfoService)
             : base(options, logger, encoder, clock)
         {
-
+            _userInfoService = userInfoService;
         }
 
         // TODO: VC: Continue from https://github.com/ignas-sakalauskas/CustomAuthenticationNetCore/blob/master/CustomAuthNetCore21/Authentication/CustomAuthHandler.cs
 
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             // TODO: VC: Enable later
 
@@ -32,6 +34,10 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
             // authorization[0]
 
             */
+
+            var token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7"; // TODO: VC: Get from header
+
+            var userInfo = await _userInfoService.GetUserInfoAsync(token);
 
             var claims = new List<Claim>
             {
@@ -50,7 +56,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
 
             var result = AuthenticateResult.Success(ticket);
 
-            return Task.FromResult(result);
+            return result;
         }
     }
 }

@@ -12,6 +12,7 @@ using Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.System;
+using Optivem.Atomiv.Template.Infrastructure.Authentication.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
@@ -74,7 +75,9 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 options.UseSqlServer(connection);
                 options.EnableSensitiveDataLogging();
             });
-            
+
+            services.AddUserContext<User, UserFactory>();
+
             services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);
 

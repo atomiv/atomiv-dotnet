@@ -1,24 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Core.Application;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
-    public class UserContext : IUserContext
+    public class UserContext<TUser> : IUserContext<TUser> where TUser : IUser
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IUserFactory<TUser> _userFactory;
 
-        public UserContext(IHttpContextAccessor httpContextAccessor)
+        public UserContext(IHttpContextAccessor httpContextAccessor, IUserFactory<TUser> userFactory)
         {
             _httpContextAccessor = httpContextAccessor;
+            _userFactory = userFactory;
         }
 
-        public IUser User
+        TUser IUserContext<TUser>.User => GetUser();
+
+        IUser IUserContext.User => GetUser();
+
+        private TUser GetUser()
         {
-            get
-            {
-                var principal = _httpContextAccessor.HttpContext.User;
-                return new User(principal);
-            }
+            var principal = _httpContextAccessor.HttpContext.User;
+            return _userFactory.Create(principal);
         }
     }
 }

@@ -12,7 +12,27 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore
         {
             var types = assemblies.GetTypes();
 
-            services.AddScoped<IUserContext, UserContext>();
+
+
+            return services;
+        }
+
+        public static IServiceCollection AddUserContext<TUser>(this IServiceCollection services)
+            where TUser : IUser
+        {
+            services.AddScoped<IUserContext, UserContext<TUser>>();
+            services.AddScoped<IUserContext<TUser>, UserContext<TUser>>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddUserContext<TUser, TUserFactory>(this IServiceCollection services)
+            where TUser : IUser
+            where TUserFactory : class, IUserFactory<TUser>
+        {
+            services.AddUserContext<TUser>();
+
+            services.AddScoped<IUserFactory<TUser>, TUserFactory>();
 
             return services;
         }
