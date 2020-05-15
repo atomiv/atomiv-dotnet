@@ -48,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories
 {
     public class Module
     {

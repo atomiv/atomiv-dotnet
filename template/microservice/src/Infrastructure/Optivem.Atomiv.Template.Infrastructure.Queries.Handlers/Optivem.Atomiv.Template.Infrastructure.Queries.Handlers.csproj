@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
