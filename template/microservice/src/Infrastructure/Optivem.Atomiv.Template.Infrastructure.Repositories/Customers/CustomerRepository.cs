@@ -5,7 +5,7 @@ using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
+namespace Optivem.Atomiv.Template.Infrastructure.Repositories.Customers
 {
     public class CustomerRepository : Repository, ICustomerRepository
     {

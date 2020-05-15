@@ -9,7 +9,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
+namespace Optivem.Atomiv.Template.Infrastructure.Repositories.Orders
 {
     public class OrderRepository : Repository, IOrderRepository
     {

@@ -203,6 +203,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Queries", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj", "{FE79B46D-580C-4258-861D-39D9140A92EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Repositories", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Repositories\Optivem.Atomiv.Template.Infrastructure.Repositories.csproj", "{1E701E44-A7DD-470A-984A-29B2122D119B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -505,6 +507,10 @@ Global
 		{FE79B46D-580C-4258-861D-39D9140A92EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE79B46D-580C-4258-861D-39D9140A92EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE79B46D-580C-4258-861D-39D9140A92EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E701E44-A7DD-470A-984A-29B2122D119B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E701E44-A7DD-470A-984A-29B2122D119B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E701E44-A7DD-470A-984A-29B2122D119B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E701E44-A7DD-470A-984A-29B2122D119B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -608,6 +614,7 @@ Global
 		{F06C2704-A9C1-4B96-90E9-2F05D26FBAC2} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{13F172F8-AF38-49FD-B439-E4D8A3642AB0} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{FE79B46D-580C-4258-861D-39D9140A92EC} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
+		{1E701E44-A7DD-470A-984A-29B2122D119B} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
+namespace Optivem.Atomiv.Template.Infrastructure.Repositories.Products
 {
     public class ProductRepository : Repository, IProductRepository
     {
