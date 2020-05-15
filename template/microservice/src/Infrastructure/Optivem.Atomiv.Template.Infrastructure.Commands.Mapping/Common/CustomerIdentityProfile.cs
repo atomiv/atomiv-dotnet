@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Mapping.Customers
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.Common
 {
     public class CustomerIdentityProfile : Profile
     {

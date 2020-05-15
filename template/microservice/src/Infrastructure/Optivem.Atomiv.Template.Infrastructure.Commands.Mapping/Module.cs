@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Infrastructure.Commands.Mapping
 {
-    public class Class1
+    public class Module
     {
     }
 }

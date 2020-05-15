@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Mapping.Products
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.Common
 {
     public class ProductIdentityProfile : Profile
     {
