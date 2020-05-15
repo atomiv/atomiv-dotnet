@@ -153,8 +153,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Persistence", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj", "{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Validation", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Validation\Optivem.Atomiv.Template.Infrastructure.Validation.csproj", "{33FF7575-F83A-4676-B6D1-469F3B58799F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.All", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.All\Optivem.Atomiv.Template.Infrastructure.All.csproj", "{D3E850FF-C65A-450B-A485-D5520D28E57D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.DependencyInjection", "template\microservice\src\DependencyInjection\Optivem.Atomiv.Template.DependencyInjection\Optivem.Atomiv.Template.DependencyInjection.csproj", "{BC15CD7B-D092-4531-8E42-97C5C105BFE8}"
@@ -193,17 +191,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Commands.Validation", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Commands.Validation\Optivem.Atomiv.Template.Infrastructure.Commands.Validation.csproj", "{3558D818-D657-4FC3-8FD9-29470CC28DB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Commands.Mapping", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.csproj", "{C8D93782-D163-4E7F-8C44-0762E93A0024}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Commands.Mapping", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.csproj", "{C8D93782-D163-4E7F-8C44-0762E93A0024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Queries.Validation", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Queries.Validation\Optivem.Atomiv.Template.Infrastructure.Queries.Validation.csproj", "{176BE002-F0B6-4E47-B84A-78C662FAE3B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Queries.Validation", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Queries.Validation\Optivem.Atomiv.Template.Infrastructure.Queries.Validation.csproj", "{176BE002-F0B6-4E47-B84A-78C662FAE3B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Queries.Handlers", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.csproj", "{6C2E875D-9D17-4B59-8F32-B22E962B314A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Queries.Handlers", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.csproj", "{6C2E875D-9D17-4B59-8F32-B22E962B314A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Core.Application.Commands.Handlers", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Commands.Handlers\Optivem.Atomiv.Template.Core.Application.Commands.Handlers.csproj", "{F06C2704-A9C1-4B96-90E9-2F05D26FBAC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Commands.Handlers", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Commands.Handlers\Optivem.Atomiv.Template.Core.Application.Commands.Handlers.csproj", "{F06C2704-A9C1-4B96-90E9-2F05D26FBAC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Core.Application.Commands", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj", "{13F172F8-AF38-49FD-B439-E4D8A3642AB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Commands", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj", "{13F172F8-AF38-49FD-B439-E4D8A3642AB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Core.Application.Queries", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj", "{FE79B46D-580C-4258-861D-39D9140A92EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Queries", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj", "{FE79B46D-580C-4258-861D-39D9140A92EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -411,10 +409,6 @@ Global
 		{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33FF7575-F83A-4676-B6D1-469F3B58799F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33FF7575-F83A-4676-B6D1-469F3B58799F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33FF7575-F83A-4676-B6D1-469F3B58799F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33FF7575-F83A-4676-B6D1-469F3B58799F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3E850FF-C65A-450B-A485-D5520D28E57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3E850FF-C65A-450B-A485-D5520D28E57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3E850FF-C65A-450B-A485-D5520D28E57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -589,7 +583,6 @@ Global
 		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{32C93850-BFBD-4AA2-B638-9B319864CF9B} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{93CC44B2-235B-4B2D-BA2A-5ADCAB70D43D} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
-		{33FF7575-F83A-4676-B6D1-469F3B58799F} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{D3E850FF-C65A-450B-A485-D5520D28E57D} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{BC15CD7B-D092-4531-8E42-97C5C105BFE8} = {62FF9D8B-9229-403B-863F-D65ABDF3BA7D}
 		{759AEDF3-A3B9-4043-899F-1012A0E68605} = {3793589B-F777-4436-AA48-AD54B1CB4D90}

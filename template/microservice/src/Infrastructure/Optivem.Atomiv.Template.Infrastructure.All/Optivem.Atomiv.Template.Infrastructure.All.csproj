@@ -14,7 +14,6 @@
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Validation\Optivem.Atomiv.Template.Infrastructure.Queries.Validation.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Validation\Optivem.Atomiv.Template.Infrastructure.Validation.csproj" />
   </ItemGroup>
 
 </Project>
