@@ -51,12 +51,13 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Authorization.Module),
                 typeof(Infrastructure.Commands.Mapping.Module),
                 typeof(Infrastructure.Commands.Validation.Module),
+                typeof(Infrastructure.Domain.Repositories.Module),
                 typeof(Infrastructure.External.Module),
                 typeof(Infrastructure.Persistence.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Handlers.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
-                typeof(Infrastructure.Repositories.Module),
+
             };
 
             var moduleTypes = new List<Type>();
