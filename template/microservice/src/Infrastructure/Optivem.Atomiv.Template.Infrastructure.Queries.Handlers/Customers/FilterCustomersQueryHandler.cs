@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 
-namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 {
     public class FilterCustomersQueryHandler : QueryHandler<FilterCustomersQuery, FilterCustomersQueryResponse>
     {

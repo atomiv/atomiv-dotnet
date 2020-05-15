@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Template.Core.Application.Products.Queries;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 
-namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.Products
 {
     public class ViewProductQueryHandler : QueryHandler<ViewProductQuery, ViewProductQueryResponse>
     {

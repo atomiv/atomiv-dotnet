@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 
-namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 {
     public class ViewOrderQueryHandler : QueryHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
