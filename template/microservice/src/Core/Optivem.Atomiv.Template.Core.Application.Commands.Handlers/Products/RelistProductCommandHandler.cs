@@ -3,7 +3,7 @@ using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 
-namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
     public class RelistProductCommandHandler : IRequestHandler<RelistProductCommand, RelistProductCommandResponse>
     {

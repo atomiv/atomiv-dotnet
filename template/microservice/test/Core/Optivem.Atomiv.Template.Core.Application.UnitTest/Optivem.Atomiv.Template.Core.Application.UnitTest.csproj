@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Core\Optivem.Atomiv.Template.Core.Application.Commands.Handlers\Optivem.Atomiv.Template.Core.Application.Commands.Handlers.csproj" />
     <ProjectReference Include="..\..\..\src\Core\Optivem.Atomiv.Template.Core.Application\Optivem.Atomiv.Template.Core.Application.csproj" />
   </ItemGroup>
 

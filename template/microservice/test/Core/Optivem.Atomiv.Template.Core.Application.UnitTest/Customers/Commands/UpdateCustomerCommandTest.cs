@@ -2,7 +2,7 @@
 using Moq;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System;
 using System.Threading.Tasks;

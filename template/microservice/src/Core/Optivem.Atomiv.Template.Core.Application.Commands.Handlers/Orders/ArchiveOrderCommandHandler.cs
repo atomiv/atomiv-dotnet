@@ -3,7 +3,7 @@ using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 
-namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class ArchiveOrderCommandHandler : IRequestHandler<ArchiveOrderCommand, ArchiveOrderCommandResponse>
     {

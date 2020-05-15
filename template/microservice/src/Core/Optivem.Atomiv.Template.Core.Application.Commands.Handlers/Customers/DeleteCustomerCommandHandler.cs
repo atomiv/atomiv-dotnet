@@ -3,7 +3,7 @@ using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 
-namespace Optivem.Atomiv.Template.Core.Application.Customers.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
     public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {

@@ -6,7 +6,7 @@ using Optivem.Atomiv.Template.Core.Domain.Products;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {

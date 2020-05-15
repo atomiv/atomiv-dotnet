@@ -5,7 +5,7 @@ using Optivem.Atomiv.Template.Core.Domain.Products;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Core.Application.Orders.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class EditOrderCommandHandler : IRequestHandler<EditOrderCommand, EditOrderCommandResponse>
     {

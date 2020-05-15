@@ -3,7 +3,7 @@ using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Core.Application.Products.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
     {

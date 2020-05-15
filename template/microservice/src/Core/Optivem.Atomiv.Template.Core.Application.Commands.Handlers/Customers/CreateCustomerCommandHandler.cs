@@ -3,7 +3,7 @@ using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Core.Application.Customers.Commands
+namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
     {
