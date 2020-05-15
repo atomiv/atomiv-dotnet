@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using FluentValidation.Results;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest

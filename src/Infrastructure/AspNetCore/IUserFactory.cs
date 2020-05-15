@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Optivem.Atomiv.Core.Application;
-using System;
-using System.Collections.Generic;
+﻿using Optivem.Atomiv.Core.Application;
 using System.Security.Claims;
-using System.Text;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {

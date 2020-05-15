@@ -2,9 +2,7 @@
 using Optivem.Atomiv.Template.Core.Common.Actions;
 using Optivem.Atomiv.Template.Core.Common.Roles;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
 using System.Security.Claims;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common

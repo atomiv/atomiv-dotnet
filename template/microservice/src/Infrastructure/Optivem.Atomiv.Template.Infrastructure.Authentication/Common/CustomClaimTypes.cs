@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
 {
     public class CustomClaimTypes
     {

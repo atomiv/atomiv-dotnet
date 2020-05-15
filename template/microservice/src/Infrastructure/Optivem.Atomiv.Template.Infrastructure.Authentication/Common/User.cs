@@ -1,9 +1,6 @@
-﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Infrastructure.AspNetCore;
+﻿using Optivem.Atomiv.Infrastructure.AspNetCore;
 using System;
-using System.Linq;
 using System.Security.Claims;
-using System.Security.Principal;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
 {

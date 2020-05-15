@@ -11,7 +11,6 @@ using Optivem.Atomiv.Template.DependencyInjection;
 using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
-using Optivem.Atomiv.Template.Infrastructure.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth;
 

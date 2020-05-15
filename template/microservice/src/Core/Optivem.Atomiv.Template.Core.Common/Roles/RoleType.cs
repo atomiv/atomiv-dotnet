@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Atomiv.Template.Core.Common.Roles
+﻿namespace Optivem.Atomiv.Template.Core.Common.Roles
 {
     public enum RoleType : byte
     {

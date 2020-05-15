@@ -13,7 +13,7 @@ using Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.System;
 using Optivem.Atomiv.Template.Infrastructure.Authentication.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

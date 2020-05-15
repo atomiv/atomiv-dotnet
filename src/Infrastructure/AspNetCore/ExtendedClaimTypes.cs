@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+﻿namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
     public static class ExtendedClaimTypes
     {

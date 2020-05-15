@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Atomiv.Template.DependencyInjection;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using System;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest

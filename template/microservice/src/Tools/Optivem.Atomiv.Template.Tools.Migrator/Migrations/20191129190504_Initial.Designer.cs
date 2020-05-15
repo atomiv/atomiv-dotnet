@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Optivem.Atomiv.Template.Infrastructure.Persistence;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
 {
