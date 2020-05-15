@@ -2,7 +2,7 @@
 
 namespace Optivem.Atomiv.Template.Infrastructure.Queries.Authorization
 {
-    public class Class1
+    public class Module
     {
     }
 }
