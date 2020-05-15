@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\SequentialGuid\Optivem.Atomiv.Infrastructure.SequentialGuid.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

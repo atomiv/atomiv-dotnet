@@ -205,6 +205,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Repositories", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.csproj", "{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Identities", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Identities\Optivem.Atomiv.Template.Infrastructure.Domain.Identities.csproj", "{29933471-79AC-4F13-A152-CBEE7C9BA64D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -511,6 +513,10 @@ Global
 		{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -615,6 +621,7 @@ Global
 		{13F172F8-AF38-49FD-B439-E4D8A3642AB0} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{FE79B46D-580C-4258-861D-39D9140A92EC} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{29933471-79AC-4F13-A152-CBEE7C9BA64D} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

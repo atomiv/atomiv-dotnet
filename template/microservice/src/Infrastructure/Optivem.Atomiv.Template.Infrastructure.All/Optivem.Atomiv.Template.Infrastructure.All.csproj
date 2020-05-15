@@ -9,6 +9,7 @@
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Validation\Optivem.Atomiv.Template.Infrastructure.Commands.Validation.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Identities\Optivem.Atomiv.Template.Infrastructure.Domain.Identities.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization.csproj" />
