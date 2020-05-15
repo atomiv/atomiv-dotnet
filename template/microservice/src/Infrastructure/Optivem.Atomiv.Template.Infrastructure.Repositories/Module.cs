@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Repositories
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories
 {
     public class Module
     {

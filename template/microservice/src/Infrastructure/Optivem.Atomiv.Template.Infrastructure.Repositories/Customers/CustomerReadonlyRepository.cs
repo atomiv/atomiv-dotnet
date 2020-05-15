@@ -4,7 +4,7 @@ using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Repositories.Customers
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 {
     public class CustomerReadonlyRepository : Repository, ICustomerReadonlyRepository
     {

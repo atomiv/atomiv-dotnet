@@ -203,7 +203,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Queries", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj", "{FE79B46D-580C-4258-861D-39D9140A92EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Repositories", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Repositories\Optivem.Atomiv.Template.Infrastructure.Repositories.csproj", "{1E701E44-A7DD-470A-984A-29B2122D119B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Repositories", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Repositories\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.csproj", "{1E701E44-A7DD-470A-984A-29B2122D119B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
