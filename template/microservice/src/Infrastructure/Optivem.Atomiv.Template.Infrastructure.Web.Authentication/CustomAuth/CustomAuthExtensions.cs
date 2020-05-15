@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
+namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth
 {
     public static class CustomAuthExtensions
     {

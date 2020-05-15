@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
+namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth
 {
     public class CustomAuthHandler : AuthenticationHandler<CustomAuthOptions>
     {

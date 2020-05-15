@@ -183,8 +183,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.External", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj", "{4F2968EA-4D5F-42F0-B702-DC68417D79DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Authentication", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Authentication\Optivem.Atomiv.Template.Infrastructure.Authentication.csproj", "{96F5D684-ACBC-4646-9AD1-BBD42D26476E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Queries.Authorization", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization.csproj", "{1E833F99-7A82-4983-B1D3-3E336648DA70}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Commands.Authorization", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization.csproj", "{DC42F05E-AEF0-4128-8E5E-68C5E0DAC104}"
@@ -205,7 +203,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Repositories", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.csproj", "{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Identities", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Identities\Optivem.Atomiv.Template.Infrastructure.Domain.Identities.csproj", "{29933471-79AC-4F13-A152-CBEE7C9BA64D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Domain.Identities", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Domain.Identities\Optivem.Atomiv.Template.Infrastructure.Domain.Identities.csproj", "{29933471-79AC-4F13-A152-CBEE7C9BA64D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.Web.Authentication", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.Web.Authentication\Optivem.Atomiv.Template.Infrastructure.Web.Authentication.csproj", "{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -469,10 +469,6 @@ Global
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96F5D684-ACBC-4646-9AD1-BBD42D26476E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E833F99-7A82-4983-B1D3-3E336648DA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E833F99-7A82-4983-B1D3-3E336648DA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E833F99-7A82-4983-B1D3-3E336648DA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -517,6 +513,10 @@ Global
 		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29933471-79AC-4F13-A152-CBEE7C9BA64D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -610,7 +610,6 @@ Global
 		{624F436F-9CE4-45A6-B063-0FA855B31619} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 		{C6A3CF1F-1660-4C14-9961-627F97B3304B} = {FF6243DB-6AF1-4B65-AB13-770788BCCC0B}
 		{4F2968EA-4D5F-42F0-B702-DC68417D79DE} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
-		{96F5D684-ACBC-4646-9AD1-BBD42D26476E} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{1E833F99-7A82-4983-B1D3-3E336648DA70} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{DC42F05E-AEF0-4128-8E5E-68C5E0DAC104} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{3558D818-D657-4FC3-8FD9-29470CC28DB5} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
@@ -622,6 +621,7 @@ Global
 		{FE79B46D-580C-4258-861D-39D9140A92EC} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{A6CE8613-26F1-43E1-9378-5FAD6DCA2D63} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{29933471-79AC-4F13-A152-CBEE7C9BA64D} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{C9C7DDC4-E521-41B1-BEB2-1A5DB9FAA858} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

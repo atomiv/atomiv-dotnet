@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Template.Infrastructure.Authentication.CustomAuth
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth
 {
     public static class CustomAuthDefaults
     {

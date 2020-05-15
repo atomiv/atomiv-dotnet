@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Authentication\Optivem.Atomiv.Template.Infrastructure.Authentication.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Web.Authentication\Optivem.Atomiv.Template.Infrastructure.Web.Authentication.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Validation\Optivem.Atomiv.Template.Infrastructure.Commands.Validation.csproj" />

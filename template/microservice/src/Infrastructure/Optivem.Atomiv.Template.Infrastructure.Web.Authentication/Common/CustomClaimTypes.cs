@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
 {
     public class CustomClaimTypes
     {

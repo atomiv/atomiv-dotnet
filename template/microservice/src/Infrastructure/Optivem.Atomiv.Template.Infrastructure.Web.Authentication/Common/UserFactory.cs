@@ -1,7 +1,7 @@
 ﻿using Optivem.Atomiv.Infrastructure.AspNetCore;
 using System.Security.Claims;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Authentication.Common
+namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
 {
     public class UserFactory : IUserFactory<User>
     {
