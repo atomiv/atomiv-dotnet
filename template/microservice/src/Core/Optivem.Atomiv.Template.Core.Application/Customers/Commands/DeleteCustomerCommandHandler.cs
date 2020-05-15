@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Commands

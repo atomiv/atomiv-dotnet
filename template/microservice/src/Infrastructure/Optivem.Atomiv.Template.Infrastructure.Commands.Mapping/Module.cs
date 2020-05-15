@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Optivem.Atomiv.Template.Infrastructure.Commands.Mapping
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Commands.Mapping
 {
     public class Module
     {

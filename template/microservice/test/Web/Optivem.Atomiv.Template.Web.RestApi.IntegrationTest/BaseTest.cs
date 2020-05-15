@@ -1,14 +1,14 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Test.Xunit;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using Optivem.Atomiv.Infrastructure.FluentValidation;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\Core\Common\Optivem.Atomiv.Core.Common.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
   </ItemGroup>
 

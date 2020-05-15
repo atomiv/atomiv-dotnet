@@ -38,6 +38,7 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             var coreModuleTypes = new List<Type>
             {
                 typeof(Core.Application.Module),
+                typeof(Core.Application.Commands.Module),
                 typeof(Core.Application.Interface.Module),
                 typeof(Core.Domain.Module),
             };

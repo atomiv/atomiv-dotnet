@@ -1,5 +1,5 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 using Optivem.Atomiv.Template.Core.Application.Products.Queries;
 using System.Threading.Tasks;
 

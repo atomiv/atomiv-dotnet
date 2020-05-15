@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
 using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using System.Net;
