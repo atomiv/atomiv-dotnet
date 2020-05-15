@@ -3,7 +3,7 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Queries.Products;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Validation.Products
 {
     public class ViewProductQueryValidator : BaseValidator<ViewProductQuery>
     {

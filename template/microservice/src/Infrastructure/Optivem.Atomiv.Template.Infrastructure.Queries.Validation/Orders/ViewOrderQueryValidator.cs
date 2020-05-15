@@ -3,7 +3,7 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Validation.Orders
 {
     public class ViewOrderQueryValidator : BaseValidator<ViewOrderQuery>
     {

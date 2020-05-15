@@ -3,7 +3,7 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Queries
+namespace Optivem.Atomiv.Template.Infrastructure.Queries.Validation.Customers
 {
     public class ViewCustomerQueryValidator : BaseValidator<ViewCustomerQuery>
     {
