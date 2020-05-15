@@ -1,6 +1,6 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestClient.Interface

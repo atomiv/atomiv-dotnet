@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 

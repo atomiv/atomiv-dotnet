@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
+namespace Optivem.Atomiv.Template.Core.Application.Queries.Products
 {
     public class ViewProductQueryResponse
     {

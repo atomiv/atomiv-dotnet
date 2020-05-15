@@ -1,6 +1,6 @@
 ﻿namespace Optivem.Atomiv.Template.Core.Application.Queries
 {
-    public class Class1
+    public class Module
     {
     }
 }

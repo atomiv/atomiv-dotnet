@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Core.Common.Utilities;
 using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
+namespace Optivem.Atomiv.Template.Core.Application.Queries.Customers
 {
     public class FilterCustomersQueryResponse
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using System;
 using System.Threading.Tasks;
 

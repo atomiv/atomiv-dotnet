@@ -1,6 +1,6 @@
 ﻿using Optivem.Atomiv.Core.Application;
 
-namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
+namespace Optivem.Atomiv.Template.Core.Application.Queries.Customers
 {
     public class BrowseCustomersQuery : IRequest<BrowseCustomersQueryResponse>
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Template.Core.Application.Orders.Queries
+namespace Optivem.Atomiv.Template.Core.Application.Queries.Orders
 {
     public class ViewOrderQueryResponse
     {

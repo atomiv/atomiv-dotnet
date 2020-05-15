@@ -1,7 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Application;
 using System;
 
-namespace Optivem.Atomiv.Template.Core.Application.Products.Queries
+namespace Optivem.Atomiv.Template.Core.Application.Queries.Products
 {
     public class ViewProductQuery : IRequest<ViewProductQueryResponse>
     {

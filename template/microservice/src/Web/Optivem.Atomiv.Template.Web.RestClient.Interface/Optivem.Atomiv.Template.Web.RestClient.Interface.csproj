@@ -8,6 +8,7 @@
     <ProjectReference Include="..\..\..\..\..\src\Core\Common\Optivem.Atomiv.Core.Common.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj" />
   </ItemGroup>
 
 </Project>

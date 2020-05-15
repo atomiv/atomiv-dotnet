@@ -1,7 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Core.Common.Serialization;
 using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
 using System;
 using System.Net.Http;

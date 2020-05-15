@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Products;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
 using System.Linq;
