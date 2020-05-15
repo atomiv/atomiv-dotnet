@@ -20,9 +20,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         #region Commands
 
-        // [Authorize(AuthenticationSchemes = CustomAuthenticationDefaults.AuthenticationScheme, Roles = "User")]
-        // [Authorize(Roles = "User")] // TODO: VC: This works
-        // [Authorize] // TODO: VC: This fails
         [HttpPost(Name = "create-customer")]
         [ProducesResponseType(typeof(CreateCustomerCommandResponse), 201)]
         public async Task<ActionResult<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand request)
@@ -37,7 +34,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         {
             if (id != request.Id)
             {
-                // TODO: VC: Move to translations
                 return BadRequest("Mismatching id in route and request");
             }
 

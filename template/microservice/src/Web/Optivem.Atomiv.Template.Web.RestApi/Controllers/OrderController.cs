@@ -52,7 +52,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         {
             if (id != request.Id)
             {
-                // TODO: VC: Move to translations
                 return BadRequest("Mismatching id in route and request");
             }
 

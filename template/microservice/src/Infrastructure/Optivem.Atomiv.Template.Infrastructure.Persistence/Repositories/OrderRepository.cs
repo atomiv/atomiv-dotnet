@@ -163,8 +163,6 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
             var status = record.OrderStatusId;
             var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
 
-            // TODO: VC: OrderDetails is empty list, need to Include it in EF so that it loads...
-
             return new Order(id, customerId, DateTime.Now, status, orderDetails);
         }
 

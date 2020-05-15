@@ -9,9 +9,6 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence
         public UnitOfWork(DatabaseContext context, bool disposeContext = false)
             : base(context, disposeContext)
         {
-            Id = Guid.NewGuid(); // TODO: VC: DELETE
         }
-
-        public Guid Id { get; }
     }
 }

@@ -66,16 +66,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
-
-                // Adding custom authorization filter
-
-                // TODO: VC: This produces forbidden error
-                
-                /*
-                var authorizeFilter = new AuthorizeFilter(authorizationPolicy);
-                options.Filters.Add(authorizeFilter);
-                */
-                
             })
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

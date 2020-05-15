@@ -33,8 +33,6 @@ namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Repositories
 
             var totalRecords = await Context.Customers.CountAsync();
 
-            // TODO: VC: Move to utilities for computations
-
             var totalPages = MathUtilities.GetTotalPages(totalRecords, size);
 
             return new BrowseCustomersQueryResponse

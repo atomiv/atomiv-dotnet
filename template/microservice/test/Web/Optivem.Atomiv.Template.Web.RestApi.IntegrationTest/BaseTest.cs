@@ -222,8 +222,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 
         protected Task<HeaderData> GetDefaultHeaderDataAsync()
         {
-            // TODO: VC: Make call to service to get token for user
-
             var result = new HeaderData
             {
                 Token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7",

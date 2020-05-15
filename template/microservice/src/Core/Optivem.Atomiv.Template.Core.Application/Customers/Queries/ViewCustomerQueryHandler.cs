@@ -4,8 +4,6 @@ using Optivem.Atomiv.Template.Core.Application.Customers.Repositories;
 
 namespace Optivem.Atomiv.Template.Core.Application.Customers.Queries
 {
-    // TODO: VC: Make base class with AsNoTracking
-
     public class ViewCustomerQueryHandler : IRequestHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
     {
         private readonly ICustomerQueryRepository _customerReadRepository;

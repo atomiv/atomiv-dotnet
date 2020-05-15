@@ -9,7 +9,6 @@ namespace Optivem.Atomiv.Template.Infrastructure.Mapping.Orders
         public CreateOrderCommandResponseProfile()
         {
             CreateMap<Order, CreateOrderCommandResponse>();
-                // .ForMember(dest => dest.OrderItems, opt => opt.MapFrom(e => e.OrderItems)); // TODO: VC: DELETE
 
             CreateMap<OrderItem, CreateOrderItemResponse>();
         }

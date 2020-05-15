@@ -28,21 +28,5 @@ namespace Optivem.Atomiv.Template.Core.Domain.Orders
         public int Quantity { get; set; }
 
         public OrderItemStatus Status { get; }
-
-        // TODO: VC: CHeck if needed
-
-        /*
-        public void ChangeProduct(ProductIdentity productId, decimal unitPrice, int quantity)
-        {
-            ProductId = productId;
-            UnitPrice = unitPrice;
-            Quantity = quantity;
-        }
-
-        public void ChangeQuantity(int quantity)
-        {
-            Quantity = quantity;
-        }
-        */
     }
 }
