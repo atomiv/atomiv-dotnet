@@ -3,17 +3,20 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Products.Commands
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Validation.Products
 {
-    public class RelistProductCommandValidator : BaseValidator<RelistProductCommand>
+    public class EditProductRequestValidator : BaseValidator<EditProductCommand>
     {
-        public RelistProductCommandValidator(IProductReadonlyRepository productReadonlyRepository)
+        public EditProductRequestValidator(IProductReadonlyRepository productReadonlyRepository)
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
                 .MustAsync((command, context, cancellation)
                     => productReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
+
+            RuleFor(e => e.Description).NotNull();
+            RuleFor(e => e.UnitPrice).GreaterThan(0);
         }
     }
 }

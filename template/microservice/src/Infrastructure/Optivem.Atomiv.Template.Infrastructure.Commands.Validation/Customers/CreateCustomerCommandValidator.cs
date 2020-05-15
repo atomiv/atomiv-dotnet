@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Validation.Customers
 {
     public class CreateCustomerCommandValidator : BaseValidator<CreateCustomerCommand>
     {

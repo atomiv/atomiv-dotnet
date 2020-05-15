@@ -4,7 +4,7 @@ using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Orders
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Validation.Orders
 {
     public class CreateOrderCommandValidator : BaseValidator<CreateOrderCommand>
     {

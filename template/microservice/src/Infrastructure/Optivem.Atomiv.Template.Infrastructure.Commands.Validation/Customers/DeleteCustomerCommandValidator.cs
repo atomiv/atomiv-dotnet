@@ -3,7 +3,7 @@ using Optivem.Atomiv.Infrastructure.FluentValidation;
 using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Validation.Customers.Commands
+namespace Optivem.Atomiv.Template.Infrastructure.Commands.Validation.Customers
 {
     public class DeleteCustomerCommandValidator : BaseValidator<DeleteCustomerCommand>
     {
