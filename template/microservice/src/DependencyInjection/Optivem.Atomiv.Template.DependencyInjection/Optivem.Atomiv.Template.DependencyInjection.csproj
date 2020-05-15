@@ -22,7 +22,6 @@
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Optivem.Atomiv.DependencyInjection.Infrastructure.System.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.All\Optivem.Atomiv.Template.Infrastructure.All.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj" />
   </ItemGroup>
 
 </Project>

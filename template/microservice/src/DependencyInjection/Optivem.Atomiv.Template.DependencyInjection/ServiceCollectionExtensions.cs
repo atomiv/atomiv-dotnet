@@ -53,6 +53,7 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Validation.Module),
                 typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Repositories.Module),
+                typeof(Infrastructure.Domain.Services.Module),
                 typeof(Infrastructure.External.Module),
                 typeof(Infrastructure.Persistence.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
