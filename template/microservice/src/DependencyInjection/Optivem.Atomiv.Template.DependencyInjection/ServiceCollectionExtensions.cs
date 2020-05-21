@@ -40,7 +40,6 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 typeof(Core.Application.Module),
                 typeof(Core.Application.Commands.Module),
                 typeof(Core.Application.Commands.Handlers.Module),
-                typeof(Core.Application.Interface.Module),
                 typeof(Core.Domain.Module),
                 typeof(Core.Application.Queries.Module),
             };

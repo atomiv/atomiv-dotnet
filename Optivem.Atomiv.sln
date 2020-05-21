@@ -147,8 +147,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application\Optivem.Atomiv.Template.Core.Application.csproj", "{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.Application.Interface", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj", "{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Core.All", "template\microservice\src\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj", "{32C93850-BFBD-4AA2-B638-9B319864CF9B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optivem.Atomiv.Template.Infrastructure.All", "template\microservice\src\Infrastructure\Optivem.Atomiv.Template.Infrastructure.All\Optivem.Atomiv.Template.Infrastructure.All.csproj", "{D3E850FF-C65A-450B-A485-D5520D28E57D}"
@@ -401,10 +399,6 @@ Global
 		{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA73D6CE-1996-4FEA-ACC7-C90A846D3008}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32C93850-BFBD-4AA2-B638-9B319864CF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32C93850-BFBD-4AA2-B638-9B319864CF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C93850-BFBD-4AA2-B638-9B319864CF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -592,7 +586,6 @@ Global
 		{3002832F-F345-4449-8FB1-988726FD4785} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{CA184F98-842A-42EB-809C-B5408960FC9C} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{DA73D6CE-1996-4FEA-ACC7-C90A846D3008} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
-		{F7ACA554-DD82-4CAE-81C1-23C8E224AC21} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{32C93850-BFBD-4AA2-B638-9B319864CF9B} = {7F1E6BBB-650B-41B4-BAF2-8DA5440ABBE5}
 		{D3E850FF-C65A-450B-A485-D5520D28E57D} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{BC15CD7B-D092-4531-8E42-97C5C105BFE8} = {62FF9D8B-9229-403B-863F-D65ABDF3BA7D}

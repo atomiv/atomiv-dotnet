@@ -14,7 +14,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
             string locale, 
             string mobile,
             IEnumerable<RoleType> roles,
-            IEnumerable<ActionType> actions)
+            IEnumerable<RequestType> actions)
         {
             Id = id;
             Email = email;
@@ -34,7 +34,7 @@ namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
 
         public IEnumerable<RoleType> Roles { get; }
 
-        public IEnumerable<ActionType> Actions { get; }
+        public IEnumerable<RequestType> Actions { get; }
 
         public IEnumerable<Claim> GetClaims()
         {

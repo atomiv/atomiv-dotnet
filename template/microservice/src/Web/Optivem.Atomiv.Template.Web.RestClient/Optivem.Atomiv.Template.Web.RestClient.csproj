@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj" />
-    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Web.RestClient.Interface\Optivem.Atomiv.Template.Web.RestClient.Interface.csproj" />
   </ItemGroup>
 

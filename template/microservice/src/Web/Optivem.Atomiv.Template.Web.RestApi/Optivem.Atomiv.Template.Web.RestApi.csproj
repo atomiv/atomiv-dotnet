@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\Web\AspNetCore\Optivem.Atomiv.Web.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\DependencyInjection\Optivem.Atomiv.Template.DependencyInjection\Optivem.Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>
 
