@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
         public async Task DeleteCustomer_ValidRequest_ReturnsResponse()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -47,14 +49,14 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             var id = createHttpResponses[1].Data.Id;
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
+            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest, header);
 
             // Assert
 
             deleteHttpResponse.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
             var findRequest = new ViewCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
@@ -62,6 +64,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
         public async Task DeleteCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -90,7 +94,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             var id = Guid.NewGuid();
             var deleteRequest = new DeleteCustomerCommand { Id = id };
-            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest);
+            var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest, header);
 
             // Assert
 

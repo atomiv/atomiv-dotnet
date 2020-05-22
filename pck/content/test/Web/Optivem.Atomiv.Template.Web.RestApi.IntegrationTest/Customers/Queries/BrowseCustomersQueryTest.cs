@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -17,6 +17,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
         public async Task BrowseCustomers_ValidRequest_ReturnsResponse()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -73,7 +75,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
                 Size = 3,
             };
 
-            var browseHttpResponse = await Fixture.Api.Customers.BrowseCustomersAsync(browseRequest);
+            var browseHttpResponse = await Fixture.Api.Customers.BrowseCustomersAsync(browseRequest, header);
 
             // Assert
 

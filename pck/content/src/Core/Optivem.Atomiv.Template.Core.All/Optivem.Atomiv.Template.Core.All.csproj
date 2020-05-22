@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Application.Interface\Optivem.Atomiv.Template.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Application.Commands.Handlers\Optivem.Atomiv.Template.Core.Application.Commands.Handlers.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Application.Queries\Optivem.Atomiv.Template.Core.Application.Queries.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Application\Optivem.Atomiv.Template.Core.Application.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Common\Optivem.Atomiv.Template.Core.Common.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Domain\Optivem.Atomiv.Template.Core.Domain.csproj" />

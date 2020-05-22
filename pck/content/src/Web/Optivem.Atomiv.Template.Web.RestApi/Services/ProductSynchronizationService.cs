@@ -1,14 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.Services
 {
-    // TODO: VC: Should this be in application layer because it's shared, or in infrastructure?
-
     public class ProductSynchronizationService : IHostedService
     {
         private readonly IServiceScopeFactory _serviceScopeFactory;

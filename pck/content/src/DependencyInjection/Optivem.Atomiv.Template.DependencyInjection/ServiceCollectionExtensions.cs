@@ -12,7 +12,8 @@ using Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.System;
-using Optivem.Atomiv.Template.Infrastructure.Persistence;
+using Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,18 +38,26 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             var coreModuleTypes = new List<Type>
             {
                 typeof(Core.Application.Module),
-                typeof(Core.Application.Interface.Module),
+                typeof(Core.Application.Commands.Module),
+                typeof(Core.Application.Commands.Handlers.Module),
                 typeof(Core.Domain.Module),
+                typeof(Core.Application.Queries.Module),
             };
 
             var infrastructureModuleTypes = new List<Type>
             {
-                typeof(Infrastructure.Authentication.Module),
-                typeof(Infrastructure.Authorization.Module),
-                typeof(Infrastructure.External.Module),
-                typeof(Infrastructure.Mapping.Module),
+                typeof(Infrastructure.Web.Authentication.Module),
+                typeof(Infrastructure.Commands.Authorization.Module),
+                typeof(Infrastructure.Commands.Mapping.Module),
+                typeof(Infrastructure.Commands.Validation.Module),
+                typeof(Infrastructure.Domain.Identities.Module),
+                typeof(Infrastructure.Domain.Repositories.Module),
+                typeof(Infrastructure.Domain.Services.Module),
                 typeof(Infrastructure.Persistence.Module),
-                typeof(Infrastructure.Validation.Module),
+                typeof(Infrastructure.Queries.Authorization.Module),
+                typeof(Infrastructure.Queries.Handlers.Module),
+                typeof(Infrastructure.Queries.Validation.Module),
+
             };
 
             var moduleTypes = new List<Type>();
@@ -74,7 +83,9 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 options.UseSqlServer(connection);
                 options.EnableSensitiveDataLogging();
             });
-            
+
+            services.AddUserContext<User, UserFactory>();
+
             services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);
 

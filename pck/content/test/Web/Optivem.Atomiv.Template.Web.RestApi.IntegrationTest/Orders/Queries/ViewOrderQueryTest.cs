@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createHttpResponses = await CreateSampleOrdersAsync();
 
             var createResponse = createHttpResponses[0].Data;
@@ -27,7 +29,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 
             var findRequest = new ViewOrderQuery { Id = id };
 
-            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest, header);
 
             // Assert
 
@@ -43,13 +45,15 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var id = Guid.NewGuid();
 
             var findRequest = new ViewOrderQuery { Id = id };
 
             // Act
 
-            var findApiResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
+            var findApiResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest, header);
 
             // Assert
 

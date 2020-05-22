@@ -1,13 +1,14 @@
 ﻿using FluentAssertions;
 using Optivem.Atomiv.Core.Common.Http;
 using Optivem.Atomiv.Test.Xunit;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Optivem.Atomiv.Template.Web.RestClient.Interface;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
@@ -69,21 +70,24 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 
         protected async Task<ObjectClientResponse<CreateCustomerCommandResponse>> CreateCustomerAsync(CreateCustomerCommand command)
         {
-            var httpResponse = await Fixture.Api.Customers.CreateCustomerAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Customers.CreateCustomerAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
         protected async Task<ObjectClientResponse<CreateOrderCommandResponse>> CreateOrderAsync(CreateOrderCommand command)
         {
-            var httpResponse = await Fixture.Api.Orders.CreateOrderAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Orders.CreateOrderAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
 
         protected async Task<ObjectClientResponse<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand command)
         {
-            var httpResponse = await Fixture.Api.Products.CreateProductAsync(command);
+            var header = await GetDefaultHeaderDataAsync();
+            var httpResponse = await Fixture.Api.Products.CreateProductAsync(command, header);
             httpResponse.StatusCode.Should().Be(HttpStatusCode.Created);
             return httpResponse;
         }
@@ -215,15 +219,15 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
         }
 
 
-        /*
-         * 
+        protected Task<HeaderData> GetDefaultHeaderDataAsync()
+        {
+            var result = new HeaderData
+            {
+                Token = "bde2080b-c50a-4ed6-a9b0-9a33ccdb1ab7",
+                Language = "en",
+            };
 
-
-
-
-
-         * 
-         */
-
+            return Task.FromResult(result);
+        }
     }
 }

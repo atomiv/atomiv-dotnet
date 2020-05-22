@@ -5,12 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Authentication\Optivem.Atomiv.Template.Infrastructure.Authentication.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Authorization\Optivem.Atomiv.Template.Infrastructure.Authorization.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.External\Optivem.Atomiv.Template.Infrastructure.External.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Mapping\Optivem.Atomiv.Template.Infrastructure.Mapping.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Persistence\Optivem.Atomiv.Template.Infrastructure.Persistence.csproj" />
-    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Validation\Optivem.Atomiv.Template.Infrastructure.Validation.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence\Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Services\Optivem.Atomiv.Template.Infrastructure.Domain.Services.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Web.Authentication\Optivem.Atomiv.Template.Infrastructure.Web.Authentication.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization\Optivem.Atomiv.Template.Infrastructure.Commands.Authorization.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping\Optivem.Atomiv.Template.Infrastructure.Commands.Mapping.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Commands.Validation\Optivem.Atomiv.Template.Infrastructure.Commands.Validation.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Identities\Optivem.Atomiv.Template.Infrastructure.Domain.Identities.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization\Optivem.Atomiv.Template.Infrastructure.Queries.Authorization.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers\Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Queries.Validation\Optivem.Atomiv.Template.Infrastructure.Queries.Validation.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories\Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

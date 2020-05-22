@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
 using Moq;
 using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Orders;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Core.Domain.Orders;

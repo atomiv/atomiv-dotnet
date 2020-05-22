@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
+using Optivem.Atomiv.Template.Core.Application.Queries.Products;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         public async Task RelistProduct_ValidRequest_ReturnsResponse()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateProductCommand>
             {
@@ -57,7 +59,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             var id = someCreateResponse.Id;
 
             var unlistRequest = new UnlistProductCommand { Id = id };
-            var unlistHttpResponse = await Fixture.Api.Products.UnlistProductAsync(unlistRequest);
+            var unlistHttpResponse = await Fixture.Api.Products.UnlistProductAsync(unlistRequest, header);
 
             unlistHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -74,7 +76,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             // Act
 
             var relistRequest = new RelistProductCommand { Id = id };
-            var relistHttpResponse = await Fixture.Api.Products.RelistProductAsync(relistRequest);
+            var relistHttpResponse = await Fixture.Api.Products.RelistProductAsync(relistRequest, header);
 
             // Assert
 
@@ -89,7 +91,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             relistResponse.Should().BeEquivalentTo(expectedRelistResponse);
 
             var findRequest = new ViewProductQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest, header);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

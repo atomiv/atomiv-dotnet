@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Products.Commands;
-using Optivem.Atomiv.Template.Core.Application.Products.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Products;
+using Optivem.Atomiv.Template.Core.Application.Queries.Products;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequest = new CreateProductCommand
             {
                 Code = "My code 1",
@@ -27,7 +29,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest, header);
 
             // Assert
 
@@ -41,7 +43,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             var findRequest = new ViewProductQuery { Id = createResponse.Id };
 
-            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Products.ViewProductAsync(findRequest, header);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
@@ -55,6 +57,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createRequest = new CreateProductCommand
             {
                 Code = null,
@@ -64,7 +68,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             // Act
 
-            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest);
+            var createHttpResponse = await Fixture.Api.Products.CreateProductAsync(createRequest, header);
 
             // Assert
 

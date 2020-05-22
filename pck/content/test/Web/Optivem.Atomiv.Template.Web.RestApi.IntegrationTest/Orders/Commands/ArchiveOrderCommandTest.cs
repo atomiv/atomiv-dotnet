@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using System.Net;
 using System.Threading.Tasks;
@@ -19,6 +19,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         {
             // Arrange
 
+            var header = await GetDefaultHeaderDataAsync();
+
             var createResponses = await CreateSampleOrdersAsync();
             var someCreateResponse = createResponses[1];
 
@@ -26,7 +28,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             var id = someCreateResponse.Data.Id;
             var archiveRequest = new ArchiveOrderCommand { Id = id };
-            var archiveHttpResponse = await Fixture.Api.Orders.ArchiveOrderAsync(archiveRequest);
+            var archiveHttpResponse = await Fixture.Api.Orders.ArchiveOrderAsync(archiveRequest, header);
 
             // Assert
 
@@ -43,7 +45,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             archiveResponse.Should().BeEquivalentTo(expectedArchiveResponse);
 
             var findRequest = new ViewOrderQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Orders.ViewOrderAsync(findRequest, header);
 
             findHttpResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -20,6 +20,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
         public async Task FindCustomer_ValidRequest_ReturnsCustomer()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -49,7 +51,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
             var someCreateResponse = createHttpResponses[1].Data;
             var id = someCreateResponse.Id;
             var findRequest = new ViewCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
 
             // Assert
 
@@ -65,6 +67,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
         public async Task FindCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -93,7 +97,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             var id = Guid.NewGuid();
             var findRequest = new ViewCustomerQuery { Id = id };
-            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest);
+            var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
 
             // Assert
 

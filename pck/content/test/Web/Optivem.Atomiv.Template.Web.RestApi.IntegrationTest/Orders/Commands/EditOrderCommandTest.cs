@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using System.Collections.Generic;
 using System.Net;
@@ -18,6 +18,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
         public async Task UpdateOrder_ValidRequest_ReturnsResponse()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createCustomerResponses = await CreateSampleCustomersAsync();
             var createProductResponses = await CreateSampleProductsAsync();
@@ -55,7 +57,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             // Act
 
-            var updateHttpResponse = await Fixture.Api.Orders.EditOrderAsync(updateRequest);
+            var updateHttpResponse = await Fixture.Api.Orders.EditOrderAsync(updateRequest, header);
 
             // Assert
 

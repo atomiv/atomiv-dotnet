@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
+  <ItemGroup>
+<PackageReference Include="Optivem.Atomiv.Core.Application.Interface" Version="1.0.31" />
+<PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.31" />
+    <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

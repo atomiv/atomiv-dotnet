@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Template.Core.Application.Customers.Commands;
-using Optivem.Atomiv.Template.Core.Application.Customers.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
+using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -20,6 +20,8 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
         public async Task ListCustomers_ValidRequest_ReturnsResponse()
         {
             // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
 
             var createRequests = new List<CreateCustomerCommand>
             {
@@ -76,7 +78,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
                 Limit = 10,
             };
 
-            var listHttpResponse = await Fixture.Api.Customers.FilterCustomersAsync(listRequest);
+            var listHttpResponse = await Fixture.Api.Customers.FilterCustomersAsync(listRequest, header);
 
             // Assert
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Template.Core.Application.Orders.Commands;
-using Optivem.Atomiv.Template.Core.Application.Orders.Queries;
+using Optivem.Atomiv.Template.Core.Application.Commands.Orders;
+using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
 using System;
 using System.Threading.Tasks;
 
@@ -52,7 +52,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
         {
             if (id != request.Id)
             {
-                // TODO: VC: Move to translations
                 return BadRequest("Mismatching id in route and request");
             }
 

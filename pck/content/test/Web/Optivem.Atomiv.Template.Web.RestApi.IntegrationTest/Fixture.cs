@@ -6,10 +6,10 @@ using Optivem.Atomiv.Core.Common.Serialization;
 using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.Test.EntityFrameworkCore;
 using Optivem.Atomiv.Template.DependencyInjection;
-using Optivem.Atomiv.Template.Infrastructure.Persistence;
 using Optivem.Atomiv.Template.Web.RestClient;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
 using System.Net.Http;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {
