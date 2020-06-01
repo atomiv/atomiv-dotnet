@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Template.Core.Domain.Products;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using System;
 using System.Threading.Tasks;
 

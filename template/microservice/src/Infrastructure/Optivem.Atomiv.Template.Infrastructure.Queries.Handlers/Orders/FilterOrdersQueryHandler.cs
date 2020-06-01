@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Template.Core.Application.Queries.Orders;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Linq;
 using System.Threading.Tasks;
 

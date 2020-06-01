@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Template.Infrastructure.Persistence
+﻿namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence
 {
     public class Module
     {

@@ -1,5 +1,5 @@
 ﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories
 {

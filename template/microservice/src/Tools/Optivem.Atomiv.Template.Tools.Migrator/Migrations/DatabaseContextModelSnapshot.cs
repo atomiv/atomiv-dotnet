@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Optivem.Atomiv.Template.Infrastructure.Persistence;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
 {
@@ -20,7 +20,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.CustomerRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.CustomerRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderItemRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderItemRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderItemStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderItemStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
                         .HasColumnType("tinyint");
@@ -120,7 +120,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -144,7 +144,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderStatusRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderStatusRecord", b =>
                 {
                     b.Property<byte>("Id")
                         .HasColumnType("tinyint");
@@ -201,7 +201,7 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.ProductRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.ProductRecord", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -228,36 +228,36 @@ namespace Optivem.Atomiv.Template.Tools.Migrator.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderItemRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderItemRecord", b =>
                 {
-                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderRecord", "Order")
+                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderRecord", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.ProductRecord", "Product")
+                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.ProductRecord", "Product")
                         .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderItemStatusRecord", "Status")
+                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderItemStatusRecord", "Status")
                         .WithMany("OrderItems")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderRecord", b =>
+            modelBuilder.Entity("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderRecord", b =>
                 {
-                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.CustomerRecord", "Customer")
+                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.CustomerRecord", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Persistence.Records.OrderStatusRecord", "OrderStatus")
+                    b.HasOne("Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records.OrderStatusRecord", "OrderStatus")
                         .WithMany("OrderRecords")
                         .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade)

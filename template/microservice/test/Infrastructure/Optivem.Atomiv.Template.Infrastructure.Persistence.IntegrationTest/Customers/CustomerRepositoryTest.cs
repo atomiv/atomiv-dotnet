@@ -3,7 +3,7 @@ using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest.Customers
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest.Customers
 {
     public class CustomerRepositoryTest : BaseTest
     {

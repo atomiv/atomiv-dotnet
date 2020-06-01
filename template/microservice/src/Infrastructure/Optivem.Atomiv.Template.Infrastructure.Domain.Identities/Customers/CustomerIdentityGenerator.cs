@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IdentityGenerators
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
     public class CustomerIdentityGenerator : IdentityGenerator<CustomerIdentity>
     {

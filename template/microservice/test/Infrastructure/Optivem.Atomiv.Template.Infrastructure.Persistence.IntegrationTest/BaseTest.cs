@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest
 {
     public class BaseTest : IClassFixture<Fixture>
     {
