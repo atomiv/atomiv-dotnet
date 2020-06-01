@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Optivem.Atomiv.Web.AspNetCore;
 using Optivem.Atomiv.Template.DependencyInjection;
 using System;
 using Optivem.Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth;
+using Optivem.Atomiv.Template.Web.RestApi.Extensions;
 
 namespace Optivem.Atomiv.Template.Web.RestApi
 {
@@ -109,7 +109,6 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             app.UseProblemDetailsExceptionHandler();
 
             app.UseSwagger();
-
 
             app.UseSwaggerUI(c =>
             {

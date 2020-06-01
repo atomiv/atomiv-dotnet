@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 using Optivem.Atomiv.Template.Core.Common.Orders;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Configurations;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Configurations;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Common
 {

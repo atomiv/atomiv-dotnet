@@ -10,6 +10,7 @@ using Optivem.Atomiv.Core.Common.Serialization;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.Infrastructure.CsvHelper;
 using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
+using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions;
 using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers;
 using System.Reflection;
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Queries.Products;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.Products
 {

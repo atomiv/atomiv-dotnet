@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Core.Domain;
 using Optivem.Atomiv.Template.Core.Domain.Products;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

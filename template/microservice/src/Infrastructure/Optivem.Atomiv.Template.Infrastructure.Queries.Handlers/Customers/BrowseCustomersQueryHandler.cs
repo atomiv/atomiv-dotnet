@@ -7,7 +7,7 @@ using Optivem.Atomiv.Template.Core.Application.Queries.Customers;
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 {

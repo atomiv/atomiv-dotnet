@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Common.Orders;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records
+namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Records
 {
     public class OrderStatusRecord : Record<OrderStatus>
     {

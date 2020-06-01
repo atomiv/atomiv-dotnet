@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records
+namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Records
 {
     public class ProductRecord : Record<Guid>
     {

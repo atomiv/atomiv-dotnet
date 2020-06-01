@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Core.Common.Serialization;
+using Optivem.Atomiv.Web.AspNetCore;
 using System;
 using System.Net;
 
-namespace Optivem.Atomiv.Web.AspNetCore
+namespace Optivem.Atomiv.Template.Web.RestApi.Extensions
 {
     public static class ExceptionHandlerExtensions
     {
@@ -38,11 +39,13 @@ namespace Optivem.Atomiv.Web.AspNetCore
                         var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                         var exception = exceptionHandlerFeature.Error;
 
+                        // TODO: VC: exception logging if 500
+
                         // TODO: VC: Consider if this fails, perhaps outer try-catch?
 
                         // Unauthorized
 
-                        if(exception.GetType() == typeof(AuthorizationException))
+                        if (exception.GetType() == typeof(AuthorizationException))
                         {
                             context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                             return;

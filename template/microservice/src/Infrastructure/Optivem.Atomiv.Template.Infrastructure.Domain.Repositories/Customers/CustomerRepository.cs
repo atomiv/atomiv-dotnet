@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Core.Domain;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Persistence.Records;
 using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Domain.Repositories.Customers

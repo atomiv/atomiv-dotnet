@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Template.Core.Application.Context;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Optivem.Atomiv.Template.Core.Application.Context;
 
 namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
 {
