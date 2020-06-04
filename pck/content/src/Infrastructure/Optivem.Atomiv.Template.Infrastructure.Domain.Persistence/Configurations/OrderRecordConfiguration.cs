@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Records;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Common.Configurations
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Configurations
 {
     public class OrderRecordConfiguration : IEntityTypeConfiguration<OrderRecord>
     {

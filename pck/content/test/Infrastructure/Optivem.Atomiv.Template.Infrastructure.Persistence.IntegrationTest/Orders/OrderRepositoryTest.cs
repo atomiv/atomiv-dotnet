@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IntegrationTest.Orders
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest.Orders
 {
     public class OrderRepositoryTest : BaseTest
     {

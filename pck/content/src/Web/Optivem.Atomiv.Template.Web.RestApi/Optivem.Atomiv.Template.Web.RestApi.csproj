@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Web.AspNetCore" Version="1.0.31" />
+<PackageReference Include="Optivem.Atomiv.Web.AspNetCore" Version="1.0.32" />
     <ProjectReference Include="..\..\DependencyInjection\Optivem.Atomiv.Template.DependencyInjection\Optivem.Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>
 

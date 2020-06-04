@@ -2,7 +2,7 @@
 using Optivem.Atomiv.Template.Core.Domain.Orders;
 using System;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.IdentityGenerators
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
     public class OrderItemIdentityGenerator : IdentityGenerator<OrderItemIdentity>
     {

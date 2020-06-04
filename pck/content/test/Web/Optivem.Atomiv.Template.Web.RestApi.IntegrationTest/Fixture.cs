@@ -9,7 +9,7 @@ using Optivem.Atomiv.Template.DependencyInjection;
 using Optivem.Atomiv.Template.Web.RestClient;
 using Optivem.Atomiv.Template.Web.RestClient.Interface;
 using System.Net.Http;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Web.RestApi.IntegrationTest
 {

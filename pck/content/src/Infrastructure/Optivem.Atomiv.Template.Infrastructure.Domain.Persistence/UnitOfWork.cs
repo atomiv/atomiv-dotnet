@@ -1,7 +1,7 @@
 ﻿using Optivem.Atomiv.Core.Domain;
 using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Atomiv.Template.Infrastructure.Persistence.Common
+namespace Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common
 {
     public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {

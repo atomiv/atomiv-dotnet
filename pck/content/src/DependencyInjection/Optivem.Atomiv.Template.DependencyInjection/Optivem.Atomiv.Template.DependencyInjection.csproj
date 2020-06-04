@@ -11,15 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Application" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Domain" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.31" />
-<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.31" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Application" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Core.Domain" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.32" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Optivem.Atomiv.Template.Infrastructure.All\Optivem.Atomiv.Template.Infrastructure.All.csproj" />
   </ItemGroup>

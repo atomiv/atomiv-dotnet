@@ -13,7 +13,7 @@ using Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Optivem.Atomiv.DependencyInjection.Infrastructure.System;
 using Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,18 +46,17 @@ namespace Optivem.Atomiv.Template.DependencyInjection
 
             var infrastructureModuleTypes = new List<Type>
             {
-                typeof(Infrastructure.Web.Authentication.Module),
                 typeof(Infrastructure.Commands.Authorization.Module),
                 typeof(Infrastructure.Commands.Mapping.Module),
                 typeof(Infrastructure.Commands.Validation.Module),
                 typeof(Infrastructure.Domain.Identities.Module),
+                typeof(Infrastructure.Domain.Persistence.Module),
                 typeof(Infrastructure.Domain.Repositories.Module),
                 typeof(Infrastructure.Domain.Services.Module),
-                typeof(Infrastructure.Persistence.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Handlers.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
-
+                typeof(Infrastructure.Web.Authentication.Module),
             };
 
             var moduleTypes = new List<Type>();

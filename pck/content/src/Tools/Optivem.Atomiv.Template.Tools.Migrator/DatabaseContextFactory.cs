@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Optivem.Atomiv.Template.Infrastructure.Persistence.Common;
+using Optivem.Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 
 namespace Optivem.Atomiv.Template.Tools.Migrator
 {
@@ -9,6 +9,8 @@ namespace Optivem.Atomiv.Template.Tools.Migrator
     {
         public DatabaseContext CreateDbContext(string[] args)
         {
+            // TODO: VC: Handling multiple environments
+
             // var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
             var environment = "Development";

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.31" />
+<PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.32" />
   </ItemGroup>
 
 </Project>
