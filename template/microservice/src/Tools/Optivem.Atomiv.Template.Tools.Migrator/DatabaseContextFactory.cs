@@ -9,6 +9,8 @@ namespace Optivem.Atomiv.Template.Tools.Migrator
     {
         public DatabaseContext CreateDbContext(string[] args)
         {
+            // TODO: VC: Handling multiple environments
+
             // var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
             var environment = "Development";

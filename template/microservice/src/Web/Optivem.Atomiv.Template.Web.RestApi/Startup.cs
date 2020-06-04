@@ -53,14 +53,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             // Add the processing server as IHostedService
             services.AddHangfireServer();
 
-            var authorizationPolicyBuilder
-                = new AuthorizationPolicyBuilder( /* CustomAuthenticationDefaults.AuthenticationScheme */);
 
-            var authorizationPolicy = authorizationPolicyBuilder
-                // .AddAuthenticationSchemes(CustomAuthenticationDefaults.AuthenticationScheme)
-                // .RequireRole("User")
-                .RequireAuthenticatedUser()
-                .Build();
 
             services.AddMvc(options =>
             {
@@ -75,6 +68,16 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            // TODO: Enable if use authentication & authorization
+
+            /*
+            var authorizationPolicyBuilder
+                = new AuthorizationPolicyBuilder();
+
+            var authorizationPolicy = authorizationPolicyBuilder
+                .RequireAuthenticatedUser()
+                .Build();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CustomAuthDefaults.AuthenticationScheme;
@@ -86,6 +89,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             {
                 options.DefaultPolicy = authorizationPolicy;
             });
+            */
 
             services.AddSwaggerGen(c =>
             {
@@ -119,8 +123,12 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             app.UseHangfireDashboard();
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
+            // TODO: Enable if use authentication & authorization
+
+            /*
             app.UseAuthentication();
             app.UseAuthorization();
+            */
 
             app.UseHttpsRedirection();
             app.UseMvc();
