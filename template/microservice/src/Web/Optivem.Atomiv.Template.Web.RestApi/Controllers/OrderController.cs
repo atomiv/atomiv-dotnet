@@ -74,7 +74,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         [HttpGet("browse", Name = "browse-orders")]
         [ProducesResponseType(typeof(BrowseOrdersQueryResponse), 200)]
-        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = null, [FromQuery] int? size = null)
+        public async Task<ActionResult<BrowseOrdersQueryResponse>> BrowseOrdersAsync([FromQuery] int? page = 1, [FromQuery] int? size = 10)
         {
             var request = new BrowseOrdersQuery
             {

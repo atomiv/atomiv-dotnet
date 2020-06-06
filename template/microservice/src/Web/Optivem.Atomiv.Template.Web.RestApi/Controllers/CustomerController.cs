@@ -59,12 +59,12 @@ namespace Optivem.Atomiv.Template.Web.RestApi.Controllers
 
         [HttpGet(Name = "browse-customers")]
         [ProducesResponseType(typeof(BrowseCustomersQueryResponse), 200)]
-        public async Task<ActionResult<BrowseCustomersQueryResponse>> BrowseCustomersAsync(int page, int size)
+        public async Task<ActionResult<BrowseCustomersQueryResponse>> BrowseCustomersAsync([FromQuery] int? page = 1, [FromQuery] int? size = 10)
         {
             var request = new BrowseCustomersQuery
             {
-                Page = page,
-                Size = size,
+                Page = page.Value,
+                Size = size.Value,
             };
 
             var response = await _messageBus.SendAsync(request);
