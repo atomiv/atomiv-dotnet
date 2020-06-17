@@ -21,8 +21,6 @@ namespace Optivem.Atomiv.DependencyInjection.Core.Application
 
         private const string ApplicationServiceSuffix = "Service";
 
-
-
         public static IServiceCollection AddApplicationCore<TRequestType>(this IServiceCollection services, params Assembly[] assemblies)
             where TRequestType : Enum
         {

@@ -9,12 +9,12 @@ namespace Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
     {
-        private readonly IApplicationUserContext<ApplicationUser, RequestType> _applicationUserContext;
+        private readonly IApplicationUserContext _applicationUserContext;
         private readonly ICustomerFactory _customerFactory;
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        public CreateCustomerCommandHandler(IApplicationUserContext<ApplicationUser, RequestType> applicationUserContext, ICustomerFactory customerFactory, ICustomerRepository customerRepository, IMapper mapper)
+        public CreateCustomerCommandHandler(IApplicationUserContext applicationUserContext, ICustomerFactory customerFactory, ICustomerRepository customerRepository, IMapper mapper)
         {
             _applicationUserContext = applicationUserContext;
             _customerFactory = customerFactory;

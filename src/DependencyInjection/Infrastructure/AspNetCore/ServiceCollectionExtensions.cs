@@ -13,29 +13,33 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore
         {
             var types = assemblies.GetTypes();
 
+            return services;
+        }
 
+        public static IServiceCollection AddApplicationUserContext<TApplicationUser, TRequestType, TApplicationUserSerializer, TIApplicationUserContext, TApplicationUserContext>(this IServiceCollection services)
+            where TApplicationUser : IApplicationUser<TRequestType>
+            where TRequestType : Enum
+            where TApplicationUserSerializer : class, IApplicationUserSerializer<TApplicationUser, TRequestType>
+            where TIApplicationUserContext : class, IApplicationUserContext<TApplicationUser, TRequestType>
+            where TApplicationUserContext : class, IApplicationUserContext<TApplicationUser, TRequestType>, TIApplicationUserContext
+        {
+            services.AddApplicationUserContext<TApplicationUser, TRequestType, TIApplicationUserContext, TApplicationUserContext>();
+
+            services.AddScoped<IApplicationUserSerializer<TApplicationUser, TRequestType>, TApplicationUserSerializer>();
 
             return services;
         }
 
-        public static IServiceCollection AddUserContext<TUser, TRequestType>(this IServiceCollection services)
-            where TUser : IApplicationUser<TRequestType>
+        private static IServiceCollection AddApplicationUserContext<TApplicationUser, TRequestType, TIApplicationUserContext, TApplicationUserContext>(this IServiceCollection services)
+            where TApplicationUser : IApplicationUser<TRequestType>
             where TRequestType : Enum
+            where TIApplicationUserContext : class, IApplicationUserContext<TApplicationUser, TRequestType>
+            where TApplicationUserContext : class, IApplicationUserContext<TApplicationUser, TRequestType>, TIApplicationUserContext
         {
-            services.AddScoped<IApplicationUserContext<TRequestType>, UserContext<TUser, TRequestType>>();
-            services.AddScoped<IApplicationUserContext<TUser, TRequestType>, UserContext<TUser, TRequestType>>();
+            services.AddScoped<IApplicationUserContext<TRequestType>, ApplicationUserContext<TApplicationUser, TRequestType>>();
+            services.AddScoped<IApplicationUserContext<TApplicationUser, TRequestType>, ApplicationUserContext<TApplicationUser, TRequestType>>();
 
-            return services;
-        }
-
-        public static IServiceCollection AddUserContext<TUser, TRequestType, TUserFactory>(this IServiceCollection services)
-            where TUser : IApplicationUser<TRequestType>
-            where TRequestType : Enum
-            where TUserFactory : class, IApplicationUserSerializer<TUser, TRequestType>
-        {
-            services.AddUserContext<TUser, TRequestType>();
-
-            services.AddScoped<IApplicationUserSerializer<TUser, TRequestType>, TUserFactory>();
+            services.AddScoped<TIApplicationUserContext, TApplicationUserContext>();
 
             return services;
         }

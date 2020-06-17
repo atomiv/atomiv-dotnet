@@ -86,7 +86,11 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 options.EnableSensitiveDataLogging();
             });
 
-            services.AddUserContext<ApplicationUser, RequestType, ApplicationUserSerializer>();
+            services.AddApplicationUserContext<ApplicationUser, 
+                RequestType, 
+                ApplicationUserSerializer, 
+                IApplicationUserContext,
+                ApplicationUserContext>();
 
             services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);

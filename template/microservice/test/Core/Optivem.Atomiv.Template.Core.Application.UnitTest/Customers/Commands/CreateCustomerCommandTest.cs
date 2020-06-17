@@ -17,7 +17,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
         [Fact]
         public async Task HandleAsync_Valid()
         {
-            var applicationUserContextMock = new Mock<IApplicationUserContext<ApplicationUser, RequestType>>();
+            var applicationUserContextMock = new Mock<IApplicationUserContext>();
             var customerFactoryMock = new Mock<ICustomerFactory>();
             var customerRepositoryMock = new Mock<ICustomerRepository>();
             var mapperMock = new Mock<IMapper>();
