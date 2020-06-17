@@ -70,6 +70,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             // TODO: Enable if use authentication & authorization
 
+            /*
             var authorizationPolicyBuilder
                 = new AuthorizationPolicyBuilder();
 
@@ -88,6 +89,7 @@ namespace Optivem.Atomiv.Template.Web.RestApi
             {
                 options.DefaultPolicy = authorizationPolicy;
             });
+            */
 
             services.AddSwaggerGen(c =>
             {
@@ -123,8 +125,10 @@ namespace Optivem.Atomiv.Template.Web.RestApi
 
             // TODO: Enable if use authentication & authorization
 
+            /*
             app.UseAuthentication();
             app.UseAuthorization();
+            */
 
             app.UseHttpsRedirection();
             app.UseMvc();

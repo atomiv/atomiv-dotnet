@@ -56,7 +56,13 @@ namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.Common
 
         private Guid GetId(IEnumerable<Claim> claims)
         {
-            var value = claims.GetFirst(ClaimTypes.NameIdentifier);
+            var value = claims.GetFirstOrDefault(ClaimTypes.NameIdentifier);
+
+            if(value == null)
+            {
+                return Guid.Empty;
+            }
+
             return Guid.Parse(value);
         }
 
