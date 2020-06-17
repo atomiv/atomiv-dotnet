@@ -4,10 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Core.Common.Serialization;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
 {

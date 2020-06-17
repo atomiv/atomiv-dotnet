@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\src\Core\Application\Optivem.Atomiv.Core.Application.csproj" />
+    <ProjectReference Include="..\Optivem.Atomiv.Template.Core.Common\Optivem.Atomiv.Template.Core.Common.csproj" />
   </ItemGroup>
 
 </Project>

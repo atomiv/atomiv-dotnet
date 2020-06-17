@@ -2,6 +2,9 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
+using Optivem.Atomiv.Core.Application;
+using Optivem.Atomiv.Template.Core.Application.Context;
+using Optivem.Atomiv.Template.Core.Common.Requests;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
@@ -11,14 +14,21 @@ namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth
 {
     public class CustomAuthHandler : AuthenticationHandler<CustomAuthOptions>
     {
-        private readonly IUserInfoService _userInfoService;
+        private readonly IApplicationUserTokenService _applicationUserTokenService;
+        private readonly IApplicationUserSerializer<ApplicationUser, RequestType> _applicationUserSerializer;
 
         private const string Bearer = "Bearer";
 
-        public CustomAuthHandler(IOptionsMonitor<CustomAuthOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserInfoService userInfoService)
+        public CustomAuthHandler(IOptionsMonitor<CustomAuthOptions> options, 
+            ILoggerFactory logger, 
+            UrlEncoder encoder, 
+            ISystemClock clock, 
+            IApplicationUserTokenService applicationUserTokenService,
+            IApplicationUserSerializer<ApplicationUser, RequestType> applicationUserSerializer)
             : base(options, logger, encoder, clock)
         {
-            _userInfoService = userInfoService;
+            _applicationUserTokenService = applicationUserTokenService;
+            _applicationUserSerializer = applicationUserSerializer;
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -32,9 +42,9 @@ namespace Optivem.Atomiv.Template.Infrastructure.Web.Authentication.CustomAuth
 
             var token = bearer.Replace($"{Bearer} ", string.Empty);
 
-            var userInfo = await _userInfoService.GetUserInfoAsync(token);
+            var applicationUser = await _applicationUserTokenService.GetApplicationUserAsync(token);
 
-            var claims = userInfo.GetClaims();
+            var claims = _applicationUserSerializer.Serialize(applicationUser);
 
             var identity = new ClaimsIdentity(claims); // TODO: VC: Check other constructirs
 

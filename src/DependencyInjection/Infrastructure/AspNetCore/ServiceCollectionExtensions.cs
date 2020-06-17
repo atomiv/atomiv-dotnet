@@ -2,6 +2,7 @@
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.DependencyInjection.Common;
 using Optivem.Atomiv.Infrastructure.AspNetCore;
+using System;
 using System.Reflection;
 
 namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore
@@ -17,22 +18,24 @@ namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore
             return services;
         }
 
-        public static IServiceCollection AddUserContext<TUser>(this IServiceCollection services)
-            where TUser : IUser
+        public static IServiceCollection AddUserContext<TUser, TRequestType>(this IServiceCollection services)
+            where TUser : IApplicationUser<TRequestType>
+            where TRequestType : Enum
         {
-            services.AddScoped<IUserContext, UserContext<TUser>>();
-            services.AddScoped<IUserContext<TUser>, UserContext<TUser>>();
+            services.AddScoped<IApplicationUserContext<TRequestType>, UserContext<TUser, TRequestType>>();
+            services.AddScoped<IApplicationUserContext<TUser, TRequestType>, UserContext<TUser, TRequestType>>();
 
             return services;
         }
 
-        public static IServiceCollection AddUserContext<TUser, TUserFactory>(this IServiceCollection services)
-            where TUser : IUser
-            where TUserFactory : class, IUserFactory<TUser>
+        public static IServiceCollection AddUserContext<TUser, TRequestType, TUserFactory>(this IServiceCollection services)
+            where TUser : IApplicationUser<TRequestType>
+            where TRequestType : Enum
+            where TUserFactory : class, IApplicationUserSerializer<TUser, TRequestType>
         {
-            services.AddUserContext<TUser>();
+            services.AddUserContext<TUser, TRequestType>();
 
-            services.AddScoped<IUserFactory<TUser>, TUserFactory>();
+            services.AddScoped<IApplicationUserSerializer<TUser, TRequestType>, TUserFactory>();
 
             return services;
         }

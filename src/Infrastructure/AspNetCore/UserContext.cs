@@ -1,27 +1,31 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Optivem.Atomiv.Core.Application;
+using System;
 
 namespace Optivem.Atomiv.Infrastructure.AspNetCore
 {
-    public class UserContext<TUser> : IUserContext<TUser> where TUser : IUser
+    public class UserContext<TApplicationUser, TRequestType> : IApplicationUserContext<TApplicationUser, TRequestType> 
+        where TApplicationUser : IApplicationUser<TRequestType>
+        where TRequestType : Enum
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IUserFactory<TUser> _userFactory;
+        private readonly IApplicationUserSerializer<TApplicationUser, TRequestType> _userFactory;
 
-        public UserContext(IHttpContextAccessor httpContextAccessor, IUserFactory<TUser> userFactory)
+        public UserContext(IHttpContextAccessor httpContextAccessor, IApplicationUserSerializer<TApplicationUser, TRequestType> userFactory)
         {
             _httpContextAccessor = httpContextAccessor;
             _userFactory = userFactory;
         }
 
-        TUser IUserContext<TUser>.User => GetUser();
+        public TApplicationUser ApplicationUser => GetUser();
 
-        IUser IUserContext.User => GetUser();
+        IApplicationUser<TRequestType> IApplicationUserContext<TRequestType>.ApplicationUser => GetUser();
 
-        private TUser GetUser()
+        private TApplicationUser GetUser()
         {
             var principal = _httpContextAccessor.HttpContext.User;
-            return _userFactory.Create(principal);
+            var claims = principal.Claims;
+            return _userFactory.Deserialize(claims);
         }
     }
 }
