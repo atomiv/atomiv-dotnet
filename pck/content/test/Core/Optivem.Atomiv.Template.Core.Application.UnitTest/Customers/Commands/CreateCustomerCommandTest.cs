@@ -3,6 +3,8 @@ using Moq;
 using Optivem.Atomiv.Core.Application;
 using Optivem.Atomiv.Template.Core.Application.Commands.Customers;
 using Optivem.Atomiv.Template.Core.Application.Commands.Handlers.Customers;
+using Optivem.Atomiv.Template.Core.Application.Context;
+using Optivem.Atomiv.Template.Core.Common.Requests;
 using Optivem.Atomiv.Template.Core.Domain.Customers;
 using System;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
         [Fact]
         public async Task HandleAsync_Valid()
         {
+            var applicationUserContextMock = new Mock<IApplicationUserContext>();
             var customerFactoryMock = new Mock<ICustomerFactory>();
             var customerRepositoryMock = new Mock<ICustomerRepository>();
             var mapperMock = new Mock<IMapper>();
@@ -46,7 +49,8 @@ namespace Optivem.Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 .Setup(e => e.Map<Customer, CreateCustomerCommandResponse>(customer))
                 .Returns(expectedResponse);
 
-            var handler = new CreateCustomerCommandHandler(customerFactoryMock.Object,
+            var handler = new CreateCustomerCommandHandler(applicationUserContextMock.Object,
+                customerFactoryMock.Object,
                 customerRepositoryMock.Object,
                 mapperMock.Object);
 

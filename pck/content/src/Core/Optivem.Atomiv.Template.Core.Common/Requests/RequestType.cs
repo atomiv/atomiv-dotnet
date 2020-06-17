@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Template.Core.Common.Actions
+﻿namespace Optivem.Atomiv.Template.Core.Common.Requests
 {
     public enum RequestType : byte
     {

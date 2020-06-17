@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Core.Application.Interface" Version="1.0.32" />
-<PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.Core.Application.Interface" Version="1.0.33" />
+<PackageReference Include="Optivem.Atomiv.Core.Application" Version="1.0.33" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.All\Optivem.Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 

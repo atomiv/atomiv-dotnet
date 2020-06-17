@@ -19,6 +19,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
+using Optivem.Atomiv.Template.Core.Application.Context;
+using Optivem.Atomiv.Template.Core.Common.Requests;
 
 namespace Optivem.Atomiv.Template.DependencyInjection
 {
@@ -29,7 +31,7 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             var moduleTypes = GetModuleTypes();
             var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
 
-            AddCoreModules(services, assemblies);
+            AddCoreModules<RequestType>(services, assemblies);
             AddInfrastructureModules(services, configuration, assemblies);
         }
 
@@ -66,9 +68,10 @@ namespace Optivem.Atomiv.Template.DependencyInjection
             return moduleTypes;
         }
 
-        private static void AddCoreModules(this IServiceCollection services, Assembly[] assemblies)
+        private static void AddCoreModules<TRequestType>(this IServiceCollection services, Assembly[] assemblies)
+            where TRequestType : Enum
         {
-            services.AddApplicationCore(assemblies);
+            services.AddApplicationCore<TRequestType>(assemblies);
             services.AddDomainCore(assemblies);
         }
 
@@ -83,7 +86,11 @@ namespace Optivem.Atomiv.Template.DependencyInjection
                 options.EnableSensitiveDataLogging();
             });
 
-            services.AddUserContext<User, UserFactory>();
+            services.AddApplicationUserContext<ApplicationUser, 
+                RequestType, 
+                ApplicationUserSerializer, 
+                IApplicationUserContext,
+                ApplicationUserContext>();
 
             services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);

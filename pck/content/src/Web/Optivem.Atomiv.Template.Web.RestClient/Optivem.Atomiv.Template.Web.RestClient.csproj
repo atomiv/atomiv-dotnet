@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Optivem.Atomiv.Infrastructure.AspNetCore" Version="1.0.32" />
+<PackageReference Include="Optivem.Atomiv.Infrastructure.AspNetCore" Version="1.0.33" />
     <ProjectReference Include="..\..\Core\Optivem.Atomiv.Template.Core.Application.Commands\Optivem.Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\Optivem.Atomiv.Template.Web.RestClient.Interface\Optivem.Atomiv.Template.Web.RestClient.Interface.csproj" />
   </ItemGroup>
