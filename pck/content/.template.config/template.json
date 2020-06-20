@@ -1,9 +1,9 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Atomiv",
-  "classifications": [ "Template", "Microservice", "DDD", "Clean Architecture" ],
-  "identity": "Atomiv.Templates.Microservice.CSharp",
-  "name": "Atomiv Microservice",
-  "shortName": "atomiv-microservice",
+  "classifications": [ "Atomiv", "Clean Architecture" ],
+  "identity": "Atomiv.Template.CSharp",
+  "name": "Atomiv",
+  "shortName": "atomiv",
   "sourceName": "Atomiv.Template"
 }
