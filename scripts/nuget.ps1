@@ -107,7 +107,7 @@ Foreach($project in  $projects)
 	
 	$projectDir = (Get-Item $projectPath).Directory
 	
-	# D:\Github\optivem\pdn\src\Core\Common\Atomiv.Core.Common.Mapping\bin\Release\Atomiv.Core.Common.Mapping.1.0.3.nupkg
+	# D:\Github\atomiv\pdn\src\Core\Common\Atomiv.Core.Common.Mapping\bin\Release\Atomiv.Core.Common.Mapping.1.0.3.nupkg
 	
 	$nugetPath = Join-Path -Path $projectDir -ChildPath "bin\Release\$projectName.$version.nupkg"
 

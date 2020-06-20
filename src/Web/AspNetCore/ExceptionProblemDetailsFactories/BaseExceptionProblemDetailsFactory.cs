@@ -40,7 +40,7 @@ namespace Atomiv.Web.AspNetCore
             var guid = Guid.NewGuid();
 
             // TODO: VC: #177: REST API - Exception Handling - Problem Details - Instance
-            var instance = $"urn:optivem:error:{guid}";
+            var instance = $"urn:atomiv:error:{guid}";
 
             return instance;
         }
