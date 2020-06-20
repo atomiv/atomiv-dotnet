@@ -4,7 +4,7 @@
     <id>Atomiv.Templates</id>
     <version>1.0.33</version>
     <description>Atomiv Templates</description>
-    <authors>Optivem</authors>
+    <authors>Atomiv</authors>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
