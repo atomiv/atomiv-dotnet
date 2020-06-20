@@ -31,7 +31,7 @@ namespace Atomiv.Template.Web.UI.SystemTest
 #line 1 "Customer.feature"
 #line hidden
         
-        public CustomerFeature(CustomerFeature.FixtureData fixtureData, Optivem_Template_Web_UI_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CustomerFeature(CustomerFeature.FixtureData fixtureData, Atomiv_Template_Web_UI_SystemTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();

@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>Atomiv.Infrastructure.System</PackageId>
     <Product>Atomiv.Infrastructure.System</Product>
-    <Company>Optivem</Company>
+    <Company>Atomiv</Company>
     <Authors>Atomiv</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
     <Copyright>?  All rights reserved.</Copyright>
