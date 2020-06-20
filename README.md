@@ -101,7 +101,7 @@ The architecture consists of the following layers:
 
 ## Getting support
 
-To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/atomiv/framework-dotnetcore/issues](https://github.com/atomiv/framework-dotnetcore/issues).
+To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the [Issue Tracker](https://github.com/atomiv/atomiv-cs/issues).
 
 <a name="license" />
 ## License
