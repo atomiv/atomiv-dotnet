@@ -1,6 +1,6 @@
 ## Atomiv
 
-[![Build Status](https://img.shields.io/appveyor/ci/atomiv/framework-dotnetcore.svg)](https://ci.appveyor.com/project/atomiv/framework-dotnetcore)
+[![Build Status](https://img.shields.io/appveyor/ci/atomiv/atomiv-cs.svg)](https://ci.appveyor.com/project/atomiv/atomiv-cs)
 
 <!--
 
