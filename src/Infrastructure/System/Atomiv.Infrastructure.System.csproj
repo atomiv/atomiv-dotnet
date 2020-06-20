@@ -10,10 +10,10 @@
     <Copyright>?  All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization System</PackageTags>
     <Version>1.0.33</Version>
-    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 

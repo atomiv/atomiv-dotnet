@@ -7,8 +7,8 @@
     <Description>Implementation for CSV Serialization using CsvHelper</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
+    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization CSV CsvHelper</PackageTags>
   </PropertyGroup>
