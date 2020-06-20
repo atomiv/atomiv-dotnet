@@ -1,6 +1,6 @@
 ## Atomiv
 
-[![Build Status](https://img.shields.io/appveyor/ci/atomiv/framework-dotnetcore.svg)](https://ci.appveyor.com/project/atomiv/framework-dotnetcore)
+[![Build Status](https://img.shields.io/appveyor/ci/atomiv/atomiv-cs.svg)](https://ci.appveyor.com/project/atomiv/atomiv-cs)
 [![Build Status](https://dev.azure.com/atomiv/Atomiv/_apis/build/status/atomiv.framework-dotnetcore?branchName=develop)](https://dev.azure.com/atomiv/Atomiv/_build/latest?definitionId=1&branchName=develop)
 [![Build Status](https://dev.azure.com/atomiv/Atomiv/_apis/build/status/atomiv.framework-dotnetcore?branchName=master)](https://dev.azure.com/atomiv/Atomiv/_build/latest?definitionId=1&branchName=master)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
