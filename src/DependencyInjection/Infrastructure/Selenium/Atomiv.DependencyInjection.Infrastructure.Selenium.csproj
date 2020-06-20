@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>1.0.33</Version>
-    <Authors>Optivem</Authors>
+    <Authors>Atomiv</Authors>
   </PropertyGroup>
 
 </Project>

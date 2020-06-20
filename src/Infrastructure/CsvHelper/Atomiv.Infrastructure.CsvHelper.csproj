@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Authors>Optivem</Authors>
+    <Authors>Atomiv</Authors>
     <Version>1.0.33</Version>
     <Description>Implementation for CSV Serialization using CsvHelper</Description>
     <Copyright>?  All rights reserved.</Copyright>
-    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Serialization CSV CsvHelper</PackageTags>
+    <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization CSV CsvHelper</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

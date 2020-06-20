@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Authors>Optivem</Authors>
+    <Authors>Atomiv</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
-    <PackageTags>Optivem Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
+    <PackageTags>Atomiv Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
     <Version>1.0.33</Version>
     <IsPackable>true</IsPackable>
   </PropertyGroup>

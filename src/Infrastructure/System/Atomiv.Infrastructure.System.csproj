@@ -5,13 +5,13 @@
     <PackageId>Atomiv.Infrastructure.System</PackageId>
     <Product>Atomiv.Infrastructure.System</Product>
     <Company>Optivem</Company>
-    <Authors>Optivem</Authors>
+    <Authors>Atomiv</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/framework-dotnetcore</PackageProjectUrl>
+    <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/optivem/framework-dotnetcore</RepositoryUrl>
-    <PackageTags>Optivem Framework DotNetCore Infrastructure Serialization System</PackageTags>
+    <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization System</PackageTags>
     <Version>1.0.33</Version>
     <PackageIconUrl>https://github.com/optivem/framework-dotnetcore/blob/master/img/nuget.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
