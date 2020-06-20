@@ -65,4 +65,4 @@ To report any issues and bugs, or if you have any suggestions for improvements a
 
 ## Licence
 
-Copyright (c) 2015 [Optivem](http://optivem.com/). Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Copyright (c) 2015 [Atomiv](http://atomiv.com/). Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
