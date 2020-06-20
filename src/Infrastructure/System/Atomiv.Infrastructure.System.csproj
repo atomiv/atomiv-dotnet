@@ -8,8 +8,8 @@
     <Authors>Atomiv</Authors>
     <Description>Default implementation of parsing for standard data types</Description>
     <Copyright>?  All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/framework-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization System</PackageTags>
     <Version>1.0.33</Version>

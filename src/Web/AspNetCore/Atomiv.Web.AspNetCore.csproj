@@ -5,9 +5,9 @@
     <Authors>Atomiv</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
     <Copyright>?  All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://opensource.optivem.com/csharp-commons-restservice-aspnetcore</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/optivem/csharp-commons-restservice-aspnetcore</RepositoryUrl>
+    <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
     <Version>1.0.33</Version>
     <IsPackable>true</IsPackable>

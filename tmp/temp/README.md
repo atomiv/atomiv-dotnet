@@ -57,11 +57,11 @@ The Tutorials section will soon be updated with examples of how you can set up y
 
 ## Website
 
-The main website for this project on GitHub: [optivem.github.io/vembridge](http://optivem.github.io/vembridge).
+The main website for this project on GitHub: [atomiv.github.io/vembridge](http://atomiv.github.io/vembridge).
 
 ## Issues
 
-To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/vembridge/issues](https://github.com/optivem/vembridge/issues).
+To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/atomiv/vembridge/issues](https://github.com/atomiv/vembridge/issues).
 
 ## Licence
 

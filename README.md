@@ -1,8 +1,8 @@
 ## Atomiv
 
-[![Build Status](https://img.shields.io/appveyor/ci/optivem/framework-dotnetcore.svg)](https://ci.appveyor.com/project/optivem/framework-dotnetcore)
-[![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=develop)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=develop)
-[![Build Status](https://dev.azure.com/optivem/Optivem%20Framework/_apis/build/status/optivem.framework-dotnetcore?branchName=master)](https://dev.azure.com/optivem/Optivem%20Framework/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://img.shields.io/appveyor/ci/atomiv/framework-dotnetcore.svg)](https://ci.appveyor.com/project/atomiv/framework-dotnetcore)
+[![Build Status](https://dev.azure.com/atomiv/Atomiv/_apis/build/status/optivem.framework-dotnetcore?branchName=develop)](https://dev.azure.com/atomiv/Atomiv/_build/latest?definitionId=1&branchName=develop)
+[![Build Status](https://dev.azure.com/atomiv/Atomiv/_apis/build/status/optivem.framework-dotnetcore?branchName=master)](https://dev.azure.com/atomiv/Atomiv/_build/latest?definitionId=1&branchName=master)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 Welcome to the Atomiv! The Atomiv was created to help you increase code quality, help you deliver products faster to customers and reduce your overall software development cost. This documentation page will show you how to get up-and-running with the Atomiv in your .NET Core 2.2 software projects. 
@@ -89,13 +89,13 @@ The architecture consists of the following layers:
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Test.Selenium.svg)](https://www.nuget.org/packages/Atomiv.Test.Selenium) Atomiv.Test.Selenium
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Test.Xunit.svg)](https://www.nuget.org/packages/Atomiv.Test.Xunit) Atomiv.Test.Xunit
 
-### Optivem Template
+### Atomiv Template
 
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Templates.svg)](https://www.nuget.org/packages/Atomiv.Templates) Atomiv.Templates
 
 ## Getting support
 
-To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/optivem/framework-dotnetcore/issues](https://github.com/optivem/framework-dotnetcore/issues).
+To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the Issue Tracker: [github.com/atomiv/framework-dotnetcore/issues](https://github.com/atomiv/framework-dotnetcore/issues).
 
 <a name="license" />
 ## License
@@ -104,4 +104,4 @@ Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php)
 
 ## Copyright
 
-Copyright © 2020 [Optivem](https://www.optivem.com/) All Rights Reserved.
+Copyright © 2020 [Atomiv](https://www.atomiv.com/) All Rights Reserved.

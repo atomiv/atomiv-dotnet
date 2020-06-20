@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>1.0.33</Version>
     <Authors>Atomiv</Authors>
-    <Company>Optivem</Company>
+    <Company>Atomiv</Company>
   </PropertyGroup>
 
   <ItemGroup>

@@ -112,7 +112,7 @@ namespace Atomiv.Infrastructure.AspNetCore
             }
             catch (Exception)
             {
-                // TODO: https://github.com/optivem/framework-dotnetcore/issues/273
+                // TODO: https://github.com/atomiv/atomiv-cs/issues/273
                 return null;
             }
         }
