@@ -1,4 +1,4 @@
-﻿namespace Optivem.Cli.Web.RestClient.Interface
+﻿namespace Cli.Web.RestClient.Interface
 {
     public interface IApiHttpService
     {

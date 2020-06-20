@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Atomiv.Core.Common.WebAutomation
+namespace Atomiv.Core.Common.WebAutomation
 {
     public class WebAutomationException : Exception
     {

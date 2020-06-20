@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Optivem.Atomiv.Core.Domain
+namespace Atomiv.Core.Domain
 {
     public class ConcurrentUpdateException : RepositoryException
     {

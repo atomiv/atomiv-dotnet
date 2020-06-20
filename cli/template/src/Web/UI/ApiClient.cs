@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
-using Optivem.Atomiv.Infrastructure.AspNetCore;
+using Atomiv.Infrastructure.AspNetCore;
 using System;
 using System.Net.Http;
 
-namespace Optivem.Cli.Web.UI
+namespace Cli.Web.UI
 {
     public class ApiClient : WebClient
     {

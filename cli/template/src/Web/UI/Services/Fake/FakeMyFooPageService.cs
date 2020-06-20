@@ -1,9 +1,9 @@
-﻿using Optivem.Cli.Web.UI.Models;
-using Optivem.Cli.Web.UI.Services.Interfaces;
+﻿using Cli.Web.UI.Models;
+using Cli.Web.UI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.UI.Services.Fake
+namespace Cli.Web.UI.Services.Fake
 {
     public class FakeMyFooPageService : IMyFooPageService
     {

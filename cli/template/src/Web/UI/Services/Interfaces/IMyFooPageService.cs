@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Web.AspNetCore.RazorPages;
-using Optivem.Cli.Web.UI.Models;
+﻿using Atomiv.Web.AspNetCore.RazorPages;
+using Cli.Web.UI.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.UI.Services.Interfaces
+namespace Cli.Web.UI.Services.Interfaces
 {
     public interface IMyFooPageService : IPageService
     {

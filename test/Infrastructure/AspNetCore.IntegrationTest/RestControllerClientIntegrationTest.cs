@@ -1,10 +1,10 @@
-using Optivem.Atomiv.Test.Xunit;
+using Atomiv.Test.Xunit;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore.IntegrationTest
+namespace Atomiv.Infrastructure.AspNetCore.IntegrationTest
 {
     public class RestControllerClientIntegrationTest : JsonPlaceholderClientFixtureTest
     {

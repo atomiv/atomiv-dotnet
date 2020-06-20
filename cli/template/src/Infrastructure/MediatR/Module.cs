@@ -1,8 +1,8 @@
 ﻿
 
-using Optivem.Atomiv.Infrastructure.MediatR;
+using Atomiv.Infrastructure.MediatR;
 
-namespace Optivem.Cli.Infrastructure.MediatR
+namespace Cli.Infrastructure.MediatR
 {
     public class Module : IModule
     {

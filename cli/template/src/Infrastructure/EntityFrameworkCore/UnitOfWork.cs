@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Core.Domain;
-using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-using Optivem.Cli.Core.Domain.MyFoos.Repositories;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Repositories;
+﻿using Atomiv.Core.Domain;
+using Atomiv.Infrastructure.EntityFrameworkCore;
+using Cli.Core.Domain.MyFoos.Repositories;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Repositories;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore
+namespace Cli.Infrastructure.EntityFrameworkCore
 {
     public class UnitOfWork : UnitOfWork<DatabaseContext>, IUnitOfWork
     {

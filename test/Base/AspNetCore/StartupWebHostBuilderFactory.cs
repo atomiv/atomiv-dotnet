@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 
-namespace Optivem.Atomiv.Test.AspNetCore
+namespace Atomiv.Test.AspNetCore
 {
     public class StartupWebHostBuilderFactory<TStartup> : IFactory<IWebHostBuilder> where TStartup : class
     {

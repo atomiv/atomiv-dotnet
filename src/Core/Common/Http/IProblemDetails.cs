@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Core.Common.Http
+namespace Atomiv.Core.Common.Http
 {
     public interface IProblemDetails
     {

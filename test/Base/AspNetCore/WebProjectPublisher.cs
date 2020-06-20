@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 // TODO: VC: Based on https://github.com/Tomamais/StartAndStopDotNetCoreApp/blob/master/StartAndStopDotNetCoreApp/Program.cs
 
-namespace Optivem.Atomiv.Test.AspNetCore
+namespace Atomiv.Test.AspNetCore
 {
     public class WebProjectPublisher : BaseProcessRunner
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Net;
 
-namespace Optivem.Atomiv.Web.AspNetCore
+namespace Atomiv.Web.AspNetCore
 {
     public class RequestValidationExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<ValidationException, ProblemDetails>
     {

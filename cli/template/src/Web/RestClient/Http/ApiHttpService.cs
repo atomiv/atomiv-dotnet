@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Infrastructure.AspNetCore;
-using Optivem.Cli.Web.RestClient.Interface;
+﻿using Atomiv.Core.Common.Http;
+using Atomiv.Infrastructure.AspNetCore;
+using Cli.Web.RestClient.Interface;
 
-namespace Optivem.Cli.Web.RestClient.Http
+namespace Cli.Web.RestClient.Http
 {
     public class ApiHttpService : BaseApiClient, IApiHttpService
     {

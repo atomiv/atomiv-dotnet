@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 
-namespace Optivem.Atomiv.Test.AspNetCore
+namespace Atomiv.Test.AspNetCore
 {
     public static class WebHostBuilderFactory
     {

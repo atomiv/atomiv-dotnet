@@ -1,14 +1,14 @@
-﻿using Optivem.Atomiv.Web.AspNetCore.RazorPages;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
-using Optivem.Cli.Core.Application.MyFoos.Services;
-using Optivem.Cli.Web.UI.Models;
-using Optivem.Cli.Web.UI.Services.Interfaces;
+﻿using Atomiv.Web.AspNetCore.RazorPages;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.MyFoos.Responses;
+using Cli.Core.Application.MyFoos.Services;
+using Cli.Web.UI.Models;
+using Cli.Web.UI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.UI.Services
+namespace Cli.Web.UI.Services
 {
     public class MyFooPageService : PageService<IMyFooService>, IMyFooPageService
     {

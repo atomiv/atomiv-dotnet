@@ -1,8 +1,8 @@
 ﻿using FluentValidation.Results;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Linq;
 
-namespace Optivem.Atomiv.Infrastructure.FluentValidation
+namespace Atomiv.Infrastructure.FluentValidation
 {
     public static class ValidationResultExtensions
     {

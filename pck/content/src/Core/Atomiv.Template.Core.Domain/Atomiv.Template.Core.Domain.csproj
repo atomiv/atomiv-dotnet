@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+<PackageReference Include="Atomiv.Core.Domain" Version="1.0.33" />
+    <ProjectReference Include="..\Atomiv.Template.Core.Common\Atomiv.Template.Core.Common.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,10 +1,10 @@
-﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
-using Optivem.Cli.Core.Domain.MyFoos.Entities;
-using Optivem.Cli.Core.Domain.MyFoos.Repositories;
-using Optivem.Cli.Core.Domain.MyFoos.ValueObjects;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
+﻿using Atomiv.Infrastructure.EntityFrameworkCore;
+using Cli.Core.Domain.MyFoos.Entities;
+using Cli.Core.Domain.MyFoos.Repositories;
+using Cli.Core.Domain.MyFoos.ValueObjects;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Repositories
+namespace Cli.Infrastructure.EntityFrameworkCore.MyFoos.Repositories
 {
     public class MyFooRepository : Repository<DatabaseContext, MyFoo, MyFooIdentity, MyFooRecord, int>, IMyFooRepository
     {

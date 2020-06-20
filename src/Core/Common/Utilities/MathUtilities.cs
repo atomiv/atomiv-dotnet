@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Core.Common.Utilities
+namespace Atomiv.Core.Common.Utilities
 {
     public static class MathUtilities
     {

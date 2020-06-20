@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 
-namespace Optivem.Atomiv.Test.MicrosoftExtensions.Configuration
+namespace Atomiv.Test.MicrosoftExtensions.Configuration
 {
     public static class ConfigurationRootFactory
     {

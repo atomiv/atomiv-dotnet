@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public static class ModelBuilderExtensions
     {

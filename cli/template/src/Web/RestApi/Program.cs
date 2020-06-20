@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Optivem.Cli.Web.RestApi
+namespace Cli.Web.RestApi
 {
     public class Program
     {

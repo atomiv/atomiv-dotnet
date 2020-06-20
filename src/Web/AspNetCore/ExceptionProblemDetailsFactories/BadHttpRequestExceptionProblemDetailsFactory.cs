@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
-namespace Optivem.Atomiv.Web.AspNetCore
+namespace Atomiv.Web.AspNetCore
 {
     public class BadHttpRequestExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<BadHttpRequestException, ProblemDetails>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers
 {
     public class CustomerGetSubsetResponse
     {

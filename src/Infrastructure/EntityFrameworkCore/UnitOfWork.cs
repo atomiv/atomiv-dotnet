@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Optivem.Atomiv.Core.Domain;
+using Atomiv.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public abstract class UnitOfWork<TContext> : IUnitOfWork
         where TContext : DbContext

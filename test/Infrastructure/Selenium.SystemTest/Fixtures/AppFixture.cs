@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Data;
-using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces;
-using Optivem.Atomiv.Test.Selenium;
+﻿using Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Data;
+using Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces;
+using Atomiv.Test.Selenium;
 using System;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures
+namespace Atomiv.Infrastructure.Selenium.SystemTest.Fixtures
 {
     public class AppFixture : IDisposable
     {

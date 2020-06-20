@@ -1,4 +1,4 @@
-﻿namespace Optivem.Cli.Web.UI
+﻿namespace Cli.Web.UI
 {
     public class ApiClientOptions
     {

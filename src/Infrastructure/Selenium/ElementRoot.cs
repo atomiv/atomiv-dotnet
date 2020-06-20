@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Atomiv.Core.Common.WebAutomation;
+using Atomiv.Core.Common.WebAutomation;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public class ElementRoot : Finder, IElementRoot<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>
     {

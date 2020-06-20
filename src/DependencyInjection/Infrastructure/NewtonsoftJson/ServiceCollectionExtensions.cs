@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.Core.Common.Serialization;
-using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
+using Atomiv.Core.Common.Serialization;
+using Atomiv.Infrastructure.NewtonsoftJson;
 using System.Reflection;
 
-namespace Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson
+namespace Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson
 {
     public static class ServiceCollectionExtensions
     {

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Optivem.Atomiv.Infrastructure.AutoMapper;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
-using Optivem.Cli.Core.Domain.MyFoos.Entities;
+using Atomiv.Infrastructure.AutoMapper;
+using Cli.Core.Application.MyFoos.Responses;
+using Cli.Core.Domain.MyFoos.Entities;
 
-namespace Optivem.Cli.Infrastructure.AutoMapper.MyFoos
+namespace Cli.Infrastructure.AutoMapper.MyFoos
 {
     public class UpdateMyFooResponseProfile : ResponseProfile<MyFoo, UpdateMyFooResponse>
     {

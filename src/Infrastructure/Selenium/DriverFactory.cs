@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Common;
+﻿using Atomiv.Core.Common;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public static class DriverFactory
     {

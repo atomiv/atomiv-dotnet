@@ -1,20 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.DependencyInjection.Core.Application;
-using Optivem.Atomiv.DependencyInjection.Core.Domain;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore;
+using Atomiv.DependencyInjection.Core.Application;
+using Atomiv.DependencyInjection.Core.Domain;
+using Atomiv.DependencyInjection.Infrastructure.AutoMapper;
+using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
+using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
+using Atomiv.DependencyInjection.Infrastructure.MediatR;
+using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
+using Cli.Infrastructure.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
-namespace Optivem.Cli.DependencyInjection
+namespace Cli.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {

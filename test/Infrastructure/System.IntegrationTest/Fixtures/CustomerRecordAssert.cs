@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using Xunit;
 
-namespace Optivem.Atomiv.Infrastructure.System.IntegrationTest.Fixtures
+namespace Atomiv.Infrastructure.System.IntegrationTest.Fixtures
 {
     public static class CustomerRecordAssert
     {

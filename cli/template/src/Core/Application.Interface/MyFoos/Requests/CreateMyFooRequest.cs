@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 
-namespace Optivem.Cli.Core.Application.MyFoos.Requests
+namespace Cli.Core.Application.MyFoos.Requests
 {
     public class CreateMyFooRequest : IRequest
     {

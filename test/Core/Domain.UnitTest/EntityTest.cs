@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace Optivem.Atomiv.Core.Domain.UnitTest
+namespace Atomiv.Core.Domain.UnitTest
 {
     public class EntityTest
     {

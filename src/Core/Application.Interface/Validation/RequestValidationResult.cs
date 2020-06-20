@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public class RequestValidationResult
     {

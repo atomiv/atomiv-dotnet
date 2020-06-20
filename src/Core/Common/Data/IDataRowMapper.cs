@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 
-namespace Optivem.Atomiv.Core.Common.Data
+namespace Atomiv.Core.Common.Data
 {
     public interface IDataRowMapper<T>
     {

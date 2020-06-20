@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Primitives;
-using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Core.Common.Serialization;
+using Atomiv.Core.Common.Http;
+using Atomiv.Core.Common.Serialization;
 using System.Net;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class JsonClient : ObjectClient
     {

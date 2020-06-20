@@ -1,4 +1,4 @@
-﻿namespace Optivem.Cli.Web.UI.Models
+﻿namespace Cli.Web.UI.Models
 {
     public class MyFoo
     {

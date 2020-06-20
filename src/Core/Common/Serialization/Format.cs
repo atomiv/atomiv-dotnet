@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Core.Common.Serialization
+﻿namespace Atomiv.Core.Common.Serialization
 {
     public enum FormatType
     {

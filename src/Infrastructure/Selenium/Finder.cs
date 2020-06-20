@@ -1,10 +1,10 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Atomiv.Core.Common.WebAutomation;
+using Atomiv.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public abstract class Finder : IFinder<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>
     {

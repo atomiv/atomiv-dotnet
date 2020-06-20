@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Test.Xunit;
+﻿using Atomiv.Test.Xunit;
 using System;
 
-namespace Optivem.Cli.Web.RestApi.IntegrationTest.Fixtures
+namespace Cli.Web.RestApi.IntegrationTest.Fixtures
 {
     public class ControllerTest : FixtureTest<ControllerFixture>, IDisposable
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Test.AspNetCore
+namespace Atomiv.Test.AspNetCore
 {
     public class WebPortTerminator
     {

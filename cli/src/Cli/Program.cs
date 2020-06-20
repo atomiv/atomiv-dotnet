@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Cli
+namespace Cli
 {
     class Program
     {

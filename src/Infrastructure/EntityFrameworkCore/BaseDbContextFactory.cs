@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public abstract class BaseDbContextFactory<TContext> : IFactory<TContext>
         where TContext : DbContext

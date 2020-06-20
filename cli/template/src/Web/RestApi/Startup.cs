@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.Web.AspNetCore;
-using Optivem.Cli.DependencyInjection;
+using Atomiv.Web.AspNetCore;
+using Cli.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace Optivem.Cli.Web.RestApi
+namespace Cli.Web.RestApi
 {
     public class Startup
     {

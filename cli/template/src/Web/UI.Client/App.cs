@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Infrastructure.Selenium;
-using Optivem.Cli.Web.UI.Client.Interface;
-using Optivem.Cli.Web.UI.Client.Interface.Pages;
-using Optivem.Cli.Web.UI.Client.Pages;
+﻿using Atomiv.Infrastructure.Selenium;
+using Cli.Web.UI.Client.Interface;
+using Cli.Web.UI.Client.Interface.Pages;
+using Cli.Web.UI.Client.Pages;
 
-namespace Optivem.Cli.Web.UI.Client
+namespace Cli.Web.UI.Client
 {
     public class App : App<CreateMyFooPage>, IApp
     {

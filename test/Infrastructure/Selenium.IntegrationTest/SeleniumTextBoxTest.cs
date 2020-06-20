@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest
+﻿namespace Atomiv.Infrastructure.Selenium.IntegrationTest
 {
     // TODO: Pending resolution of https://github.com/appveyor/ci/issues/2928
 

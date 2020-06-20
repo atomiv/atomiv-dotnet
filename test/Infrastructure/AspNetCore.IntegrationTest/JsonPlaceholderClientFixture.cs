@@ -1,12 +1,12 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
-using Optivem.Atomiv.Infrastructure.System.Reflection;
+﻿using Atomiv.Core.Common.Http;
+using Atomiv.Infrastructure.NewtonsoftJson;
+using Atomiv.Infrastructure.System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore.IntegrationTest
+namespace Atomiv.Infrastructure.AspNetCore.IntegrationTest
 {
     public class JsonPlaceholderClientFixture
     {

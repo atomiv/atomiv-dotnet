@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Optivem.Atomiv.Web.AspNetCore.RazorPages;
-using Optivem.Cli.Web.UI.Models;
-using Optivem.Cli.Web.UI.Services.Interfaces;
+using Atomiv.Web.AspNetCore.RazorPages;
+using Cli.Web.UI.Models;
+using Cli.Web.UI.Services.Interfaces;
 
-namespace Optivem.Cli.Web.UI.Pages.MyFoos
+namespace Cli.Web.UI.Pages.MyFoos
 {
     public class IndexModel : PageServiceModel<IMyFooPageService>
     {

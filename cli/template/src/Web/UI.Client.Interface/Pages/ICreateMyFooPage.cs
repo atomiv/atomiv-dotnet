@@ -1,4 +1,4 @@
-﻿namespace Optivem.Cli.Web.UI.Client.Interface.Pages
+﻿namespace Cli.Web.UI.Client.Interface.Pages
 {
     public interface ICreateMyFooPage
     {

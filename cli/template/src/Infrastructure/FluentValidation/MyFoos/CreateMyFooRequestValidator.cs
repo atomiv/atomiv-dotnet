@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Optivem.Atomiv.Infrastructure.FluentValidation;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
+using Atomiv.Infrastructure.FluentValidation;
+using Cli.Core.Application.MyFoos.Requests;
 
-namespace Optivem.Cli.Infrastructure.FluentValidation.MyFoos
+namespace Cli.Infrastructure.FluentValidation.MyFoos
 {
     public class CreateMyFooRequestValidator : BaseValidator<CreateMyFooRequest>
     {

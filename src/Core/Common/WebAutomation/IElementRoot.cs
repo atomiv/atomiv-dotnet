@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Core.Common.WebAutomation
+﻿namespace Atomiv.Core.Common.WebAutomation
 {
     public interface IElementRoot<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup, TCompositeElement>
         : IElement, IFinder<TElementRoot, TElement, TTextBox, TCheckBox, TComboBox, TButton, TRadioButton, TRadioButtonGroup, TCheckBoxGroup, TCompositeElement>

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Common.Http
+namespace Atomiv.Core.Common.Http
 {
     public interface IClient
     {

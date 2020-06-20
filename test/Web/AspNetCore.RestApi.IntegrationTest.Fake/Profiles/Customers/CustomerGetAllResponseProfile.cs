@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Entities;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers
 {
     public class CustomerGetAllResponseProfile : Profile
     {

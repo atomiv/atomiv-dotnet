@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium.Chrome;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 using System.IO;
 using System.Reflection;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public class ChromeDriverFactory : IFactory<Driver>
     {

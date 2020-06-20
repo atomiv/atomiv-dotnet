@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Core.Common.WebAutomation
+namespace Atomiv.Core.Common.WebAutomation
 {
     public interface ICheckBoxGroup
     {

@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.MediatR
+namespace Atomiv.Infrastructure.MediatR
 {
     public class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<MediatorRequest<TResponse>, TResponse>
         where TRequest : Core.Application.IRequest<TResponse>

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public class RequestValidationHandler<TRequest> : IRequestValidationHandler<TRequest>
     {

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generator.Core.Application.Interface\Generator.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Generator.Core.Application\Generator.Core.Application.csproj" />
+    <ProjectReference Include="..\Generator.Core.Domain\Generator.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

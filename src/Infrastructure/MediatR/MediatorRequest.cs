@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.MediatR
+﻿namespace Atomiv.Infrastructure.MediatR
 {
     public class MediatorRequest<TResponse> : IMediatorRequest<TResponse>
     {

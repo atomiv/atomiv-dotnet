@@ -1,9 +1,9 @@
 ﻿using OfficeOpenXml;
-using Optivem.Atomiv.Core.Common.Files;
+using Atomiv.Core.Common.Files;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Optivem.Atomiv.Infrastructure.EPPlus
+namespace Atomiv.Infrastructure.EPPlus
 {
     public class ExcelReader : IExcelReader
     {

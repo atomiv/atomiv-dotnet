@@ -1,11 +1,11 @@
-﻿using Optivem.Cli.DependencyInjection;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.Test.AspNetCore;
-using Optivem.Atomiv.Test.EntityFrameworkCore;
-using Optivem.Cli.Web.RestClient.Http;
-using Optivem.Cli.Web.RestClient.Interface;
+﻿using Cli.DependencyInjection;
+using Cli.Infrastructure.EntityFrameworkCore;
+using Atomiv.Test.AspNetCore;
+using Atomiv.Test.EntityFrameworkCore;
+using Cli.Web.RestClient.Http;
+using Cli.Web.RestClient.Interface;
 
-namespace Optivem.Cli.Web.RestApi.IntegrationTest.Fixtures
+namespace Cli.Web.RestApi.IntegrationTest.Fixtures
 {
     public class ControllerFixture
     {

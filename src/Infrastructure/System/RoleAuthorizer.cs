@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using System;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.System
+namespace Atomiv.Infrastructure.System
 {
     // TODO: VC: Check
 

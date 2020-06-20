@@ -1,10 +1,10 @@
-﻿using Optivem.Atomiv.Core.Common.Files;
+﻿using Atomiv.Core.Common.Files;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
-namespace Optivem.Atomiv.Infrastructure.EPPlus.IntegrationTest
+namespace Atomiv.Infrastructure.EPPlus.IntegrationTest
 {
     public class ExcelWriterTest
     {

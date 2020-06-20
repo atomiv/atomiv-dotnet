@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using System.Collections.Generic;
 
-namespace Optivem.Cli.Core.Application.MyFoos.Responses
+namespace Cli.Core.Application.MyFoos.Responses
 {
     public class ListMyFoosResponse : ICollectionResponse<ListMyFoosRecordResponse, int>
     {

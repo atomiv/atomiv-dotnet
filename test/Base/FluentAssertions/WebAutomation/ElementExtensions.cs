@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Core.Common.WebAutomation;
+using Atomiv.Core.Common.WebAutomation;
 
-namespace Optivem.Atomiv.Test.FluentAssertions.WebAutomation
+namespace Atomiv.Test.FluentAssertions.WebAutomation
 {
     public static class ElementExtensions
     {

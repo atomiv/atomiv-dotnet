@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Core.Domain
+﻿namespace Atomiv.Core.Domain
 {
     public interface IRepository
     {

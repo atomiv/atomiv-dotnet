@@ -1,12 +1,12 @@
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
-using Optivem.Cli.Web.RestApi.IntegrationTest.Fixtures;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
+using Cli.Web.RestApi.IntegrationTest.Fixtures;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Cli.Web.RestApi.IntegrationTest
+namespace Cli.Web.RestApi.IntegrationTest
 {
     public class MyFoosControllerTest : ControllerTest
     {

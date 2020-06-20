@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.Selenium
+﻿namespace Atomiv.Infrastructure.Selenium
 {
     public abstract class App<THomePage> : PageObject<Driver>
         where THomePage : Page

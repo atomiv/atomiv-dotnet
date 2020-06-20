@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Domain;
+﻿using Atomiv.Core.Domain;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records
+namespace Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records
 {
     public class MyFooRecord : IIdentity<int>
     {

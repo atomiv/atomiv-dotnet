@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Common.Serialization;
+using Atomiv.Core.Application;
+using Atomiv.Core.Common.Serialization;
 using System;
 using System.Net;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
 {
     public static class ExceptionHandlerExtensions
     {

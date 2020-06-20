@@ -1,12 +1,12 @@
-﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.IntegrationTest.Fixtures;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
+﻿using Atomiv.Core.Application;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.IntegrationTest.Fixtures;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Cli.Core.Application.IntegrationTest
+namespace Cli.Core.Application.IntegrationTest
 {
     public class MyFooServiceTest : ServiceTest
     {

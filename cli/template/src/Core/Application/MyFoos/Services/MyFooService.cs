@@ -1,10 +1,10 @@
-﻿using Optivem.Atomiv.Core.Application;
-using Optivem.Atomiv.Core.Application.Services;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
+﻿using Atomiv.Core.Application;
+using Atomiv.Core.Application.Services;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.MyFoos.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Core.Application.MyFoos.Services
+namespace Cli.Core.Application.MyFoos.Services
 {
     public class MyFooService : BaseService, IMyFooService
     {

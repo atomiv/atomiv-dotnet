@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="1.0.33" />
+    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Commands\Atomiv.Template.Core.Application.Commands.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Web.RestClient.Interface\Atomiv.Template.Web.RestClient.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

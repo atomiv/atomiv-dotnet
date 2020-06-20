@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Core.Application
+﻿namespace Atomiv.Core.Application
 {
     public interface IApplicationUserContext<TRequestType>
     {

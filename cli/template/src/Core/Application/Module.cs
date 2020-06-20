@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 
-namespace Optivem.Cli.Core.Application
+namespace Cli.Core.Application
 {
     public class Module : IModule
     {

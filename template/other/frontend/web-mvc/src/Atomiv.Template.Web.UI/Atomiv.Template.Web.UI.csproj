@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\System\Atomiv.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\..\..\src\Web\AspNetCore\Atomiv.Web.AspNetCore.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Web.RestClient\Atomiv.Template.Web.RestClient.csproj" />
+  </ItemGroup>
+
+</Project>

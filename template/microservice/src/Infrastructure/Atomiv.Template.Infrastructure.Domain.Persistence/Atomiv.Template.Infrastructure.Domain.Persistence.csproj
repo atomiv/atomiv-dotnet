@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj" />
+    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

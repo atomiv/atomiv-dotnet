@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 
-namespace Optivem.Atomiv.Infrastructure.AutoMapper
+namespace Atomiv.Infrastructure.AutoMapper
 {
     public class Mapper : IMapper
     {

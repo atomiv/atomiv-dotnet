@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
-using Optivem.Atomiv.Core.Common.WebAutomation;
+using Atomiv.Core.Common.WebAutomation;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public static class FindByMap
     {

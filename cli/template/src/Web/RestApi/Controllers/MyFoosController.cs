@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Web.AspNetCore;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
-using Optivem.Cli.Core.Application.MyFoos.Services;
+using Atomiv.Web.AspNetCore;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.MyFoos.Responses;
+using Cli.Core.Application.MyFoos.Services;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.RestApi.Controllers
+namespace Cli.Web.RestApi.Controllers
 {
     [Route("api/my-foos")]
     [ApiController]

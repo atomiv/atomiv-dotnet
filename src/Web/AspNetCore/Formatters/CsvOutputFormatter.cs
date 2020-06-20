@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
-using Optivem.Atomiv.Core.Common.Serialization;
+using Atomiv.Core.Common.Serialization;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Web.AspNetCore
+namespace Atomiv.Web.AspNetCore
 {
     public class CsvOutputFormatter : TextOutputFormatter
     {

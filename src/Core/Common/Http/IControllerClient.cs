@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Common.Http
+namespace Atomiv.Core.Common.Http
 {
     // TODO: VC: Sub-resources for all operations, enabling additional uri, also enabling fully custom uri in case no patterns match
 

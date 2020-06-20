@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generator.Infrastructure.AutoMapper\Generator.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\Generator.Infrastructure.EntityFrameworkCore\Generator.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Generator.Infrastructure.FluentValidation\Generator.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\Generator.Infrastructure.MediatR\Generator.Infrastructure.MediatR.csproj" />
+  </ItemGroup>
+
+</Project>

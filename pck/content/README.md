@@ -1,4 +1,4 @@
-# Optivem.Atomiv.Template
+# Atomiv.Template
 
 ## Prerequisites
 
@@ -32,4 +32,4 @@ Go to https://localhost:5101/swagger and run some swagger commands.
 ## Entity Framework
 
 Update database
-dotnet ef database update --project .\src\Tools\Optivem.Atomiv.Template.Tools.Migrator
+dotnet ef database update --project .\src\Tools\Atomiv.Template.Tools.Migrator

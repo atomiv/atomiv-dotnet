@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.FluentValidation
+﻿namespace Atomiv.Infrastructure.FluentValidation
 {
     public static class ValidationErrorCodes
     {

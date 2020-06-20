@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Test.FluentAssertions.WebAutomation
+﻿namespace Atomiv.Test.FluentAssertions.WebAutomation
 {
     internal class ButtonExtensions
     {

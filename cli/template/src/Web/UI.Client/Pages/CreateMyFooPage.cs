@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Infrastructure.Selenium;
-using Optivem.Cli.Web.UI.Client.Interface.Pages;
+﻿using Atomiv.Infrastructure.Selenium;
+using Cli.Web.UI.Client.Interface.Pages;
 
-namespace Optivem.Cli.Web.UI.Client.Pages
+namespace Cli.Web.UI.Client.Pages
 {
     public class CreateMyFooPage : Page, ICreateMyFooPage
     {

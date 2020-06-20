@@ -1,14 +1,14 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Infrastructure.AspNetCore;
-using Optivem.Atomiv.Test.AspNetCore;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
+﻿using Atomiv.Core.Common.Http;
+using Atomiv.Infrastructure.AspNetCore;
+using Atomiv.Test.AspNetCore;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Models;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture
 {
     public class TestClient
     {

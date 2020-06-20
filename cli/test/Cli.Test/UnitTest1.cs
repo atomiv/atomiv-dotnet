@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Optivem.Cli.Test
+namespace Cli.Test
 {
     public class UnitTest1
     {

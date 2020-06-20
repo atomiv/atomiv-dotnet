@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Atomiv.Core.Common.Http
+namespace Atomiv.Core.Common.Http
 {
     public class HeaderDictionary : ICollection<KeyValuePair<string, StringValues>>,
         IDictionary<string, StringValues>,

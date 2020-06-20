@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public abstract class BaseRequestAuthorizer<TRequest> : IRequestAuthorizer<TRequest>
     {

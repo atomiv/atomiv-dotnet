@@ -1,10 +1,10 @@
-﻿using Optivem.Atomiv.Core.Common.Reflection;
+﻿using Atomiv.Core.Common.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.Atomiv.Infrastructure.System.Reflection
+namespace Atomiv.Infrastructure.System.Reflection
 {
     public class PropertyMapper : IPropertyMapper
     {

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.System
+﻿namespace Atomiv.Infrastructure.System
 {
     public class FloatParser : BaseParser<float?>
     {

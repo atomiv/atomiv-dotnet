@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Base\**" />
+    <EmbeddedResource Remove="Base\**" />
+    <None Remove="Base\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Atomiv.Core.Application" Version="1.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generator.Core.Application.Interface\Generator.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\Generator.Core.Domain\Generator.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

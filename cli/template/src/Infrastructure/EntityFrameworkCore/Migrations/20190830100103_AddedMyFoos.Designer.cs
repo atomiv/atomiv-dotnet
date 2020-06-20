@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore;
+using Cli.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.Migrations
+namespace Cli.Infrastructure.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20190830100103_AddedMyFoos")]
@@ -20,7 +20,7 @@ namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records.MyFooRecord", b =>
+            modelBuilder.Entity("Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records.MyFooRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Core.Common.Serialization;
+﻿using Atomiv.Core.Common.Serialization;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Infrastructure.System
+namespace Atomiv.Infrastructure.System
 {
     public class EnumStringParser<T> : IParser<T>
     {

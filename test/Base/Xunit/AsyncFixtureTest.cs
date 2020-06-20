@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Atomiv.Test.Xunit
+namespace Atomiv.Test.Xunit
 {
     public class AsyncFixtureTest : IAsyncLifetime
     {

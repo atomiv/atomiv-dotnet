@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.Core.Domain;
-using Optivem.Atomiv.DependencyInjection.Common;
+using Atomiv.Core.Domain;
+using Atomiv.DependencyInjection.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
+namespace Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
 {
     public static class ServiceCollectionExtensions
     {

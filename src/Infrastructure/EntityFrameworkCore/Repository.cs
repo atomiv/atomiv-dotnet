@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Atomiv.Core.Domain;
+using Atomiv.Core.Domain;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public class Repository<TDbContext> : IRepository
         where TDbContext : DbContext

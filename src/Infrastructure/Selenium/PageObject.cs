@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Common.WebAutomation;
+﻿using Atomiv.Core.Common.WebAutomation;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     public class PageObject<TFinder>
         where TFinder : IFinder<ElementRoot, Element, TextBox, CheckBox, ComboBox, Button, RadioButton, RadioButtonGroup, CheckBoxGroup, CompositeElement>

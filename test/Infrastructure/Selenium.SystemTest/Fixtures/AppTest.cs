@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Test.Xunit;
+﻿using Atomiv.Test.Xunit;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures
+namespace Atomiv.Infrastructure.Selenium.SystemTest.Fixtures
 {
     public class AppTest : FixtureTest<AppFixture>
     {

@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Core.Common.WebAutomation;
+﻿using Atomiv.Core.Common.WebAutomation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     // TODO: VC: CONTINUE
 

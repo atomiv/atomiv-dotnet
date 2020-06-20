@@ -32,60 +32,60 @@ $projects = @(
 
 	# ### ============================== CORE ============================== ###
 	
-    'src\Core\All\Optivem.Atomiv.Core.All.csproj',	
-    'src\Core\Application\Optivem.Atomiv.Core.Application.csproj',
-    'src\Core\Application.Interface\Optivem.Atomiv.Core.Application.Interface.csproj',
-    'src\Core\Common\Optivem.Atomiv.Core.Common.csproj',
-    'src\Core\Domain\Optivem.Atomiv.Core.Domain.csproj',
+    'src\Core\All\Atomiv.Core.All.csproj',	
+    'src\Core\Application\Atomiv.Core.Application.csproj',
+    'src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj',
+    'src\Core\Common\Atomiv.Core.Common.csproj',
+    'src\Core\Domain\Atomiv.Core.Domain.csproj',
 	
 	# ### ============================== INFRASTRUCTURE ============================== ###
 	
-    'src\Infrastructure\AspNetCore\Optivem.Atomiv.Infrastructure.AspNetCore.csproj',
-    'src\Infrastructure\AutoMapper\Optivem.Atomiv.Infrastructure.AutoMapper.csproj',
-    'src\Infrastructure\CsvHelper\Optivem.Atomiv.Infrastructure.CsvHelper.csproj',
-    'src\Infrastructure\EntityFrameworkCore\Optivem.Atomiv.Infrastructure.EntityFrameworkCore.csproj',
-    'src\Infrastructure\EPPlus\Optivem.Atomiv.Infrastructure.EPPlus.csproj',
-    'src\Infrastructure\FluentValidation\Optivem.Atomiv.Infrastructure.FluentValidation.csproj',
-    'src\Infrastructure\MediatR\Optivem.Atomiv.Infrastructure.MediatR.csproj',
-    'src\Infrastructure\NewtonsoftJson\Optivem.Atomiv.Infrastructure.NewtonsoftJson.csproj',	
-    'src\Infrastructure\Selenium\Optivem.Atomiv.Infrastructure.Selenium.csproj',
-    'src\Infrastructure\SequentialGuid\Optivem.Atomiv.Infrastructure.SequentialGuid.csproj',
-    'src\Infrastructure\System\Optivem.Atomiv.Infrastructure.System.csproj',
+    'src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj',
+    'src\Infrastructure\AutoMapper\Atomiv.Infrastructure.AutoMapper.csproj',
+    'src\Infrastructure\CsvHelper\Atomiv.Infrastructure.CsvHelper.csproj',
+    'src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj',
+    'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
+    'src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj',
+    'src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj',
+    'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',	
+    'src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj',
+    'src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj',
+    'src\Infrastructure\System\Atomiv.Infrastructure.System.csproj',
 	
 	# ### ============================== DEPENDENCY INJECTION ============================== ###
 	
 	# Base
-    'src\DependencyInjection\Base\DependencyInjection\Optivem.Atomiv.DependencyInjection.Common.csproj', # TODO: VC: Rename
+    'src\DependencyInjection\Base\DependencyInjection\Atomiv.DependencyInjection.Common.csproj', # TODO: VC: Rename
 	
 	# Core
-    'src\DependencyInjection\Core\Application\Optivem.Atomiv.DependencyInjection.Core.Application.csproj',
-    'src\DependencyInjection\Core\Domain\Optivem.Atomiv.DependencyInjection.Core.Domain.csproj',
+    'src\DependencyInjection\Core\Application\Atomiv.DependencyInjection.Core.Application.csproj',
+    'src\DependencyInjection\Core\Domain\Atomiv.DependencyInjection.Core.Domain.csproj',
 	
 	# Infrastructure
-	'src\DependencyInjection\Infrastructure\AspNetCore\Optivem.Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj',
-    'src\DependencyInjection\Infrastructure\AutoMapper\Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj',
-    # 'src\DependencyInjection\Infrastructure\CsvHelper\Optivem.Atomiv.DependencyInjection.Infrastructure.CsvHelper.csproj',
-    'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Optivem.Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',
-    # 'src\DependencyInjection\Infrastructure\EPPlus\Optivem.Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',
-    'src\DependencyInjection\Infrastructure\FluentValidation\Optivem.Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj',
-    'src\DependencyInjection\Infrastructure\MediatR\Optivem.Atomiv.DependencyInjection.Infrastructure.MediatR.csproj',
-    'src\DependencyInjection\Infrastructure\NewtonsoftJson\Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
-    # 'src\DependencyInjection\Infrastructure\Selenium\Optivem.Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
-    'src\DependencyInjection\Infrastructure\System\Optivem.Atomiv.DependencyInjection.Infrastructure.System.csproj',	
+	'src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj',
+    'src\DependencyInjection\Infrastructure\AutoMapper\Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj',
+    # 'src\DependencyInjection\Infrastructure\CsvHelper\Atomiv.DependencyInjection.Infrastructure.CsvHelper.csproj',
+    'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',
+    # 'src\DependencyInjection\Infrastructure\EPPlus\Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',
+    'src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj',
+    'src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj',
+    'src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
+    # 'src\DependencyInjection\Infrastructure\Selenium\Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
+    'src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj',	
 
 
 	# ### ============================== WEB ============================== ###
 
-    'src\Web\AspNetCore\Optivem.Atomiv.Web.AspNetCore.csproj',
+    'src\Web\AspNetCore\Atomiv.Web.AspNetCore.csproj',
 	
 	# ### ============================== TEST ============================== ###
 
-	'test\Base\AspNetCore\Optivem.Atomiv.Test.AspNetCore.csproj',
-	'test\Base\EntityFrameworkCore\Optivem.Atomiv.Test.EntityFrameworkCore.csproj',
-	'test\Base\FluentAssertions\Optivem.Atomiv.Test.FluentAssertions.csproj',
-	'test\Base\MicrosoftExtensions\Optivem.Atomiv.Test.MicrosoftExtensions.csproj',
-    'test\Base\Selenium\Optivem.Atomiv.Test.Selenium.csproj'	
-    'test\Base\Xunit\Optivem.Atomiv.Test.Xunit.csproj'
+	'test\Base\AspNetCore\Atomiv.Test.AspNetCore.csproj',
+	'test\Base\EntityFrameworkCore\Atomiv.Test.EntityFrameworkCore.csproj',
+	'test\Base\FluentAssertions\Atomiv.Test.FluentAssertions.csproj',
+	'test\Base\MicrosoftExtensions\Atomiv.Test.MicrosoftExtensions.csproj',
+    'test\Base\Selenium\Atomiv.Test.Selenium.csproj'	
+    'test\Base\Xunit\Atomiv.Test.Xunit.csproj'
 )
 
 # TODO: VC: Update all project files to the new version
@@ -107,7 +107,7 @@ Foreach($project in  $projects)
 	
 	$projectDir = (Get-Item $projectPath).Directory
 	
-	# D:\Github\optivem\pdn\src\Core\Common\Optivem.Atomiv.Core.Common.Mapping\bin\Release\Optivem.Atomiv.Core.Common.Mapping.1.0.3.nupkg
+	# D:\Github\optivem\pdn\src\Core\Common\Atomiv.Core.Common.Mapping\bin\Release\Atomiv.Core.Common.Mapping.1.0.3.nupkg
 	
 	$nugetPath = Join-Path -Path $projectDir -ChildPath "bin\Release\$projectName.$version.nupkg"
 

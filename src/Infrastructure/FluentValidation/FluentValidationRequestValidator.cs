@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.FluentValidation
+namespace Atomiv.Infrastructure.FluentValidation
 {
     public class FluentValidationRequestValidator<TRequest> : IRequestValidator<TRequest>
     {

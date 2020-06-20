@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Core.Common.Serialization;
+using Atomiv.Core.Common.Serialization;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Web.AspNetCore
+namespace Atomiv.Web.AspNetCore
 {
     public class ValidationProblemDetailsActionResult : IActionResult
     {

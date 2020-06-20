@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Configurations
+namespace Cli.Infrastructure.EntityFrameworkCore.MyFoos.Configurations
 {
     public class MyFooRecordConfiguration : IEntityTypeConfiguration<MyFooRecord>
     {

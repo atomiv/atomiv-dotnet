@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.Pages;
+﻿using Atomiv.Infrastructure.Selenium.IntegrationTest.Pages;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.App
+namespace Atomiv.Infrastructure.Selenium.IntegrationTest.App
 {
     public class ToolsQAApp : App<ToolsQAAutomationPracticeFormPage>
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Optivem.Cli.DependencyInjection;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore;
-using Optivem.Atomiv.Test.EntityFrameworkCore;
+using Cli.DependencyInjection;
+using Cli.Infrastructure.EntityFrameworkCore;
+using Atomiv.Test.EntityFrameworkCore;
 using System;
-using Optivem.Cli.Core.Application.MyFoos.Services;
-using Optivem.Atomiv.Test.MicrosoftExtensions.Configuration;
+using Cli.Core.Application.MyFoos.Services;
+using Atomiv.Test.MicrosoftExtensions.Configuration;
 
-namespace Optivem.Cli.Core.Application.IntegrationTest.Fixtures
+namespace Cli.Core.Application.IntegrationTest.Fixtures
 {
     public class ServiceFixture : IDisposable
     {

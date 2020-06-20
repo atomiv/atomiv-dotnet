@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Security.Claims;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public static class ClaimsExtensions
     {

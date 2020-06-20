@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Optivem.Cli.Web.RestApi.Controllers
+namespace Cli.Web.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

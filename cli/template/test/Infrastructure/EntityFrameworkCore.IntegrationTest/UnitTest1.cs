@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.Integrat
+namespace Cli.Infrastructure.EntityFrameworkCore.Integrat
 {
     public class UnitTest1
     {

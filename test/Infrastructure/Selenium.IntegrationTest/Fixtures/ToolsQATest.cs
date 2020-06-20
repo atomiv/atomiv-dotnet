@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Test.Xunit;
+﻿using Atomiv.Test.Xunit;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.IntegrationTest.Fixtures
+namespace Atomiv.Infrastructure.Selenium.IntegrationTest.Fixtures
 {
     public class ToolsQATest : FixtureTest<ToolsQAFixture>
     {

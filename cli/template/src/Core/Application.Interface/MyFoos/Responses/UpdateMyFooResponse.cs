@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 
-namespace Optivem.Cli.Core.Application.MyFoos.Responses
+namespace Cli.Core.Application.MyFoos.Responses
 {
     public class UpdateMyFooResponse : IResponse<int>
     {

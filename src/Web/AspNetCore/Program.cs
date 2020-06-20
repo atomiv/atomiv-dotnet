@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Web.AspNetCore
+﻿namespace Atomiv.Web.AspNetCore
 {
     class Program
     {

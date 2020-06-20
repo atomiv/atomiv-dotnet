@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Core.Common.Reflection;
-using Optivem.Atomiv.Core.Common.Serialization;
+﻿using Atomiv.Core.Common.Http;
+using Atomiv.Core.Common.Reflection;
+using Atomiv.Core.Common.Serialization;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class JsonControllerClient : ControllerClient
     {

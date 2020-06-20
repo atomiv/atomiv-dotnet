@@ -23,6 +23,6 @@ before_build:
 
 build:
   verbosity: minimal
-  project: Optivem.Atomiv.sln
+  project: Atomiv.sln
   
 test: off

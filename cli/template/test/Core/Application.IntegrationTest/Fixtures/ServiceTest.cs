@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Test.Xunit;
+﻿using Atomiv.Test.Xunit;
 using System;
 
-namespace Optivem.Cli.Core.Application.IntegrationTest.Fixtures
+namespace Cli.Core.Application.IntegrationTest.Fixtures
 {
     public class ServiceTest : FixtureTest<ServiceFixture>, IDisposable
     {

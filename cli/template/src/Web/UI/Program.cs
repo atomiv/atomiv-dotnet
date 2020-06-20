@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Optivem.Cli.Web.UI
+namespace Cli.Web.UI
 {
     public class Program
     {

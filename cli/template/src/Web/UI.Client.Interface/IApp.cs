@@ -1,6 +1,6 @@
-﻿using Optivem.Cli.Web.UI.Client.Interface.Pages;
+﻿using Cli.Web.UI.Client.Interface.Pages;
 
-namespace Optivem.Cli.Web.UI.Client.Interface
+namespace Cli.Web.UI.Client.Interface
 {
     public interface IApp
     {

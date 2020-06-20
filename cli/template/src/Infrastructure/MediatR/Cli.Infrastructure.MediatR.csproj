@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Atomiv.Infrastructure.MediatR" Version="1.0.15" />
+    <ProjectReference Include="..\..\Core\All\Cli.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

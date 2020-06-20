@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Application.Authorization
+namespace Atomiv.Core.Application.Authorization
 {
     public class RequestTypeAuthorizer<TRequest, TRequestType> : BaseRequestAuthorizer<TRequest>
     {

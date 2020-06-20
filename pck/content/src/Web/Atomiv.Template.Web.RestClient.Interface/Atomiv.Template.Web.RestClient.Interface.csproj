@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+<PackageReference Include="Atomiv.Core.Common" Version="1.0.33" />
+    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Commands\Atomiv.Template.Core.Application.Commands.csproj" />
+    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Queries\Atomiv.Template.Core.Application.Queries.csproj" />
+  </ItemGroup>
+
+</Project>

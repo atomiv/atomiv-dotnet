@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Infrastructure.AutoMapper;
+﻿using Atomiv.Infrastructure.AutoMapper;
 
-namespace Optivem.Cli.Infrastructure.AutoMapper
+namespace Cli.Infrastructure.AutoMapper
 {
     public class Module : IModule
     {

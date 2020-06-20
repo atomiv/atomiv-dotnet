@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Core.Domain
+namespace Atomiv.Core.Domain
 {
     public class PageReadModel<T>
     {

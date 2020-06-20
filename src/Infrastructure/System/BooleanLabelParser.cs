@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Infrastructure.System
+namespace Atomiv.Infrastructure.System
 {
     public class BooleanLabelParser : BaseParser<bool?>
     {

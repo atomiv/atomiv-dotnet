@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Domain;
+﻿using Atomiv.Core.Domain;
 
-namespace Optivem.Cli.Core.Domain
+namespace Cli.Core.Domain
 {
     public class Module : IModule
     {

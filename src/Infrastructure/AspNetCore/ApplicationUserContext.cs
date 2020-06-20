@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class ApplicationUserContext<TApplicationUser, TRequestType> : IApplicationUserContext<TApplicationUser, TRequestType> 
         where TApplicationUser : IApplicationUser<TRequestType>

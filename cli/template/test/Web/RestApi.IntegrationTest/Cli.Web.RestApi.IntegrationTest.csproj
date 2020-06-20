@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.Test.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="1.0.15" />
+    <PackageReference Include="Atomiv.Test.AspNetCore" Version="1.0.15" />
+    <PackageReference Include="Atomiv.Test.EntityFrameworkCore" Version="1.0.15" />
+    <PackageReference Include="Atomiv.Test.Xunit" Version="1.0.15" />
+    <ProjectReference Include="..\..\..\src\Web\RestApi\Cli.Web.RestApi.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\RestClient.Interface\Cli.Web.RestClient.Interface.csproj" />
+    <ProjectReference Include="..\..\..\src\Web\RestClient\Cli.Web.RestClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

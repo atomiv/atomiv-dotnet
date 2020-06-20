@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Optivem.Cli.Web.UI.Pages.MyFoos
+namespace Cli.Web.UI.Pages.MyFoos
 {
     public class DetailsModel : PageModel
     {

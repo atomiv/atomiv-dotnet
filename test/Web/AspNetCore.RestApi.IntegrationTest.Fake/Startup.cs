@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Optivem.Atomiv.Core.Common.Serialization;
-using Optivem.Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
-using Optivem.Atomiv.Infrastructure.CsvHelper;
-using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers;
+using Atomiv.Core.Common.Serialization;
+using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
+using Atomiv.Infrastructure.CsvHelper;
+using Atomiv.Infrastructure.NewtonsoftJson;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers;
 using System.Reflection;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
 {
     public class Startup
     {

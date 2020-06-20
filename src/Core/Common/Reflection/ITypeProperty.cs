@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Optivem.Atomiv.Core.Common.Reflection
+namespace Atomiv.Core.Common.Reflection
 {
     public interface ITypeProperty
     {

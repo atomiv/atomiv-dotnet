@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence\Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Services\Atomiv.Template.Infrastructure.Domain.Services.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Web.Authentication\Atomiv.Template.Infrastructure.Web.Authentication.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Commands.Authorization\Atomiv.Template.Infrastructure.Commands.Authorization.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Commands.Mapping\Atomiv.Template.Infrastructure.Commands.Mapping.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Commands.Validation\Atomiv.Template.Infrastructure.Commands.Validation.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Identities\Atomiv.Template.Infrastructure.Domain.Identities.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Queries.Authorization\Atomiv.Template.Infrastructure.Queries.Authorization.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Queries.Handlers\Atomiv.Template.Infrastructure.Queries.Handlers.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Queries.Validation\Atomiv.Template.Infrastructure.Queries.Validation.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Repositories\Atomiv.Template.Infrastructure.Domain.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

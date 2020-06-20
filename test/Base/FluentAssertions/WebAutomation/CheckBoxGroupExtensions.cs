@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Core.Common.WebAutomation;
+using Atomiv.Core.Common.WebAutomation;
 using System.Linq;
 
-namespace Optivem.Atomiv.Test.FluentAssertions.WebAutomation
+namespace Atomiv.Test.FluentAssertions.WebAutomation
 {
     public static class CheckBoxGroupExtensions
     {

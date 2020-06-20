@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Infrastructure.FluentValidation;
+﻿using Atomiv.Infrastructure.FluentValidation;
 
-namespace Optivem.Cli.Infrastructure.FluentValidation
+namespace Cli.Infrastructure.FluentValidation
 {
     public class Module : IModule
     {

@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.System
+﻿namespace Atomiv.Infrastructure.System
 {
     /// <summary>
     /// Converts string data into object of a certain type

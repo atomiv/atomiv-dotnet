@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Optivem.Atomiv.Core.Common;
+using Atomiv.Core.Common;
 using System;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public class SqlServerContextOptionsBuilderFactory<TContext> : IFactory<DbContextOptionsBuilder<TContext>>
         where TContext : DbContext

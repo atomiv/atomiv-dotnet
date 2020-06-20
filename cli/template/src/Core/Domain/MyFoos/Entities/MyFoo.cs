@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Core.Domain;
-using Optivem.Cli.Core.Domain.MyFoos.ValueObjects;
+﻿using Atomiv.Core.Domain;
+using Cli.Core.Domain.MyFoos.ValueObjects;
 
-namespace Optivem.Cli.Core.Domain.MyFoos.Entities
+namespace Cli.Core.Domain.MyFoos.Entities
 {
     public class MyFoo : AggregateRoot<MyFooIdentity>
     {

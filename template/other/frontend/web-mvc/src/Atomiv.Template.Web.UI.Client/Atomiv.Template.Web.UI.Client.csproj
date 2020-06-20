@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Web.UI.Client.Interface\Atomiv.Template.Web.UI.Client.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

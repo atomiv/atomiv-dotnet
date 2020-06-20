@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public class ApplicationService : IApplicationService
     {

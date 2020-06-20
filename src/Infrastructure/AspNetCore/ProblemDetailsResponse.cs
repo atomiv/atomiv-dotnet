@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Core.Common.Http;
+using Atomiv.Core.Common.Http;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class ProblemDetailsResponse : ProblemDetails, IProblemDetails
     {

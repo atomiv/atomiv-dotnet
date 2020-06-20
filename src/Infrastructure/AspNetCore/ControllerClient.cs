@@ -1,12 +1,12 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Core.Common.Reflection;
+﻿using Atomiv.Core.Common.Http;
+using Atomiv.Core.Common.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class ControllerClient : IControllerClient
     {

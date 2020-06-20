@@ -1,11 +1,11 @@
-﻿using Optivem.Atomiv.Infrastructure.AspNetCore;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
-using Optivem.Cli.Core.Application.MyFoos.Services;
-using Optivem.Cli.Web.RestClient.Interface;
+﻿using Atomiv.Infrastructure.AspNetCore;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.MyFoos.Responses;
+using Cli.Core.Application.MyFoos.Services;
+using Cli.Web.RestClient.Interface;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.RestClient
+namespace Cli.Web.RestClient
 {
     public class MyFooService : BaseHttpService<IMyFooHttpService>, IMyFooService
     {

@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Cli.Core.Application.MyFoos.Requests;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
+﻿using Atomiv.Core.Common.Http;
+using Cli.Core.Application.MyFoos.Requests;
+using Cli.Core.Application.MyFoos.Responses;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.RestClient.Interface
+namespace Cli.Web.RestClient.Interface
 {
     public interface IMyFooHttpService : IHttpService
     {

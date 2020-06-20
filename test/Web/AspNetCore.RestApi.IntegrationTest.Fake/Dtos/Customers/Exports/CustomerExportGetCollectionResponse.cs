@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports
+﻿namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers.Exports
 {
     public class CustomerExportGetCollectionResponse
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Web.AspNetCore.RazorPages;
-using Optivem.Cli.Web.UI.Models;
-using Optivem.Cli.Web.UI.Services.Interfaces;
+using Atomiv.Web.AspNetCore.RazorPages;
+using Cli.Web.UI.Models;
+using Cli.Web.UI.Services.Interfaces;
 using System.Threading.Tasks;
 
-namespace Optivem.Cli.Web.UI.Pages.MyFoos
+namespace Cli.Web.UI.Pages.MyFoos
 {
     public class CreateModel : PageServiceModel<IMyFooPageService>
     {

@@ -1,4 +1,4 @@
-﻿using Optivem.Atomiv.Core.Common.Http;
+﻿using Atomiv.Core.Common.Http;
 using System;
 using System.Linq;
 using System.Net;
@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.AspNetCore
+namespace Atomiv.Infrastructure.AspNetCore
 {
     public class WebClient : IClient
     {

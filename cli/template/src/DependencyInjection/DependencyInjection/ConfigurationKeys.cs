@@ -1,4 +1,4 @@
-﻿namespace Optivem.Cli.DependencyInjection
+﻿namespace Cli.DependencyInjection
 {
     public static class ConfigurationKeys
     {

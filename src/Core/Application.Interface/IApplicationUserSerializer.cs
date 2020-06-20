@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public interface IApplicationUserSerializer<TApplicationUser, TRequestType> where TApplicationUser : IApplicationUser<TRequestType>
     {

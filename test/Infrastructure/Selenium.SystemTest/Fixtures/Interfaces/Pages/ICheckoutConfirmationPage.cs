@@ -1,4 +1,4 @@
-﻿namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages
+﻿namespace Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Pages
 {
     public interface ICheckoutConfirmationPage
     {

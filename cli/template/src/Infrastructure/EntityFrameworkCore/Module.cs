@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Infrastructure.EntityFrameworkCore;
+﻿using Atomiv.Infrastructure.EntityFrameworkCore;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore
+namespace Cli.Infrastructure.EntityFrameworkCore
 {
     public class Module : IModule
     {

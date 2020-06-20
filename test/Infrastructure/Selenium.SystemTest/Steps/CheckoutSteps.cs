@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures;
+using Atomiv.Infrastructure.Selenium.SystemTest.Fixtures;
 using System;
 using System.Linq;
 using TechTalk.SpecFlow;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Steps
+namespace Atomiv.Infrastructure.Selenium.SystemTest.Steps
 {
     [Binding]
     public class CheckoutSteps : AppTest

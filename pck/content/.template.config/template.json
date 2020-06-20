@@ -2,8 +2,8 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Optivem",
   "classifications": [ "Template", "Microservice", "DDD", "Clean Architecture" ],
-  "identity": "Optivem.Atomiv.Templates.Microservice.CSharp",
+  "identity": "Atomiv.Templates.Microservice.CSharp",
   "name": "Atomiv Microservice",
   "shortName": "atomiv-microservice",
-  "sourceName": "Optivem.Atomiv.Template"
+  "sourceName": "Atomiv.Template"
 }

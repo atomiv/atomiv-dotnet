@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.MediatR
+namespace Atomiv.Infrastructure.MediatR
 {
     public class MediatorMessageBus : IMessageBus
     {

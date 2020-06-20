@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Atomiv.Core.Application
+namespace Atomiv.Core.Application
 {
     public class BaseApplicationUser<TRequestType> : IApplicationUser<TRequestType>
         where TRequestType : Enum

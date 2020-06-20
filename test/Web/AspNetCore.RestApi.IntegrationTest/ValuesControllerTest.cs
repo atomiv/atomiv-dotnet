@@ -1,11 +1,11 @@
-using Optivem.Atomiv.Test.Xunit;
-using Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture;
+using Atomiv.Test.Xunit;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fixture;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest
 {
     public class ValuesControllerTest : FixtureTest<TestClient>
     {

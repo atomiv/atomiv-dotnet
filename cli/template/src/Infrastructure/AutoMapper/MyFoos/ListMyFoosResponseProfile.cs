@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Optivem.Atomiv.Infrastructure.AutoMapper;
-using Optivem.Cli.Core.Application.MyFoos.Responses;
-using Optivem.Cli.Core.Domain.MyFoos.Entities;
+using Atomiv.Infrastructure.AutoMapper;
+using Cli.Core.Application.MyFoos.Responses;
+using Cli.Core.Domain.MyFoos.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Optivem.Cli.Infrastructure.AutoMapper.MyFoos
+namespace Cli.Infrastructure.AutoMapper.MyFoos
 {
     public class ListMyFoosResponseProfile : ResponseProfile<IEnumerable<MyFoo>, ListMyFoosResponse>
     {

@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Core.Common.WebAutomation;
+﻿using Atomiv.Core.Common.WebAutomation;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium
+namespace Atomiv.Infrastructure.Selenium
 {
     // TODO: VC: Re-work this, because it's actually not an element...
 

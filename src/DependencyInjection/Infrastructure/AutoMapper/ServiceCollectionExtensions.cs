@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using IMapper = Optivem.Atomiv.Core.Application.IMapper;
-using Mapper = Optivem.Atomiv.Infrastructure.AutoMapper.Mapper;
+using IMapper = Atomiv.Core.Application.IMapper;
+using Mapper = Atomiv.Infrastructure.AutoMapper.Mapper;
 
-namespace Optivem.Atomiv.DependencyInjection.Infrastructure.AutoMapper
+namespace Atomiv.DependencyInjection.Infrastructure.AutoMapper
 {
     public static class ServiceCollectionExtensions
     {

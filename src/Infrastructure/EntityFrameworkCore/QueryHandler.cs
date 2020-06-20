@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Optivem.Atomiv.Infrastructure.EntityFrameworkCore
+namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
     public abstract class QueryHandler<TContext, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TContext : DbContext

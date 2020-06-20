@@ -1,6 +1,6 @@
-﻿using Optivem.Atomiv.Core.Domain;
+﻿using Atomiv.Core.Domain;
 
-namespace Optivem.Cli.Core.Domain.MyFoos.ValueObjects
+namespace Cli.Core.Domain.MyFoos.ValueObjects
 {
     public class MyFooIdentity : Identity<int>
     {

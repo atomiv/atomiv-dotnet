@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Application\Atomiv.DependencyInjection.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Domain\Atomiv.DependencyInjection.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
+  </ItemGroup>
+
+</Project>

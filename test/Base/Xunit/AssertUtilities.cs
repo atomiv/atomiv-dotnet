@@ -1,9 +1,9 @@
-﻿using Optivem.Atomiv.Core.Common.Serialization;
-using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
+﻿using Atomiv.Core.Common.Serialization;
+using Atomiv.Infrastructure.NewtonsoftJson;
 using System;
 using Xunit;
 
-namespace Optivem.Atomiv.Test.Xunit
+namespace Atomiv.Test.Xunit
 {
     public static class AssertUtilities
     {

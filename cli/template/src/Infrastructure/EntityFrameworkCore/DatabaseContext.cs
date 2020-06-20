@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Configurations;
-using Optivem.Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Configurations;
+using Cli.Infrastructure.EntityFrameworkCore.MyFoos.Records;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore
+namespace Cli.Infrastructure.EntityFrameworkCore
 {
     public partial class DatabaseContext : DbContext
     {

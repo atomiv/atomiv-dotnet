@@ -1,7 +1,7 @@
-﻿using Optivem.Atomiv.Core.Domain;
+﻿using Atomiv.Core.Domain;
 using System;
 
-namespace Optivem.Atomiv.Infrastructure.System
+namespace Atomiv.Infrastructure.System
 {
     public abstract class IdentityGenerator<TIdentity> : IIdentityGenerator<TIdentity>
     {

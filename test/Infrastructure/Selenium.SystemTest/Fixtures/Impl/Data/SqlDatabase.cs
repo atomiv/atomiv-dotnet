@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
+﻿using Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Interfaces.Records;
 using System;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Data
+namespace Atomiv.Infrastructure.Selenium.SystemTest.Fixtures.Data
 {
     // TODO: VC: Implement SQL DB
 

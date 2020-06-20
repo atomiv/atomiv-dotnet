@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Optivem.Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using System.Net;
 
-namespace Optivem.Atomiv.Web.AspNetCore.ExceptionProblemDetailsFactories
+namespace Atomiv.Web.AspNetCore.ExceptionProblemDetailsFactories
 {
     public class RequestNotFoundExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<ExistenceException, ProblemDetails>
     {

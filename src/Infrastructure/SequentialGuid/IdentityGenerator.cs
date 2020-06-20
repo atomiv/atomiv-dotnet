@@ -1,8 +1,8 @@
-﻿using Optivem.Atomiv.Core.Domain;
+﻿using Atomiv.Core.Domain;
 using SequentialGuid;
 using System;
 
-namespace Optivem.Atomiv.Infrastructure.SequentialGuid
+namespace Atomiv.Infrastructure.SequentialGuid
 {
     public abstract class IdentityGenerator<TIdentity> : IIdentityGenerator<TIdentity>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Optivem.Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controllers
+namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Controllers
 {
     [Route("api/values")]
     [ApiController]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Optivem.Cli.Infrastructure.EntityFrameworkCore.Migrations
+namespace Cli.Infrastructure.EntityFrameworkCore.Migrations
 {
     public partial class AddedMyFoos : Migration
     {

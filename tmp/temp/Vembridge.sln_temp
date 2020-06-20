@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vembridge", "Vembridge\Vembridge.csproj", "{F57C15BD-0BFD-4CD7-8C59-F90CB0834BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vembridge.Tests", "Vembridge.Tests\Vembridge.Tests.csproj", "{D6F3C002-6B3F-4D8B-A37D-39069C65ABE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vembridge.Demo", "Vembridge.Demo\Vembridge.Demo.csproj", "{A82A0BF3-CEF8-4C9F-9280-B6F91DA9394C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F57C15BD-0BFD-4CD7-8C59-F90CB0834BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57C15BD-0BFD-4CD7-8C59-F90CB0834BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57C15BD-0BFD-4CD7-8C59-F90CB0834BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57C15BD-0BFD-4CD7-8C59-F90CB0834BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F3C002-6B3F-4D8B-A37D-39069C65ABE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F3C002-6B3F-4D8B-A37D-39069C65ABE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F3C002-6B3F-4D8B-A37D-39069C65ABE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F3C002-6B3F-4D8B-A37D-39069C65ABE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A82A0BF3-CEF8-4C9F-9280-B6F91DA9394C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A82A0BF3-CEF8-4C9F-9280-B6F91DA9394C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A82A0BF3-CEF8-4C9F-9280-B6F91DA9394C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A82A0BF3-CEF8-4C9F-9280-B6F91DA9394C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

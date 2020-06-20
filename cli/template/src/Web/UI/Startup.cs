@@ -4,20 +4,20 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Optivem.Atomiv.Core.Common.Http;
-using Optivem.Atomiv.Core.Common.Reflection;
-using Optivem.Atomiv.Core.Common.Serialization;
-using Optivem.Atomiv.Infrastructure.AspNetCore;
-using Optivem.Atomiv.Infrastructure.NewtonsoftJson;
-using Optivem.Atomiv.Infrastructure.System.Reflection;
-using Optivem.Cli.Core.Application.MyFoos.Services;
-using Optivem.Cli.Web.RestClient;
-using Optivem.Cli.Web.RestClient.Http;
-using Optivem.Cli.Web.RestClient.Interface;
-using Optivem.Cli.Web.UI.Services;
-using Optivem.Cli.Web.UI.Services.Interfaces;
+using Atomiv.Core.Common.Http;
+using Atomiv.Core.Common.Reflection;
+using Atomiv.Core.Common.Serialization;
+using Atomiv.Infrastructure.AspNetCore;
+using Atomiv.Infrastructure.NewtonsoftJson;
+using Atomiv.Infrastructure.System.Reflection;
+using Cli.Core.Application.MyFoos.Services;
+using Cli.Web.RestClient;
+using Cli.Web.RestClient.Http;
+using Cli.Web.RestClient.Interface;
+using Cli.Web.UI.Services;
+using Cli.Web.UI.Services.Interfaces;
 
-namespace Optivem.Cli.Web.UI
+namespace Cli.Web.UI
 {
     public class Startup
     {
