@@ -2,6 +2,7 @@
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,11 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 
             var order = await _orderRepository.FindAsync(orderId);
 
+            if(order == null)
+            {
+                throw new ExistenceException();
+            }
+
             await UpdateAsync(order, request);
 
             await _orderRepository.UpdateAsync(order);
@@ -40,44 +46,89 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 
         private async Task UpdateAsync(Order order, EditOrderCommand request)
         {
-            var currentOrderDetails = order.OrderItems;
+            var products = await GetProductsAsync(request);
 
-            var addedOrderRequestDetails = request.OrderItems.Where(e => e.Id == null).ToList();
-            var updatedOrderRequestDetails = request.OrderItems.Where(e => e.Id != null).ToList();
-            var deletedOrderDetails = order.OrderItems.Where(e => !request.OrderItems.Any(f => f.Id == e.Id)).ToList();
+            var addedOrderItemRequests = request.OrderItems
+                .Where(e => e.Id == null)
+                .ToList();
 
-            foreach (var added in addedOrderRequestDetails)
+            var updatedOrderItemRequests = request.OrderItems
+                .Where(e => e.Id != null)
+                .ToList();
+
+            var removedOrderItemIds = order.OrderItems
+                .Where(e => !request.OrderItems.Any(f => f.Id == e.Id))
+                .Select(e => e.Id)
+                .ToList();
+
+            AddOrderItems(order, products, addedOrderItemRequests);
+            UpdateOrderItems(order, products, updatedOrderItemRequests);
+            RemoveOrderItems(order, removedOrderItemIds);
+        }
+
+        private void AddOrderItems(Order order, 
+            IEnumerable<IReadonlyProduct> products, 
+            IEnumerable<EditOrderItemCommand> addedOrderItemRequests)
+        {
+            foreach (var orderItemRequest in addedOrderItemRequests)
             {
-                var productPrice = await _productReadonlyRepository.GetPriceAsync(added.ProductId);
+                var productId = new ProductIdentity(orderItemRequest.ProductId);
+                var product = products.Single(e => e.Id == productId);
+                var unitPrice = product.ListPrice;
+                var quantity = orderItemRequest.Quantity;
 
-                var productId = new ProductIdentity(added.ProductId);
+                var orderItem = _orderFactory.CreateOrderItem(productId, unitPrice, quantity);
 
-                var orderItem = _orderFactory.CreateOrderItem(productId, productPrice.Value, added.Quantity);
                 order.AddOrderItem(orderItem);
             }
+        }
 
-            foreach (var updated in updatedOrderRequestDetails)
+        private void UpdateOrderItems(Order order,
+            IEnumerable<IReadonlyProduct> products,
+            IEnumerable<EditOrderItemCommand> updatedOrderItemRequests)
+        {
+            foreach (var orderItemRequest in updatedOrderItemRequests)
             {
-                var orderItemId = new OrderItemIdentity(updated.Id.Value);
-                var orderItem = order.OrderItems.First(e => e.Id == orderItemId);
+                var orderItemId = new OrderItemIdentity(orderItemRequest.Id.Value);
+                var orderItem = order.OrderItems.Single(e => e.Id == orderItemId);
 
-                var productId = new ProductIdentity(updated.ProductId);
+                var productId = new ProductIdentity(orderItemRequest.ProductId);
 
                 var unitPrice = orderItem.UnitPrice;
 
-                if(orderItem.ProductId != productId)
+                if (orderItem.ProductId != productId)
                 {
-                    var productPrice = await _productReadonlyRepository.GetPriceAsync(updated.ProductId);
-                    unitPrice = productPrice.Value;
+                    var product = products.Single(e => e.Id == productId);
+                    unitPrice = product.ListPrice;
                 }
 
-                order.UpdateOrderItem(orderItemId, productId, unitPrice, updated.Quantity);
+                order.UpdateOrderItem(orderItemId, productId, unitPrice, orderItemRequest.Quantity);
+            }
+        }
+
+        private void RemoveOrderItems(Order order, IEnumerable<OrderItemIdentity> removedOrderItemIds)
+        {
+            foreach (var orderItemId in removedOrderItemIds)
+            {
+                order.RemoveOrderItem(orderItemId);
+            }
+        }
+
+        private async Task<IEnumerable<IReadonlyProduct>> GetProductsAsync(EditOrderCommand request)
+        {
+            var productIds = request.OrderItems
+                .Select(e => new ProductIdentity(e.ProductId))
+                .Distinct()
+                .ToList();
+
+            var products = await _productReadonlyRepository.FindReadonlyAsync(productIds);
+
+            if(productIds.Count != products.Count())
+            {
+                throw new ValidationException("Some products don't exist");
             }
 
-            foreach (var deleted in deletedOrderDetails)
-            {
-                order.RemoveOrderItem(deleted.Id);
-            }
+            return products;
         }
     }
 }

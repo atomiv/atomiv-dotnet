@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 {
-    public class CustomerRepository : Repository, ICustomerRepository
+    public class CustomerRepository : CustomerReadonlyRepository, ICustomerRepository
     {
         public CustomerRepository(DatabaseContext context) : base(context)
         {

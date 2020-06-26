@@ -4,9 +4,9 @@ using Atomiv.Template.Core.Application.Commands.Products;
 
 namespace Atomiv.Template.Infrastructure.Commands.Validation.Products
 {
-    public class CreateProductRequestValidator : BaseValidator<CreateProductCommand>
+    public class CreateProductCommandValidator : BaseValidator<CreateProductCommand>
     {
-        public CreateProductRequestValidator()
+        public CreateProductCommandValidator()
         {
             RuleFor(e => e.Code).NotNull();
             RuleFor(e => e.Description).NotNull();

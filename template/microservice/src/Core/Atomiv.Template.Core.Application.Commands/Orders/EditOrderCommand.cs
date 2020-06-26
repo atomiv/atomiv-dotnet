@@ -8,10 +8,10 @@ namespace Atomiv.Template.Core.Application.Commands.Orders
     {
         public Guid Id { get; set; }
 
-        public List<UpdateOrderItemCommand> OrderItems { get; set; }
+        public List<EditOrderItemCommand> OrderItems { get; set; }
     }
 
-    public class UpdateOrderItemCommand
+    public class EditOrderItemCommand
     {
         public Guid? Id { get; set; }
 

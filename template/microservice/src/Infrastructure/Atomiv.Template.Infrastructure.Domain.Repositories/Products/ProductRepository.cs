@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {
-    public class ProductRepository : Repository, IProductRepository
+    public class ProductRepository : ProductReadonlyRepository, IProductRepository
     {
         public ProductRepository(DatabaseContext context) : base(context)
         {
@@ -93,17 +93,6 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
             productRecord.ProductName = product.ProductName;
             productRecord.ListPrice = product.ListPrice;
             productRecord.IsListed = product.IsListed;
-        }
-
-        private Product GetProduct(ProductRecord productRecord)
-        {
-            var id = new ProductIdentity(productRecord.Id);
-            var productCode = productRecord.ProductCode;
-            var productName = productRecord.ProductName;
-            var listPrice = productRecord.ListPrice;
-            var isListed = productRecord.IsListed;
-
-            return new Product(id, productCode, productName, listPrice, isListed);
         }
 
         #endregion

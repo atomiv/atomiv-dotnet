@@ -2,7 +2,7 @@
 
 namespace Atomiv.Template.Core.Domain.Products
 {
-    public class Product : Entity<ProductIdentity>
+    public class Product : Entity<ProductIdentity>, IReadonlyProduct
     {
         private string _productCode;
         private string _productName;

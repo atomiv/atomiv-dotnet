@@ -7,12 +7,10 @@ namespace Atomiv.Template.Infrastructure.Commands.Validation.Products
 {
     public class UnlistProductCommandValidator : BaseValidator<UnlistProductCommand>
     {
-        public UnlistProductCommandValidator(IProductReadonlyRepository productReadonlyRepository)
+        public UnlistProductCommandValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((command, context, cancellation)
-                    => productReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
         }
     }

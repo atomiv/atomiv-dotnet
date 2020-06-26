@@ -37,16 +37,16 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             var updateRequest = new EditOrderCommand
             {
                 Id = id,
-                OrderItems = new List<UpdateOrderItemCommand>
+                OrderItems = new List<EditOrderItemCommand>
                 {
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = createOrderResponse.OrderItems[0].Id,
                         ProductId = productId_1,
                         Quantity = 72,
                     },
 
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = null,
                         ProductId = productId_2,

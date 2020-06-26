@@ -7,12 +7,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Validation.Customers
 {
     public class ViewCustomerQueryValidator : BaseValidator<ViewCustomerQuery>
     {
-        public ViewCustomerQueryValidator(ICustomerReadonlyRepository customerReadonlyRepository)
+        public ViewCustomerQueryValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((query, context, cancellation)
-                    => customerReadonlyRepository.ExistsAsync(query.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
         }
     }

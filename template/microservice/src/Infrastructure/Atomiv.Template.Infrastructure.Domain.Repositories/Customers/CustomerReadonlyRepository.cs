@@ -12,7 +12,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
         {
         }
 
-        public Task<bool> ExistsAsync(Guid customerId)
+        public Task<bool> ExistsAsync(CustomerIdentity customerId)
         {
             return Context.Customers.AsNoTracking()
                 .AnyAsync(e => e.Id == customerId);

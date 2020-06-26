@@ -7,12 +7,10 @@ namespace Atomiv.Template.Infrastructure.Commands.Validation.Products
 {
     public class RelistProductCommandValidator : BaseValidator<RelistProductCommand>
     {
-        public RelistProductCommandValidator(IProductReadonlyRepository productReadonlyRepository)
+        public RelistProductCommandValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((command, context, cancellation)
-                    => productReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
         }
     }

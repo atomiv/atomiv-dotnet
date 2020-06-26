@@ -7,12 +7,10 @@ namespace Atomiv.Template.Infrastructure.Commands.Validation.Orders
 {
     public class CancelOrderCommandValidator : BaseValidator<CancelOrderCommand>
     {
-        public CancelOrderCommandValidator(IOrderReadonlyRepository orderReadonlyRepository)
+        public CancelOrderCommandValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((command, context, cancellation)
-                    => orderReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
         }
     }

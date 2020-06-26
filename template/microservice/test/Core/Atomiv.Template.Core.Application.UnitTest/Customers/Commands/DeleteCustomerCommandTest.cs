@@ -28,6 +28,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             var expectedResponse = new DeleteCustomerCommandResponse();
 
             customerRepositoryMock
+                .Setup(e => e.ExistsAsync(customerId))
+                .ReturnsAsync(true);
+
+            customerRepositoryMock
                 .Setup(e => e.RemoveAsync(customerId));
 
             var handler = new DeleteCustomerCommandHandler(customerRepositoryMock.Object);

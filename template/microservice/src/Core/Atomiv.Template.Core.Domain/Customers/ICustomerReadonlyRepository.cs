@@ -6,7 +6,7 @@ namespace Atomiv.Template.Core.Domain.Customers
 {
     public interface ICustomerReadonlyRepository : IRepository
     {
-        Task<bool> ExistsAsync(Guid customerId);
+        Task<bool> ExistsAsync(CustomerIdentity customerId);
 
         Task<long> CountAsync();
     }

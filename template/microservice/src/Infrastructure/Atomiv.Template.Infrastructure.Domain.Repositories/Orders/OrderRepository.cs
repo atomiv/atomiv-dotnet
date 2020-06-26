@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 {
-    public class OrderRepository : Repository, IOrderRepository
+    public class OrderRepository : OrderReadonlyRepository, IOrderRepository
     {
         public OrderRepository(DatabaseContext context) : base(context)
         {

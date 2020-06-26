@@ -7,12 +7,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Validation.Products
 {
     public class ViewProductQueryValidator : BaseValidator<ViewProductQuery>
     {
-        public ViewProductQueryValidator(IProductReadonlyRepository productReadonlyRepository)
+        public ViewProductQueryValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((query, context, cancellation)
-                    => productReadonlyRepository.ExistsAsync(query.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
         }
     }

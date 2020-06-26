@@ -6,7 +6,7 @@ namespace Atomiv.Template.Core.Domain.Orders
 {
     public interface IOrderReadonlyRepository : IRepository
     {
-        Task<bool> ExistsAsync(Guid orderId);
+        Task<bool> ExistsAsync(OrderIdentity orderId);
 
         Task<long> CountAsync();
     }

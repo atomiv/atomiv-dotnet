@@ -1,15 +1,19 @@
 ﻿using Atomiv.Core.Domain;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Domain.Products
 {
     public interface IProductReadonlyRepository : IRepository
     {
-        Task<bool> ExistsAsync(Guid productId);
+        Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId);
+
+        Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds);
+
+        Task<bool> ExistsAsync(ProductIdentity productId);
 
         Task<long> CountAsync();
-
-        Task<decimal?> GetPriceAsync(Guid productId);
     }
 }

@@ -48,6 +48,12 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var productId2Price = 25.68m;
             var productId3Price = 34.96m;
 
+            var products = new List<Product>
+            {
+                new Product(new ProductIdentity(productId2), "code", "name", productId2Price, true),
+                new Product(new ProductIdentity(productId3), "code", "name", productId3Price, true),
+            };
+
             var order = new Order(new OrderIdentity(id),
                 new CustomerIdentity(customerId),
                 new DateTime(2019, 12, 15),
@@ -61,16 +67,16 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var command = new EditOrderCommand
             {
                 Id = id,
-                OrderItems = new List<UpdateOrderItemCommand>
+                OrderItems = new List<EditOrderItemCommand>
                 {
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = orderItemId1,
                         ProductId = productId2,
                         Quantity = 72,
                     },
 
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = null,
                         ProductId = productId3,
@@ -112,17 +118,19 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 },
             };
 
+            var productIds = new List<ProductIdentity>
+            {
+                new ProductIdentity(productId2),
+                new ProductIdentity(productId3),
+            };
+
             _orderRepositoryMock
                 .Setup(e => e.FindAsync(new OrderIdentity(id)))
                 .ReturnsAsync(order);
 
             _productReadonlyRepositoryMock
-                .Setup(e => e.GetPriceAsync(productId2))
-                .ReturnsAsync(productId2Price);
-
-            _productReadonlyRepositoryMock
-                .Setup(e => e.GetPriceAsync(productId3))
-                .ReturnsAsync(productId3Price);
+                .Setup(e => e.FindReadonlyAsync(productIds))
+                .ReturnsAsync(products);
 
             _orderFactoryMock
                 .Setup(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84))
@@ -149,8 +157,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var response = await handler.HandleAsync(command);
 
             _orderRepositoryMock.Verify(e => e.FindAsync(new OrderIdentity(id)), Times.Once());
-            _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId2), Times.Once());
-            _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId3), Times.Once());
+            _productReadonlyRepositoryMock.Verify(e => e.FindReadonlyAsync(productIds), Times.Once());
             _orderFactoryMock.Verify(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84), Times.Once());
             _orderRepositoryMock.Verify(e => e.UpdateAsync(expectedUpdatedOrder), Times.Once());
             _mapperMock.Verify(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder), Times.Once());

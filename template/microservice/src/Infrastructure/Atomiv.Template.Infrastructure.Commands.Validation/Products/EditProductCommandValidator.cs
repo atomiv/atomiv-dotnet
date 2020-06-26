@@ -5,14 +5,12 @@ using Atomiv.Template.Core.Domain.Products;
 
 namespace Atomiv.Template.Infrastructure.Commands.Validation.Products
 {
-    public class EditProductRequestValidator : BaseValidator<EditProductCommand>
+    public class EditProductCommandValidator : BaseValidator<EditProductCommand>
     {
-        public EditProductRequestValidator(IProductReadonlyRepository productReadonlyRepository)
+        public EditProductCommandValidator()
         {
             RuleFor(e => e.Id)
                 .NotEmpty()
-                .MustAsync((command, context, cancellation)
-                    => productReadonlyRepository.ExistsAsync(command.Id))
                 .WithErrorCode(ValidationErrorCodes.NotFound);
 
             RuleFor(e => e.Description).NotNull();
