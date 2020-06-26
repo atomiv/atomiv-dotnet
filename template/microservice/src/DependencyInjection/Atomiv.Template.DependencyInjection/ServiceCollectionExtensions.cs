@@ -53,10 +53,13 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Validation.Module),
                 typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Persistence.Module),
+                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
                 typeof(Infrastructure.Domain.Repositories.Module),
+                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
                 typeof(Infrastructure.Domain.Services.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Handlers.Module),
+                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
                 typeof(Infrastructure.Web.Authentication.Module),
             };
