@@ -39,7 +39,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest
 
             for (var i = 0; i < 10; i++)
             {
-                var customer = _customerFactory.Create($"John{i}", $"Smith{i}");
+                var customer = _customerFactory.CreateCustomer($"John{i}", $"Smith{i}");
                 await _customerRepository.AddAsync(customer);
                 customers.Add(customer);
             }
@@ -53,7 +53,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest
 
             for (var i = 0; i < 10; i++)
             {
-                var product = _productFactory.CreateNewProduct($"PRD{i}", $"Product {i}", 50 + i);
+                var product = _productFactory.CreateProduct($"PRD{i}", $"Product {i}", 50 + i);
                 await _productRepository.AddAsync(product);
                 products.Add(product);
             }
@@ -71,8 +71,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest
 
             for (var i = 0; i < 10; i++)
             {
-                var orderItem1 = _orderFactory.CreateNewOrderItem(productId1, 56.92m, 40);
-                var orderItem2 = _orderFactory.CreateNewOrderItem(productId2, 72.46m, 50);
+                var orderItem1 = _orderFactory.CreateOrderItem(productId1, 56.92m, 40);
+                var orderItem2 = _orderFactory.CreateOrderItem(productId2, 72.46m, 50);
 
                 var orderItems = new List<OrderItem>
                 {
@@ -80,7 +80,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest
                     orderItem2,
                 };
 
-                var order = _orderFactory.CreateNewOrder(customerId, orderItems);
+                var order = _orderFactory.CreateOrder(customerId, orderItems);
 
                 await _orderRepository.AddAsync(order);
             }

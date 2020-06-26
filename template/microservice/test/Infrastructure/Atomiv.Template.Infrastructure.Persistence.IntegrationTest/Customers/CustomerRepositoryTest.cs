@@ -22,7 +22,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest.Cust
             // Arrange
 
             await CreateSomeCustomersAsync();
-            var customer = _customerFactory.Create("John", "Smith");
+            var customer = _customerFactory.CreateCustomer("John", "Smith");
 
             // Act
 

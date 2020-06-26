@@ -51,11 +51,11 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var order = new Order(new OrderIdentity(id),
                 new CustomerIdentity(customerId),
                 new DateTime(2019, 12, 15),
-                OrderStatus.New,
+                OrderStatus.Draft,
                 new List<OrderItem>
                 {
                     new OrderItem(new OrderItemIdentity(orderItemId1), new ProductIdentity(productId1), productId1Price, 50, OrderItemStatus.Allocated),
-                    new OrderItem(new OrderItemIdentity(orderItemId2), new ProductIdentity(productId2), productId2Price, 60, OrderItemStatus.OnOrder),
+                    new OrderItem(new OrderItemIdentity(orderItemId2), new ProductIdentity(productId2), productId2Price, 60, OrderItemStatus.Unavailable),
                 });
 
             var command = new EditOrderCommand
@@ -82,7 +82,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             var expectedUpdatedOrder = new Order(new OrderIdentity(id),
                 new CustomerIdentity(customerId),
                 new DateTime(2019, 12, 15),
-                OrderStatus.New,
+                OrderStatus.Draft,
                 new List<OrderItem>
                 {
                     new OrderItem(new OrderItemIdentity(orderItemId1), new ProductIdentity(productId2), productId2Price, 72, OrderItemStatus.Allocated),
@@ -125,7 +125,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 .ReturnsAsync(productId3Price);
 
             _orderFactoryMock
-                .Setup(e => e.CreateNewOrderItem(new ProductIdentity(productId3), productId3Price, 84))
+                .Setup(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84))
                 .Returns(new OrderItem(new OrderItemIdentity(orderItemId3), new ProductIdentity(productId3), productId3Price, 60, OrderItemStatus.Allocated));
 
             _orderRepositoryMock
@@ -151,7 +151,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
             _orderRepositoryMock.Verify(e => e.FindAsync(new OrderIdentity(id)), Times.Once());
             _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId2), Times.Once());
             _productReadonlyRepositoryMock.Verify(e => e.GetPriceAsync(productId3), Times.Once());
-            _orderFactoryMock.Verify(e => e.CreateNewOrderItem(new ProductIdentity(productId3), productId3Price, 84), Times.Once());
+            _orderFactoryMock.Verify(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84), Times.Once());
             _orderRepositoryMock.Verify(e => e.UpdateAsync(expectedUpdatedOrder), Times.Once());
             _mapperMock.Verify(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder), Times.Once());
 

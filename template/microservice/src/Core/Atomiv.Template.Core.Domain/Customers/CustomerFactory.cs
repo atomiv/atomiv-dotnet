@@ -11,7 +11,7 @@ namespace Atomiv.Template.Core.Domain.Customers
             _customerIdentityGenerator = customerIdentityGenerator;
         }
 
-        public Customer Create(string firstName, string lastName)
+        public Customer CreateCustomer(string firstName, string lastName)
         {
             var id = _customerIdentityGenerator.Next();
 

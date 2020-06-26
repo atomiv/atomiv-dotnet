@@ -62,7 +62,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             createResponse.Id.Should().NotBeEmpty();
             createResponse.CustomerId.Should().Be(createRequest.CustomerId);
-            createResponse.Status.Should().Be(OrderStatus.New);
+            createResponse.Status.Should().Be(OrderStatus.Draft);
 
             createResponse.OrderItems.Should().NotBeNull();
 
@@ -76,7 +76,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
                 createResponseOrderDetail.Id.Should().NotBeEmpty();
                 createResponseOrderDetail.ProductId.Should().Be(createRequestOrderDetail.ProductId);
                 createResponseOrderDetail.Quantity.Should().Be(createRequestOrderDetail.Quantity);
-                createResponseOrderDetail.Status.Should().Be(OrderItemStatus.Allocated);
+                createResponseOrderDetail.Status.Should().Be(OrderItemStatus.Pending);
             }
 
             var findRequest = new ViewOrderQuery { Id = createResponse.Id };

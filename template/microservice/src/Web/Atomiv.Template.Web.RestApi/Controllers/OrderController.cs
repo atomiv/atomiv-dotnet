@@ -20,15 +20,6 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         #region Commands
 
-        [HttpPost("{id}/archive", Name = "archive-order")]
-        [ProducesResponseType(typeof(ArchiveOrderCommandResponse), 200)]
-        public async Task<ActionResult<ArchiveOrderCommandResponse>> ArchiveOrderAsync(Guid id)
-        {
-            var request = new ArchiveOrderCommand { Id = id };
-            var response = await _messageBus.SendAsync(request);
-            return Ok(response);
-        }
-
         [HttpPost("{id}/cancel", Name = "cancel-order")]
         [ProducesResponseType(typeof(CancelOrderCommandResponse), 200)]
         public async Task<ActionResult<CancelOrderCommandResponse>> CancelOrderAsync(Guid id)

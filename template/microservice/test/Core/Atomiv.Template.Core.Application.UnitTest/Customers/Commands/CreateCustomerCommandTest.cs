@@ -39,7 +39,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             customerFactoryMock
-                .Setup(e => e.Create("Mary", "Smith"))
+                .Setup(e => e.CreateCustomer("Mary", "Smith"))
                 .Returns(customer);
 
             customerRepositoryMock
@@ -56,7 +56,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 
             var response = await handler.HandleAsync(command);
 
-            customerFactoryMock.Verify(e => e.Create("Mary", "Smith"), Times.Once());
+            customerFactoryMock.Verify(e => e.CreateCustomer("Mary", "Smith"), Times.Once());
             customerRepositoryMock.Verify(e => e.AddAsync(customer), Times.Once());
             mapperMock.Verify(e => e.Map<Customer, CreateCustomerCommandResponse>(customer), Times.Once());
 

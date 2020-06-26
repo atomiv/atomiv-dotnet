@@ -47,10 +47,6 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 
-            var openOrders = customerRecord.Orders
-                .Where(e => e.OrderStatusId != OrderStatus.Closed)
-                .Count();
-
             return new BrowseCustomersRecordResponse
             {
                 Id = customerRecord.Id,

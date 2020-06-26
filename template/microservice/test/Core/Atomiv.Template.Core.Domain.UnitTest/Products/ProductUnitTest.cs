@@ -8,7 +8,7 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Products
     public class ProductUnitTest
     {
         [Fact]
-        public void CanCreateValidProduct()
+        public void CanConstructValidProduct()
         {
             var identity = new ProductIdentity(Guid.NewGuid());
             var code = "ABC";

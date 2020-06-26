@@ -41,7 +41,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             var lastName = customerRecord.LastName;
 
             var openOrders = customerRecord.Orders
-                .Where(e => e.OrderStatusId != OrderStatus.Closed)
+                .Where(e => e.OrderStatusId != OrderStatus.Shipped
+                    || e.OrderStatusId != OrderStatus.Cancelled)
                 .Count();
 
             var lastOrderDate = customerRecord.Orders

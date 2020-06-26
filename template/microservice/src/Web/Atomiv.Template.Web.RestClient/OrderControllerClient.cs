@@ -18,12 +18,6 @@ namespace Atomiv.Template.Web.RestClient
 
         #region Commands
 
-        public Task<ObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request, HeaderData header)
-        {
-            var id = request.Id;
-            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive", GetHeaders(header));
-        }
-
         public Task<ObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request, HeaderData header)
         {
             var id = request.Id;

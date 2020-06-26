@@ -4,6 +4,10 @@ namespace Atomiv.Template.Core.Domain.Products
 {
     public class Product : Entity<ProductIdentity>
     {
+        private string _productCode;
+        private string _productName;
+        private decimal _listPrice;
+
         public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isListed)
             : base(id)
         {
@@ -13,11 +17,56 @@ namespace Atomiv.Template.Core.Domain.Products
             IsListed = isListed;
         }
 
-        public string ProductCode { get; }
+        public string ProductCode
+        {
+            get
+            {
+                return _productCode;
+            }
+            set
+            {
+                if(string.IsNullOrEmpty(value))
+                {
+                    throw new DomainException("Product code cannot be null or empty");
+                }
 
-        public string ProductName { get; set; }
+                _productCode = value;
+            }
+        }
 
-        public decimal ListPrice { get; set; }
+        public string ProductName
+        {
+            get
+            {
+                return _productName;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new DomainException("Product name cannot be null or empty");
+                }
+
+                _productName = value;
+            }
+        }
+
+        public decimal ListPrice
+        {
+            get
+            {
+                return _listPrice;
+            }
+            set
+            {
+                if(value < 0)
+                {
+                    throw new DomainException("List price cannot be negative");
+                }
+
+                _listPrice = value;
+            }
+        }
 
         public bool IsListed { get; private set; }
 

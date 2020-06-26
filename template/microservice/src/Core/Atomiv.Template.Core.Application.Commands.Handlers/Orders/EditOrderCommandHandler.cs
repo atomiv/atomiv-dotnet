@@ -52,7 +52,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 
                 var productId = new ProductIdentity(added.ProductId);
 
-                var orderItem = _orderFactory.CreateNewOrderItem(productId, productPrice.Value, added.Quantity);
+                var orderItem = _orderFactory.CreateOrderItem(productId, productPrice.Value, added.Quantity);
                 order.AddOrderItem(orderItem);
             }
 

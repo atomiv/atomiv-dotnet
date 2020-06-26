@@ -19,8 +19,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Services.Products
             // TODO: VC: Sample reading from DB, then also reading from web service etc.
             // and then combine those product lists together
 
-            var product1 = _productFactory.CreateNewProduct("ABC", "Product ABC", 45.56m);
-            var product2 = _productFactory.CreateNewProduct("DEF", "Product DEF", 56.78m);
+            var product1 = _productFactory.CreateProduct("ABC", "Product ABC", 45.56m);
+            var product2 = _productFactory.CreateProduct("DEF", "Product DEF", 56.78m);
 
             var products = new List<Product>
             {

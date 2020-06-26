@@ -55,7 +55,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 
             var isPromotion = _applicationContext.IsPromotionDay;
 
-            return _orderFactory.CreateNewOrder(customerId, orderDetails);
+            return _orderFactory.CreateOrder(customerId, orderDetails);
         }
 
         private async Task<OrderItem> GetOrderItem(CreateOrderItemCommand requestOrderDetail)
@@ -66,7 +66,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 
             var quantity = requestOrderDetail.Quantity;
 
-            return _orderFactory.CreateNewOrderItem(productId, productPrice.Value, quantity);
+            return _orderFactory.CreateOrderItem(productId, productPrice.Value, quantity);
         }
     }
 }

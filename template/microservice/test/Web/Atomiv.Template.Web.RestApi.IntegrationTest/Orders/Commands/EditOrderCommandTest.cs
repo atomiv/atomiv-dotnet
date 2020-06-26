@@ -88,7 +88,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
                 updateResponseOrderDetail.ProductId.Should().Be(updateRequestOrderDetail.ProductId);
                 updateResponseOrderDetail.Quantity.Should().Be(updateRequestOrderDetail.Quantity);
-                updateResponseOrderDetail.Status.Should().Be(OrderItemStatus.Allocated);
+                updateResponseOrderDetail.Status.Should().Be(OrderItemStatus.Pending);
             }
 
             // TODO: VC: Fix test

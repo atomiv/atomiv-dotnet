@@ -38,7 +38,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             var firstName = request.FirstName;
             var lastName = request.LastName;
 
-            return _customerFactory.Create(firstName, lastName);
+            return _customerFactory.CreateCustomer(firstName, lastName);
         }
     }
 }

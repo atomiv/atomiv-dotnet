@@ -25,9 +25,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest.Orde
             var product2 = products[2];
             var product3 = products[3];
 
-            var orderItem1 = _orderFactory.CreateNewOrderItem(product1.Id, 22.56m, 40);
-            var orderItem2 = _orderFactory.CreateNewOrderItem(product2.Id, 34.46m, 50);
-            var orderItem3 = _orderFactory.CreateNewOrderItem(product3.Id, 48.24m, 60);
+            var orderItem1 = _orderFactory.CreateOrderItem(product1.Id, 22.56m, 40);
+            var orderItem2 = _orderFactory.CreateOrderItem(product2.Id, 34.46m, 50);
+            var orderItem3 = _orderFactory.CreateOrderItem(product3.Id, 48.24m, 60);
 
             var orderItems = new List<OrderItem>
             {
@@ -36,7 +36,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IntegrationTest.Orde
                 orderItem3,
             };
 
-            var order = _orderFactory.CreateNewOrder(customer.Id, orderItems);
+            var order = _orderFactory.CreateOrder(customer.Id, orderItems);
 
 
             // TODO: VC: Continue

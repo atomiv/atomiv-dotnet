@@ -13,6 +13,9 @@ namespace Atomiv.Template.Core.Domain.Orders
         private readonly IIdentityGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
         private readonly ITimeService _timeService;
 
+        private const OrderStatus CreatedOrderStatus = OrderStatus.Draft;
+        private const OrderItemStatus CreatedOrderItemStatus = OrderItemStatus.Pending;
+
         public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, 
             IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator,
             ITimeService timeService)
@@ -22,23 +25,18 @@ namespace Atomiv.Template.Core.Domain.Orders
             _timeService = timeService;
         }
 
-        public Order CreateNewOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderItems)
+        public Order CreateOrder(CustomerIdentity customerId, IEnumerable<OrderItem> orderItems)
         {
             var id = _orderIdentityGenerator.Next();
             var orderDate = _timeService.Now;
-            return new Order(id, customerId, orderDate, OrderStatus.New, orderItems);
+            return new Order(id, customerId, orderDate, CreatedOrderStatus, orderItems);
         }
 
-        public OrderItem CreateNewOrderItem(ProductIdentity productId, decimal unitPrice, int quantity)
+        public OrderItem CreateOrderItem(ProductIdentity productId, decimal unitPrice, int quantity)
         {
-            if (quantity < 0)
-            {
-                throw new ArgumentException();
-            }
-
             var id = _orderItemIdentityGenerator.Next();
 
-            return new OrderItem(id, productId, unitPrice, quantity, OrderItemStatus.Allocated);
+            return new OrderItem(id, productId, unitPrice, quantity, CreatedOrderItemStatus);
         }
     }
 }
