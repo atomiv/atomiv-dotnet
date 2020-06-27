@@ -92,7 +92,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             // Act
 
-            var id = Guid.NewGuid();
+            var id = Guid.NewGuid().ToString();
             var deleteRequest = new DeleteCustomerCommand { Id = id };
             var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest, header);
 

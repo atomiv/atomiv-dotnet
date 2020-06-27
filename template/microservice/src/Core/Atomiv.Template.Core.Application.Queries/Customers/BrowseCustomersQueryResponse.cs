@@ -12,7 +12,7 @@ namespace Atomiv.Template.Core.Application.Queries.Customers
 
     public class BrowseCustomersRecordResponse
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 

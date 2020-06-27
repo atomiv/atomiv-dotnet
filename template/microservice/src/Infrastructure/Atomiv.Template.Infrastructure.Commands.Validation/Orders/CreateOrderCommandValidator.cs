@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using Atomiv.Infrastructure.FluentValidation;
 using Atomiv.Template.Core.Application.Commands.Orders;
-using Atomiv.Template.Core.Domain.Customers;
-using Atomiv.Template.Core.Domain.Products;
 
 namespace Atomiv.Template.Infrastructure.Commands.Validation.Orders
 {

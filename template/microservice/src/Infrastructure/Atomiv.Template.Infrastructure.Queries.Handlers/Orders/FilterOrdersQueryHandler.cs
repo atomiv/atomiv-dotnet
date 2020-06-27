@@ -35,7 +35,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 
             return new ListOrdersRecordQueryResponse
             {
-                Id = record.Id,
+                Id = record.Id.ToString(),
                 Name = name,
             };
         }

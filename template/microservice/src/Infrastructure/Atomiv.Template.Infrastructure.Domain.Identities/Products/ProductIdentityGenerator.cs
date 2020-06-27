@@ -6,9 +6,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
     public class ProductIdentityGenerator : IdentityGenerator<ProductIdentity>
     {
-        protected override ProductIdentity Create(Guid guid)
+        protected override ProductIdentity Create(string value)
         {
-            return new ProductIdentity(guid);
+            return new ProductIdentity(value);
         }
     }
 }

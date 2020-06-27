@@ -47,6 +47,7 @@ $projects = @(
     'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj',
     'src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj',
+    'src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDb.csproj',
     'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',	
     'src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj',
     'src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj',

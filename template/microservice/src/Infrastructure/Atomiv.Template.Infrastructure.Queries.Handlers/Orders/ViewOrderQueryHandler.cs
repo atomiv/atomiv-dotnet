@@ -5,6 +5,7 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 {
@@ -16,11 +17,11 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 
         public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
         {
-            var orderId = request.Id;
+            var orderRecordId = request.Id.ToGuid();
 
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderId);
+                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
 
             if (orderRecord == null)
             {
@@ -38,8 +39,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 
             return new ViewOrderQueryResponse
             {
-                Id = record.Id,
-                CustomerId = record.CustomerId,
+                Id = record.Id.ToString(),
+                CustomerId = record.CustomerId.ToString(),
                 Status = record.OrderStatusId,
                 OrderItems = orderItems,
             };
@@ -49,8 +50,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
             return new FindOrderItemQueryResponse
             {
-                Id = orderItemRecord.Id,
-                ProductId = orderItemRecord.ProductId,
+                Id = orderItemRecord.Id.ToString(),
+                ProductId = orderItemRecord.ProductId.ToString(),
                 Quantity = orderItemRecord.Quantity,
                 UnitPrice = orderItemRecord.UnitPrice,
                 Status = orderItemRecord.StatusId,

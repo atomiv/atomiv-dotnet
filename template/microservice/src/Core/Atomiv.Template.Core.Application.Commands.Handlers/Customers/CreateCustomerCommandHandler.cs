@@ -1,7 +1,6 @@
 ﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Context;
-using Atomiv.Template.Core.Common.Requests;
 using Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 

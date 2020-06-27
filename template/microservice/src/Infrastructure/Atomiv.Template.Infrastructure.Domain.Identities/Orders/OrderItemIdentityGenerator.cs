@@ -6,9 +6,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
     public class OrderItemIdentityGenerator : IdentityGenerator<OrderItemIdentity>
     {
-        protected override OrderItemIdentity Create(Guid guid)
+        protected override OrderItemIdentity Create(string value)
         {
-            return new OrderItemIdentity(guid);
+            return new OrderItemIdentity(value);
         }
     }
 }

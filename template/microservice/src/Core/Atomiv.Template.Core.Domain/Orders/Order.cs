@@ -4,7 +4,6 @@ using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Core.Domain.Products;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Atomiv.Template.Core.Domain.Orders

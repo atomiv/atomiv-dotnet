@@ -34,15 +34,15 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
         {
             // Arrange
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
-            var customerId = Guid.Parse("711d5de4-628a-4acd-98c4-8ce099b149bc");
-            var orderItemId1 = Guid.Parse("c58b1858-2d67-4aee-9bfd-df1f9ac37227");
-            var orderItemId2 = Guid.Parse("f7319c98-a3e0-42be-9e4f-dcc1e3e1dea1");
-            var orderItemId3 = Guid.Parse("4455370b-0351-4cd8-a191-3c28841ff6be");
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
+            var customerId = "711d5de4-628a-4acd-98c4-8ce099b149bc";
+            var orderItemId1 = "c58b1858-2d67-4aee-9bfd-df1f9ac37227";
+            var orderItemId2 = "f7319c98-a3e0-42be-9e4f-dcc1e3e1dea1";
+            var orderItemId3 = "4455370b-0351-4cd8-a191-3c28841ff6be";
 
-            var productId1 = Guid.Parse("4e12839c-b431-4a4d-a7e0-80949d478945");
-            var productId2 = Guid.Parse("a9fbe198-edcd-4b27-9a0d-38420df95b02");
-            var productId3 = Guid.Parse("cbb3650a-3c47-4608-ae88-20ef603d9d25");
+            var productId1 = "4e12839c-b431-4a4d-a7e0-80949d478945";
+            var productId2 = "a9fbe198-edcd-4b27-9a0d-38420df95b02";
+            var productId3 = "cbb3650a-3c47-4608-ae88-20ef603d9d25";
 
             var productId1Price = 20.46m;
             var productId2Price = 25.68m;

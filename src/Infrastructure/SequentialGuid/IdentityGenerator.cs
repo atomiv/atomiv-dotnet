@@ -9,9 +9,10 @@ namespace Atomiv.Infrastructure.SequentialGuid
         public TIdentity Next()
         {
             var guid = SequentialSqlGuidGenerator.Instance.NewGuid();
-            return Create(guid);
+            var value = guid.ToString();
+            return Create(value);
         }
 
-        protected abstract TIdentity Create(Guid guid);
+        protected abstract TIdentity Create(string value);
     }
 }

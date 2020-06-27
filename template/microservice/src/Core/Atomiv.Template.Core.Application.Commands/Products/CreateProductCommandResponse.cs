@@ -4,7 +4,7 @@ namespace Atomiv.Template.Core.Application.Commands.Products
 {
     public class CreateProductCommandResponse
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Code { get; set; }
 

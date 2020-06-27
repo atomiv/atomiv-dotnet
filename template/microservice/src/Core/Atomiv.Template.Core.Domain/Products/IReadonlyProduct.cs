@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Atomiv.Template.Core.Domain.Products
+﻿namespace Atomiv.Template.Core.Domain.Products
 {
     public interface IReadonlyProduct
     {

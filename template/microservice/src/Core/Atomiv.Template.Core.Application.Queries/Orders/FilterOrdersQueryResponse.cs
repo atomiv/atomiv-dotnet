@@ -12,7 +12,7 @@ namespace Atomiv.Template.Core.Application.Queries.Orders
 
     public class ListOrdersRecordQueryResponse
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
     }

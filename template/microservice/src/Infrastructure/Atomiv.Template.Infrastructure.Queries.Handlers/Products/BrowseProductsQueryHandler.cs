@@ -37,7 +37,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
             return new BrowseProductsRecordResponse
             {
-                Id = productRecord.Id,
+                Id = productRecord.Id.ToString(),
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

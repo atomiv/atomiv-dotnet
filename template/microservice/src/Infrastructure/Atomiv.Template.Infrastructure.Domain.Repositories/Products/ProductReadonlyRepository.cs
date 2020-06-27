@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Core.Domain.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Linq;
+using System;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {
@@ -17,8 +18,10 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public Task<bool> ExistsAsync(ProductIdentity productId)
         {
+            var productRecordId = productId.ToGuid();
+
             return Context.Products.AsNoTracking()
-                .AnyAsync(e => e.Id == productId);
+                .AnyAsync(e => e.Id == productRecordId);
         }
 
         public Task<long> CountAsync()
@@ -28,8 +31,10 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
+            var productRecordId = productId.ToGuid();
+
             var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productId);
+                .FirstOrDefaultAsync(e => e.Id == productRecordId);
 
             if (productRecord == null)
             {
@@ -42,7 +47,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds
-                .Select(e => e.Value)
+                .Select(e => Guid.Parse(e.Value))
                 .ToList();
 
             var productRecords = await Context.Products.AsNoTracking()
@@ -60,7 +65,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         protected Product GetProduct(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id);
+            var id = new ProductIdentity(productRecord.Id.ToString());
             var productCode = productRecord.ProductCode;
             var productName = productRecord.ProductName;
             var listPrice = productRecord.ListPrice;

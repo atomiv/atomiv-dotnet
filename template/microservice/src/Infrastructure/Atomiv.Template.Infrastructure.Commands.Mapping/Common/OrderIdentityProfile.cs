@@ -8,10 +8,10 @@ namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
     {
         public OrderIdentityProfile()
         {
-            CreateMap<OrderIdentity, Guid>()
+            CreateMap<OrderIdentity, string>()
                 .ConvertUsing(src => src.Value);
 
-            CreateMap<OrderItemIdentity, Guid>()
+            CreateMap<OrderItemIdentity, string>()
                 .ConvertUsing(src => src.Value);
         }
     }

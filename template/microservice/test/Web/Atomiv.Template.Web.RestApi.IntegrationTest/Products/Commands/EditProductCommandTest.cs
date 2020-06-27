@@ -85,7 +85,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = Guid.NewGuid();
+            var id = Guid.NewGuid().ToString();
 
             var updateRequest = new EditProductCommand
             {

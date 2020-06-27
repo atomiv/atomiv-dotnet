@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Atomiv.Infrastructure.MongoDb;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
-    public class ProductRecord
+    public class ProductRecord : Record<string>
     {
+        public string ProductCode { get; set; }
+
+        public string ProductName { get; set; }
+
+        public decimal ListPrice { get; set; }
+
+        public bool IsListed { get; set; }
     }
 }

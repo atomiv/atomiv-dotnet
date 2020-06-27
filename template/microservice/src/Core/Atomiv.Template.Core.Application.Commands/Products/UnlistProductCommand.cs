@@ -5,6 +5,6 @@ namespace Atomiv.Template.Core.Application.Commands.Products
 {
     public class UnlistProductCommand : IRequest<UnlistProductCommandResponse>
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

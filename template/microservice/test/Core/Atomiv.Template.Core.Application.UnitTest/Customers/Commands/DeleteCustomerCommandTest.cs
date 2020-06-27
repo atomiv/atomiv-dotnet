@@ -16,7 +16,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
         {
             var customerRepositoryMock = new Mock<ICustomerRepository>();
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
 
             var command = new DeleteCustomerCommand
             {

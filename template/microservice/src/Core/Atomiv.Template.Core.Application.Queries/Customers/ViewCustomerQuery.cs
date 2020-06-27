@@ -5,6 +5,6 @@ namespace Atomiv.Template.Core.Application.Queries.Customers
 {
     public class ViewCustomerQuery : IRequest<ViewCustomerQueryResponse>
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

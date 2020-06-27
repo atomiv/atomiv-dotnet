@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Atomiv.Core.Common.Utilities;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
@@ -43,13 +42,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 
         private static BrowseCustomersRecordResponse GetBrowseCustomersQueryRecordResponse(CustomerRecord customerRecord)
         {
-            var id = new CustomerIdentity(customerRecord.Id);
-            var firstName = customerRecord.FirstName;
-            var lastName = customerRecord.LastName;
-
             return new BrowseCustomersRecordResponse
             {
-                Id = customerRecord.Id,
+                Id = customerRecord.Id.ToString(),
                 FirstName = customerRecord.FirstName,
                 LastName = customerRecord.LastName,
             };

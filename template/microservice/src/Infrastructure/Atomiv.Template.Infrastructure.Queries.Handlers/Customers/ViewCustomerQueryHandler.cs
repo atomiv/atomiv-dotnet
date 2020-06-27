@@ -7,6 +7,7 @@ using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 {
@@ -18,13 +19,13 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 
         public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
         {
-            var customerId = request.Id;
+            var customerRecordId = request.Id.ToGuid();
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)
                     .ThenInclude(e => e.OrderItems)
                         .ThenInclude(e => e.Product)
-                .FirstOrDefaultAsync(e => e.Id == customerId);
+                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             if (customerRecord == null)
             {
@@ -36,7 +37,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 
         private ViewCustomerQueryResponse GetFindCustomerQueryResponse(CustomerRecord customerRecord)
         {
-            var id = customerRecord.Id;
+            var id = customerRecord.Id.ToString();
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 

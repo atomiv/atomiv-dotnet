@@ -3,9 +3,9 @@ using System;
 
 namespace Atomiv.Template.Core.Domain.Orders
 {
-    public class OrderIdentity : Identity<Guid>
+    public class OrderIdentity : Identity<string>
     {
-        public OrderIdentity(Guid value) : base(value)
+        public OrderIdentity(string value) : base(value)
         {
         }
     }

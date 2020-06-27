@@ -5,7 +5,7 @@ namespace Atomiv.Template.Core.Application.Commands.Products
 {
     public class EditProductCommand : IRequest<EditProductCommandResponse>
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Description { get; set; }
 

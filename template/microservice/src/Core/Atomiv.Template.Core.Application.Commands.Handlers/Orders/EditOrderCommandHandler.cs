@@ -89,7 +89,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
         {
             foreach (var orderItemRequest in updatedOrderItemRequests)
             {
-                var orderItemId = new OrderItemIdentity(orderItemRequest.Id.Value);
+                var orderItemId = new OrderItemIdentity(orderItemRequest.Id);
                 var orderItem = order.OrderItems.Single(e => e.Id == orderItemId);
 
                 var productId = new ProductIdentity(orderItemRequest.ProductId);

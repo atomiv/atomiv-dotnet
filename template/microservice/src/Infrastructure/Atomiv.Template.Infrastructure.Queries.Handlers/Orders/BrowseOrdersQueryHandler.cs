@@ -39,8 +39,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 
             return new BrowseOrdersRecordQueryResponse
             {
-                Id = record.Id,
-                CustomerId = record.CustomerId,
+                Id = record.Id.ToString(),
+                CustomerId = record.CustomerId.ToString(),
                 OrderDate = record.OrderDate,
                 OrderStatus = record.OrderStatusId,
                 TotalPrice = totalPrice,

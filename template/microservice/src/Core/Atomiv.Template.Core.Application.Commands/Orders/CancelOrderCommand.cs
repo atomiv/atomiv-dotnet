@@ -5,6 +5,6 @@ namespace Atomiv.Template.Core.Application.Commands.Orders
 {
     public class CancelOrderCommand : IRequest<CancelOrderCommandResponse>
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = Guid.NewGuid();
+            var id = Guid.NewGuid().ToString();
 
             var findRequest = new ViewOrderQuery { Id = id };
 

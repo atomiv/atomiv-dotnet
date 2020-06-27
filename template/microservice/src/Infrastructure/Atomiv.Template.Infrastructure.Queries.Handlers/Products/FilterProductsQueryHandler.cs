@@ -35,7 +35,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
 
             return new ListProductsRecordQueryResponse
             {
-                Id = productRecord.Id,
+                Id = productRecord.Id.ToString(),
                 Name = name,
             };
         }

@@ -4,6 +4,7 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
 {
@@ -15,10 +16,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
 
         public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
         {
-            var productId = request.Id;
+            var productRecordId = request.Id.ToGuid();
 
             var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productId);
+                .FirstOrDefaultAsync(e => e.Id == productRecordId);
 
             if (productRecord == null)
             {
@@ -32,7 +33,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
             return new ViewProductQueryResponse
             {
-                Id = productRecord.Id,
+                Id = productRecord.Id.ToString(),
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

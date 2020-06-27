@@ -2,7 +2,6 @@
 using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Core.Domain.Products;
-using System;
 using System.Collections.Generic;
 
 namespace Atomiv.Template.Core.Domain.Orders

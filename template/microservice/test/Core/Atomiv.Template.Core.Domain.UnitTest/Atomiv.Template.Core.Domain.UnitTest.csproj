@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\System\Atomiv.Infrastructure.System.csproj" />
     <ProjectReference Include="..\..\..\src\Core\Atomiv.Template.Core.Domain\Atomiv.Template.Core.Domain.csproj" />
   </ItemGroup>
 

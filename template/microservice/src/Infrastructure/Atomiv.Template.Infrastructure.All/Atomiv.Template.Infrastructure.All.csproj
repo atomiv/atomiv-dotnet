@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence\Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj" />

@@ -4,7 +4,6 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Application.Context;
-using Atomiv.Template.Core.Common.Requests;
 using Atomiv.Template.Core.Domain.Customers;
 using System;
 using System.Threading.Tasks;
@@ -28,7 +27,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 LastName = "Smith",
             };
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
             var customer = new Customer(new CustomerIdentity(id), "Mary", "Smith"); ;
 
             var expectedResponse = new CreateCustomerCommandResponse

@@ -8,7 +8,7 @@ namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
     {
         public CustomerIdentityProfile()
         {
-            CreateMap<CustomerIdentity, Guid>()
+            CreateMap<CustomerIdentity, string>()
                 .ConvertUsing(src => src.Value);
         }
     }
