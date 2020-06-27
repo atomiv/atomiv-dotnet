@@ -1,6 +1,5 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
 using Atomiv.Template.Core.Domain.Products;
-using MongoDB.Bson;
 
 namespace Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.Products
 {

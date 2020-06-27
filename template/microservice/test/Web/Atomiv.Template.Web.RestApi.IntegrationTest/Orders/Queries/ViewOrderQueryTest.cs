@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Application.Queries.Orders;
-using System;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;

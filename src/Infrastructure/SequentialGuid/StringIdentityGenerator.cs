@@ -1,8 +1,5 @@
 ﻿using Atomiv.Core.Domain;
 using SequentialGuid;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {

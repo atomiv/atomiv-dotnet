@@ -5,7 +5,6 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers

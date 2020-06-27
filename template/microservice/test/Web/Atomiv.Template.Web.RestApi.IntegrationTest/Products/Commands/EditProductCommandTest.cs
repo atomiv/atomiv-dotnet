@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Application.Commands.Products;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;

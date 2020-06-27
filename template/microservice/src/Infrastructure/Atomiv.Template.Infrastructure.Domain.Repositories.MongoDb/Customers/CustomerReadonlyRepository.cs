@@ -2,9 +2,6 @@
 using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers

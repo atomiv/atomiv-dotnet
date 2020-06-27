@@ -3,10 +3,7 @@ using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers

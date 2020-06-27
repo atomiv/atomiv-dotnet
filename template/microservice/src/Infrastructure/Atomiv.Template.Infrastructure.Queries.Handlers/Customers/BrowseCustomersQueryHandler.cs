@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Common.Utilities;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
