@@ -95,7 +95,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             // Act
 
-            var id = Guid.NewGuid().ToString();
+            var id = StringGenerator.NewString();
             var findRequest = new ViewCustomerQuery { Id = id };
             var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
 

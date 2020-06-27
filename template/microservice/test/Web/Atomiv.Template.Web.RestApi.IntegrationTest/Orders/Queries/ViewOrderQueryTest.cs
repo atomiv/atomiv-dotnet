@@ -4,6 +4,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 {
@@ -41,13 +42,13 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
         }
 
         [Fact]
-        public async Task FindOrder_NotExistRequest_ThrowsNotFoundRequestException()
+        public async Task ViewOrder_NotExistRequest_ThrowsNotFoundRequestException()
         {
             // Arrange
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = Guid.NewGuid().ToString();
+            var id = StringGenerator.NewString();
 
             var findRequest = new ViewOrderQuery { Id = id };
 

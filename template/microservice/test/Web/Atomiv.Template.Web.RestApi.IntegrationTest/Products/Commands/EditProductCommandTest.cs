@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
@@ -85,7 +86,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = Guid.NewGuid().ToString();
+            var id = StringGenerator.NewString();
 
             var updateRequest = new EditProductCommand
             {
