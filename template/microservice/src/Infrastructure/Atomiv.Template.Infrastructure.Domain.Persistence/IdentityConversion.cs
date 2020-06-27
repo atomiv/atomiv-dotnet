@@ -16,10 +16,5 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence
         {
             return ToGuid(id.Value);
         }
-
-        public static string ToString(this Guid value)
-        {
-            return value.ToString();
-        }
     }
 }

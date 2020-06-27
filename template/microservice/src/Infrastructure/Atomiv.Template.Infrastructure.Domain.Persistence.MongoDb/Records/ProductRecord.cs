@@ -1,9 +1,10 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
+using MongoDB.Bson;
 using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
-    public class ProductRecord : Record<string>
+    public class ProductRecord : Record<ObjectId>
     {
         public string ProductCode { get; set; }
 

@@ -18,7 +18,12 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
         public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
         {
-            var productId = request.Id;
+            var productId = request.Id.TryToObjectId();
+
+            if(productId == null)
+            {
+                return null;
+            }
 
             var filter = Builders<ProductRecord>.Filter
                 .Eq(e => e.Id, productId);

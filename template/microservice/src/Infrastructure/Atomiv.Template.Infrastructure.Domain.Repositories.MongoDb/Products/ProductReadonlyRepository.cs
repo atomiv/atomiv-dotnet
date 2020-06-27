@@ -22,8 +22,15 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public async Task<bool> ExistsAsync(ProductIdentity productId)
         {
+            var productRecordId = productId.TryToObjectId();
+
+            if(productRecordId == null)
+            {
+                return false;
+            }
+
             var productRecordCursor = await Context.Products
-                .FindAsync(e => e.Id == productId);
+                .FindAsync(e => e.Id == productRecordId);
 
             var exists = await productRecordCursor
                 .AnyAsync();
@@ -33,8 +40,15 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
+            var productRecordId = productId.TryToObjectId();
+
+            if(productRecordId == null)
+            {
+                return null;
+            }
+
             var productRecordCursor = await Context.Products
-                .FindAsync(e => e.Id == productId);
+                .FindAsync(e => e.Id == productRecordId);
 
             var productRecord = await productRecordCursor
                 .FirstOrDefaultAsync();
@@ -50,7 +64,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds
-                .Select(e => e.Value)
+                .Select(e => e.Value.TryToObjectId())
+                .Where(e => e != null)
                 .ToList();
 
             // TODO: VC: DELETE
@@ -80,7 +95,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         protected Product GetProduct(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id);
+            var id = new ProductIdentity(productRecord.Id.ToString());
             var productCode = productRecord.ProductCode;
             var productName = productRecord.ProductName;
             var listPrice = productRecord.ListPrice;

@@ -1,6 +1,7 @@
 ﻿using Atomiv.Template.Core.Domain.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,18 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
-            throw new NotImplementedException();
+            var productRecordId = productId.TryToObjectId();
 
-            /*
+            if(productRecordId == null)
+            {
+                return null;
+            }
+
+            var filter = Builders<ProductRecord>.Filter
+                .Eq(e => e.Id, productRecordId);
+
             var productRecordCursor = await Context.Products
-                .FindAsync(e => e.Id == productId);
+                .FindAsync(filter);
 
             var productRecord = await productRecordCursor.FirstOrDefaultAsync();
 
@@ -37,7 +45,6 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
             }
 
             return GetProduct(productRecord);
-            */
         }
 
         public Task SyncAsync(IEnumerable<Product> products)
@@ -54,7 +61,14 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public Task UpdateAsync(Product product)
         {
-            throw new NotImplementedException();
+            var productRecordId = product.Id.ToObjectId();
+
+            var filter = Builders<ProductRecord>.Filter
+                .Eq(e => e.Id, productRecordId);
+
+            var productRecord = GetProductRecord(product);
+
+            return Context.Products.FindOneAndReplaceAsync(filter, productRecord);
         }
 
         #region Helper
@@ -63,21 +77,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
         {
             return new ProductRecord
             {
-                Id = product.Id,
+                Id = product.Id.ToObjectId(),
                 ProductCode = product.ProductCode,
                 ProductName = product.ProductName,
                 ListPrice = product.ListPrice,
                 IsListed = product.IsListed,
             };
-        }
-
-        private void UpdateProductRecord(ProductRecord productRecord, Product product)
-        {
-            productRecord.Id = product.Id;
-            productRecord.ProductCode = product.ProductCode;
-            productRecord.ProductName = product.ProductName;
-            productRecord.ListPrice = product.ListPrice;
-            productRecord.IsListed = product.IsListed;
         }
 
         #endregion
