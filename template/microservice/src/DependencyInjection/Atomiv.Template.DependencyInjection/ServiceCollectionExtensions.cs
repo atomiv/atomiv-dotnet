@@ -57,35 +57,38 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
                 typeof(Infrastructure.Web.Authentication.Module),
-
-                #region EfCore
-
-                typeof(Infrastructure.Domain.Identities.Module),
-                typeof(Infrastructure.Domain.Persistence.Module),
-                typeof(Infrastructure.Domain.Repositories.Module),
-                typeof(Infrastructure.Queries.Handlers.Module),
-
-                #endregion
-
-                /*
-
-                #region MongoDb
-
-                typeof(Infrastructure.Domain.Identities.MongoDb.Module),
-                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
-                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
-                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
-
-                #endregion
-
-                */
             };
+
+            infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
+            // infrastructureModuleTypes.AddRange(GetMongoDbInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
             moduleTypes.AddRange(infrastructureModuleTypes);
 
             return moduleTypes;
+        }
+
+        private static List<Type> GetEfCoreInfrastructureModules()
+        {
+            return new List<Type>
+            {
+                typeof(Infrastructure.Domain.Identities.Module),
+                typeof(Infrastructure.Domain.Persistence.Module),
+                typeof(Infrastructure.Domain.Repositories.Module),
+                typeof(Infrastructure.Queries.Handlers.Module),
+            };
+        }
+
+        private static List<Type> GetMongoDbInfrastructureModules()
+        {
+            return new List<Type>
+            {
+                typeof(Infrastructure.Domain.Identities.MongoDb.Module),
+                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
+                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
+                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
+            };
         }
 
         private static void AddCoreModules<TRequestType>(this IServiceCollection services, Assembly[] assemblies)
@@ -113,8 +116,12 @@ namespace Atomiv.Template.DependencyInjection
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
 
-            #region EfCore
+            services.AddEfCoreInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDbInfrastructureModules(configuration, assemblies);
+        }
 
+        private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        {
             var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
             var connection = configuration.GetConnectionString(connectionKey);
 
@@ -125,13 +132,10 @@ namespace Atomiv.Template.DependencyInjection
             });
 
             services.AddEntityFrameworkCoreInfrastructure(assemblies);
+        }
 
-            #endregion
-
-            /*
-
-            #region MongoDb
-
+        private static void AddMongoDbInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        {
             var dbSettingsSection = configuration.GetSection(nameof(DbSettings));
 
             services.Configure<IDbSettings>(dbSettingsSection);
@@ -140,10 +144,6 @@ namespace Atomiv.Template.DependencyInjection
                 e.GetRequiredService<IOptions<DbSettings>>().Value);
 
             services.AddSingleton<MongoDbContext>();
-
-            #endregion
-
-            */
         }
     }
 }
