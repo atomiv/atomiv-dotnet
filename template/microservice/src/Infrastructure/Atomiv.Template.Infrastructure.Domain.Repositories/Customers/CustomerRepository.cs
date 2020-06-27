@@ -31,7 +31,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task AddAsync(Customer customer)
         {
-            var customerRecord = CreateCustomerRecord(customer);
+            var customerRecord = GetCustomerRecord(customer);
             Context.Customers.Add(customerRecord);
             await Context.SaveChangesAsync();
         }
@@ -67,7 +67,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
             }
         }
 
-        private CustomerRecord CreateCustomerRecord(Customer customer)
+        #region Helper
+
+        private CustomerRecord GetCustomerRecord(Customer customer)
         {
             return new CustomerRecord
             {
@@ -92,5 +94,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
             return new Customer(identity, firstName, lastName);
         }
+
+        #endregion
     }
 }

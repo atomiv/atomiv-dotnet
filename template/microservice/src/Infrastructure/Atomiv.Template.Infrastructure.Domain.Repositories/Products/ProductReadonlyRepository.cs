@@ -26,7 +26,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public Task<long> CountAsync()
         {
-            return Context.Products.LongCountAsync();
+            return Context.Products
+                .LongCountAsync();
         }
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)

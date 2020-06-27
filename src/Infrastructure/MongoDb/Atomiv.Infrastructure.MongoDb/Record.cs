@@ -6,7 +6,6 @@ namespace Atomiv.Infrastructure.MongoDb
     public class Record<TId>
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public TId Id { get; set; }
     }
 }

@@ -14,13 +14,19 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
             Client = new MongoClient(settings.ConnectionString);
             Database = Client.GetDatabase(settings.DatabaseName);
 
+            Customers = Database.GetCollection<CustomerRecord>(CollectionNames.Customers);
             Products = Database.GetCollection<ProductRecord>(CollectionNames.Products);
+            Orders = Database.GetCollection<OrderRecord>(CollectionNames.Orders);
         }
 
         public IMongoClient Client { get; }
 
         public IMongoDatabase Database { get; }
 
+        public IMongoCollection<CustomerRecord> Customers { get; }
+
         public IMongoCollection<ProductRecord> Products { get; }
+
+        public IMongoCollection<OrderRecord> Orders { get; }
     }
 }

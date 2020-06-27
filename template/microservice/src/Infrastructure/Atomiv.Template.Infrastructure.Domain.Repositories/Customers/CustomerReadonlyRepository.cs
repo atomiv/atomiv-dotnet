@@ -22,7 +22,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public Task<long> CountAsync()
         {
-            return Context.Customers.LongCountAsync();
+            return Context.Customers
+                .LongCountAsync();
         }
     }
 }
