@@ -48,7 +48,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 .Select(GetProductRecord)
                 .ToList();
 
-            return Context.Products.InsertManyAsync(productRecords);
+            return Context.Products
+                .InsertManyAsync(productRecords);
         }
 
         public Task UpdateAsync(Product product)

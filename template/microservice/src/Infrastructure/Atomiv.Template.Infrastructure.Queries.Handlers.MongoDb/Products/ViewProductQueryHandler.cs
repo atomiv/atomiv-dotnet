@@ -1,25 +1,33 @@
-﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 {
     public class ViewProductQueryHandler : QueryHandler<ViewProductQuery, ViewProductQueryResponse>
     {
-        public ViewProductQueryHandler(DatabaseContext context) : base(context)
+        public ViewProductQueryHandler(MongoDbContext context) : base(context)
         {
         }
 
         public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
         {
-            var productRecordId = request.Id.ToGuid();
+            var productId = request.Id;
 
-            var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productRecordId);
+            var filter = Builders<ProductRecord>.Filter
+                .Eq(e => e.Id, productId);
+
+            var productRecordCursor = await Context.Products
+                .FindAsync(filter);
+
+            var productRecord = await productRecordCursor
+                .FirstOrDefaultAsync();
 
             if (productRecord == null)
             {

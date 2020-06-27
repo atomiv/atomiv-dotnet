@@ -25,7 +25,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
             var productRecordCursor = await Context.Products
                 .FindAsync(e => e.Id == productId);
 
-            var exists = await productRecordCursor.AnyAsync();
+            var exists = await productRecordCursor
+                .AnyAsync();
 
             return exists;
         }
@@ -35,7 +36,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
             var productRecordCursor = await Context.Products
                 .FindAsync(e => e.Id == productId);
 
-            var productRecord = await productRecordCursor.FirstOrDefaultAsync();
+            var productRecord = await productRecordCursor
+                .FirstOrDefaultAsync();
 
             if(productRecord == null)
             {
