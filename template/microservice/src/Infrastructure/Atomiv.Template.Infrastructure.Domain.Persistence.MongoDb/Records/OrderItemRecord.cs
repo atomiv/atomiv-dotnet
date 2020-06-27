@@ -7,14 +7,14 @@ using System.Text;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
-    public class OrderRecord : Record<ObjectId>
+    public class OrderItemRecord : Record<ObjectId>
     {
-        public ObjectId CustomerId { get; set; }
+        public ObjectId ProductId { get; set; }
 
-        public DateTime OrderDate { get; set; }
+        public OrderItemStatus StatusId { get; set; }
 
-        public OrderStatus OrderStatusId { get; set; }
+        public decimal Quantity { get; set; }
 
-        public List<OrderItemRecord> OrderItems { get; set; }
+        public decimal UnitPrice { get; set; }
     }
 }

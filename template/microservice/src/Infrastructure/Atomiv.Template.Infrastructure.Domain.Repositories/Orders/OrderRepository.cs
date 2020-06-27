@@ -69,6 +69,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
             return GetOrder(orderRecord);
         }
 
+        #region Helper
+
         private OrderRecord GetOrderRecord(Order order)
         {
             var orderRecordId = order.Id.ToGuid();
@@ -108,6 +110,39 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
             };
         }
 
+        private OrderItemRecord GetOrderItemRecord(IReadonlyOrderItem orderItem)
+        {
+            return new OrderItemRecord
+            {
+                Id = orderItem.Id.ToGuid(),
+                ProductId = orderItem.ProductId.ToGuid(),
+                StatusId = orderItem.Status,
+                Quantity = orderItem.Quantity,
+                UnitPrice = orderItem.UnitPrice,
+            };
+        }
+
+        private Order GetOrder(OrderRecord record)
+        {
+            var id = new OrderIdentity(record.Id.ToString());
+            var customerId = new CustomerIdentity(record.CustomerId.ToString());
+            var status = record.OrderStatusId;
+            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
+
+            return new Order(id, customerId, DateTime.Now, status, orderDetails);
+        }
+
+        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
+        {
+            var id = new OrderItemIdentity(orderItemRecord.Id.ToString());
+            var productId = new ProductIdentity(orderItemRecord.ProductId.ToString());
+            var quantity = (int)orderItemRecord.Quantity; // TODO: VC: Make int
+            var unitPrice = orderItemRecord.UnitPrice;
+            var status = orderItemRecord.StatusId;
+
+            return new OrderItem(id, productId, unitPrice, quantity, status);
+        }
+
         private void UpdateOrderRecord(OrderRecord record, Order order)
         {
             record.CustomerId = order.CustomerId.ToGuid();
@@ -118,7 +153,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
                 .ToList();
 
             var addedOrderDetailRecords = addedOrderDetails
-                .Select(e => CreateOrderItemRecord(e))
+                .Select(e => GetOrderItemRecord(e))
                 .ToList();
 
             var removedOrderDetailRecords = record.OrderItems
@@ -148,17 +183,6 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
             }
         }
 
-        private OrderItemRecord CreateOrderItemRecord(IReadonlyOrderItem orderItem)
-        {
-            return new OrderItemRecord
-            {
-                ProductId = orderItem.ProductId.ToGuid(),
-                StatusId = orderItem.Status,
-                Quantity = orderItem.Quantity,
-                UnitPrice = orderItem.UnitPrice,
-            };
-        }
-
         private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, IReadonlyOrderItem orderItem)
         {
             orderItemRecord.ProductId = orderItem.ProductId.ToGuid();
@@ -167,25 +191,6 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
             orderItemRecord.UnitPrice = orderItem.UnitPrice;
         }
 
-        private Order GetOrder(OrderRecord record)
-        {
-            var id = new OrderIdentity(record.Id.ToString());
-            var customerId = new CustomerIdentity(record.CustomerId.ToString());
-            var status = record.OrderStatusId;
-            var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
-
-            return new Order(id, customerId, DateTime.Now, status, orderDetails);
-        }
-
-        private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
-        {
-            var id = new OrderItemIdentity(orderItemRecord.Id.ToString());
-            var productId = new ProductIdentity(orderItemRecord.ProductId.ToString());
-            var quantity = (int)orderItemRecord.Quantity; // TODO: VC: Make int
-            var unitPrice = orderItemRecord.UnitPrice;
-            var status = orderItemRecord.StatusId;
-
-            return new OrderItem(id, productId, unitPrice, quantity, status);
-        }
+        #endregion
     }
 }

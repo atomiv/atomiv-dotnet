@@ -55,12 +55,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
         {
             var customerRecordId = customer.Id.ToObjectId();
 
-            var filter = Builders<CustomerRecord>.Filter
+            var customerRecordFilter = Builders<CustomerRecord>.Filter
                 .Eq(e => e.Id, customerRecordId);
 
             var customerRecord = GetCustomerRecord(customer);
 
-            return Context.Customers.FindOneAndReplaceAsync(filter, customerRecord);
+            return Context.Customers.FindOneAndReplaceAsync(customerRecordFilter, customerRecord);
         }
 
         #region Helper
