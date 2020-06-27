@@ -22,7 +22,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
 
             if (customerRecordId == null)
             {
-                return null;
+                throw new ExistenceException();
             }
 
             var customerRecord = await Context.Customers

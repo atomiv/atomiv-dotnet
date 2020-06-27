@@ -30,7 +30,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
                 return Task.FromResult(false);
             }
 
-            return Context.Products
+            return Context.Customers
                 .Find(e => e.Id == customerRecordId)
                 .AnyAsync();
         }

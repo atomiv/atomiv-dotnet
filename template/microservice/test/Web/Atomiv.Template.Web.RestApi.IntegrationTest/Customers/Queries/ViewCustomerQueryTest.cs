@@ -17,7 +17,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
 
         [Fact]
-        public async Task FindCustomer_ValidRequest_ReturnsCustomer()
+        public async Task ViewCustomer_ValidRequest_ReturnsCustomer()
         {
             // Arrange
 
@@ -64,7 +64,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
 
         [Fact]
-        public async Task FindCustomer_NotExistRequest_ThrowsNotFoundRequestException()
+        public async Task ViewCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
             // Arrange
 

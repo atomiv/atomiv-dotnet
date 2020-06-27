@@ -19,7 +19,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
             if(productRecordId == null)
             {
-                return null;
+                throw new ExistenceException();
             }
 
             var productRecord = await Context.Products
