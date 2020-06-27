@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Atomiv.Template.Core.Application.Commands.Products
+﻿namespace Atomiv.Template.Core.Application.Commands.Products
 {
     public class CreateProductCommandResponse
     {

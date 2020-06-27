@@ -1,7 +1,5 @@
 ﻿using Atomiv.Core.Domain;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence
 {

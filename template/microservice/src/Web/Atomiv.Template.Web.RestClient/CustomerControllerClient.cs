@@ -3,7 +3,6 @@ using Atomiv.Core.Common.Serialization;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Web.RestClient.Interface;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 

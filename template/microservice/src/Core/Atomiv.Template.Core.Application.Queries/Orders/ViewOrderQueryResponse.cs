@@ -1,5 +1,4 @@
 ﻿using Atomiv.Template.Core.Common.Orders;
-using System;
 using System.Collections.Generic;
 
 namespace Atomiv.Template.Core.Application.Queries.Orders

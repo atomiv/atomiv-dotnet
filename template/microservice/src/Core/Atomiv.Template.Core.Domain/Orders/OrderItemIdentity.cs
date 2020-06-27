@@ -1,5 +1,4 @@
 ﻿using Atomiv.Core.Domain;
-using System;
 
 namespace Atomiv.Template.Core.Domain.Orders
 {

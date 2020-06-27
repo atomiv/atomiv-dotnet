@@ -3,9 +3,6 @@ using Atomiv.Template.Core.Application.Queries.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
@@ -18,20 +15,15 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
         public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
         {
-            var productId = request.Id.TryToObjectId();
+            var productRecordId = request.Id.TryToObjectId();
 
-            if(productId == null)
+            if(productRecordId == null)
             {
                 return null;
             }
 
-            var filter = Builders<ProductRecord>.Filter
-                .Eq(e => e.Id, productId);
-
-            var productRecordCursor = await Context.Products
-                .FindAsync(filter);
-
-            var productRecord = await productRecordCursor
+            var productRecord = await Context.Products
+                .Find(e => e.Id == productRecordId)
                 .FirstOrDefaultAsync();
 
             if (productRecord == null)

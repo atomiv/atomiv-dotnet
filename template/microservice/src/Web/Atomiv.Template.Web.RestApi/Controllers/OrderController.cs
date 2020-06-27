@@ -2,7 +2,6 @@
 using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Application.Queries.Orders;
-using System;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Web.RestApi.Controllers

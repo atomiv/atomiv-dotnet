@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Atomiv.Core.Common.Utilities;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 

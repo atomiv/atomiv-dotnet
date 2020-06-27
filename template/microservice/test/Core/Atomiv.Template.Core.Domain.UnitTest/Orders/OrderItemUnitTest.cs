@@ -3,7 +3,6 @@ using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
 using FluentAssertions;
-using System;
 using Xunit;
 
 namespace Atomiv.Template.Core.Domain.UnitTest.Orders

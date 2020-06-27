@@ -1,5 +1,4 @@
 ﻿using Atomiv.Core.Application;
-using System;
 
 namespace Atomiv.Template.Core.Application.Queries.Orders
 {

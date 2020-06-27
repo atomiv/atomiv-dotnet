@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Atomiv.Template.Core.Application.Commands.Customers
+﻿namespace Atomiv.Template.Core.Application.Commands.Customers
 {
     public class DeleteCustomerCommandResponse
     {

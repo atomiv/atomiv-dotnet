@@ -2,7 +2,6 @@
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,13 +30,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 return null;
             }
 
-            var filter = Builders<ProductRecord>.Filter
-                .Eq(e => e.Id, productRecordId);
-
-            var productRecordCursor = await Context.Products
-                .FindAsync(filter);
-
-            var productRecord = await productRecordCursor.FirstOrDefaultAsync();
+            var productRecord = await Context.Products
+                .Find(e => e.Id == productRecordId)
+                .FirstOrDefaultAsync();
 
             if (productRecord == null)
             {

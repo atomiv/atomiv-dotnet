@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Atomiv.Template.Core.Domain.Orders;
-using System;
 
 namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
 {

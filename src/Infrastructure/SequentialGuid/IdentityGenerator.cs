@@ -1,6 +1,5 @@
 ﻿using Atomiv.Core.Domain;
 using SequentialGuid;
-using System;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {

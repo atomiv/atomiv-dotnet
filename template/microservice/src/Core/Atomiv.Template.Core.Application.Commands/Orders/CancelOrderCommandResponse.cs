@@ -1,5 +1,4 @@
 ﻿using Atomiv.Template.Core.Common.Orders;
-using System;
 
 namespace Atomiv.Template.Core.Application.Commands.Orders
 {

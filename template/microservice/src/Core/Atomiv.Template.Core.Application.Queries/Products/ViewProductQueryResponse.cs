@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Atomiv.Template.Core.Application.Queries.Products
+﻿namespace Atomiv.Template.Core.Application.Queries.Products
 {
     public class ViewProductQueryResponse
     {

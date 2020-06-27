@@ -3,7 +3,6 @@ using Moq;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Domain.Customers;
-using System;
 using System.Threading.Tasks;
 using Xunit;
 

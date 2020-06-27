@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Domain.Products;
-using System;
 using Xunit;
 using Atomiv.Infrastructure.System;
 

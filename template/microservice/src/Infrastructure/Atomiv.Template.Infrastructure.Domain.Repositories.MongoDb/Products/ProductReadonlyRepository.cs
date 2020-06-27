@@ -20,22 +20,18 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 .CountDocumentsAsync(e => true);
         }
 
-        public async Task<bool> ExistsAsync(ProductIdentity productId)
+        public Task<bool> ExistsAsync(ProductIdentity productId)
         {
             var productRecordId = productId.TryToObjectId();
 
             if(productRecordId == null)
             {
-                return false;
+                return Task.FromResult(false);
             }
 
-            var productRecordCursor = await Context.Products
-                .FindAsync(e => e.Id == productRecordId);
-
-            var exists = await productRecordCursor
+            return Context.Products
+                .Find(e => e.Id == productRecordId)
                 .AnyAsync();
-
-            return exists;
         }
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
@@ -47,13 +43,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 return null;
             }
 
-            var productRecordCursor = await Context.Products
-                .FindAsync(e => e.Id == productRecordId);
-
-            var productRecord = await productRecordCursor
+            var productRecord = await Context.Products
+                .Find(e => e.Id == productRecordId)
                 .FirstOrDefaultAsync();
 
-            if(productRecord == null)
+            if (productRecord == null)
             {
                 return null;
             }
@@ -79,10 +73,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
             */
 
-            var productRecordCursor = await Context.Products
-                .FindAsync(e => productRecordIds.Contains(e.Id));
-
-            var productRecords = await productRecordCursor.ToListAsync();
+            var productRecords = await Context.Products
+                .Find(e => productRecordIds.Contains(e.Id))
+                .ToListAsync();
 
             var products = productRecords
                 .Select(GetProduct)

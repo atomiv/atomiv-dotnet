@@ -1,6 +1,5 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
 using MongoDB.Bson;
-using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
