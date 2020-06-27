@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
 {
-    public class ViewCustomersQueryHandler : QueryHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
+    public class ViewCustomerQueryHandler : QueryHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
     {
-        public ViewCustomersQueryHandler(MongoDbContext context) : base(context)
+        public ViewCustomerQueryHandler(MongoDbContext context) : base(context)
         {
         }
 

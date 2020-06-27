@@ -1,27 +1,34 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
 {
     public class ViewOrderQueryHandler : QueryHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
-        public ViewOrderQueryHandler(DatabaseContext context) : base(context)
+        public ViewOrderQueryHandler(MongoDbContext context) : base(context)
         {
         }
 
         public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
         {
-            var orderRecordId = request.Id.ToGuid();
+            var orderRecordId = request.Id.TryToObjectId();
 
-            var orderRecord = await Context.Orders.AsNoTracking()
-                .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+            if (orderRecordId == null)
+            {
+                throw new ExistenceException();
+            }
+
+            var orderRecord = await Context.Orders
+                .Find(e => e.Id == orderRecordId)
+                .FirstOrDefaultAsync();
 
             if (orderRecord == null)
             {

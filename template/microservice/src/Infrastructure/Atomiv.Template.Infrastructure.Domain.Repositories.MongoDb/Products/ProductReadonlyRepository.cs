@@ -63,8 +63,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 .Where(e => e != null)
                 .ToList();
 
+            var productRecordFilter = Builders<ProductRecord>.Filter
+                .In(e => e.Id, productRecordIds);
+
             var productRecords = await Context.Products
-                .Find(e => productRecordIds.Contains(e.Id))
+                .Find(productRecordFilter)
                 .ToListAsync();
 
             var products = productRecords

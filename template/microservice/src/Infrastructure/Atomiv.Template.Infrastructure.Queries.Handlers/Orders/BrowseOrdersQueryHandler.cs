@@ -21,7 +21,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
                 .ToListAsync();
 
             var recordResponses = orderRecords
-                .Select(GetOrderHeaderReadModel)
+                .Select(GetResponse)
                 .ToList();
 
             var totalRecords = await Context.Orders.LongCountAsync();
@@ -33,7 +33,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
             };
         }
 
-        private BrowseOrdersRecordQueryResponse GetOrderHeaderReadModel(OrderRecord record)
+        private BrowseOrdersRecordQueryResponse GetResponse(OrderRecord record)
         {
             var totalPrice = record.OrderItems.Sum(e => e.UnitPrice * e.Quantity);
 
