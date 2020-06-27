@@ -1,31 +1,33 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Core.Common.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
 {
-    public class ViewCustomerQueryHandler : QueryHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
+    public class ViewCustomersQueryHandler : QueryHandler<ViewCustomerQuery, ViewCustomerQueryResponse>
     {
-        public ViewCustomerQueryHandler(DatabaseContext context) : base(context)
+        public ViewCustomersQueryHandler(MongoDbContext context) : base(context)
         {
         }
 
         public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
         {
-            var customerRecordId = request.Id.ToGuid();
+            var customerRecordId = request.Id.TryToObjectId();
 
-            var customerRecord = await Context.Customers.AsNoTracking()
-                .Include(e => e.Orders)
-                    .ThenInclude(e => e.OrderItems)
-                        .ThenInclude(e => e.Product)
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+            if (customerRecordId == null)
+            {
+                return null;
+            }
+
+            var customerRecord = await Context.Customers
+                .Find(e => e.Id == customerRecordId)
+                .FirstOrDefaultAsync();
 
             if (customerRecord == null)
             {
@@ -40,6 +42,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             var id = customerRecord.Id.ToString();
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
+
+            // TODO: VC: Fill in
+
+            /*
 
             var openOrders = customerRecord.Orders
                 .Where(e => e.OrderStatusId != OrderStatus.Shipped
@@ -64,6 +70,14 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
                 .OrderByDescending(e => e.Count())
                 .Select(e => e.Key.ProductName)
                 .ToList();
+
+            */
+
+            var openOrders = 0;
+            var lastOrderDate = DateTime.MinValue;
+            var totalOrders = 2;
+            var totalOrderValue = 30.25m;
+            var topProducts = new List<string>();
 
             return new ViewCustomerQueryResponse
             {

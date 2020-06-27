@@ -4,12 +4,11 @@ using MongoDB.Bson;
 
 namespace Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.Products
 {
-    public class ProductIdentityGenerator : IdentityGenerator<ProductIdentity>
+    public class ProductIdentityGenerator : StringIdentityGenerator<ProductIdentity>
     {
-        protected override ProductIdentity Create(ObjectId value)
+        protected override ProductIdentity Create(string value)
         {
-            var valueStr = value.ToString();
-            return new ProductIdentity(valueStr);
+            return new ProductIdentity(value);
         }
     }
 }

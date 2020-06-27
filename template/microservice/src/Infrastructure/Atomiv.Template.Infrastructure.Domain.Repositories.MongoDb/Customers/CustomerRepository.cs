@@ -1,6 +1,7 @@
 ﻿using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,22 +17,50 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
 
         public Task AddAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            var customerRecord = GetCustomerRecord(customer);
+
+            return Context.Customers.InsertOneAsync(customerRecord);
         }
 
-        public Task<Customer> FindAsync(CustomerIdentity customerId)
+        public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            throw new NotImplementedException();
+            var customerRecordId = customerId.TryToObjectId();
+
+            if (customerRecordId == null)
+            {
+                return null;
+            }
+
+            var customerRecord = await Context.Customers
+                .Find(e => e.Id == customerRecordId)
+                .FirstOrDefaultAsync();
+
+            if (customerRecord == null)
+            {
+                return null;
+            }
+
+            return GetCustomer(customerRecord);
         }
 
         public Task RemoveAsync(CustomerIdentity customerId)
         {
-            throw new NotImplementedException();
+            var customerRecordId = customerId.ToObjectId();
+
+            return Context.Customers
+                .DeleteOneAsync(e => e.Id == customerRecordId);
         }
 
         public Task UpdateAsync(Customer customer)
         {
-            throw new NotImplementedException();
+            var customerRecordId = customer.Id.ToObjectId();
+
+            var filter = Builders<CustomerRecord>.Filter
+                .Eq(e => e.Id, customerRecordId);
+
+            var customerRecord = GetCustomerRecord(customer);
+
+            return Context.Customers.FindOneAndReplaceAsync(filter, customerRecord);
         }
 
         #region Helper

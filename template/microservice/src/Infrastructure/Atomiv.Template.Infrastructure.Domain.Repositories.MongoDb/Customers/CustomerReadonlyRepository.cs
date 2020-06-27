@@ -1,5 +1,7 @@
-﻿using Atomiv.Template.Core.Domain.Customers;
+﻿using Atomiv.Infrastructure.MongoDb;
+using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,17 +17,22 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
 
         public Task<long> CountAsync()
         {
-            throw new NotImplementedException();
-
-            /*
             return Context.Customers
-                .CountDocumentsAsync(e => true);
-            */
+                .CountDocumentsAsync();
         }
 
         public Task<bool> ExistsAsync(CustomerIdentity customerId)
         {
-            throw new NotImplementedException();
+            var customerRecordId = customerId.TryToObjectId();
+
+            if (customerRecordId == null)
+            {
+                return Task.FromResult(false);
+            }
+
+            return Context.Products
+                .Find(e => e.Id == customerRecordId)
+                .AnyAsync();
         }
     }
 }

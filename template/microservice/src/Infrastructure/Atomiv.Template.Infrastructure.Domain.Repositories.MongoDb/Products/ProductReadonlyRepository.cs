@@ -1,4 +1,5 @@
-﻿using Atomiv.Template.Core.Domain.Products;
+﻿using Atomiv.Infrastructure.MongoDb;
+using Atomiv.Template.Core.Domain.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
 using MongoDB.Driver;
@@ -17,7 +18,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
         public Task<long> CountAsync()
         {
             return Context.Products
-                .CountDocumentsAsync(e => true);
+                .CountDocumentsAsync();
         }
 
         public Task<bool> ExistsAsync(ProductIdentity productId)

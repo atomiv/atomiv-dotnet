@@ -1,5 +1,6 @@
 ﻿using Atomiv.Core.Domain;
 using SequentialGuid;
+using System;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {
@@ -7,11 +8,10 @@ namespace Atomiv.Infrastructure.SequentialGuid
     {
         public TIdentity Next()
         {
-            var guid = SequentialSqlGuidGenerator.Instance.NewGuid();
-            var value = guid.ToString();
+            var value = SequentialSqlGuidGenerator.Instance.NewGuid();
             return Create(value);
         }
 
-        protected abstract TIdentity Create(string value);
+        protected abstract TIdentity Create(Guid value);
     }
 }

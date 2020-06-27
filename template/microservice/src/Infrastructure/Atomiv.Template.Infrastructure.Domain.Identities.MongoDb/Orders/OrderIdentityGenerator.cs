@@ -1,7 +1,10 @@
-﻿using Atomiv.Infrastructure.SequentialGuid;
+﻿using Atomiv.Infrastructure.MongoDb;
 using Atomiv.Template.Core.Domain.Orders;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
+namespace Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.Orders
 {
     public class OrderIdentityGenerator : StringIdentityGenerator<OrderIdentity>
     {

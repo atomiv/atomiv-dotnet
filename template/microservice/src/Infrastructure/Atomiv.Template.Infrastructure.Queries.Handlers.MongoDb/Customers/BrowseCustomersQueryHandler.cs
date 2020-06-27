@@ -1,17 +1,19 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Common.Utilities;
-using Atomiv.Infrastructure.EntityFrameworkCore;
+﻿using Atomiv.Infrastructure.MongoDb;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
 {
     public class BrowseCustomersQueryHandler : QueryHandler<BrowseCustomersQuery, BrowseCustomersQueryResponse>
     {
-        public BrowseCustomersQueryHandler(DatabaseContext context) : base(context)
+        public BrowseCustomersQueryHandler(MongoDbContext context) : base(context)
         {
         }
 
@@ -20,7 +22,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             var page = request.Page;
             var size = request.Size;
 
-            var customerRecords = await Context.Customers.AsNoTracking()
+            var customerRecords = await Context.Customers
+                .Find(e => true)
                 .GetPage(page, size)
                 .ToListAsync();
 
@@ -28,7 +31,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
                 .Select(GetResponse)
                 .ToList();
 
-            var totalRecords = await Context.Customers.LongCountAsync();
+            var totalRecords = await Context.Customers
+                .CountDocumentsAsync(e => true);
 
             return new BrowseCustomersQueryResponse
             {

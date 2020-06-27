@@ -17,12 +17,15 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
         public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery request)
         {
+            var page = request.Page;
+            var size = request.Size;
+
             var productRecords = await Context.Products
                 .Find(e => true)
-                .GetPage(request.Page, request.Size)
+                .GetPage(page, size)
                 .ToListAsync();
 
-            var productHeaderReadModels = productRecords
+            var responseRecords = productRecords
                 .Select(GetResponse)
                 .ToList();
 
@@ -31,7 +34,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
             return new BrowseProductsQueryResponse
             {
-                Records = productHeaderReadModels,
+                Records = responseRecords,
                 TotalRecords = totalRecords,
             };
         }

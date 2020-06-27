@@ -6,7 +6,7 @@ namespace Atomiv.Template.Core.Application.Queries.Customers
     {
         public List<BrowseCustomersRecordResponse> Records { get; set; }
 
-        public int TotalRecords { get; set; }
+        public long TotalRecords { get; set; }
     }
 
     public class BrowseCustomersRecordResponse
