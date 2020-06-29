@@ -4,10 +4,10 @@ namespace Atomiv.Template.Core.Domain.Customers
 {
     public class CustomerFactory : ICustomerFactory
     {
-        private readonly IIdentityGenerator<CustomerIdentity> _customerIdentityGenerator;
+        private readonly IGenerator<CustomerIdentity> _customerIdentityGenerator;
         private readonly IGenerator<CustomerReferenceNumber> _customerReferenceNumberGenerator;
 
-        public CustomerFactory(IIdentityGenerator<CustomerIdentity> customerIdentityGenerator,
+        public CustomerFactory(IGenerator<CustomerIdentity> customerIdentityGenerator,
             IGenerator<CustomerReferenceNumber> customerReferenceNumberGenerator)
         {
             _customerIdentityGenerator = customerIdentityGenerator;

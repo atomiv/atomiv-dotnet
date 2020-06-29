@@ -4,7 +4,7 @@ using System;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {
-    public abstract class IdentityGenerator<TIdentity> : IIdentityGenerator<TIdentity>
+    public abstract class IdentityGenerator<TIdentity> : IGenerator<TIdentity>, IIdentityGenerator<TIdentity>
     {
         public TIdentity Next()
         {

@@ -8,15 +8,15 @@ namespace Atomiv.Template.Core.Domain.Orders
 {
     public class OrderFactory : IOrderFactory
     {
-        private readonly IIdentityGenerator<OrderIdentity> _orderIdentityGenerator;
-        private readonly IIdentityGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
+        private readonly IGenerator<OrderIdentity> _orderIdentityGenerator;
+        private readonly IGenerator<OrderItemIdentity> _orderItemIdentityGenerator;
         private readonly ITimeService _timeService;
 
         private const OrderStatus CreatedOrderStatus = OrderStatus.Draft;
         private const OrderItemStatus CreatedOrderItemStatus = OrderItemStatus.Pending;
 
-        public OrderFactory(IIdentityGenerator<OrderIdentity> orderIdentityGenerator, 
-            IIdentityGenerator<OrderItemIdentity> orderItemIdentityGenerator,
+        public OrderFactory(IGenerator<OrderIdentity> orderIdentityGenerator, 
+            IGenerator<OrderItemIdentity> orderItemIdentityGenerator,
             ITimeService timeService)
         {
             _orderIdentityGenerator = orderIdentityGenerator;

@@ -6,9 +6,9 @@ namespace Atomiv.Template.Core.Domain.Products
     {
         private const bool CreatedProductIsListed = true;
 
-        private readonly IIdentityGenerator<ProductIdentity> _productIdentityGenerator;
+        private readonly IGenerator<ProductIdentity> _productIdentityGenerator;
 
-        public ProductFactory(IIdentityGenerator<ProductIdentity> productIdentityGenerator)
+        public ProductFactory(IGenerator<ProductIdentity> productIdentityGenerator)
         {
             _productIdentityGenerator = productIdentityGenerator;
         }
