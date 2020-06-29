@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.33</Version>
+    <Version>1.0.34</Version>
     <Authors>Atomiv</Authors>
     <Description>Implementation for persistence using MongoDb</Description>
     <Copyright>?  All rights reserved.</Copyright>
@@ -19,14 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\All\Atomiv.Core.All.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\..\img\favicon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\All\Atomiv.Core.All.csproj" />
   </ItemGroup>
 
 </Project>
