@@ -11,16 +11,6 @@ namespace Atomiv.Template.Web.RestApi.Extensions
 {
     public static class ExceptionHandlerExtensions
     {
-        private static IExceptionProblemDetailsFactory GetDefaultProblemDetailsFactory()
-        {
-            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
-
-            registry.Add(new BadHttpRequestExceptionProblemDetailsFactory());
-            registry.Add(new RequestValidationExceptionProblemDetailsFactory());
-
-            return new ExceptionProblemDetailsFactory(registry);
-        }
-
         public static IApplicationBuilder UseProblemDetailsExceptionHandler(this IApplicationBuilder app, IExceptionProblemDetailsFactory problemDetailsFactory = null)
         {
             app.UseExceptionHandler(configure =>
@@ -29,59 +19,15 @@ namespace Atomiv.Template.Web.RestApi.Extensions
                 {
                     try
                     {
-                        var jsonSerializationService = app.ApplicationServices.GetRequiredService<IJsonSerializer>();
-
-                        if (problemDetailsFactory == null)
-                        {
-                            problemDetailsFactory = GetDefaultProblemDetailsFactory();
-                        }
+                        var exceptionHandler = app.ApplicationServices.GetRequiredService<IExceptionHandler>();
 
                         var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                         var exception = exceptionHandlerFeature.Error;
 
-                        // TODO: VC: exception logging if 500
-
-                        // TODO: VC: Consider if this fails, perhaps outer try-catch?
-
-                        // Unauthorized
-
-                        if (exception.GetType() == typeof(AuthorizationException))
-                        {
-                            context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
-                            return;
-                        }
-
-                        // NotFound
-
-                        // TODO: VC: Check if NotFound should be here or move below
-
-                        if (exception.GetType() == typeof(ExistenceException))
-                        {
-                            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                            return;
-                        }
-
-                        // UnprocessableEntity
-
-                        var problemDetails = problemDetailsFactory.Create(exception);
-
-                        if (problemDetails != null)
-                        {
-                            var instance = problemDetails.Instance;
-
-                            // TODO: VC: Fix logging
-                            // var logger = context.RequestServices.GetRequiredService<ILogger>();
-                            // logger.LogError(exception, exception.Message);
-
-                            context.Response.StatusCode = problemDetails.Status.Value;
-
-                            // TODO: VC: Lookup json service from services
-                            await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
-                        }
+                        await exceptionHandler.HandleAsync(context, exception);
                     }
                     catch (Exception ex)
                     {
-                        // TODO: VC: Attempt log
                         throw;
                     }
                 });

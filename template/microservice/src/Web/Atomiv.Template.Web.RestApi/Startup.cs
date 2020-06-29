@@ -8,7 +8,8 @@ using Atomiv.Template.DependencyInjection;
 using Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Atomiv.Template.Web.RestApi.Extensions;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Atomiv.Web.AspNetCore;
+using Atomiv.DependencyInjection.Web.AspNetCore;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -63,8 +64,11 @@ namespace Atomiv.Template.Web.RestApi
 
             services.AddModules(Configuration);
 
+            services.AddAspNetCoreWeb();
+
             services.AddHostedService<ProductSynchronizationService>();
 
+            // TODO: VC: Check why this is here
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // TODO: Enable if use authentication & authorization

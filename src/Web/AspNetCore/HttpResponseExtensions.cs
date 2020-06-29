@@ -6,9 +6,9 @@ namespace Atomiv.Web.AspNetCore
 {
     public static class HttpResponseExtensions
     {
-        public static Task WriteJsonAsync<T>(this HttpResponse response, T data, IJsonSerializer jsonSerializationService)
+        public static Task WriteJsonAsync<T>(this HttpResponse response, T data, IJsonSerializer serializer)
         {
-            var json = jsonSerializationService.Serialize(data);
+            var json = serializer.Serialize(data);
 
             // TODO: VC: make configurable
             response.ContentType = "application/json";

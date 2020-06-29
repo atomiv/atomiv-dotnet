@@ -26,9 +26,16 @@ namespace Atomiv.Web.AspNetCore
             };
         }
 
+        public bool CanCreate(Exception exception)
+        {
+            var specificException = exception as TException;
+            return specificException != null;
+        }
+
         public ProblemDetails Create(Exception exception)
         {
-            return Create((TException)exception);
+            var specificException = exception as TException;
+            return Create(specificException);
         }
 
         protected abstract string GetTitle(TException exception);
@@ -57,5 +64,7 @@ namespace Atomiv.Web.AspNetCore
         }
 
         protected abstract string GetProblemTypeUri(TException exception);
+
+
     }
 }

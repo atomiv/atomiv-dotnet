@@ -1,5 +1,4 @@
 ﻿using Atomiv.Core.Domain;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Atomiv.Template.Core.Domain.Customers
 {

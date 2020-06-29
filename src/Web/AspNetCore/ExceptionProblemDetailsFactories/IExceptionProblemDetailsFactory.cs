@@ -12,6 +12,8 @@ namespace Atomiv.Web.AspNetCore
 
     public interface IExceptionProblemDetailsFactory
     {
+        bool CanCreate(Exception exception);
+
         ProblemDetails Create(Exception exception);
     }
 }

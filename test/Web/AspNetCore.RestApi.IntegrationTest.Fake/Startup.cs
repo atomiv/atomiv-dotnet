@@ -62,6 +62,10 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My Fake API", Version = "v1" });
             });
+
+            services.AddSingleton<IExceptionProblemDetailsFactory, BadHttpRequestExceptionProblemDetailsFactory>();
+            services.AddSingleton<IExceptionProblemDetailsFactory, RequestValidationExceptionProblemDetailsFactory>();
+            services.AddSingleton<IExceptionProblemDetailsFactory, SystemExceptionProblemDetailsFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,12 +81,8 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
                 app.UseHsts();
             }
 
-            var registry = new ExceptionProblemDetailsFactoryRegistry(new SystemExceptionProblemDetailsFactory());
-            registry.Add(typeof(BadHttpRequestException), new BadHttpRequestExceptionProblemDetailsFactory());
 
-            var problemDetailsFactory = new ExceptionProblemDetailsFactory(registry);
-
-            app.UseProblemDetailsExceptionHandler(problemDetailsFactory);
+            app.UseProblemDetailsExceptionHandler();
 
             app.UseSwagger();
 
