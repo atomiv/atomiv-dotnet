@@ -9,7 +9,7 @@
     <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
-    <Version>1.0.34</Version>
+    <Version>1.0.35</Version>
     <IsPackable>true</IsPackable>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
