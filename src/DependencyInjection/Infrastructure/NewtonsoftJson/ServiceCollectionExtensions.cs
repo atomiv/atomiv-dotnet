@@ -9,7 +9,9 @@ namespace Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson
     {
         public static IServiceCollection AddNewtonsoftJsonInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-            services.AddScoped<IJsonSerializer, JsonSerializer>();
+            // NOTE: This is needed because it's referenced by the Exception handler
+
+            services.AddSingleton<IJsonSerializer, JsonSerializer>();
 
             return services;
         }

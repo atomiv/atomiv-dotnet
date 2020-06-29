@@ -6,26 +6,27 @@ namespace Atomiv.Web.AspNetCore
 {
     public class RequestValidationExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<ValidationException, ProblemDetails>
     {
-        // TODO: VC: Set text
+        private const string ProblemTypeUri = "https://tools.ietf.org/html/rfc4918#section-11.2";
+        private const HttpStatusCode Status = HttpStatusCode.UnprocessableEntity;
 
         protected override string GetDetail(ValidationException exception)
         {
-            return "Validation ex details";
+            return exception.Message;
         }
 
         protected override string GetProblemTypeUri(ValidationException exception)
         {
-            return "Validation ex uri";
+            return ProblemTypeUri;
         }
 
         protected override int GetStatus(ValidationException exception)
         {
-            return (int)HttpStatusCode.UnprocessableEntity;
+            return (int)Status;
         }
 
         protected override string GetTitle(ValidationException exception)
         {
-            return "Validation ex title";
+            return Status.ToString();
         }
     }
 }

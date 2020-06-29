@@ -10,14 +10,20 @@ namespace Atomiv.Web.AspNetCore
     {
         public TProblemDetails Create(TException exception)
         {
-            var problemDetails = new TProblemDetails();
-            problemDetails.Title = GetTitle(exception);
-            problemDetails.Status = GetStatus(exception);
-            problemDetails.Detail = GetDetail(exception);
-            problemDetails.Instance = GetInstance(exception);
-            problemDetails.Type = GetProblemTypeUri(exception);
+            var title = GetTitle(exception);
+            var status = GetStatus(exception);
+            var detail = GetDetail(exception);
+            var instance = GetInstance(exception);
+            var type = GetProblemTypeUri(exception);
 
-            return problemDetails;
+            return new TProblemDetails
+            {
+                Title = title,
+                Status = status,
+                Detail = detail,
+                Instance = instance,
+                Type = type,
+            };
         }
 
         public ProblemDetails Create(Exception exception)
@@ -33,6 +39,10 @@ namespace Atomiv.Web.AspNetCore
 
         protected string GetInstance(TException exception)
         {
+            return string.Empty;
+
+            /*
+
             // TODO: VC: handling errors that occurred relating to some resources, could have resource/{id}/errors/{errorid}
             // TODO: VC: But no stack trace there, instead stack trace is via having special permissions, stacck trace is then extension
             // and similarly could access /api/errors/{guid}.. this is the thing from log file, but does it make sense to dereference it?
@@ -43,6 +53,7 @@ namespace Atomiv.Web.AspNetCore
             var instance = $"urn:atomiv:error:{guid}";
 
             return instance;
+            */
         }
 
         protected abstract string GetProblemTypeUri(TException exception);

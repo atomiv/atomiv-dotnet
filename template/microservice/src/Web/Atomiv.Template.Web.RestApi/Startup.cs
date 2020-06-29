@@ -8,6 +8,7 @@ using Atomiv.Template.DependencyInjection;
 using Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Atomiv.Template.Web.RestApi.Extensions;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -93,6 +94,18 @@ namespace Atomiv.Template.Web.RestApi
             {
                 c.SwaggerDoc(SwaggerVersion, new OpenApiInfo { Title = SwaggerTitle, Version = SwaggerVersion });
             });
+
+            /*
+            services.Configure<KestrelServerOptions>(o =>
+            {
+                o.AllowSynchronousIO = true;
+            });
+
+            services.Configure<IISServerOptions>(o =>
+            {
+                o.AllowSynchronousIO = true;
+            });
+            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

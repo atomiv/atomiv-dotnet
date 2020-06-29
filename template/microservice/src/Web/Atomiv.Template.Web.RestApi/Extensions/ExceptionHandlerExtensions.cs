@@ -79,7 +79,7 @@ namespace Atomiv.Template.Web.RestApi.Extensions
                             await context.Response.WriteJsonAsync(problemDetails, jsonSerializationService);
                         }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         // TODO: VC: Attempt log
                         throw;

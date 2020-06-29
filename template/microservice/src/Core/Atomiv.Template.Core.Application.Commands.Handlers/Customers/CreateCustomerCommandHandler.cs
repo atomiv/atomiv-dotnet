@@ -23,6 +23,12 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 
         public async Task<CreateCustomerCommandResponse> HandleAsync(CreateCustomerCommand request)
         {
+            // TODO: VC: Move to validator
+            if(string.IsNullOrEmpty(request.FirstName))
+            {
+                throw new ValidationException("First name can't be empty!!!");
+            }
+
             var user = _applicationUserContext.ApplicationUser;
 
             var customer = CreateCustomer(request);
