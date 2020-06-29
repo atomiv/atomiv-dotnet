@@ -12,6 +12,7 @@ namespace Atomiv.DependencyInjection.Core.Domain
         private static Type RepositoryType = typeof(IRepository);
         private static Type FactoryType = typeof(IFactory);
         private static Type ServiceType = typeof(IService);
+        private static Type GeneratorType = typeof(IGenerator<>);
         private static Type IdentityGeneratorType = typeof(IIdentityGenerator<>);
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
@@ -21,6 +22,7 @@ namespace Atomiv.DependencyInjection.Core.Domain
             services.AddRepositories(types);
             services.AddFactories(types);
             services.AddServices(types);
+            services.AddGenerators(types);
             services.AddIdentityGenerators(types);
 
             return services;
@@ -46,6 +48,14 @@ namespace Atomiv.DependencyInjection.Core.Domain
         {
             var implementationTypes = types.GetConcreteImplementationsOfInterface(ServiceType);
             services.AddScopedMarkedTypes(ServiceType, implementationTypes);
+
+            return services;
+        }
+
+        private static IServiceCollection AddGenerators(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(GeneratorType);
+            services.AddScopedOpenType(GeneratorType, implementationTypes);
 
             return services;
         }

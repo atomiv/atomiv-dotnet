@@ -6,6 +6,7 @@ using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
@@ -27,9 +28,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             var customerId = new CustomerIdentity(id);
-            var customer = new Customer(customerId, "Mary", "Smith");
+            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC123");
+            var customer = new Customer(customerId, referenceNumber, "Mary", "Smith");
 
-            var updatedCustomer = new Customer(customerId, "Mary 2", "Smith 2");
+            var updatedCustomer = new Customer(customerId, referenceNumber, "Mary 2", "Smith 2");
 
             var expectedResponse = new EditCustomerCommandResponse
             {

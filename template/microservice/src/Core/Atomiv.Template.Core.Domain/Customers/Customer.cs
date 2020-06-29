@@ -1,4 +1,5 @@
 ﻿using Atomiv.Core.Domain;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Atomiv.Template.Core.Domain.Customers
 {
@@ -7,12 +8,20 @@ namespace Atomiv.Template.Core.Domain.Customers
         private string _firstName;
         private string _lastName;
 
-        public Customer(CustomerIdentity id, string firstName, string lastName)
+        public Customer(CustomerIdentity id, 
+            CustomerReferenceNumber referenceNumber,
+            string firstName,
+            string lastName)
             : base(id)
         {
+            ValidateReferenceNumber(referenceNumber);
+
+            ReferenceNumber = referenceNumber;
             FirstName = firstName;
             LastName = lastName;
         }
+
+        public CustomerReferenceNumber ReferenceNumber { get; }
 
         public string FirstName
         {
@@ -22,11 +31,7 @@ namespace Atomiv.Template.Core.Domain.Customers
             }
             set
             {
-                if(string.IsNullOrEmpty(value))
-                {
-                    throw new DomainException("First name cannot null or empty");
-                }
-
+                ValidateFirstName(value);
                 _firstName = value;
             }
         }
@@ -39,12 +44,32 @@ namespace Atomiv.Template.Core.Domain.Customers
             }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new DomainException("Last name cannot null or empty");
-                }
-
+                ValidateLastName(value);
                 _lastName = value;
+            }
+        }
+
+        private void ValidateReferenceNumber(CustomerReferenceNumber referenceNumber)
+        {
+            if(referenceNumber == null)
+            {
+                throw new DomainException("Reference number cannot null");
+            }
+        }
+
+        private void ValidateFirstName(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new DomainException("First name cannot null or empty");
+            }
+        }
+
+        private void ValidateLastName(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new DomainException("Last name cannot null or empty");
             }
         }
     }

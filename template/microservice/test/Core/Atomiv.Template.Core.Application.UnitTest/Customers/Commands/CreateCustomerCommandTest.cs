@@ -7,6 +7,7 @@ using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
@@ -27,7 +28,8 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
-            var customer = new Customer(new CustomerIdentity(id), "Mary", "Smith"); ;
+            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC123");
+            var customer = new Customer(new CustomerIdentity(id), referenceNumber, "Mary", "Smith"); ;
 
             var expectedResponse = new CreateCustomerCommandResponse
             {

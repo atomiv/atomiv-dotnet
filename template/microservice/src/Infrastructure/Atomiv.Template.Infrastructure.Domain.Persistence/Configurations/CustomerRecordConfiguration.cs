@@ -11,6 +11,10 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.Configurations
             builder.Property(e => e.Id)
                 .ValueGeneratedNever();
 
+            builder.Property(e => e.ReferenceNumber)
+                .IsRequired()
+                .HasMaxLength(20);
+
             builder.Property(e => e.FirstName)
                 .IsRequired()
                 .HasMaxLength(50);

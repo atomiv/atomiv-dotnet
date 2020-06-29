@@ -79,6 +79,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
             return new CustomerRecord
             {
                 Id = customer.Id.ToGuid(),
+                ReferenceNumber = customer.ReferenceNumber.ToString(),
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
             };
@@ -87,17 +88,19 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
             customerRecord.Id = customer.Id.ToGuid();
+            customerRecord.ReferenceNumber = customer.ReferenceNumber.ToString();
             customerRecord.FirstName = customer.FirstName;
             customerRecord.LastName = customer.LastName;
         }
 
         private Customer GetCustomer(CustomerRecord customerRecord)
         {
-            var identity = new CustomerIdentity(customerRecord.Id.ToString());
+            var id = new CustomerIdentity(customerRecord.Id.ToString());
+            var referenceNumber = CustomerReferenceNumber.Parse(customerRecord.ReferenceNumber);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 
-            return new Customer(identity, firstName, lastName);
+            return new Customer(id, referenceNumber, firstName, lastName);
         }
 
         #endregion
