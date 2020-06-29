@@ -55,7 +55,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         }
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.ToGuid();
+            var orderRecordId = orderId.TryToGuid();
+
+            if(orderRecordId == null)
+            {
+                return null;
+            }
 
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)

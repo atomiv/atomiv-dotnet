@@ -16,7 +16,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.ToGuid();
+            var customerRecordId = customerId.TryToGuid();
+
+            if(customerRecordId == null)
+            {
+                return null;
+            }
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);
@@ -38,7 +43,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task RemoveAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.ToGuid();
+            var customerRecordId = customerId.TryToGuid();
 
             var customerRecord = await Context.Customers
                 .FirstOrDefaultAsync(e => e.Id == customerRecordId);

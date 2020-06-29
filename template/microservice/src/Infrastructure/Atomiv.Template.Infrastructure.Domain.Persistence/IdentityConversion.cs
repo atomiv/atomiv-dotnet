@@ -10,9 +10,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence
             return Guid.Parse(value);
         }
 
+        public static Guid? TryToGuid(this string value)
+        {
+            var success = Guid.TryParse(value, out Guid guid);
+            return success ? guid : (Guid?)null;
+        }
+
         public static Guid ToGuid(this Identity<string> id)
         {
             return ToGuid(id.Value);
+        }
+
+        public static Guid? TryToGuid(this Identity<string> id)
+        {
+            return TryToGuid(id.Value);
         }
     }
 }

@@ -19,7 +19,12 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 
         public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
         {
-            var customerRecordId = request.Id.ToGuid();
+            var customerRecordId = request.Id.TryToGuid();
+
+            if(customerRecordId == null)
+            {
+                throw new ExistenceException();
+            }
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)

@@ -45,7 +45,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.ToGuid();
+            var productRecordId = productId.TryToGuid();
+
+            if(productRecordId == null)
+            {
+                return null;
+            }
 
             var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productRecordId);

@@ -18,7 +18,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public Task<bool> ExistsAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.ToGuid();
+            var productRecordId = productId.TryToGuid();
+
+            if(productRecordId == null)
+            {
+                return Task.FromResult(false);
+            }
 
             return Context.Products.AsNoTracking()
                 .AnyAsync(e => e.Id == productRecordId);
@@ -32,7 +37,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.ToGuid();
+            var productRecordId = productId.TryToGuid();
+
+            if(productRecordId == null)
+            {
+                return null;
+            }
 
             var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productRecordId);
@@ -48,7 +58,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds
-                .Select(e => Guid.Parse(e.Value))
+                .Select(e => e.TryToGuid())
+                .Where(e => e != null)
                 .ToList();
 
             var productRecords = await Context.Products.AsNoTracking()

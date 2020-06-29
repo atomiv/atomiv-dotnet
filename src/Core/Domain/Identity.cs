@@ -17,6 +17,12 @@ namespace Atomiv.Core.Domain
             get { return _value; }
             private set
             {
+                if(value == null)
+                {
+                    // TODO: VC: Resources
+                    throw new DomainException("Identity cannot have null value");
+                }
+
                 if(value.Equals(default))
                 {
                     // TODO: VC: Resources

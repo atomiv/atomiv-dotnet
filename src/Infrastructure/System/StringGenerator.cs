@@ -6,7 +6,7 @@ namespace Atomiv.Infrastructure.System
     {
         public static string NewString()
         {
-            return Guid.NewGuid().ToString();
+            return Guid.NewGuid().ToString() + "VC RANDOM TODO";
         }
     }
 }
