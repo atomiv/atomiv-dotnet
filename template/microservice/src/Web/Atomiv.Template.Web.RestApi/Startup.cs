@@ -62,6 +62,19 @@ namespace Atomiv.Template.Web.RestApi
                 .AddNewtonsoftJson()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    // NOTE: Instead of .AllowAnyOrigin() use .WithOrigins() to set specific origins
+
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             services.AddModules(Configuration);
 
             services.AddAspNetCoreWeb();
@@ -142,6 +155,14 @@ namespace Atomiv.Template.Web.RestApi
 
             */
 
+
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseCors();
+
             // TODO: Enable if use authentication & authorization
 
             /*
@@ -149,16 +170,19 @@ namespace Atomiv.Template.Web.RestApi
             app.UseAuthorization();
             */
 
-            app.UseHttpsRedirection();
             app.UseMvc();
 
-            /*
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
+
+                // TODO: Use this instead if use authentication & authorization
+
+                /*
                 endpoints.MapControllers()
                     .RequireAuthorization();
+                */
             });
-            */
         }
     }
 }
