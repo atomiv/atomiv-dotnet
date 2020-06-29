@@ -8,6 +8,8 @@
     <Authors>Atomiv</Authors>
 
     <Version>1.0.34</Version>
+
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +19,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

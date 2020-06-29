@@ -5,11 +5,13 @@
     <version>1.0.33</version>
     <description>Atomiv Templates</description>
     <authors>Atomiv</authors>
+	<icon>favicon.png</icon>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
   </metadata>
   <files>
 	<file src="**" exclude="**\bin\**\*;**\obj\**\*;**\.vs\**\*;**\.log\**\*;**\.user\**\*;" />
+	<file src="..\img\favicon.png" target="favicon.png" />
   </files>
 </package>

@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>1.0.34</Version>
     <Authors>Atomiv</Authors>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\MicrosoftExtensions\Atomiv.Test.MicrosoftExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
