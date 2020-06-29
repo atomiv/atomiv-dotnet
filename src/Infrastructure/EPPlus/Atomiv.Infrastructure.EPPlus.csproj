@@ -7,10 +7,11 @@
     <Description>Implementation for Excel reading and writing using EPPlus</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure Excel EPPlus</PackageTags>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\All\Atomiv.Core.All.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

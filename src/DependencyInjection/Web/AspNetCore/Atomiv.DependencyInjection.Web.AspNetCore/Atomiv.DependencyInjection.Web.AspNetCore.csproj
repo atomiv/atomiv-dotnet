@@ -5,11 +5,19 @@
     <Version>1.0.33</Version>
     <Authors>Atomiv</Authors>
     <IsPackable>true</IsPackable>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Web\AspNetCore\Atomiv.Web.AspNetCore.csproj" />
     <ProjectReference Include="..\..\..\Base\DependencyInjection\Atomiv.DependencyInjection.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

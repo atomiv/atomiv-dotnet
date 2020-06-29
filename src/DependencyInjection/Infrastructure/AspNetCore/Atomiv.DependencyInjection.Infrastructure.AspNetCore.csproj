@@ -1,15 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
     <Version>1.0.33</Version>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Base\DependencyInjection\Atomiv.DependencyInjection.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

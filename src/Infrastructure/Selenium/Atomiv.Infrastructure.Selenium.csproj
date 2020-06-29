@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -7,10 +7,11 @@
     <Description>Implementation for Web Automation using Selenium</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure WebAutomation Selenium</PackageTags>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\All\Atomiv.Core.All.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

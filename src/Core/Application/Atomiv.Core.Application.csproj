@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -7,16 +7,21 @@
     <Description>Application layer implementation</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Atomiv Framework DotNetCore Core Application</PackageTags>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Mediation\**" />
     <EmbeddedResource Remove="Mediation\**" />
     <None Remove="Mediation\**" />
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
     
   <ItemGroup>
