@@ -1,31 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using System.Net;
 
 namespace Atomiv.Web.AspNetCore
 {
     public class BadHttpRequestExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<BadHttpRequestException, ProblemDetails>
     {
-        private const string Title = "Invalid request";
+        private const HttpStatusCode StatusCode = HttpStatusCode.BadRequest;
+        private const string ProblemTypeUri = "https://tools.ietf.org/html/rfc7231#section-6.5.1";
 
-        protected override string GetDetail(BadHttpRequestException exception)
+        public BadHttpRequestExceptionProblemDetailsFactory() 
+            : base(StatusCode, ProblemTypeUri)
         {
-            return exception.Message;
-        }
-
-        protected override string GetProblemTypeUri(BadHttpRequestException exception)
-        {
-            // TODO: VC: Provide uri
-            return null;
         }
 
         protected override int GetStatus(BadHttpRequestException exception)
         {
             return exception.StatusCode;
-        }
-
-        protected override string GetTitle(BadHttpRequestException exception)
-        {
-            return Title;
         }
     }
 }

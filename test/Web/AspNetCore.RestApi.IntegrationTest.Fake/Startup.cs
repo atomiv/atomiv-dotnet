@@ -64,7 +64,7 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
             });
 
             services.AddSingleton<IExceptionProblemDetailsFactory, BadHttpRequestExceptionProblemDetailsFactory>();
-            services.AddSingleton<IExceptionProblemDetailsFactory, RequestValidationExceptionProblemDetailsFactory>();
+            services.AddSingleton<IExceptionProblemDetailsFactory, ValidationExceptionProblemDetailsFactory>();
             services.AddSingleton<IExceptionProblemDetailsFactory, SystemExceptionProblemDetailsFactory>();
         }
 
