@@ -2,13 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.33</Version>
+    <Version>1.0.35</Version>
     <Authors>Atomiv</Authors>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\Base\DependencyInjection\Atomiv.DependencyInjection.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

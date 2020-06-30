@@ -3,7 +3,6 @@ using Moq;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Domain.Customers;
-using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -16,7 +15,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
         {
             var customerRepositoryMock = new Mock<ICustomerRepository>();
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
 
             var command = new DeleteCustomerCommand
             {
@@ -26,6 +25,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             var customerId = new CustomerIdentity(id);
 
             var expectedResponse = new DeleteCustomerCommandResponse();
+
+            customerRepositoryMock
+                .Setup(e => e.ExistsAsync(customerId))
+                .ReturnsAsync(true);
 
             customerRepositoryMock
                 .Setup(e => e.RemoveAsync(customerId));

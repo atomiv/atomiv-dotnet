@@ -22,6 +22,11 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 
             var product = await _productRepository.FindAsync(productId);
 
+            if(product == null)
+            {
+                throw new ExistenceException();
+            }
+
             product.Unlist();
 
             await _productRepository.UpdateAsync(product);

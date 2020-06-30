@@ -3,7 +3,7 @@
 namespace Atomiv.Core.Domain
 {
     public class Identity<TValue> : IEquatable<Identity<TValue>>, IComparable<Identity<TValue>> 
-        where TValue : struct, IEquatable<TValue>, IComparable<TValue>
+        where TValue : IEquatable<TValue>, IComparable<TValue>
     {
         private TValue _value;
 
@@ -17,6 +17,12 @@ namespace Atomiv.Core.Domain
             get { return _value; }
             private set
             {
+                if(value == null)
+                {
+                    // TODO: VC: Resources
+                    throw new DomainException("Identity cannot have null value");
+                }
+
                 if(value.Equals(default))
                 {
                     // TODO: VC: Resources
@@ -93,6 +99,9 @@ namespace Atomiv.Core.Domain
             return identity.Value;
         }
 
+        // TODO: VC: Check if needed
+
+        /*
         public static implicit operator TValue?(Identity<TValue> identity)
         {
             if (identity == null)
@@ -102,6 +111,7 @@ namespace Atomiv.Core.Domain
 
             return identity.Value;
         }
+        */
 
         private static bool Equals(Identity<TValue> a, Identity<TValue> b)
         {

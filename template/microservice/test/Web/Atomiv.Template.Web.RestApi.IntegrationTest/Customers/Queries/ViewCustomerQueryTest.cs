@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 {
@@ -17,7 +17,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
 
         [Fact]
-        public async Task FindCustomer_ValidRequest_ReturnsCustomer()
+        public async Task ViewCustomer_ValidRequest_ReturnsCustomer()
         {
             // Arrange
 
@@ -64,7 +64,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
 
         [Fact]
-        public async Task FindCustomer_NotExistRequest_ThrowsNotFoundRequestException()
+        public async Task ViewCustomer_NotExistRequest_ThrowsNotFoundRequestException()
         {
             // Arrange
 
@@ -95,7 +95,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             // Act
 
-            var id = Guid.NewGuid();
+            var id = StringGenerator.NewString();
             var findRequest = new ViewCustomerQuery { Id = id };
             var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
 

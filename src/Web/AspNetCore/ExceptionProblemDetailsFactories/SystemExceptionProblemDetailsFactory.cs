@@ -6,39 +6,12 @@ namespace Atomiv.Web.AspNetCore
 {
     public class SystemExceptionProblemDetailsFactory : BaseExceptionProblemDetailsFactory<Exception, ProblemDetails>
     {
-        private const string Title = "An unexpected error had occurred";
-        private const string Detail = "Please contact customer support and provide the instance identifier";
+        private const HttpStatusCode StatusCode = HttpStatusCode.InternalServerError;
+        private const string ProblemTypeUri = "https://tools.ietf.org/html/rfc7231#section-6.6.1";
 
-        private const int Status = (int)HttpStatusCode.InternalServerError;
-
-        protected override string GetTitle(Exception exception)
+        public SystemExceptionProblemDetailsFactory() 
+            : base(StatusCode, ProblemTypeUri)
         {
-            return Title;
         }
-
-        protected override string GetDetail(Exception exception)
-        {
-            return Detail;
-        }
-
-        protected override int GetStatus(Exception exception)
-        {
-            return Status;
-        }
-
-        protected override string GetProblemTypeUri(Exception exception)
-        {
-            // TODO: VC: #176: REST API - Exception Handling - Problem Details - Type
-            return null;
-        }
-
-        // TODO: VC: Move
-
-        /*
-        private IDictionary<string, object> GetExtensions(Exception exception)
-        {
-            return null;
-        }
-        */
     }
 }

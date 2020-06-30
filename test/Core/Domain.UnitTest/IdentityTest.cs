@@ -165,6 +165,13 @@ namespace Atomiv.Core.Domain.UnitTest
         }
 
         [Fact]
+        public void StringIdentityCannotBeNullValue()
+        {
+            Action action = () => new StringIdentity(null);
+            action.Should().Throw<DomainException>();
+        }
+
+        [Fact]
         public void NullIdentityConvertsToDefaultIdValue()
         {
             CustomerIdentity customerId = null;
@@ -199,6 +206,13 @@ namespace Atomiv.Core.Domain.UnitTest
         private class GuidIdentity : Identity<Guid>
         {
             public GuidIdentity(Guid value) : base(value)
+            {
+            }
+        }
+
+        private class StringIdentity : Identity<string>
+        {
+            public StringIdentity(string value) : base(value)
             {
             }
         }

@@ -16,12 +16,15 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
 
         public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery request)
         {
+            var page = request.Page;
+            var size = request.Size;
+
             var productRecords = await Context.Products.AsNoTracking()
-                .GetPage(request.Page, request.Size)
+                .GetPage(page, size)
                 .ToListAsync();
 
             var productHeaderReadModels = productRecords
-                .Select(GetProductHeaderReadModel)
+                .Select(GetResponse)
                 .ToList();
 
             var totalRecords = await Context.Products.LongCountAsync();
@@ -33,11 +36,11 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
             };
         }
 
-        private static BrowseProductsRecordResponse GetProductHeaderReadModel(ProductRecord productRecord)
+        private static BrowseProductsRecordResponse GetResponse(ProductRecord productRecord)
         {
             return new BrowseProductsRecordResponse
             {
-                Id = productRecord.Id,
+                Id = productRecord.Id.ToString(),
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

@@ -4,19 +4,19 @@ namespace Atomiv.Template.Core.Domain.Products
 {
     public class ProductFactory : IProductFactory
     {
-        private const bool DefaultIsListed = true;
+        private const bool CreatedProductIsListed = true;
 
-        private readonly IIdentityGenerator<ProductIdentity> _productIdentityGenerator;
+        private readonly IGenerator<ProductIdentity> _productIdentityGenerator;
 
-        public ProductFactory(IIdentityGenerator<ProductIdentity> productIdentityGenerator)
+        public ProductFactory(IGenerator<ProductIdentity> productIdentityGenerator)
         {
             _productIdentityGenerator = productIdentityGenerator;
         }
 
-        public Product CreateNewProduct(string productCode, string productName, decimal listPrice)
+        public Product CreateProduct(string productCode, string productName, decimal listPrice)
         {
             var id = _productIdentityGenerator.Next();
-            return new Product(id, productCode, productName, listPrice, DefaultIsListed);
+            return new Product(id, productCode, productName, listPrice, CreatedProductIsListed);
         }
     }
 }

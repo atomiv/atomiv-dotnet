@@ -1,14 +1,13 @@
 ﻿using Atomiv.Infrastructure.SequentialGuid;
 using Atomiv.Template.Core.Domain.Orders;
-using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
-    public class OrderItemIdentityGenerator : IdentityGenerator<OrderItemIdentity>
+    public class OrderItemIdentityGenerator : StringIdentityGenerator<OrderItemIdentity>
     {
-        protected override OrderItemIdentity Create(Guid guid)
+        protected override OrderItemIdentity Create(string value)
         {
-            return new OrderItemIdentity(guid);
+            return new OrderItemIdentity(value);
         }
     }
 }

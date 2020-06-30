@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.0.35</Version>
+    <Authors>Atomiv</Authors>
+    <Description>Implementation for persistence using MongoDb</Description>
+    <Copyright>?  All rights reserved.</Copyright>
+    <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Atomiv Framework DotNetCore Infrastructure Persistence MongoDb</PackageTags>
+    <PackageIcon>favicon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\All\Atomiv.Core.All.csproj" />
+  </ItemGroup>
+
+</Project>

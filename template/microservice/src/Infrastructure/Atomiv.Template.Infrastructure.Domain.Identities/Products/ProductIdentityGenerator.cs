@@ -1,14 +1,13 @@
 ﻿using Atomiv.Infrastructure.SequentialGuid;
 using Atomiv.Template.Core.Domain.Products;
-using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
-    public class ProductIdentityGenerator : IdentityGenerator<ProductIdentity>
+    public class ProductIdentityGenerator : StringIdentityGenerator<ProductIdentity>
     {
-        protected override ProductIdentity Create(Guid guid)
+        protected override ProductIdentity Create(string value)
         {
-            return new ProductIdentity(guid);
+            return new ProductIdentity(value);
         }
     }
 }

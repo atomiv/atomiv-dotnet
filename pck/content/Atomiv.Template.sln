@@ -75,6 +75,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Core.Application.UnitTest", "test\Core\Atomiv.Template.Core.Application.UnitTest\Atomiv.Template.Core.Application.UnitTest.csproj", "{062AAB5C-E5E3-437D-BBBC-0F02E51B857F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Identities.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.csproj", "{138B58C1-39F4-4D99-903E-5CF978D7E99D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj", "{5BA446F6-663A-4253-87F9-DC03575B987C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj", "{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{1D6A3D6B-C50B-461E-8E25-0D059C51294F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +197,22 @@ Global
 		{062AAB5C-E5E3-437D-BBBC-0F02E51B857F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{062AAB5C-E5E3-437D-BBBC-0F02E51B857F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{062AAB5C-E5E3-437D-BBBC-0F02E51B857F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138B58C1-39F4-4D99-903E-5CF978D7E99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138B58C1-39F4-4D99-903E-5CF978D7E99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138B58C1-39F4-4D99-903E-5CF978D7E99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138B58C1-39F4-4D99-903E-5CF978D7E99D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA446F6-663A-4253-87F9-DC03575B987C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA446F6-663A-4253-87F9-DC03575B987C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA446F6-663A-4253-87F9-DC03575B987C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA446F6-663A-4253-87F9-DC03575B987C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +252,10 @@ Global
 		{204D755B-08AE-4010-A107-4E7516439386} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 		{41CEA751-EE7E-42C2-84EB-0AC232A9450C} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 		{062AAB5C-E5E3-437D-BBBC-0F02E51B857F} = {7947FD45-7B4E-42F2-AF3A-B40845CAF194}
+		{138B58C1-39F4-4D99-903E-5CF978D7E99D} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
+		{5BA446F6-663A-4253-87F9-DC03575B987C} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
+		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
+		{1D6A3D6B-C50B-461E-8E25-0D059C51294F} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41DD5ECF-00C7-44F6-A2A7-937713CBE1AC}

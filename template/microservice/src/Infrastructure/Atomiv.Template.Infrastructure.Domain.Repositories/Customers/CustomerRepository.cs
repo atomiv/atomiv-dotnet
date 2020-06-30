@@ -4,10 +4,11 @@ using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Threading.Tasks;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 {
-    public class CustomerRepository : Repository, ICustomerRepository
+    public class CustomerRepository : CustomerReadonlyRepository, ICustomerRepository
     {
         public CustomerRepository(DatabaseContext context) : base(context)
         {
@@ -15,8 +16,15 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
+            var customerRecordId = customerId.TryToGuid();
+
+            if(customerRecordId == null)
+            {
+                return null;
+            }
+
             var customerRecord = await Context.Customers.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == customerId);
+                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             if (customerRecord == null)
             {
@@ -28,15 +36,17 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task AddAsync(Customer customer)
         {
-            var customerRecord = CreateCustomerRecord(customer);
+            var customerRecord = GetCustomerRecord(customer);
             Context.Customers.Add(customerRecord);
             await Context.SaveChangesAsync();
         }
 
         public async Task RemoveAsync(CustomerIdentity customerId)
         {
+            var customerRecordId = customerId.TryToGuid();
+
             var customerRecord = await Context.Customers
-                .FirstOrDefaultAsync(e => e.Id == customerId);
+                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             Context.Remove(customerRecord);
             await Context.SaveChangesAsync();
@@ -44,8 +54,10 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task UpdateAsync(Customer customer)
         {
+            var customerRecordId = customer.Id.ToGuid();
+
             var customerRecord = await Context.Customers
-                .FirstOrDefaultAsync(e => e.Id == customer.Id);
+                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
 
             UpdateCustomerRecord(customerRecord, customer);
 
@@ -60,11 +72,14 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
             }
         }
 
-        private CustomerRecord CreateCustomerRecord(Customer customer)
+        #region Helper
+
+        private CustomerRecord GetCustomerRecord(Customer customer)
         {
             return new CustomerRecord
             {
-                Id = customer.Id,
+                Id = customer.Id.ToGuid(),
+                ReferenceNumber = customer.ReferenceNumber.ToString(),
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
             };
@@ -72,18 +87,22 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            customerRecord.Id = customer.Id;
+            customerRecord.Id = customer.Id.ToGuid();
+            customerRecord.ReferenceNumber = customer.ReferenceNumber.ToString();
             customerRecord.FirstName = customer.FirstName;
             customerRecord.LastName = customer.LastName;
         }
 
         private Customer GetCustomer(CustomerRecord customerRecord)
         {
-            var identity = new CustomerIdentity(customerRecord.Id);
+            var id = new CustomerIdentity(customerRecord.Id.ToString());
+            var referenceNumber = CustomerReferenceNumber.Parse(customerRecord.ReferenceNumber);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;
 
-            return new Customer(identity, firstName, lastName);
+            return new Customer(id, referenceNumber, firstName, lastName);
         }
+
+        #endregion
     }
 }

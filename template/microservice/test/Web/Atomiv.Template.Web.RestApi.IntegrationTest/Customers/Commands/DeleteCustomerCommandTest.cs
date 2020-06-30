@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 {
@@ -92,7 +92,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
 
             // Act
 
-            var id = Guid.NewGuid();
+            var id = StringGenerator.NewString();
             var deleteRequest = new DeleteCustomerCommand { Id = id };
             var deleteHttpResponse = await Fixture.Api.Customers.DeleteCustomerAsync(deleteRequest, header);
 

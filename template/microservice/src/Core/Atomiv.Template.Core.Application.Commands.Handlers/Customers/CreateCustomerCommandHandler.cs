@@ -1,7 +1,6 @@
 ﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Context;
-using Atomiv.Template.Core.Common.Requests;
 using Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 
@@ -24,6 +23,12 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 
         public async Task<CreateCustomerCommandResponse> HandleAsync(CreateCustomerCommand request)
         {
+            // TODO: VC: Move to validator
+            if(string.IsNullOrEmpty(request.FirstName))
+            {
+                throw new ValidationException("First name can't be empty!!!");
+            }
+
             var user = _applicationUserContext.ApplicationUser;
 
             var customer = CreateCustomer(request);
@@ -38,7 +43,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             var firstName = request.FirstName;
             var lastName = request.LastName;
 
-            return _customerFactory.Create(firstName, lastName);
+            return _customerFactory.CreateCustomer(firstName, lastName);
         }
     }
 }

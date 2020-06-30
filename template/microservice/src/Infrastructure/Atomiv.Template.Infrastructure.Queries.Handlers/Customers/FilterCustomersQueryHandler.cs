@@ -26,7 +26,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
                 .ToListAsync();
 
             var resultRecords = customerRecords
-                .Select(GetListCustomersQueryResponse)
+                .Select(GetResponse)
                 .ToList();
 
             var totalRecords = await Context.Customers.LongCountAsync();
@@ -38,9 +38,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             };
         }
 
-        private ListCustomersRecordResponse GetListCustomersQueryResponse(CustomerRecord customerRecord)
+        private ListCustomersRecordResponse GetResponse(CustomerRecord customerRecord)
         {
-            var id = customerRecord.Id;
+            var id = customerRecord.Id.ToString();
             var name = $"{customerRecord.FirstName} {customerRecord.LastName}";
 
             return new ListCustomersRecordResponse

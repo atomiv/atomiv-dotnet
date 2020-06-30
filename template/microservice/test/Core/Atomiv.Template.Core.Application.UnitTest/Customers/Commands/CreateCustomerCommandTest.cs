@@ -4,11 +4,10 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Application.Context;
-using Atomiv.Template.Core.Common.Requests;
 using Atomiv.Template.Core.Domain.Customers;
-using System;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
@@ -28,8 +27,9 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 LastName = "Smith",
             };
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
-            var customer = new Customer(new CustomerIdentity(id), "Mary", "Smith"); ;
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
+            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC12");
+            var customer = new Customer(new CustomerIdentity(id), referenceNumber, "Mary", "Smith"); ;
 
             var expectedResponse = new CreateCustomerCommandResponse
             {
@@ -39,7 +39,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             customerFactoryMock
-                .Setup(e => e.Create("Mary", "Smith"))
+                .Setup(e => e.CreateCustomer("Mary", "Smith"))
                 .Returns(customer);
 
             customerRepositoryMock
@@ -56,7 +56,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 
             var response = await handler.HandleAsync(command);
 
-            customerFactoryMock.Verify(e => e.Create("Mary", "Smith"), Times.Once());
+            customerFactoryMock.Verify(e => e.CreateCustomer("Mary", "Smith"), Times.Once());
             customerRepositoryMock.Verify(e => e.AddAsync(customer), Times.Once());
             mapperMock.Verify(e => e.Map<Customer, CreateCustomerCommandResponse>(customer), Times.Once());
 

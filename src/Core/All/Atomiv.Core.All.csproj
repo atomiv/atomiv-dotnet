@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.33</Version>
+    <Version>1.0.35</Version>
     <Company>Atomiv</Company>
+    <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,13 @@
     <ProjectReference Include="..\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\Common\Atomiv.Core.Common.csproj" />
     <ProjectReference Include="..\Domain\Atomiv.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\img\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

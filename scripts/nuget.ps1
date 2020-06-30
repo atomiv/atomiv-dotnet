@@ -47,6 +47,7 @@ $projects = @(
     'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj',
     'src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj',
+    'src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDb.csproj',
     'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',	
     'src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj',
     'src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj',
@@ -73,6 +74,8 @@ $projects = @(
     # 'src\DependencyInjection\Infrastructure\Selenium\Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
     'src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj',	
 
+	# Web
+	'src\DependencyInjection\Web\AspNetCore\Atomiv.DependencyInjection.Web.AspNetCore.csproj',
 
 	# ### ============================== WEB ============================== ###
 

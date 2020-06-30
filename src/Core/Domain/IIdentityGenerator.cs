@@ -1,7 +1,9 @@
-﻿namespace Atomiv.Core.Domain
+﻿using System;
+
+namespace Atomiv.Core.Domain
 {
-    public interface IIdentityGenerator<TIdentity>
+    [Obsolete("Use IGenerator instead of IIdentityGenerator")]
+    public interface IIdentityGenerator<TIdentity> : IGenerator<TIdentity>
     {
-        TIdentity Next();
     }
 }

@@ -1,16 +1,16 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Domain.Products;
-using System;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Core.Domain.UnitTest.Products
 {
     public class ProductUnitTest
     {
         [Fact]
-        public void CanCreateValidProduct()
+        public void CanConstructValidProduct()
         {
-            var identity = new ProductIdentity(Guid.NewGuid());
+            var identity = new ProductIdentity(StringGenerator.NewString());
             var code = "ABC";
             var name = "My name";
             decimal price = 10.50m;

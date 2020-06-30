@@ -4,14 +4,14 @@ using System;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {
-    public abstract class IdentityGenerator<TIdentity> : IIdentityGenerator<TIdentity>
+    public abstract class IdentityGenerator<TIdentity> : IGenerator<TIdentity>, IIdentityGenerator<TIdentity>
     {
         public TIdentity Next()
         {
-            var guid = SequentialSqlGuidGenerator.Instance.NewGuid();
-            return Create(guid);
+            var value = SequentialSqlGuidGenerator.Instance.NewGuid();
+            return Create(value);
         }
 
-        protected abstract TIdentity Create(Guid guid);
+        protected abstract TIdentity Create(Guid value);
     }
 }

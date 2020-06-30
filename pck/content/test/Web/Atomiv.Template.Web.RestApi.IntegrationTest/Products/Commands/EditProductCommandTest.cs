@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using Atomiv.Template.Core.Application.Commands.Products;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Infrastructure.System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
@@ -15,7 +15,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         }
 
         [Fact]
-        public async Task UpdateProduct_Valid_OK()
+        public async Task EditProduct_Valid_OK()
         {
             // Arrange
 
@@ -79,13 +79,13 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         }
 
         [Fact]
-        public async Task UpdateProduct_NotExist_NotFound()
+        public async Task EditProduct_NotExist_NotFound()
         {
             // Arrange
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = Guid.NewGuid();
+            var id = StringGenerator.NewString();
 
             var updateRequest = new EditProductCommand
             {
@@ -104,7 +104,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
         }
 
         [Fact]
-        public async Task UpdateProduct_Invalid_UnprocessableEntity()
+        public async Task EditProduct_Invalid_UnprocessableEntity()
         {
             // Arrange
 

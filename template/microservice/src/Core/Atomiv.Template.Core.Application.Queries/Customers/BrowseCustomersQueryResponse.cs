@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Atomiv.Template.Core.Application.Queries.Customers
 {
@@ -7,12 +6,12 @@ namespace Atomiv.Template.Core.Application.Queries.Customers
     {
         public List<BrowseCustomersRecordResponse> Records { get; set; }
 
-        public int TotalRecords { get; set; }
+        public long TotalRecords { get; set; }
     }
 
     public class BrowseCustomersRecordResponse
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 

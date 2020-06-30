@@ -1,11 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Common.Utilities;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Core.Common.Orders;
-using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 
@@ -27,12 +24,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
                 .ToListAsync();
 
             var responseRecords = customerRecords
-                .Select(GetBrowseCustomersQueryRecordResponse)
+                .Select(GetResponse)
                 .ToList();
 
-            var totalRecords = await Context.Customers.CountAsync();
-
-            var totalPages = MathUtilities.GetTotalPages(totalRecords, size);
+            var totalRecords = await Context.Customers.LongCountAsync();
 
             return new BrowseCustomersQueryResponse
             {
@@ -41,19 +36,11 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
             };
         }
 
-        private static BrowseCustomersRecordResponse GetBrowseCustomersQueryRecordResponse(CustomerRecord customerRecord)
+        private static BrowseCustomersRecordResponse GetResponse(CustomerRecord customerRecord)
         {
-            var id = new CustomerIdentity(customerRecord.Id);
-            var firstName = customerRecord.FirstName;
-            var lastName = customerRecord.LastName;
-
-            var openOrders = customerRecord.Orders
-                .Where(e => e.OrderStatusId != OrderStatus.Closed)
-                .Count();
-
             return new BrowseCustomersRecordResponse
             {
-                Id = customerRecord.Id,
+                Id = customerRecord.Id.ToString(),
                 FirstName = customerRecord.FirstName,
                 LastName = customerRecord.LastName,
             };

@@ -37,16 +37,16 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
             var updateRequest = new EditOrderCommand
             {
                 Id = id,
-                OrderItems = new List<UpdateOrderItemCommand>
+                OrderItems = new List<EditOrderItemCommand>
                 {
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = createOrderResponse.OrderItems[0].Id,
                         ProductId = productId_1,
                         Quantity = 72,
                     },
 
-                    new UpdateOrderItemCommand
+                    new EditOrderItemCommand
                     {
                         Id = null,
                         ProductId = productId_2,
@@ -79,7 +79,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
                 if (updateRequestOrderDetail.Id != null)
                 {
-                    updateResponseOrderDetail.Id.Should().Be(updateRequestOrderDetail.Id.Value);
+                    updateResponseOrderDetail.Id.Should().Be(updateRequestOrderDetail.Id);
                 }
                 else
                 {
@@ -88,7 +88,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
                 updateResponseOrderDetail.ProductId.Should().Be(updateRequestOrderDetail.ProductId);
                 updateResponseOrderDetail.Quantity.Should().Be(updateRequestOrderDetail.Quantity);
-                updateResponseOrderDetail.Status.Should().Be(OrderItemStatus.Allocated);
+                updateResponseOrderDetail.Status.Should().Be(OrderItemStatus.Pending);
             }
 
             // TODO: VC: Fix test

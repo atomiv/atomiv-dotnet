@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Domain.Customers
 {
-    public interface ICustomerRepository : IRepository
+    public interface ICustomerRepository : ICustomerReadonlyRepository, IRepository
     {
         Task AddAsync(Customer customer);
 

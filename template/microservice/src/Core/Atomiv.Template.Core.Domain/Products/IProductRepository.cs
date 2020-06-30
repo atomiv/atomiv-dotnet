@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Domain.Products
 {
-    public interface IProductRepository : IRepository
+    public interface IProductRepository : IProductReadonlyRepository, IRepository
     {
         Task AddAsync(Product product);
 
