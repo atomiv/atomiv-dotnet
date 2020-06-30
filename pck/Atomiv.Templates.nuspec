@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Atomiv.Templates</id>
-    <version>1.0.33</version>
+    <version>1.0.35</version>
     <description>Atomiv Templates</description>
     <authors>Atomiv</authors>
 	<icon>favicon.png</icon>
