@@ -28,7 +28,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             var customerId = new CustomerIdentity(id);
-            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC123");
+            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC12");
             var customer = new Customer(customerId, referenceNumber, "Mary", "Smith");
 
             var updatedCustomer = new Customer(customerId, referenceNumber, "Mary 2", "Smith 2");
