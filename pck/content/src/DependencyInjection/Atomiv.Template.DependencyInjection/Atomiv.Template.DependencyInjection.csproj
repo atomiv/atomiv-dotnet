@@ -8,18 +8,20 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.33" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.33" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.35" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
   </ItemGroup>

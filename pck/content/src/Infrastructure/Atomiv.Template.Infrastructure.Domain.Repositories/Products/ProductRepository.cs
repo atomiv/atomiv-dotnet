@@ -6,10 +6,11 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {
-    public class ProductRepository : Repository, IProductRepository
+    public class ProductRepository : ProductReadonlyRepository, IProductRepository
     {
         public ProductRepository(DatabaseContext context) : base(context)
         {
@@ -24,8 +25,10 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task UpdateAsync(Product product)
         {
+            var productRecordId = product.Id.ToGuid();
+
             var productRecord = await Context.Products
-                .FirstOrDefaultAsync(e => e.Id == product.Id);
+                .FirstOrDefaultAsync(e => e.Id == productRecordId);
 
             UpdateProductRecord(productRecord, product);
 
@@ -42,8 +45,15 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
+            var productRecordId = productId.TryToGuid();
+
+            if(productRecordId == null)
+            {
+                return null;
+            }
+
             var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productId);
+                .FirstOrDefaultAsync(e => e.Id == productRecordId);
 
             if (productRecord == null)
             {
@@ -70,7 +80,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         {
             return new ProductRecord
             {
-                Id = product.Id,
+                Id = product.Id.ToGuid(),
                 ProductCode = product.ProductCode,
                 ProductName = product.ProductName,
                 ListPrice = product.ListPrice,
@@ -78,32 +88,13 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
             };
         }
 
-        private ProductRecord GetProductRecord(ProductIdentity productId)
-        {
-            return new ProductRecord
-            {
-                Id = productId,
-            };
-        }
-
         private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            productRecord.Id = product.Id;
+            productRecord.Id = product.Id.ToGuid();
             productRecord.ProductCode = product.ProductCode;
             productRecord.ProductName = product.ProductName;
             productRecord.ListPrice = product.ListPrice;
             productRecord.IsListed = product.IsListed;
-        }
-
-        private Product GetProduct(ProductRecord productRecord)
-        {
-            var id = new ProductIdentity(productRecord.Id);
-            var productCode = productRecord.ProductCode;
-            var productName = productRecord.ProductName;
-            var listPrice = productRecord.ListPrice;
-            var isListed = productRecord.IsListed;
-
-            return new Product(id, productCode, productName, listPrice, isListed);
         }
 
         #endregion

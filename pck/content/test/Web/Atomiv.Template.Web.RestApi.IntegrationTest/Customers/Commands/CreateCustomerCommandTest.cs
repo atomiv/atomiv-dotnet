@@ -48,7 +48,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
         }
 
         [Fact]
-        public async Task CreateCustomer_InvalidRequest_ThrowsInvalidRequestException()
+        public async Task CreateCustomer_InvalidRequest_UnprocessableEntity()
         {
             // Arrange
 
@@ -67,6 +67,48 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Commands
             // Assert
 
             createHttpResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
+
+            // TODO: VC: Move to common so that this is validated in all error cases
+            createHttpResponse.ProblemDetails.Should().NotBeNull();
+            createHttpResponse.ProblemDetails.Type.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Title.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Status.Should().NotBeNull();
+            createHttpResponse.ProblemDetails.Detail.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Instance.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Extensions.Should().NotBeNull();
         }
+
+        [Fact]
+        public async Task CreateCustomer_InvalidRequest2_UnprocessableEntity()
+        {
+            // Arrange
+
+            var header = await GetDefaultHeaderDataAsync();
+
+            var createRequest = new CreateCustomerCommand
+            {
+                FirstName = string.Empty,
+                LastName = "Last name 1",
+            };
+
+            // Act
+
+            var createHttpResponse = await Fixture.Api.Customers.CreateCustomerAsync(createRequest, header);
+
+            // Assert
+
+            createHttpResponse.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
+
+            // TODO: VC: Move to common so that this is validated in all error cases
+            createHttpResponse.ProblemDetails.Should().NotBeNull();
+            createHttpResponse.ProblemDetails.Type.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Title.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Status.Should().NotBeNull();
+            createHttpResponse.ProblemDetails.Detail.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Instance.Should().NotBeNullOrEmpty();
+            createHttpResponse.ProblemDetails.Extensions.Should().NotBeNull();
+        }
+
+
     }
 }

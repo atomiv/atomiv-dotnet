@@ -19,7 +19,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
                 .OrderBy(e => e.Id)
                 .ToListAsync();
 
-            var resultRecords = orderRecords.Select(GetIdNameResult).ToList();
+            var resultRecords = orderRecords.Select(GetResponse).ToList();
             var totalRecords = await Context.Orders.LongCountAsync();
 
             return new FilterOrdersQueryResponse
@@ -29,13 +29,13 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
             };
         }
 
-        private ListOrdersRecordQueryResponse GetIdNameResult(OrderRecord record)
+        private ListOrdersRecordQueryResponse GetResponse(OrderRecord record)
         {
             var name = record.Id.ToString();
 
             return new ListOrdersRecordQueryResponse
             {
-                Id = record.Id,
+                Id = record.Id.ToString(),
                 Name = name,
             };
         }

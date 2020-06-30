@@ -1,19 +1,16 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Atomiv.DependencyInjection.Core.Application;
 using Atomiv.DependencyInjection.Core.Domain;
 using Atomiv.DependencyInjection.Infrastructure.AspNetCore;
 using Atomiv.DependencyInjection.Infrastructure.AutoMapper;
-using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
 using Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Atomiv.DependencyInjection.Infrastructure.System;
 using Atomiv.Template.Infrastructure.Web.Authentication.Common;
-using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +18,11 @@ using System.Reflection;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Common.Requests;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
+using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Atomiv.Template.DependencyInjection
 {
@@ -51,21 +53,42 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Authorization.Module),
                 typeof(Infrastructure.Commands.Mapping.Module),
                 typeof(Infrastructure.Commands.Validation.Module),
-                typeof(Infrastructure.Domain.Identities.Module),
-                typeof(Infrastructure.Domain.Persistence.Module),
-                typeof(Infrastructure.Domain.Repositories.Module),
                 typeof(Infrastructure.Domain.Services.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
-                typeof(Infrastructure.Queries.Handlers.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
                 typeof(Infrastructure.Web.Authentication.Module),
             };
+
+            infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
+            // infrastructureModuleTypes.AddRange(GetMongoDbInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
             moduleTypes.AddRange(infrastructureModuleTypes);
 
             return moduleTypes;
+        }
+
+        private static List<Type> GetEfCoreInfrastructureModules()
+        {
+            return new List<Type>
+            {
+                typeof(Infrastructure.Domain.Identities.Module),
+                typeof(Infrastructure.Domain.Persistence.Module),
+                typeof(Infrastructure.Domain.Repositories.Module),
+                typeof(Infrastructure.Queries.Handlers.Module),
+            };
+        }
+
+        private static List<Type> GetMongoDbInfrastructureModules()
+        {
+            return new List<Type>
+            {
+                typeof(Infrastructure.Domain.Identities.MongoDb.Module),
+                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
+                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
+                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
+            };
         }
 
         private static void AddCoreModules<TRequestType>(this IServiceCollection services, Assembly[] assemblies)
@@ -77,15 +100,6 @@ namespace Atomiv.Template.DependencyInjection
 
         private static void AddInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
         {
-            var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
-            var connection = configuration.GetConnectionString(connectionKey);
-
-            services.AddDbContext<DatabaseContext>(options =>
-            {
-                options.UseSqlServer(connection);
-                options.EnableSensitiveDataLogging();
-            });
-
             services.AddApplicationUserContext<ApplicationUser, 
                 RequestType, 
                 ApplicationUserSerializer, 
@@ -96,12 +110,40 @@ namespace Atomiv.Template.DependencyInjection
             services.AddMediatR(assemblies);
 
             services.AddAspNetCoreInfrastructure(assemblies);
-            services.AddEntityFrameworkCoreInfrastructure(assemblies);
             services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
             services.AddMediatRInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
+
+            services.AddEfCoreInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDbInfrastructureModules(configuration, assemblies);
+        }
+
+        private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        {
+            var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
+            var connection = configuration.GetConnectionString(connectionKey);
+
+            services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseSqlServer(connection);
+                options.EnableSensitiveDataLogging();
+            });
+
+            services.AddEntityFrameworkCoreInfrastructure(assemblies);
+        }
+
+        private static void AddMongoDbInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        {
+            var dbSettingsSection = configuration.GetSection(nameof(DbSettings));
+
+            services.Configure<IDbSettings>(dbSettingsSection);
+
+            services.AddSingleton<IDbSettings>(e =>
+                e.GetRequiredService<IOptions<DbSettings>>().Value);
+
+            services.AddSingleton<MongoDbContext>();
         }
     }
 }

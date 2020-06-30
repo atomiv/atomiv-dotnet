@@ -2,7 +2,6 @@
 using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Products;
 using Atomiv.Template.Core.Application.Queries.Products;
-using System;
 using System.Threading.Tasks;
 
 namespace Atomiv.Template.Web.RestApi.Controllers
@@ -31,7 +30,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPut("{id}", Name = "edit-product")]
         [ProducesResponseType(typeof(EditProductCommandResponse), 200)]
-        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(Guid id, EditProductCommand request)
+        public async Task<ActionResult<EditProductCommandResponse>> EditProductAsync(string id, EditProductCommand request)
         {
             if(id != request.Id)
             {
@@ -44,7 +43,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/relist", Name = "relist-product")]
         [ProducesResponseType(typeof(RelistProductCommandResponse), 200)]
-        public async Task<ActionResult<RelistProductCommandResponse>> RelistProductAsync(Guid id)
+        public async Task<ActionResult<RelistProductCommandResponse>> RelistProductAsync(string id)
         {
             var request = new RelistProductCommand
             {
@@ -57,7 +56,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/unlist", Name = "unlist-product")]
         [ProducesResponseType(typeof(UnlistProductCommandResponse), 200)]
-        public async Task<ActionResult<UnlistProductCommandResponse>> UnlistProductAsync(Guid id)
+        public async Task<ActionResult<UnlistProductCommandResponse>> UnlistProductAsync(string id)
         {
             var request = new UnlistProductCommand
             {
@@ -97,7 +96,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpGet("{id}", Name = "view-product")]
         [ProducesResponseType(typeof(ViewProductQueryResponse), 200)]
-        public async Task<ActionResult<ViewProductQueryResponse>> ViewProductAsync(Guid id)
+        public async Task<ActionResult<ViewProductQueryResponse>> ViewProductAsync(string id)
         {
             var request = new ViewProductQuery
             {

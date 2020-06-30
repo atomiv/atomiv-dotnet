@@ -4,9 +4,9 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Commands.Handlers.Customers;
 using Atomiv.Template.Core.Domain.Customers;
-using System;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
@@ -18,7 +18,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             var customerRepositoryMock = new Mock<ICustomerRepository>();
             var mapperMock = new Mock<IMapper>();
 
-            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
+            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
 
             var command = new EditCustomerCommand
             {
@@ -28,9 +28,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             };
 
             var customerId = new CustomerIdentity(id);
-            var customer = new Customer(customerId, "Mary", "Smith");
+            var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC123");
+            var customer = new Customer(customerId, referenceNumber, "Mary", "Smith");
 
-            var updatedCustomer = new Customer(customerId, "Mary 2", "Smith 2");
+            var updatedCustomer = new Customer(customerId, referenceNumber, "Mary 2", "Smith 2");
 
             var expectedResponse = new EditCustomerCommandResponse
             {

@@ -18,6 +18,13 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
         {
             var customerId = new CustomerIdentity(request.Id);
 
+            var exists = await _customerRepository.ExistsAsync(customerId);
+            
+            if(!exists)
+            {
+                throw new ExistenceException($"Customer {customerId} does not exist");
+            }
+
             await _customerRepository.RemoveAsync(customerId);
 
             return new DeleteCustomerCommandResponse();

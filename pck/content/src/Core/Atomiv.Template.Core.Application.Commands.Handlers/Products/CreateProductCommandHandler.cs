@@ -33,7 +33,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             var productName = request.Description;
             var listPrice = request.UnitPrice;
 
-            return _productFactory.CreateNewProduct(productCode, productName, listPrice);
+            return _productFactory.CreateProduct(productCode, productName, listPrice);
         }
     }
 }

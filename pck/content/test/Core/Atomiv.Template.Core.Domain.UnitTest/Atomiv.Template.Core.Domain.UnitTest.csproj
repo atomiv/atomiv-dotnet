@@ -18,10 +18,10 @@
 
   <ItemGroup>
     <Folder Include="Customers\" />
-    <Folder Include="Orders\" />
   </ItemGroup>
 
   <ItemGroup>
+<PackageReference Include="Atomiv.Infrastructure.System" Version="1.0.35" />
     <ProjectReference Include="..\..\..\src\Core\Atomiv.Template.Core.Domain\Atomiv.Template.Core.Domain.csproj" />
   </ItemGroup>
 

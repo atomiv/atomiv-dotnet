@@ -18,12 +18,6 @@ namespace Atomiv.Template.Web.RestClient
 
         #region Commands
 
-        public Task<ObjectClientResponse<ArchiveOrderCommandResponse>> ArchiveOrderAsync(ArchiveOrderCommand request, HeaderData header)
-        {
-            var id = request.Id;
-            return Client.PostAsync<ArchiveOrderCommandResponse>($"{id}/archive", GetHeaders(header));
-        }
-
         public Task<ObjectClientResponse<CancelOrderCommandResponse>> CancelOrderAsync(CancelOrderCommand request, HeaderData header)
         {
             var id = request.Id;
@@ -37,7 +31,7 @@ namespace Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<EditOrderCommandResponse>> EditOrderAsync(EditOrderCommand request, HeaderData header)
         {
-            return Client.PutByIdAsync<Guid, EditOrderCommand, EditOrderCommandResponse>(request.Id, request, GetHeaders(header));
+            return Client.PutByIdAsync<string, EditOrderCommand, EditOrderCommandResponse>(request.Id, request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<SubmitOrderCommandResponse>> SubmitOrderAsync(SubmitOrderCommand request, HeaderData header)
@@ -63,7 +57,7 @@ namespace Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<ViewOrderQueryResponse>> ViewOrderAsync(ViewOrderQuery request, HeaderData header)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<Guid, ViewOrderQueryResponse>(id, GetHeaders(header));
+            return Client.GetByIdAsync<string, ViewOrderQueryResponse>(id, GetHeaders(header));
         }
 
         #endregion

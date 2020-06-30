@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Domain" Version="1.0.33" />
+    <None Remove="Orders\Order.cs~RFfee2f03.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+<PackageReference Include="Atomiv.Core.Domain" Version="1.0.35" />
     <ProjectReference Include="..\Atomiv.Template.Core.Common\Atomiv.Template.Core.Common.csproj" />
   </ItemGroup>
 

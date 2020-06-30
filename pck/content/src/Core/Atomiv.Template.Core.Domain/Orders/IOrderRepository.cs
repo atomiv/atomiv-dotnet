@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Domain.Orders
 {
-    public interface IOrderRepository : IRepository
+    public interface IOrderRepository : IOrderReadonlyRepository, IRepository
     {
         Task AddAsync(Order order);
 

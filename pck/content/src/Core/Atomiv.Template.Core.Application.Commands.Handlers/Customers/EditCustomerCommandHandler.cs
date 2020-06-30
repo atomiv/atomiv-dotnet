@@ -22,6 +22,11 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 
             var customer = await _customerRepository.FindAsync(customerId);
 
+            if(customer == null)
+            {
+                throw new ValidationException($"Customer {customerId} does not exist");
+            }
+
             UpdateCustomer(customer, request);
 
             await _customerRepository.UpdateAsync(customer);

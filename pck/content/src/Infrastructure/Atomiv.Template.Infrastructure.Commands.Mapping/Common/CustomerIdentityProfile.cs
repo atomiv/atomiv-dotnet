@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Atomiv.Template.Core.Domain.Customers;
-using System;
 
 namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
 {
@@ -8,7 +7,7 @@ namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
     {
         public CustomerIdentityProfile()
         {
-            CreateMap<CustomerIdentity, Guid>()
+            CreateMap<CustomerIdentity, string>()
                 .ConvertUsing(src => src.Value);
         }
     }

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Application.Interface" Version="1.0.33" />
+<PackageReference Include="Atomiv.Core.Application.Interface" Version="1.0.35" />
     <ProjectReference Include="..\Atomiv.Template.Core.Application.Commands\Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Core.Application\Atomiv.Template.Core.Application.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Core.Domain\Atomiv.Template.Core.Domain.csproj" />
