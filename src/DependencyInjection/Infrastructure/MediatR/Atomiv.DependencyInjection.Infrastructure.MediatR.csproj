@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.35</Version>
+    <Version>1.0.37</Version>
     <Authors>Atomiv</Authors>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>

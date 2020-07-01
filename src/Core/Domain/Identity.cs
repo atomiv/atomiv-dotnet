@@ -99,20 +99,6 @@ namespace Atomiv.Core.Domain
             return identity.Value;
         }
 
-        // TODO: VC: Check if needed
-
-        /*
-        public static implicit operator TValue?(Identity<TValue> identity)
-        {
-            if (identity == null)
-            {
-                return null;
-            }
-
-            return identity.Value;
-        }
-        */
-
         private static bool Equals(Identity<TValue> a, Identity<TValue> b)
         {
             if (ReferenceEquals(a, b))

@@ -2,39 +2,37 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
+using System;
+using Atomiv.Infrastructure.EntityFrameworkCore;
 
 namespace Atomiv.Template.Tools.Migrator
 {
-    public class DatabaseContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
+    public class DatabaseContextFactory : DatabaseContextFactory<DatabaseContext>
     {
-        public DatabaseContext CreateDbContext(string[] args)
+        private const string ConnectionKey = "DefaultConnection";
+        private const string MigrationsAssembly = "Atomiv.Template.Tools.Migrator";
+
+        protected override IConfigurationBuilder GetConfigurationBuilder(string environment)
         {
-            // TODO: VC: Handling multiple environments
-
-            // var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-            var environment = "Development";
-            // throw new Exception("Environment " + environment);
-
-            var configurationBuilder = new ConfigurationBuilder()
+            return new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", false, true)
                 .AddJsonFile($"appsettings.{environment}.json", true);
+        }
 
-            var configuration = configurationBuilder.Build();
+        protected override string GetConnectionString(IConfigurationRoot configuration)
+        {
+            return configuration.GetConnectionString(ConnectionKey);
+        }
 
+        protected override void ConfigureDbContextOptionsBuilder(DbContextOptionsBuilder<DatabaseContext> optionsBuilder, string connectionString)
+        {
+            optionsBuilder.UseSqlServer(connectionString,
+                options => options.MigrationsAssembly(MigrationsAssembly));
+        }
 
-            // TODO: VC: Check if dependency is allowed
-            var connectionKey = "DefaultConnection"; // TODO: VC:
-            var connection = configuration.GetConnectionString(connectionKey);
-
-            // TODO: VC: Perhaps make some external migrator console app?
-
-            // throw new Exception("Connection is: " + connection);
-
-            var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer(connection, options => options.MigrationsAssembly("Atomiv.Template.Tools.Migrator"));
-
-            return new DatabaseContext(optionsBuilder.Options);
+        protected override DatabaseContext CreateDbContext(DbContextOptions<DatabaseContext> options)
+        {
+            return new DatabaseContext(options);
         }
     }
 }

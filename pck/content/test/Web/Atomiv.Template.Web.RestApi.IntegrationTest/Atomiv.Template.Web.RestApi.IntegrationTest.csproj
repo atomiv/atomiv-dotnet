@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="1.0.35" />
-<PackageReference Include="Atomiv.Test.AspNetCore" Version="1.0.35" />
-<PackageReference Include="Atomiv.Test.EntityFrameworkCore" Version="1.0.35" />
-<PackageReference Include="Atomiv.Test.Xunit" Version="1.0.35" />
+<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="1.0.37" />
+<PackageReference Include="Atomiv.Test.AspNetCore" Version="1.0.37" />
+<PackageReference Include="Atomiv.Test.EntityFrameworkCore" Version="1.0.37" />
+<PackageReference Include="Atomiv.Test.Xunit" Version="1.0.37" />
     <ProjectReference Include="..\..\..\src\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Atomiv.Template.Web.RestApi\Atomiv.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Atomiv.Template.Web.RestClient\Atomiv.Template.Web.RestClient.csproj" />
