@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="1.0.35" />
-<PackageReference Include="Atomiv.Web.AspNetCore" Version="1.0.35" />
+<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="1.0.36" />
+<PackageReference Include="Atomiv.Web.AspNetCore" Version="1.0.36" />
     <ProjectReference Include="..\..\DependencyInjection\Atomiv.Template.DependencyInjection\Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>
 
