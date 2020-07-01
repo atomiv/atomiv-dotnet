@@ -13,15 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.36" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.36" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.37" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.37" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
   </ItemGroup>

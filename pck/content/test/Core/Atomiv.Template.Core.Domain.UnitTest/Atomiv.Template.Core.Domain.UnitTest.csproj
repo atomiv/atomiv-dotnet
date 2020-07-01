@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.System" Version="1.0.36" />
+<PackageReference Include="Atomiv.Infrastructure.System" Version="1.0.37" />
     <ProjectReference Include="..\..\..\src\Core\Atomiv.Template.Core.Domain\Atomiv.Template.Core.Domain.csproj" />
   </ItemGroup>
 
