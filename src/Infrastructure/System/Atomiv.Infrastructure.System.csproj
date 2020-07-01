@@ -12,7 +12,7 @@
     <PackageIconUrl>https://github.com/atomiv/atomiv-cs/tree/master/img/nuget.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Infrastructure Serialization System</PackageTags>
-    <Version>1.0.35</Version>
+    <Version>1.0.36</Version>
     <PackageIconUrl></PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>favicon.png</PackageIcon>
