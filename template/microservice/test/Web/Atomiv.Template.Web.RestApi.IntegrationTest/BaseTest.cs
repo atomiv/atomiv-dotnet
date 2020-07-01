@@ -21,12 +21,6 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest
 
         public void Dispose()
         {
-            using (var context = Fixture.Db.CreateContext())
-            {
-                context.Customers.RemoveRange(context.Customers);
-                context.Products.RemoveRange(context.Products);
-                context.SaveChanges();
-            }
         }
 
         protected async Task<List<ObjectClientResponse<CreateCustomerCommandResponse>>> CreateCustomersAsync(IEnumerable<CreateCustomerCommand> createRequests)

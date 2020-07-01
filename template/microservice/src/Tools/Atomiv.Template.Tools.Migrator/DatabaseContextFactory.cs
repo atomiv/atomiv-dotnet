@@ -12,9 +12,7 @@ namespace Atomiv.Template.Tools.Migrator
         private const string ConnectionKey = "DefaultConnection";
         private const string MigrationsAssembly = "Atomiv.Template.Tools.Migrator";
 
-
-
-        protected override IConfigurationBuilder CreateConfigurationBuilder(string environment)
+        protected override IConfigurationBuilder GetConfigurationBuilder(string environment)
         {
             return new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", false, true)

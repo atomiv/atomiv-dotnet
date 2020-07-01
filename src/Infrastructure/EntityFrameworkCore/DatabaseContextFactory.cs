@@ -18,7 +18,7 @@ namespace Atomiv.Infrastructure.EntityFrameworkCore
 
             Console.WriteLine($"The environment is {environment}.");
 
-            var configurationBuilder = CreateConfigurationBuilder(environment);
+            var configurationBuilder = GetConfigurationBuilder(environment);
             var configuration = configurationBuilder.Build();
 
             var connectionString = GetConnectionString(configuration);
@@ -48,7 +48,7 @@ namespace Atomiv.Infrastructure.EntityFrameworkCore
 
         protected abstract TDbContext CreateDbContext(DbContextOptions<TDbContext> options);
 
-        protected abstract IConfigurationBuilder CreateConfigurationBuilder(string environment);
+        protected abstract IConfigurationBuilder GetConfigurationBuilder(string environment);
 
         protected abstract string GetConnectionString(IConfigurationRoot configuration);
 
