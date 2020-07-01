@@ -74,7 +74,7 @@ namespace Atomiv.Core.Domain.UnitTest
 
             // TODO: VC: Check
             a.Should().NotBe(b);
-            Assert.False(a.Equals(b));
+            (a.Equals(b)).Should().BeFalse();
         }
         */
 
@@ -84,7 +84,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             var b = new Identity<int>(5);
 
-            Assert.True(a == b);
+            (a == b).Should().BeTrue();
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new CustomerIdentity(5);
             var b = new CustomerIdentity(5);
 
-            Assert.True(a == b);
+            (a == b).Should().BeTrue();
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new CustomerIdentity(5);
             var b = new OrderIdentity(5);
 
-            Assert.False(a == b);
+            (a == b).Should().BeFalse();
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             var b = new Identity<int>(6);
 
-            Assert.True(a != b);
+            (a != b).Should().BeTrue();
         }
 
         [Fact]
@@ -120,7 +120,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new Identity<int>(5);
             var b = new Identity<int>(5);
 
-            Assert.False(a != b);
+            (a != b).Should().BeFalse();
         }
 
         [Fact]
@@ -129,7 +129,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new CustomerIdentity(5);
             var b = new OrderIdentity(5);
 
-            Assert.True(a != b);
+            (a != b).Should().BeTrue();
         }
 
         [Fact]
@@ -138,7 +138,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new CustomerIdentity(5);
             var b = new OrderIdentity(10);
 
-            Assert.True(a < b);
+            (a < b).Should().BeTrue();
         }
 
         [Fact]
@@ -147,7 +147,7 @@ namespace Atomiv.Core.Domain.UnitTest
             var a = new CustomerIdentity(15);
             var b = new OrderIdentity(10);
 
-            Assert.False(a < b);
+            (a < b).Should().BeFalse();
         }
 
         [Fact]
@@ -181,12 +181,12 @@ namespace Atomiv.Core.Domain.UnitTest
         }
 
         [Fact]
-        public void NullIdentityConvertsToNullIdValue()
+        public void NullIdentityConvertsToDefaultValue()
         {
             CustomerIdentity customerId = null;
             int? value = customerId;
 
-            value.Should().Be(null);
+            value.Should().Be(0);
         }
 
         private class CustomerIdentity : Identity<int>
