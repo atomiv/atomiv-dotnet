@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Http;
 using Atomiv.Template.Web.RestApi.Extensions;
 using Atomiv.Web.AspNetCore;
 using Atomiv.DependencyInjection.Web.AspNetCore;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -183,6 +186,22 @@ namespace Atomiv.Template.Web.RestApi
                     .RequireAuthorization();
                 */
             });
+
+            MigrateDatabase(app);
+        }
+
+        private void MigrateDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using(var context = scope.ServiceProvider
+                    .GetRequiredService<DatabaseContext>())
+                {
+                    context.Database.Migrate();
+                }
+            }
         }
     }
 }
