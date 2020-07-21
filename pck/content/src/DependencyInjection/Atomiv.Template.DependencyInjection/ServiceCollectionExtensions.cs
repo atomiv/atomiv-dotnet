@@ -125,17 +125,9 @@ namespace Atomiv.Template.DependencyInjection
             var connectionKey = ConfigurationKeys.DatabaseConnectionKey;
             var connection = configuration.GetConnectionString(connectionKey);
 
-            var type = typeof(Tools.Migrator.Module);
-            var assembly = type.Assembly;
-            var assemblyName = assembly.FullName;
-
             services.AddDbContext<DatabaseContext>(options =>
             {
-                options.UseSqlServer(connection, e => 
-                {
-                    e.MigrationsAssembly(assemblyName);
-                });
-
+                options.UseSqlServer(connection);
                 options.EnableSensitiveDataLogging();
             });
 
