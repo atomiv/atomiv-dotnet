@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Application.Interface" Version="1.0.37" />
-<PackageReference Include="Atomiv.Core.Application" Version="1.0.37" />
+<PackageReference Include="Atomiv.Core.Application.Interface" Version="1.0.38" />
+<PackageReference Include="Atomiv.Core.Application" Version="1.0.38" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 
