@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{1D6A3D6B-C50B-461E-8E25-0D059C51294F}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +215,10 @@ Global
 		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D6A3D6B-C50B-461E-8E25-0D059C51294F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
