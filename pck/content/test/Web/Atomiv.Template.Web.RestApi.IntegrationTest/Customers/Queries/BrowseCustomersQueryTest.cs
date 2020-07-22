@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Atomiv.Template.Core.Application.Commands.Customers;
+﻿using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
 using System.Collections.Generic;
 using System.Threading.Tasks;

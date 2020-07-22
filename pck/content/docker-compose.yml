@@ -6,6 +6,4 @@ services:
     build:
       context: .
       dockerfile: src\Web\Atomiv.Template.Web.RestApi\Dockerfile
-    extra_hosts:
-      - "localhost:192.168.56.1"
       

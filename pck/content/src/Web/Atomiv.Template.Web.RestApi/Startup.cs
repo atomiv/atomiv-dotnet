@@ -8,9 +8,7 @@ using Atomiv.Template.DependencyInjection;
 using Atomiv.Template.Web.RestApi.Services;
 using Microsoft.AspNetCore.Http;
 using Atomiv.Template.Web.RestApi.Extensions;
-using Atomiv.Web.AspNetCore;
 using Atomiv.DependencyInjection.Web.AspNetCore;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
 
