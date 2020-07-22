@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  atomiv.template.web.restapi:
+    image: ${DOCKER_REGISTRY-}atomivtemplatewebrestapi
+    build:
+      context: .
+      dockerfile: template\microservice\src\Web\Atomiv.Template.Web.RestApi\Dockerfile
