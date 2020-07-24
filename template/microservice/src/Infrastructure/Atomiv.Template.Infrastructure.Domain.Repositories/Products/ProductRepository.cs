@@ -25,10 +25,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task UpdateAsync(Product product)
         {
-            var productRecordId = product.Id.ToGuid();
-
             var productRecord = await Context.Products
-                .FirstOrDefaultAsync(e => e.Id == productRecordId);
+                .FirstOrDefaultAsync(e => e.Id == product.Id);
 
             UpdateProductRecord(productRecord, product);
 
@@ -45,15 +43,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToGuid();
-
-            if(productRecordId == null)
-            {
-                return null;
-            }
-
             var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productRecordId);
+                .FirstOrDefaultAsync(e => e.Id == productId);
 
             if (productRecord == null)
             {
@@ -80,7 +71,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         {
             return new ProductRecord
             {
-                Id = product.Id.ToGuid(),
+                Id = product.Id,
                 ProductCode = product.ProductCode,
                 ProductName = product.ProductName,
                 ListPrice = product.ListPrice,
@@ -90,7 +81,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         private void UpdateProductRecord(ProductRecord productRecord, Product product)
         {
-            productRecord.Id = product.Id.ToGuid();
+            productRecord.Id = product.Id;
             productRecord.ProductCode = product.ProductCode;
             productRecord.ProductName = product.ProductName;
             productRecord.ListPrice = product.ListPrice;

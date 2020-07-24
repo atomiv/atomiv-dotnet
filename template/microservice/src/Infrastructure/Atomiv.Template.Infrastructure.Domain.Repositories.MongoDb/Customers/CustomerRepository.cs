@@ -21,15 +21,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.TryToObjectId();
-
-            if (customerRecordId == null)
-            {
-                return null;
-            }
-
             var customerRecord = await Context.Customers
-                .Find(e => e.Id == customerRecordId)
+                .Find(e => e.Id == customerId)
                 .FirstOrDefaultAsync();
 
             if (customerRecord == null)
@@ -42,18 +35,14 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
 
         public Task RemoveAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.ToObjectId();
-
             return Context.Customers
-                .DeleteOneAsync(e => e.Id == customerRecordId);
+                .DeleteOneAsync(e => e.Id == customerId);
         }
 
         public Task UpdateAsync(Customer customer)
         {
-            var customerRecordId = customer.Id.ToObjectId();
-
             var customerRecordFilter = Builders<CustomerRecord>.Filter
-                .Eq(e => e.Id, customerRecordId);
+                .Eq(e => e.Id, customer.Id);
 
             var customerRecord = GetCustomerRecord(customer);
 
@@ -66,7 +55,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
         {
             return new CustomerRecord
             {
-                Id = customer.Id.ToObjectId(),
+                Id = customer.Id,
                 ReferenceNumber = customer.ReferenceNumber.ToString(),
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,

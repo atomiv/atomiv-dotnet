@@ -16,12 +16,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
 
         public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
         {
-            var orderRecordId = request.Id.TryToObjectId();
-
-            if (orderRecordId == null)
-            {
-                throw new ExistenceException();
-            }
+            var orderRecordId = request.Id;
 
             var orderRecord = await Context.Orders
                 .Find(e => e.Id == orderRecordId)

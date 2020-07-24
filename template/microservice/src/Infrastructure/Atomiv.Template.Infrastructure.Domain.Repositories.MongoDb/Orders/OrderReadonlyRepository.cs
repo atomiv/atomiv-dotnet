@@ -20,15 +20,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         public Task<bool> ExistsAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.TryToObjectId();
-
-            if (orderRecordId == null)
-            {
-                return Task.FromResult(false);
-            }
-
             return Context.Orders
-                .Find(e => e.Id == orderRecordId)
+                .Find(e => e.Id == orderId)
                 .AnyAsync();
         }
     }

@@ -25,15 +25,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.TryToObjectId();
-
-            if (orderRecordId == null)
-            {
-                return null;
-            }
-
             var orderRecord = await Context.Orders
-                .Find(e => e.Id == orderRecordId)
+                .Find(e => e.Id == orderId)
                 .FirstOrDefaultAsync();
 
             if (orderRecord == null)
@@ -46,18 +39,14 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         public Task RemoveAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.ToObjectId();
-
             return Context.Orders
-                .DeleteOneAsync(e => e.Id == orderRecordId);
+                .DeleteOneAsync(e => e.Id == orderId);
         }
 
         public Task UpdateAsync(Order order)
         {
-            var orderRecordId = order.Id.ToObjectId();
-
             var orderRecordFilter = Builders<OrderRecord>.Filter
-                .Eq(e => e.Id, orderRecordId);
+                .Eq(e => e.Id, order.Id);
 
             var orderRecord = GetOrderRecord(order);
 
@@ -68,17 +57,14 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         private OrderRecord GetOrderRecord(Order order)
         {
-            var orderRecordId = order.Id.ToObjectId();
-            var customerRecordId = order.CustomerId.ToObjectId();
-
             var orderItemRecords = order.OrderItems
                 .Select(GetOrderItemRecord)
                 .ToList();
 
             return new OrderRecord
             {
-                Id = orderRecordId,
-                CustomerId = customerRecordId,
+                Id = order.Id,
+                CustomerId = order.CustomerId,
                 OrderStatusId = order.Status,
                 OrderItems = orderItemRecords,
             };
@@ -88,8 +74,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
         {
             return new OrderItemRecord
             {
-                Id = orderItem.Id.ToObjectId(),
-                ProductId = orderItem.ProductId.ToObjectId(),
+                Id = orderItem.Id,
+                ProductId = orderItem.ProductId,
                 StatusId = orderItem.Status,
                 Quantity = orderItem.Quantity,
                 UnitPrice = orderItem.UnitPrice,

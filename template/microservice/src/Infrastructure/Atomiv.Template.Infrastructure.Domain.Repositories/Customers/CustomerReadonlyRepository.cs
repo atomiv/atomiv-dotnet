@@ -14,15 +14,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public Task<bool> ExistsAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.TryToGuid();
-
-            if(customerRecordId == null)
-            {
-                return Task.FromResult(false);
-            }
-
             return Context.Customers.AsNoTracking()
-                .AnyAsync(e => e.Id == customerRecordId);
+                .AnyAsync(e => e.Id == customerId);
         }
 
         public Task<long> CountAsync()

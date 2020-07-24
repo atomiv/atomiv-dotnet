@@ -14,15 +14,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
         public Task<bool> ExistsAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.TryToGuid();
-
-            if(orderRecordId == null)
-            {
-                return Task.FromResult(false);
-            }
-
             return Context.Orders.AsNoTracking()
-                .AnyAsync(e => e.Id == orderRecordId);
+                .AnyAsync(e => e.Id == orderId);
         }
 
         public Task<long> CountAsync()

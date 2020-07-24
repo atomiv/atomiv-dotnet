@@ -35,11 +35,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
         public async Task UpdateAsync(Order order)
         {
-            var orderRecordId = order.Id.ToGuid();
-
             var orderRecord = await Context.Orders
                 .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+                .FirstOrDefaultAsync(e => e.Id == order.Id);
 
             UpdateOrderRecord(orderRecord, order);
 
@@ -55,16 +53,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         }
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {
-            var orderRecordId = orderId.TryToGuid();
-
-            if(orderRecordId == null)
-            {
-                return null;
-            }
-
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)
-                .FirstOrDefaultAsync(e => e.Id == orderRecordId);
+                .FirstOrDefaultAsync(e => e.Id == orderId);
 
             if (orderRecord == null)
             {
@@ -78,8 +69,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
         private OrderRecord GetOrderRecord(Order order)
         {
-            var orderRecordId = order.Id.ToGuid();
-            var customerRecordId = order.CustomerId.ToGuid();
+            var orderRecordId = order.Id;
+            var customerRecordId = order.CustomerId;
 
             var orderItemRecords = order.OrderItems
                 .Select(e => GetOrderItemRecord(e, orderRecordId))
@@ -98,7 +89,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         {
             return new OrderRecord
             {
-                Id = orderId.ToGuid(),
+                Id = orderId,
             };
         }
 
@@ -106,9 +97,9 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         {
             return new OrderItemRecord
             {
-                Id = orderItem.Id.ToGuid(),
+                Id = orderItem.Id,
                 OrderId = orderRecordId,
-                ProductId = orderItem.ProductId.ToGuid(),
+                ProductId = orderItem.ProductId,
                 StatusId = orderItem.Status,
                 Quantity = orderItem.Quantity,
                 UnitPrice = orderItem.UnitPrice,
@@ -119,8 +110,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         {
             return new OrderItemRecord
             {
-                Id = orderItem.Id.ToGuid(),
-                ProductId = orderItem.ProductId.ToGuid(),
+                Id = orderItem.Id,
+                ProductId = orderItem.ProductId,
                 StatusId = orderItem.Status,
                 Quantity = orderItem.Quantity,
                 UnitPrice = orderItem.UnitPrice,
@@ -150,11 +141,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
         private void UpdateOrderRecord(OrderRecord record, Order order)
         {
-            record.CustomerId = order.CustomerId.ToGuid();
+            record.CustomerId = order.CustomerId;
             record.OrderStatusId = order.Status;
 
             var addedOrderDetails = order.OrderItems
-                .Where(e => !record.OrderItems.Any(f => f.Id == e.Id.ToGuid()))
+                .Where(e => !record.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             var addedOrderDetailRecords = addedOrderDetails
@@ -162,11 +153,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
                 .ToList();
 
             var removedOrderDetailRecords = record.OrderItems
-                .Where(e => !order.OrderItems.Any(f => f.Id.ToGuid() == e.Id))
+                .Where(e => !order.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             var updatedOrderDetailRecords = record.OrderItems
-                .Where(e => order.OrderItems.Any(f => f.Id.ToGuid() == e.Id))
+                .Where(e => order.OrderItems.Any(f => f.Id == e.Id))
                 .ToList();
 
             foreach (var addedOrderDetailRecord in addedOrderDetailRecords)
@@ -182,7 +173,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
             foreach (var updatedOrderDetailRecord in updatedOrderDetailRecords)
             {
                 var orderItem = order.OrderItems
-                    .Single(e => e.Id.ToGuid() == updatedOrderDetailRecord.Id);
+                    .Single(e => e.Id == updatedOrderDetailRecord.Id);
 
                 UpdateOrderItemRecord(updatedOrderDetailRecord, orderItem);
             }
@@ -190,7 +181,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
         private void UpdateOrderItemRecord(OrderItemRecord orderItemRecord, IReadonlyOrderItem orderItem)
         {
-            orderItemRecord.ProductId = orderItem.ProductId.ToGuid();
+            orderItemRecord.ProductId = orderItem.ProductId;
             orderItemRecord.StatusId = orderItem.Status;
             orderItemRecord.Quantity = orderItem.Quantity;
             orderItemRecord.UnitPrice = orderItem.UnitPrice;
