@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Domain.Orders
 {
-    public class OrderIdentity : Identity<Guid>
+    public class OrderIdentity : GuidIdentity
     {
         public OrderIdentity(Guid value) : base(value)
         {

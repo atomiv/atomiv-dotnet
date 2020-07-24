@@ -4,7 +4,7 @@ using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.Orders
 {
-    public class OrderItemIdentityGenerator : IdentityGenerator<OrderItemIdentity>
+    public class OrderItemIdentityGenerator : GuidIdentityGenerator<OrderItemIdentity>
     {
         protected override OrderItemIdentity Create(Guid value)
         {

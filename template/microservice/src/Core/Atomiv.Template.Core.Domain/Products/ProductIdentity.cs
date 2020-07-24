@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Domain.Products
 {
-    public class ProductIdentity : Identity<Guid>
+    public class ProductIdentity : GuidIdentity
     {
         public ProductIdentity(Guid value)
             : base(value)

@@ -4,7 +4,7 @@ using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.IdentityGenerators
 {
-    public class OrderIdentityGenerator : IdentityGenerator<OrderIdentity>
+    public class OrderIdentityGenerator : GuidIdentityGenerator<OrderIdentity>
     {
         protected override OrderIdentity Create(Guid value)
         {
