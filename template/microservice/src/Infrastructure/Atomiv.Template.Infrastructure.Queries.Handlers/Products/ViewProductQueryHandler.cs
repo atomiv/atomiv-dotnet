@@ -33,7 +33,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
             return new ViewProductQueryResponse
             {
-                Id = productRecord.Id.ToString(),
+                Id = productRecord.Id,
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

@@ -2,6 +2,7 @@
 using Atomiv.Template.Core.Domain.Products;
 using Xunit;
 using Atomiv.Infrastructure.System;
+using System;
 
 namespace Atomiv.Template.Core.Domain.UnitTest.Products
 {
@@ -10,7 +11,7 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Products
         [Fact]
         public void CanConstructValidProduct()
         {
-            var identity = new ProductIdentity(StringGenerator.NewString());
+            var identity = new ProductIdentity(Guid.NewGuid());
             var code = "ABC";
             var name = "My name";
             decimal price = 10.50m;

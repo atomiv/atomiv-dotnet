@@ -1,10 +1,11 @@
 ﻿using Atomiv.Core.Domain;
+using System;
 
 namespace Atomiv.Template.Core.Domain.Orders
 {
-    public class OrderIdentity : Identity<string>
+    public class OrderIdentity : Identity<Guid>
     {
-        public OrderIdentity(string value) : base(value)
+        public OrderIdentity(Guid value) : base(value)
         {
         }
     }

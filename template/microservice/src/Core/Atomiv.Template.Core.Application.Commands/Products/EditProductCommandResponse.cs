@@ -1,8 +1,10 @@
-﻿namespace Atomiv.Template.Core.Application.Commands.Products
+﻿using System;
+
+namespace Atomiv.Template.Core.Application.Commands.Products
 {
     public class EditProductCommandResponse
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Code { get; set; }
 

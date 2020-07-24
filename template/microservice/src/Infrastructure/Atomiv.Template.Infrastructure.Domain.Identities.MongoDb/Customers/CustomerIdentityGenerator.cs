@@ -1,11 +1,13 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
+using Atomiv.Infrastructure.SequentialGuid;
 using Atomiv.Template.Core.Domain.Customers;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.Customers
 {
-    public class CustomerIdentityGenerator : StringIdentityGenerator<CustomerIdentity>
+    public class CustomerIdentityGenerator : IdentityGenerator<CustomerIdentity>
     {
-        protected override CustomerIdentity Create(string value)
+        protected override CustomerIdentity Create(Guid value)
         {
             return new CustomerIdentity(value);
         }

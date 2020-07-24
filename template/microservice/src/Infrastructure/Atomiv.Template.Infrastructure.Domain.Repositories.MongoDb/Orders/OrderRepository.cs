@@ -98,8 +98,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         private Order GetOrder(OrderRecord record)
         {
-            var id = new OrderIdentity(record.Id.ToString());
-            var customerId = new CustomerIdentity(record.CustomerId.ToString());
+            var id = new OrderIdentity(record.Id);
+            var customerId = new CustomerIdentity(record.CustomerId);
             var status = record.OrderStatusId;
             var orderDetails = record.OrderItems.Select(GetOrderItem).ToList().AsReadOnly();
 
@@ -108,8 +108,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
 
         private OrderItem GetOrderItem(OrderItemRecord orderItemRecord)
         {
-            var id = new OrderItemIdentity(orderItemRecord.Id.ToString());
-            var productId = new ProductIdentity(orderItemRecord.ProductId.ToString());
+            var id = new OrderItemIdentity(orderItemRecord.Id);
+            var productId = new ProductIdentity(orderItemRecord.ProductId);
             var quantity = (int)orderItemRecord.Quantity; // TODO: VC: Make int
             var unitPrice = orderItemRecord.UnitPrice;
             var status = orderItemRecord.StatusId;

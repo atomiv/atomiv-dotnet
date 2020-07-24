@@ -79,7 +79,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
                 if (updateRequestOrderDetail.Id != null)
                 {
-                    updateResponseOrderDetail.Id.Should().Be(updateRequestOrderDetail.Id);
+                    updateResponseOrderDetail.Id.Should().Be(updateRequestOrderDetail.Id.Value);
                 }
                 else
                 {

@@ -3,6 +3,7 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
 using System.Threading.Tasks;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.Controllers
 {
@@ -29,7 +30,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPut("{id}", Name = "edit-customer")]
         [ProducesResponseType(typeof(EditCustomerCommandResponse), 201)]
-        public async Task<ActionResult<EditCustomerCommandResponse>> EditCustomerAsync(string id, EditCustomerCommand request)
+        public async Task<ActionResult<EditCustomerCommandResponse>> EditCustomerAsync(Guid id, EditCustomerCommand request)
         {
             if (id != request.Id)
             {
@@ -41,7 +42,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
         }
 
         [HttpDelete("{id}", Name = "delete-customer")]
-        public async Task<ActionResult> DeleteCustomerAsync(string id)
+        public async Task<ActionResult> DeleteCustomerAsync(Guid id)
         {
             var request = new DeleteCustomerCommand
             {
@@ -88,7 +89,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(ViewCustomerQueryResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<ViewCustomerQueryResponse>> ViewCustomerAsync(string id)
+        public async Task<ActionResult<ViewCustomerQueryResponse>> ViewCustomerAsync(Guid id)
         {
             var request = new ViewCustomerQuery
             {

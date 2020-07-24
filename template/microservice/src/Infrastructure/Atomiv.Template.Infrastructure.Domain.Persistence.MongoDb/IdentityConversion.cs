@@ -1,10 +1,12 @@
 ﻿using Atomiv.Core.Domain;
 using MongoDB.Bson;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
 {
     public static class IdentityConversion
     {
+        /*
         public static ObjectId ToObjectId(this string value)
         {
             return ObjectId.Parse(value);
@@ -25,5 +27,32 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
         {
             return TryToObjectId(id.Value);
         }
+        */
+
+        public static Guid ToObjectId(this Guid value)
+        {
+            return value;
+            // return ObjectId.Parse(value);
+        }
+
+        public static Guid? TryToObjectId(this Guid value)
+        {
+            return value;
+            /*
+            var success = ObjectId.TryParse(value, out ObjectId objectId);
+            return success ? objectId : (ObjectId?)null;
+            */
+        }
+
+        public static Guid ToObjectId(this Identity<Guid> id)
+        {
+            return ToObjectId(id.Value);
+        }
+
+        public static Guid? TryToObjectId(this Identity<Guid> id)
+        {
+            return TryToObjectId(id.Value);
+        }
+
     }
 }

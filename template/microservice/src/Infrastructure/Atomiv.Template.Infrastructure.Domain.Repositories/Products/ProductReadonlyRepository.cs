@@ -76,7 +76,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         protected Product GetProduct(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id.ToString());
+            var id = new ProductIdentity(productRecord.Id);
             var productCode = productRecord.ProductCode;
             var productName = productRecord.ProductName;
             var listPrice = productRecord.ListPrice;

@@ -3,6 +3,7 @@ using Atomiv.Core.Common.Serialization;
 using Atomiv.Template.Core.Application.Commands.Products;
 using Atomiv.Template.Core.Application.Queries.Products;
 using Atomiv.Template.Web.RestClient.Interface;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace Atomiv.Template.Web.RestClient
 
         public Task<ObjectClientResponse<EditProductCommandResponse>> EditProductAsync(EditProductCommand request, HeaderData header)
         {
-            return Client.PutByIdAsync<string, EditProductCommand, EditProductCommandResponse>(request.Id, request, GetHeaders(header));
+            return Client.PutByIdAsync<Guid, EditProductCommand, EditProductCommandResponse>(request.Id, request, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<RelistProductCommandResponse>> RelistProductAsync(RelistProductCommand request, HeaderData header)
@@ -56,7 +57,7 @@ namespace Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<ViewProductQueryResponse>> ViewProductAsync(ViewProductQuery request, HeaderData header)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<string, ViewProductQueryResponse>(id, GetHeaders(header));
+            return Client.GetByIdAsync<Guid, ViewProductQueryResponse>(id, GetHeaders(header));
         }
 
         #endregion

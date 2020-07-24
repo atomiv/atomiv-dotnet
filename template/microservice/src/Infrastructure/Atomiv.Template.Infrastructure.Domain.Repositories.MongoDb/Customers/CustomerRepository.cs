@@ -75,7 +75,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
 
         private Customer GetCustomer(CustomerRecord customerRecord)
         {
-            var id = new CustomerIdentity(customerRecord.Id.ToString());
+            var id = new CustomerIdentity(customerRecord.Id);
             var referenceNumber = CustomerReferenceNumber.Parse(customerRecord.ReferenceNumber);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;

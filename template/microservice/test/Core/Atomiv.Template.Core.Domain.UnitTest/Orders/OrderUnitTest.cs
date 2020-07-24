@@ -17,17 +17,17 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Orders
         {
             // Arrange
 
-            var id = new OrderIdentity(StringGenerator.NewString());
-            var customerId = new CustomerIdentity(StringGenerator.NewString());
+            var id = new OrderIdentity(Guid.NewGuid());
+            var customerId = new CustomerIdentity(Guid.NewGuid());
             var orderDate = new DateTime(2020, 4, 3);
             var status = OrderStatus.Draft;
             var orderItems = new List<IReadonlyOrderItem>
             {
-                new OrderItem(new OrderItemIdentity(StringGenerator.NewString()), 
-                    new ProductIdentity(StringGenerator.NewString()), 40.56m, 20, OrderItemStatus.Pending),
+                new OrderItem(new OrderItemIdentity(Guid.NewGuid()), 
+                    new ProductIdentity(Guid.NewGuid()), 40.56m, 20, OrderItemStatus.Pending),
 
-                new OrderItem(new OrderItemIdentity(StringGenerator.NewString()),
-                    new ProductIdentity(StringGenerator.NewString()), 57.12m, 30, OrderItemStatus.Allocated),
+                new OrderItem(new OrderItemIdentity(Guid.NewGuid()),
+                    new ProductIdentity(Guid.NewGuid()), 57.12m, 30, OrderItemStatus.Allocated),
             };
 
             // Act
@@ -59,21 +59,19 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Orders
             order.Status.Should().Be(OrderStatus.Cancelled);
         }
 
-
-
         private Order CreateDraftOrder()
         {
-            var id = new OrderIdentity(StringGenerator.NewString());
-            var customerId = new CustomerIdentity(StringGenerator.NewString());
+            var id = new OrderIdentity(Guid.NewGuid());
+            var customerId = new CustomerIdentity(Guid.NewGuid());
             var orderDate = new DateTime(2020, 4, 3);
             var status = OrderStatus.Draft;
             var orderItems = new List<IReadonlyOrderItem>
             {
-                new OrderItem(new OrderItemIdentity(StringGenerator.NewString()),
-                    new ProductIdentity(StringGenerator.NewString()), 40.56m, 20, OrderItemStatus.Pending),
+                new OrderItem(new OrderItemIdentity(Guid.NewGuid()),
+                    new ProductIdentity(Guid.NewGuid()), 40.56m, 20, OrderItemStatus.Pending),
 
-                new OrderItem(new OrderItemIdentity(StringGenerator.NewString()),
-                    new ProductIdentity(StringGenerator.NewString()), 57.12m, 30, OrderItemStatus.Allocated),
+                new OrderItem(new OrderItemIdentity(Guid.NewGuid()),
+                    new ProductIdentity(Guid.NewGuid()), 57.12m, 30, OrderItemStatus.Allocated),
             };
 
             return new Order(id, customerId, orderDate, status, orderItems);

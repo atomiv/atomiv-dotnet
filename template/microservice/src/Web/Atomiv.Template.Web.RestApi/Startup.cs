@@ -186,10 +186,10 @@ namespace Atomiv.Template.Web.RestApi
                 */
             });
 
-            MigrateDatabase(app);
+            // MigrateEfCoreDatabase(app);
         }
 
-        private void MigrateDatabase(IApplicationBuilder app)
+        private void MigrateEfCoreDatabase(IApplicationBuilder app)
         {
             using (var scope = app.ApplicationServices
                 .GetRequiredService<IServiceScopeFactory>()

@@ -1,12 +1,13 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
 using Atomiv.Template.Core.Common.Orders;
 using MongoDB.Bson;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
-    public class OrderItemRecord : Record<ObjectId>
+    public class OrderItemRecord : Record<Guid>
     {
-        public ObjectId ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         public OrderItemStatus StatusId { get; set; }
 

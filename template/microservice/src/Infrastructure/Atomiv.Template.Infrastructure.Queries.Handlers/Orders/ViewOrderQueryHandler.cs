@@ -44,8 +44,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 
             return new ViewOrderQueryResponse
             {
-                Id = record.Id.ToString(),
-                CustomerId = record.CustomerId.ToString(),
+                Id = record.Id,
+                CustomerId = record.CustomerId,
                 Status = record.OrderStatusId,
                 OrderItems = orderItems,
             };
@@ -55,8 +55,8 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
             return new FindOrderItemQueryResponse
             {
-                Id = orderItemRecord.Id.ToString(),
-                ProductId = orderItemRecord.ProductId.ToString(),
+                Id = orderItemRecord.Id,
+                ProductId = orderItemRecord.ProductId,
                 Quantity = orderItemRecord.Quantity,
                 UnitPrice = orderItemRecord.UnitPrice,
                 Status = orderItemRecord.StatusId,

@@ -96,7 +96,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Commands
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var customerId = Guid.NewGuid().ToString();
+            var customerId = Guid.NewGuid();
 
             var createRequest = new CreateOrderCommand
             {
