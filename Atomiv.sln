@@ -203,8 +203,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Identities.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb\Atomiv.Template.Infrastructure.Domain.Identities.MongoDb.csproj", "{6755C353-D68C-4823-A868-CE998670489E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BB58629F-B045-45DD-A9C1-6ADC6967D75F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MongoDb", "src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDb.csproj", "{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}"
@@ -519,10 +517,6 @@ Global
 		{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6755C353-D68C-4823-A868-CE998670489E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6755C353-D68C-4823-A868-CE998670489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6755C353-D68C-4823-A868-CE998670489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6755C353-D68C-4823-A868-CE998670489E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -638,7 +632,6 @@ Global
 		{A078EC18-4D61-4BD1-95CB-19B21822C0CB} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{2CB92DC8-9097-488E-8B15-CDFC0598E571} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{BC8B45EB-1075-4660-8718-9A8D53F2AC7C} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
-		{6755C353-D68C-4823-A868-CE998670489E} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
 		{BB58629F-B045-45DD-A9C1-6ADC6967D75F} = {2D62DCFE-F085-4522-B19D-58FCE451AD9B}
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB} = {BB58629F-B045-45DD-A9C1-6ADC6967D75F}
