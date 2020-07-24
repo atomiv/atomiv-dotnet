@@ -1,5 +1,4 @@
-﻿using Atomiv.Infrastructure.System;
-using Atomiv.Template.Core.Common.Orders;
+﻿using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
 using FluentAssertions;

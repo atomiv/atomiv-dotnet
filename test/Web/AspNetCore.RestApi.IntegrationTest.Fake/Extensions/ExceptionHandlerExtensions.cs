@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
-using Atomiv.Core.Application;
-using Atomiv.Core.Common.Serialization;
 using System;
-using System.Net;
 
 namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
 {

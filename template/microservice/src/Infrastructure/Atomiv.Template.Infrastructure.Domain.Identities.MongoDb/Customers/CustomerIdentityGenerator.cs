@@ -1,5 +1,4 @@
-﻿using Atomiv.Infrastructure.MongoDb;
-using Atomiv.Infrastructure.SequentialGuid;
+﻿using Atomiv.Infrastructure.SequentialGuid;
 using Atomiv.Template.Core.Domain.Customers;
 using System;
 

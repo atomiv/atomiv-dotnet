@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
-using System;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 
 namespace Atomiv.Template.Tools.Migrator

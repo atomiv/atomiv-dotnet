@@ -2,7 +2,6 @@
 using Atomiv.Web.AspNetCore;
 using Atomiv.Web.AspNetCore.ExceptionProblemDetailsFactories;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Reflection;
 
 namespace Atomiv.DependencyInjection.Web.AspNetCore

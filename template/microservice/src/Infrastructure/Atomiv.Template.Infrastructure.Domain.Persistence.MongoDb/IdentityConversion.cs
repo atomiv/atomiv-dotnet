@@ -1,5 +1,4 @@
 ﻿using Atomiv.Core.Domain;
-using MongoDB.Bson;
 using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
