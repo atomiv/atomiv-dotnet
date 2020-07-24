@@ -209,8 +209,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Mongo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Web.AspNetCore", "src\DependencyInjection\Web\AspNetCore\Atomiv.DependencyInjection.Web.AspNetCore.csproj", "{6D1B51C2-B3B4-49B6-946C-926844B6DACB}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{17731AFC-97AE-49A7-9F24-D4FB8BB02E28}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -525,10 +523,6 @@ Global
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17731AFC-97AE-49A7-9F24-D4FB8BB02E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17731AFC-97AE-49A7-9F24-D4FB8BB02E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17731AFC-97AE-49A7-9F24-D4FB8BB02E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17731AFC-97AE-49A7-9F24-D4FB8BB02E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Infrastructure.System
 {
-    public abstract class IdentityGenerator<TIdentity> : IGenerator<TIdentity>, IIdentityGenerator<TIdentity>
+    public abstract class IdentityGenerator<TIdentity> : IGenerator<TIdentity>
     {
         public TIdentity Next()
         {

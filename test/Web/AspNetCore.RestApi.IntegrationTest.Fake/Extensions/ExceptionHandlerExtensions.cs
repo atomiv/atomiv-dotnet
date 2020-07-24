@@ -22,7 +22,7 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
 
                         await exceptionHandler.HandleAsync(context, exception);
                     }
-                    catch(Exception ex)
+                    catch(Exception)
                     {
                         throw;
                     }

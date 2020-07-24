@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Atomiv.Infrastructure.MongoDb
 {
-    public abstract class StringIdentityGenerator<TIdentity> : IGenerator<TIdentity>, IIdentityGenerator<TIdentity>
+    public abstract class StringIdentityGenerator<TIdentity> : IGenerator<TIdentity>
     {
         public TIdentity Next()
         {

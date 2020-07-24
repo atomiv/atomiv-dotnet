@@ -3,7 +3,7 @@ using SequentialGuid;
 
 namespace Atomiv.Infrastructure.SequentialGuid
 {
-    public abstract class StringIdentityGenerator<TIdentity> : IGenerator<TIdentity>, IIdentityGenerator<TIdentity>
+    public abstract class StringIdentityGenerator<TIdentity> : IGenerator<TIdentity>
     {
         public TIdentity Next()
         {

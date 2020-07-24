@@ -13,7 +13,7 @@ namespace Atomiv.DependencyInjection.Core.Domain
         private static Type FactoryType = typeof(IFactory);
         private static Type ServiceType = typeof(IService);
         private static Type GeneratorType = typeof(IGenerator<>);
-        private static Type IdentityGeneratorType = typeof(IIdentityGenerator<>);
+        private static Type IdentityGeneratorType = typeof(IGenerator<>);
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
