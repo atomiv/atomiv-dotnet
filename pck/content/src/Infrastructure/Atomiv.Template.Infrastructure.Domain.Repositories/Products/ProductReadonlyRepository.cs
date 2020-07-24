@@ -17,15 +17,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public Task<bool> ExistsAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToGuid();
-
-            if(productRecordId == null)
-            {
-                return Task.FromResult(false);
-            }
-
             return Context.Products.AsNoTracking()
-                .AnyAsync(e => e.Id == productRecordId);
+                .AnyAsync(e => e.Id == productId);
         }
 
         public Task<long> CountAsync()
@@ -36,15 +29,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToGuid();
-
-            if(productRecordId == null)
-            {
-                return null;
-            }
-
             var productRecord = await Context.Products.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == productRecordId);
+                .FirstOrDefaultAsync(e => e.Id == productId);
 
             if (productRecord == null)
             {
@@ -57,8 +43,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds
-                .Select(e => e.TryToGuid())
-                .Where(e => e != null)
+                .Select(e => e.Value)
                 .ToList();
 
             var productRecords = await Context.Products.AsNoTracking()
@@ -76,7 +61,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
         protected Product GetProduct(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id.ToString());
+            var id = new ProductIdentity(productRecord.Id);
             var productCode = productRecord.ProductCode;
             var productName = productRecord.ProductName;
             var listPrice = productRecord.ListPrice;

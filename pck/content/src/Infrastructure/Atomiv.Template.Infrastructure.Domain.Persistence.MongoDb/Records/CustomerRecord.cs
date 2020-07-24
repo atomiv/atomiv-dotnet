@@ -1,9 +1,9 @@
 ﻿using Atomiv.Infrastructure.MongoDb;
-using MongoDB.Bson;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
 {
-    public class CustomerRecord : Record<ObjectId>
+    public class CustomerRecord : Record<Guid>
     {
         public string ReferenceNumber { get; set; }
 

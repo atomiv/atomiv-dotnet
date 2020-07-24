@@ -15,12 +15,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
 
         public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
         {
-            var productRecordId = request.Id.TryToObjectId();
-
-            if(productRecordId == null)
-            {
-                throw new ExistenceException();
-            }
+            var productRecordId = request.Id;
 
             var productRecord = await Context.Products
                 .Find(e => e.Id == productRecordId)
@@ -38,7 +33,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
         {
             return new ViewProductQueryResponse
             {
-                Id = productRecord.Id.ToString(),
+                Id = productRecord.Id,
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

@@ -3,6 +3,7 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Application.Queries.Orders;
 using System.Threading.Tasks;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.Controllers
 {
@@ -21,7 +22,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/cancel", Name = "cancel-order")]
         [ProducesResponseType(typeof(CancelOrderCommandResponse), 200)]
-        public async Task<ActionResult<CancelOrderCommandResponse>> CancelOrderAsync(string id)
+        public async Task<ActionResult<CancelOrderCommandResponse>> CancelOrderAsync(Guid id)
         {
             var request = new CancelOrderCommand { Id = id };
             var response = await _messageBus.SendAsync(request);
@@ -38,7 +39,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPut("{id}", Name = "edit-order")]
         [ProducesResponseType(typeof(EditOrderCommandResponse), 201)]
-        public async Task<ActionResult<EditOrderCommandResponse>> UpdateOrderAsync(string id, EditOrderCommand request)
+        public async Task<ActionResult<EditOrderCommandResponse>> UpdateOrderAsync(Guid id, EditOrderCommand request)
         {
             if (id != request.Id)
             {
@@ -51,7 +52,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
 
         [HttpPost("{id}/submit", Name = "submit-order")]
         [ProducesResponseType(typeof(SubmitOrderCommandResponse), 200)]
-        public async Task<ActionResult<SubmitOrderCommandResponse>> SubmitOrderAsync(string id)
+        public async Task<ActionResult<SubmitOrderCommandResponse>> SubmitOrderAsync(Guid id)
         {
             var request = new SubmitOrderCommand { Id = id };
             var response = await _messageBus.SendAsync(request);
@@ -89,7 +90,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(ViewOrderQueryResponse), 200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<ViewOrderQueryResponse>> ViewOrderAsync(string id)
+        public async Task<ActionResult<ViewOrderQueryResponse>> ViewOrderAsync(Guid id)
         {
             var request = new ViewOrderQuery { Id = id };
             var response = await _messageBus.SendAsync(request);

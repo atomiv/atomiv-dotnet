@@ -42,7 +42,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
         {
             return new BrowseProductsRecordResponse
             {
-                Id = productRecord.Id.ToString(),
+                Id = productRecord.Id,
                 Code = productRecord.ProductCode,
                 Description = productRecord.ProductName,
                 UnitPrice = productRecord.ListPrice,

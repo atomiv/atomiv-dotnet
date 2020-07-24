@@ -3,7 +3,7 @@ using Atomiv.Template.Core.Application.Queries.Orders;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
-using Atomiv.Infrastructure.System;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 {
@@ -47,7 +47,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Orders.Queries
 
             var header = await GetDefaultHeaderDataAsync();
 
-            var id = StringGenerator.NewString();
+            var id = Guid.NewGuid();
 
             var findRequest = new ViewOrderQuery { Id = id };
 

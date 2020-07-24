@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
-using Atomiv.Infrastructure.System;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 {
@@ -95,7 +95,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Customers.Queries
 
             // Act
 
-            var id = StringGenerator.NewString();
+            var id = Guid.NewGuid();
             var findRequest = new ViewCustomerQuery { Id = id };
             var findHttpResponse = await Fixture.Api.Customers.ViewCustomerAsync(findRequest, header);
 

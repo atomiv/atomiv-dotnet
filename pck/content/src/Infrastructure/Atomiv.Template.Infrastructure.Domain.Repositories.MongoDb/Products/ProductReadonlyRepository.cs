@@ -23,29 +23,15 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public Task<bool> ExistsAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToObjectId();
-
-            if(productRecordId == null)
-            {
-                return Task.FromResult(false);
-            }
-
             return Context.Products
-                .Find(e => e.Id == productRecordId)
+                .Find(e => e.Id == productId)
                 .AnyAsync();
         }
 
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToObjectId();
-
-            if(productRecordId == null)
-            {
-                return null;
-            }
-
             var productRecord = await Context.Products
-                .Find(e => e.Id == productRecordId)
+                .Find(e => e.Id == productId)
                 .FirstOrDefaultAsync();
 
             if (productRecord == null)
@@ -59,8 +45,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds
-                .Select(e => e.Value.TryToObjectId())
-                .Where(e => e != null)
+                .Select(e => e.Value)
                 .ToList();
 
             var productRecordFilter = Builders<ProductRecord>.Filter
@@ -81,7 +66,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         protected Product GetProduct(ProductRecord productRecord)
         {
-            var id = new ProductIdentity(productRecord.Id.ToString());
+            var id = new ProductIdentity(productRecord.Id);
             var productCode = productRecord.ProductCode;
             var productName = productRecord.ProductName;
             var listPrice = productRecord.ListPrice;

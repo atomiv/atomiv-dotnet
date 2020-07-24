@@ -40,7 +40,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 
         private ListCustomersRecordResponse GetResponse(CustomerRecord customerRecord)
         {
-            var id = customerRecord.Id.ToString();
+            var id = customerRecord.Id;
             var name = $"{customerRecord.FirstName} {customerRecord.LastName}";
 
             return new ListCustomersRecordResponse

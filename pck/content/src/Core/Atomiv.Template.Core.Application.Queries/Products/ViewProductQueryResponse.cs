@@ -1,8 +1,10 @@
-﻿namespace Atomiv.Template.Core.Application.Queries.Products
+﻿using System;
+
+namespace Atomiv.Template.Core.Application.Queries.Products
 {
     public class ViewProductQueryResponse
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Code { get; set; }
 

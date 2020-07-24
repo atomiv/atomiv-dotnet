@@ -3,6 +3,7 @@ using Atomiv.Core.Common.Serialization;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Web.RestClient.Interface;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -26,12 +27,12 @@ namespace Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<DeleteCustomerCommandResponse>> DeleteCustomerAsync(DeleteCustomerCommand request, HeaderData header)
         {
             var id = request.Id;
-            return Client.DeleteByIdAsync<string, DeleteCustomerCommandResponse>(id, GetHeaders(header));
+            return Client.DeleteByIdAsync<Guid, DeleteCustomerCommandResponse>(id, GetHeaders(header));
         }
 
         public Task<ObjectClientResponse<EditCustomerCommandResponse>> EditCustomerAsync(EditCustomerCommand request, HeaderData header)
         {
-            return Client.PutByIdAsync<string, EditCustomerCommand, EditCustomerCommandResponse>(request.Id, request, GetHeaders(header));
+            return Client.PutByIdAsync<Guid, EditCustomerCommand, EditCustomerCommandResponse>(request.Id, request, GetHeaders(header));
         }
 
         #endregion
@@ -51,7 +52,7 @@ namespace Atomiv.Template.Web.RestClient
         public Task<ObjectClientResponse<ViewCustomerQueryResponse>> ViewCustomerAsync(ViewCustomerQuery request, HeaderData header)
         {
             var id = request.Id;
-            return Client.GetByIdAsync<string, ViewCustomerQueryResponse>(id, GetHeaders(header));
+            return Client.GetByIdAsync<Guid, ViewCustomerQueryResponse>(id, GetHeaders(header));
         }
 
         #endregion

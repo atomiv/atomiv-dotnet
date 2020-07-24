@@ -1,8 +1,8 @@
-﻿using Atomiv.Infrastructure.System;
-using Atomiv.Template.Core.Common.Orders;
+﻿using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
 using FluentAssertions;
+using System;
 using Xunit;
 
 namespace Atomiv.Template.Core.Domain.UnitTest.Orders
@@ -14,8 +14,8 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Orders
         {
             // Arrange
 
-            var id = new OrderItemIdentity(StringGenerator.NewString());
-            var productId = new ProductIdentity(StringGenerator.NewString());
+            var id = new OrderItemIdentity(Guid.NewGuid());
+            var productId = new ProductIdentity(Guid.NewGuid());
             var unitPrice = 20.56m;
             var quantity = 4;
             var status = OrderItemStatus.Allocated;
@@ -38,8 +38,8 @@ namespace Atomiv.Template.Core.Domain.UnitTest.Orders
         {
             // Arrange
 
-            var id = new OrderItemIdentity(StringGenerator.NewString());
-            var productId = new ProductIdentity(StringGenerator.NewString());
+            var id = new OrderItemIdentity(Guid.NewGuid());
+            var productId = new ProductIdentity(Guid.NewGuid());
             var unitPrice = 20.56m;
             var quantity = 4;
             var status = OrderItemStatus.Allocated;

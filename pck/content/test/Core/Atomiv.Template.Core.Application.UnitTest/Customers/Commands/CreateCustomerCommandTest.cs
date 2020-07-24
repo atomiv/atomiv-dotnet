@@ -27,7 +27,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 LastName = "Smith",
             };
 
-            var id = "926a4480-61f5-416a-a16f-5c722d8463f7";
+            var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
             var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC12");
             var customer = new Customer(new CustomerIdentity(id), referenceNumber, "Mary", "Smith"); ;
 

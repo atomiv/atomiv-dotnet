@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
-    <UserSecretsId>36463df0-b0cf-42ea-8e72-1ce92bfe035e</UserSecretsId>
+    <DockerComposeProjectPath>..\..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>44cf5307-bf11-4418-b067-683a91b4d782</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..</DockerfileContext>
+    <DockerfileContext>..\..\..\..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="1.0.38" />
-<PackageReference Include="Atomiv.Web.AspNetCore" Version="1.0.38" />
+<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="1.0.40" />
+<PackageReference Include="Atomiv.Web.AspNetCore" Version="1.0.40" />
     <ProjectReference Include="..\..\DependencyInjection\Atomiv.Template.DependencyInjection\Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>
 

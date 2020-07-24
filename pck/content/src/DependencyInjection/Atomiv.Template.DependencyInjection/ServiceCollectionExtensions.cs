@@ -53,6 +53,7 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Authorization.Module),
                 typeof(Infrastructure.Commands.Mapping.Module),
                 typeof(Infrastructure.Commands.Validation.Module),
+                typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Services.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
@@ -73,7 +74,6 @@ namespace Atomiv.Template.DependencyInjection
         {
             return new List<Type>
             {
-                typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Persistence.Module),
                 typeof(Infrastructure.Domain.Repositories.Module),
                 typeof(Infrastructure.Queries.Handlers.Module),
@@ -84,7 +84,6 @@ namespace Atomiv.Template.DependencyInjection
         {
             return new List<Type>
             {
-                typeof(Infrastructure.Domain.Identities.MongoDb.Module),
                 typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
                 typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
                 typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
@@ -131,7 +130,7 @@ namespace Atomiv.Template.DependencyInjection
 
             services.AddDbContext<DatabaseContext>(options =>
             {
-                options.UseSqlServer(connection, e => 
+                options.UseSqlServer(connection, e =>
                 {
                     e.MigrationsAssembly(assemblyName);
                 });

@@ -23,7 +23,7 @@ namespace Atomiv.Template.Web.RestApi.Extensions
 
                         await exceptionHandler.HandleAsync(context, exception);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         throw;
                     }

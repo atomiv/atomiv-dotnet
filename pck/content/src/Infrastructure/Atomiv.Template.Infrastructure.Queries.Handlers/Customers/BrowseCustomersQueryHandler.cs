@@ -40,7 +40,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
         {
             return new BrowseCustomersRecordResponse
             {
-                Id = customerRecord.Id.ToString(),
+                Id = customerRecord.Id,
                 FirstName = customerRecord.FirstName,
                 LastName = customerRecord.LastName,
             };

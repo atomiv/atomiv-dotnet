@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Atomiv.Template.Core.Application.Queries.Products
 {
@@ -11,7 +12,7 @@ namespace Atomiv.Template.Core.Application.Queries.Products
 
     public class ListProductsRecordQueryResponse
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }

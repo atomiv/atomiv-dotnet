@@ -16,15 +16,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task<Customer> FindAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.TryToGuid();
-
-            if(customerRecordId == null)
-            {
-                return null;
-            }
-
             var customerRecord = await Context.Customers.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customerId);
 
             if (customerRecord == null)
             {
@@ -43,10 +36,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task RemoveAsync(CustomerIdentity customerId)
         {
-            var customerRecordId = customerId.TryToGuid();
-
             var customerRecord = await Context.Customers
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customerId);
 
             Context.Remove(customerRecord);
             await Context.SaveChangesAsync();
@@ -54,10 +45,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         public async Task UpdateAsync(Customer customer)
         {
-            var customerRecordId = customer.Id.ToGuid();
-
             var customerRecord = await Context.Customers
-                .FirstOrDefaultAsync(e => e.Id == customerRecordId);
+                .FirstOrDefaultAsync(e => e.Id == customer.Id);
 
             UpdateCustomerRecord(customerRecord, customer);
 
@@ -78,7 +67,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
         {
             return new CustomerRecord
             {
-                Id = customer.Id.ToGuid(),
+                Id = customer.Id,
                 ReferenceNumber = customer.ReferenceNumber.ToString(),
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
@@ -87,7 +76,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         private void UpdateCustomerRecord(CustomerRecord customerRecord, Customer customer)
         {
-            customerRecord.Id = customer.Id.ToGuid();
+            customerRecord.Id = customer.Id;
             customerRecord.ReferenceNumber = customer.ReferenceNumber.ToString();
             customerRecord.FirstName = customer.FirstName;
             customerRecord.LastName = customer.LastName;
@@ -95,7 +84,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
         private Customer GetCustomer(CustomerRecord customerRecord)
         {
-            var id = new CustomerIdentity(customerRecord.Id.ToString());
+            var id = new CustomerIdentity(customerRecord.Id);
             var referenceNumber = CustomerReferenceNumber.Parse(customerRecord.ReferenceNumber);
             var firstName = customerRecord.FirstName;
             var lastName = customerRecord.LastName;

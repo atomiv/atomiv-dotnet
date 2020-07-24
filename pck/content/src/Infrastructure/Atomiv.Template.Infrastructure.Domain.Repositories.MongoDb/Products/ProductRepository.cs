@@ -23,15 +23,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public async Task<Product> FindAsync(ProductIdentity productId)
         {
-            var productRecordId = productId.TryToObjectId();
-
-            if(productRecordId == null)
-            {
-                return null;
-            }
-
             var productRecord = await Context.Products
-                .Find(e => e.Id == productRecordId)
+                .Find(e => e.Id == productId)
                 .FirstOrDefaultAsync();
 
             if (productRecord == null)
@@ -56,10 +49,8 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
 
         public Task UpdateAsync(Product product)
         {
-            var productRecordId = product.Id.ToObjectId();
-
             var filter = Builders<ProductRecord>.Filter
-                .Eq(e => e.Id, productRecordId);
+                .Eq(e => e.Id, product.Id);
 
             var productRecord = GetProductRecord(product);
 
@@ -72,7 +63,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
         {
             return new ProductRecord
             {
-                Id = product.Id.ToObjectId(),
+                Id = product.Id,
                 ProductCode = product.ProductCode,
                 ProductName = product.ProductName,
                 ListPrice = product.ListPrice,

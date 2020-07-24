@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Atomiv.Template.Core.Domain.Orders;
+using System;
 
 namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
 {
@@ -7,10 +8,10 @@ namespace Atomiv.Template.Infrastructure.Commands.Mapping.Common
     {
         public OrderIdentityProfile()
         {
-            CreateMap<OrderIdentity, string>()
+            CreateMap<OrderIdentity, Guid>()
                 .ConvertUsing(src => src.Value);
 
-            CreateMap<OrderItemIdentity, string>()
+            CreateMap<OrderItemIdentity, Guid>()
                 .ConvertUsing(src => src.Value);
         }
     }
