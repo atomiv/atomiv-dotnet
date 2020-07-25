@@ -104,6 +104,11 @@ The architecture consists of the following layers:
 To report any issues and bugs, or if you have any suggestions for improvements and new features, please create a ticket using the [Issue Tracker](https://github.com/atomiv/atomiv-cs/issues).
 
 <a name="license" />
+
+## Contributing
+
+You can open up the solution Atomiv.sln and make edits on the develop branch (or pull request).
+
 ## License
 
 Licensed under the [MIT license](http://opensource.org/licenses/mit-license.php). This means you're free to use it for commercial and non-commercial purposes.
