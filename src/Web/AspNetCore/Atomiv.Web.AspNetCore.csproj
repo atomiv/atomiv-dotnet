@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\..\Core\Common\Atomiv.Core.Common.csproj" />
   </ItemGroup>
 

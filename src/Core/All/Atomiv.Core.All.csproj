@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\Common\Atomiv.Core.Common.csproj" />
     <ProjectReference Include="..\Domain\Atomiv.Core.Domain.csproj" />

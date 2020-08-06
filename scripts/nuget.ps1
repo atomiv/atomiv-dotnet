@@ -34,7 +34,6 @@ $projects = @(
 	
     'src\Core\All\Atomiv.Core.All.csproj',	
     'src\Core\Application\Atomiv.Core.Application.csproj',
-    'src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj',
     'src\Core\Common\Atomiv.Core.Common.csproj',
     'src\Core\Domain\Atomiv.Core.Domain.csproj',
 	

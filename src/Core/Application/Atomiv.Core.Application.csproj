@@ -25,7 +25,6 @@
   </ItemGroup>
     
   <ItemGroup>
-    <ProjectReference Include="..\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Domain\Atomiv.Core.Domain.csproj" />
   </ItemGroup>
 
