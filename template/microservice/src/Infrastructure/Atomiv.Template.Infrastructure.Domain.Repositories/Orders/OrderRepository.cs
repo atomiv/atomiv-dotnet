@@ -8,8 +8,6 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
-using SequentialGuid;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 {

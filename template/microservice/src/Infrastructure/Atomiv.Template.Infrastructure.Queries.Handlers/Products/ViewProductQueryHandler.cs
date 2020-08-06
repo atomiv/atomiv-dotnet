@@ -4,7 +4,6 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
 {

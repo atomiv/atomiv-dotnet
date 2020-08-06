@@ -4,7 +4,6 @@ using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 {

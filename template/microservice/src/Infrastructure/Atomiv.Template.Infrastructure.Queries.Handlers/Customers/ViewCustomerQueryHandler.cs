@@ -7,7 +7,6 @@ using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 {

@@ -6,7 +6,6 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {

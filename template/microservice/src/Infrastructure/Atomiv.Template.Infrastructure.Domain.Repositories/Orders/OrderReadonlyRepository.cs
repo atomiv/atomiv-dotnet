@@ -2,7 +2,6 @@
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 {
