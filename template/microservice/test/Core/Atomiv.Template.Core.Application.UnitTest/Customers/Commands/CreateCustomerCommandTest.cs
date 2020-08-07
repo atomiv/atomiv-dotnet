@@ -13,14 +13,24 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
     public class CreateCustomerCommandTest
     {
+        private readonly Mock<IApplicationUserContext> _applicationUserContextMock;
+        private readonly Mock<ICustomerFactory> _customerFactoryMock;
+        private readonly Mock<ICustomerRepository> _customerRepositoryMock;
+        private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+        private readonly Mock<IMapper> _mapperMock;
+
+        public CreateCustomerCommandTest()
+        {
+            _applicationUserContextMock = new Mock<IApplicationUserContext>();
+            _customerFactoryMock = new Mock<ICustomerFactory>();
+            _customerRepositoryMock = new Mock<ICustomerRepository>();
+            _unitOfWorkMock = new Mock<IUnitOfWork>();
+            _mapperMock = new Mock<IMapper>();
+        }
+
         [Fact]
         public async Task HandleAsync_Valid()
         {
-            var applicationUserContextMock = new Mock<IApplicationUserContext>();
-            var customerFactoryMock = new Mock<ICustomerFactory>();
-            var customerRepositoryMock = new Mock<ICustomerRepository>();
-            var mapperMock = new Mock<IMapper>();
-
             var command = new CreateCustomerCommand
             {
                 FirstName = "Mary",
@@ -38,27 +48,31 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 LastName = "Smith",
             };
 
-            customerFactoryMock
+            _customerFactoryMock
                 .Setup(e => e.CreateCustomer("Mary", "Smith"))
                 .Returns(customer);
 
-            customerRepositoryMock
+            _customerRepositoryMock
                 .Setup(e => e.AddAsync(customer));
 
-            mapperMock
+            _unitOfWorkMock
+                .Setup(e => e.CommitAsync());
+
+            _mapperMock
                 .Setup(e => e.Map<Customer, CreateCustomerCommandResponse>(customer))
                 .Returns(expectedResponse);
 
-            var handler = new CreateCustomerCommandHandler(applicationUserContextMock.Object,
-                customerFactoryMock.Object,
-                customerRepositoryMock.Object,
-                mapperMock.Object);
+            var handler = new CreateCustomerCommandHandler(_applicationUserContextMock.Object,
+                _customerFactoryMock.Object,
+                _customerRepositoryMock.Object,
+                _unitOfWorkMock.Object,
+                _mapperMock.Object);
 
             var response = await handler.HandleAsync(command);
 
-            customerFactoryMock.Verify(e => e.CreateCustomer("Mary", "Smith"), Times.Once());
-            customerRepositoryMock.Verify(e => e.AddAsync(customer), Times.Once());
-            mapperMock.Verify(e => e.Map<Customer, CreateCustomerCommandResponse>(customer), Times.Once());
+            _customerFactoryMock.Verify(e => e.CreateCustomer("Mary", "Smith"), Times.Once());
+            _customerRepositoryMock.Verify(e => e.AddAsync(customer), Times.Once());
+            _mapperMock.Verify(e => e.Map<Customer, CreateCustomerCommandResponse>(customer), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

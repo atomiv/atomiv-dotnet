@@ -13,26 +13,28 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IApplicationContext _applicationContext;
-
-        private readonly IMapper _mapper;
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderFactory _orderFactory;
         private readonly ICustomerReadonlyRepository _customerReadonlyRepository;
         private readonly IProductReadonlyRepository _productReadonlyRepository;
-        private readonly IOrderFactory _orderFactory;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public CreateOrderCommandHandler(IApplicationContext applicationContext,
-            IMapper mapper, 
-            IOrderRepository orderRepository,
+            IOrderFactory orderFactory,
             ICustomerReadonlyRepository customerReadonlyRepository,
             IProductReadonlyRepository productReadonlyRepository,
-            IOrderFactory orderFactory)
+            IOrderRepository orderRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _applicationContext = applicationContext;
-            _mapper = mapper;
-            _orderRepository = orderRepository;
+            _orderFactory = orderFactory;
             _customerReadonlyRepository = customerReadonlyRepository;
             _productReadonlyRepository = productReadonlyRepository;
-            _orderFactory = orderFactory;
+            _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand request)
@@ -40,6 +42,8 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             var order = await GetOrderAsync(request);
 
             await _orderRepository.AddAsync(order);
+
+            await _unitOfWork.CommitAsync();
 
             var response = _mapper.Map<Order, CreateOrderCommandResponse>(order);
             return response;

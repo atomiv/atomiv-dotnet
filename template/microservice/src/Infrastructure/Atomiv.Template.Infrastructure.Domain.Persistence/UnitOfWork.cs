@@ -1,4 +1,5 @@
-﻿using Atomiv.Core.Domain;
+﻿using Atomiv.Core.Application;
+using Atomiv.Core.Domain;
 using Atomiv.Infrastructure.EntityFrameworkCore;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.Common

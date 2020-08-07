@@ -12,12 +12,20 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
     public class UpdateCustomerCommandTest
     {
+        private readonly Mock<ICustomerRepository> _customerRepositoryMock;
+        private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+        private readonly Mock<IMapper> _mapperMock;
+
+        public UpdateCustomerCommandTest()
+        {
+            _customerRepositoryMock = new Mock<ICustomerRepository>();
+            _unitOfWorkMock = new Mock<IUnitOfWork>();
+            _mapperMock = new Mock<IMapper>();
+        }
+
         [Fact]
         public async Task HandleAsync_Valid()
         {
-            var customerRepositoryMock = new Mock<ICustomerRepository>();
-            var mapperMock = new Mock<IMapper>();
-
             var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
 
             var command = new EditCustomerCommand
@@ -40,25 +48,26 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 LastName = "Smith 2",
             };
 
-            customerRepositoryMock
+            _customerRepositoryMock
                 .Setup(e => e.FindAsync(customerId))
                 .ReturnsAsync(customer);
 
-            customerRepositoryMock
+            _customerRepositoryMock
                 .Setup(e => e.UpdateAsync(updatedCustomer));
 
-            mapperMock
+            _mapperMock
                 .Setup(e => e.Map<Customer, EditCustomerCommandResponse>(updatedCustomer))
                 .Returns(expectedResponse);
 
-            var handler = new EditCustomerCommandHandler(customerRepositoryMock.Object,
-                mapperMock.Object);
+            var handler = new EditCustomerCommandHandler(_customerRepositoryMock.Object,
+                _unitOfWorkMock.Object,
+                _mapperMock.Object);
 
             var response = await handler.HandleAsync(command);
 
-            customerRepositoryMock.Verify(e => e.FindAsync(customerId), Times.Once());
-            customerRepositoryMock.Verify(e => e.UpdateAsync(updatedCustomer), Times.Once());
-            mapperMock.Verify(e => e.Map<Customer, EditCustomerCommandResponse>(customer), Times.Once());
+            _customerRepositoryMock.Verify(e => e.FindAsync(customerId), Times.Once());
+            _customerRepositoryMock.Verify(e => e.UpdateAsync(updatedCustomer), Times.Once());
+            _mapperMock.Verify(e => e.Map<Customer, EditCustomerCommandResponse>(customer), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

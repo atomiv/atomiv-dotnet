@@ -7,13 +7,17 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
     public class RelistProductCommandHandler : IRequestHandler<RelistProductCommand, RelistProductCommandResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public RelistProductCommandHandler(IMapper mapper, IProductRepository productRepository)
+        public RelistProductCommandHandler(IProductRepository productRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<RelistProductCommandResponse> HandleAsync(RelistProductCommand request)
@@ -30,6 +34,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             product.Relist();
 
             await _productRepository.UpdateAsync(product);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Product, RelistProductCommandResponse>(product);
         }
     }

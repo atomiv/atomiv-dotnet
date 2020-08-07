@@ -1,4 +1,4 @@
-﻿namespace Atomiv.Core.Domain
+﻿namespace Atomiv.Core.Application
 {
     public interface IUnitOfWorkFactory
     {

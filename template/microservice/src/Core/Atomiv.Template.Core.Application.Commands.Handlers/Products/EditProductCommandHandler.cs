@@ -7,13 +7,17 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
     public class EditProductCommandHandler : IRequestHandler<EditProductCommand, EditProductCommandResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public EditProductCommandHandler(IMapper mapper, IProductRepository productRepository)
+        public EditProductCommandHandler(IProductRepository productRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<EditProductCommandResponse> HandleAsync(EditProductCommand request)
@@ -31,8 +35,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 
             await _productRepository.UpdateAsync(product);
 
-            var response = _mapper.Map<Product, EditProductCommandResponse>(product);
-            return response;
+            await _unitOfWork.CommitAsync();
+
+            return _mapper.Map<Product, EditProductCommandResponse>(product);
         }
 
         private void Update(Product product, EditProductCommand request)

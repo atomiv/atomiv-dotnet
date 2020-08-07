@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Atomiv.Core.Domain
+namespace Atomiv.Core.Application
 {
     public interface IUnitOfWork : IDisposable
     {
-        void Begin();
-
         Task BeginAsync();
 
-        void SaveChanges();
-
-        Task SaveChangesAsync();
-
-        void Commit();
+        Task CommitAsync();
     }
 }

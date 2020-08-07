@@ -15,11 +15,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         {
         }
 
-        public async Task AddAsync(Product product)
+        public Task AddAsync(Product product)
         {
             var productRecord = GetProductRecord(product);
             Context.Products.Add(productRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public async Task UpdateAsync(Product product)
@@ -29,15 +29,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
             UpdateProductRecord(productRecord, product);
 
-            try
-            {
-                Context.Products.Update(productRecord);
-                await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
+            Context.Products.Update(productRecord);
         }
 
         public async Task<Product> FindAsync(ProductIdentity productId)

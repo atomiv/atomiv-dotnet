@@ -17,18 +17,18 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         {
         }
 
-        public async Task AddAsync(Order order)
+        public Task AddAsync(Order order)
         {
             var orderRecord = GetOrderRecord(order);
             Context.Orders.Add(orderRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
-        public async Task RemoveAsync(OrderIdentity orderId)
+        public Task RemoveAsync(OrderIdentity orderId)
         {
             var orderRecord = GetOrderRecord(orderId);
             Context.Remove(orderRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public async Task UpdateAsync(Order order)
@@ -39,15 +39,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
             UpdateOrderRecord(orderRecord, order);
 
-            try
-            {
-                Context.Orders.Update(orderRecord);
-                await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
+            Context.Orders.Update(orderRecord);
         }
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {

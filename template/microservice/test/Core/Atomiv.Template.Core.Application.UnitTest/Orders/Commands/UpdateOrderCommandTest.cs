@@ -16,16 +16,18 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
 {
     public class UpdateOrderCommandTest
     {
-        private readonly Mock<IOrderRepository> _orderRepositoryMock;
-        private readonly Mock<IProductReadonlyRepository> _productReadonlyRepositoryMock;
         private readonly Mock<IOrderFactory> _orderFactoryMock;
+        private readonly Mock<IProductReadonlyRepository> _productReadonlyRepositoryMock;
+        private readonly Mock<IOrderRepository> _orderRepositoryMock;
+        private readonly Mock<IUnitOfWork> _unitOfWorkMock;
         private readonly Mock<IMapper> _mapperMock;
 
         public UpdateOrderCommandTest()
         {
-            _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
-            _productReadonlyRepositoryMock = new Mock<IProductReadonlyRepository>(MockBehavior.Strict);
             _orderFactoryMock = new Mock<IOrderFactory>(MockBehavior.Strict);
+            _productReadonlyRepositoryMock = new Mock<IProductReadonlyRepository>(MockBehavior.Strict);
+            _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
+            _unitOfWorkMock = new Mock<IUnitOfWork>(MockBehavior.Strict);
             _mapperMock = new Mock<IMapper>(MockBehavior.Strict);
         }
 
@@ -140,6 +142,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 .Setup(e => e.UpdateAsync(expectedUpdatedOrder))
                 .Returns(Task.CompletedTask);
 
+            _unitOfWorkMock
+                .Setup(e => e.CommitAsync())
+                .Returns(Task.CompletedTask);
+
             _mapperMock
                 .Setup(e => e.Map<Order, EditOrderCommandResponse>(expectedUpdatedOrder))
                 .Returns(expectedResponse);
@@ -147,9 +153,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
 
             // Act
 
-            var handler = new EditOrderCommandHandler(_orderRepositoryMock.Object,
+            var handler = new EditOrderCommandHandler(_orderFactoryMock.Object,
                 _productReadonlyRepositoryMock.Object,
-                _orderFactoryMock.Object,
+                _orderRepositoryMock.Object,
+                _unitOfWorkMock.Object,
                 _mapperMock.Object);
 
             // Assert

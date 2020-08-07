@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Atomiv.Core.Application;
 
 namespace Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
 {

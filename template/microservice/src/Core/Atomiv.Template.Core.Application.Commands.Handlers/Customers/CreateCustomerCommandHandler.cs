@@ -11,13 +11,19 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
         private readonly IApplicationUserContext _applicationUserContext;
         private readonly ICustomerFactory _customerFactory;
         private readonly ICustomerRepository _customerRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public CreateCustomerCommandHandler(IApplicationUserContext applicationUserContext, ICustomerFactory customerFactory, ICustomerRepository customerRepository, IMapper mapper)
+        public CreateCustomerCommandHandler(IApplicationUserContext applicationUserContext, 
+            ICustomerFactory customerFactory, 
+            ICustomerRepository customerRepository, 
+            IUnitOfWork unitOfWork, 
+            IMapper mapper)
         {
             _applicationUserContext = applicationUserContext;
             _customerFactory = customerFactory;
             _customerRepository = customerRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
@@ -34,6 +40,8 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             var customer = CreateCustomer(request);
 
             await _customerRepository.AddAsync(customer);
+
+            await _unitOfWork.CommitAsync();
 
             return _mapper.Map<Customer, CreateCustomerCommandResponse>(customer);
         }

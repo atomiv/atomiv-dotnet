@@ -10,20 +10,22 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class EditOrderCommandHandler : IRequestHandler<EditOrderCommand, EditOrderCommandResponse>
     {
-        private readonly IOrderRepository _orderRepository;
-        private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
+        private readonly IProductReadonlyRepository _productReadonlyRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public EditOrderCommandHandler(
-            IOrderRepository orderRepository,
+        public EditOrderCommandHandler(IOrderFactory orderFactory,
             IProductReadonlyRepository productReadonlyRepository,
-            IOrderFactory orderFactory,
+            IOrderRepository orderRepository,
+            IUnitOfWork unitOfWork,
             IMapper mapper)
         {
             _orderRepository = orderRepository;
             _productReadonlyRepository = productReadonlyRepository;
             _orderFactory = orderFactory;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
@@ -41,6 +43,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             await UpdateAsync(order, request);
 
             await _orderRepository.UpdateAsync(order);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Order, EditOrderCommandResponse>(order);
         }
 

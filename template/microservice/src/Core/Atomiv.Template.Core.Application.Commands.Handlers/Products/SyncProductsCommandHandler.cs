@@ -9,12 +9,15 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
     {
         private readonly IProductProviderService _productProviderService;
         private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public SyncProductsCommandHandler(IProductProviderService productProviderService,
-            IProductRepository productRepository)
+            IProductRepository productRepository,
+            IUnitOfWork unitOfWork)
         {
             _productProviderService = productProviderService;
             _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<SyncProductsCommandResponse> HandleAsync(SyncProductsCommand request)
@@ -22,6 +25,8 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             var products = await _productProviderService.GetProductsAsync();
 
             await _productRepository.SyncAsync(products);
+
+            await _unitOfWork.CommitAsync();
 
             return new SyncProductsCommandResponse();
         }

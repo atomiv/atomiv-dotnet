@@ -9,11 +9,15 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CancelOrderCommandHandler(IMapper mapper, IOrderRepository orderRepository)
+        public CancelOrderCommandHandler(IMapper mapper, 
+            IOrderRepository orderRepository,
+            IUnitOfWork unitOfWork)
         {
-            _mapper = mapper;
             _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<CancelOrderCommandResponse> HandleAsync(CancelOrderCommand request)
@@ -30,6 +34,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             order.Cancel();
 
             await _orderRepository.UpdateAsync(order);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Order, CancelOrderCommandResponse>(order);
         }
     }

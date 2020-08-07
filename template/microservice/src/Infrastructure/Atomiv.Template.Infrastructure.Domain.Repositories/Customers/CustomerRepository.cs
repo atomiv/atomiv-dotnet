@@ -26,11 +26,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
             return GetCustomer(customerRecord);
         }
 
-        public async Task AddAsync(Customer customer)
+        public Task AddAsync(Customer customer)
         {
             var customerRecord = GetCustomerRecord(customer);
             Context.Customers.Add(customerRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public async Task RemoveAsync(CustomerIdentity customerId)
@@ -39,7 +39,6 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
                 .FirstOrDefaultAsync(e => e.Id == customerId);
 
             Context.Remove(customerRecord);
-            await Context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Customer customer)
@@ -49,15 +48,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Customers
 
             UpdateCustomerRecord(customerRecord, customer);
 
-            try
-            {
-                Context.Customers.Update(customerRecord);
-                await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
+            Context.Customers.Update(customerRecord);
         }
 
         #region Helper

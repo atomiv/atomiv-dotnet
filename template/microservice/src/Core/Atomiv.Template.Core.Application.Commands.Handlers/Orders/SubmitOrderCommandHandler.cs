@@ -7,12 +7,17 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class SubmitOrderCommandHandler : IRequestHandler<SubmitOrderCommand, SubmitOrderCommandResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public SubmitOrderCommandHandler(IMapper mapper, IOrderRepository orderRepository)
+
+        public SubmitOrderCommandHandler(IOrderRepository orderRepository, 
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
             _orderRepository = orderRepository;
         }
 
@@ -30,6 +35,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             order.Submit();
 
             await _orderRepository.UpdateAsync(order);
+
+            await _unitOfWork.CommitAsync();
+            
             return _mapper.Map<Order, SubmitOrderCommandResponse>(order);
         }
     }

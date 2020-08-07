@@ -7,15 +7,20 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
     {
-        private readonly IMapper _mapper;
-        private readonly IProductRepository _productRepository;
         private readonly IProductFactory _productFactory;
+        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CreateProductCommandHandler(IMapper mapper, IProductRepository productRepository, IProductFactory productFactory)
+        public CreateProductCommandHandler(IProductFactory productFactory,
+            IProductRepository productRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            _mapper = mapper;
-            _productRepository = productRepository;
             _productFactory = productFactory;
+            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<CreateProductCommandResponse> HandleAsync(CreateProductCommand request)
@@ -23,6 +28,8 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             var product = GetProduct(request);
 
             await _productRepository.AddAsync(product);
+
+            await _unitOfWork.CommitAsync();
 
             return _mapper.Map<Product, CreateProductCommandResponse>(product);
         }

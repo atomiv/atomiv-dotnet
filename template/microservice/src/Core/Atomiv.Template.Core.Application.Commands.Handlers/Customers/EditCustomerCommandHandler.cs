@@ -9,11 +9,15 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
     {
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public EditCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
+        public EditCustomerCommandHandler(ICustomerRepository customerRepository, 
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _customerRepository = customerRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<EditCustomerCommandResponse> HandleAsync(EditCustomerCommand request)
@@ -30,6 +34,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             UpdateCustomer(customer, request);
 
             await _customerRepository.UpdateAsync(customer);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Customer, EditCustomerCommandResponse>(customer);
         }
 
