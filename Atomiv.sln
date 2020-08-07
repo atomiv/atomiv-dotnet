@@ -207,7 +207,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Mongo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Web.AspNetCore", "src\DependencyInjection\Web\AspNetCore\Atomiv.DependencyInjection.Web.AspNetCore.csproj", "{6D1B51C2-B3B4-49B6-946C-926844B6DACB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atomiv.Template.Infrastructure.Events.Handlers", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Events.Handlers\Atomiv.Template.Infrastructure.Events.Handlers.csproj", "{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Events.Handlers", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Events.Handlers\Atomiv.Template.Infrastructure.Events.Handlers.csproj", "{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.RabbitMQ", "src\Infrastructure\RabbitMQ\Atomiv.Infrastructure.RabbitMQ.csproj", "{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -523,6 +525,10 @@ Global
 		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -629,6 +635,7 @@ Global
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB} = {BB58629F-B045-45DD-A9C1-6ADC6967D75F}
 		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}
