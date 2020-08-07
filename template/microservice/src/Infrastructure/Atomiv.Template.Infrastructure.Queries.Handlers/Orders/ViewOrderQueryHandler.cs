@@ -14,9 +14,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
         }
 
-        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
+        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery query)
         {
-            var orderRecordId = request.Id;
+            var orderRecordId = query.Id;
 
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)

@@ -1,7 +1,10 @@
-﻿namespace Atomiv.Core.Application
+﻿using System.Threading.Tasks;
+
+namespace Atomiv.Core.Application
 {
-    public interface ICommandHandler<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : ICommand<TResponse>
+    public interface ICommandHandler<TCommand, TResponse> : IRequestHandler<TCommand, TResponse>
+        where TCommand : ICommand<TResponse>
     {
+        new Task<TResponse> HandleAsync(TCommand request);
     }
 }

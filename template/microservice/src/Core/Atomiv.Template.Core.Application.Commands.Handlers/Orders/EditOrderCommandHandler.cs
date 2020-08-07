@@ -29,9 +29,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             _mapper = mapper;
         }
 
-        public async Task<EditOrderCommandResponse> HandleAsync(EditOrderCommand request)
+        public async Task<EditOrderCommandResponse> HandleAsync(EditOrderCommand command)
         {
-            var orderId = new OrderIdentity(request.Id);
+            var orderId = new OrderIdentity(command.Id);
 
             var order = await _orderRepository.FindAsync(orderId);
 
@@ -40,7 +40,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
                 throw new ExistenceException();
             }
 
-            await UpdateAsync(order, request);
+            await UpdateAsync(order, command);
 
             await _orderRepository.UpdateAsync(order);
 

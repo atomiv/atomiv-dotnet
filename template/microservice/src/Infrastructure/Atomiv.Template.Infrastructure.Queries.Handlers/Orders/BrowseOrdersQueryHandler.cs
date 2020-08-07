@@ -14,10 +14,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
         }
 
-        public override async Task<BrowseOrdersQueryResponse> HandleAsync(BrowseOrdersQuery request)
+        public override async Task<BrowseOrdersQueryResponse> HandleAsync(BrowseOrdersQuery query)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
-                .GetPage(request.Page, request.Size)
+                .GetPage(query.Page, query.Size)
                 .ToListAsync();
 
             var recordResponses = orderRecords

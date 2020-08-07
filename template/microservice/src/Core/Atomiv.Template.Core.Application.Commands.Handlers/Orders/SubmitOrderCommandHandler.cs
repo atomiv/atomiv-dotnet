@@ -21,9 +21,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             _orderRepository = orderRepository;
         }
 
-        public async Task<SubmitOrderCommandResponse> HandleAsync(SubmitOrderCommand request)
+        public async Task<SubmitOrderCommandResponse> HandleAsync(SubmitOrderCommand command)
         {
-            var orderId = new OrderIdentity(request.Id);
+            var orderId = new OrderIdentity(command.Id);
 
             var order = await _orderRepository.FindAsync(orderId);
 

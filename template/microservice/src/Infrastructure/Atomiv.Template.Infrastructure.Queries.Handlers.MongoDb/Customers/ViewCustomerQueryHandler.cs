@@ -15,9 +15,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
         {
         }
 
-        public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
+        public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery query)
         {
-            var customerRecordId = request.Id;
+            var customerRecordId = query.Id;
 
             var customerRecord = await Context.Customers
                 .Find(e => e.Id == customerRecordId)

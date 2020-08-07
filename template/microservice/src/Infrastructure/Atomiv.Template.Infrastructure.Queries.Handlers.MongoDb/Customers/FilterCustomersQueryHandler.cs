@@ -11,7 +11,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
         {
         }
 
-        public override Task<FilterCustomersQueryResponse> HandleAsync(FilterCustomersQuery request)
+        public override Task<FilterCustomersQueryResponse> HandleAsync(FilterCustomersQuery query)
         {
             throw new NotImplementedException();
         }

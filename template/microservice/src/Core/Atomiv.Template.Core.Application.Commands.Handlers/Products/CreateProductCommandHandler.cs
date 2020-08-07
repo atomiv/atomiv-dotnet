@@ -23,9 +23,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             _mapper = mapper;
         }
 
-        public async Task<CreateProductCommandResponse> HandleAsync(CreateProductCommand request)
+        public async Task<CreateProductCommandResponse> HandleAsync(CreateProductCommand command)
         {
-            var product = GetProduct(request);
+            var product = GetProduct(command);
 
             await _productRepository.AddAsync(product);
 

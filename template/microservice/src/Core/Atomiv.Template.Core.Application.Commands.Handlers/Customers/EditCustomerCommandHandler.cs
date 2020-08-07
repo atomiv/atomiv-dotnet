@@ -20,9 +20,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             _mapper = mapper;
         }
 
-        public async Task<EditCustomerCommandResponse> HandleAsync(EditCustomerCommand request)
+        public async Task<EditCustomerCommandResponse> HandleAsync(EditCustomerCommand command)
         {
-            var customerId = new CustomerIdentity(request.Id);
+            var customerId = new CustomerIdentity(command.Id);
 
             var customer = await _customerRepository.FindAsync(customerId);
 
@@ -31,7 +31,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
                 throw new ValidationException($"Customer {customerId} does not exist");
             }
 
-            UpdateCustomer(customer, request);
+            UpdateCustomer(customer, command);
 
             await _customerRepository.UpdateAsync(customer);
 

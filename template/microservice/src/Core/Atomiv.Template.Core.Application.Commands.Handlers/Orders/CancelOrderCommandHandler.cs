@@ -20,9 +20,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             _mapper = mapper;
         }
 
-        public async Task<CancelOrderCommandResponse> HandleAsync(CancelOrderCommand request)
+        public async Task<CancelOrderCommandResponse> HandleAsync(CancelOrderCommand command)
         {
-            var orderId = new OrderIdentity(request.Id);
+            var orderId = new OrderIdentity(command.Id);
 
             var order = await _orderRepository.FindAsync(orderId);
 

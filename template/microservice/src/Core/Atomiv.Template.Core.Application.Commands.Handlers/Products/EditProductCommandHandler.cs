@@ -20,9 +20,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             _mapper = mapper;
         }
 
-        public async Task<EditProductCommandResponse> HandleAsync(EditProductCommand request)
+        public async Task<EditProductCommandResponse> HandleAsync(EditProductCommand command)
         {
-            var productId = new ProductIdentity(request.Id);
+            var productId = new ProductIdentity(command.Id);
 
             var product = await _productRepository.FindAsync(productId);
 
@@ -31,7 +31,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
                 throw new ExistenceException();
             }    
 
-            Update(product, request);
+            Update(product, command);
 
             await _productRepository.UpdateAsync(product);
 

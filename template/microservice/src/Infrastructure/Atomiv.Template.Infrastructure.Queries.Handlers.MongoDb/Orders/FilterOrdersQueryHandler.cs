@@ -11,7 +11,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
         {
         }
 
-        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery request)
+        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery query)
         {
             throw new NotImplementedException();
         }

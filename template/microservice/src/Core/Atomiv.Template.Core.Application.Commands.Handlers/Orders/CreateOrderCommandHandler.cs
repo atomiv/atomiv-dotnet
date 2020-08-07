@@ -37,9 +37,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             _mapper = mapper;
         }
 
-        public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand request)
+        public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand command)
         {
-            var order = await GetOrderAsync(request);
+            var order = await GetOrderAsync(command);
 
             await _orderRepository.AddAsync(order);
 

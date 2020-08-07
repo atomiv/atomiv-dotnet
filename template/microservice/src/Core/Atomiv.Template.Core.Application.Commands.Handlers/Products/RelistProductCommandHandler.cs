@@ -20,9 +20,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             _mapper = mapper;
         }
 
-        public async Task<RelistProductCommandResponse> HandleAsync(RelistProductCommand request)
+        public async Task<RelistProductCommandResponse> HandleAsync(RelistProductCommand command)
         {
-            var productId = new ProductIdentity(request.Id);
+            var productId = new ProductIdentity(command.Id);
 
             var product = await _productRepository.FindAsync(productId);
 

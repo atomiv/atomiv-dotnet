@@ -20,7 +20,7 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<SyncProductsCommandResponse> HandleAsync(SyncProductsCommand request)
+        public async Task<SyncProductsCommandResponse> HandleAsync(SyncProductsCommand command)
         {
             var products = await _productProviderService.GetProductsAsync();
 

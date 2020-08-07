@@ -14,10 +14,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
         {
         }
 
-        public override async Task<BrowseCustomersQueryResponse> HandleAsync(BrowseCustomersQuery request)
+        public override async Task<BrowseCustomersQueryResponse> HandleAsync(BrowseCustomersQuery query)
         {
-            var page = request.Page;
-            var size = request.Size;
+            var page = query.Page;
+            var size = query.Size;
 
             var customerRecords = await Context.Customers
                 .Find(e => true)

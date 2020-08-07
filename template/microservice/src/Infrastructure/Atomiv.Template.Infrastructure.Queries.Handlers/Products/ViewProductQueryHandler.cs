@@ -13,9 +13,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
         }
 
-        public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery request)
+        public override async Task<ViewProductQueryResponse> HandleAsync(ViewProductQuery query)
         {
-            var productRecordId = request.Id;
+            var productRecordId = query.Id;
 
             var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productRecordId);

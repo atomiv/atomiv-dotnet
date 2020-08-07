@@ -20,9 +20,9 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
             _mapper = mapper;
         }
 
-        public async Task<UnlistProductCommandResponse> HandleAsync(UnlistProductCommand request)
+        public async Task<UnlistProductCommandResponse> HandleAsync(UnlistProductCommand command)
         {
-            var productId = new ProductIdentity(request.Id);
+            var productId = new ProductIdentity(command.Id);
 
             var product = await _productRepository.FindAsync(productId);
 
