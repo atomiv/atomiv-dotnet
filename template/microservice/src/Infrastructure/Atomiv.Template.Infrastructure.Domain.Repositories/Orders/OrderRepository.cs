@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;

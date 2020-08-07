@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using Atomiv.Core.Domain;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Atomiv.Core.Application;
 

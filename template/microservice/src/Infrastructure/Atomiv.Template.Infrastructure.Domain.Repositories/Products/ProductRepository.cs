@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Domain.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
