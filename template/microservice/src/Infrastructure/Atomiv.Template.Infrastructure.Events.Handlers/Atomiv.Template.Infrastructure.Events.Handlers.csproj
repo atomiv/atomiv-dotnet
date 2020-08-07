@@ -8,4 +8,9 @@
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>
