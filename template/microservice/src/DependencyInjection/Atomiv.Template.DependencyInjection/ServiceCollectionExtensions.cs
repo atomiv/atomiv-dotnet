@@ -55,6 +55,7 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Validation.Module),
                 typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Services.Module),
+                typeof(Infrastructure.Events.Handlers.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
                 typeof(Infrastructure.Web.Authentication.Module),
