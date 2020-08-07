@@ -6,6 +6,11 @@
 
     public class Event<TId> : Event
     {
-        public TId Id { get; set; }
+        public Event(TId id)
+        {
+            Id = id;
+        }
+
+        public TId Id { get; }
     }
 }

@@ -27,6 +27,7 @@ namespace Atomiv.DependencyInjection.Infrastructure.MediatR
             services.AddScoped<IMessageBus, MediatorMessageBus>();
             services.AddScoped<ICommandBus, CommandBus>();
             services.AddScoped<IQueryBus, QueryBus>();
+            services.AddScoped<IEventBus, EventBus>();
 
             var types = assemblies.GetTypes();
             services.AddRequestHandlers(types);

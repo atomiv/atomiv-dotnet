@@ -7,9 +7,11 @@ namespace Atomiv.Template.Core.Domain.Customers
 {
     public class CustomerEditedEvent : Event<CustomerIdentity>
     {
-        public CustomerEditedEvent(CustomerReferenceNumber referenceNumber,
+        public CustomerEditedEvent(CustomerIdentity id,
+            CustomerReferenceNumber referenceNumber,
             string firstName,
             string lastName)
+            : base(id)
         {
             ReferenceNumber = referenceNumber;
             FirstName = firstName;

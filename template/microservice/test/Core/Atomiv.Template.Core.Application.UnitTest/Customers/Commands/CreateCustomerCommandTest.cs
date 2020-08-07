@@ -17,6 +17,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
         private readonly Mock<ICustomerFactory> _customerFactoryMock;
         private readonly Mock<ICustomerRepository> _customerRepositoryMock;
         private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+        private readonly Mock<IEventBus> _eventBusMock;
         private readonly Mock<IMapper> _mapperMock;
 
         public CreateCustomerCommandTest()
@@ -25,6 +26,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             _customerFactoryMock = new Mock<ICustomerFactory>();
             _customerRepositoryMock = new Mock<ICustomerRepository>();
             _unitOfWorkMock = new Mock<IUnitOfWork>();
+            _eventBusMock = new Mock<IEventBus>();
             _mapperMock = new Mock<IMapper>();
         }
 
@@ -40,6 +42,9 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
             var referenceNumber = new CustomerReferenceNumber(DateTime.Now, "ABC12");
             var customer = new Customer(new CustomerIdentity(id), referenceNumber, "Mary", "Smith"); ;
+
+            // TODO: VC: Refactor
+            var customerCreatedEvent = new CustomerCreatedEvent(customer.Id, customer.ReferenceNumber, customer.FirstName, customer.LastName);
 
             var expectedResponse = new CreateCustomerCommandResponse
             {
@@ -58,6 +63,10 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
             _unitOfWorkMock
                 .Setup(e => e.CommitAsync());
 
+            _eventBusMock
+                .Setup(e => e.PublishAsync(customerCreatedEvent))
+                .Returns(Task.CompletedTask);
+
             _mapperMock
                 .Setup(e => e.Map<Customer, CreateCustomerCommandResponse>(customer))
                 .Returns(expectedResponse);
@@ -66,6 +75,7 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
                 _customerFactoryMock.Object,
                 _customerRepositoryMock.Object,
                 _unitOfWorkMock.Object,
+                _eventBusMock.Object,
                 _mapperMock.Object);
 
             var response = await handler.HandleAsync(command);
