@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
-    public class UnlistProductCommandHandler : IRequestHandler<UnlistProductCommand, UnlistProductCommandResponse>
+    public class UnlistProductCommandHandler : ICommandHandler<UnlistProductCommand, UnlistProductCommandResponse>
     {
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;

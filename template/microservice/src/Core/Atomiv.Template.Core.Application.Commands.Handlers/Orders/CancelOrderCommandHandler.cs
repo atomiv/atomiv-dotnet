@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
-    public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, CancelOrderCommandResponse>
+    public class CancelOrderCommandHandler : ICommandHandler<CancelOrderCommand, CancelOrderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;

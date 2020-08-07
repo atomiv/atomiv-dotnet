@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Infrastructure.MongoDb
 {
-    public abstract class QueryHandler<TContext, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class QueryHandler<TContext, TRequest, TResponse> : IQueryHandler<TRequest, TResponse>
+        where TRequest : IQuery<TResponse>
     {
         public QueryHandler(TContext context)
         {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
-    public class SyncProductsCommandHandler : IRequestHandler<SyncProductsCommand, SyncProductsCommandResponse>
+    public class SyncProductsCommandHandler : ICommandHandler<SyncProductsCommand, SyncProductsCommandResponse>
     {
         private readonly IProductProviderService _productProviderService;
         private readonly IProductRepository _productRepository;

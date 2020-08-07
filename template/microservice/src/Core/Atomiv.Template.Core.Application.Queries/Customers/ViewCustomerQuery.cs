@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Application.Queries.Customers
 {
-    public class ViewCustomerQuery : IRequest<ViewCustomerQueryResponse>
+    public class ViewCustomerQuery : IQuery<ViewCustomerQueryResponse>
     {
         public Guid Id { get; set; }
     }

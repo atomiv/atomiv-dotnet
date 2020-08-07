@@ -5,7 +5,7 @@ using Atomiv.Template.Core.Domain.Products;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Products
 {
-    public class RelistProductCommandHandler : IRequestHandler<RelistProductCommand, RelistProductCommandResponse>
+    public class RelistProductCommandHandler : ICommandHandler<RelistProductCommand, RelistProductCommandResponse>
     {
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;

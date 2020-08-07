@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
-    public class EditOrderCommandHandler : IRequestHandler<EditOrderCommand, EditOrderCommandResponse>
+    public class EditOrderCommandHandler : ICommandHandler<EditOrderCommand, EditOrderCommandResponse>
     {
         private readonly IOrderFactory _orderFactory;
         private readonly IProductReadonlyRepository _productReadonlyRepository;
