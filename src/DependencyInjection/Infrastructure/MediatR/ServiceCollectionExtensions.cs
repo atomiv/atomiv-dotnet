@@ -13,14 +13,18 @@ namespace Atomiv.DependencyInjection.Infrastructure.MediatR
     public static class ServiceCollectionExtensions
     {
         private static Type RequestHandlerType = typeof(Core.Application.IRequestHandler<,>);
+        private static Type EventHandlerType = typeof(Core.Application.IEventHandler<>);
         private static Type RequestAuthorizerType = typeof(IRequestAuthorizer<>);
         private static Type RequestValidatorType = typeof(IRequestValidator<>);
         private static Type PipelineBehaviorType = typeof(IPipelineBehavior<,>);
         private static Type MediatorRequestType = typeof(MediatorRequest<>);
+        private static Type MediatorNotificationType = typeof(MediatorNotification<>);
         private static Type AuthorizationPipelineBehaviorType = typeof(AuthorizationPipelineBehavior<,>);
         private static Type ValidationPipelineBehaviorType = typeof(ValidationPipelineBehavior<,>);
         private static Type MediatorRequestHandlerType = typeof(MediatorRequestHandler<,>);
         private static Type MediatorRequestHandlerInterfaceType = typeof(global::MediatR.IRequestHandler<,>);
+        private static Type MediatorNotificationHandlerType = typeof(MediatorNotificationHandler<>);
+        private static Type MediatorNotificationHandlerInterfaceType = typeof(global::MediatR.INotificationHandler<>);
 
         public static IServiceCollection AddMediatRInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -31,6 +35,7 @@ namespace Atomiv.DependencyInjection.Infrastructure.MediatR
 
             var types = assemblies.GetTypes();
             services.AddRequestHandlers(types);
+            services.AddNotificationHandlers(types);
             services.AddAuthorizationPipelineBehaviors(types);
             services.AddValidationPipelineBehaviors(types);
 
@@ -60,6 +65,30 @@ namespace Atomiv.DependencyInjection.Infrastructure.MediatR
 
             return services;
         }
+
+        private static IServiceCollection AddNotificationHandlers(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var eventHandlerImplementationTypes = types.GetConcreteImplementationsOfGenericInterface(EventHandlerType);
+
+            foreach (var eventHandlerImplementationType in eventHandlerImplementationTypes)
+            {
+                var eventHandlerInterfaceTypes = eventHandlerImplementationType.GetTypeInfo().ImplementedInterfaces;
+                var eventHandlerInterfaceType = eventHandlerInterfaceTypes.Single(e => e.Name == EventHandlerType.Name);
+
+                var eventType = eventHandlerInterfaceType.GenericTypeArguments[0];
+
+                var mediatorNotificationImplementationType = MediatorNotificationType.MakeGenericType(eventType);
+                var mediatorNotificationHandlerImplementationType = MediatorNotificationHandlerType.MakeGenericType(eventType);
+
+                var serviceType = MediatorNotificationHandlerInterfaceType.MakeGenericType(mediatorNotificationImplementationType);
+
+                services.AddScoped(eventHandlerInterfaceType, eventHandlerImplementationType);
+                services.AddScoped(serviceType, mediatorNotificationHandlerImplementationType);
+            }
+
+            return services;
+        }
+
 
         private static IServiceCollection AddValidationPipelineBehaviors(this IServiceCollection services, IEnumerable<Type> types)
         {

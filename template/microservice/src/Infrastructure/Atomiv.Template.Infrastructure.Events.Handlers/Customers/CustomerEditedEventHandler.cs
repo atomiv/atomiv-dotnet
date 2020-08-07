@@ -11,7 +11,7 @@ namespace Atomiv.Template.Infrastructure.Events.Handlers.Customers
     {
         public Task HandleAsync(CustomerEditedEvent evt)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

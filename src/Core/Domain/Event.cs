@@ -1,6 +1,6 @@
 ﻿namespace Atomiv.Core.Domain
 {
-    public class Event
+    public class Event : IEvent
     {
     }
 
