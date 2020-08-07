@@ -1,23 +1,26 @@
-﻿using MediatR;
-using Atomiv.Core.Application;
+﻿using Atomiv.Core.Application;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Atomiv.Infrastructure.MediatR
 {
-    public class MediatorMessageBus : IMessageBus
+    public class QueryBus : IQueryBus
     {
         private readonly IMediator _mediator;
 
-        public MediatorMessageBus(IMediator mediator)
+        public QueryBus(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        public Task<TResponse> SendAsync<TResponse>(Core.Application.IRequest<TResponse> request)
+        public Task<TResponse> SendAsync<TResponse>(IQuery<TResponse> query)
         {
             var mediatorRequest = new MediatorRequest<TResponse>
             {
-                Request = request,
+                Request = query,
             };
 
             return _mediator.Send(mediatorRequest);

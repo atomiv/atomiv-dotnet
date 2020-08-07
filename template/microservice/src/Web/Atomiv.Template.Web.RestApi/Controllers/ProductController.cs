@@ -11,11 +11,13 @@ namespace Atomiv.Template.Web.RestApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IMessageBus _messageBus;
+        private readonly ICommandBus _commandBus;
+        private readonly IQueryBus _queryBus;
 
-        public ProductController(IMessageBus messageBus)
+        public ProductController(ICommandBus commandBus, IQueryBus queryBus)
         {
-            _messageBus = messageBus;
+            _commandBus = commandBus;
+            _queryBus = queryBus;
         }
 
         #region Commands
@@ -24,7 +26,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
         [ProducesResponseType(typeof(CreateProductCommandResponse), 201)]
         public async Task<ActionResult<CreateProductCommandResponse>> CreateProductAsync(CreateProductCommand request)
         {
-            var response = await _messageBus.SendAsync(request);
+            var response = await _commandBus.SendAsync(request);
             return CreatedAtRoute("view-product", new { id = response.Id }, response);
         }
 
@@ -38,7 +40,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
                 return BadRequest("Mismatching id in route and request");
             }
 
-            var response = await _messageBus.SendAsync(request);
+            var response = await _commandBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -51,7 +53,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            var response = await _messageBus.SendAsync(request);
+            var response = await _commandBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -64,7 +66,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            var response = await _messageBus.SendAsync(request);
+            var response = await _commandBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -82,7 +84,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
                 Size = size.Value,
             };
 
-            var response = await _messageBus.SendAsync(request);
+            var response = await _queryBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -91,7 +93,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
         public async Task<ActionResult<FilterProductsQueryResponse>> FilterProductsAsync()
         {
             var request = new FilterProductsQuery { };
-            var response = await _messageBus.SendAsync(request);
+            var response = await _queryBus.SendAsync(request);
             return Ok(response);
         }
 
@@ -104,7 +106,7 @@ namespace Atomiv.Template.Web.RestApi.Controllers
                 Id = id,
             };
 
-            var response = await _messageBus.SendAsync(request);
+            var response = await _queryBus.SendAsync(request);
             return Ok(response);
         }
 
