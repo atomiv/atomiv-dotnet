@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
-    public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
+    public class CreateCustomerCommandHandler : ICommandHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
     {
         private readonly IApplicationUserContext _applicationUserContext;
         private readonly ICustomerFactory _customerFactory;

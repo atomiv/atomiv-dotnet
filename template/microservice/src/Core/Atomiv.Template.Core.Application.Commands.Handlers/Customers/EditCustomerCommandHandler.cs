@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
-    public class EditCustomerCommandHandler : IRequestHandler<EditCustomerCommand, EditCustomerCommandResponse>
+    public class EditCustomerCommandHandler : ICommandHandler<EditCustomerCommand, EditCustomerCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;

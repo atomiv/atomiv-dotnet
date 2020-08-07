@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Application.Commands.Customers
 {
-    public class DeleteCustomerCommand : IRequest<DeleteCustomerCommandResponse>
+    public class DeleteCustomerCommand : ICommand<DeleteCustomerCommandResponse>
     {
         public Guid Id { get; set; }
     }

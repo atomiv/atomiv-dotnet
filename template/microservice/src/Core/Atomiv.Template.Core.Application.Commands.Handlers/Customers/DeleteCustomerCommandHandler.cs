@@ -5,7 +5,7 @@ using Atomiv.Template.Core.Domain.Customers;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
-    public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
+    public class DeleteCustomerCommandHandler : ICommandHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
