@@ -9,13 +9,15 @@ namespace Atomiv.Infrastructure.RabbitMQ
 {
     public class RabbitMQClient
     {
-        public RabbitMQClient(IOptions<RabbitMQConfiguration> options)
+        public RabbitMQClient(IOptions<RabbitMQOptions> options)
         {
             var connectionFactory = GetConnectionFactory(options);
             var connection = CreateConnection(connectionFactory);
 
             Channel = connection.CreateModel();
         }
+
+        public IModel Channel { get; }
 
         public void DeclareQueue(string queueName)
         {
@@ -32,9 +34,9 @@ namespace Atomiv.Infrastructure.RabbitMQ
                 body: body);
         }
 
-        public IModel Channel { get; }
 
-        protected virtual IConnectionFactory GetConnectionFactory(IOptions<RabbitMQConfiguration> options)
+
+        protected virtual IConnectionFactory GetConnectionFactory(IOptions<RabbitMQOptions> options)
         {
             var configuration = options.Value;
 

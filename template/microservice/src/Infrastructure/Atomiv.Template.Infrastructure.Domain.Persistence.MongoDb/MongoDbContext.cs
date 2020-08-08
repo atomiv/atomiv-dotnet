@@ -1,18 +1,26 @@
 ﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
 {
     public class MongoDbContext
     {
-        public MongoDbContext(IDbSettings settings)
+        public MongoDbContext(IOptions<MongoDbOptions> options /* IDbSettings settings */)
         {
             // TODO: VC: Remove this when reading config works
+            /*
             settings.ConnectionString = "mongodb://localhost:27017";
             settings.DatabaseName = "WebShopDb";
 
             Client = new MongoClient(settings.ConnectionString);
             Database = Client.GetDatabase(settings.DatabaseName);
+            */
+
+            var config = options.Value;
+
+            Client = new MongoClient(config.ConnectionString);
+            Database = Client.GetDatabase(config.DatabaseName);
 
             Customers = Database.GetCollection<CustomerRecord>(CollectionNames.Customers);
             Products = Database.GetCollection<ProductRecord>(CollectionNames.Products);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Atomiv.Infrastructure.RabbitMQ
 {
-    public class RabbitMQConfiguration
+    public class RabbitMQOptions
     {
         public string HostName { get; set; }
 

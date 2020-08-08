@@ -11,6 +11,7 @@ using Atomiv.Template.Web.RestApi.Extensions;
 using Atomiv.DependencyInjection.Web.AspNetCore;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -124,6 +125,12 @@ namespace Atomiv.Template.Web.RestApi
                 o.AllowSynchronousIO = true;
             });
             */
+
+            // TODO: VC: This could be in framework, if the section exists....
+
+            var mongoDbSection = Configuration.GetSection(nameof(MongoDbOptions));
+
+            services.Configure<MongoDbOptions>(mongoDbSection);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -185,7 +192,7 @@ namespace Atomiv.Template.Web.RestApi
                 */
             });
 
-            MigrateEfCoreDatabase(app);
+            // MigrateEfCoreDatabase(app);
         }
 
         private void MigrateEfCoreDatabase(IApplicationBuilder app)
