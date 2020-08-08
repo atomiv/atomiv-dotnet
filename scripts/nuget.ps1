@@ -70,6 +70,7 @@ $projects = @(
     # 'src\DependencyInjection\Infrastructure\EPPlus\Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',
     'src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj',
     'src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj',
+    'src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj',
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
     # 'src\DependencyInjection\Infrastructure\Selenium\Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
     'src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj',	
