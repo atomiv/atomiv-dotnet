@@ -19,7 +19,7 @@ namespace Atomiv.Template.Core.Domain.Customers
             var id = _customerIdentityGenerator.Next();
             var referenceNumber = _customerReferenceNumberGenerator.Next();
 
-            return new Customer(id, referenceNumber, firstName, lastName);
+            return new Customer(id, referenceNumber, firstName, lastName, true);
         }
     }
 }

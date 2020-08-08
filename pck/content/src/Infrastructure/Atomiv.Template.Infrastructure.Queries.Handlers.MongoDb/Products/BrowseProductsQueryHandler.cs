@@ -10,14 +10,14 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class BrowseProductsQueryHandler : QueryHandler<BrowseProductsQuery, BrowseProductsQueryResponse>
     {
-        public BrowseProductsQueryHandler(MongoDBContext context) : base(context)
+        public BrowseProductsQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery request)
+        public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery query)
         {
-            var page = request.Page;
-            var size = request.Size;
+            var page = query.Page;
+            var size = query.Size;
 
             var productRecords = await Context.Products
                 .Find(e => true)

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
@@ -8,8 +7,6 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
-using SequentialGuid;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 {
@@ -19,18 +16,18 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
         {
         }
 
-        public async Task AddAsync(Order order)
+        public Task AddAsync(Order order)
         {
             var orderRecord = GetOrderRecord(order);
             Context.Orders.Add(orderRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
-        public async Task RemoveAsync(OrderIdentity orderId)
+        public Task RemoveAsync(OrderIdentity orderId)
         {
             var orderRecord = GetOrderRecord(orderId);
             Context.Remove(orderRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public async Task UpdateAsync(Order order)
@@ -41,15 +38,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Orders
 
             UpdateOrderRecord(orderRecord, order);
 
-            try
-            {
-                Context.Orders.Update(orderRecord);
-                await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
+            Context.Orders.Update(orderRecord);
         }
         public async Task<Order> FindAsync(OrderIdentity orderId)
         {

@@ -11,21 +11,26 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
+using Atomiv.Core.Domain;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
 {
     public class UpdateOrderCommandTest
     {
-        private readonly Mock<IOrderRepository> _orderRepositoryMock;
-        private readonly Mock<IProductReadonlyRepository> _productReadonlyRepositoryMock;
         private readonly Mock<IOrderFactory> _orderFactoryMock;
+        private readonly Mock<IValidator<Order>> _orderValidatorMock;
+        private readonly Mock<IProductReadonlyRepository> _productReadonlyRepositoryMock;
+        private readonly Mock<IOrderRepository> _orderRepositoryMock;
+        private readonly Mock<IUnitOfWork> _unitOfWorkMock;
         private readonly Mock<IMapper> _mapperMock;
 
         public UpdateOrderCommandTest()
         {
-            _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
-            _productReadonlyRepositoryMock = new Mock<IProductReadonlyRepository>(MockBehavior.Strict);
             _orderFactoryMock = new Mock<IOrderFactory>(MockBehavior.Strict);
+            _orderValidatorMock = new Mock<IValidator<Order>>(MockBehavior.Strict);
+            _productReadonlyRepositoryMock = new Mock<IProductReadonlyRepository>(MockBehavior.Strict);
+            _orderRepositoryMock = new Mock<IOrderRepository>(MockBehavior.Strict);
+            _unitOfWorkMock = new Mock<IUnitOfWork>(MockBehavior.Strict);
             _mapperMock = new Mock<IMapper>(MockBehavior.Strict);
         }
 
@@ -124,20 +129,28 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
                 new ProductIdentity(productId3),
             };
 
-            _orderRepositoryMock
-                .Setup(e => e.FindAsync(new OrderIdentity(id)))
-                .ReturnsAsync(order);
+            _orderFactoryMock
+                .Setup(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84))
+                .Returns(new OrderItem(new OrderItemIdentity(orderItemId3), new ProductIdentity(productId3), productId3Price, 60, OrderItemStatus.Allocated));
+
+            _orderValidatorMock
+                .Setup(e => e.ValidateAsync(order))
+                .ReturnsAsync(ValidationResult.Success());
 
             _productReadonlyRepositoryMock
                 .Setup(e => e.FindReadonlyAsync(productIds))
                 .ReturnsAsync(products);
 
-            _orderFactoryMock
-                .Setup(e => e.CreateOrderItem(new ProductIdentity(productId3), productId3Price, 84))
-                .Returns(new OrderItem(new OrderItemIdentity(orderItemId3), new ProductIdentity(productId3), productId3Price, 60, OrderItemStatus.Allocated));
+            _orderRepositoryMock
+                .Setup(e => e.FindAsync(new OrderIdentity(id)))
+                .ReturnsAsync(order);
 
             _orderRepositoryMock
                 .Setup(e => e.UpdateAsync(expectedUpdatedOrder))
+                .Returns(Task.CompletedTask);
+
+            _unitOfWorkMock
+                .Setup(e => e.CommitAsync())
                 .Returns(Task.CompletedTask);
 
             _mapperMock
@@ -147,9 +160,11 @@ namespace Atomiv.Template.Core.Application.UnitTest.Orders.Commands
 
             // Act
 
-            var handler = new EditOrderCommandHandler(_orderRepositoryMock.Object,
+            var handler = new EditOrderCommandHandler(_orderFactoryMock.Object,
+                _orderValidatorMock.Object,
                 _productReadonlyRepositoryMock.Object,
-                _orderFactoryMock.Object,
+                _orderRepositoryMock.Object,
+                _unitOfWorkMock.Object,
                 _mapperMock.Object);
 
             // Assert

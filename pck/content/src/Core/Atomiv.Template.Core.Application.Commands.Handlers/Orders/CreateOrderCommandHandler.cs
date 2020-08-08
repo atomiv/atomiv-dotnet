@@ -1,4 +1,5 @@
 ﻿using Atomiv.Core.Application;
+using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Domain.Customers;
@@ -10,88 +11,82 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>
+    public class CreateOrderCommandHandler : ICommandHandler<CreateOrderCommand, CreateOrderCommandResponse>
     {
         private readonly IApplicationContext _applicationContext;
-
-        private readonly IMapper _mapper;
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderFactory _orderFactory;
+        private readonly IValidator<Order> _orderValidator; // TODO: VC: Consider also IValidator
         private readonly ICustomerReadonlyRepository _customerReadonlyRepository;
         private readonly IProductReadonlyRepository _productReadonlyRepository;
-        private readonly IOrderFactory _orderFactory;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public CreateOrderCommandHandler(IApplicationContext applicationContext,
-            IMapper mapper, 
-            IOrderRepository orderRepository,
+            IOrderFactory orderFactory,
+            IValidator<Order> orderValidator,
             ICustomerReadonlyRepository customerReadonlyRepository,
             IProductReadonlyRepository productReadonlyRepository,
-            IOrderFactory orderFactory)
+            IOrderRepository orderRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _applicationContext = applicationContext;
-            _mapper = mapper;
-            _orderRepository = orderRepository;
+            _orderFactory = orderFactory;
+            _orderValidator = orderValidator;
             _customerReadonlyRepository = customerReadonlyRepository;
             _productReadonlyRepository = productReadonlyRepository;
-            _orderFactory = orderFactory;
+            _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand request)
+        public async Task<CreateOrderCommandResponse> HandleAsync(CreateOrderCommand command)
         {
-            var order = await GetOrderAsync(request);
+            var order = await CreateOrderAsync(command);
+
+            var validationResult = await _orderValidator.ValidateAsync(order);
+
+            if(!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult);
+            }
 
             await _orderRepository.AddAsync(order);
+
+            await _unitOfWork.CommitAsync();
 
             var response = _mapper.Map<Order, CreateOrderCommandResponse>(order);
             return response;
         }
 
-        private async Task<Order> GetOrderAsync(CreateOrderCommand request)
+        private async Task<Order> CreateOrderAsync(CreateOrderCommand command)
         {
-            var customerId = await GetCustomerIdAsync(request);
-            var products = await GetProductsAsync(request);
+            var customerId = new CustomerIdentity(command.CustomerId);
 
-            var orderItems = CreateOrderItems(request, products);
-            var isPromotion = _applicationContext.IsPromotionDay;
-
-            return _orderFactory.CreateOrder(customerId, orderItems);
-        }
-
-        private async Task<CustomerIdentity> GetCustomerIdAsync(CreateOrderCommand request)
-        {
-            var customerId = new CustomerIdentity(request.CustomerId);
-
-            var existsCustomer = await _customerReadonlyRepository.ExistsAsync(customerId);
-
-            if (!existsCustomer)
-            {
-                throw new ValidationException($"Customer {customerId} does not exist");
-            }
-
-            return customerId;
-        }
-
-        private async Task<IEnumerable<IReadonlyProduct>> GetProductsAsync(CreateOrderCommand request)
-        {
-            var productIds = request.OrderItems
+            var productIds = command.OrderItems
                 .Select(e => new ProductIdentity(e.ProductId))
                 .Distinct()
                 .ToList();
 
             var products = await _productReadonlyRepository.FindReadonlyAsync(productIds);
 
-            if (productIds.Count != products.Count())
+            if (productIds.Count() != products.Count())
             {
                 throw new ValidationException("Some products don't exist");
             }
 
-            return products;
+            var orderItems = CreateOrderItems(command, products);
+            var isPromotion = _applicationContext.IsPromotionDay;
+
+            return _orderFactory.CreateOrder(customerId, orderItems);
         }
 
-        private IEnumerable<OrderItem> CreateOrderItems(CreateOrderCommand request, IEnumerable<IReadonlyProduct> products)
+        private IEnumerable<OrderItem> CreateOrderItems(CreateOrderCommand command, IEnumerable<IReadonlyProduct> products)
         {
             var orderItems = new List<OrderItem>();
 
-            foreach (var createOrderItemRequest in request.OrderItems)
+            foreach (var createOrderItemRequest in command.OrderItems)
             {
                 var orderDetail = GetOrderItem(createOrderItemRequest, products);
                 orderItems.Add(orderDetail);
@@ -100,14 +95,14 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             return orderItems;
         }
 
-        private OrderItem GetOrderItem(CreateOrderItemCommand requestOrderDetail, IEnumerable<IReadonlyProduct> products)
+        private OrderItem GetOrderItem(CreateOrderItemCommand command, IEnumerable<IReadonlyProduct> products)
         {
-            var productId = new ProductIdentity(requestOrderDetail.ProductId);
+            var productId = new ProductIdentity(command.ProductId);
 
             var product = products.Single(e => e.Id == productId);
 
             var unitPrice = product.ListPrice;
-            var quantity = requestOrderDetail.Quantity;
+            var quantity = command.Quantity;
 
             return _orderFactory.CreateOrderItem(productId, unitPrice, quantity);
         }

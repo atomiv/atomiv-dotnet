@@ -3,9 +3,9 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB
 {
-    public class Repository : Repository<MongoDBContext>
+    public class Repository : Repository<DatabaseContext>
     {
-        public Repository(MongoDBContext context) : base(context)
+        public Repository(DatabaseContext context) : base(context)
         {
         }
     }

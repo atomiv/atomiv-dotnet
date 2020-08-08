@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Atomiv.Template.Core.Application.Commands.Orders
 {
-    public class CreateOrderCommand : IRequest<CreateOrderCommandResponse>
+    public class CreateOrderCommand : ICommand<CreateOrderCommandResponse>
     {
         public Guid CustomerId { get; set; }
 

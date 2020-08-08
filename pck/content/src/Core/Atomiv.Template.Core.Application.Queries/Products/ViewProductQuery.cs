@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Application.Queries.Products
 {
-    public class ViewProductQuery : IRequest<ViewProductQueryResponse>
+    public class ViewProductQuery : IQuery<ViewProductQueryResponse>
     {
         public Guid Id { get; set; }
     }

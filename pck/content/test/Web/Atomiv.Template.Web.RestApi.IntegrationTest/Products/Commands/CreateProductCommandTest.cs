@@ -4,6 +4,7 @@ using Atomiv.Template.Core.Application.Queries.Products;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 {
@@ -22,7 +23,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             var createRequest = new CreateProductCommand
             {
-                Code = "My code 1",
+                Code = $"My code 1 {Guid.NewGuid()}",
                 Description = "My name 1",
                 UnitPrice = 100.56m,
             };

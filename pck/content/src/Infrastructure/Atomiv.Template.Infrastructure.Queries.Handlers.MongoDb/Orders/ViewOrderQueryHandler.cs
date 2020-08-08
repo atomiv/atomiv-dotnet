@@ -10,13 +10,13 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class ViewOrderQueryHandler : QueryHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
-        public ViewOrderQueryHandler(MongoDBContext context) : base(context)
+        public ViewOrderQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
+        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery query)
         {
-            var orderRecordId = request.Id;
+            var orderRecordId = query.Id;
 
             var orderRecord = await Context.Orders
                 .Find(e => e.Id == orderRecordId)

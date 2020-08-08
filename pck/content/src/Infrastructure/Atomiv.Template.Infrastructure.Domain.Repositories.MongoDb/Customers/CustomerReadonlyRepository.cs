@@ -8,7 +8,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Customers
 {
     public class CustomerReadonlyRepository : Repository, ICustomerReadonlyRepository
     {
-        public CustomerReadonlyRepository(MongoDBContext context) : base(context)
+        public CustomerReadonlyRepository(DatabaseContext context) : base(context)
         {
         }
 

@@ -11,6 +11,8 @@ using Atomiv.Template.Web.RestApi.Extensions;
 using Atomiv.DependencyInjection.Web.AspNetCore;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Infrastructure.MongoDB;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -124,6 +126,10 @@ namespace Atomiv.Template.Web.RestApi
                 o.AllowSynchronousIO = true;
             });
             */
+
+            // TODO: VC: This could be in framework, if the section exists....
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -195,7 +201,7 @@ namespace Atomiv.Template.Web.RestApi
                 .CreateScope())
             {
                 using (var context = scope.ServiceProvider
-                    .GetRequiredService<DatabaseContext>())
+                    .GetRequiredService<Infrastructure.Domain.Persistence.Common.DatabaseContext>())
                 {
                     context.Database.Migrate();
                 }

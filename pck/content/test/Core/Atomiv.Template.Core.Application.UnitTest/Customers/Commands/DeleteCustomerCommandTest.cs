@@ -6,16 +6,24 @@ using Atomiv.Template.Core.Domain.Customers;
 using System.Threading.Tasks;
 using Xunit;
 using System;
+using Atomiv.Core.Application;
 
 namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 {
     public class DeleteCustomerCommandTest
     {
+        private readonly Mock<ICustomerRepository> _customerRepositoryMock;
+        private readonly Mock<IUnitOfWork> _unitOfWorkMock;
+
+        public DeleteCustomerCommandTest()
+        {
+            _customerRepositoryMock = new Mock<ICustomerRepository>();
+            _unitOfWorkMock = new Mock<IUnitOfWork>();
+        }
+
         [Fact]
         public async Task HandleAsync_Valid()
         {
-            var customerRepositoryMock = new Mock<ICustomerRepository>();
-
             var id = Guid.Parse("926a4480-61f5-416a-a16f-5c722d8463f7");
 
             var command = new DeleteCustomerCommand
@@ -27,18 +35,19 @@ namespace Atomiv.Template.Core.Application.UnitTest.Customers.Commands
 
             var expectedResponse = new DeleteCustomerCommandResponse();
 
-            customerRepositoryMock
+            _customerRepositoryMock
                 .Setup(e => e.ExistsAsync(customerId))
                 .ReturnsAsync(true);
 
-            customerRepositoryMock
+            _customerRepositoryMock
                 .Setup(e => e.RemoveAsync(customerId));
 
-            var handler = new DeleteCustomerCommandHandler(customerRepositoryMock.Object);
+            var handler = new DeleteCustomerCommandHandler(_customerRepositoryMock.Object,
+                _unitOfWorkMock.Object);
 
             var response = await handler.HandleAsync(command);
 
-            customerRepositoryMock.Verify(e => e.RemoveAsync(customerId), Times.Once());
+            _customerRepositoryMock.Verify(e => e.RemoveAsync(customerId), Times.Once());
 
             response.Should().BeEquivalentTo(expectedResponse);
         }

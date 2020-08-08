@@ -10,7 +10,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
 {
     public class ProductRepository : ProductReadonlyRepository, IProductRepository
     {
-        public ProductRepository(MongoDBContext context) : base(context)
+        public ProductRepository(DatabaseContext context) : base(context)
         {
         }
 
@@ -25,6 +25,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
         {
             var productRecord = await Context.Products
                 .Find(e => e.Id == productId)
+                .FirstOrDefaultAsync();
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
+        public async Task<Product> FindAsync(string productCode)
+        {
+            var productRecord = await Context.Products
+                .Find(e => e.ProductCode == productCode)
                 .FirstOrDefaultAsync();
 
             if (productRecord == null)

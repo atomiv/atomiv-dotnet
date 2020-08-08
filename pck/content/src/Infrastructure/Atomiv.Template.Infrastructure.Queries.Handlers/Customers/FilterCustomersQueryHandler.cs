@@ -13,10 +13,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
         {
         }
 
-        public override async Task<FilterCustomersQueryResponse> HandleAsync(FilterCustomersQuery request)
+        public override async Task<FilterCustomersQueryResponse> HandleAsync(FilterCustomersQuery query)
         {
-            var nameSearch = request.NameSearch;
-            var limit = request.Limit;
+            var nameSearch = query.NameSearch;
+            var limit = query.Limit;
 
             var customerRecords = await Context.Customers.AsNoTracking()
                 .Where(e => e.FirstName.Contains(nameSearch) || e.LastName.Contains(nameSearch))

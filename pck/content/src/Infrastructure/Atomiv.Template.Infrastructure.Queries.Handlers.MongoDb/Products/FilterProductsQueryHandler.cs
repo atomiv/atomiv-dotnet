@@ -7,11 +7,11 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class FilterProductsQueryHandler : QueryHandler<FilterProductsQuery, FilterProductsQueryResponse>
     {
-        public FilterProductsQueryHandler(MongoDBContext context) : base(context)
+        public FilterProductsQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery request)
+        public override Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery query)
         {
             throw new NotImplementedException();
         }

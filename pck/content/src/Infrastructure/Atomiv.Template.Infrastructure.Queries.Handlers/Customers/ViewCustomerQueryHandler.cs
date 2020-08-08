@@ -7,7 +7,6 @@ using Atomiv.Template.Core.Application.Queries.Customers;
 using Atomiv.Template.Core.Common.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
 {
@@ -17,9 +16,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Customers
         {
         }
 
-        public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery request)
+        public override async Task<ViewCustomerQueryResponse> HandleAsync(ViewCustomerQuery query)
         {
-            var customerRecordId = request.Id;
+            var customerRecordId = query.Id;
 
             var customerRecord = await Context.Customers.AsNoTracking()
                 .Include(e => e.Orders)

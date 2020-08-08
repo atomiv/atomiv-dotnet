@@ -5,7 +5,6 @@ using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Orders;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
 {
@@ -15,9 +14,9 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
         }
 
-        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
+        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery query)
         {
-            var orderRecordId = request.Id;
+            var orderRecordId = query.Id;
 
             var orderRecord = await Context.Orders.AsNoTracking()
                 .Include(e => e.OrderItems)

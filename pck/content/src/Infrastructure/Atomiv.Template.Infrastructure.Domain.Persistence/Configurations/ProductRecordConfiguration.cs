@@ -13,7 +13,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Persistence.Configurations
 
             builder.Property(e => e.ProductCode)
                 .IsRequired()
-                .HasMaxLength(10);
+                .HasMaxLength(50);
 
             builder.Property(e => e.ProductName)
                 .IsRequired()

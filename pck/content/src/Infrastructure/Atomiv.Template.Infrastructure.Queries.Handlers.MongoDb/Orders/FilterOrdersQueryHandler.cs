@@ -7,11 +7,11 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class FilterOrdersQueryHandler : QueryHandler<FilterOrdersQuery, FilterOrdersQueryResponse>
     {
-        public FilterOrdersQueryHandler(MongoDBContext context) : base(context)
+        public FilterOrdersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery request)
+        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery query)
         {
             throw new NotImplementedException();
         }

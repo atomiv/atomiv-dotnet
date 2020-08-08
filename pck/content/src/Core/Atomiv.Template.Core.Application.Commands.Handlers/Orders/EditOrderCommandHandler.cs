@@ -1,4 +1,5 @@
 ﻿using Atomiv.Core.Application;
+using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
@@ -8,28 +9,33 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
-    public class EditOrderCommandHandler : IRequestHandler<EditOrderCommand, EditOrderCommandResponse>
+    public class EditOrderCommandHandler : ICommandHandler<EditOrderCommand, EditOrderCommandResponse>
     {
-        private readonly IOrderRepository _orderRepository;
-        private readonly IProductReadonlyRepository _productReadonlyRepository;
         private readonly IOrderFactory _orderFactory;
+        private readonly IValidator<Order> _orderValidator;
+        private readonly IProductReadonlyRepository _productReadonlyRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public EditOrderCommandHandler(
-            IOrderRepository orderRepository,
+        public EditOrderCommandHandler(IOrderFactory orderFactory,
+            IValidator<Order> orderValidator,
             IProductReadonlyRepository productReadonlyRepository,
-            IOrderFactory orderFactory,
+            IOrderRepository orderRepository,
+            IUnitOfWork unitOfWork,
             IMapper mapper)
         {
+            _orderFactory = orderFactory;
+            _orderValidator = orderValidator;
             _orderRepository = orderRepository;
             _productReadonlyRepository = productReadonlyRepository;
-            _orderFactory = orderFactory;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<EditOrderCommandResponse> HandleAsync(EditOrderCommand request)
+        public async Task<EditOrderCommandResponse> HandleAsync(EditOrderCommand command)
         {
-            var orderId = new OrderIdentity(request.Id);
+            var orderId = new OrderIdentity(command.Id);
 
             var order = await _orderRepository.FindAsync(orderId);
 
@@ -38,9 +44,19 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
                 throw new ExistenceException();
             }
 
-            await UpdateAsync(order, request);
+            await UpdateAsync(order, command);
+
+            var validationResult = await _orderValidator.ValidateAsync(order);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult);
+            }
 
             await _orderRepository.UpdateAsync(order);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Order, EditOrderCommandResponse>(order);
         }
 

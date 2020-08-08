@@ -4,10 +4,10 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB
 {
-    public abstract class QueryHandler<TRequest, TResponse> : QueryHandler<MongoDBContext, TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class QueryHandler<TQuery, TResponse> : QueryHandler<DatabaseContext, TQuery, TResponse>
+        where TQuery : IQuery<TResponse>
     {
-        public QueryHandler(MongoDBContext context) : base(context)
+        public QueryHandler(DatabaseContext context) : base(context)
         {
         }
     }

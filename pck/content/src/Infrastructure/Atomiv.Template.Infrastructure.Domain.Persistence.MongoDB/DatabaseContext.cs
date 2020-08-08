@@ -1,27 +1,19 @@
-﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
+﻿using Atomiv.Infrastructure.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
 {
-    public class MongoDBContext
+    public class DatabaseContext : DbContext
     {
-        public MongoDBContext(IDbSettings settings)
+        public DatabaseContext(IOptions<MongoDBOptions> options)
+            : base(options)
         {
-            // TODO: VC: Remove this when reading config works
-            settings.ConnectionString = "mongodb://localhost:27017";
-            settings.DatabaseName = "WebShopDb";
-
-            Client = new MongoClient(settings.ConnectionString);
-            Database = Client.GetDatabase(settings.DatabaseName);
-
             Customers = Database.GetCollection<CustomerRecord>(CollectionNames.Customers);
             Products = Database.GetCollection<ProductRecord>(CollectionNames.Products);
             Orders = Database.GetCollection<OrderRecord>(CollectionNames.Orders);
         }
-
-        public IMongoClient Client { get; }
-
-        public IMongoDatabase Database { get; }
 
         public IMongoCollection<CustomerRecord> Customers { get; }
 
