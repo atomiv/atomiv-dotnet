@@ -1,7 +1,7 @@
 ﻿using Atomiv.Core.Domain;
 using MongoDB.Bson;
 
-namespace Atomiv.Infrastructure.MongoDb
+namespace Atomiv.Infrastructure.MongoDB
 {
     public abstract class StringIdentityGenerator<TIdentity> : IGenerator<TIdentity>
     {

@@ -1,5 +1,5 @@
 ﻿using Atomiv.Core.Application;
-using Atomiv.Infrastructure.MongoDb;
+using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb

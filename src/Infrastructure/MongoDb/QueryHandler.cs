@@ -1,7 +1,7 @@
 ﻿using Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Atomiv.Infrastructure.MongoDb
+namespace Atomiv.Infrastructure.MongoDB
 {
     public abstract class QueryHandler<TContext, TQuery, TResponse> : IQueryHandler<TQuery, TResponse>
         where TQuery : IQuery<TResponse>

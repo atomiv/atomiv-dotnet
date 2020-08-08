@@ -1,4 +1,4 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Application.Queries.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
 using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
