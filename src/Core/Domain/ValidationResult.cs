@@ -15,5 +15,10 @@ namespace Atomiv.Core.Domain
         public IEnumerable<RuleValidationResult> RuleResults { get; }
 
         public bool IsValid => RuleResults.All(e => e.IsValid);
+
+        public static ValidationResult Success()
+        {
+            return new ValidationResult(new List<RuleValidationResult>());
+        }
     }
 }

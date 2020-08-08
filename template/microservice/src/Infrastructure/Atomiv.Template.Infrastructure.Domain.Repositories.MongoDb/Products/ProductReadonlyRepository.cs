@@ -28,6 +28,13 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
                 .AnyAsync();
         }
 
+        public Task<bool> ExistsAsync(string productCode)
+        {
+            return Context.Products
+                .Find(e => e.ProductCode == productCode)
+                .AnyAsync();
+        }
+
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
             var productRecord = await Context.Products

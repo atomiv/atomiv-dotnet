@@ -12,6 +12,8 @@ namespace Atomiv.Template.Core.Domain.Products
 
         Task<bool> ExistsAsync(ProductIdentity productId);
 
+        Task<bool> ExistsAsync(string productCode);
+
         Task<long> CountAsync();
     }
 }

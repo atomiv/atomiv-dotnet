@@ -10,9 +10,10 @@ namespace Atomiv.Core.Domain
 
         private List<Event> _events;
 
-        public Entity(TIdentity id)
+        public Entity(TIdentity id, bool isNew = false)
         {
             Id = id;
+            IsNew = isNew;
             _events = new List<Event>();
         }
 
@@ -33,6 +34,8 @@ namespace Atomiv.Core.Domain
                 _id = value;
             }
         }
+
+        public bool IsNew { get; }
 
         public IEnumerable<Event> GetEvents()
         {

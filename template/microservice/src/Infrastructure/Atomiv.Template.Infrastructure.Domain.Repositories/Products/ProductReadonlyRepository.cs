@@ -20,6 +20,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
                 .AnyAsync(e => e.Id == productId);
         }
 
+        public Task<bool> ExistsAsync(string productCode)
+        {
+            return Context.Products.AsNoTracking()
+                .AnyAsync(e => e.ProductCode == productCode);
+        }
+
         public Task<long> CountAsync()
         {
             return Context.Products
