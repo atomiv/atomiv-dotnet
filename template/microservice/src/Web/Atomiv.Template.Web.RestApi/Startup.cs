@@ -191,7 +191,7 @@ namespace Atomiv.Template.Web.RestApi
                 */
             });
 
-            // MigrateEfCoreDatabase(app);
+            MigrateEfCoreDatabase(app);
         }
 
         private void MigrateEfCoreDatabase(IApplicationBuilder app)

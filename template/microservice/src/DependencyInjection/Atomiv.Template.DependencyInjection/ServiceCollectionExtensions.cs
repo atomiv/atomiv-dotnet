@@ -63,8 +63,8 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Web.Authentication.Module),
             };
 
-            // infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
+            // infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -118,8 +118,8 @@ namespace Atomiv.Template.DependencyInjection
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
 
-            // services.AddEfCoreInfrastructureModules(configuration, assemblies);
-            services.AddMongoDBInfrastructureModules(configuration, assemblies);
+            services.AddEfCoreInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDBInfrastructureModules(configuration, assemblies);
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
