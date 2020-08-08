@@ -1,11 +1,11 @@
-﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
+namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
 {
-    public class MongoDbContext
+    public class MongoDBContext
     {
-        public MongoDbContext(IDbSettings settings)
+        public MongoDBContext(IDbSettings settings)
         {
             // TODO: VC: Remove this when reading config works
             settings.ConnectionString = "mongodb://localhost:27017";

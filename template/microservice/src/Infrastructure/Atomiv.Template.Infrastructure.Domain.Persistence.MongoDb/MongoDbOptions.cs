@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
+namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
 {
-    public class MongoDbOptions
+    public class MongoDBOptions
     {
         public string ConnectionString { get; set; }
 

@@ -1,13 +1,13 @@
 ﻿using Atomiv.Template.Core.Application.Queries.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using System;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class BrowseOrdersQueryHandler : QueryHandler<BrowseOrdersQuery, BrowseOrdersQueryResponse>
     {
-        public BrowseOrdersQueryHandler(MongoDbContext context) : base(context)
+        public BrowseOrdersQueryHandler(MongoDBContext context) : base(context)
         {
         }
 

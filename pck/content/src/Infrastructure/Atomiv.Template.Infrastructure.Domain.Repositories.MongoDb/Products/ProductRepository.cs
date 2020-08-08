@@ -1,16 +1,16 @@
 ﻿using Atomiv.Template.Core.Domain.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
 {
     public class ProductRepository : ProductReadonlyRepository, IProductRepository
     {
-        public ProductRepository(MongoDbContext context) : base(context)
+        public ProductRepository(MongoDBContext context) : base(context)
         {
         }
 

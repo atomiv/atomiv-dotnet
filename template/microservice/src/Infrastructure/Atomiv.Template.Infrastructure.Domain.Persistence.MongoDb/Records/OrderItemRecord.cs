@@ -2,7 +2,7 @@
 using Atomiv.Template.Core.Common.Orders;
 using System;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
+namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records
 {
     public class OrderItemRecord : Record<Guid>
     {

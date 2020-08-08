@@ -11,7 +11,7 @@ using Atomiv.Template.Web.RestApi.Extensions;
 using Atomiv.DependencyInjection.Web.AspNetCore;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 
 namespace Atomiv.Template.Web.RestApi
 {
@@ -128,9 +128,9 @@ namespace Atomiv.Template.Web.RestApi
 
             // TODO: VC: This could be in framework, if the section exists....
 
-            var mongoDbSection = Configuration.GetSection(nameof(MongoDbOptions));
+            var mongoDbSection = Configuration.GetSection(nameof(MongoDBOptions));
 
-            services.Configure<MongoDbOptions>(mongoDbSection);
+            services.Configure<MongoDBOptions>(mongoDbSection);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

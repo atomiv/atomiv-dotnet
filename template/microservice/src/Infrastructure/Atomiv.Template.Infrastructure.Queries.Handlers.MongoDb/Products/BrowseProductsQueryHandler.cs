@@ -1,16 +1,16 @@
 ﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Application.Queries.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class BrowseProductsQueryHandler : QueryHandler<BrowseProductsQuery, BrowseProductsQueryResponse>
     {
-        public BrowseProductsQueryHandler(MongoDbContext context) : base(context)
+        public BrowseProductsQueryHandler(MongoDBContext context) : base(context)
         {
         }
 

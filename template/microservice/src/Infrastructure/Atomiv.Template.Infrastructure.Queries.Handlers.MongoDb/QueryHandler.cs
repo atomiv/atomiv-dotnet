@@ -1,13 +1,13 @@
 ﻿using Atomiv.Core.Application;
 using Atomiv.Infrastructure.MongoDB;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB
 {
-    public abstract class QueryHandler<TQuery, TResponse> : QueryHandler<MongoDbContext, TQuery, TResponse>
+    public abstract class QueryHandler<TQuery, TResponse> : QueryHandler<MongoDBContext, TQuery, TResponse>
         where TQuery : IQuery<TResponse>
     {
-        public QueryHandler(MongoDbContext context) : base(context)
+        public QueryHandler(MongoDBContext context) : base(context)
         {
         }
     }

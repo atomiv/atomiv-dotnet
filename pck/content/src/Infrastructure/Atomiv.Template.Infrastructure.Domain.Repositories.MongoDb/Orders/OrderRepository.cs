@@ -1,18 +1,18 @@
 ﻿using Atomiv.Template.Core.Domain.Customers;
 using Atomiv.Template.Core.Domain.Orders;
 using Atomiv.Template.Core.Domain.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Orders
 {
     public class OrderRepository : OrderReadonlyRepository, IOrderRepository
     {
-        public OrderRepository(MongoDbContext context) : base(context)
+        public OrderRepository(MongoDBContext context) : base(context)
         {
         }
 

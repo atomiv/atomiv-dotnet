@@ -1,11 +1,11 @@
-﻿using Atomiv.Infrastructure.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB
 {
-    public class Repository : Repository<MongoDbContext>
+    public class Repository : Repository<MongoDBContext>
     {
-        public Repository(MongoDbContext context) : base(context)
+        public Repository(MongoDBContext context) : base(context)
         {
         }
     }

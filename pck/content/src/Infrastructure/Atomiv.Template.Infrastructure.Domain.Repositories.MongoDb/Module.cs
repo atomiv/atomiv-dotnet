@@ -1,4 +1,4 @@
-﻿namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb
+﻿namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB
 {
     public class Module
     {

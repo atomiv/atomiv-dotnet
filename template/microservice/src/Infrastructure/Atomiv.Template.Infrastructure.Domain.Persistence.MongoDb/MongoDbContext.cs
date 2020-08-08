@@ -1,12 +1,12 @@
-﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+﻿using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
+namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
 {
-    public class MongoDbContext
+    public class MongoDBContext
     {
-        public MongoDbContext(IOptions<MongoDbOptions> options /* IDbSettings settings */)
+        public MongoDBContext(IOptions<MongoDBOptions> options /* IDbSettings settings */)
         {
             // TODO: VC: Remove this when reading config works
             /*

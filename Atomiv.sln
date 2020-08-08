@@ -195,15 +195,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence\Atomiv.Template.Infrastructure.Domain.Persistence.csproj", "{D3D0B724-1C40-470B-A9DD-DFD4BF49B1B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj", "{A078EC18-4D61-4BD1-95CB-19B21822C0CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.csproj", "{A078EC18-4D61-4BD1-95CB-19B21822C0CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj", "{2CB92DC8-9097-488E-8B15-CDFC0598E571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.csproj", "{2CB92DC8-9097-488E-8B15-CDFC0598E571}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.csproj", "{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BB58629F-B045-45DD-A9C1-6ADC6967D75F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MongoDB", "src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDB.csproj", "{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MongoDB", "src\Infrastructure\MongoDB\Atomiv.Infrastructure.MongoDB.csproj", "{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Web.AspNetCore", "src\DependencyInjection\Web\AspNetCore\Atomiv.DependencyInjection.Web.AspNetCore.csproj", "{6D1B51C2-B3B4-49B6-946C-926844B6DACB}"
 EndProject

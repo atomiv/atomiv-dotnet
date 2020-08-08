@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
-    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.csproj" />
   </ItemGroup>
 
 </Project>

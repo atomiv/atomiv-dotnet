@@ -18,7 +18,7 @@ using System.Reflection;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Common.Requests;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -61,7 +61,7 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            // infrastructureModuleTypes.AddRange(GetMongoDbInfrastructureModules());
+            // infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -80,13 +80,13 @@ namespace Atomiv.Template.DependencyInjection
             };
         }
 
-        private static List<Type> GetMongoDbInfrastructureModules()
+        private static List<Type> GetMongoDBInfrastructureModules()
         {
             return new List<Type>
             {
-                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
-                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
-                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
+                typeof(Infrastructure.Domain.Persistence.MongoDB.Module),
+                typeof(Infrastructure.Domain.Repositories.MongoDB.Module),
+                typeof(Infrastructure.Queries.Handlers.MongoDB.Module),
             };
         }
 
@@ -116,7 +116,7 @@ namespace Atomiv.Template.DependencyInjection
             services.AddSystemInfrastructure(assemblies);
 
             services.AddEfCoreInfrastructureModules(configuration, assemblies);
-            // services.AddMongoDbInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDBInfrastructureModules(configuration, assemblies);
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
@@ -141,7 +141,7 @@ namespace Atomiv.Template.DependencyInjection
             services.AddEntityFrameworkCoreInfrastructure(assemblies);
         }
 
-        private static void AddMongoDbInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        private static void AddMongoDBInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
         {
             var dbSettingsSection = configuration.GetSection(nameof(DbSettings));
 
@@ -150,7 +150,7 @@ namespace Atomiv.Template.DependencyInjection
             services.AddSingleton<IDbSettings>(e =>
                 e.GetRequiredService<IOptions<DbSettings>>().Value);
 
-            services.AddSingleton<MongoDbContext>();
+            services.AddSingleton<MongoDBContext>();
         }
     }
 }
