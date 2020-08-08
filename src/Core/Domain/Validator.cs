@@ -19,7 +19,7 @@ namespace Atomiv.Core.Domain
         {
             var ruleResults = new List<RuleValidationResult>();
 
-            // TODO: VC: Parallelization
+            // TODO: VC: Parallelization --> Task await all
 
             foreach(var rule in _rules)
             {

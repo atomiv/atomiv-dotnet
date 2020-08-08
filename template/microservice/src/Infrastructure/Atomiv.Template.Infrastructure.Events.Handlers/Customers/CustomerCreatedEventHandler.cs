@@ -8,7 +8,10 @@ namespace Atomiv.Template.Infrastructure.Events.Handlers.Customers
     {
         public Task HandleAsync(CustomerCreatedEvent evt)
         {
+            // TODO: Send email: Thanks for becoming our new customer
             return Task.CompletedTask;
+
+            // additional implementations of IEventHandler<CustomerCreatedEvent>
         }
     }
 }

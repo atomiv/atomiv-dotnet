@@ -39,7 +39,6 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 
             await _unitOfWork.CommitAsync();
 
-            // TODO: VC: Refactor
             var customerCreatedEvent = new CustomerCreatedEvent(customer.Id, customer.ReferenceNumber, customer.FirstName, customer.LastName);
 
             await _eventBus.PublishAsync(customerCreatedEvent);
