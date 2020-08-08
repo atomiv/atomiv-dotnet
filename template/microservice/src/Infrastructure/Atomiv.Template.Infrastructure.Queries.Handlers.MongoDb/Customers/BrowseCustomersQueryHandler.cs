@@ -10,7 +10,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Customers
 {
     public class BrowseCustomersQueryHandler : QueryHandler<BrowseCustomersQuery, BrowseCustomersQueryResponse>
     {
-        public BrowseCustomersQueryHandler(MongoDBContext context) : base(context)
+        public BrowseCustomersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

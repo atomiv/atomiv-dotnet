@@ -9,7 +9,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class ViewProductQueryHandler : QueryHandler<ViewProductQuery, ViewProductQueryResponse>
     {
-        public ViewProductQueryHandler(MongoDBContext context) : base(context)
+        public ViewProductQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

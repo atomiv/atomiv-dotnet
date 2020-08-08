@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Infrastructure.MongoDB
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<TContext> : IUnitOfWork
     {
+        public UnitOfWork(TContext context, bool disposeContext = false)
+        {
+
+        }
+
         public Task BeginAsync()
         {
             return Task.CompletedTask;

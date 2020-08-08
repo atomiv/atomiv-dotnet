@@ -12,7 +12,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Orders
 {
     public class OrderRepository : OrderReadonlyRepository, IOrderRepository
     {
-        public OrderRepository(MongoDBContext context) : base(context)
+        public OrderRepository(DatabaseContext context) : base(context)
         {
         }
 

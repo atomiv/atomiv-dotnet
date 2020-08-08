@@ -23,6 +23,8 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Atomiv.DependencyInjection.Infrastructure.MongoDB;
+using Atomiv.Infrastructure.MongoDB;
 
 namespace Atomiv.Template.DependencyInjection
 {
@@ -129,7 +131,7 @@ namespace Atomiv.Template.DependencyInjection
             var assembly = type.Assembly;
             var assemblyName = assembly.FullName;
 
-            services.AddDbContext<DatabaseContext>(options =>
+            services.AddDbContext<Infrastructure.Domain.Persistence.Common.DatabaseContext>(options =>
             {
                 options.UseSqlServer(connection, e =>
                 {
@@ -144,14 +146,12 @@ namespace Atomiv.Template.DependencyInjection
 
         private static void AddMongoDBInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
         {
-            var dbSettingsSection = configuration.GetSection(nameof(DbSettings));
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            services.Configure<MongoDBOptions>(mongoDbSection);
 
-            services.Configure<IDbSettings>(dbSettingsSection);
+            services.AddSingleton<Infrastructure.Domain.Persistence.MongoDB.DatabaseContext>();
 
-            services.AddSingleton<IDbSettings>(e =>
-                e.GetRequiredService<IOptions<DbSettings>>().Value);
-
-            services.AddSingleton<MongoDBContext>();
+            services.AddMongoDBInfrastructure(assemblies);
         }
     }
 }

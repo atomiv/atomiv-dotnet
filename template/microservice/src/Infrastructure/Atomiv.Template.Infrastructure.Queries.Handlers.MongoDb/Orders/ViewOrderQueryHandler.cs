@@ -10,7 +10,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class ViewOrderQueryHandler : QueryHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
-        public ViewOrderQueryHandler(MongoDBContext context) : base(context)
+        public ViewOrderQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

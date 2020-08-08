@@ -7,7 +7,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class BrowseOrdersQueryHandler : QueryHandler<BrowseOrdersQuery, BrowseOrdersQueryResponse>
     {
-        public BrowseOrdersQueryHandler(MongoDBContext context) : base(context)
+        public BrowseOrdersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

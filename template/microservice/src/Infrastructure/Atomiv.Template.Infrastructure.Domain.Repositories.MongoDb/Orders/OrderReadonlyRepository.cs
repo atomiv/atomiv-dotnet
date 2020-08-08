@@ -8,7 +8,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Orders
 {
     public class OrderReadonlyRepository : Repository, IOrderReadonlyRepository
     {
-        public OrderReadonlyRepository(MongoDBContext context) : base(context)
+        public OrderReadonlyRepository(DatabaseContext context) : base(context)
         {
         }
 

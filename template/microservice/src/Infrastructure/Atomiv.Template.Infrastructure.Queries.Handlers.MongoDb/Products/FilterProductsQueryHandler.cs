@@ -7,7 +7,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class FilterProductsQueryHandler : QueryHandler<FilterProductsQuery, FilterProductsQueryResponse>
     {
-        public FilterProductsQueryHandler(MongoDBContext context) : base(context)
+        public FilterProductsQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

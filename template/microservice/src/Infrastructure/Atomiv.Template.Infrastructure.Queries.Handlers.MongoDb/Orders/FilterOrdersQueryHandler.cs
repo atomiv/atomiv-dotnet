@@ -7,7 +7,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class FilterOrdersQueryHandler : QueryHandler<FilterOrdersQuery, FilterOrdersQueryResponse>
     {
-        public FilterOrdersQueryHandler(MongoDBContext context) : base(context)
+        public FilterOrdersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 

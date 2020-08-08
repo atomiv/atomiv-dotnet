@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
+namespace Atomiv.Infrastructure.MongoDB
 {
     public class MongoDBOptions
     {

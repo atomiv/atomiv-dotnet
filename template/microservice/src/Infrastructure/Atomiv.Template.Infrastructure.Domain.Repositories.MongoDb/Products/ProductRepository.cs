@@ -10,7 +10,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
 {
     public class ProductRepository : ProductReadonlyRepository, IProductRepository
     {
-        public ProductRepository(MongoDBContext context) : base(context)
+        public ProductRepository(DatabaseContext context) : base(context)
         {
         }
 
