@@ -70,6 +70,16 @@ namespace Atomiv.Template.Web.RestApi.Controllers
             return Ok(response);
         }
 
+        [HttpPost("sync", Name = "sync-products")]
+        [ProducesResponseType(typeof(SyncProductsCommandResponse), 200)]
+        public async Task<ActionResult<SyncProductsCommandResponse>> SyncProductsAsync()
+        {
+            var request = new SyncProductsCommand();
+
+            var response = await _commandBus.SendAsync(request);
+            return Ok(response);
+        }
+
         #endregion
 
         #region Queries

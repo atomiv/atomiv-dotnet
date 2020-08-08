@@ -26,28 +26,28 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             {
                 new CreateProductCommand
                 {
-                    Code = $"APP{DateTime.Now}",
+                    Code = $"APP {Guid.NewGuid()}",
                     Description = "Apple",
                     UnitPrice = 10.50m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = $"BAN{DateTime.Now}",
+                    Code = $"BAN {Guid.NewGuid()}",
                     Description = "Banana",
                     UnitPrice = 30.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = $"ONG{DateTime.Now}",
+                    Code = $"ONG {Guid.NewGuid()}",
                     Description = "Orange",
                     UnitPrice = 35.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = $"STR{DateTime.Now}",
+                    Code = $"STR {Guid.NewGuid()}",
                     Description = "Strawberry",
                     UnitPrice = 40.00m,
                 },

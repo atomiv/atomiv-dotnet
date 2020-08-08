@@ -23,7 +23,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
 
             var createRequest = new CreateProductCommand
             {
-                Code = $"My code 1 {DateTime.Now}",
+                Code = $"My code 1 {Guid.NewGuid()}",
                 Description = "My name 1",
                 UnitPrice = 100.56m,
             };
