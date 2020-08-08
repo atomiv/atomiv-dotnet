@@ -32,7 +32,7 @@ namespace Atomiv.Infrastructure.RabbitMQ
                 body: body);
         }
 
-        protected IModel Channel { get; }
+        public IModel Channel { get; }
 
         protected virtual IConnectionFactory GetConnectionFactory(IOptions<RabbitMQConfiguration> options)
         {
