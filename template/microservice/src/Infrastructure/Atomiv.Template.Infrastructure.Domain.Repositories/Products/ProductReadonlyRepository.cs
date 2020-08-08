@@ -45,6 +45,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
             return GetProduct(productRecord);
         }
 
+
+        public async Task<IReadonlyProduct> FindReadonlyAsync(string productCode)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.ProductCode == productCode);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds

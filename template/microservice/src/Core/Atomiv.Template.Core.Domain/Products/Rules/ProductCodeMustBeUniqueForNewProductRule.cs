@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Domain.Products.Rules
 {
-    public class ProductCodeMustBeUniqueRule : IRule<Product>
+    public class ProductCodeMustBeUniqueForNewProductRule : IRule<Product>
     {
         private readonly IProductReadonlyRepository _productReadonlyRepository;
 
-        public ProductCodeMustBeUniqueRule(IProductReadonlyRepository productReadonlyRepository)
+        public ProductCodeMustBeUniqueForNewProductRule(IProductReadonlyRepository productReadonlyRepository)
         {
             _productReadonlyRepository = productReadonlyRepository;
         }
 
         public async Task<RuleValidationResult> ValidateAsync(Product product)
         {
+            if(!product.IsNew)
+            {
+                return RuleValidationResult.Success();
+            }
+
             var productCode = product.ProductCode;
 
             var exists = await _productReadonlyRepository.ExistsAsync(productCode);

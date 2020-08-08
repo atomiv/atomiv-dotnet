@@ -8,6 +8,8 @@ namespace Atomiv.Template.Core.Domain.Products
     {
         Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId);
 
+        Task<IReadonlyProduct> FindReadonlyAsync(string productCode);
+
         Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds);
 
         Task<bool> ExistsAsync(ProductIdentity productId);
@@ -15,5 +17,6 @@ namespace Atomiv.Template.Core.Domain.Products
         Task<bool> ExistsAsync(string productCode);
 
         Task<long> CountAsync();
+
     }
 }

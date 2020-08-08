@@ -28,8 +28,8 @@ namespace Atomiv.Core.Application
         }
 
         public ValidationException(ValidationResult result)
+            : this(RequestValidationResult.From(result))
         {
-            throw new NotImplementedException();
         }
 
         protected ValidationException(SerializationInfo info, StreamingContext context) : base(info, context)

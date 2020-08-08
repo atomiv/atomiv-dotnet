@@ -19,6 +19,8 @@ namespace Atomiv.DependencyInjection.Core.Domain
         private static Type ValidatableType = typeof(IValidatable);
         private static Type ValidatorInterfaceType = typeof(IValidator<>);
         private static Type ValidatorImplementationType = typeof(Validator<>);
+        private static Type EnumerableValidatorInterfaceType = typeof(IEnumerableValidator<>);
+        private static Type EnumerableValidatorImplementationType = typeof(EnumerableValidator<>);
 
         public static IServiceCollection AddDomainCore(this IServiceCollection services, params Assembly[] assemblies)
         {
@@ -31,6 +33,7 @@ namespace Atomiv.DependencyInjection.Core.Domain
             services.AddIdentityGenerators(types);
             services.AddRules(types);
             services.AddValidators(types);
+            services.AddEnumerableValidators(types);
 
             return services;
         }
@@ -102,6 +105,21 @@ namespace Atomiv.DependencyInjection.Core.Domain
             {
                 var validatorServiceType = ValidatorInterfaceType.MakeGenericType(implementationType);
                 var validatorImplementationType = ValidatorImplementationType.MakeGenericType(implementationType);
+
+                services.AddScoped(validatorServiceType, validatorImplementationType);
+            }
+
+            return services;
+        }
+
+        private static IServiceCollection AddEnumerableValidators(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            var implementationTypes = types.GetConcreteImplementationsOfInterface(ValidatableType);
+
+            foreach (var implementationType in implementationTypes)
+            {
+                var validatorServiceType = EnumerableValidatorInterfaceType.MakeGenericType(implementationType);
+                var validatorImplementationType = EnumerableValidatorImplementationType.MakeGenericType(implementationType);
 
                 services.AddScoped(validatorServiceType, validatorImplementationType);
             }

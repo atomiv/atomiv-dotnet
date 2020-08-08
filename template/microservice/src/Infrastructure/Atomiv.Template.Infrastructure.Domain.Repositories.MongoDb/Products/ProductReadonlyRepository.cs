@@ -49,6 +49,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
             return GetProduct(productRecord);
         }
 
+        public async Task<IReadonlyProduct> FindReadonlyAsync(string productCode)
+        {
+            var productRecord = await Context.Products
+                .Find(e => e.ProductCode == productCode)
+                .FirstOrDefaultAsync();
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
         public async Task<IEnumerable<IReadonlyProduct>> FindReadonlyAsync(IEnumerable<ProductIdentity> productIds)
         {
             var productRecordIds = productIds

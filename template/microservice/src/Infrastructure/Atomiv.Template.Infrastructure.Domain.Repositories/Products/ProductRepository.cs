@@ -44,15 +44,33 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
             return GetProduct(productRecord);
         }
 
-        public async Task SyncAsync(IEnumerable<Product> products)
+        public async Task<Product> FindAsync(string productCode)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.ProductCode == productCode);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
+        public Task SyncAsync(IEnumerable<Product> products)
         {
             // TODO: VC: Implement list differences
 
-            var productRecords = products.Select(GetProductRecord).ToList();
+            var addedProducts = products.Where(e => e.IsNew);
+            var updatedProducts = products.Where(e => !e.IsNew);
 
-            Context.Products.AddRange(productRecords);
+            var addedProductRecords = addedProducts.Select(GetProductRecord).ToList();
+            var updatedProductRecords = updatedProducts.Select(GetProductRecord).ToList();
 
-            await Context.SaveChangesAsync();
+            Context.Products.AddRange(addedProductRecords);
+            Context.Products.UpdateRange(updatedProductRecords);
+
+            return Task.CompletedTask;
         }
 
         #region Helper

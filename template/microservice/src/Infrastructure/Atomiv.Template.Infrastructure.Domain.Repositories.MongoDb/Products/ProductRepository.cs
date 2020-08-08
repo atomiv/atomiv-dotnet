@@ -35,6 +35,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
             return GetProduct(productRecord);
         }
 
+        public async Task<Product> FindAsync(string productCode)
+        {
+            var productRecord = await Context.Products
+                .Find(e => e.ProductCode == productCode)
+                .FirstOrDefaultAsync();
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
         public Task SyncAsync(IEnumerable<Product> products)
         {
             // TODO: VC: Implement list differences

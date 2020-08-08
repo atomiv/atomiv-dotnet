@@ -25,28 +25,28 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             {
                 new CreateProductCommand
                 {
-                    Code = "APP",
+                    Code = $"APP{DateTime.Now}",
                     Description = "Apple",
                     UnitPrice = 10.50m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "BAN",
+                    Code = $"BAN{DateTime.Now}",
                     Description = "Banana",
                     UnitPrice = 30.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "ONG",
+                    Code = $"ONG{DateTime.Now}",
                     Description = "Orange",
                     UnitPrice = 35.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "STR",
+                    Code = $"STR{DateTime.Now}",
                     Description = "Strawberry",
                     UnitPrice = 40.00m,
                 },
@@ -114,28 +114,28 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Commands
             {
                 new CreateProductCommand
                 {
-                    Code = "APP",
+                    Code = $"APP{DateTime.Now}",
                     Description = "Apple",
                     UnitPrice = 10.50m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "BAN",
+                    Code = $"BAN{DateTime.Now}",
                     Description = "Banana",
                     UnitPrice = 30.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "ONG",
+                    Code = $"ONG{DateTime.Now}",
                     Description = "Orange",
                     UnitPrice = 35.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "STR",
+                    Code = $"STR{DateTime.Now}",
                     Description = "Strawberry",
                     UnitPrice = 40.00m,
                 },
