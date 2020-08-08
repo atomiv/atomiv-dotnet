@@ -1,4 +1,5 @@
 ﻿using Atomiv.Core.Application;
+using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Application.Commands.Orders;
 using Atomiv.Template.Core.Domain.Orders;
 using System.Threading.Tasks;
@@ -7,14 +8,17 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
 {
     public class CancelOrderCommandHandler : ICommandHandler<CancelOrderCommand, CancelOrderCommandResponse>
     {
-        private readonly IMapper _mapper;
+        private readonly IValidator<Order> _orderValidator;
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CancelOrderCommandHandler(IMapper mapper, 
+        public CancelOrderCommandHandler(IValidator<Order> orderValidator,
             IOrderRepository orderRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
+            _orderValidator = orderValidator;
             _orderRepository = orderRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -32,6 +36,13 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Orders
             }
 
             order.Cancel();
+
+            var validationResult = await _orderValidator.ValidateAsync(order);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult);
+            }
 
             await _orderRepository.UpdateAsync(order);
 
