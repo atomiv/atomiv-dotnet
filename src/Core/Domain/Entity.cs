@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Atomiv.Core.Domain
 {
-    public class Entity<TIdentity> : IReadonlyEntity<TIdentity>
+    public class Entity<TIdentity> : IReadonlyEntity<TIdentity>, IValidatable
         where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
         private TIdentity _id;

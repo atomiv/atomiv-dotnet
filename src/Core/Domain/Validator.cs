@@ -5,28 +5,29 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Core.Domain
 {
-    public class Validator<TEntity> : IValidator<TEntity>
+    public class Validator<T> : IValidator<T>
+        where T : IValidatable
     {
-        private readonly IEnumerable<IRule<TEntity>> _rules;
+        private readonly IEnumerable<IRule<T>> _rules;
 
-        public Validator(IEnumerable<IRule<TEntity>> rules)
+        public Validator(IEnumerable<IRule<T>> rules)
         {
             _rules = rules;
         }
 
-        public async Task<IEnumerable<ValidationResult>> ValidateAsync(TEntity entity)
+        public async Task<ValidationResult> ValidateAsync(T entity)
         {
-            var results = new List<ValidationResult>();
+            var ruleResults = new List<RuleValidationResult>();
 
             // TODO: VC: Parallelization
 
             foreach(var rule in _rules)
             {
-                var result = await rule.ValidateAsync(entity);
-                results.Add(result);
+                var ruleResult = await rule.ValidateAsync(entity);
+                ruleResults.Add(ruleResult);
             }
 
-            return results;
+            return new ValidationResult(ruleResults);
         }
     }
 }

@@ -1,29 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Atomiv.Core.Domain
 {
     public class ValidationResult
     {
-        public ValidationResult(bool isValid, string errorMessage)
+        public ValidationResult(IEnumerable<RuleValidationResult> ruleResults)
         {
-            IsValid = isValid;
-            ErrorMessage = errorMessage;
+            RuleResults = ruleResults;
         }
 
-        public bool IsValid { get; }
+        public IEnumerable<RuleValidationResult> RuleResults { get; }
 
-        public string ErrorMessage { get; }
-
-        public static ValidationResult Error(string errorMessage)
-        {
-            return new ValidationResult(false, errorMessage);
-        }
-
-        public static ValidationResult Success()
-        {
-            return new ValidationResult(true, null);
-        }
+        public bool IsValid => RuleResults.All(e => e.IsValid);
     }
 }

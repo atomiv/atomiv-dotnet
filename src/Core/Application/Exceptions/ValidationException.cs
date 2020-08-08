@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Atomiv.Core.Domain;
+using System;
 using System.Runtime.Serialization;
 
 namespace Atomiv.Core.Application
@@ -24,6 +25,11 @@ namespace Atomiv.Core.Application
         public ValidationException(RequestValidationResult result)
         {
             Result = result;
+        }
+
+        public ValidationException(ValidationResult result)
+        {
+            throw new NotImplementedException();
         }
 
         protected ValidationException(SerializationInfo info, StreamingContext context) : base(info, context)

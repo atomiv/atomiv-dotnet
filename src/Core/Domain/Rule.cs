@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Core.Domain
 {
-    public abstract class Rule<TEntity> : IRule<TEntity>
+    public abstract class Rule<T> : IRule<T>
+        where T : IValidatable
     {
         public Rule(bool continueOnError = false)
         {
@@ -14,6 +15,6 @@ namespace Atomiv.Core.Domain
 
         public bool ContinueOnError { get; }
 
-        public abstract Task<ValidationResult> ValidateAsync(TEntity entity);
+        public abstract Task<RuleValidationResult> ValidateAsync(T obj);
     }
 }

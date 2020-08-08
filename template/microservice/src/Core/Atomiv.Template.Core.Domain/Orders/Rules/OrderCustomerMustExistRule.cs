@@ -17,7 +17,7 @@ namespace Atomiv.Template.Core.Domain.Orders.Rules
             _customerReadonlyRepository = customerReadonlyRepository;
         }
 
-        public async Task<ValidationResult> ValidateAsync(Order order)
+        public async Task<RuleValidationResult> ValidateAsync(Order order)
         {
             var customerId = order.CustomerId;
 
@@ -25,10 +25,10 @@ namespace Atomiv.Template.Core.Domain.Orders.Rules
 
             if (!existsCustomer)
             {
-                return ValidationResult.Error($"Customer {customerId} does not exist");
+                return RuleValidationResult.Error($"Customer {customerId} does not exist");
             }
 
-            return ValidationResult.Success();
+            return RuleValidationResult.Success();
         }
     }
 }

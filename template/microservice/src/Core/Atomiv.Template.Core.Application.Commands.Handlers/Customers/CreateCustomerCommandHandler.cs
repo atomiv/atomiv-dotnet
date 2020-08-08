@@ -1,4 +1,5 @@
 ﻿using Atomiv.Core.Application;
+using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Application.Commands.Customers;
 using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Domain.Customers;

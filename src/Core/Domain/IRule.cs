@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Core.Domain
 {
-    public interface IRule<TEntity>
+    public interface IRule<T> where T : IValidatable
     {
-        Task<ValidationResult> ValidateAsync(TEntity entity);
+        Task<RuleValidationResult> ValidateAsync(T obj);
     }
 }
