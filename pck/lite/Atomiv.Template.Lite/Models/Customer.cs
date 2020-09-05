@@ -9,11 +9,10 @@ namespace Atomiv.Template.Lite.Models
 {
     public class Customer
     {
+        // TODO VC olong or int
         public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        // public bool IsComplete { get; set; }
-
         // TODO VC
         // online... public int Id { get; set; }
     }
