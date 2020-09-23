@@ -34,10 +34,11 @@ namespace Atomiv.Template.Lite
             services.AddDbContext<ECommerceContext>(opt =>
                 // microsoft docs
                 // JECA
-                // opt.UseInMemoryDatabase("ECommerceList"));
+                opt.UseInMemoryDatabase("ECommerceList"));
                 // jc
-                // GetConnectionString("ECommerceAPIContext")
-                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                // GetConnectionString("ECommerceAPIContext");
+                // jc
+                // opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             // if something changes down teh line, just change MockCommanderRepo
             // british guy
