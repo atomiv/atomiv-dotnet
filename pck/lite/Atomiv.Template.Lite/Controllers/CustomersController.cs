@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Services.Interfaces;
 
 // TODO ECommerceAPI.Controllers
 namespace Atomiv.Template.Lite.Controllers
@@ -19,11 +20,12 @@ namespace Atomiv.Template.Lite.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly ECommerceContext _context;
+        // private readonly ECommerceContext _context;
+        private readonly ICustomerService _service;
 
-        public CustomersController(ECommerceContext context)
+        public CustomersController(ICustomerService service)
         {
-            _context = context;
+            _service = service;
         }
 
         // GET: api/Customers
@@ -33,31 +35,35 @@ namespace Atomiv.Template.Lite.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
-            return await _context.Customers.ToListAsync();
+            // Customers.ToListAsync();
+            var customers = await _service.GetCustomers();
+            return Ok(customers);
         }
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(long id)
         {
+            var customer = await _service.GetCustomer(id);
+
             // .Customers that's why in ECommerceContexr it's plural
-            var customer = await _context.Customers.FindAsync(id);
+            // var customer = await _context.Customers.FindAsync(id);
 
             if (customer == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            //return customer;
+            return Ok(customer);
         }
 
         // PUT = update
         // PUT: api/Customers/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // more details, see //go.microsoft.com/fwlink/?linkid=2123754.
         // public void Put(int id, [FromBody] string value)
         [HttpPut("{id}")]
-        // TODO ... // int id
         public async Task<IActionResult> PutCustomer(long id, Customer customer)
         {
             if (id != customer.Id)
@@ -65,26 +71,34 @@ namespace Atomiv.Template.Lite.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(customer).State = EntityState.Modified;
+            customer = await _service.PutCustomer(customer);
+            //_context.Entry(customer).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CustomerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            if (customer == null)
+			{
+                return NotFound();
+			}
 
             return NoContent();
+
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!CustomerExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
+
         }
+
 
         // POST = create new
         // POST: api/Customers
@@ -94,8 +108,9 @@ namespace Atomiv.Template.Lite.Controllers
         // public void Post([FromBody] string value)
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-            _context.Customers.Add(customer);
-            await _context.SaveChangesAsync();
+            customer = await _service.PostCustomer(customer);
+            //_context.Customers.Add(customer);
+            //await _context.SaveChangesAsync();
 
             // return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
             return CreatedAtAction(nameof(GetCustomer), new { id = customer.Id }, customer);
@@ -105,21 +120,23 @@ namespace Atomiv.Template.Lite.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Customer>> DeleteCustomer(long id)
         {
-            var customer = await _context.Customers.FindAsync(id);
+            var customer = await _service.DeleteCustomer(id);
+            //var customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
                 return NotFound();
             }
 
-            _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
+            //_context.Customers.Remove(customer);
+            //await _context.SaveChangesAsync();
 
-            return customer;
+            //return customer;
+            return Ok(customer);
         }
 
-        private bool CustomerExists(long id)
-        {
-            return _context.Customers.Any(e => e.Id == id);
-        }
+        //private bool CustomerExists(long id)
+        //{
+        //    return _context.Customers.Any(e => e.Id == id);
+        //}
     }
 }

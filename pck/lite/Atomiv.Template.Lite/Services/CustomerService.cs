@@ -1,4 +1,5 @@
 ﻿using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Services
 {
-	public class CustomerService
+	public class CustomerService : ICustomerService
 	{
         private readonly ECommerceContext _context;
 
@@ -87,46 +88,10 @@ namespace Atomiv.Template.Lite.Services
 		}
 
 
-
-
-		//// POST = create new
-		//// POST: api/Customers
-		//// To protect from overposting attacks, enable the specific properties you want to bind to, for
-		//// more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-		//[HttpPost]
-		//// public void Post([FromBody] string value)
-		//public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
-		//{
-		//    _context.Customers.Add(customer);
-		//    await _context.SaveChangesAsync();
-
-		//    // return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
-		//    return CreatedAtAction(nameof(GetCustomer), new { id = customer.Id }, customer);
-		//}
-
-		//// DELETE: api/Customers/5
-		//[HttpDelete("{id}")]
-		//public async Task<ActionResult<Customer>> DeleteCustomer(long id)
-		//{
-		//    var customer = await _context.Customers.FindAsync(id);
-		//    if (customer == null)
-		//    {
-		//        return NotFound();
-		//    }
-
-		//    _context.Customers.Remove(customer);
-		//    await _context.SaveChangesAsync();
-
-		//    return customer;
-		//}
-
 		private bool CustomerExists(long id)
 		{
 			return _context.Customers.Any(e => e.Id == id);
 		}
-
-
-
 
 
 

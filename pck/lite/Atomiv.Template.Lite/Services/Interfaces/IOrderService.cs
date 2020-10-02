@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Services.Interfaces
 {
-	interface IOrderService
+	public interface IOrderService
 	{
 	}
 }

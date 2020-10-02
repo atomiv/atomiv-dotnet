@@ -16,6 +16,8 @@ using Commander.Data;
 using System.Reflection;
 using System.IO;
 using Microsoft.Extensions.Options;
+using Atomiv.Template.Lite.Services.Interfaces;
+using Atomiv.Template.Lite.Services;
 
 namespace Atomiv.Template.Lite
 {
@@ -65,6 +67,8 @@ namespace Atomiv.Template.Lite
                 var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
                 options.IncludeXmlComments(filePath);
             });
+
+            services.AddScoped<ICustomerService, CustomerService>();
 
         }
 
