@@ -12,10 +12,14 @@ namespace Atomiv.Template.Lite.Models
     public class Customer
     {
         public long Id { get; set; }
+        // to show comments like these in swagger...  schemas
+        /// <summary>
+        /// Customer Name
+        /// </summary>
         [Required]
-        [MinLength(2, ErrorMessage ="please fill this in")]
         // to change the error message displayed in postman
-        public string FirstName { get; set; }
+        [MinLength(2, ErrorMessage ="please fill this in")]
+		public string FirstName { get; set; }
         [Required(ErrorMessage = "this is required")]
         [MaxLength(50, ErrorMessage = "surname cannot exceed 50 characters")]
         // MinimumLength property is optional below

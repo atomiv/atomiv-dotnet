@@ -27,6 +27,9 @@ namespace Atomiv.Template.Lite.Controllers
         }
 
         // GET: api/Customers
+        /// <summary>
+        /// The GET method returns fake customers
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {

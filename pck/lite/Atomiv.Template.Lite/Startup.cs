@@ -13,6 +13,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
 using Commander.Data;
+using System.Reflection;
+using System.IO;
+using Microsoft.Extensions.Options;
 
 namespace Atomiv.Template.Lite
 {
@@ -45,6 +48,24 @@ namespace Atomiv.Template.Lite
             // if something changes down teh line, just change MockCommanderRepo
             // british guy
             // services.AddScoped<ICommanderRepo,  MockCommanderRepo>();
+            // Configure Swagger after it's installed
+            // add Swagger to Dependency Injection container
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1",
+                    new Microsoft.OpenApi.Models.OpenApiInfo
+                    {
+                        Title = "Atomiv Template Lite",
+                        Description = "Demo showing orders",
+                        Version = "v1"
+                    });
+                
+                // generate xml file - optional. to view comments in swagger .. schemas
+                var fileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
+                options.IncludeXmlComments(filePath);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +96,17 @@ namespace Atomiv.Template.Lite
                 endpoints.MapControllers();
             });
 
+            // here in the Configure method (see above) add Swagger
+            app.UseSwagger();
+            // Swagger UI to be available
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                // to go into Swagger when RUN and empty url, get swagger documentataion
+                // localhost:44390/
+                options.RoutePrefix = "";
+
+            });
         }
     }
 }

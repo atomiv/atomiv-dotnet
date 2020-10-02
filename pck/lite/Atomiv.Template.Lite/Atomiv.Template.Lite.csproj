@@ -1,4 +1,4 @@
-<!-- setup references to packages we need -->
+﻿<!-- setup references to packages we need -->
 
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -19,12 +19,15 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Repositories\" />
-  </ItemGroup>
+  <!-- optional. for comments to be visible in swagger .. schemas-->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
 
 
 </Project>
