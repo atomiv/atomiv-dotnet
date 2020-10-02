@@ -29,16 +29,18 @@ namespace Atomiv.Template.Lite
         // here we add services
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             // don't need 2 lines below for Commander
             // services.AddDbContext<Data.LibraryContext>
             services.AddDbContext<ECommerceContext>(opt =>
                 // microsoft docs
                 // JECA
-                opt.UseInMemoryDatabase("ECommerceList"));
-                // jc
-                // GetConnectionString("ECommerceAPIContext");
+                // opt.UseInMemoryDatabase("ECommerceList"));
+                // change name? - GetConnectionString("ECommerceAPIContext");
                 // jc
                 // opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                opt.UseSqlServer(connectionString));
             services.AddControllers();
             // if something changes down teh line, just change MockCommanderRepo
             // british guy

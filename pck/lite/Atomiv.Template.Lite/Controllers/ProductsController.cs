@@ -14,7 +14,7 @@ namespace Atomiv.Template.Lite.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly ECommerceContext _context;
-
+        
         public ProductsController(ECommerceContext context)
         {
             _context = context;
