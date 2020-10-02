@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Services.Interfaces;
 
 namespace Atomiv.Template.Lite.Controllers
 {
@@ -13,20 +14,22 @@ namespace Atomiv.Template.Lite.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly ECommerceContext _context;
+        private readonly IOrderService _service;
 
-        public OrdersController(ECommerceContext context)
+        public OrdersController(IOrderService service)
         {
-            _context = context;
+            _service = service;
         }
 
         // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
+        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
             // return await _context.Orders.ToListAsync();
             // .Include(t => t.OrderItems).Include(o => o.OrderItems)
-            return await _context.Orders.Include(t => t.OrderItems).ToListAsync();
+            // Orders.Include(t => t.OrderItems)
+            var orders = await _service.GetOrders();
+            return Ok(orders);
         }
 
         /* ??
@@ -46,14 +49,15 @@ namespace Atomiv.Template.Lite.Controllers
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
             // .FirstOrDEfaultAsync(i => i.PatientId == id);
-            var order = await _context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
+            //_context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
+            var order = await _service.GetOrder(id);
 
             if (order == null)
             {
                 return NotFound();
             }
 
-            return order;
+            return Ok(order);
         }
 
         // PUT: api/Orders/5
@@ -82,30 +86,19 @@ namespace Atomiv.Template.Lite.Controllers
             // _context.Entry(order.OrderItems).State = EntityState.Modified;
             // db.Entry(personaldetails).State = EntityState.Modified;
             // ORIGINAL
-            _context.Entry(order).State = EntityState.Modified;
+            // _context.Entry(order).State = EntityState.Modified;
             // _context.Orders.Update(order);
             // await _context.SaveChangesAsync();
             // works but still list not updated
             // _context.Entry(orderToUpdate).CurrentValues.SetValues(order);
             // _context.Entry(order).State = EntityState.Modified;
 
-            try
-            {
-                // await _context.SaveChangesAsync();
- // var order = await _context.Orders.Include(t => t.OrderItems).SingleOrDefaultAsync(t => t.Id == id);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OrderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            order = await _service.PostOrder(order);
+
+            if (order == null)
+			{
+                return NotFound();
+			}
 
             return NoContent();
         }
@@ -116,43 +109,24 @@ namespace Atomiv.Template.Lite.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            order = await _service.PostOrder(order);
 
-            // return CreatedAtAction("GetOrder", new { id = order.Id }, order);
             return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }
 
-        /* ??
-        public void Post([FromBody] Employee employee)
-        {
-            using(EmployeeDBEntities entities = new EmployeeDBEntities())
-            {
-                entities.Employees.Add(employee);
-                entities.SaveCahnegs();
-            }
-        }
-        */
 
         // DELETE: api/Orders/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Order>> DeleteOrder(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _service.DeleteOrder(id);
             if (order == null)
             {
                 return NotFound();
             }
 
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
-
-            return order;
+            return Ok(order);
         }
 
-        private bool OrderExists(int id)
-        {
-            return _context.Orders.Any(e => e.Id == id);
-        }
     }
 }
