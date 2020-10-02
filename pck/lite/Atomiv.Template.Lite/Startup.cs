@@ -18,6 +18,7 @@ using System.IO;
 using Microsoft.Extensions.Options;
 using Atomiv.Template.Lite.Services.Interfaces;
 using Atomiv.Template.Lite.Services;
+using Microsoft.OpenApi.Models;
 
 namespace Atomiv.Template.Lite
 {
@@ -57,7 +58,7 @@ namespace Atomiv.Template.Lite
             {
                 //options.SwaggerDoc("v1", new Info { Title = "My API", Version = :v1" });
                 options.SwaggerDoc("v1",
-                    new Microsoft.OpenApi.Models.OpenApiInfo
+                    new OpenApiInfo
                     {
                         Title = "Atomiv Template Lite",
                         Description = "Demo showing orders",
@@ -113,6 +114,7 @@ namespace Atomiv.Template.Lite
                 // localhost:44390/index.html
                 // remove this if you prefer localhost:44390/swagger...
                 //options.RoutePrefix = "";
+                //options.RoutePrefix = string.Empty;
 
             });
         }
