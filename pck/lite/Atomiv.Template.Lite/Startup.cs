@@ -52,8 +52,10 @@ namespace Atomiv.Template.Lite
             // services.AddScoped<ICommanderRepo,  MockCommanderRepo>();
             // Configure Swagger after it's installed
             // add Swagger to Dependency Injection container
+            // (options -- completely optional
             services.AddSwaggerGen(options =>
             {
+                //options.SwaggerDoc("v1", new Info { Title = "My API", Version = :v1" });
                 options.SwaggerDoc("v1",
                     new Microsoft.OpenApi.Models.OpenApiInfo
                     {
@@ -108,7 +110,9 @@ namespace Atomiv.Template.Lite
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 // to go into Swagger when RUN and empty url, get swagger documentataion
                 // localhost:44390/
-                options.RoutePrefix = "";
+                // localhost:44390/index.html
+                // remove this if you prefer localhost:44390/swagger...
+                //options.RoutePrefix = "";
 
             });
         }
