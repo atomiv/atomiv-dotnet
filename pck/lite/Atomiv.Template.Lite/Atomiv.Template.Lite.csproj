@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\Products\" />
-    <Folder Include="Dtos\Orders\" />
+    <Folder Include="Mapping\Products\" />
+    <Folder Include="Mapping\Orders\" />
   </ItemGroup>
 
   <!-- optional. for comments to be visible in swagger .. schemas-->

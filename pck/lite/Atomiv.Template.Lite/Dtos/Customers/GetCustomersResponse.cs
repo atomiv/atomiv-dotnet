@@ -7,6 +7,11 @@ namespace Atomiv.Template.Lite.Dtos.Customers
 {
 	public class GetCustomersResponse
 	{
+		public List<GetCustomersRecordResponse> Records { get; set; }
+	}
+
+	public class GetCustomersRecordResponse
+	{
 		public long Id { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }

@@ -12,7 +12,10 @@ namespace Atomiv.Template.Lite.Mapping.Customers
 	{
 		public GetCustomersResponseMap()
 		{
-			CreateMap<Customer, GetCustomersResponse>();
+			CreateMap<IEnumerable<Customer>, GetCustomersResponse>()
+				.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e));
+
+			CreateMap<Customer, GetCustomersRecordResponse>();
 		}
 	}
 }
