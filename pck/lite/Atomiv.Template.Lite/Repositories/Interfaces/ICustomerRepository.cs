@@ -8,18 +8,15 @@ namespace Atomiv.Template.Lite.Repositories.Interfaces
 {
 	public interface ICustomerRepository
 	{
-
 		public Task<IEnumerable<Customer>> GetCustomers();
 
 		public Task<Customer> GetCustomer(long id);
-
 
 		public Task<Customer> UpdateCustomer(Customer customer);
 
 		public Task<Customer> CreateCustomer(Customer customer);
 
 		public Task<Customer> DeleteCustomer(long id);
-
 
 	}
 }

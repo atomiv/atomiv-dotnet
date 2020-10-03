@@ -7,5 +7,15 @@ namespace Atomiv.Template.Lite.Dtos.Products
 {
 	public class GetProductsResponse
 	{
+		public List<GetProductsRecordResponse> Records { get; set; }
+	}
+
+	public class GetProductsRecordResponse
+	{
+		public int Id { get; set; }
+		public string Code { get; set; }
+		public string Description { get; set; }
+		public decimal Price { get; set; }
+		public bool IsListed { get; set; }
 	}
 }
