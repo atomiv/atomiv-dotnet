@@ -12,9 +12,9 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 
 		public Task<Order> GetOrder(int id);
 
-		public Task<Order> PutOrder(Order order);
+		public Task<Order> UpdateOrder(Order order);
 
-		public Task<Order> PostOrder(Order order);
+		public Task<Order> CreateOrder(Order order);
 
 		public Task<Order> DeleteOrder(int id);
 

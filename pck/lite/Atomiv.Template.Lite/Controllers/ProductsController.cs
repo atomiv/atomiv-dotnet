@@ -54,7 +54,7 @@ namespace Atomiv.Template.Lite.Controllers
                 return BadRequest();
             }
 
-            product = await _service.PutProduct(product);
+            product = await _service.UpdateProduct(product);
 
             if (product == null)
 			{
@@ -71,7 +71,7 @@ namespace Atomiv.Template.Lite.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            product = await _service.PostProduct(product);
+            product = await _service.CreateProduct(product);
             
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }

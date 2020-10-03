@@ -12,9 +12,9 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 
 		public Task<Customer> GetCustomer(long id);
 
-		public Task<Customer> PutCustomer(Customer customer);
+		public Task<Customer> UpdateCustomer(Customer customer);
 
-		public Task<Customer> PostCustomer(Customer customer);
+		public Task<Customer> CreateCustomer(Customer customer);
 
 		public Task<Customer> DeleteCustomer(long id);
 	}

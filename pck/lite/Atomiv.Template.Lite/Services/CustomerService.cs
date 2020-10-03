@@ -36,7 +36,7 @@ namespace Atomiv.Template.Lite.Services
 		}
 
 
-		public async Task<Customer> PutCustomer(Customer customer)
+		public async Task<Customer> UpdateCustomer(Customer customer)
 		{
 
 			_context.Entry(customer).State = EntityState.Modified;
@@ -64,7 +64,7 @@ namespace Atomiv.Template.Lite.Services
 
 
 
-		public async Task<Customer> PostCustomer(Customer customer)
+		public async Task<Customer> CreateCustomer(Customer customer)
 		{
 			_context.Customers.Add(customer);
 			await _context.SaveChangesAsync();

@@ -12,9 +12,9 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 
 		public Task<Product> GetProduct(int id);
 
-		public Task<Product> PutProduct(Product product);
+		public Task<Product> UpdateProduct(Product product);
 
-		public Task<Product> PostProduct(Product product);
+		public Task<Product> CreateProduct(Product product);
 
 		public Task<Product> DeleteProduct(int id);
 

@@ -71,7 +71,7 @@ namespace Atomiv.Template.Lite.Controllers
                 return BadRequest();
             }
 
-            customer = await _service.PutCustomer(customer);
+            customer = await _service.UpdateCustomer(customer);
             //_context.Entry(customer).State = EntityState.Modified;
 
             if (customer == null)
@@ -108,7 +108,7 @@ namespace Atomiv.Template.Lite.Controllers
         // public void Post([FromBody] string value)
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-            customer = await _service.PostCustomer(customer);
+            customer = await _service.CreateCustomer(customer);
             //_context.Customers.Add(customer);
             //await _context.SaveChangesAsync();
 

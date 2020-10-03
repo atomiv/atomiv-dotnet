@@ -34,7 +34,7 @@ namespace Atomiv.Template.Lite.Services
 			return product;
 		}
 
-		public async Task<Product> PutProduct(Product product)
+		public async Task<Product> UpdateProduct(Product product)
 		{
 
 			_context.Entry(product).State = EntityState.Modified;
@@ -60,7 +60,7 @@ namespace Atomiv.Template.Lite.Services
 			return null;
 		}
 
-		public async Task<Product> PostProduct(Product product)
+		public async Task<Product> CreateProduct(Product product)
 		{
 			_context.Products.Add(product);
 			await _context.SaveChangesAsync();

@@ -93,7 +93,7 @@ namespace Atomiv.Template.Lite.Controllers
             // _context.Entry(orderToUpdate).CurrentValues.SetValues(order);
             // _context.Entry(order).State = EntityState.Modified;
 
-            order = await _service.PostOrder(order);
+            order = await _service.CreateOrder(order);
 
             if (order == null)
 			{
@@ -109,7 +109,7 @@ namespace Atomiv.Template.Lite.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
-            order = await _service.PostOrder(order);
+            order = await _service.CreateOrder(order);
 
             return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
         }

@@ -35,7 +35,7 @@ namespace Atomiv.Template.Lite.Services
 		    return order;
 		}
 
-		public async Task<Order> PutOrder(Order order)
+		public async Task<Order> UpdateOrder(Order order)
 		{
 
 			_context.Entry(order).State = EntityState.Modified;
@@ -62,7 +62,7 @@ namespace Atomiv.Template.Lite.Services
 		}
 
 
-		public async Task<Order> PostOrder(Order order)
+		public async Task<Order> CreateOrder(Order order)
 		{
 			_context.Orders.Add(order);
 			await _context.SaveChangesAsync();
