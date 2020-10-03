@@ -16,7 +16,7 @@ using Atomiv.Template.Lite.Services.Interfaces;
 // TODO ECommerceAPI.Controllers
 namespace Atomiv.Template.Lite.Controllers
 {
-    [Route("api/Customers")]
+    [Route("api/customers")]
     [ApiController]
     public class CustomersController : ControllerBase
     {

@@ -10,7 +10,7 @@ using Atomiv.Template.Lite.Services.Interfaces;
 
 namespace Atomiv.Template.Lite.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
