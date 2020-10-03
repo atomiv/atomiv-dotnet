@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
 using Atomiv.Template.Lite.Services.Interfaces;
+using Atomiv.Template.Lite.Dtos.Customers;
 
 // TODO ECommerceAPI.Controllers
 namespace Atomiv.Template.Lite.Controllers
@@ -33,7 +34,7 @@ namespace Atomiv.Template.Lite.Controllers
         /// The GET method returns fake customers
         /// </summary>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<GetCustomersResponse>> GetCustomers()
         {
             // Customers.ToListAsync();
             var customers = await _service.GetCustomers();
@@ -42,7 +43,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(long id)
+        public async Task<ActionResult<GetCustomerResponse>> GetCustomer(long id)
         {
             var customer = await _service.GetCustomer(id);
 
@@ -64,17 +65,17 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see //go.microsoft.com/fwlink/?linkid=2123754.
         // public void Put(int id, [FromBody] string value)
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(long id, Customer customer)
+        public async Task<IActionResult> PutCustomer(long id, UpdateCustomerRequest request)
         {
-            if (id != customer.Id)
+            if (id != request.Id)
             {
                 return BadRequest();
             }
 
-            customer = await _service.UpdateCustomer(customer);
+            var response = await _service.UpdateCustomer(request);
             //_context.Entry(customer).State = EntityState.Modified;
 
-            if (customer == null)
+            if (response == null)
 			{
                 return NotFound();
 			}
@@ -106,19 +107,19 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         // public void Post([FromBody] string value)
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> PostCustomer(CreateCustomerRequest request)
         {
-            customer = await _service.CreateCustomer(customer);
+            var response = await _service.CreateCustomer(request);
             //_context.Customers.Add(customer);
             //await _context.SaveChangesAsync();
 
             // return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
-            return CreatedAtAction(nameof(GetCustomer), new { id = customer.Id }, customer);
+            return CreatedAtAction(nameof(GetCustomer), new { id = response.Id }, response);
         }
 
         // DELETE: api/Customers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Customer>> DeleteCustomer(long id)
+        public async Task<ActionResult<DeleteCustomerResponse>> DeleteCustomer(long id)
         {
             var customer = await _service.DeleteCustomer(id);
             //var customer = await _context.Customers.FindAsync(id);
