@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Repositories.Interfaces
 {
-	interface IOrderRepository
+	public interface IOrderRepository
 	{
 	}
 }

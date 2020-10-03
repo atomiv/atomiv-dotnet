@@ -1,4 +1,6 @@
 ﻿using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Repositories;
+using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,88 +13,35 @@ namespace Atomiv.Template.Lite.Services
 {
 	public class CustomerService : ICustomerService
 	{
-        private readonly ECommerceContext _context;
-
-        public CustomerService(ECommerceContext context)
-        {
-            _context = context;
-        }
-
-		public async Task<IEnumerable<Customer>> GetCustomers()
+		private readonly ICustomerRepository _customerRepository;
+		// constructor
+		public CustomerService(ICustomerRepository customerRepository)
 		{
-			return await _context.Customers.ToListAsync();
+			_customerRepository = customerRepository;
+		}
+		public Task<Customer> CreateCustomer(Customer customer)
+		{
+			return _customerRepository.CreateCustomer(customer);
 		}
 
-		public async Task<Customer> GetCustomer(long id)
+		public Task<Customer> DeleteCustomer(long id)
 		{
-			var customer = await _context.Customers.FindAsync(id);
-
-			if (customer == null)
-			{
-				return null;
-			}
-
-			return customer;
+			return _customerRepository.DeleteCustomer(id);
 		}
 
-
-		public async Task<Customer> UpdateCustomer(Customer customer)
+		public Task<Customer> GetCustomer(long id)
 		{
-
-			_context.Entry(customer).State = EntityState.Modified;
-
-			try
-			{
-				await _context.SaveChangesAsync();
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				var id = customer.Id;
-
-				if (!CustomerExists(id))
-				{
-					return null;
-				}
-				else
-				{
-					throw;
-				}
-			}
-
-			return null;
+			return _customerRepository.GetCustomer(id);
 		}
 
-
-
-		public async Task<Customer> CreateCustomer(Customer customer)
+		public Task<IEnumerable<Customer>> GetCustomers()
 		{
-			_context.Customers.Add(customer);
-			await _context.SaveChangesAsync();
-
-			return customer;
+			return _customerRepository.GetCustomers();
 		}
 
-
-		public async Task<Customer> DeleteCustomer(long id)
+		public Task<Customer> UpdateCustomer(Customer customer)
 		{
-			var customer = await _context.Customers.FindAsync(id);
-			if (customer == null)
-			{
-				return null;
-			}
-
-			_context.Customers.Remove(customer);
-			await _context.SaveChangesAsync();
-
-			return customer;
+			return _customerRepository.UpdateCustomer(customer);
 		}
-
-
-		private bool CustomerExists(long id)
-		{
-			return _context.Customers.Any(e => e.Id == id);
-		}
-
-
 	}
 }

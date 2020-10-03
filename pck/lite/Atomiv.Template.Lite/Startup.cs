@@ -19,6 +19,8 @@ using Microsoft.Extensions.Options;
 using Atomiv.Template.Lite.Services.Interfaces;
 using Atomiv.Template.Lite.Services;
 using Microsoft.OpenApi.Models;
+using Atomiv.Template.Lite.Repositories.Interfaces;
+using Atomiv.Template.Lite.Repositories;
 
 namespace Atomiv.Template.Lite
 {
@@ -72,7 +74,12 @@ namespace Atomiv.Template.Lite
             });
 
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderService, OrderService>();
 
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
