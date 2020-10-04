@@ -1,5 +1,9 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Dtos.Customers;
+using Atomiv.Template.Lite.Dtos.Orders;
+using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Services.Interfaces;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,88 +12,52 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Services
 {
-	public class OrderService: IOrderService
+	public class OrderService : IOrderService
 	{
-        private readonly ECommerceContext _context;
+		private readonly IOrderRepository _orderRepository;
+		private readonly IMapper _mapper;
 
-		public OrderService(ECommerceContext context)
+		public OrderService(IOrderRepository orderRepository, IMapper mapper)
 		{
-			_context = context;
+			_orderRepository = orderRepository;
+			_mapper = mapper;
 		}
 
-		public async Task<IEnumerable<Order>> GetOrders()
+		public async Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
 		{
-			return await _context.Orders.Include(t => t.OrderItems).ToListAsync();
+			var order = _mapper.Map<CreateOrderRequest, Order>(request);
+			order = await _orderRepository.CreateOrder(order);
+			return _mapper.Map<Order, CreateOrderResponse>(order);
 		}
 
-
-		public async Task<Order> GetOrder(int id)
+		public async Task<DeleteOrderResponse> DeleteOrder(int id)
 		{
-		    var order = await _context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
-
-		    if (order == null)
-		    {
-		        return null;
-		    }
-
-		    return order;
-		}
-
-		public async Task<Order> UpdateOrder(Order order)
-		{
-
-			_context.Entry(order).State = EntityState.Modified;
-
-			try
-			{
-				await _context.SaveChangesAsync();
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				var id = order.Id;
-
-				if (!OrderExists(id))
-				{
-					return null;
-				}
-				else
-				{
-					throw;
-				}
-			}
-
-			return null;
+			var order = await _orderRepository.DeleteOrder(id);
+			return _mapper.Map<Order, DeleteOrderResponse>(order);
 		}
 
 
-		public async Task<Order> CreateOrder(Order order)
+		public async Task<GetOrderResponse> GetOrder(int id)
 		{
-			_context.Orders.Add(order);
-			await _context.SaveChangesAsync();
-
-			return order;
+			var order = await _orderRepository.GetOrder(id);
+			return _mapper.Map<Order, GetOrderResponse>(order);
+		}
+		
+		
+		public async Task<GetOrdersResponse> GetOrders()
+		{
+			var orders = await _orderRepository.GetOrders();
+			return _mapper.Map<IEnumerable<Order>, GetOrdersResponse>(orders);
 		}
 
 
-		public async Task<Order> DeleteOrder(int id)
+		public async Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request)
 		{
-			var order = await _context.Orders.FindAsync(id);
-			if (order == null)
-			{
-				return null;
-			}
-
-			_context.Orders.Remove(order);
-			await _context.SaveChangesAsync();
-
-			return order;
+			var order = _mapper.Map<UpdateOrderRequest, Order>(request);
+			order = await _orderRepository.UpdateOrder(order);
+			return _mapper.Map<Order, UpdateOrderResponse>(order);
 		}
 
-
-		private bool OrderExists(int id)
-		{
-			return _context.Orders.Any(e => e.Id == id);
-		}
 
 	}
 }

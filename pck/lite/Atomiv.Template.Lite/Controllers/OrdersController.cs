@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
 using Atomiv.Template.Lite.Services.Interfaces;
+using Atomiv.Template.Lite.Dtos.Orders;
 
 namespace Atomiv.Template.Lite.Controllers
 {
@@ -23,7 +24,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<GetOrdersResponse>> GetOrders()
         {
             // return await _context.Orders.ToListAsync();
             // .Include(t => t.OrderItems).Include(o => o.OrderItems)
@@ -46,7 +47,7 @@ namespace Atomiv.Template.Lite.Controllers
         // [HttpGet("{id:int}/medication")] - to only get teh medication, not disease as well
         // api/patients/3/medication .. see screenshot
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
+        public async Task<ActionResult<GetOrderResponse>> GetOrder(int id)
         {
             // .FirstOrDEfaultAsync(i => i.PatientId == id);
             //_context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
@@ -65,13 +66,13 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         // , OrderItem orderItem
-        public async Task<IActionResult> PutOrder(int id, Order order)
+        public async Task<IActionResult> PutOrder(int id, UpdateOrderRequest request)
         {
             // var record = await _context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
 
             // var orderToUpdate = await _context.Orders.Include(o => o.OrderItems).FirstOrDefaultAsync(t => t.Id == order.Id);
 
-            if (id != order.Id)
+            if (id != request.Id)
             {
                 return BadRequest();
             }
@@ -93,9 +94,9 @@ namespace Atomiv.Template.Lite.Controllers
             // _context.Entry(orderToUpdate).CurrentValues.SetValues(order);
             // _context.Entry(order).State = EntityState.Modified;
 
-            order = await _service.CreateOrder(order);
+            var response = await _service.UpdateOrder(request);
 
-            if (order == null)
+            if (response == null)
 			{
                 return NotFound();
 			}
@@ -107,17 +108,17 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Order>> PostOrder(CreateOrderRequest request)
         {
-            order = await _service.CreateOrder(order);
+            var response = await _service.CreateOrder(request);
 
-            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            return CreatedAtAction(nameof(GetOrder), new { id = response.Id }, response);
         }
 
 
         // DELETE: api/Orders/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Order>> DeleteOrder(int id)
+        public async Task<ActionResult<DeleteOrderResponse>> DeleteOrder(int id)
         {
             var order = await _service.DeleteOrder(id);
             if (order == null)

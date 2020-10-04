@@ -1,5 +1,8 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Dtos.Products;
+using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Services.Interfaces;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,81 +13,46 @@ namespace Atomiv.Template.Lite.Services
 {
 	public class ProductService : IProductService
 	{
-        private readonly ECommerceContext _context;
+		private readonly IProductRepository _productRepository;
+		private readonly IMapper _mapper;
 
-		public ProductService(ECommerceContext context)
+		public ProductService(IProductRepository productRepository, IMapper mapper)
 		{
-			_context = context;
+			_productRepository = productRepository;
+			_mapper = mapper;
 		}
 
-		public async Task<IEnumerable<Product>> GetProducts()
+		public async Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
 		{
-			return await _context.Products.ToListAsync();
+			var product = _mapper.Map<CreateProductRequest, Product>(request);
+			product = await _productRepository.CreateProduct(product);
+			return _mapper.Map<Product, CreateProductResponse>(product);
 		}
 
-		public async Task<Product> GetProduct(int id)
+		public async Task<DeleteProductResponse> DeleteProduct(int id)
 		{
-			var product = await _context.Products.FindAsync(id);
-
-			if (product == null)
-			{
-				return null;
-			}
-
-			return product;
+			var product = await _productRepository.DeleteProduct(id);
+			return _mapper.Map<Product, DeleteProductResponse>(product);
 		}
 
-		public async Task<Product> UpdateProduct(Product product)
+		public async Task<GetProductResponse> GetProduct(int id)
 		{
-
-			_context.Entry(product).State = EntityState.Modified;
-
-			try
-			{
-				await _context.SaveChangesAsync();
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				var id = product.Id;
-
-				if (!ProductExists(id))
-				{
-					return null;
-				}
-				else
-				{
-					throw;
-				}
-			}
-
-			return null;
+			var product = await _productRepository.GetProduct(id);
+			return _mapper.Map<Product, GetProductResponse>(product);
 		}
 
-		public async Task<Product> CreateProduct(Product product)
+		public async Task<GetProductsResponse> GetProducts()
 		{
-			_context.Products.Add(product);
-			await _context.SaveChangesAsync();
-
-			return product;
+			var products = await _productRepository.GetProducts();
+			return _mapper.Map<IEnumerable<Product>, GetProductsResponse>(products);
 		}
 
-		public async Task<Product> DeleteProduct(int id)
+		public async Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
 		{
-			var product = await _context.Products.FindAsync(id);
-			if (product == null)
-			{
-				return null;
-			}
-
-			_context.Products.Remove(product);
-			await _context.SaveChangesAsync();
-
-			return product;
+			var product = _mapper.Map<UpdateProductRequest, Product>(request);
+			product = await _productRepository.UpdateProduct(product);
+			return _mapper.Map<Product, UpdateProductResponse>(product);
 		}
 
-		private bool ProductExists(int id)
-		{
-			return _context.Products.Any(e => e.Id == id);
-		}
 	}
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
 using Atomiv.Template.Lite.Services.Interfaces;
+using Atomiv.Template.Lite.Dtos.Products;
 
 namespace Atomiv.Template.Lite.Controllers
 {
@@ -23,7 +24,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
+        public async Task<ActionResult<GetProductResponse>> GetProducts()
         {
             var products = await _service.GetProducts();
             return Ok(products);
@@ -31,7 +32,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<GetProductResponse>> GetProduct(int id)
         {
             var product = await _service.GetProduct(id);
 
@@ -47,16 +48,16 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(int id, Product product)
+        public async Task<IActionResult> PutProduct(int id, UpdateProductRequest request)
         {
-            if (id != product.Id)
+            if (id != request.Id)
             {
                 return BadRequest();
             }
 
-            product = await _service.UpdateProduct(product);
+            var response = await _service.UpdateProduct(request);
 
-            if (product == null)
+            if (response == null)
 			{
                 return NotFound();
 			}
@@ -69,16 +70,16 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct(CreateProductRequest request)
         {
-            product = await _service.CreateProduct(product);
+            var response = await _service.CreateProduct(request);
             
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            return CreatedAtAction(nameof(GetProduct), new { id = response.Id }, response);
         }
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Product>> DeleteProduct(int id)
+        public async Task<ActionResult<DeleteProductResponse>> DeleteProduct(int id)
         {
             var product = await _service.DeleteProduct(id);
             if (product == null)

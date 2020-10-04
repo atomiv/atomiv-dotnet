@@ -15,7 +15,6 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 
 		public Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerRequest request);
 
-		// public Task<CreateCustomerResponse> CreateCustomer(Customer customer);
 		public Task<CreateCustomerResponse> CreateCustomer(CreateCustomerRequest request);
 
 		public Task<DeleteCustomerResponse> DeleteCustomer(long id);

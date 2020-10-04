@@ -1,4 +1,5 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Dtos.Orders;
+using Atomiv.Template.Lite.Models;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Orders
 	{
 		public CreateOrderRequestMap()
 		{
-			CreateMap<CreateOrderRequestMap, Order>();
+			CreateMap<CreateOrderRequest, Order>();
 		}
 	}
 }

@@ -45,7 +45,6 @@ namespace Atomiv.Template.Lite.Services
 			return _mapper.Map<Customer, GetCustomerResponse>(customer);
 		}
 
-		// TODO: won't work
 		public async Task<GetCustomersResponse> GetCustomers()
 		{
 			var customers = await _customerRepository.GetCustomers();

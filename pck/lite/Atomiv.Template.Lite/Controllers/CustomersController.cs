@@ -82,22 +82,6 @@ namespace Atomiv.Template.Lite.Controllers
 
             return NoContent();
 
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!CustomerExists(id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
         }
 
 
@@ -118,6 +102,7 @@ namespace Atomiv.Template.Lite.Controllers
         }
 
         // DELETE: api/Customers/5
+        //  Task<ActionResult<Customer>> ...>> Task<ActionResult<DeleteCustomerResponse>>
         [HttpDelete("{id}")]
         public async Task<ActionResult<DeleteCustomerResponse>> DeleteCustomer(long id)
         {
