@@ -51,8 +51,6 @@ namespace Atomiv.Template.Lite
                 // opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
                 opt.UseSqlServer(connectionString));
             services.AddControllers();
-            // if something changes down teh line, just change MockCommanderRepo
-            // british guy
             // services.AddScoped<ICommanderRepo,  MockCommanderRepo>();
             // Configure Swagger after it's installed
             // add Swagger to Dependency Injection container
@@ -121,9 +119,9 @@ namespace Atomiv.Template.Lite
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 // to go into Swagger when RUN and empty url, get swagger documentataion
-                // localhost:44390/
-                // localhost:44390/index.html
-                // remove this if you prefer localhost:44390/swagger...
+                // localhost:44315/
+                // localhost:44315/index.html
+                // remove this if you prefer localhost:44315/swagger...
                 //options.RoutePrefix = "";
                 //options.RoutePrefix = string.Empty;
 
