@@ -162,7 +162,7 @@ namespace angular_app.Data.Migrations
                     b.ToTable("PersistedGrants");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");

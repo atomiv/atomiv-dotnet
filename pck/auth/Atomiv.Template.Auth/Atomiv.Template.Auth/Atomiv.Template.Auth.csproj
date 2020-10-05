@@ -6,6 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201005203721_IdentityUser3.cs" />
+    <Compile Remove="Data\Migrations\20201005203721_IdentityUser3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201005203910_IdentityUser4.cs" />
+    <Compile Remove="Data\Migrations\20201005203910_IdentityUser4.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201005204049_IdentityUser5.cs" />
+    <Compile Remove="Data\Migrations\20201005204049_IdentityUser5.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201005204340_IdentityUser6.cs" />
+    <Compile Remove="Data\Migrations\20201005204340_IdentityUser6.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201005204542_IdentityUser7.cs" />
+    <Compile Remove="Data\Migrations\20201005204542_IdentityUser7.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201005205010_identityUser.cs" />
+    <Compile Remove="Data\Migrations\20201005205010_identityUser.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
@@ -16,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />

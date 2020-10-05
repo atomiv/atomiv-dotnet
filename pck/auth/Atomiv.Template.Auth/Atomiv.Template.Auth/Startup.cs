@@ -27,13 +27,22 @@ namespace Atomiv.Template.Auth
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			//services.AddDbCOntext<IdentityAppConetxt>
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
+			// ApplicationUser is inherited from IdentityUSer
+			// services.AddDefaultIdentity<ApplicationUser>
+			// services.AddIdentity<IdentityUser, IdentityRole>() ??
+			// AddIDentity registers the services
+			// AddDefaultIdentity - I changed it to AddIdentity
+			// services.AddIdentity<AppUser, AppRole>(options => {options.User.RequireUniqueEmail = true;})
+			// .AddEntityFrameworkStores<IdentityAppContext>
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
+				//added
+				//.AddDefaultTokenProviders();
 			services.AddRazorPages();
-
 
 			// AUTH. Configure Identity services
 			services.Configure<IdentityOptions>(options =>
@@ -90,6 +99,7 @@ namespace Atomiv.Template.Auth
 			app.UseRouting();
 
 			// AUTH. Enable Identity
+			// add authentication middleware
 			app.UseAuthentication();
 			app.UseAuthorization();
 
