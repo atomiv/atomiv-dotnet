@@ -11,6 +11,8 @@ using angular_app_2.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 
 namespace angular_app_2
 {
@@ -38,6 +40,20 @@ namespace angular_app_2
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+            //customize the API authentication handler
+            services.Configure<JwtBearerOptions>(
+                IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
+                options =>
+                {
+                    var onTokenValidated = options.Events.OnTokenValidated;
+
+                    options.Events.OnTokenValidated = async context =>
+                    {
+                        await onTokenValidated(context);
+                        //...
+                    };
+                });
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory
