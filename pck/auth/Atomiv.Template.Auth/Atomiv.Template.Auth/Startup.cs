@@ -12,6 +12,8 @@ using Atomiv.Template.Auth.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Atomiv.Template.Auth
 {
@@ -27,21 +29,48 @@ namespace Atomiv.Template.Auth
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			//services.AddDbCOntext<IdentityAppConetxt>
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
 			// ApplicationUser is inherited from IdentityUSer
-			// services.AddDefaultIdentity<ApplicationUser>
-			// services.AddIdentity<IdentityUser, IdentityRole>() ??
-			// AddIDentity registers the services
-			// AddDefaultIdentity - I changed it to AddIdentity
 			// services.AddIdentity<AppUser, AppRole>(options => {options.User.RequireUniqueEmail = true;})
-			// .AddEntityFrameworkStores<IdentityAppContext>
-			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-				.AddEntityFrameworkStores<ApplicationDbContext>();
-				//added
-				//.AddDefaultTokenProviders();
+			//services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+			//Create full Identity UI source
+			services.AddIdentity<IdentityUser, IdentityRole>()
+				.AddEntityFrameworkStores<ApplicationDbContext>()
+				//Create full Identity UI source
+				.AddDefaultTokenProviders();
+			// START. Create full Identity UI source
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+				.AddRazorPagesOptions(options =>
+				{
+					//options.AllowAreas = true;
+					options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+					options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+				});
+
+			services.ConfigureApplicationCookie(options =>
+			{
+				options.LoginPath = $"/Identity/Account/Login";
+				options.LogoutPath = $"/Identity/Account/Logout";
+				options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+			});
+			// Register an IEmailSender implementation, for example:
+			// using Microsoft.AspNetCore.Identity.UI.Services;
+			//services.AddSingleton<IEmailSender, EmailSender>();
+			/*
+			 * public class EmailSender : IEmailSender
+			{
+				public Task SendEmailAsync(string email, string subject, string message)
+				{
+					return Task.CompletedTask;
+				}
+			}
+						*/
+			// END. Create full Identity UI source
+
+			//added line below
+			services.AddControllersWithViews();
 			services.AddRazorPages();
 
 			// AUTH. Configure Identity services
@@ -105,6 +134,10 @@ namespace Atomiv.Template.Auth
 
 			app.UseEndpoints(endpoints =>
 			{
+				//added line below
+				endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller=Home}/{action=Index}/{id?}");
 				endpoints.MapRazorPages();
 			});
 		}
