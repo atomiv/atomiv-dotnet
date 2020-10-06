@@ -8,7 +8,7 @@ namespace Atomiv.Template.Auth.Data
 {
 	public class ApplicationUser : IdentityUser
 	{
-		public string City { get; set; }
+		//public string City { get; set; }
 		/* is this just for MVC
 		 * [PersonalData]
 		 * [Column(TypeName="nvarchar(100)")]

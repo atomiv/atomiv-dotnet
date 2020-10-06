@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Auth", "Ato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "angular_app", "angular_app\angular_app.csproj", "{59C4FFF2-4313-4599-9ABC-7E1B33DB38FF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "angular_app_2", "angular_app_2\angular_app_2.csproj", "{30CFD4FF-2F6E-4911-8BE9-B09704CC0C1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{59C4FFF2-4313-4599-9ABC-7E1B33DB38FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C4FFF2-4313-4599-9ABC-7E1B33DB38FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C4FFF2-4313-4599-9ABC-7E1B33DB38FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30CFD4FF-2F6E-4911-8BE9-B09704CC0C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CFD4FF-2F6E-4911-8BE9-B09704CC0C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CFD4FF-2F6E-4911-8BE9-B09704CC0C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CFD4FF-2F6E-4911-8BE9-B09704CC0C1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

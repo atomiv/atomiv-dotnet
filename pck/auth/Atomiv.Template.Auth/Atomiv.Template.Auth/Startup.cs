@@ -36,7 +36,7 @@ namespace Atomiv.Template.Auth
 			// services.AddIdentity<AppUser, AppRole>(options => {options.User.RequireUniqueEmail = true;})
 			//services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 			//Create full Identity UI source
-			services.AddIdentity<IdentityUser, IdentityRole>()
+			services.AddIdentity<ApplicationUser, IdentityRole>()
 				.AddEntityFrameworkStores<ApplicationDbContext>()
 				//Create full Identity UI source
 				.AddDefaultTokenProviders();
