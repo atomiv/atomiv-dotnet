@@ -32,14 +32,47 @@ namespace angular_app_2
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<ApplicationUser>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = true;
+                    // kkt 2 lines below
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequiredUniqueChars = 2;
+                }).AddEntityFrameworkStores<ApplicationDbContext>()
+                    // is this necessary
+                    // .AddSignInManager()
+                    // .AddDefaultTokenProviders();
+                    ;
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
+            //login, weather not working
+            //kkt
+            services.AddMvc(options =>
+            {
+                //    var policy = new AuthorizationPolicyBuilder()
+                //                    .RequireAuthenticatedUser()
+                //                    .Build();
+                //    options.Filters.Add(new AuthorizeFilter(policy));
+            }).AddXmlSerializerFormatters();
+
             services.AddAuthentication()
-                .AddIdentityServerJwt();
+                .AddIdentityServerJwt()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "656662697276-duaugu330rkl2ep94k7s7p23vddpukm8.apps.googleusercontent.com";
+                    options.ClientSecret = "-vFeZzfkiX-_bE3njm8CrZ1g";
+                });
+
+            // kkt. is this necessary
+            services.ConfigureApplicationCookie(options =>
+            {
+                //	options.LoginPath = $"/Identity/Account/Login";
+                //	options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
             //customize the API authentication handler
             services.Configure<JwtBearerOptions>(
                 IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
