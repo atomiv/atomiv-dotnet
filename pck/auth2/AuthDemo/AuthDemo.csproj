@@ -8,6 +8,18 @@
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.0.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
+<<<<<<< HEAD
+=======
+
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="3.7.0" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+>>>>>>> parent of cd0cf36d... Revert "Installing Packages"
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
