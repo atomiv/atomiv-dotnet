@@ -5,19 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="4.1.1" />
-    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.1" />
-    <PackageReference Include="IdentityServer4.EntityFramework" Version="4.1.1" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.0.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of d9779b07... Installing Packages2
 =======
 
     <PackageReference Include="Microsoft.CodeAnalysis" Version="3.7.0" />
-=======
->>>>>>> parent of 63edb417... Revert "Installing Packages"
 
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
 
@@ -25,12 +24,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-<<<<<<< HEAD
 >>>>>>> parent of cd0cf36d... Revert "Installing Packages"
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 63edb417... Revert "Installing Packages"
 =======
 >>>>>>> parent of a7c9c272... Installing Packages2
+=======
+>>>>>>> parent of d9779b07... Installing Packages2
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
