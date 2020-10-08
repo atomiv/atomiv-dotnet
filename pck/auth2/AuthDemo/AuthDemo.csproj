@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
     <PackageReference Include="Microsoft.CodeAnalysis" Version="3.7.0" />
@@ -28,6 +29,8 @@
 >>>>>>> parent of cd0cf36d... Revert "Installing Packages"
 =======
 >>>>>>> parent of 63edb417... Revert "Installing Packages"
+=======
+>>>>>>> parent of a7c9c272... Installing Packages2
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
