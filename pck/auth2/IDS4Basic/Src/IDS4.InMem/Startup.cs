@@ -27,6 +27,7 @@ namespace IDS4.InMem
         {
             services.AddControllersWithViews();
 
+            // Identity Server 4 Configuration START
             var builder = services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
@@ -43,6 +44,8 @@ namespace IDS4.InMem
             builder.AddInMemoryIdentityResources(Config.IdentityResources);
             builder.AddInMemoryApiScopes(Config.ApiScopes);
             builder.AddInMemoryClients(Config.Clients);
+            // END
+
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
@@ -70,6 +73,7 @@ namespace IDS4.InMem
             app.UseStaticFiles();
 
             app.UseRouting();
+            // Identity Server 4 configuration
             app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
