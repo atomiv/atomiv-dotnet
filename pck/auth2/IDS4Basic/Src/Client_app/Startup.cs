@@ -56,9 +56,6 @@ namespace Client_app
 
 
 		// created this method
-
-
-		// craeted this method
 		private void SetAuthenticationOptions(AuthenticationOptions options)
 		{
 			// constant for this is "Cookies"
@@ -84,8 +81,8 @@ namespace Client_app
 
 			app.UseRouting();
 
-			// Identity Server configuration client side
 			app.UseAuthentication();
+			// Identity Server configuration client side
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
