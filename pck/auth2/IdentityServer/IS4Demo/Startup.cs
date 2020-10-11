@@ -15,6 +15,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.JSInterop.Infrastructure;
 using System.Reflection;
 
+// IdentityServer4 - two options to configure: InMemory Configuration or Use Database storage
+
 namespace IS4Demo
 {
     public class Startup

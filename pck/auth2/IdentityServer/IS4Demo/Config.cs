@@ -56,15 +56,15 @@ namespace IS4Demo
 
                 // AA create new client. this new config will require the client to have PKCE (Proof Key for Code Exchange) enabled authentication and verification
                 // currently authentication with PKCE is now the standard in OAuth 2.0
-                new Client
-				{
-                    ClientId = "postman",
-                    RequirePkce = true,
-                    Enabled = true,
+    //            new Client
+				//{
+    //                ClientId = "postman",
+    //                RequirePkce = true,
+    //                Enabled = true,
 
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    ClientSecrets = { new Secret("")}
-				}
+    //                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+    //                ClientSecrets = { new Secret("")}
+				//}
             };
     }
 }
