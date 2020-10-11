@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-IDS4Demo2-1027FBF6-6DA7-497A-9310-F080C53416EB</UserSecretsId>
+    <UserSecretsId>aspnet-IDS4Demo2-57BF1676-E27E-4479-87A3-95FAB0707884</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
