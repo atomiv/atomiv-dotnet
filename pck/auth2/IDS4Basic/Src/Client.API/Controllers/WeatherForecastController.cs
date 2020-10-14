@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Client.API.Controllers
+namespace Client.Api.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	[Authorize]
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]
@@ -26,25 +24,16 @@ namespace Client.API.Controllers
 		}
 
 		[HttpGet]
-		[Route("getdata")]
-		//public IEnumerable<WeatherForecast> Get()
-		public ActionResult Get()
+		public IEnumerable<WeatherForecast> Get()
 		{
-			var claims = HttpContext.User.Claims.Select(x => $"{x.Type}:{x.Value}");
-			return Ok(new
+			var rng = new Random();
+			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
-				Name = "Values API",
-				Claims = claims.ToArray()
-			});
-
-			//var rng = new Random();
-			//return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-			//{
-			//	Date = DateTime.Now.AddDays(index),
-			//	TemperatureC = rng.Next(-20, 55),
-			//	Summary = Summaries[rng.Next(Summaries.Length)]
-			//})
-			//.ToArray();
+				Date = DateTime.Now.AddDays(index),
+				TemperatureC = rng.Next(-20, 55),
+				Summary = Summaries[rng.Next(Summaries.Length)]
+			})
+			.ToArray();
 		}
 	}
 }
