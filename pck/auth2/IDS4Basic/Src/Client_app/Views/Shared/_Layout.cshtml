@@ -25,8 +25,21 @@
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Call API">Call API</a>
 						</li>
+						@if (Context.User.Identity.IsAuthenticated)
+						{
+							<li class="nav-item">
+								@* ogin controller, logout action *@
+								<a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
+							</li>
+						}
 					</ul>
                 </div>
             </div>

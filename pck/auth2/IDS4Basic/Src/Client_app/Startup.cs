@@ -51,7 +51,12 @@ namespace Client_app
 			options.RequireHttpsMetadata = false;
 			options.Scope.Add("profile");
 			options.Scope.Add("openid");
-			options.ResponseType = "id_token";
+			options.Scope.Add("client.api");
+			options.Scope.Add("client.api");
+			options.ResponseType = "code id_token";
+			options.SaveTokens = true;
+			// ran new-guid in powershell
+			options.ClientSecret = "8b83b118-1714-4a30-a338-b58dd43f610b";
 		}
 
 

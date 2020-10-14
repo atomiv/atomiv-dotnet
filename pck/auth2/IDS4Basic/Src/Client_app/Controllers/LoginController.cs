@@ -25,6 +25,14 @@ namespace Client_app.Controllers
 				Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme);
 		}
 
+		public ActionResult Logout()
+		{
+			//return View();
+			return SignOut(new AuthenticationProperties() { RedirectUri = "Home/About"  },
+				Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme,
+				Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme);
+		}
+
 		//public ActionResult SignIn()
 		//{
 		//	// Authentication
