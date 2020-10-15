@@ -26,6 +26,17 @@ namespace Client.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllers();
+
+			services.AddAuthentication(options =>
+			{
+				options.DefaultScheme = "Bearer";
+			})
+			.AddJwtBearer("Bearer", options =>
+			{
+				options.Authority = "https://localhost:5001";
+				options.Audience = "client.api";
+				options.RequireHttpsMetadata = true;
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +46,9 @@ namespace Client.Api
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			//TODO above httpsredirection or below authorization??
+			app.UseAuthentication();
 
 			app.UseHttpsRedirection();
 

@@ -30,6 +30,13 @@ namespace Identity4
         {
             services.AddControllersWithViews();
 
+            // TODO id this necessary? shown in examples
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+                options.AuthenticationDisplayName = "Windows";
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -55,6 +62,7 @@ namespace Identity4
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+            // TODO add info here
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {

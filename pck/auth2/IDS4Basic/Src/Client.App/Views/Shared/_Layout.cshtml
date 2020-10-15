@@ -18,23 +18,52 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PrivateData">Private Data</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+						</li>
+
+                        @* TODO IMPORTANT *@
+
+						@* @if (User.Identity.IsAuthenticated)
+				            {
+					            <li class="nav-item">
+						            <form asp-controller="Account" asp-action="Logout" method="post">
+							            <input type="submit" value="Logout" />
+						            </form>
+					            </li>
+				            }
+
+
+
+			                @if (Context.User.Identity.IsAuthenticated)
+		                    {
+		                    else
+		                    {
+			                    <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
+		                    }
+			                    <li><a asp-area="" asp-controller="Login" asp-action="Logout">Logout</a></li>
+		                    }
+
+						*@
+					</ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<div class="container">
+		@* TODO is this necessary, and to have _CookieConsentPartial.cshtml in this Shared folder *@
+		@*<partial name="_CookieConsentPartial" />*@
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

@@ -1,3 +1,4 @@
+//TODO should this be in Models folder
 using System;
 
 namespace Client.Api

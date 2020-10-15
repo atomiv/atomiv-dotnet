@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using Client.App.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
+using Client.App.Data;
 
 namespace Client.App
 {
@@ -27,12 +28,50 @@ namespace Client.App
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			// TODO Database
+			// note : I deleted the Data folder with the cs file for ApplicationDbContext
 			services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
+
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
+
+			// TODO is this necessary both examples have it
+			services.Configure<CookiePolicyOptions>(options =>
+			{
+				options.CheckConsentNeeded = context => true;
+				options.MinimumSameSitePolicy = SameSiteMode.None;
+			});
+
 			services.AddControllersWithViews();
+
+			// TODO necessary?
+			// JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+			services.AddAuthentication(options =>
+			{
+				options.DefaultScheme = "Cookies";
+				options.DefaultChallengeScheme = "OpenIdConnect";
+			})
+			.AddCookie("Cookies")
+			.AddOpenIdConnect("OpenIdConnect", options =>
+			{
+				options.SignInScheme = "Cookies";
+				options.Authority = "https://localhost:5001";
+				options.ClientId = "xxx";
+				options.ClientSecret = "xxx";
+
+				options.RequireHttpsMetadata = true;
+				options.ResponseType = "code id_token";
+				options.SaveTokens = true;
+				// necessary? options.GetClaimsFromUserInfoEndpoint = true;
+
+				options.Scope.Add("profile");
+				options.Scope.Add("openid");
+				options.Scope.Add("client.api");
+			});
+
 			services.AddRazorPages();
 		}
 
@@ -51,11 +90,16 @@ namespace Client.App
 				app.UseHsts();
 			}
 			app.UseHttpsRedirection();
+
+			// TODO check order or should this be above UseHttpsRedirection in Client.Api
+			app.UseAuthentication();
+
 			app.UseStaticFiles();
+			app.UseCookiePolicy();
 
 			app.UseRouting();
 
-			app.UseAuthentication();
+			// order?? app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
