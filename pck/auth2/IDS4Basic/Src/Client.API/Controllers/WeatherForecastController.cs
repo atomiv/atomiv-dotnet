@@ -11,7 +11,7 @@ namespace Client.Api.Controllers
 	[ApiController]
 	// TODO api/weatherforecast
 	[Route("weatherforecast")]
-	//TODO JC [Authorize]
+	//[Authorize]
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]
