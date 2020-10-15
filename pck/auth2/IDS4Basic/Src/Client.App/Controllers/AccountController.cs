@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Client.App.Controllers
@@ -9,10 +10,23 @@ namespace Client.App.Controllers
 	public class AccountController : Controller
 	{
         //TODO IMPORTANT?
-		public IActionResult Index()
+		public IActionResult Login()
 		{
-			return View();
-		}
+			//return Challenge("oidc");
+
+            return Challenge(new AuthenticationProperties() { RedirectUri = "Home/Index" }, "oidc");
+        }
+
+        //[HttpGet]
+        //public async Task Login()
+        //{
+        //    await HttpContext.ChallengeAsync("oidc", new AuthenticationProperties() { RedirectUri = "/my-callback-page" });
+        //}
+
+        public IActionResult Logout()
+		{
+            return SignOut("Cookies", "oidc");
+        }
 
         /*
 		 * // TODO : study more details about what happens here when signing out

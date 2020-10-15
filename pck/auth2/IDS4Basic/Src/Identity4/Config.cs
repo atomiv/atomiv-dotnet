@@ -19,7 +19,7 @@ namespace Identity4
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
+                // new ApiScope("scope1"),
                 new ApiScope("client.api", "Client API"),
             };
 
@@ -35,7 +35,9 @@ namespace Identity4
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                    AllowedScopes = { "scope1" }
+                    //AllowedScopes = { "scope1" }
+                    // is this necessary
+                    AllowedScopes = { "client.api" }
                 },
 
                 // interactive client using code flow + pkce
@@ -53,8 +55,13 @@ namespace Identity4
                     // same for all
                     ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
 
+                    //original
                     AllowedGrantTypes = GrantTypes.Code,
-                    // other examples. AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                    // other examples.
+                    //AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                    //options.UsePkce = true,
+                    // ??
+                    RequirePkce = true,
 
                     RedirectUris = { "https://localhost:44395/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44395/signout-oidc",
