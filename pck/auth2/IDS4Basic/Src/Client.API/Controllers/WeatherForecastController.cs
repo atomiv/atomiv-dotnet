@@ -9,8 +9,8 @@ using Microsoft.Extensions.Logging;
 namespace Client.Api.Controllers
 {
 	[ApiController]
-	// TODO api/weatherforecast
-	[Route("weatherforecast")]
+	[Route("api/weatherforecast")]
+	//TODO
 	//[Authorize]
 	public class WeatherForecastController : ControllerBase
 	{
@@ -26,6 +26,8 @@ namespace Client.Api.Controllers
 			_logger = logger;
 		}
 
+		//TODO added
+		[Route("call-api")]
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
