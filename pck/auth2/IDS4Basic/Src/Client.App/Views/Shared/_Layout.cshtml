@@ -41,13 +41,7 @@
 
 							<li class="nav-item">
 								<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-									@*Hello @User.Identity.Name!
-		<p>Hello, <%: Context.User.Identity.GetUserName()  %></p>
-		<p><%: ((YourIdentity)Context.User.Identity).FirstName  %> </p>
-		<p>HttpContext.Current.User.Identity.Name</p>*@
-									@User.Identity.Name! ________
-									@*@Context.User.Identity.GetUserName()______*@
-									@Context.User.Identity.Name
+									Hello @Context.User.FindFirst("Name")?.Value
 								</a>
 							</li>
 						}

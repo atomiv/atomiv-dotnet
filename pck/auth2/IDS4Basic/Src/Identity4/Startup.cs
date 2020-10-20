@@ -84,6 +84,8 @@ namespace Identity4
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
+            app.UseCors("mvc-app");
+
 
             app.UseStaticFiles();
 

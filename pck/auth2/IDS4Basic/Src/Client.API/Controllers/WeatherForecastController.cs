@@ -10,7 +10,7 @@ namespace Client.Api.Controllers
 {
 	[Route("api/weatherforecast")]
 	[ApiController]
-	[Authorize]
+	//[Authorize]
 	//[Authorize(AuthenticationSchemes = "Bearer")]
 	public class WeatherForecastController : ControllerBase
 	{
@@ -31,6 +31,7 @@ namespace Client.Api.Controllers
 		public IEnumerable<WeatherForecast> Get()
 		{
 			var rng = new Random();
+
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
 				Date = DateTime.Now.AddDays(index),
@@ -40,10 +41,14 @@ namespace Client.Api.Controllers
 			.ToArray();
 		}
 
+		// TODO JC
+		// below is not necessary..
 		//public IActionResult Get()
 		//{
 		//	return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
 		//}
+
+
 	}
 }
 

@@ -74,8 +74,9 @@ namespace Client.App
 				options.Scope.Clear();
 				options.Scope.Add("openid");
 				options.Scope.Add("profile");
-				//options.Scope.Add("offline_access");
+				options.Scope.Add("offline_access");
 				options.Scope.Add("client.api");
+				options.Scope.Add("website");
 
 				// TODO what is this for
 				//options.ClaimActions.MapJsonKey("website", "website");

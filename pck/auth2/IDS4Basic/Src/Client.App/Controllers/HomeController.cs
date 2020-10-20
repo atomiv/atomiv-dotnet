@@ -37,14 +37,16 @@ namespace Client.App.Controllers
 			//}
 
 			//return View((User as ClaimsPrincipal).Claims);
-			return View(User.Claims);
+			// WORKS AS WELL
+			//return View(User.Claims);
+
 
 			// code below to return the actual view
-			//return View();
+			return View();
 		}
 
 
-		[Authorize]
+		//[Authorize]
 		// put it in the other file [Route("/call-api")]
 		//[Route("/call-api")]
 		public async Task<IActionResult> CallApi()

@@ -6,21 +6,67 @@
 	ViewData["Title"] = "Private Data";
 }
 
+@*// TODO line not needed below*@
 @*@model IEnumerable<System.Security.Claims.Claim>*@
+@* or .. @model List<string> *@
+
+@using Microsoft.AspNetCore.Authentication
+
 
 <h1>@ViewData["Title"]</h1>
 
 
+
+@*@Constants.ClaimTypes.GivenName*@
+@*@User.Identity.Name! ________*@
+@*@Context.User.Identity.GetUserName()______*@
+@*@Context.User.Identity.Name*@
+
+@*HttpContext.User.FindFirst("email")?.Value*@
+
+
+
+@* WORKS line below -- only shows stuff in the claim like above*@
+@*  think it's fetching this: given_name  *@
+Name: @Context.User.FindFirst("Name")?.Value _
+<br />
+Amr: @Context.User.FindFirst("amr")?.Value
+<br />
+
+Given name: @User.Claims.FirstOrDefault(c => c.Type == "given_name").Value
+<br />
+Family name: @User.Claims.FirstOrDefault(c => c.Type == "family_name").Value
+<br />
+
+@*var givenName = User.Claims.FirstOrDefault(c => c.Type == "given_name").Value;*@
+
+
+
+
+
+@* User Claims *@
+<h2>Claims</h2>
+
 <dl>
-	@foreach (var claim in Model)
+	@foreach (var claim in User.Claims)
 	{
 		<dt>@claim.Type</dt>
 		<dd>@claim.Value</dd>
 	}
 </dl>
 
-@*@Constants.ClaimTypes.GivenName*@
-@User.Identity.Name! ________
-@*@Context.User.Identity.GetUserName()______*@
-@Context.User.Identity.Name
+
+<h2>Properties</h2>
+
+<dl>
+	@foreach (var prop in (await Context.AuthenticateAsync()).Properties.Items)
+	{
+		<dt>@prop.Key</dt>
+		<dd>@prop.Value</dd>
+	}
+</dl>
+
+
+
+
 

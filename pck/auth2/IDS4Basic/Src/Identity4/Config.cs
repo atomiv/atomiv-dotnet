@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
@@ -15,13 +16,16 @@ namespace Identity4
                    {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+
+                //new IdentityResources.Email(),
+
                    };
 
         // instead of ApiResource
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                // new ApiScope("scope1"),
+                new ApiScope("scope1"),
                 new ApiScope("client.api", "Client API"),
             };
 
@@ -40,7 +44,7 @@ namespace Identity4
 
                     //AllowedScopes = { "scope1" }
                     // is this necessary
-                    AllowedScopes = { "client.api" }
+                    AllowedScopes = { "scope1", "client.api" }
                 },
 
                 // interactive client using code flow + pkce
@@ -69,8 +73,11 @@ namespace Identity4
                     PostLogoutRedirectUris = { "https://localhost:44395/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "client.api",
-                    //IdentityServerConstants.StandardScopes.OfflineAccess
+                    AllowedScopes = { "openid", "profile",
+                        //IdentityServerConstants.StandardScopes.Email,
+                        //IdentityServerConstants.StandardScopes.Address,
+                        "client.api", "scope1",
+                    IdentityServerConstants.StandardScopes.OfflineAccess
                     }
 
 
