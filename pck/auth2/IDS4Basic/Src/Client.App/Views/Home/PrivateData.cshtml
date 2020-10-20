@@ -1,9 +1,26 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
 @{
 	ViewData["Title"] = "Private Data";
 }
 
+@*@model IEnumerable<System.Security.Claims.Claim>*@
+
 <h1>@ViewData["Title"]</h1>
+
+
+<dl>
+	@foreach (var claim in Model)
+	{
+		<dt>@claim.Type</dt>
+		<dd>@claim.Value</dd>
+	}
+</dl>
+
+@*@Constants.ClaimTypes.GivenName*@
+@User.Identity.Name! ________
+@*@Context.User.Identity.GetUserName()______*@
+@Context.User.Identity.Name
+

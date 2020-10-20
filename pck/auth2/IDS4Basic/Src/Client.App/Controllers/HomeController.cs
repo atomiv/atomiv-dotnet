@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 
 namespace Client.App.Controllers
 {
@@ -30,13 +31,22 @@ namespace Client.App.Controllers
 		[Authorize]
 		public IActionResult PrivateData()
 		{
-			return View();
+			//public IActionResult Get()
+			//{
+			//return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+			//}
+
+			//return View((User as ClaimsPrincipal).Claims);
+			return View(User.Claims);
+
+			// code below to return the actual view
+			//return View();
 		}
 
 
-
-		// put it in the other file [Route("/callapi")]
-		//[Route("/callapi")]
+		[Authorize]
+		// put it in the other file [Route("/call-api")]
+		//[Route("/call-api")]
 		public async Task<IActionResult> CallApi()
 		{
 			var apiUrl = "https://localhost:44369/api/weatherforecast/call-api";
@@ -47,10 +57,13 @@ namespace Client.App.Controllers
 
 			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-			//6001
-			//			var content = await client.GetStringAsync("https://localhost:4369/identity");
-
 			HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+			//var data = await response.Content.ReadAsStringAsync();
+			//ViewData["data"] = data;
+
+			//return View();
+
 
 			// do i need a try block 
 			//added
@@ -59,7 +72,6 @@ namespace Client.App.Controllers
 				//var json
 				var data = await response.Content.ReadAsStringAsync();
 				ViewData["data"] = data;
-				// EntityType entity = Newtonsoft.Json.JsonConvert.DeserializeObject<EntityType>(data);
 			}
 			else
 			{
@@ -67,6 +79,7 @@ namespace Client.App.Controllers
 			}
 
 			return View();
+
 		}
 
 

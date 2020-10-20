@@ -30,7 +30,7 @@ namespace Identity4
         {
             services.AddControllersWithViews();
 
-            // TODO id this necessary? shown in examples
+            // TODO id this necessary? shown in examples// jc
             services.Configure<IISOptions>(options =>
             {
                 options.AutomaticAuthentication = false;
@@ -57,6 +57,7 @@ namespace Identity4
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
+                //This is needed when IdentityServer must add claims for the users into tokens.
                 .AddAspNetIdentity<ApplicationUser>();
 
             // not recommended for production - you need to store your key material somewhere secure

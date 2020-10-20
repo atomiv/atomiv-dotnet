@@ -8,10 +8,10 @@ using Microsoft.Extensions.Logging;
 
 namespace Client.Api.Controllers
 {
-	[ApiController]
 	[Route("api/weatherforecast")]
-	//TODO
-	//[Authorize]
+	[ApiController]
+	[Authorize]
+	//[Authorize(AuthenticationSchemes = "Bearer")]
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]
@@ -26,9 +26,8 @@ namespace Client.Api.Controllers
 			_logger = logger;
 		}
 
-		//TODO added
-		[Route("call-api")]
 		[HttpGet]
+		[Route("call-api")]
 		public IEnumerable<WeatherForecast> Get()
 		{
 			var rng = new Random();
@@ -40,5 +39,11 @@ namespace Client.Api.Controllers
 			})
 			.ToArray();
 		}
+
+		//public IActionResult Get()
+		//{
+		//	return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+		//}
 	}
 }
+

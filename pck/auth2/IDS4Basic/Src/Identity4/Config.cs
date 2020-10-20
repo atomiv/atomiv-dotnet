@@ -9,6 +9,7 @@ namespace Identity4
 {
     public static class Config
     {
+        // IdentityResource
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
@@ -16,6 +17,7 @@ namespace Identity4
                 new IdentityResources.Profile(),
                    };
 
+        // instead of ApiResource
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
@@ -23,6 +25,7 @@ namespace Identity4
                 new ApiScope("client.api", "Client API"),
             };
 
+        // Client
         public static IEnumerable<Client> Clients =>
             new Client[]
             {
@@ -44,7 +47,7 @@ namespace Identity4
                 new Client
                 {
                     //ClientId = "interactive",
-                    ClientId = "clientapp",
+                    ClientId = "mvc-app",
                     ClientName = "Client App",
                     /*ClientId = "mvc",
                     ClientName = "MVC Client",
@@ -59,8 +62,6 @@ namespace Identity4
                     AllowedGrantTypes = GrantTypes.Code,
                     // other examples.
                     //AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
-                    //options.UsePkce = true,
-                    // ??
                     RequirePkce = true,
 
                     RedirectUris = { "https://localhost:44395/signin-oidc" },
@@ -68,7 +69,11 @@ namespace Identity4
                     PostLogoutRedirectUris = { "https://localhost:44395/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "client.api" }
+                    AllowedScopes = { "openid", "profile", "client.api",
+                    //IdentityServerConstants.StandardScopes.OfflineAccess
+                    }
+
+
                 },
             };
     }

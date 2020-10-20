@@ -37,6 +37,7 @@ namespace Client.Api
 				options.Audience = "client.api";
 				options.RequireHttpsMetadata = true;
 			});
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,18 +49,19 @@ namespace Client.Api
 			}
 
 			//TODO above httpsredirection or below authorization??
-			app.UseAuthentication();
+			//app.UseAuthentication();
 
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
-
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
 			});
+
 		}
 	}
 }

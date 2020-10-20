@@ -63,7 +63,7 @@ namespace Client.App
 				options.RequireHttpsMetadata = true;
 
 				// TODO forgot this
-				options.ClientId = "clientapp";
+				options.ClientId = "mvc-app";
 				// TODO generate secret i.e. guid below using powershell
 				options.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0";
 
@@ -74,7 +74,7 @@ namespace Client.App
 				options.Scope.Clear();
 				options.Scope.Add("openid");
 				options.Scope.Add("profile");
-				options.Scope.Add("offline_access");
+				//options.Scope.Add("offline_access");
 				options.Scope.Add("client.api");
 
 				// TODO what is this for
@@ -104,13 +104,14 @@ namespace Client.App
 			app.UseHttpsRedirection();
 
 			// TODO check order or should this be above UseHttpsRedirection in Client.Api
-			app.UseAuthentication();
+//			app.UseAuthentication();
 
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
 			app.UseRouting();
 
+			app.UseAuthentication();
 			// order?? app.UseAuthentication();
 			app.UseAuthorization();
 
