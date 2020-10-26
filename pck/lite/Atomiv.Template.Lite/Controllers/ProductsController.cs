@@ -9,6 +9,7 @@ using Atomiv.Template.Lite.Models;
 
 namespace Atomiv.Template.Lite.Controllers
 {
+    // TODO: JC: Route should be api/products
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

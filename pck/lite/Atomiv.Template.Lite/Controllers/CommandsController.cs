@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Commander.Controllers
 {
+    // TODO: JC: I assume you'll remove this because it's not needed
     [Route("api/commands")]
     [ApiController]
     public class CommandsController : ControllerBase

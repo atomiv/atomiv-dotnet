@@ -15,6 +15,7 @@ using Atomiv.Template.Lite.Models;
 // TODO ECommerceAPI.Controllers
 namespace Atomiv.Template.Lite.Controllers
 {
+    // TODO: JC: The route here should be with lowercase, api/customers
     [Route("api/Customers")]
     [ApiController]
     public class CustomersController : ControllerBase
