@@ -13,6 +13,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.Template.Lite.Models;
 using Commander.Data;
+using System.Reflection;
+using System.IO;
+using Microsoft.Extensions.Options;
+using Atomiv.Template.Lite.Services.Interfaces;
+using Atomiv.Template.Lite.Services;
+using Microsoft.OpenApi.Models;
+using Atomiv.Template.Lite.Repositories.Interfaces;
+using Atomiv.Template.Lite.Repositories;
+using AutoMapper;
 
 namespace Atomiv.Template.Lite
 {
@@ -29,20 +38,50 @@ namespace Atomiv.Template.Lite
         // here we add services
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             // don't need 2 lines below for Commander
             // services.AddDbContext<Data.LibraryContext>
             services.AddDbContext<ECommerceContext>(opt =>
                 // microsoft docs
                 // JECA
-                opt.UseInMemoryDatabase("ECommerceList"));
-                // jc
-                // GetConnectionString("ECommerceAPIContext");
+                // opt.UseInMemoryDatabase("ECommerceList"));
+                // change name? - GetConnectionString("ECommerceAPIContext");
                 // jc
                 // opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                opt.UseSqlServer(connectionString));
             services.AddControllers();
-            // if something changes down teh line, just change MockCommanderRepo
-            // british guy
             // services.AddScoped<ICommanderRepo,  MockCommanderRepo>();
+            // Configure Swagger after it's installed
+            // add Swagger to Dependency Injection container
+            // (options -- completely optional
+            services.AddSwaggerGen(options =>
+            {
+                //options.SwaggerDoc("v1", new Info { Title = "My API", Version = :v1" });
+                options.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Atomiv Template Lite",
+                        Description = "Demo showing orders",
+                        Version = "v1"
+                    });
+                
+                // generate xml file - optional. to view comments in swagger .. schemas
+                var fileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
+                options.IncludeXmlComments(filePath);
+            });
+
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderService, OrderService>();
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
+            var assembly = typeof(Startup).Assembly;
+            services.AddAutoMapper(assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +112,20 @@ namespace Atomiv.Template.Lite
                 endpoints.MapControllers();
             });
 
+            // here in the Configure method (see above) add Swagger
+            app.UseSwagger();
+            // Swagger UI to be available
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                // to go into Swagger when RUN and empty url, get swagger documentataion
+                // localhost:44315/
+                // localhost:44315/index.html
+                // remove this if you prefer localhost:44315/swagger...
+                //options.RoutePrefix = "";
+                //options.RoutePrefix = string.Empty;
+
+            });
         }
     }
 }
