@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\Core\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>

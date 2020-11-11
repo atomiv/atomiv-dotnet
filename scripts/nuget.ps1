@@ -34,7 +34,6 @@ $projects = @(
 	
     'src\Core\All\Atomiv.Core.All.csproj',	
     'src\Core\Application\Atomiv.Core.Application.csproj',
-    'src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj',
     'src\Core\Common\Atomiv.Core.Common.csproj',
     'src\Core\Domain\Atomiv.Core.Domain.csproj',
 	
@@ -47,8 +46,9 @@ $projects = @(
     'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj',
     'src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj',
-    'src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDb.csproj',
-    'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',	
+    'src\Infrastructure\MongoDB\Atomiv.Infrastructure.MongoDB.csproj',
+    'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',
+    'src\Infrastructure\RabbitMQ\Atomiv.Infrastructure.RabbitMQ.csproj',
     'src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj',
     'src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj',
     'src\Infrastructure\System\Atomiv.Infrastructure.System.csproj',
@@ -70,6 +70,7 @@ $projects = @(
     # 'src\DependencyInjection\Infrastructure\EPPlus\Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',
     'src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj',
     'src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj',
+    'src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj',
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
     # 'src\DependencyInjection\Infrastructure\Selenium\Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
     'src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj',	

@@ -1,27 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.40" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.40" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MongoDB" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.42" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="1.0.42" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />

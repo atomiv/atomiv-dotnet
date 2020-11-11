@@ -1,22 +1,22 @@
 ﻿using Atomiv.Core.Application;
 using Atomiv.Template.Core.Application.Queries.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class ViewOrderQueryHandler : QueryHandler<ViewOrderQuery, ViewOrderQueryResponse>
     {
-        public ViewOrderQueryHandler(MongoDbContext context) : base(context)
+        public ViewOrderQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery request)
+        public override async Task<ViewOrderQueryResponse> HandleAsync(ViewOrderQuery query)
         {
-            var orderRecordId = request.Id;
+            var orderRecordId = query.Id;
 
             var orderRecord = await Context.Orders
                 .Find(e => e.Id == orderRecordId)

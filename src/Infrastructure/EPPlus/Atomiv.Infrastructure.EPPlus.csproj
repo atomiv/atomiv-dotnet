@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
-    <Version>1.0.40</Version>
+    <Version>1.0.42</Version>
     <Description>Implementation for Excel reading and writing using EPPlus</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="5.2.0" />
+    <PackageReference Include="EPPlus" Version="5.4.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
-    <Version>1.0.40</Version>
+    <Version>1.0.42</Version>
     <Description>Application layer implementation</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
@@ -25,7 +25,6 @@
   </ItemGroup>
     
   <ItemGroup>
-    <ProjectReference Include="..\Application.Interface\Atomiv.Core.Application.Interface.csproj" />
     <ProjectReference Include="..\Domain\Atomiv.Core.Domain.csproj" />
   </ItemGroup>
 

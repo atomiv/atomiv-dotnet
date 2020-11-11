@@ -14,8 +14,13 @@ namespace Atomiv.Template.Core.Domain.Orders
         private List<OrderItem> _orderItems;
         private OrderStatus _orderStatus;
 
-        public Order(OrderIdentity id, CustomerIdentity customerId, DateTime orderDate, OrderStatus status, IEnumerable<IReadonlyOrderItem> orderItems)
-            : base(id)
+        public Order(OrderIdentity id, 
+            CustomerIdentity customerId, 
+            DateTime orderDate, 
+            OrderStatus status, 
+            IEnumerable<IReadonlyOrderItem> orderItems, 
+            bool isNew = false)
+            : base(id, isNew)
         {
             CustomerId = customerId;
             OrderDate = orderDate;

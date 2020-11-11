@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace Atomiv.Infrastructure.MongoDb
+namespace Atomiv.Infrastructure.MongoDB
 {
     public static class IFindFluentExtensions
     {

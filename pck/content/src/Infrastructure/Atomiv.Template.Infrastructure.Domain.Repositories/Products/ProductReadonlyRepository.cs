@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Linq;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {
@@ -21,6 +20,12 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
                 .AnyAsync(e => e.Id == productId);
         }
 
+        public Task<bool> ExistsAsync(string productCode)
+        {
+            return Context.Products.AsNoTracking()
+                .AnyAsync(e => e.ProductCode == productCode);
+        }
+
         public Task<long> CountAsync()
         {
             return Context.Products
@@ -31,6 +36,20 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         {
             var productRecord = await Context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == productId);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
+
+        public async Task<IReadonlyProduct> FindReadonlyAsync(string productCode)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.ProductCode == productCode);
 
             if (productRecord == null)
             {

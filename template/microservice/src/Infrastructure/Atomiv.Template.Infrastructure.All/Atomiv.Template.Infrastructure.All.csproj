@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Persistence\Atomiv.Template.Infrastructure.Domain.Persistence.csproj" />
-    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Domain.Services\Atomiv.Template.Infrastructure.Domain.Services.csproj" />
-    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Events.Handlers\Atomiv.Template.Infrastructure.Events.Handlers.csproj" />
+    <ProjectReference Include="..\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Web.Authentication\Atomiv.Template.Infrastructure.Web.Authentication.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Commands.Authorization\Atomiv.Template.Infrastructure.Commands.Authorization.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Infrastructure.Commands.Mapping\Atomiv.Template.Infrastructure.Commands.Mapping.csproj" />

@@ -1,6 +1,6 @@
 ﻿using Atomiv.Core.Domain;
 
-namespace Atomiv.Infrastructure.MongoDb
+namespace Atomiv.Infrastructure.MongoDB
 {
     public class Repository<TDbContext> : IRepository
     {

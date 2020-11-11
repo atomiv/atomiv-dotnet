@@ -13,7 +13,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Orders
         {
         }
 
-        public override async Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery request)
+        public override async Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery query)
         {
             var orderRecords = await Context.Orders.AsNoTracking()
                 .OrderBy(e => e.Id)

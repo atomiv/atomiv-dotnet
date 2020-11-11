@@ -11,8 +11,13 @@ namespace Atomiv.Template.Core.Domain.Orders
         private int _quantity;
         private OrderItemStatus _status;
 
-        public OrderItem(OrderItemIdentity id, ProductIdentity productId, decimal unitPrice, int quantity, OrderItemStatus status)
-            : base(id)
+        public OrderItem(OrderItemIdentity id, 
+            ProductIdentity productId, 
+            decimal unitPrice, 
+            int quantity, 
+            OrderItemStatus status, 
+            bool isNew = false)
+            : base(id, isNew)
         {
             ProductId = productId;
             UnitPrice = unitPrice;
@@ -21,7 +26,12 @@ namespace Atomiv.Template.Core.Domain.Orders
         }
 
         public OrderItem(IReadonlyOrderItem orderItem)
-            : this(orderItem.Id, orderItem.ProductId, orderItem.UnitPrice, orderItem.Quantity, orderItem.Status)
+            : this(orderItem.Id, 
+                  orderItem.ProductId, 
+                  orderItem.UnitPrice, 
+                  orderItem.Quantity, 
+                  orderItem.Status,
+                  orderItem.IsNew)
         {
 
         }

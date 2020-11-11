@@ -17,6 +17,8 @@ namespace Atomiv.Template.Web.RestClient.Interface
 
         Task<ObjectClientResponse<UnlistProductCommandResponse>> UnlistProductAsync(UnlistProductCommand request, HeaderData header);
 
+        Task<ObjectClientResponse<UnlistProductCommandResponse>> SyncProductsAsync(SyncProductsCommand request, HeaderData header);
+
         #endregion
 
         #region Queries

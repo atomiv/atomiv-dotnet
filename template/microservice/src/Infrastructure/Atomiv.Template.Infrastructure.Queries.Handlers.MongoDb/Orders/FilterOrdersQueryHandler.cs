@@ -1,17 +1,17 @@
 ﻿using Atomiv.Template.Core.Application.Queries.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using System;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Orders
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Orders
 {
     public class FilterOrdersQueryHandler : QueryHandler<FilterOrdersQuery, FilterOrdersQueryResponse>
     {
-        public FilterOrdersQueryHandler(MongoDbContext context) : base(context)
+        public FilterOrdersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery request)
+        public override Task<FilterOrdersQueryResponse> HandleAsync(FilterOrdersQuery query)
         {
             throw new NotImplementedException();
         }

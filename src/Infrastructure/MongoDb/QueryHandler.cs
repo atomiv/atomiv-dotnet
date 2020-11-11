@@ -1,10 +1,10 @@
 ﻿using Atomiv.Core.Application;
 using System.Threading.Tasks;
 
-namespace Atomiv.Infrastructure.MongoDb
+namespace Atomiv.Infrastructure.MongoDB
 {
-    public abstract class QueryHandler<TContext, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class QueryHandler<TContext, TQuery, TResponse> : IQueryHandler<TQuery, TResponse>
+        where TQuery : IQuery<TResponse>
     {
         public QueryHandler(TContext context)
         {
@@ -13,6 +13,6 @@ namespace Atomiv.Infrastructure.MongoDb
 
         protected TContext Context { get; }
 
-        public abstract Task<TResponse> HandleAsync(TRequest request);
+        public abstract Task<TResponse> HandleAsync(TQuery request);
     }
 }

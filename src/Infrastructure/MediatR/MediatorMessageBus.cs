@@ -15,7 +15,6 @@ namespace Atomiv.Infrastructure.MediatR
 
         public Task<TResponse> SendAsync<TResponse>(Core.Application.IRequest<TResponse> request)
         {
-            // TODO: VC:
             var mediatorRequest = new MediatorRequest<TResponse>
             {
                 Request = request,

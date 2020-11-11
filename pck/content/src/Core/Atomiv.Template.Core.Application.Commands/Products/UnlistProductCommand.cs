@@ -3,7 +3,7 @@ using System;
 
 namespace Atomiv.Template.Core.Application.Commands.Products
 {
-    public class UnlistProductCommand : IRequest<UnlistProductCommandResponse>
+    public class UnlistProductCommand : ICommand<UnlistProductCommandResponse>
     {
         public Guid Id { get; set; }
     }

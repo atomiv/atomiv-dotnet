@@ -1,0 +1,39 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Client_app</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	@*added*@
+	<h2>Login Form</h2>
+	<form asp-action="Login" asp-controller="Login">
+		<div class="container">
+			<label for="username">username</label>
+			<input type="text" placeholder="Enter username" name="username" required />
+			<label for="password">Password</label>
+			<input type="password" placeholder="Enter password" name="password" required />
+			<button type="submit">Login</button>
+			<label>
+				<input type="checkbox" checked="checked" name="remember"/>Remember me
+			</label>
+		</div>
+
+		<div class="container">
+			<button type="button">Cancel</button>
+			<span>Forgot<a href="#">password?</a></span>
+		</div>
+	</form>
+
+</body>
+</html>

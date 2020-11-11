@@ -182,28 +182,28 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest
             {
                 new CreateProductCommand
                 {
-                    Code = "APP2",
+                    Code = $"APP2 {Guid.NewGuid()}",
                     Description = "Apple2",
                     UnitPrice = 102.50m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "BAN2",
+                    Code = $"BAN2 {Guid.NewGuid()}",
                     Description = "Banana2",
                     UnitPrice = 302.99m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "ORG2",
+                    Code = $"ORG2 {Guid.NewGuid()}",
                     Description = "Orange2",
                     UnitPrice = 102.50m,
                 },
 
                 new CreateProductCommand
                 {
-                    Code = "MAN2",
+                    Code = $"MAN2 {Guid.NewGuid()}",
                     Description = "Mango2",
                     UnitPrice = 500.99m,
                 },

@@ -4,8 +4,8 @@ using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 
 namespace Atomiv.Template.Infrastructure.Queries.Handlers
 {
-    public abstract class QueryHandler<TRequest, TResponse> : QueryHandler<DatabaseContext, TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    public abstract class QueryHandler<TQuery, TResponse> : QueryHandler<DatabaseContext, TQuery, TResponse>
+        where TQuery : IQuery<TResponse>
     {
         public QueryHandler(DatabaseContext context) : base(context)
         {

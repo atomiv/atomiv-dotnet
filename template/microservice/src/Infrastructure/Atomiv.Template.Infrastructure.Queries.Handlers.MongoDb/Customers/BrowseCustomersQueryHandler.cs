@@ -1,23 +1,23 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Application.Queries.Customers;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Customers
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Customers
 {
     public class BrowseCustomersQueryHandler : QueryHandler<BrowseCustomersQuery, BrowseCustomersQueryResponse>
     {
-        public BrowseCustomersQueryHandler(MongoDbContext context) : base(context)
+        public BrowseCustomersQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override async Task<BrowseCustomersQueryResponse> HandleAsync(BrowseCustomersQuery request)
+        public override async Task<BrowseCustomersQueryResponse> HandleAsync(BrowseCustomersQuery query)
         {
-            var page = request.Page;
-            var size = request.Size;
+            var page = query.Page;
+            var size = query.Size;
 
             var customerRecords = await Context.Customers
                 .Find(e => true)

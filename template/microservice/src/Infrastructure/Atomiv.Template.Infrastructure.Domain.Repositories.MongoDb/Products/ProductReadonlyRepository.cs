@@ -1,17 +1,17 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Domain.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Products
 {
     public class ProductReadonlyRepository : Repository, IProductReadonlyRepository
     {
-        public ProductReadonlyRepository(MongoDbContext context) : base(context)
+        public ProductReadonlyRepository(DatabaseContext context) : base(context)
         {
         }
 
@@ -28,10 +28,31 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Products
                 .AnyAsync();
         }
 
+        public Task<bool> ExistsAsync(string productCode)
+        {
+            return Context.Products
+                .Find(e => e.ProductCode == productCode)
+                .AnyAsync();
+        }
+
         public async Task<IReadonlyProduct> FindReadonlyAsync(ProductIdentity productId)
         {
             var productRecord = await Context.Products
                 .Find(e => e.Id == productId)
+                .FirstOrDefaultAsync();
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
+        public async Task<IReadonlyProduct> FindReadonlyAsync(string productCode)
+        {
+            var productRecord = await Context.Products
+                .Find(e => e.ProductCode == productCode)
                 .FirstOrDefaultAsync();
 
             if (productRecord == null)

@@ -14,10 +14,10 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
         }
 
-        public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery request)
+        public override async Task<BrowseProductsQueryResponse> HandleAsync(BrowseProductsQuery query)
         {
-            var page = request.Page;
-            var size = request.Size;
+            var page = query.Page;
+            var size = query.Size;
 
             var productRecords = await Context.Products.AsNoTracking()
                 .GetPage(page, size)

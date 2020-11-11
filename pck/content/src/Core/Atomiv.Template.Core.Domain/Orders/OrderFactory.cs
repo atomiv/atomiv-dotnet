@@ -28,14 +28,14 @@ namespace Atomiv.Template.Core.Domain.Orders
         {
             var id = _orderIdentityGenerator.Next();
             var orderDate = _timeService.Now;
-            return new Order(id, customerId, orderDate, CreatedOrderStatus, orderItems);
+            return new Order(id, customerId, orderDate, CreatedOrderStatus, orderItems, true);
         }
 
         public OrderItem CreateOrderItem(ProductIdentity productId, decimal unitPrice, int quantity)
         {
             var id = _orderItemIdentityGenerator.Next();
 
-            return new OrderItem(id, productId, unitPrice, quantity, CreatedOrderItemStatus);
+            return new OrderItem(id, productId, unitPrice, quantity, CreatedOrderItemStatus, true);
         }
     }
 }

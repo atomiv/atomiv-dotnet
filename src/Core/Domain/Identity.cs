@@ -2,7 +2,7 @@
 
 namespace Atomiv.Core.Domain
 {
-    public class Identity<TValue> : IEquatable<Identity<TValue>>, IComparable<Identity<TValue>> 
+    public class Identity<TValue> : IEquatable<Identity<TValue>>, IComparable<Identity<TValue>>, IValidatable
         where TValue : IEquatable<TValue>, IComparable<TValue>
     {
         private TValue _value;

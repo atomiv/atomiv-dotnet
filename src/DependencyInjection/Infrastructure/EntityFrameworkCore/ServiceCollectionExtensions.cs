@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Atomiv.Core.Domain;
 using Atomiv.DependencyInjection.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Atomiv.Core.Application;
 
 namespace Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
 {

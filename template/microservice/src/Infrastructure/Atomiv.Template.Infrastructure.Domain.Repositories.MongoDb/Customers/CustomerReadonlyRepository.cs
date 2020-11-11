@@ -1,14 +1,14 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Domain.Customers;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Customers
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Customers
 {
     public class CustomerReadonlyRepository : Repository, ICustomerReadonlyRepository
     {
-        public CustomerReadonlyRepository(MongoDbContext context) : base(context)
+        public CustomerReadonlyRepository(DatabaseContext context) : base(context)
         {
         }
 

@@ -2,7 +2,7 @@
 
 namespace Atomiv.Template.Core.Application.Queries.Customers
 {
-    public class FilterCustomersQuery : IRequest<FilterCustomersQueryResponse>
+    public class FilterCustomersQuery : IQuery<FilterCustomersQueryResponse>
     {
         public int Limit { get; set; }
 

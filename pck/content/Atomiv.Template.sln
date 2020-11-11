@@ -75,13 +75,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Core.Application.UnitTest", "test\Core\Atomiv.Template.Core.Application.UnitTest\Atomiv.Template.Core.Application.UnitTest.csproj", "{062AAB5C-E5E3-437D-BBBC-0F02E51B857F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj", "{5BA446F6-663A-4253-87F9-DC03575B987C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.csproj", "{5BA446F6-663A-4253-87F9-DC03575B987C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj", "{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB", "src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.csproj", "{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{1D6A3D6B-C50B-461E-8E25-0D059C51294F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB", "src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.csproj", "{1D6A3D6B-C50B-461E-8E25-0D059C51294F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Events.Handlers", "src\Infrastructure\Atomiv.Template.Infrastructure.Events.Handlers\Atomiv.Template.Infrastructure.Events.Handlers.csproj", "{52DBB7E4-67A7-4F86-A71D-465409A5C1C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63BD3BBE-7233-4BC7-BEA8-0717FFA8A58B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52DBB7E4-67A7-4F86-A71D-465409A5C1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DBB7E4-67A7-4F86-A71D-465409A5C1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DBB7E4-67A7-4F86-A71D-465409A5C1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DBB7E4-67A7-4F86-A71D-465409A5C1C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -255,6 +261,7 @@ Global
 		{5BA446F6-663A-4253-87F9-DC03575B987C} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 		{8ECEDF87-3397-4DFC-96F1-F8943EBA52A7} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 		{1D6A3D6B-C50B-461E-8E25-0D059C51294F} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
+		{52DBB7E4-67A7-4F86-A71D-465409A5C1C7} = {C41C4722-90EE-462C-938D-5F2A3D22B3BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41DD5ECF-00C7-44F6-A2A7-937713CBE1AC}

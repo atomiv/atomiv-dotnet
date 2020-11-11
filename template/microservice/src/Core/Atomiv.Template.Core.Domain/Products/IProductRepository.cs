@@ -10,6 +10,8 @@ namespace Atomiv.Template.Core.Domain.Products
 
         Task<Product> FindAsync(ProductIdentity productId);
 
+        Task<Product> FindAsync(string productCode);
+
         Task UpdateAsync(Product product);
 
         Task SyncAsync(IEnumerable<Product> products);

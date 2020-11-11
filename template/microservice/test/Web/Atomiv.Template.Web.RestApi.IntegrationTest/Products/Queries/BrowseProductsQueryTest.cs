@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
+using System;
 
 namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
 {
@@ -27,7 +28,7 @@ namespace Atomiv.Template.Web.RestApi.IntegrationTest.Products.Queries
             {
                 var createProductRequest = new CreateProductCommand
                 {
-                    Code = $"P{i}",
+                    Code = $"P{i} {Guid.NewGuid()}",
                     Description = $"Product {i}",
                     UnitPrice = 100 + i,
                 };

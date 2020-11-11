@@ -3,16 +3,17 @@ using System.Collections.Generic;
 
 namespace Atomiv.Core.Domain
 {
-    public class Entity<TIdentity> : IReadonlyEntity<TIdentity>
+    public class Entity<TIdentity> : IReadonlyEntity<TIdentity>, IValidatable
         where TIdentity : IComparable<TIdentity> //, IEquatable<TIdentity>
     {
         private TIdentity _id;
 
         private List<Event> _events;
 
-        public Entity(TIdentity id)
+        public Entity(TIdentity id, bool isNew = false)
         {
             Id = id;
+            IsNew = isNew;
             _events = new List<Event>();
         }
 
@@ -33,6 +34,8 @@ namespace Atomiv.Core.Domain
                 _id = value;
             }
         }
+
+        public bool IsNew { get; }
 
         public IEnumerable<Event> GetEvents()
         {

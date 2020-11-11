@@ -18,11 +18,13 @@ using System.Reflection;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Atomiv.Template.Core.Application.Context;
 using Atomiv.Template.Core.Common.Requests;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Atomiv.DependencyInjection.Infrastructure.MongoDB;
+using Atomiv.Infrastructure.MongoDB;
 
 namespace Atomiv.Template.DependencyInjection
 {
@@ -55,13 +57,14 @@ namespace Atomiv.Template.DependencyInjection
                 typeof(Infrastructure.Commands.Validation.Module),
                 typeof(Infrastructure.Domain.Identities.Module),
                 typeof(Infrastructure.Domain.Services.Module),
+                typeof(Infrastructure.Events.Handlers.Module),
                 typeof(Infrastructure.Queries.Authorization.Module),
                 typeof(Infrastructure.Queries.Validation.Module),
                 typeof(Infrastructure.Web.Authentication.Module),
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            // infrastructureModuleTypes.AddRange(GetMongoDbInfrastructureModules());
+            // infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -80,13 +83,13 @@ namespace Atomiv.Template.DependencyInjection
             };
         }
 
-        private static List<Type> GetMongoDbInfrastructureModules()
+        private static List<Type> GetMongoDBInfrastructureModules()
         {
             return new List<Type>
             {
-                typeof(Infrastructure.Domain.Persistence.MongoDb.Module),
-                typeof(Infrastructure.Domain.Repositories.MongoDb.Module),
-                typeof(Infrastructure.Queries.Handlers.MongoDb.Module),
+                typeof(Infrastructure.Domain.Persistence.MongoDB.Module),
+                typeof(Infrastructure.Domain.Repositories.MongoDB.Module),
+                typeof(Infrastructure.Queries.Handlers.MongoDB.Module),
             };
         }
 
@@ -116,7 +119,7 @@ namespace Atomiv.Template.DependencyInjection
             services.AddSystemInfrastructure(assemblies);
 
             services.AddEfCoreInfrastructureModules(configuration, assemblies);
-            // services.AddMongoDbInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDBInfrastructureModules(configuration, assemblies);
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
@@ -128,7 +131,7 @@ namespace Atomiv.Template.DependencyInjection
             var assembly = type.Assembly;
             var assemblyName = assembly.FullName;
 
-            services.AddDbContext<DatabaseContext>(options =>
+            services.AddDbContext<Infrastructure.Domain.Persistence.Common.DatabaseContext>(options =>
             {
                 options.UseSqlServer(connection, e =>
                 {
@@ -141,16 +144,14 @@ namespace Atomiv.Template.DependencyInjection
             services.AddEntityFrameworkCoreInfrastructure(assemblies);
         }
 
-        private static void AddMongoDbInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        private static void AddMongoDBInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
         {
-            var dbSettingsSection = configuration.GetSection(nameof(DbSettings));
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            services.Configure<MongoDBOptions>(mongoDbSection);
 
-            services.Configure<IDbSettings>(dbSettingsSection);
+            services.AddSingleton<Infrastructure.Domain.Persistence.MongoDB.DatabaseContext>();
 
-            services.AddSingleton<IDbSettings>(e =>
-                e.GetRequiredService<IOptions<DbSettings>>().Value);
-
-            services.AddSingleton<MongoDbContext>();
+            services.AddMongoDBInfrastructure(assemblies);
         }
     }
 }

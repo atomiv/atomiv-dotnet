@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Core.Application", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Web.AspNetCore", "src\Web\AspNetCore\Atomiv.Web.AspNetCore.csproj", "{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Core.Application.Interface", "src\Core\Application.Interface\Atomiv.Core.Application.Interface.csproj", "{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{A2C44B47-7AFE-4978-9308-F5431129B1DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078}"
@@ -197,17 +195,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence\Atomiv.Template.Infrastructure.Domain.Persistence.csproj", "{D3D0B724-1C40-470B-A9DD-DFD4BF49B1B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.csproj", "{A078EC18-4D61-4BD1-95CB-19B21822C0CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB\Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.csproj", "{A078EC18-4D61-4BD1-95CB-19B21822C0CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.csproj", "{2CB92DC8-9097-488E-8B15-CDFC0598E571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB\Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.csproj", "{2CB92DC8-9097-488E-8B15-CDFC0598E571}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.csproj", "{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB\Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.csproj", "{BC8B45EB-1075-4660-8718-9A8D53F2AC7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BB58629F-B045-45DD-A9C1-6ADC6967D75F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MongoDb", "src\Infrastructure\MongoDb\Atomiv.Infrastructure.MongoDb.csproj", "{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MongoDB", "src\Infrastructure\MongoDB\Atomiv.Infrastructure.MongoDB.csproj", "{D7FCC66C-BB2E-4246-B04F-5690BEBD861A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Web.AspNetCore", "src\DependencyInjection\Web\AspNetCore\Atomiv.DependencyInjection.Web.AspNetCore.csproj", "{6D1B51C2-B3B4-49B6-946C-926844B6DACB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Template.Infrastructure.Events.Handlers", "template\microservice\src\Infrastructure\Atomiv.Template.Infrastructure.Events.Handlers\Atomiv.Template.Infrastructure.Events.Handlers.csproj", "{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.RabbitMQ", "src\Infrastructure\RabbitMQ\Atomiv.Infrastructure.RabbitMQ.csproj", "{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.MongoDB", "src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj", "{0F50022C-CC81-41FF-913B-744BFB2F2295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -227,10 +231,6 @@ Global
 		{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5580243F-7CCD-4BB0-9DD6-DD21EC04D048}.Release|Any CPU.Build.0 = Release|Any CPU
-		{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{911B3FC0-C9D6-4793-B60D-25225398A93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{911B3FC0-C9D6-4793-B60D-25225398A93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{911B3FC0-C9D6-4793-B60D-25225398A93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -523,6 +523,18 @@ Global
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F50022C-CC81-41FF-913B-744BFB2F2295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F50022C-CC81-41FF-913B-744BFB2F2295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F50022C-CC81-41FF-913B-744BFB2F2295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F50022C-CC81-41FF-913B-744BFB2F2295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -538,7 +550,6 @@ Global
 		{ECAEA188-398F-4096-8F4B-F6A7A5BAA525} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 		{7F68AEAC-EC61-4BD5-BF98-EE069981C3D4} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 		{5580243F-7CCD-4BB0-9DD6-DD21EC04D048} = {58AEF876-B576-44F8-AD55-DA74818CD60E}
-		{662A1EA5-4C64-47B6-A91F-4F64B8B06BE4} = {29D6EDE2-7FDA-4688-B184-EF3FFD5C7F71}
 		{B968F3E4-0AEE-4DD9-AB7B-D4CE9358A078} = {E0C63A52-0D7C-4242-BE54-879DDF4E4BDC}
 		{911B3FC0-C9D6-4793-B60D-25225398A93B} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{22973DDB-AFCB-4982-8CD0-178DC341CDA2} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
@@ -629,6 +640,9 @@ Global
 		{BB58629F-B045-45DD-A9C1-6ADC6967D75F} = {2D62DCFE-F085-4522-B19D-58FCE451AD9B}
 		{D7FCC66C-BB2E-4246-B04F-5690BEBD861A} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
 		{6D1B51C2-B3B4-49B6-946C-926844B6DACB} = {BB58629F-B045-45DD-A9C1-6ADC6967D75F}
+		{7C9DD92B-804F-4391-91E6-EEB1ACE81A20} = {B429B800-F3B4-4F6B-8F89-94763A0A0204}
+		{448D263D-3A7E-48D7-A552-EC3AAA5BF4E8} = {49E4FB3F-B2C1-4314-B690-3E3C2266DE51}
+		{0F50022C-CC81-41FF-913B-744BFB2F2295} = {1136EAB4-2929-4A65-BF00-AC90062E7A33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1270C47D-B522-4162-B840-F07A711B89CF}

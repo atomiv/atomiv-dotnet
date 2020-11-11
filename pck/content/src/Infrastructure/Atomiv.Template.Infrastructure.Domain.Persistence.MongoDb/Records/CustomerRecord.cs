@@ -1,7 +1,7 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using System;
 
-namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb.Records
+namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB.Records
 {
     public class CustomerRecord : Record<Guid>
     {

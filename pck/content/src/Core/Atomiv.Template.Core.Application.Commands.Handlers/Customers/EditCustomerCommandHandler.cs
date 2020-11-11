@@ -5,20 +5,24 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
-    public class EditCustomerCommandHandler : IRequestHandler<EditCustomerCommand, EditCustomerCommandResponse>
+    public class EditCustomerCommandHandler : ICommandHandler<EditCustomerCommand, EditCustomerCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly ICustomerRepository _customerRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public EditCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
+        public EditCustomerCommandHandler(ICustomerRepository customerRepository, 
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _customerRepository = customerRepository;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<EditCustomerCommandResponse> HandleAsync(EditCustomerCommand request)
+        public async Task<EditCustomerCommandResponse> HandleAsync(EditCustomerCommand command)
         {
-            var customerId = new CustomerIdentity(request.Id);
+            var customerId = new CustomerIdentity(command.Id);
 
             var customer = await _customerRepository.FindAsync(customerId);
 
@@ -27,9 +31,12 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
                 throw new ValidationException($"Customer {customerId} does not exist");
             }
 
-            UpdateCustomer(customer, request);
+            UpdateCustomer(customer, command);
 
             await _customerRepository.UpdateAsync(customer);
+
+            await _unitOfWork.CommitAsync();
+
             return _mapper.Map<Customer, EditCustomerCommandResponse>(customer);
         }
 

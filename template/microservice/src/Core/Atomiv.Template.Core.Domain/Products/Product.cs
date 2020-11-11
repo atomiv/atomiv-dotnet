@@ -8,8 +8,13 @@ namespace Atomiv.Template.Core.Domain.Products
         private string _productName;
         private decimal _listPrice;
 
-        public Product(ProductIdentity id, string productCode, string productName, decimal listPrice, bool isListed)
-            : base(id)
+        public Product(ProductIdentity id, 
+            string productCode, 
+            string productName, 
+            decimal listPrice, 
+            bool isListed,
+            bool isNew = false)
+            : base(id, isNew)
         {
             ProductCode = productCode;
             ProductName = productName;

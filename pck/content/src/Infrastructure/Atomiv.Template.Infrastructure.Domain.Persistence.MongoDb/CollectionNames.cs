@@ -1,4 +1,4 @@
-﻿namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb
+﻿namespace Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB
 {
     public static class CollectionNames
     {

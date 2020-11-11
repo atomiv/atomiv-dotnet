@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Atomiv.Core.Domain;
 using Atomiv.Template.Core.Domain.Products;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Common;
 using Atomiv.Template.Infrastructure.Domain.Persistence.Records;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Atomiv.Template.Infrastructure.Domain.Persistence;
 
 namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 {
@@ -16,11 +14,11 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
         {
         }
 
-        public async Task AddAsync(Product product)
+        public Task AddAsync(Product product)
         {
             var productRecord = GetProductRecord(product);
             Context.Products.Add(productRecord);
-            await Context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         public async Task UpdateAsync(Product product)
@@ -30,15 +28,7 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
 
             UpdateProductRecord(productRecord, product);
 
-            try
-            {
-                Context.Products.Update(productRecord);
-                await Context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                throw new ConcurrentUpdateException(ex.Message, ex);
-            }
+            Context.Products.Update(productRecord);
         }
 
         public async Task<Product> FindAsync(ProductIdentity productId)
@@ -54,15 +44,33 @@ namespace Atomiv.Template.Infrastructure.Domain.Repositories.Products
             return GetProduct(productRecord);
         }
 
-        public async Task SyncAsync(IEnumerable<Product> products)
+        public async Task<Product> FindAsync(string productCode)
+        {
+            var productRecord = await Context.Products.AsNoTracking()
+                .FirstOrDefaultAsync(e => e.ProductCode == productCode);
+
+            if (productRecord == null)
+            {
+                return null;
+            }
+
+            return GetProduct(productRecord);
+        }
+
+        public Task SyncAsync(IEnumerable<Product> products)
         {
             // TODO: VC: Implement list differences
 
-            var productRecords = products.Select(GetProductRecord).ToList();
+            var addedProducts = products.Where(e => e.IsNew);
+            var updatedProducts = products.Where(e => !e.IsNew);
 
-            Context.Products.AddRange(productRecords);
+            var addedProductRecords = addedProducts.Select(GetProductRecord).ToList();
+            var updatedProductRecords = updatedProducts.Select(GetProductRecord).ToList();
 
-            await Context.SaveChangesAsync();
+            Context.Products.AddRange(addedProductRecords);
+            Context.Products.UpdateRange(updatedProductRecords);
+
+            return Task.CompletedTask;
         }
 
         #region Helper

@@ -2,7 +2,7 @@
 
 namespace Atomiv.Template.Core.Application.Commands.Products
 {
-    public class CreateProductCommand : IRequest<CreateProductCommandResponse>
+    public class CreateProductCommand : ICommand<CreateProductCommandResponse>
     {
         public string Code { get; set; }
 

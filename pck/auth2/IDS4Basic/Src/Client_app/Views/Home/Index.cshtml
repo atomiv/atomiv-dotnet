@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="row">
+	@if (Context.User.Identity.IsAuthenticated)
+	{
+		var idToken = Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.GetTokenAsync(Context, "id_token");
+		var accessToken = Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.GetTokenAsync(Context, "access_token");
+		<ul>
+			<li>Id Token : @idToken.Result</li>
+			<li>Access Token : @accessToken.Result</li>
+			@foreach (var claim in Context.User.Claims)
+			{
+				<li>@claim.Type : @claim.Value</li>
+			}
+		</ul>
+	}
+</div>

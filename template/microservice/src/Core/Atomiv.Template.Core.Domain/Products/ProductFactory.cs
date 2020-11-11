@@ -16,7 +16,7 @@ namespace Atomiv.Template.Core.Domain.Products
         public Product CreateProduct(string productCode, string productName, decimal listPrice)
         {
             var id = _productIdentityGenerator.Next();
-            return new Product(id, productCode, productName, listPrice, CreatedProductIsListed);
+            return new Product(id, productCode, productName, listPrice, CreatedProductIsListed, true);
         }
     }
 }

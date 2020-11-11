@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.40</Version>
+    <Version>1.0.42</Version>
     <Authors>Atomiv</Authors>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>

@@ -10,8 +10,9 @@ namespace Atomiv.Template.Core.Domain.Customers
         public Customer(CustomerIdentity id, 
             CustomerReferenceNumber referenceNumber,
             string firstName,
-            string lastName)
-            : base(id)
+            string lastName,
+            bool isNew = false)
+            : base(id, isNew)
         {
             ValidateReferenceNumber(referenceNumber);
 

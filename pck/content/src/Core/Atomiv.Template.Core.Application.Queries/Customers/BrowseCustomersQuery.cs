@@ -2,7 +2,7 @@
 
 namespace Atomiv.Template.Core.Application.Queries.Customers
 {
-    public class BrowseCustomersQuery : IRequest<BrowseCustomersQueryResponse>
+    public class BrowseCustomersQuery : IQuery<BrowseCustomersQueryResponse>
     {
         public int Page { get; set; }
 

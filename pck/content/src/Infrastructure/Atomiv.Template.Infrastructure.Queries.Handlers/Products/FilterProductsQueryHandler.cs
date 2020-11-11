@@ -13,7 +13,7 @@ namespace Atomiv.Template.Infrastructure.Queries.Handlers.Products
         {
         }
 
-        public override async Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery request)
+        public override async Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery query)
         {
             var productRecords = await Context.Products.AsNoTracking()
                 .OrderBy(e => e.ProductCode)

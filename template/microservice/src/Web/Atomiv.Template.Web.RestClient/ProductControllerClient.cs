@@ -40,6 +40,11 @@ namespace Atomiv.Template.Web.RestClient
             return Client.PostAsync<UnlistProductCommand, UnlistProductCommandResponse>($"{id}/unlist", request, GetHeaders(header));
         }
 
+        public Task<ObjectClientResponse<UnlistProductCommandResponse>> SyncProductsAsync(SyncProductsCommand request, HeaderData header)
+        {
+            return Client.PostAsync<UnlistProductCommandResponse>($"sync", GetHeaders(header));
+        }
+
         #endregion
 
         #region Queries

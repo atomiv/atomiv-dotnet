@@ -1,14 +1,14 @@
-﻿using Atomiv.Infrastructure.MongoDb;
+﻿using Atomiv.Infrastructure.MongoDB;
 using Atomiv.Template.Core.Domain.Orders;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDb.Orders
+namespace Atomiv.Template.Infrastructure.Domain.Repositories.MongoDB.Orders
 {
     public class OrderReadonlyRepository : Repository, IOrderReadonlyRepository
     {
-        public OrderReadonlyRepository(MongoDbContext context) : base(context)
+        public OrderReadonlyRepository(DatabaseContext context) : base(context)
         {
         }
 

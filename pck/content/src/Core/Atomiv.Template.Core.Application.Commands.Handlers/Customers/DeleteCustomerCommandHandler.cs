@@ -5,18 +5,21 @@ using Atomiv.Template.Core.Domain.Customers;
 
 namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
 {
-    public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
+    public class DeleteCustomerCommandHandler : ICommandHandler<DeleteCustomerCommand, DeleteCustomerCommandResponse>
     {
         private readonly ICustomerRepository _customerRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
+        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository,
+            IUnitOfWork unitOfWork)
         {
             _customerRepository = customerRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<DeleteCustomerCommandResponse> HandleAsync(DeleteCustomerCommand request)
+        public async Task<DeleteCustomerCommandResponse> HandleAsync(DeleteCustomerCommand command)
         {
-            var customerId = new CustomerIdentity(request.Id);
+            var customerId = new CustomerIdentity(command.Id);
 
             var exists = await _customerRepository.ExistsAsync(customerId);
             
@@ -26,6 +29,8 @@ namespace Atomiv.Template.Core.Application.Commands.Handlers.Customers
             }
 
             await _customerRepository.RemoveAsync(customerId);
+
+            await _unitOfWork.CommitAsync();
 
             return new DeleteCustomerCommandResponse();
         }

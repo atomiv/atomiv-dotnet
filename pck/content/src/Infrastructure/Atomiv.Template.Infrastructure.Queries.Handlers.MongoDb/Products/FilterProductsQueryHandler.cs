@@ -1,17 +1,17 @@
 ﻿using Atomiv.Template.Core.Application.Queries.Products;
-using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDb;
+using Atomiv.Template.Infrastructure.Domain.Persistence.MongoDB;
 using System;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDb.Products
+namespace Atomiv.Template.Infrastructure.Queries.Handlers.MongoDB.Products
 {
     public class FilterProductsQueryHandler : QueryHandler<FilterProductsQuery, FilterProductsQueryResponse>
     {
-        public FilterProductsQueryHandler(MongoDbContext context) : base(context)
+        public FilterProductsQueryHandler(DatabaseContext context) : base(context)
         {
         }
 
-        public override Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery request)
+        public override Task<FilterProductsQueryResponse> HandleAsync(FilterProductsQuery query)
         {
             throw new NotImplementedException();
         }

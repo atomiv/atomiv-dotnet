@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Infrastructure.EntityFrameworkCore
 {
-    public abstract class QueryHandler<TContext, TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
+    public abstract class QueryHandler<TContext, TRequest, TResponse> : IQueryHandler<TRequest, TResponse>
         where TContext : DbContext
-        where TRequest : IRequest<TResponse>
+        where TRequest : IQuery<TResponse>
     {
         public QueryHandler(TContext context)
         {
