@@ -2,7 +2,7 @@
   
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>1.0.41</Version>
+    <Version>1.0.42</Version>
     <Authors>Atomiv</Authors>
     <Description>Implementation for messaging using MediatR</Description>
     <Copyright>?  All rights reserved.</Copyright>
