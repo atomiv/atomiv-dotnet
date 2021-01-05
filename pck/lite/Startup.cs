@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using Commander.Data;
 using System.Reflection;
 using System.IO;
@@ -42,7 +42,7 @@ namespace Atomiv.Template.Lite
 
             // don't need 2 lines below for Commander
             // services.AddDbContext<Data.LibraryContext>
-            services.AddDbContext<ECommerceContext>(opt =>
+            services.AddDbContext<DatabaseContext>(opt =>
                 // microsoft docs
                 // JECA
                 // opt.UseInMemoryDatabase("ECommerceList"));
@@ -88,7 +88,7 @@ namespace Atomiv.Template.Lite
         // configure method is where we setup our request pipeline, order in which middle is added is important
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
         // rename to AppDbContext db
-        ECommerceContext db)
+        DatabaseContext db)
         {
             if (env.IsDevelopment())
             {

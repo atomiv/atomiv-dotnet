@@ -2,7 +2,7 @@
 // Command.cs
 
 using System.Collections.Generic;
-using Commander.Models;
+using Commander.Entities;
 
 namespace Commander.Data
 {

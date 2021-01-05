@@ -7,7 +7,7 @@
 // To use Preview features, use the 'preview' language version. [C:\Users\Jeca\Documents\GitHub\atomiv\atomiv-dotnet\pck\lite\Atomiv.Template.Lite\Atomiv.Template.Lite.csproj]
 using System.ComponentModel.DataAnnotations;
 
-namespace Atomiv.Template.Lite.Models
+namespace Atomiv.Template.Lite.Entities
 {
     public class Customer
     {

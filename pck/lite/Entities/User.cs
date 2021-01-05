@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Atomiv.Template.Lite.Models
+namespace Atomiv.Template.Lite.Entities
 {
 	public class User
 	{

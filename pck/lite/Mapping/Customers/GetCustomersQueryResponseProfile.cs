@@ -1,5 +1,5 @@
 ﻿using Atomiv.Template.Lite.Dtos.Customers;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Mapping.Customers
 {
-	public class GetCustomersResponseMap : Profile
+	public class GetCustomersQueryResponseProfile : Profile
 	{
-		public GetCustomersResponseMap()
+		public GetCustomersQueryResponseProfile()
 		{
 			CreateMap<IEnumerable<Customer>, GetCustomersQueryResponse>()
 				.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e));

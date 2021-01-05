@@ -1,5 +1,5 @@
 ﻿using Atomiv.Template.Lite.Dtos.Products;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Mapping.Products
 {
-	public class CreateProductResponseMap : Profile
+	public class CreateProductCommandResponseProfile : Profile
 	{
-		public CreateProductResponseMap()
+		public CreateProductCommandResponseProfile()
 		{
 			CreateMap<Product, CreateProductCommandResponse>();
 		}

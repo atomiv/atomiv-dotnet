@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Commander.Data;
-using Commander.Models;
+using Commander.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Commander.Controllers

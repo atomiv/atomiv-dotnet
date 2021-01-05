@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Atomiv.Template.Lite.Models
+namespace Atomiv.Template.Lite.Entities
 {
     public class Order
     {

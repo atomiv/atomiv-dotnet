@@ -1,6 +1,6 @@
 using System;
 
-namespace Atomiv.Template.Lite
+namespace Atomiv.Template.Entities
 {
     public class WeatherForecast
     {

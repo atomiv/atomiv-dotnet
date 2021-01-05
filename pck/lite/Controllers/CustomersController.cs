@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using Atomiv.Template.Lite.Services.Interfaces;
 using Atomiv.Template.Lite.Dtos.Customers;
 

@@ -1,4 +1,4 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Entities;
 using Atomiv.Template.Lite.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,10 +11,10 @@ namespace Atomiv.Template.Lite.Repositories
 	public class CustomerRepository : ICustomerRepository
 	{
 
-		private readonly ECommerceContext _context;
+		private readonly DatabaseContext _context;
 
 		// constructor
-		public CustomerRepository(ECommerceContext context)
+		public CustomerRepository(DatabaseContext context)
 		{
 			_context = context;
 		}

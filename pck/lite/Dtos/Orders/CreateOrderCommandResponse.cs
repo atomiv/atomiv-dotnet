@@ -1,4 +1,4 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

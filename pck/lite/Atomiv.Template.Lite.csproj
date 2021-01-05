@@ -25,10 +25,6 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
   <!-- optional. for comments to be visible in swagger .. schemas-->
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

@@ -1,5 +1,5 @@
 ﻿using Atomiv.Template.Lite.Dtos.Orders;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Mapping.Orders
 {
-	public class DeleteOrderResponseMap : Profile
+	public class DeleteOrderCommandResponseProfile : Profile
 	{
-		public DeleteOrderResponseMap()
+		public DeleteOrderCommandResponseProfile()
 		{
 			CreateMap<Order, DeleteOrderCommandResponse>();
 		}

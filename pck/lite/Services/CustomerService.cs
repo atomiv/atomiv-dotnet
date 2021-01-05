@@ -1,5 +1,5 @@
 ﻿using Atomiv.Template.Lite.Dtos.Customers;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using Atomiv.Template.Lite.Repositories;
 using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Services.Interfaces;

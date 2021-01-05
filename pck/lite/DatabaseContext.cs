@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 
 // TODO VC TodoApi.Models
-namespace Atomiv.Template.Lite.Models
+namespace Atomiv.Template.Lite
 {
-    public class ECommerceContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public ECommerceContext(DbContextOptions<ECommerceContext> options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         }

@@ -1,4 +1,4 @@
-namespace Atomiv.Template.Lite.Models
+namespace Atomiv.Template.Lite.Entities
 {
     public class Product
     {

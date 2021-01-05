@@ -1,4 +1,4 @@
-﻿using Atomiv.Template.Lite.Models;
+﻿using Atomiv.Template.Lite.Entities;
 using Atomiv.Template.Lite.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,9 +11,9 @@ namespace Atomiv.Template.Lite.Repositories
 	public class OrderRepository : IOrderRepository
 	{
 
-        private readonly ECommerceContext _context;
+        private readonly DatabaseContext _context;
 
-        public OrderRepository(ECommerceContext context)
+        public OrderRepository(DatabaseContext context)
         {
             _context = context;
         }

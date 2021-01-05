@@ -1,5 +1,5 @@
 ﻿using Atomiv.Template.Lite.Dtos.Products;
-using Atomiv.Template.Lite.Models;
+using Atomiv.Template.Lite.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
