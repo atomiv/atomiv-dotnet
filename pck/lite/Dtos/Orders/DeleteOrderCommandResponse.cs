@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Dtos.Orders
 {
-	public class UpdateOrderRequest
+	public class DeleteOrderCommandResponse
 	{
 		public int Id { get; set; }
 		public DateTime OrderDate { get; set; }

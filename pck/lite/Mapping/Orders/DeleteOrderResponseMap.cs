@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Orders
 	{
 		public DeleteOrderResponseMap()
 		{
-			CreateMap<Order, DeleteOrderResponse>();
+			CreateMap<Order, DeleteOrderCommandResponse>();
 		}
 	}
 }

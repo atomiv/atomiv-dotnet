@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Customers
 	{
 		public CreateCustomerResponseMap()
 		{
-			CreateMap<Customer, CreateCustomerResponse>();
+			CreateMap<Customer, CreateCustomerCommandResponse>();
 		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Dtos.Products
 {
-	public class DeleteProductResponse
+	public class CreateProductCommandResponse
 	{
 		public int Id { get; set; }
 		public string Code { get; set; }

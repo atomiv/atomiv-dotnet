@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Dtos.Customers
 {
-	public class GetCustomersResponse
+	public class GetCustomersQueryResponse
 	{
 		public List<GetCustomersRecordResponse> Records { get; set; }
 	}

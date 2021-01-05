@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Products
 	{
 		public GetProductsResponseMap()
 		{
-			CreateMap<IEnumerable<Product>, GetProductsResponse>()
+			CreateMap<IEnumerable<Product>, GetProductsQueryResponse>()
 				.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e));
 
 			CreateMap<Product, GetProductsRecordResponse>();

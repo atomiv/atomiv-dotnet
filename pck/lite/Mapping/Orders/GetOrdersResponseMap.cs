@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Orders
 	{
 		public GetOrdersResponseMap()
 		{
-			CreateMap<IEnumerable<Order>, GetOrdersResponse>()
+			CreateMap<IEnumerable<Order>, GetOrdersQueryResponse>()
 				.ForMember(dest => dest.Records, opt => opt.MapFrom(e => e));
 		}
 	}

@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Dtos.Orders
 {
-	public class GetOrdersResponse
-	{
-		public List<GetOrdersRecordResponse> Records { get; set;  }
-	}
-
-	public class GetOrdersRecordResponse
+	public class UpdateOrderCommandResponse
 	{
 		public int Id { get; set; }
 		public DateTime OrderDate { get; set; }

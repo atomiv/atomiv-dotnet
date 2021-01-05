@@ -26,36 +26,36 @@ namespace Atomiv.Template.Lite.Services
 			_mapper = mapper;
 		}
 		//maps from CustomerRequest into customer model
-		public async Task<CreateCustomerResponse> CreateCustomer(CreateCustomerRequest request)
+		public async Task<CreateCustomerCommandResponse> CreateCustomer(CreateCustomerCommand request)
 		{
-			var customer = _mapper.Map<CreateCustomerRequest, Customer>(request);
+			var customer = _mapper.Map<CreateCustomerCommand, Customer>(request);
 			customer = await _customerRepository.CreateCustomer(customer);
-			return _mapper.Map<Customer, CreateCustomerResponse>(customer);
+			return _mapper.Map<Customer, CreateCustomerCommandResponse>(customer);
 		}
 
-		public async Task<DeleteCustomerResponse> DeleteCustomer(long id)
+		public async Task<DeleteCustomerCommandResponse> DeleteCustomer(long id)
 		{
 			var customer = await _customerRepository.DeleteCustomer(id);
-			return _mapper.Map<Customer, DeleteCustomerResponse>(customer);
+			return _mapper.Map<Customer, DeleteCustomerCommandResponse>(customer);
 		}
 
-		public async Task<GetCustomerResponse> GetCustomer(long id)
+		public async Task<GetCustomerQueryResponse> GetCustomer(long id)
 		{
 			var customer = await _customerRepository.GetCustomer(id);
-			return _mapper.Map<Customer, GetCustomerResponse>(customer);
+			return _mapper.Map<Customer, GetCustomerQueryResponse>(customer);
 		}
 
-		public async Task<GetCustomersResponse> GetCustomers()
+		public async Task<GetCustomersQueryResponse> GetCustomers()
 		{
 			var customers = await _customerRepository.GetCustomers();
-			return _mapper.Map<IEnumerable<Customer>, GetCustomersResponse>(customers);
+			return _mapper.Map<IEnumerable<Customer>, GetCustomersQueryResponse>(customers);
 		}
 
-		public async Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerRequest request)
+		public async Task<UpdateCustomerCommandResponse> UpdateCustomer(UpdateCustomerCommand request)
 		{
-			var customer = _mapper.Map<UpdateCustomerRequest, Customer>(request);
+			var customer = _mapper.Map<UpdateCustomerCommand, Customer>(request);
 			customer = await _customerRepository.UpdateCustomer(customer);
-			return _mapper.Map<Customer, UpdateCustomerResponse>(customer);
+			return _mapper.Map<Customer, UpdateCustomerCommandResponse>(customer);
 		}
 	}
 }

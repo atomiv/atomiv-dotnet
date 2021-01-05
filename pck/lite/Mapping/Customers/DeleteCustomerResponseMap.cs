@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Customers
 	{
 		public DeleteCustomerResponseMap()
 		{
-			CreateMap<Customer, DeleteCustomerResponse>();
+			CreateMap<Customer, DeleteCustomerCommandResponse>();
 		}
 	}
 }

@@ -9,14 +9,14 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 {
 	public interface ICustomerService
 	{
-		public Task<GetCustomersResponse> GetCustomers();
+		public Task<GetCustomersQueryResponse> GetCustomers();
 
-		public Task<GetCustomerResponse> GetCustomer(long id);
+		public Task<GetCustomerQueryResponse> GetCustomer(long id);
 
-		public Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerRequest request);
+		public Task<UpdateCustomerCommandResponse> UpdateCustomer(UpdateCustomerCommand request);
 
-		public Task<CreateCustomerResponse> CreateCustomer(CreateCustomerRequest request);
+		public Task<CreateCustomerCommandResponse> CreateCustomer(CreateCustomerCommand request);
 
-		public Task<DeleteCustomerResponse> DeleteCustomer(long id);
+		public Task<DeleteCustomerCommandResponse> DeleteCustomer(long id);
 	}
 }

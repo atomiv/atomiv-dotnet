@@ -9,15 +9,15 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 {
 	public interface IOrderService
 	{
-		public Task<GetOrdersResponse> GetOrders();
+		public Task<GetOrdersQueryResponse> GetOrders();
 
-		public Task<GetOrderResponse> GetOrder(int id);
+		public Task<GetOrderQueryResponse> GetOrder(int id);
 
-		public Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request);
+		public Task<UpdateOrderCommandResponse> UpdateOrder(UpdateOrderCommand request);
 
-		public Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request);
+		public Task<CreateOrderCommandResponse> CreateOrder(CreateOrderCommand request);
 
-		public Task<DeleteOrderResponse> DeleteOrder(int id);
+		public Task<DeleteOrderCommandResponse> DeleteOrder(int id);
 
 	}
 }

@@ -24,7 +24,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<GetOrdersResponse>> GetOrders()
+        public async Task<ActionResult<GetOrdersQueryResponse>> GetOrders()
         {
             // return await _context.Orders.ToListAsync();
             // .Include(t => t.OrderItems).Include(o => o.OrderItems)
@@ -47,7 +47,7 @@ namespace Atomiv.Template.Lite.Controllers
         // [HttpGet("{id:int}/medication")] - to only get teh medication, not disease as well
         // api/patients/3/medication .. see screenshot
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetOrderResponse>> GetOrder(int id)
+        public async Task<ActionResult<GetOrderQueryResponse>> GetOrder(int id)
         {
             // .FirstOrDEfaultAsync(i => i.PatientId == id);
             //_context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
@@ -66,7 +66,7 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         // , OrderItem orderItem
-        public async Task<IActionResult> PutOrder(int id, UpdateOrderRequest request)
+        public async Task<IActionResult> PutOrder(int id, UpdateOrderCommand request)
         {
             // var record = await _context.Orders.Include(t => t.OrderItems).FirstOrDefaultAsync(t => t.Id == id);
 
@@ -108,7 +108,7 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(CreateOrderRequest request)
+        public async Task<ActionResult<Order>> PostOrder(CreateOrderCommand request)
         {
             var response = await _service.CreateOrder(request);
 
@@ -118,7 +118,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // DELETE: api/Orders/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteOrderResponse>> DeleteOrder(int id)
+        public async Task<ActionResult<DeleteOrderCommandResponse>> DeleteOrder(int id)
         {
             var order = await _service.DeleteOrder(id);
             if (order == null)

@@ -24,7 +24,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<GetProductResponse>> GetProducts()
+        public async Task<ActionResult<GetProductQueryResponse>> GetProducts()
         {
             var products = await _service.GetProducts();
             return Ok(products);
@@ -32,7 +32,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetProductResponse>> GetProduct(int id)
+        public async Task<ActionResult<GetProductQueryResponse>> GetProduct(int id)
         {
             var product = await _service.GetProduct(id);
 
@@ -48,7 +48,7 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(int id, UpdateProductRequest request)
+        public async Task<IActionResult> PutProduct(int id, UpdateProductCommand request)
         {
             if (id != request.Id)
             {
@@ -70,7 +70,7 @@ namespace Atomiv.Template.Lite.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(CreateProductRequest request)
+        public async Task<ActionResult<Product>> PostProduct(CreateProductCommand request)
         {
             var response = await _service.CreateProduct(request);
             
@@ -79,7 +79,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteProductResponse>> DeleteProduct(int id)
+        public async Task<ActionResult<DeleteProductCommandResponse>> DeleteProduct(int id)
         {
             var product = await _service.DeleteProduct(id);
             if (product == null)

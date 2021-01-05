@@ -34,7 +34,7 @@ namespace Atomiv.Template.Lite.Controllers
         /// The GET method returns fake customers
         /// </summary>
         [HttpGet]
-        public async Task<ActionResult<GetCustomersResponse>> GetCustomers()
+        public async Task<ActionResult<GetCustomersQueryResponse>> GetCustomers()
         {
             // Customers.ToListAsync();
             var customers = await _service.GetCustomers();
@@ -43,7 +43,7 @@ namespace Atomiv.Template.Lite.Controllers
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetCustomerResponse>> GetCustomer(long id)
+        public async Task<ActionResult<GetCustomerQueryResponse>> GetCustomer(long id)
         {
             var customer = await _service.GetCustomer(id);
 
@@ -65,7 +65,7 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see //go.microsoft.com/fwlink/?linkid=2123754.
         // public void Put(int id, [FromBody] string value)
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(long id, UpdateCustomerRequest request)
+        public async Task<IActionResult> PutCustomer(long id, UpdateCustomerCommand request)
         {
             if (id != request.Id)
             {
@@ -91,7 +91,7 @@ namespace Atomiv.Template.Lite.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         // public void Post([FromBody] string value)
-        public async Task<ActionResult<Customer>> PostCustomer(CreateCustomerRequest request)
+        public async Task<ActionResult<Customer>> PostCustomer(CreateCustomerCommand request)
         {
             var response = await _service.CreateCustomer(request);
             //_context.Customers.Add(customer);
@@ -104,7 +104,7 @@ namespace Atomiv.Template.Lite.Controllers
         // DELETE: api/Customers/5
         //  Task<ActionResult<Customer>> ...>> Task<ActionResult<DeleteCustomerResponse>>
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DeleteCustomerResponse>> DeleteCustomer(long id)
+        public async Task<ActionResult<DeleteCustomerCommandResponse>> DeleteCustomer(long id)
         {
             var customer = await _service.DeleteCustomer(id);
             //var customer = await _context.Customers.FindAsync(id);

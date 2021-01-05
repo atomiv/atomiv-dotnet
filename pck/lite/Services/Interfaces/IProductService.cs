@@ -9,15 +9,15 @@ namespace Atomiv.Template.Lite.Services.Interfaces
 {
 	public interface IProductService
 	{
-		public Task<GetProductsResponse> GetProducts();
+		public Task<GetProductsQueryResponse> GetProducts();
 
-		public Task<GetProductResponse> GetProduct(int id);
+		public Task<GetProductQueryResponse> GetProduct(int id);
 
-		public Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request);
+		public Task<UpdateProductCommandResponse> UpdateProduct(UpdateProductCommand request);
 
-		public Task<CreateProductResponse> CreateProduct(CreateProductRequest request);
+		public Task<CreateProductCommandResponse> CreateProduct(CreateProductCommand request);
 
-		public Task<DeleteProductResponse> DeleteProduct(int id);
+		public Task<DeleteProductCommandResponse> DeleteProduct(int id);
 
 	}
 }

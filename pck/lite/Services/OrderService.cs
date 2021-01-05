@@ -23,39 +23,39 @@ namespace Atomiv.Template.Lite.Services
 			_mapper = mapper;
 		}
 
-		public async Task<CreateOrderResponse> CreateOrder(CreateOrderRequest request)
+		public async Task<CreateOrderCommandResponse> CreateOrder(CreateOrderCommand request)
 		{
-			var order = _mapper.Map<CreateOrderRequest, Order>(request);
+			var order = _mapper.Map<CreateOrderCommand, Order>(request);
 			order = await _orderRepository.CreateOrder(order);
-			return _mapper.Map<Order, CreateOrderResponse>(order);
+			return _mapper.Map<Order, CreateOrderCommandResponse>(order);
 		}
 
-		public async Task<DeleteOrderResponse> DeleteOrder(int id)
+		public async Task<DeleteOrderCommandResponse> DeleteOrder(int id)
 		{
 			var order = await _orderRepository.DeleteOrder(id);
-			return _mapper.Map<Order, DeleteOrderResponse>(order);
+			return _mapper.Map<Order, DeleteOrderCommandResponse>(order);
 		}
 
 
-		public async Task<GetOrderResponse> GetOrder(int id)
+		public async Task<GetOrderQueryResponse> GetOrder(int id)
 		{
 			var order = await _orderRepository.GetOrder(id);
-			return _mapper.Map<Order, GetOrderResponse>(order);
+			return _mapper.Map<Order, GetOrderQueryResponse>(order);
 		}
 		
 		
-		public async Task<GetOrdersResponse> GetOrders()
+		public async Task<GetOrdersQueryResponse> GetOrders()
 		{
 			var orders = await _orderRepository.GetOrders();
-			return _mapper.Map<IEnumerable<Order>, GetOrdersResponse>(orders);
+			return _mapper.Map<IEnumerable<Order>, GetOrdersQueryResponse>(orders);
 		}
 
 
-		public async Task<UpdateOrderResponse> UpdateOrder(UpdateOrderRequest request)
+		public async Task<UpdateOrderCommandResponse> UpdateOrder(UpdateOrderCommand request)
 		{
-			var order = _mapper.Map<UpdateOrderRequest, Order>(request);
+			var order = _mapper.Map<UpdateOrderCommand, Order>(request);
 			order = await _orderRepository.UpdateOrder(order);
-			return _mapper.Map<Order, UpdateOrderResponse>(order);
+			return _mapper.Map<Order, UpdateOrderCommandResponse>(order);
 		}
 
 

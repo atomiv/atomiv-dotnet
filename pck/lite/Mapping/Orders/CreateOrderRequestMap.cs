@@ -12,7 +12,7 @@ namespace Atomiv.Template.Lite.Mapping.Orders
 	{
 		public CreateOrderRequestMap()
 		{
-			CreateMap<CreateOrderRequest, Order>();
+			CreateMap<CreateOrderCommand, Order>();
 		}
 	}
 }

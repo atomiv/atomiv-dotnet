@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Dtos.Customers
 {
-	public class CreateCustomerRequest
+	public class UpdateCustomerCommand
 	{
+        public long Id { get; set; }
         [Required]
         [MinLength(2)]
         public string FirstName { get; set; }

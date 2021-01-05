@@ -22,36 +22,36 @@ namespace Atomiv.Template.Lite.Services
 			_mapper = mapper;
 		}
 
-		public async Task<CreateProductResponse> CreateProduct(CreateProductRequest request)
+		public async Task<CreateProductCommandResponse> CreateProduct(CreateProductCommand request)
 		{
-			var product = _mapper.Map<CreateProductRequest, Product>(request);
+			var product = _mapper.Map<CreateProductCommand, Product>(request);
 			product = await _productRepository.CreateProduct(product);
-			return _mapper.Map<Product, CreateProductResponse>(product);
+			return _mapper.Map<Product, CreateProductCommandResponse>(product);
 		}
 
-		public async Task<DeleteProductResponse> DeleteProduct(int id)
+		public async Task<DeleteProductCommandResponse> DeleteProduct(int id)
 		{
 			var product = await _productRepository.DeleteProduct(id);
-			return _mapper.Map<Product, DeleteProductResponse>(product);
+			return _mapper.Map<Product, DeleteProductCommandResponse>(product);
 		}
 
-		public async Task<GetProductResponse> GetProduct(int id)
+		public async Task<GetProductQueryResponse> GetProduct(int id)
 		{
 			var product = await _productRepository.GetProduct(id);
-			return _mapper.Map<Product, GetProductResponse>(product);
+			return _mapper.Map<Product, GetProductQueryResponse>(product);
 		}
 
-		public async Task<GetProductsResponse> GetProducts()
+		public async Task<GetProductsQueryResponse> GetProducts()
 		{
 			var products = await _productRepository.GetProducts();
-			return _mapper.Map<IEnumerable<Product>, GetProductsResponse>(products);
+			return _mapper.Map<IEnumerable<Product>, GetProductsQueryResponse>(products);
 		}
 
-		public async Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request)
+		public async Task<UpdateProductCommandResponse> UpdateProduct(UpdateProductCommand request)
 		{
-			var product = _mapper.Map<UpdateProductRequest, Product>(request);
+			var product = _mapper.Map<UpdateProductCommand, Product>(request);
 			product = await _productRepository.UpdateProduct(product);
-			return _mapper.Map<Product, UpdateProductResponse>(product);
+			return _mapper.Map<Product, UpdateProductCommandResponse>(product);
 		}
 
 	}
