@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Atomiv.Template.Lite.Mapping.Products
 {
-	public class UpdateProductResponseMap : Profile
+	public class UpdateProductCommandResponseProfile : Profile
 	{
-		public UpdateProductResponseMap()
+		public UpdateProductCommandResponseProfile()
 		{
 			CreateMap<Product, UpdateProductCommandResponse>();
 		}
