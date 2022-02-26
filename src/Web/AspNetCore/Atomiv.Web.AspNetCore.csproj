@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Atomiv</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
     <Copyright>?  All rights reserved.</Copyright>
