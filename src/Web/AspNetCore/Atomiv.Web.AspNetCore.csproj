@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Atomiv</Authors>
     <Description>Implementation of RESTful Services using ASP.NET Core</Description>
     <Copyright>?  All rights reserved.</Copyright>
@@ -9,7 +9,7 @@
     <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <PackageTags>Atomiv Framework DotNetCore Web AspNetCore Rest RestService RestApi AspNetCore AspNetCoreMvc</PackageTags>
-    <Version>1.0.42</Version>
+    <Version>6.0.0</Version>
     <IsPackable>true</IsPackable>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="1.0.42" />
-<PackageReference Include="Atomiv.Test.AspNetCore" Version="1.0.42" />
-<PackageReference Include="Atomiv.Test.EntityFrameworkCore" Version="1.0.42" />
-<PackageReference Include="Atomiv.Test.Xunit" Version="1.0.42" />
+<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="6.0.0" />
+<PackageReference Include="Atomiv.Test.AspNetCore" Version="6.0.0" />
+<PackageReference Include="Atomiv.Test.EntityFrameworkCore" Version="6.0.0" />
+<PackageReference Include="Atomiv.Test.Xunit" Version="6.0.0" />
     <ProjectReference Include="..\..\..\src\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Atomiv.Template.Web.RestApi\Atomiv.Template.Web.RestApi.csproj" />
     <ProjectReference Include="..\..\..\src\Web\Atomiv.Template.Web.RestClient\Atomiv.Template.Web.RestClient.csproj" />
