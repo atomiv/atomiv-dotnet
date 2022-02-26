@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.EntityFrameworkCore" Version="1.0.42" />
-<PackageReference Include="Atomiv.Infrastructure.SequentialGuid" Version="1.0.42" />
+<PackageReference Include="Atomiv.Infrastructure.EntityFrameworkCore" Version="6.0.0" />
+<PackageReference Include="Atomiv.Infrastructure.SequentialGuid" Version="6.0.0" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 
