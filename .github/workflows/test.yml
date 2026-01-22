@@ -20,6 +20,19 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
+    - name: Start databases with Docker Compose
+      run: docker-compose -f template/microservice/docker-compose.yml up -d
+
+    - name: Wait for SQL Server to be ready
+      run: |
+        timeout 90s bash -c 'until docker exec atomiv-sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "YourStrong@Passw0rd" -Q "SELECT 1" > /dev/null 2>&1; do sleep 2; done'
+        echo "SQL Server is ready"
+
+    - name: Wait for MongoDB to be ready
+      run: |
+        timeout 60s bash -c 'until docker exec atomiv-mongodb mongosh --eval "db.adminCommand({ ping: 1 })" > /dev/null 2>&1; do sleep 2; done'
+        echo "MongoDB is ready"
+
     - name: Restore dependencies
       run: dotnet restore Atomiv.sln
 
@@ -28,6 +41,10 @@ jobs:
 
     - name: Run Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+
+    - name: Stop databases
+      if: always()
+      run: docker-compose -f template/microservice/docker-compose.yml down
 
     - name: Upload test results
       if: always()
