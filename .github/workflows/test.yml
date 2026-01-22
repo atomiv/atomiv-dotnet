@@ -32,10 +32,16 @@ jobs:
         docker exec atomiv-sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong@Passw0rd' -Q "SELECT 1" -C
 
     - name: Restore dependencies
-      run: dotnet restore pck/content/Atomiv.Template.sln
+      run: |
+        dotnet restore pck/content/test/Core/Atomiv.Template.Core.Domain.UnitTest/Atomiv.Template.Core.Domain.UnitTest.csproj
+        dotnet restore pck/content/test/Core/Atomiv.Template.Core.Application.UnitTest/Atomiv.Template.Core.Application.UnitTest.csproj
+        dotnet restore pck/content/test/Web/Atomiv.Template.Web.RestApi.IntegrationTest/Atomiv.Template.Web.RestApi.IntegrationTest.csproj
 
     - name: Build solution
-      run: dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
+      run: |
+        dotnet build pck/content/test/Core/Atomiv.Template.Core.Domain.UnitTest/Atomiv.Template.Core.Domain.UnitTest.csproj --configuration Release --no-restore
+        dotnet build pck/content/test/Core/Atomiv.Template.Core.Application.UnitTest/Atomiv.Template.Core.Application.UnitTest.csproj --configuration Release --no-restore
+        dotnet build pck/content/test/Web/Atomiv.Template.Web.RestApi.IntegrationTest/Atomiv.Template.Web.RestApi.IntegrationTest.csproj --configuration Release --no-restore
 
     - name: Run Unit Tests
       run: |
