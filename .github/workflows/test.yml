@@ -44,6 +44,13 @@ jobs:
     - name: Build solution
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
+    - name: Copy ChromeDriver to test bin directories
+      run: |
+        CHROMEDRIVER_PATH=$(which chromedriver)
+        echo "ChromeDriver found at: $CHROMEDRIVER_PATH"
+        find . -type d -path "*/bin/Release/net6.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
+        echo "ChromeDriver copied to test bin directories"
+
     - name: Run Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
