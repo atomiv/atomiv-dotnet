@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration;
 using Atomiv.Core.Common.Serialization;
 using System;
 using System.Collections;
@@ -21,7 +22,11 @@ namespace Atomiv.Infrastructure.CsvHelper
 
             using (var textWriter = new StringWriter())
             {
-                using (var writer = new CsvWriter(textWriter, CultureInfo.InvariantCulture))
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    NewLine = Environment.NewLine
+                };
+                using (var writer = new CsvWriter(textWriter, config))
                 {
                     writer.WriteRecords(enumerable);
                     return textWriter.ToString();
@@ -114,7 +119,11 @@ namespace Atomiv.Infrastructure.CsvHelper
         {
             using (var textWriter = new StringWriter())
             {
-                using (var writer = new CsvWriter(textWriter, CultureInfo.InvariantCulture, true))
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    NewLine = Environment.NewLine
+                };
+                using (var writer = new CsvWriter(textWriter, config, true))
                 {
                     writer.WriteRecords(data);
                     return textWriter.ToString();
