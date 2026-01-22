@@ -23,7 +23,7 @@ jobs:
     - name: Start Docker Compose services
       run: |
         cd template/microservice
-        docker-compose up -d
+        docker compose up -d
         echo "Waiting for services to be healthy..."
         sleep 30
 
@@ -63,7 +63,7 @@ jobs:
       if: always()
       run: |
         cd template/microservice
-        docker-compose down -v
+        docker compose down -v
 
     - name: Upload test results
       if: always()
