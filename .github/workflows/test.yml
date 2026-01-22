@@ -69,7 +69,6 @@ jobs:
 
     - name: Run Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
-      continue-on-error: true
 
     - name: Stop databases
       if: always()
