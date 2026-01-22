@@ -40,7 +40,7 @@ jobs:
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
     - name: Run Tests
-      run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --filter "FullyQualifiedName!~Selenium"
+      run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
     - name: Stop databases
       if: always()
