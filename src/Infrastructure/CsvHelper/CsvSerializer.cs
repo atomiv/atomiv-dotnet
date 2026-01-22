@@ -123,7 +123,7 @@ namespace Atomiv.Infrastructure.CsvHelper
                 {
                     NewLine = Environment.NewLine
                 };
-                using (var writer = new CsvWriter(textWriter, config, true))
+                using (var writer = new CsvWriter(textWriter, config))
                 {
                     writer.WriteRecords(data);
                     return textWriter.ToString();
