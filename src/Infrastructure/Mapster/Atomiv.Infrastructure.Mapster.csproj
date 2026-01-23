@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Atomiv.Core.Application.csproj" />
   </ItemGroup>
 
 </Project>

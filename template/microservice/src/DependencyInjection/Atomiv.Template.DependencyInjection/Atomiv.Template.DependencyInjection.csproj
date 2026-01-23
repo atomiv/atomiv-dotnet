@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
@@ -23,6 +24,7 @@
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\Mapster\Atomiv.Infrastructure.Mapster.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />

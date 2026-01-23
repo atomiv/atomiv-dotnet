@@ -4,18 +4,18 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Version>6.0.0</Version>
     <Authors>Atomiv</Authors>
-    <Description>Implementation for mapping using AutoMapper</Description>
+    <Description>Implementation for mapping using Mapster</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/atomiv/atomiv-cs</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Atomiv Framework DotNetCore Infrastructure Mapping AutoMapper</PackageTags>
+    <PackageTags>Atomiv Framework DotNetCore Infrastructure Mapping Mapster</PackageTags>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
   </ItemGroup>
   
   <ItemGroup>

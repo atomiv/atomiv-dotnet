@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Atomiv.DependencyInjection.Core.Application;
@@ -25,6 +24,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.DependencyInjection.Infrastructure.MongoDB;
 using Atomiv.Infrastructure.MongoDB;
+using Atomiv.Template.Infrastructure.Commands.Mapping;
+using Atomiv.Template.Infrastructure.Queries.Handlers.Mapping;
+using Mapster;
 
 namespace Atomiv.Template.DependencyInjection
 {
@@ -34,6 +36,13 @@ namespace Atomiv.Template.DependencyInjection
         {
             var moduleTypes = GetModuleTypes();
             var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
+
+            // Configure Mapster mappings
+            MappingConfig.Configure();
+            QueryMappingConfig.Configure();
+            
+            // Register Mapster mapper
+            services.AddScoped<Atomiv.Core.Application.IMapper, Atomiv.Infrastructure.Mapster.Mapper>();
 
             AddCoreModules<RequestType>(services, assemblies);
             AddInfrastructureModules(services, configuration, assemblies);
@@ -108,7 +117,6 @@ namespace Atomiv.Template.DependencyInjection
                 IApplicationUserContext,
                 ApplicationUserContext>();
 
-            services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);
 
             services.AddAspNetCoreInfrastructure(assemblies);

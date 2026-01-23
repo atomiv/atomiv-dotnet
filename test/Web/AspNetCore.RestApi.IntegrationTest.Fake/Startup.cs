@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Atomiv.Infrastructure.CsvHelper;
 using Atomiv.Infrastructure.NewtonsoftJson;
 using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions;
-using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Profiles.Customers;
+using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Mapping;
 using System.Reflection;
 
 namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
@@ -29,7 +30,12 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
         {
             services.AddSingleton<ICsvSerializer, CsvSerializer>();
 
-            services.AddAutoMapper(Assembly.GetAssembly(typeof(CustomerGetAllResponseProfile)));
+            // Configure Mapster
+            MappingConfig.Configure();
+            var config = new TypeAdapterConfig();
+            config.Scan(Assembly.GetExecutingAssembly());
+            services.AddSingleton(config);
+            services.AddScoped<IMapper, ServiceMapper>();
 
             services.AddNewtonsoftJsonInfrastructure();
 

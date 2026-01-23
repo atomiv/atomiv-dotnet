@@ -1,7 +1,7 @@
-﻿using Atomiv.Core.Application;
+using Atomiv.Core.Application;
 using Mapster;
 
-namespace Atomiv.Infrastructure.AutoMapper
+namespace Atomiv.Infrastructure.Mapster
 {
     public class Mapper : IMapper
     {

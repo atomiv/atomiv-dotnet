@@ -21,7 +21,9 @@ using Atomiv.Template.Lite.Services;
 using Microsoft.OpenApi.Models;
 using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Repositories;
-using AutoMapper;
+using Mapster;
+using MapsterMapper;
+using Atomiv.Template.Lite.Mapping;
 
 namespace Atomiv.Template.Lite
 {
@@ -80,8 +82,12 @@ namespace Atomiv.Template.Lite
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
 
-            var assembly = typeof(Startup).Assembly;
-            services.AddAutoMapper(assembly);
+            // Configure Mapster
+            MappingConfig.Configure();
+            var config = new TypeAdapterConfig();
+            config.Scan(typeof(Startup).Assembly);
+            services.AddSingleton(config);
+            services.AddScoped<IMapper, ServiceMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Dtos.Customers;

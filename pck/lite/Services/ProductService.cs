@@ -2,7 +2,7 @@
 using Atomiv.Template.Lite.Entities;
 using Atomiv.Template.Lite.Repositories.Interfaces;
 using Atomiv.Template.Lite.Services.Interfaces;
-using AutoMapper;
+using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
