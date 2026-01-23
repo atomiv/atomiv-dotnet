@@ -3,6 +3,7 @@ using Atomiv.Core.Common;
 using System;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace Atomiv.Infrastructure.Selenium
 {
@@ -14,6 +15,12 @@ namespace Atomiv.Infrastructure.Selenium
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
             
             var options = new ChromeOptions();
+            
+            // Disable password manager and security popups
+            options.AddUserProfilePreference("credentials_enable_service", false);
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
+            options.AddArgument("--disable-blink-features=AutomationControlled");
+            options.AddArgument("--disable-save-password-bubble");
             
             // Check if running in CI environment
             var isCi = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CI"));
