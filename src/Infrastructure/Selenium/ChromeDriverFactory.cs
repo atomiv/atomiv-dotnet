@@ -28,6 +28,12 @@ namespace Atomiv.Infrastructure.Selenium
             }
             
             var webDriver = new ChromeDriver(currentDir, options);
+            
+            // Set timeouts to handle slower page loads in CI
+            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+            webDriver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(30);
+            
             var driver = new Driver(webDriver);
             return driver;
         }
