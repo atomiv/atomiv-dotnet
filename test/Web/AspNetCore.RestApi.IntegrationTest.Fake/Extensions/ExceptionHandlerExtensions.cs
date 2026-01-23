@@ -15,7 +15,7 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake.Extensions
                 {
                     try
                     {
-                        var exceptionHandler = app.ApplicationServices.GetRequiredService<IExceptionHandler>();
+                        var exceptionHandler = app.ApplicationServices.GetRequiredService<Atomiv.Web.AspNetCore.IExceptionHandler>();
 
                         var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                         var exception = exceptionHandlerFeature.Error;

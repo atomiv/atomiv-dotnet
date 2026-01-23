@@ -25,7 +25,7 @@ namespace Atomiv.Template.Web.RestApi.Extensions
         {
             try
             {
-                var exceptionHandler = app.ApplicationServices.GetRequiredService<IExceptionHandler>();
+                var exceptionHandler = app.ApplicationServices.GetRequiredService<Atomiv.Web.AspNetCore.IExceptionHandler>();
 
                 var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                 var exception = exceptionHandlerFeature.Error;

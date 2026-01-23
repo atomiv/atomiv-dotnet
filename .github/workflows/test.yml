@@ -15,10 +15,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup .NET 6.0
+    - name: Setup .NET 8.0
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Setup Chrome and ChromeDriver
       uses: browser-actions/setup-chrome@v1
@@ -48,7 +48,7 @@ jobs:
       run: |
         CHROMEDRIVER_PATH=$(which chromedriver)
         echo "ChromeDriver found at: $CHROMEDRIVER_PATH"
-        find . -type d -path "*/bin/Release/net6.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
+        find . -type d -path "*/bin/Release/net8.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
         echo "ChromeDriver copied to test bin directories"
 
     - name: Run Tests
