@@ -10,8 +10,8 @@ namespace Atomiv.Infrastructure.Selenium
     {
         public Driver Create()
         {
-            // Automatically download and setup the correct ChromeDriver version
-            new DriverManager().SetUpDriver(new ChromeConfig());
+            // Automatically download and setup ChromeDriver matching the installed Chrome version
+            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
             
             var options = new ChromeOptions();
             
