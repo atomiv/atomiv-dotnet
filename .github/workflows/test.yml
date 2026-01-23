@@ -20,10 +20,10 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
-    - name: Setup Chrome and ChromeDriver
-      uses: browser-actions/setup-chrome@v1
-      with:
-        chrome-version: stable
+    # - name: Setup Chrome and ChromeDriver
+    #   uses: browser-actions/setup-chrome@v1
+    #   with:
+    #     chrome-version: stable
 
     - name: Start databases with Docker Compose
       run: docker compose -f template/microservice/docker-compose.yml up -d
@@ -44,15 +44,16 @@ jobs:
     - name: Build solution
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
-    - name: Copy ChromeDriver to test bin directories
-      run: |
-        CHROMEDRIVER_PATH=$(which chromedriver)
-        echo "ChromeDriver found at: $CHROMEDRIVER_PATH"
-        find . -type d -path "*/bin/Release/net6.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
-        echo "ChromeDriver copied to test bin directories"
+    # - name: Copy ChromeDriver to test bin directories
+    #   run: |
+    #     CHROMEDRIVER_PATH=$(which chromedriver)
+    #     echo "ChromeDriver found at: $CHROMEDRIVER_PATH"
+    #     find . -type d -path "*/bin/Release/net6.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
+    #     echo "ChromeDriver copied to test bin directories"
 
     - name: Run Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --filter "FullyQualifiedName!~Selenium"
+      # run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
     - name: Stop databases
       if: always()
