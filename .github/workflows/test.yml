@@ -52,7 +52,7 @@ jobs:
         echo "ChromeDriver copied to test bin directories"
 
     - name: Run Tests
-      run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --filter "FullyQualifiedName!~Selenium.SystemTest"
+      run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
     - name: Stop databases
       if: always()
