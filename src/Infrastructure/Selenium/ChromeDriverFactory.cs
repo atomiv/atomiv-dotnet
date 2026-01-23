@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium.Chrome;
 using Atomiv.Core.Common;
 using System;
-using System.IO;
-using System.Reflection;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace Atomiv.Infrastructure.Selenium
 {
@@ -10,7 +10,8 @@ namespace Atomiv.Infrastructure.Selenium
     {
         public Driver Create()
         {
-            var currentDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            // Automatically download and setup the correct ChromeDriver version
+            new DriverManager().SetUpDriver(new ChromeConfig());
             
             var options = new ChromeOptions();
             
@@ -27,7 +28,7 @@ namespace Atomiv.Infrastructure.Selenium
                 options.AddArgument("--window-size=1920,1080");
             }
             
-            var webDriver = new ChromeDriver(currentDir, options);
+            var webDriver = new ChromeDriver(options);
             
             // Set timeouts to handle slower page loads in CI
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
