@@ -16,11 +16,31 @@ namespace Atomiv.Infrastructure.Selenium
             
             var options = new ChromeOptions();
             
-            // Disable password manager and security popups
+            // Use a temporary profile directory to avoid saved passwords and popups
+            var tempUserDataDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "ChromeTestProfile_" + Guid.NewGuid().ToString());
+            options.AddArgument($"--user-data-dir={tempUserDataDir}");
+            
+            // Disable password manager and all security/notification popups
             options.AddUserProfilePreference("credentials_enable_service", false);
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
+            options.AddUserProfilePreference("profile.default_content_setting_values.notifications", 2);
+            
+            // Disable Safe Browsing and password leak detection
+            options.AddUserProfilePreference("safebrowsing.enabled", false);
+            options.AddUserProfilePreference("safebrowsing.enhanced", false);
+            options.AddUserProfilePreference("profile.password_manager_leak_detection", false);
+            options.AddUserProfilePreference("profile.default_content_setting_values.password_protection_warning_trigger", 2);
+            
+            // Disable automation detection and Chrome warnings
+            options.AddExcludedArgument("enable-automation");
             options.AddArgument("--disable-blink-features=AutomationControlled");
             options.AddArgument("--disable-save-password-bubble");
+            options.AddArgument("--disable-notifications");
+            options.AddArgument("--disable-infobars");
+            options.AddArgument("--disable-extensions");
+            options.AddArgument("--disable-popup-blocking");
+            options.AddArgument("--password-store=basic");
+            options.AddArgument("--use-mock-keychain");
             
             // Check if running in CI environment
             var isCi = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CI"));
