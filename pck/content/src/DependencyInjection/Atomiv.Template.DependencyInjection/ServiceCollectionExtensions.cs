@@ -1,11 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Atomiv.DependencyInjection.Core.Application;
 using Atomiv.DependencyInjection.Core.Domain;
 using Atomiv.DependencyInjection.Infrastructure.AspNetCore;
-using Atomiv.DependencyInjection.Infrastructure.AutoMapper;
 using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
 using Atomiv.DependencyInjection.Infrastructure.MediatR;
 using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
@@ -108,11 +106,9 @@ namespace Atomiv.Template.DependencyInjection
                 IApplicationUserContext,
                 ApplicationUserContext>();
 
-            services.AddAutoMapper(assemblies);
             services.AddMediatR(assemblies);
 
             services.AddAspNetCoreInfrastructure(assemblies);
-            services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
             services.AddMediatRInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);

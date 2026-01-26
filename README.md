@@ -51,7 +51,7 @@ The architecture consists of the following layers:
 ### Atomiv Infrastructure
 
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.AspNetCore.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.AspNetCore) Atomiv.Infrastructure.AspNetCore
-* [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.AutoMapper) Atomiv.Infrastructure.AutoMapper
+* ~~[![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.AutoMapper) Atomiv.Infrastructure.AutoMapper~~ **[DEPRECATED - Use Atomiv.Infrastructure.Mapster instead]**
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.CsvHelper.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.CsvHelper) Atomiv.Infrastructure.CsvHelper
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.EntityFrameworkCore) Atomiv.Infrastructure.EntityFrameworkCore
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.FluentValidation.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.FluentValidation) Atomiv.Infrastructure.FluentValidation
@@ -67,7 +67,7 @@ The architecture consists of the following layers:
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Common.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Common) Atomiv.DependencyInjection.Common
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Core.Domain.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Core.Domain) Atomiv.DependencyInjection.Core.Domain
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Core.Application.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Core.Application) Atomiv.DependencyInjection.Core.Application
-* [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.AutoMapper) Atomiv.DependencyInjection.Infrastructure.AutoMapper
+* ~~[![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.AutoMapper) Atomiv.DependencyInjection.Infrastructure.AutoMapper~~ **[DEPRECATED - Use Atomiv.Infrastructure.Mapster instead]**
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore) Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.FluentValidation.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.FluentValidation) Atomiv.DependencyInjection.Infrastructure.FluentValidation
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.MediatR.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.MediatR) Atomiv.DependencyInjection.Infrastructure.MediatR

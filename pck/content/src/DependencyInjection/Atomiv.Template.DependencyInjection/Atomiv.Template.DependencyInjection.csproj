@@ -16,7 +16,6 @@
 <PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="6.0.0" />
 <PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="6.0.0" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="6.0.0" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="6.0.0" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="6.0.0" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="6.0.0" />

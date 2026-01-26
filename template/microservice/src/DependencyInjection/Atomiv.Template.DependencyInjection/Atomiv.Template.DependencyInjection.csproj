@@ -17,7 +17,6 @@
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Application\Atomiv.DependencyInjection.Core.Application.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Domain\Atomiv.DependencyInjection.Core.Domain.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AutoMapper\Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj" />
