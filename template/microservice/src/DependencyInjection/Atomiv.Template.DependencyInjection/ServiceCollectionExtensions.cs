@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Atomiv.DependencyInjection.Core.Application;
 using Atomiv.DependencyInjection.Core.Domain;
 using Atomiv.DependencyInjection.Infrastructure.AspNetCore;
 using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
-using Atomiv.DependencyInjection.Infrastructure.MediatR;
+using Atomiv.DependencyInjection.Infrastructure.Mediator;
 using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Atomiv.DependencyInjection.Infrastructure.System;
 using Atomiv.Template.Infrastructure.Web.Authentication.Common;
@@ -116,11 +115,9 @@ namespace Atomiv.Template.DependencyInjection
                 IApplicationUserContext,
                 ApplicationUserContext>();
 
-            services.AddMediatR(assemblies);
-
             services.AddAspNetCoreInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
-            services.AddMediatRInfrastructure(assemblies);
+            services.AddSimpleMediatorInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
 

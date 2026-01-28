@@ -12,14 +12,18 @@ namespace Atomiv.DependencyInjection.Infrastructure.FluentValidation
     public static class ServiceCollectionExtensions
     {
         private static Type ValidatorType = typeof(IValidator<>);
+        private static Type RequestValidatorType = typeof(IRequestValidator<>);
+        private static Type FluentValidationRequestValidatorType = typeof(FluentValidationRequestValidator<>);
 
         public static IServiceCollection AddFluentValidationInfrastructure(this IServiceCollection services, params Assembly[] assemblies)
         {
-
-            services.AddScoped(typeof(IRequestValidator<>), typeof(FluentValidationRequestValidator<>));
-
             var types = assemblies.GetTypes();
+            
+            // Register validators first
             services.AddValidators(types);
+            
+            // Only register IRequestValidator<TRequest> for requests that have IValidator<TRequest>
+            services.AddRequestValidators(types);
 
             return services;
         }
@@ -29,6 +33,27 @@ namespace Atomiv.DependencyInjection.Infrastructure.FluentValidation
             var implementationTypes = types.GetConcreteImplementationsOfGenericInterface(ValidatorType);
             services.AddScopedOpenType(ValidatorType, implementationTypes);
 
+            return services;
+        }
+        
+        private static IServiceCollection AddRequestValidators(this IServiceCollection services, IEnumerable<Type> types)
+        {
+            // Find all validator implementations (e.g., CreateProductCommandValidator : IValidator<CreateProductCommand>)
+            var validatorImplementations = types.GetConcreteImplementationsOfGenericInterface(ValidatorType);
+            
+            // For each validator, register IRequestValidator<TRequest> -> FluentValidationRequestValidator<TRequest>
+            foreach (var validatorImpl in validatorImplementations)
+            {
+                // Get the request type from the validator (e.g., CreateProductCommand from CreateProductCommandValidator : IValidator<CreateProductCommand>)
+                var requestType = validatorImpl.BaseType?.GetGenericArguments()[0];
+                if (requestType != null)
+                {
+                    var requestValidatorType = RequestValidatorType.MakeGenericType(requestType);
+                    var fluentValidationRequestValidatorImpl = FluentValidationRequestValidatorType.MakeGenericType(requestType);
+                    services.AddScoped(requestValidatorType, fluentValidationRequestValidatorImpl);
+                }
+            }
+            
             return services;
         }
     }
