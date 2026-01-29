@@ -69,6 +69,14 @@ jobs:
     - name: Run Framework Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=framework-test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
+    - name: Build and Test Template Projects (Before Conversion)
+      run: |
+        # Build template projects with ProjectReferences (before conversion)
+        dotnet build pck/content/Atomiv.Template.sln --configuration Release
+        
+        # Run template tests before conversion to PackageReferences
+        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"
+
     - name: Pack all projects
       run: dotnet pack Atomiv.sln --configuration Release --no-build --output ./nupkg
 
@@ -99,14 +107,6 @@ jobs:
         # Pack the template
         cd pck
         dotnet pack Atomiv.Templates.nuspec --output ./nupkg
-
-    - name: Build and Test Template Projects
-      run: |
-        # Build template projects
-        dotnet build pck/content/Atomiv.Template.sln --configuration Release
-        
-        # Run template tests
-        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
     - name: Publish Template Package to NuGet
       run: |
