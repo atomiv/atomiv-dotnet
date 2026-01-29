@@ -62,13 +62,7 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            
-            // Only add MongoDB module types if configuration exists
-            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
-            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
-            {
-                infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
-            }
+            infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
