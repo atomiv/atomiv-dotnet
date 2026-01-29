@@ -45,7 +45,6 @@ $projects = @(
     'src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj',
     'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
     'src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj',
-    'src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj',
     'src\Infrastructure\MongoDB\Atomiv.Infrastructure.MongoDB.csproj',
     'src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj',
     'src\Infrastructure\RabbitMQ\Atomiv.Infrastructure.RabbitMQ.csproj',
@@ -69,7 +68,6 @@ $projects = @(
     'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',
     # 'src\DependencyInjection\Infrastructure\EPPlus\Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',
     'src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj',
-    'src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj',
     'src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj',
     'src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj',
     # 'src\DependencyInjection\Infrastructure\Selenium\Atomiv.DependencyInjection.Infrastructure.Selenium.csproj',
@@ -88,7 +86,7 @@ $projects = @(
 	'test\Base\EntityFrameworkCore\Atomiv.Test.EntityFrameworkCore.csproj',
 	'test\Base\FluentAssertions\Atomiv.Test.FluentAssertions.csproj',
 	'test\Base\MicrosoftExtensions\Atomiv.Test.MicrosoftExtensions.csproj',
-    'test\Base\Selenium\Atomiv.Test.Selenium.csproj'	
+    'test\Base\Selenium\Atomiv.Test.Selenium.csproj',	
     'test\Base\Xunit\Atomiv.Test.Xunit.csproj'
 )
 
