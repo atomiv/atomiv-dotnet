@@ -62,7 +62,13 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            
+            // Only add MongoDB module types if configuration exists
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
+            {
+                infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            }
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -115,7 +121,13 @@ namespace Atomiv.Template.DependencyInjection
             services.AddSystemInfrastructure(assemblies);
 
             services.AddEfCoreInfrastructureModules(configuration, assemblies);
-            services.AddMongoDBInfrastructureModules(configuration, assemblies);
+            
+            // Only add MongoDB if configuration exists
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
+            {
+                services.AddMongoDBInfrastructureModules(configuration, assemblies);
+            }
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
