@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>8.0.4</Version>
+    <Version>8.0.5</Version>
     <Authors>Atomiv</Authors>
     <Description>[DEPRECATED] This package is deprecated. Use Atomiv.Infrastructure.Mapster instead. Implementation for mapping using Mapster</Description>
     <PackageDeprecated>true</PackageDeprecated>
