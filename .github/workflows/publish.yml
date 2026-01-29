@@ -1,0 +1,87 @@
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v7.0.0, v7.1.0, etc.
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      version:
+        description: 'Version number (e.g., 7.0.0)'
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET 8.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Extract version from tag
+      id: version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION=${GITHUB_REF#refs/tags/v}
+        fi
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "Publishing version: $VERSION"
+
+    - name: Restore dependencies
+      run: dotnet restore Atomiv.sln
+
+    - name: Build solution
+      run: dotnet build Atomiv.sln --configuration Release --no-restore
+
+    - name: Pack all projects
+      run: dotnet pack Atomiv.sln --configuration Release --no-build --output ./nupkg
+
+    - name: Publish Framework Packages to NuGet
+      run: |
+        for package in ./nupkg/Atomiv.*.nupkg; do
+          # Skip template packages (will publish separately)
+          if [[ $package == *"Template"* ]]; then
+            echo "Skipping template package: $package"
+            continue
+          fi
+          
+          echo "Publishing: $package"
+          dotnet nuget push "$package" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+        done
+
+    - name: Create Template Package
+      run: |
+        cd pck
+        chmod +x pack.ps1
+        pwsh ./pack.ps1 -version ${{ steps.version.outputs.VERSION }}
+
+    - name: Publish Template Package to NuGet
+      run: |
+        for package in ./pck/nupkg/*.nupkg; do
+          echo "Publishing template: $package"
+          dotnet nuget push "$package" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+        done
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          ./nupkg/*.nupkg
+          ./pck/nupkg/*.nupkg
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
