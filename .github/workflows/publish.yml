@@ -24,6 +24,24 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
+    - name: Setup Chrome and ChromeDriver
+      uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: stable
+
+    - name: Start databases with Docker Compose
+      run: docker compose -f template/microservice/docker-compose.yml up -d
+
+    - name: Wait for SQL Server to be ready
+      run: |
+        timeout 90s bash -c 'until docker exec atomiv-sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "YourStrong@Passw0rd" -C -Q "SELECT 1" > /dev/null 2>&1; do sleep 2; done'
+        echo "SQL Server is ready"
+
+    - name: Wait for MongoDB to be ready
+      run: |
+        timeout 60s bash -c 'until docker exec atomiv-mongodb mongosh --eval "db.adminCommand({ ping: 1 })" > /dev/null 2>&1; do sleep 2; done'
+        echo "MongoDB is ready"
+
     - name: Extract version from tag
       id: version
       run: |
@@ -40,6 +58,16 @@ jobs:
 
     - name: Build solution
       run: dotnet build Atomiv.sln --configuration Release --no-restore
+
+    - name: Copy ChromeDriver to test bin directories
+      run: |
+        CHROMEDRIVER_PATH=$(which chromedriver)
+        echo "ChromeDriver found at: $CHROMEDRIVER_PATH"
+        find . -type d -path "*/bin/Release/net8.0" -exec cp "$CHROMEDRIVER_PATH" {} \;
+        echo "ChromeDriver copied to test bin directories"
+
+    - name: Run Framework Tests
+      run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=framework-test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
     - name: Pack all projects
       run: dotnet pack Atomiv.sln --configuration Release --no-build --output ./nupkg
@@ -72,6 +100,14 @@ jobs:
         cd pck
         dotnet pack Atomiv.Templates.nuspec --output ./nupkg
 
+    - name: Build and Test Template Projects
+      run: |
+        # Build template projects
+        dotnet build pck/content/Atomiv.Template.sln --configuration Release
+        
+        # Run template tests
+        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"
+
     - name: Publish Template Package to NuGet
       run: |
         for package in ./pck/nupkg/*.nupkg; do
@@ -81,6 +117,18 @@ jobs:
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
         done
+
+    - name: Stop databases
+      if: always()
+      run: docker compose -f template/microservice/docker-compose.yml down
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          **/TestResults/*.trx
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
