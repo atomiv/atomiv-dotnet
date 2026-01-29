@@ -2,7 +2,7 @@
   
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>8.0.9</Version>
+    <Version>8.0.10</Version>
     <Authors>Atomiv</Authors>
     <Description>Simple in-memory mediator implementation for CQRS messaging</Description>
     <Copyright>© All rights reserved.</Copyright>
