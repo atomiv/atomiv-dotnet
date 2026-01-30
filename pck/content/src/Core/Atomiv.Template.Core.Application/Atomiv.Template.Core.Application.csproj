@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Application" Version="6.0.0" />
+    <ProjectReference Include="..\..\..\..\..\src\Core\Application\Atomiv.Core.Application.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Core.Common\Atomiv.Template.Core.Common.csproj" />
   </ItemGroup>
 

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
@@ -13,15 +14,16 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MongoDB" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="6.0.0" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="6.0.0" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Application\Atomiv.DependencyInjection.Core.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Core\Domain\Atomiv.DependencyInjection.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\Mediator\Atomiv.DependencyInjection.Infrastructure.Mediator.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\MongoDB\Atomiv.DependencyInjection.Infrastructure.MongoDB.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\DependencyInjection\Infrastructure\System\Atomiv.DependencyInjection.Infrastructure.System.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\Mapster\Atomiv.Infrastructure.Mapster.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />

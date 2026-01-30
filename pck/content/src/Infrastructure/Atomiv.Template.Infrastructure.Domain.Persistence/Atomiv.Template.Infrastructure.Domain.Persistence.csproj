@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.EntityFrameworkCore" Version="6.0.0" />
-<PackageReference Include="Atomiv.Infrastructure.SequentialGuid" Version="6.0.0" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 

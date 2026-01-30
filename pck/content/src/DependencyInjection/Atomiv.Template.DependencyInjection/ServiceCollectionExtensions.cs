@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Atomiv.DependencyInjection.Core.Application;
 using Atomiv.DependencyInjection.Core.Domain;
 using Atomiv.DependencyInjection.Infrastructure.AspNetCore;
 using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
-using Atomiv.DependencyInjection.Infrastructure.MediatR;
+using Atomiv.DependencyInjection.Infrastructure.Mediator;
 using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Atomiv.DependencyInjection.Infrastructure.System;
 using Atomiv.Template.Infrastructure.Web.Authentication.Common;
@@ -23,6 +22,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Atomiv.DependencyInjection.Infrastructure.MongoDB;
 using Atomiv.Infrastructure.MongoDB;
+using Atomiv.Template.Infrastructure.Commands.Mapping;
+using Atomiv.Template.Infrastructure.Queries.Handlers.Mapping;
+using Mapster;
 
 namespace Atomiv.Template.DependencyInjection
 {
@@ -30,14 +32,21 @@ namespace Atomiv.Template.DependencyInjection
     {
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
         {
-            var moduleTypes = GetModuleTypes(configuration);
+            var moduleTypes = GetModuleTypes();
             var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
+
+            // Configure Mapster mappings
+            MappingConfig.Configure();
+            QueryMappingConfig.Configure();
+            
+            // Register Mapster mapper
+            services.AddScoped<Atomiv.Core.Application.IMapper, Atomiv.Infrastructure.Mapster.Mapper>();
 
             AddCoreModules<RequestType>(services, assemblies);
             AddInfrastructureModules(services, configuration, assemblies);
         }
 
-        private static List<Type> GetModuleTypes(IConfiguration configuration)
+        private static List<Type> GetModuleTypes()
         {
             var coreModuleTypes = new List<Type>
             {
@@ -62,13 +71,7 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            
-            // Only add MongoDB modules if configuration exists
-            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
-            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
-            {
-                infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
-            }
+            // infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -112,27 +115,14 @@ namespace Atomiv.Template.DependencyInjection
                 IApplicationUserContext,
                 ApplicationUserContext>();
 
-            services.AddMediatR(assemblies);
-
             services.AddAspNetCoreInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
-            services.AddMediatRInfrastructure(assemblies);
+            services.AddSimpleMediatorInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
 
-            // Get EF Core module assemblies separately to avoid conflicts with MongoDB
-            var efCoreModuleTypes = GetEfCoreInfrastructureModules();
-            var efCoreAssemblies = efCoreModuleTypes.Select(e => e.Assembly).ToArray();
-            services.AddEfCoreInfrastructureModules(configuration, efCoreAssemblies);
-            
-            // Only add MongoDB if configuration exists
-            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
-            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
-            {
-                var mongoDbModuleTypes = GetMongoDBInfrastructureModules();
-                var mongoDbAssemblies = mongoDbModuleTypes.Select(e => e.Assembly).ToArray();
-                services.AddMongoDBInfrastructureModules(configuration, mongoDbAssemblies);
-            }
+            services.AddEfCoreInfrastructureModules(configuration, assemblies);
+            // services.AddMongoDBInfrastructureModules(configuration, assemblies);
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)

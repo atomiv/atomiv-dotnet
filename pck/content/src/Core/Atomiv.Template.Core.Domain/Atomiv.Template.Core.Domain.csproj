@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Domain" Version="6.0.0" />
+    <ProjectReference Include="..\..\..\..\..\src\Core\Domain\Atomiv.Core.Domain.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Core.Common\Atomiv.Template.Core.Common.csproj" />
   </ItemGroup>
 

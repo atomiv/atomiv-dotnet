@@ -59,6 +59,9 @@ jobs:
     - name: Build solution
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
+    - name: Sync template from source to package
+      run: pwsh ./scripts/sync-template.ps1
+
     - name: Copy ChromeDriver to test bin directories
       run: |
         CHROMEDRIVER_PATH=$(which chromedriver)
@@ -71,8 +74,11 @@ jobs:
 
     - name: Build and Test Template Projects (Before Conversion)
       run: |
+        # Restore dependencies for synced template
+        dotnet restore pck/content/Atomiv.Template.sln
+        
         # Build template projects with ProjectReferences (before conversion)
-        dotnet build pck/content/Atomiv.Template.sln --configuration Release
+        dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
         
         # Run template tests before conversion to PackageReferences
         dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"

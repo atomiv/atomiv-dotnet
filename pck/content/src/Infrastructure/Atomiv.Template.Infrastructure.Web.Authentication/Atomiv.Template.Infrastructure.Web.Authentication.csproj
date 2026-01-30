@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="6.0.0" />
+    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 
