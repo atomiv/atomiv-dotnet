@@ -32,7 +32,7 @@ namespace Atomiv.Template.DependencyInjection
     {
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
         {
-            var moduleTypes = GetModuleTypes();
+            var moduleTypes = GetModuleTypes(configuration);
             var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
 
             // Configure Mapster mappings
@@ -46,7 +46,7 @@ namespace Atomiv.Template.DependencyInjection
             AddInfrastructureModules(services, configuration, assemblies);
         }
 
-        private static List<Type> GetModuleTypes()
+        private static List<Type> GetModuleTypes(IConfiguration configuration)
         {
             var coreModuleTypes = new List<Type>
             {
@@ -71,7 +71,13 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            // infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            
+            // Only add MongoDB modules if configuration exists
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
+            {
+                infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            }
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -122,7 +128,13 @@ namespace Atomiv.Template.DependencyInjection
             services.AddSystemInfrastructure(assemblies);
 
             services.AddEfCoreInfrastructureModules(configuration, assemblies);
-            // services.AddMongoDBInfrastructureModules(configuration, assemblies);
+            
+            // Only add MongoDB modules if configuration exists
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
+            {
+                services.AddMongoDBInfrastructureModules(configuration, assemblies);
+            }
         }
 
         private static void AddEfCoreInfrastructureModules(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
