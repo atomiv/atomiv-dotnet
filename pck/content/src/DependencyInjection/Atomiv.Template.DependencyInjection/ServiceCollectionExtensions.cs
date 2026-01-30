@@ -30,14 +30,14 @@ namespace Atomiv.Template.DependencyInjection
     {
         public static void AddModules(this IServiceCollection services, IConfiguration configuration)
         {
-            var moduleTypes = GetModuleTypes();
+            var moduleTypes = GetModuleTypes(configuration);
             var assemblies = moduleTypes.Select(e => e.Assembly).ToArray();
 
             AddCoreModules<RequestType>(services, assemblies);
             AddInfrastructureModules(services, configuration, assemblies);
         }
 
-        private static List<Type> GetModuleTypes()
+        private static List<Type> GetModuleTypes(IConfiguration configuration)
         {
             var coreModuleTypes = new List<Type>
             {
@@ -62,7 +62,13 @@ namespace Atomiv.Template.DependencyInjection
             };
 
             infrastructureModuleTypes.AddRange(GetEfCoreInfrastructureModules());
-            infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            
+            // Only add MongoDB modules if configuration exists
+            var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
+            if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
+            {
+                infrastructureModuleTypes.AddRange(GetMongoDBInfrastructureModules());
+            }
 
             var moduleTypes = new List<Type>();
             moduleTypes.AddRange(coreModuleTypes);
@@ -114,13 +120,18 @@ namespace Atomiv.Template.DependencyInjection
             services.AddNewtonsoftJsonInfrastructure(assemblies);
             services.AddSystemInfrastructure(assemblies);
 
-            services.AddEfCoreInfrastructureModules(configuration, assemblies);
+            // Get EF Core module assemblies separately to avoid conflicts with MongoDB
+            var efCoreModuleTypes = GetEfCoreInfrastructureModules();
+            var efCoreAssemblies = efCoreModuleTypes.Select(e => e.Assembly).ToArray();
+            services.AddEfCoreInfrastructureModules(configuration, efCoreAssemblies);
             
             // Only add MongoDB if configuration exists
             var mongoDbSection = configuration.GetSection(nameof(MongoDBOptions));
             if (mongoDbSection.Exists() && !string.IsNullOrEmpty(mongoDbSection["ConnectionString"]))
             {
-                services.AddMongoDBInfrastructureModules(configuration, assemblies);
+                var mongoDbModuleTypes = GetMongoDBInfrastructureModules();
+                var mongoDbAssemblies = mongoDbModuleTypes.Select(e => e.Assembly).ToArray();
+                services.AddMongoDBInfrastructureModules(configuration, mongoDbAssemblies);
             }
         }
 
