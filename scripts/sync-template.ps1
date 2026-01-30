@@ -5,8 +5,8 @@ param (
     [string]$rootPath = '.'
 )
 
-$sourcePath = Join-Path $rootPath "template\microservice"
-$targetPath = Join-Path $rootPath "pck\content"
+$sourcePath = Join-Path $rootPath "template/microservice"
+$targetPath = Join-Path $rootPath "pck/content"
 
 Write-Host "Syncing template from $sourcePath to $targetPath"
 
@@ -21,10 +21,9 @@ $excludePatterns = @(
     "bin",
     "obj",
     ".vs",
-    ".log",
-    ".user",
-    "*.suo",
+    "*.log",
     "*.user",
+    "*.suo",
     "TestResults"
 )
 
@@ -40,16 +39,22 @@ foreach ($dir in $directoriesToSync) {
             Remove-Item -Path $target -Recurse -Force
         }
         
-        # Copy directory with exclusions
-        robocopy $source $target /E /XD $excludePatterns /XF $excludePatterns /NFL /NDL /NJH /NJS /nc /ns /np
+        # Cross-platform copy using PowerShell
+        # Copy all files and subdirectories, excluding specified patterns
+        Copy-Item -Path $source -Destination $target -Recurse -Force -Exclude $excludePatterns
         
-        # robocopy returns 0-7 for success, 8+ for errors
-        if ($LASTEXITCODE -ge 8) {
-            Write-Error "Failed to sync $dir"
-            exit 1
+        # Remove excluded directories from copied content
+        foreach ($pattern in $excludePatterns) {
+            $excludedDirs = Get-ChildItem -Path $target -Directory -Recurse -Filter $pattern -ErrorAction SilentlyContinue
+            foreach ($excludedDir in $excludedDirs) {
+                Remove-Item -Path $excludedDir.FullName -Recurse -Force -ErrorAction SilentlyContinue
+            }
         }
+        
+        Write-Host "Synced $dir successfully"
     } else {
-        Write-Warning "Source directory not found: $source"
+        Write-Error "Source directory not found: $source"
+        exit 1
     }
 }
 
