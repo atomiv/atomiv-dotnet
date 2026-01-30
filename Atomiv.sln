@@ -29,8 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B968F3E4-0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.AspNetCore", "src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj", "{911B3FC0-C9D6-4793-B60D-25225398A93B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.AutoMapper", "src\Infrastructure\AutoMapper\Atomiv.Infrastructure.AutoMapper.csproj", "{22973DDB-AFCB-4982-8CD0-178DC341CDA2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.CsvHelper", "src\Infrastructure\CsvHelper\Atomiv.Infrastructure.CsvHelper.csproj", "{E87BF0FE-21A9-40D8-86D1-3A494A7AC2CB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj", "{51DFD5A5-7FBB-4934-A4DC-793CAAFD44DD}"
@@ -60,8 +58,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Core.Domain", "src\DependencyInjection\Core\Domain\Atomiv.DependencyInjection.Core.Domain.csproj", "{4CCC7990-D46F-42D7-9BAB-388895A6FADE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.AspNetCore", "src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj", "{0C17163B-7E91-4DD0-9CFC-B5CFBFB1F9B4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.AutoMapper", "src\DependencyInjection\Infrastructure\AutoMapper\Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj", "{3EE81C3D-D221-453E-91E6-B9B69B3A6F37}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.CsvHelper", "src\DependencyInjection\Infrastructure\CsvHelper\Atomiv.DependencyInjection.Infrastructure.CsvHelper.csproj", "{2D6623D7-5212-4EB4-ACAD-BD85E9338219}"
 EndProject
