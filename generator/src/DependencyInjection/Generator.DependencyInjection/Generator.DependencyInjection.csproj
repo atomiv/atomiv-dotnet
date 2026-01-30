@@ -16,7 +16,7 @@
     <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AutoMapper" Version="1.0.16" />
     <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="1.0.16" />
     <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="1.0.16" />
-    <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MediatR" Version="1.0.16" />
+    <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.SimpleMediator" Version="8.0.0" />
     <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="1.0.16" />
   </ItemGroup>
 

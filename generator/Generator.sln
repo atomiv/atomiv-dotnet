@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.En
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.FluentValidation", "src\Infrastructure\Generator.Infrastructure.FluentValidation\Generator.Infrastructure.FluentValidation.csproj", "{1F4792DF-EB24-4144-9E8D-C54392A84977}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.MediatR", "src\Infrastructure\Generator.Infrastructure.MediatR\Generator.Infrastructure.MediatR.csproj", "{AD295E8C-8F83-4CCF-A2F3-DE1F4FC09D9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.SimpleMediator", "src\Infrastructure\Generator.Infrastructure.SimpleMediator\Generator.Infrastructure.SimpleMediator.csproj", "{AD295E8C-8F83-4CCF-A2F3-DE1F4FC09D9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Core.Application.IntegrationTest", "test\Core\Generator.Core.Application.IntegrationTest\Generator.Core.Application.IntegrationTest.csproj", "{24D7A204-139B-4F1F-B75D-40CC67C7A8D7}"
 EndProject

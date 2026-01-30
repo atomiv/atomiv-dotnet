@@ -6,7 +6,7 @@ using Atomiv.DependencyInjection.Core.Domain;
 using Atomiv.DependencyInjection.Infrastructure.AutoMapper;
 using Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore;
 using Atomiv.DependencyInjection.Infrastructure.FluentValidation;
-using Atomiv.DependencyInjection.Infrastructure.MediatR;
+using Atomiv.DependencyInjection.Infrastructure.SimpleMediator;
 using Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson;
 using Generator.Infrastructure.EntityFrameworkCore;
 using System;
@@ -31,7 +31,7 @@ namespace Generator.DependencyInjection
                 typeof(Infrastructure.AutoMapper.Module),
                 typeof(Infrastructure.EntityFrameworkCore.Module),
                 typeof(Infrastructure.FluentValidation.Module),
-                typeof(Infrastructure.MediatR.Module),
+                typeof(Infrastructure.SimpleMediator.Module),
             };
 
             var modules = new List<Type>();
@@ -52,7 +52,7 @@ namespace Generator.DependencyInjection
             services.AddEntityFrameworkCoreInfrastructure<DatabaseContext>(options => options.UseSqlServer(connection), assemblies);
             services.AddAutoMapperInfrastructure(assemblies);
             services.AddFluentValidationInfrastructure(assemblies);
-            services.AddMediatRInfrastructure(assemblies);
+            services.AddSimpleMediatorInfrastructure(assemblies);
             services.AddNewtonsoftJsonInfrastructure(assemblies);
         }
     }

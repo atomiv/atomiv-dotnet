@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.EntityFr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Cli.Infrastructure.FluentValidation.csproj", "{4E467C13-452E-4799-955A-63F19B0F06AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.MediatR", "src\Infrastructure\MediatR\Cli.Infrastructure.MediatR.csproj", "{3BDB1238-F492-4984-AEA8-16268EA4E9FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.SimpleMediator", "src\Infrastructure\SimpleMediator\Cli.Infrastructure.SimpleMediator.csproj", "{3BDB1238-F492-4984-AEA8-16268EA4E9FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.All", "src\Infrastructure\All\Cli.Infrastructure.All.csproj", "{C2F3F99C-BF19-459D-8D84-441C59FACAD8}"
 EndProject
