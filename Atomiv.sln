@@ -37,8 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Entit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj", "{13F8A1DA-8E96-4A7A-8158-659F89503132}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.MediatR", "src\Infrastructure\MediatR\Atomiv.Infrastructure.MediatR.csproj", "{7F222407-6A4B-4449-A1F1-D00815EBB4F8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj", "{E7B18A00-073F-4576-9764-2E3CD9A2A51E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Selenium", "src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj", "{3E63C428-A67A-4475-915A-5D70F660E4E9}"
@@ -70,8 +68,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore", "src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj", "{7F553B47-1968-4F8F-9946-1D2F393E5F51}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.FluentValidation", "src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.MediatR", "src\DependencyInjection\Infrastructure\MediatR\Atomiv.DependencyInjection.Infrastructure.MediatR.csproj", "{C5D3B8FB-AB99-442C-83CA-CF3E1B0630AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
 EndProject
