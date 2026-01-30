@@ -55,7 +55,6 @@ The architecture consists of the following layers:
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.CsvHelper.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.CsvHelper) Atomiv.Infrastructure.CsvHelper
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.EntityFrameworkCore) Atomiv.Infrastructure.EntityFrameworkCore
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.FluentValidation.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.FluentValidation) Atomiv.Infrastructure.FluentValidation
-* ~~[![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.MediatR.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.MediatR) Atomiv.Infrastructure.MediatR~~ **[DEPRECATED - Use Atomiv.Infrastructure.SimpleMediator instead]**
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.NewtonsoftJson.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.NewtonsoftJson) Atomiv.Infrastructure.NewtonsoftJson
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.Selenium.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.Selenium) Atomiv.Infrastructure.Selenium
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.Infrastructure.System.svg)](https://www.nuget.org/packages/Atomiv.Infrastructure.System) Atomiv.Infrastructure.System
@@ -70,7 +69,6 @@ The architecture consists of the following layers:
 * ~~[![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.AutoMapper.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.AutoMapper) Atomiv.DependencyInjection.Infrastructure.AutoMapper~~ **[DEPRECATED - Use Atomiv.Infrastructure.Mapster instead]**
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore) Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.FluentValidation.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.FluentValidation) Atomiv.DependencyInjection.Infrastructure.FluentValidation
-* ~~[![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.MediatR.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.MediatR) Atomiv.DependencyInjection.Infrastructure.MediatR~~ **[DEPRECATED - Use Atomiv.DependencyInjection.Infrastructure.SimpleMediator instead]**
 * [![NuGet](https://img.shields.io/nuget/v/Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.svg)](https://www.nuget.org/packages/Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson) Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson
 
 
