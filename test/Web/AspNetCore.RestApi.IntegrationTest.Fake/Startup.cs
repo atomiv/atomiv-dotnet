@@ -39,8 +39,6 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
 
             services.AddNewtonsoftJsonInfrastructure();
 
-            // TODO: VC: AutoMapper: AssertConfigurationIsValid (example error: Count field is not mapped)
-
             services
                 .AddMvc(options =>
                 {

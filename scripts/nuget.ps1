@@ -40,7 +40,6 @@ $projects = @(
 	# ### ============================== INFRASTRUCTURE ============================== ###
 	
     'src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj',
-    'src\Infrastructure\AutoMapper\Atomiv.Infrastructure.AutoMapper.csproj',
     'src\Infrastructure\CsvHelper\Atomiv.Infrastructure.CsvHelper.csproj',
     'src\Infrastructure\EntityFrameworkCore\Atomiv.Infrastructure.EntityFrameworkCore.csproj',
     'src\Infrastructure\EPPlus\Atomiv.Infrastructure.EPPlus.csproj',
@@ -63,7 +62,6 @@ $projects = @(
 	
 	# Infrastructure
 	'src\DependencyInjection\Infrastructure\AspNetCore\Atomiv.DependencyInjection.Infrastructure.AspNetCore.csproj',
-    'src\DependencyInjection\Infrastructure\AutoMapper\Atomiv.DependencyInjection.Infrastructure.AutoMapper.csproj',
     # 'src\DependencyInjection\Infrastructure\CsvHelper\Atomiv.DependencyInjection.Infrastructure.CsvHelper.csproj',
     'src\DependencyInjection\Infrastructure\EntityFrameworkCore\Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore.csproj',
     # 'src\DependencyInjection\Infrastructure\EPPlus\Atomiv.DependencyInjection.Infrastructure.EPPlus.csproj',

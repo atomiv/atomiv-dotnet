@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.DependencyInjecti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.All", "src\Infrastructure\Generator.Infrastructure.All\Generator.Infrastructure.All.csproj", "{8442F7AC-72A7-4ABD-B732-15B23FF4E1AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.AutoMapper", "src\Infrastructure\Generator.Infrastructure.AutoMapper\Generator.Infrastructure.AutoMapper.csproj", "{AF84439A-1DAF-4E7D-BCDC-0248D9C646EA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.EntityFrameworkCore", "src\Infrastructure\Generator.Infrastructure.EntityFrameworkCore\Generator.Infrastructure.EntityFrameworkCore.csproj", "{0E1B15C1-05A6-49A7-BF57-9395AEB3277C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Infrastructure.FluentValidation", "src\Infrastructure\Generator.Infrastructure.FluentValidation\Generator.Infrastructure.FluentValidation.csproj", "{1F4792DF-EB24-4144-9E8D-C54392A84977}"

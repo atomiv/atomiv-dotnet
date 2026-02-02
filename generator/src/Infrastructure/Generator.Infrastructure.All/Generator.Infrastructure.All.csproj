@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Generator.Infrastructure.AutoMapper\Generator.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\Generator.Infrastructure.EntityFrameworkCore\Generator.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Generator.Infrastructure.FluentValidation\Generator.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\Generator.Infrastructure.SimpleMediator\Generator.Infrastructure.SimpleMediator.csproj" />

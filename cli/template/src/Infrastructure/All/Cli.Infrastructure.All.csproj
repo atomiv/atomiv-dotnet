@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AutoMapper\Cli.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\EntityFrameworkCore\Cli.Infrastructure.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\FluentValidation\Cli.Infrastructure.FluentValidation.csproj" />
     <ProjectReference Include="..\SimpleMediator\Cli.Infrastructure.SimpleMediator.csproj" />

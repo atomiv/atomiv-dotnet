@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj" />
-    <ProjectReference Include="..\..\..\src\Infrastructure\AutoMapper\Atomiv.Infrastructure.AutoMapper.csproj" />
     <ProjectReference Include="..\..\..\src\Infrastructure\CsvHelper\Atomiv.Infrastructure.CsvHelper.csproj" />
     <ProjectReference Include="..\..\..\src\Web\AspNetCore\Atomiv.Web.AspNetCore.csproj" />
   </ItemGroup>

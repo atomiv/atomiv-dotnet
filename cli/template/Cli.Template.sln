@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Core.Application", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Core.All", "src\Core\All\Cli.Core.All.csproj", "{29F18735-CB09-41AE-B27C-53E08F735F38}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.AutoMapper", "src\Infrastructure\AutoMapper\Cli.Infrastructure.AutoMapper.csproj", "{407B8C4A-6E2F-4B71-ABEB-A3A0D1D00F5C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.EntityFrameworkCore", "src\Infrastructure\EntityFrameworkCore\Cli.Infrastructure.EntityFrameworkCore.csproj", "{86C9B43C-6007-42D6-8E31-3C41423052EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Cli.Infrastructure.FluentValidation.csproj", "{4E467C13-452E-4799-955A-63F19B0F06AE}"
