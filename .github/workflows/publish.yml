@@ -99,18 +99,6 @@ jobs:
             --skip-duplicate
         done
 
-    - name: Prepare Template Package
-      run: |
-        # Run Convert-TemplateReferences.ps1 to convert ProjectReferences to PackageReferences
-        pwsh ./scripts/Convert-TemplateReferences.ps1 -version ${{ steps.version.outputs.VERSION }}
-        
-        # Update version in .nuspec file
-        sed -i "s/<version>.*<\/version>/<version>${{ steps.version.outputs.VERSION }}<\/version>/g" pck/Atomiv.Templates.nuspec
-        
-        # Pack the template
-        cd pck
-        dotnet pack Atomiv.Templates.nuspec --output ./nupkg
-
     - name: Publish Template Package to NuGet
       run: |
         for package in ./pck/nupkg/*.nupkg; do

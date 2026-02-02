@@ -79,8 +79,36 @@ try {
 }
 Write-Host ""
 
-# Step 5: Show changes
-Write-Host "[5/8] Changes to be committed:" -ForegroundColor Yellow
+# Step 5: Convert template references
+Write-Host "[5/8] Converting template project references to package references..." -ForegroundColor Yellow
+Push-Location (Resolve-Path "$PSScriptRoot\..")
+try {
+    & "$PSScriptRoot\Convert-TemplateReferences.ps1" -version $version
+    if ($LASTEXITCODE -ne 0) {
+        throw "Template reference conversion failed"
+    }
+    Write-Host "✓ Template references converted successfully" -ForegroundColor Green
+} finally {
+    Pop-Location
+}
+Write-Host ""
+
+# Step 6: Update .nuspec version
+Write-Host "[6/8] Updating template package version in .nuspec..." -ForegroundColor Yellow
+Push-Location (Resolve-Path "$PSScriptRoot\..")
+try {
+    $nuspecPath = "pck\Atomiv.Templates.nuspec"
+    $nuspecContent = Get-Content $nuspecPath -Raw
+    $nuspecContent = $nuspecContent -replace '<version>.*?</version>', "<version>$version</version>"
+    Set-Content -Path $nuspecPath -Value $nuspecContent
+    Write-Host "✓ .nuspec version updated to $version" -ForegroundColor Green
+} finally {
+    Pop-Location
+}
+Write-Host ""
+
+# Step 7: Show changes
+Write-Host "[7/8] Changes to be committed:" -ForegroundColor Yellow
 git status --short
 Write-Host ""
 
@@ -92,8 +120,8 @@ if ($firstChanged) {
 }
 Write-Host ""
 
-# Step 6: Confirm
-Write-Host "[6/8] Ready to commit and tag?" -ForegroundColor Yellow
+# Step 8: Confirm
+Write-Host "[8/10] Ready to commit and tag?" -ForegroundColor Yellow
 Write-Host "This will:" -ForegroundColor White
 Write-Host "  - Commit all changes" -ForegroundColor White
 Write-Host "  - Create tag v$version" -ForegroundColor White
@@ -108,9 +136,9 @@ if ($confirmation -ne "yes") {
     exit 0
 }
 
-# Step 7: Commit
+# Step 9: Commit
 Write-Host ""
-Write-Host "[7/8] Committing changes..." -ForegroundColor Yellow
+Write-Host "[9/10] Committing changes..." -ForegroundColor Yellow
 
 if ([string]::IsNullOrWhiteSpace($message)) {
     $message = "Release v$version"
@@ -127,8 +155,8 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "✓ Changes committed" -ForegroundColor Green
 Write-Host ""
 
-# Step 8: Tag and push
-Write-Host "[8/8] Creating and pushing tag v$version..." -ForegroundColor Yellow
+# Step 10: Tag and push
+Write-Host "[10/10] Creating and pushing tag v$version..." -ForegroundColor Yellow
 
 git tag "v$version"
 
