@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
-    <Version>8.0.20</Version>
+    <Version>8.0.21</Version>
     <Description>Implementation for CSV Serialization using CsvHelper</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>

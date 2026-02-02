@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Application" Version="8.0.20" />
+<PackageReference Include="Atomiv.Core.Application" Version="8.0.21" />
     <ProjectReference Include="..\Atomiv.Template.Core.Common\Atomiv.Template.Core.Common.csproj" />
   </ItemGroup>
 

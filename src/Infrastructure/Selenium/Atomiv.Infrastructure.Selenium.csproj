@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>8.0.20</Version>
+    <Version>8.0.21</Version>
     <Authors>Atomiv</Authors>
     <Description>Implementation for Web Automation using Selenium</Description>
     <Copyright>?  All rights reserved.</Copyright>
