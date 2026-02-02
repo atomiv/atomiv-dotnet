@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
-    <Version>8.0.23</Version>
+    <Version>8.0.24</Version>
     <Description>Implementation for Messaging using RabbitMQ</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>
