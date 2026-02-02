@@ -108,7 +108,11 @@ jobs:
       run: dotnet nuget locals all --clear
 
     - name: Restore Template with Published Packages
-      run: dotnet restore pck/content/Atomiv.Template.sln
+      uses: ./.github/actions/retry-command
+      with:
+        command: 'dotnet restore pck/content/Atomiv.Template.sln'
+        max-retries: '20'
+        delay-seconds: '30'
 
     - name: Build Template Package
       run: dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore

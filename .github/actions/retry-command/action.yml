@@ -1,0 +1,48 @@
+name: 'Retry Command'
+description: 'Execute a command with automatic retries on failure'
+
+inputs:
+  command:
+    description: 'Command to execute'
+    required: true
+  max-retries:
+    description: 'Maximum number of retries'
+    required: false
+    default: '20'
+  delay-seconds:
+    description: 'Delay in seconds between retries'
+    required: false
+    default: '30'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Execute command with retries
+      shell: pwsh
+      run: |
+        $command = '${{ inputs.command }}'
+        $maxRetries = [int]'${{ inputs.max-retries }}'
+        $delaySeconds = [int]'${{ inputs.delay-seconds }}'
+        $retryCount = 0
+        $success = $false
+        
+        while (-not $success -and $retryCount -lt $maxRetries) {
+          try {
+            Write-Host "Executing: $command"
+            Invoke-Expression $command
+            $success = $true
+            Write-Host "✓ Command succeeded"
+          }
+          catch {
+            $retryCount++
+            if ($retryCount -lt $maxRetries) {
+              $timeRemaining = ($maxRetries - $retryCount) * $delaySeconds
+              Write-Host "✗ Command failed (attempt $retryCount/$maxRetries). Retrying in $delaySeconds seconds... (~$timeRemaining seconds remaining)"
+              Start-Sleep -Seconds $delaySeconds
+            }
+            else {
+              Write-Host "✗ Command failed after $maxRetries attempts"
+              throw $_
+            }
+          }
+        }
