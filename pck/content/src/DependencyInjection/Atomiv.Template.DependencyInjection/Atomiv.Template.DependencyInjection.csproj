@@ -19,7 +19,7 @@
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="8.0.20" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="8.0.20" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="8.0.20" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.Mediator" Version="8.0.20" />
+    <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.SimpleMediator" Version="8.0.20" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MongoDB" Version="8.0.20" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="8.0.20" />
 <PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="8.0.20" />

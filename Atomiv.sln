@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Entit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.FluentValidation", "src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj", "{13F8A1DA-8E96-4A7A-8158-659F89503132}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.SimpleMediator", "src\Infrastructure\SimpleMediator\Atomiv.Infrastructure.SimpleMediator.csproj", "{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.NewtonsoftJson", "src\Infrastructure\NewtonsoftJson\Atomiv.Infrastructure.NewtonsoftJson.csproj", "{E7B18A00-073F-4576-9764-2E3CD9A2A51E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.Infrastructure.Selenium", "src\Infrastructure\Selenium\Atomiv.Infrastructure.Selenium.csproj", "{3E63C428-A67A-4475-915A-5D70F660E4E9}"
@@ -65,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.FluentValidation", "src\DependencyInjection\Infrastructure\FluentValidation\Atomiv.DependencyInjection.Infrastructure.FluentValidation.csproj", "{19D1D124-A0E1-4D82-818E-2D518CC45B41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.Mediator", "src\DependencyInjection\Infrastructure\Mediator\Atomiv.DependencyInjection.Infrastructure.Mediator.csproj", "{E66C4E55-54B2-4D48-8C3E-2CBF9B0A2E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.SimpleMediator", "src\DependencyInjection\Infrastructure\SimpleMediator\Atomiv.DependencyInjection.Infrastructure.SimpleMediator.csproj", "{E66C4E55-54B2-4D48-8C3E-2CBF9B0A2E6F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson", "src\DependencyInjection\Infrastructure\NewtonsoftJson\Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson.csproj", "{FEE6431B-DBBC-4A7E-A126-49164857D58E}"
 EndProject
@@ -309,6 +311,18 @@ Global
 		{13F8A1DA-8E96-4A7A-8158-659F89503132}.Release|x64.Build.0 = Release|Any CPU
 		{13F8A1DA-8E96-4A7A-8158-659F89503132}.Release|x86.ActiveCfg = Release|Any CPU
 		{13F8A1DA-8E96-4A7A-8158-659F89503132}.Release|x86.Build.0 = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|x64.Build.0 = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Debug|x86.Build.0 = Debug|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|x64.ActiveCfg = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|x64.Build.0 = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1B2C3D4-5E6F-7A8B-9C0D-1E2F3A4B5C6D}.Release|x86.Build.0 = Release|Any CPU
 		{E7B18A00-073F-4576-9764-2E3CD9A2A51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7B18A00-073F-4576-9764-2E3CD9A2A51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7B18A00-073F-4576-9764-2E3CD9A2A51E}.Debug|x64.ActiveCfg = Debug|Any CPU

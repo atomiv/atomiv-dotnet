@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Infrastructure\Mediator\Atomiv.Infrastructure.Mediator.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\SimpleMediator\Atomiv.Infrastructure.SimpleMediator.csproj" />
     <ProjectReference Include="..\..\Base\DependencyInjection\Atomiv.DependencyInjection.Common.csproj" />
   </ItemGroup>
 
