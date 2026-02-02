@@ -1,0 +1,30 @@
+name: 'Wait for NuGet Packages'
+description: 'Polls NuGet.org to verify packages are available before proceeding'
+
+inputs:
+  version:
+    description: 'Package version to check for'
+    required: true
+  packages:
+    description: 'Comma-separated list of package names to check (e.g., Atomiv.Core.Domain,Atomiv.Core.Application)'
+    required: true
+  max-wait-seconds:
+    description: 'Maximum time to wait in seconds'
+    required: false
+    default: '1800'
+  interval-seconds:
+    description: 'Polling interval in seconds'
+    required: false
+    default: '30'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Poll NuGet for packages
+      shell: pwsh
+      run: |
+        ${{ github.action_path }}/Wait-NuGetPackages.ps1 `
+          -Version "${{ inputs.version }}" `
+          -PackagesCsv "${{ inputs.packages }}" `
+          -MaxWaitSeconds ${{ inputs.max-wait-seconds }} `
+          -IntervalSeconds ${{ inputs.interval-seconds }}
