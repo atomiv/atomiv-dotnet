@@ -19,10 +19,18 @@ Write-Host ""
 
 # Step 1: Update versions
 Write-Host "[1/5] Updating project versions to $version..." -ForegroundColor Yellow
-& "$PSScriptRoot\version.ps1" -version $version
-
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Version update failed"
+$versionScript = Join-Path $PSScriptRoot "version.ps1"
+try {
+    & $versionScript -version $version -rootPath (Resolve-Path "$PSScriptRoot\..")
+    if (-not $?) {
+        throw "Version script exited with a non-success status."
+    }
+} catch {
+    $details = $_.Exception.Message
+    if ($_.Exception.InnerException) {
+        $details = "$details | Inner: $($_.Exception.InnerException.Message)"
+    }
+    Write-Error "Version update failed: $details"
     exit 1
 }
 
