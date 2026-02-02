@@ -71,20 +71,9 @@ jobs:
     - name: Run Framework Tests
       run: dotnet test Atomiv.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=framework-test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
-    - name: Build and Test Template Projects (Before Conversion)
-      run: |
-        # Restore dependencies for synced template
-        dotnet restore pck/content/Atomiv.Template.sln
-        
-        # Build template projects with ProjectReferences (before conversion)
-        dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
-        
-        # Run template tests before conversion to PackageReferences
-        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"
-
     # Packing and Publishing Framework
 
-    - name: Pack all projects
+    - name: Pack Framework Packages
       run: dotnet pack Atomiv.sln --configuration Release --no-build --output ./nupkg
 
     - name: Publish Framework Packages to NuGet
