@@ -49,8 +49,7 @@ namespace Atomiv.Web.AspNetCore.RestApi.IntegrationTest.Fake
                     options.OutputFormatters.Add(new CsvOutputFormatter(csvSerializationService));
 
                     options.EnableEndpointRouting = false;
-                })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                });
 
             var validationProblemDetailsFactory = new ValidationActionContextProblemDetailsFactory();
             var jsonSerializationService = new JsonSerializer();

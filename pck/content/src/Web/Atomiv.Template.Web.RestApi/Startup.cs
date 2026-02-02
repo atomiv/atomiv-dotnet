@@ -62,8 +62,7 @@ namespace Atomiv.Template.Web.RestApi
             {
                 options.EnableEndpointRouting = false;
             })
-                .AddNewtonsoftJson()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                .AddNewtonsoftJson();
 
             services.AddCors(options =>
             {
