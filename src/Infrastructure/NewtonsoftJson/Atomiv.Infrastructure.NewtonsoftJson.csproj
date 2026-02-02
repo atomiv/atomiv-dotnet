@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Atomiv</Authors>
-    <Version>8.0.17</Version>
+    <Version>8.0.18</Version>
     <Description>Implementation for JSON Serialization using NewtonsoftJson</Description>
     <Copyright>?  All rights reserved.</Copyright>
     <PackageProjectUrl>https://atomiv.com</PackageProjectUrl>

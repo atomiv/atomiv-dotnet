@@ -14,16 +14,16 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.Mediator" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MongoDB" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="8.0.17" />
-<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="8.0.17" />
-<PackageReference Include="Atomiv.Infrastructure.Mapster" Version="8.0.17" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Application" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Core.Domain" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.AspNetCore" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.EntityFrameworkCore" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.FluentValidation" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.Mediator" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.MongoDB" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.NewtonsoftJson" Version="8.0.18" />
+<PackageReference Include="Atomiv.DependencyInjection.Infrastructure.System" Version="8.0.18" />
+<PackageReference Include="Atomiv.Infrastructure.Mapster" Version="8.0.18" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Atomiv.Template.Infrastructure.All\Atomiv.Template.Infrastructure.All.csproj" />
     <ProjectReference Include="..\..\Tools\Atomiv.Template.Tools.Migrator\Atomiv.Template.Tools.Migrator.csproj" />

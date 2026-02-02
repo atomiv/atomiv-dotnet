@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>8.0.17</Version>
+    <Version>8.0.18</Version>
     <Authors>Atomiv</Authors>
     <PackageIcon>favicon.png</PackageIcon>
   </PropertyGroup>
