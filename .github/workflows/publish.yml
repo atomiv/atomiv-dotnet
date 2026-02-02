@@ -59,9 +59,6 @@ jobs:
     - name: Build solution
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
-    - name: Sync template from source to package
-      run: pwsh ./scripts/Sync-TemplateContent.ps1
-
     - name: Copy ChromeDriver to test bin directories
       run: |
         CHROMEDRIVER_PATH=$(which chromedriver)

@@ -37,8 +37,50 @@ try {
 Write-Host "✓ Version updated successfully" -ForegroundColor Green
 Write-Host ""
 
-# Step 2: Show changes
-Write-Host "[2/5] Changes to be committed:" -ForegroundColor Yellow
+# Step 2: Restore dependencies
+Write-Host "[2/8] Restoring dependencies..." -ForegroundColor Yellow
+Push-Location (Resolve-Path "$PSScriptRoot\..")
+try {
+    dotnet restore Atomiv.sln
+    if ($LASTEXITCODE -ne 0) {
+        throw "Restore failed"
+    }
+    Write-Host "✓ Dependencies restored" -ForegroundColor Green
+} finally {
+    Pop-Location
+}
+Write-Host ""
+
+# Step 3: Build solution
+Write-Host "[3/8] Building solution (Release)..." -ForegroundColor Yellow
+Push-Location (Resolve-Path "$PSScriptRoot\..")
+try {
+    dotnet build Atomiv.sln --configuration Release --no-restore
+    if ($LASTEXITCODE -ne 0) {
+        throw "Build failed"
+    }
+    Write-Host "✓ Solution built successfully" -ForegroundColor Green
+} finally {
+    Pop-Location
+}
+Write-Host ""
+
+# Step 4: Sync template
+Write-Host "[4/8] Syncing template from source to package..." -ForegroundColor Yellow
+Push-Location (Resolve-Path "$PSScriptRoot\..")
+try {
+    & "$PSScriptRoot\Sync-TemplateContent.ps1"
+    if ($LASTEXITCODE -ne 0) {
+        throw "Template sync failed"
+    }
+    Write-Host "✓ Template synced successfully" -ForegroundColor Green
+} finally {
+    Pop-Location
+}
+Write-Host ""
+
+# Step 5: Show changes
+Write-Host "[5/8] Changes to be committed:" -ForegroundColor Yellow
 git status --short
 Write-Host ""
 
@@ -50,8 +92,8 @@ if ($firstChanged) {
 }
 Write-Host ""
 
-# Step 3: Confirm
-Write-Host "[3/5] Ready to commit and tag?" -ForegroundColor Yellow
+# Step 6: Confirm
+Write-Host "[6/8] Ready to commit and tag?" -ForegroundColor Yellow
 Write-Host "This will:" -ForegroundColor White
 Write-Host "  - Commit all changes" -ForegroundColor White
 Write-Host "  - Create tag v$version" -ForegroundColor White
@@ -66,9 +108,9 @@ if ($confirmation -ne "yes") {
     exit 0
 }
 
-# Step 4: Commit
+# Step 7: Commit
 Write-Host ""
-Write-Host "[4/5] Committing changes..." -ForegroundColor Yellow
+Write-Host "[7/8] Committing changes..." -ForegroundColor Yellow
 
 if ([string]::IsNullOrWhiteSpace($message)) {
     $message = "Release v$version"
@@ -85,8 +127,8 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "✓ Changes committed" -ForegroundColor Green
 Write-Host ""
 
-# Step 5: Tag and push
-Write-Host "[5/5] Creating and pushing tag v$version..." -ForegroundColor Yellow
+# Step 8: Tag and push
+Write-Host "[8/8] Creating and pushing tag v$version..." -ForegroundColor Yellow
 
 git tag "v$version"
 
