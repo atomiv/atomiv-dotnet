@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Infrastructure.MongoDB" Version="8.0.21" />
+<PackageReference Include="Atomiv.Infrastructure.MongoDB" Version="8.0.22" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFramework>net8.0</TargetFramework>
-    <Version>8.0.21</Version>
+    <Version>8.0.22</Version>
     <Authors>Atomiv</Authors>
     <Description>Implementation for persistence using Entity Framework Core</Description>
     <Copyright>?  All rights reserved.</Copyright>

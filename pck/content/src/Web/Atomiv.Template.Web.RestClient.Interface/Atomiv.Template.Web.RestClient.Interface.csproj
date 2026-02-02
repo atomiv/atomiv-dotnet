@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.Core.Common" Version="8.0.21" />
+<PackageReference Include="Atomiv.Core.Common" Version="8.0.22" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Commands\Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Queries\Atomiv.Template.Core.Application.Queries.csproj" />
   </ItemGroup>
