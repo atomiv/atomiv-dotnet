@@ -60,7 +60,7 @@ jobs:
       run: dotnet build Atomiv.sln --configuration Release --no-restore
 
     - name: Sync template from source to package
-      run: pwsh ./scripts/sync-template.ps1
+      run: pwsh ./scripts/Sync-TemplateContent.ps1
 
     - name: Copy ChromeDriver to test bin directories
       run: |
@@ -104,8 +104,8 @@ jobs:
 
     - name: Prepare Template Package
       run: |
-        # Run template.ps1 to convert ProjectReferences to PackageReferences
-        pwsh ./scripts/template.ps1 -version ${{ steps.version.outputs.VERSION }}
+        # Run Convert-TemplateReferences.ps1 to convert ProjectReferences to PackageReferences
+        pwsh ./scripts/Convert-TemplateReferences.ps1 -version ${{ steps.version.outputs.VERSION }}
         
         # Update version in .nuspec file
         sed -i "s/<version>.*<\/version>/<version>${{ steps.version.outputs.VERSION }}<\/version>/g" pck/Atomiv.Templates.nuspec

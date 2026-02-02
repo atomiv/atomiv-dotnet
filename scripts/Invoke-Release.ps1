@@ -19,7 +19,7 @@ Write-Host ""
 
 # Step 1: Update versions
 Write-Host "[1/5] Updating project versions to $version..." -ForegroundColor Yellow
-$versionScript = Join-Path $PSScriptRoot "version.ps1"
+$versionScript = Join-Path $PSScriptRoot "Update-ProjectVersions.ps1"
 try {
     & $versionScript -version $version -rootPath (Resolve-Path "$PSScriptRoot\..")
     if (-not $?) {
