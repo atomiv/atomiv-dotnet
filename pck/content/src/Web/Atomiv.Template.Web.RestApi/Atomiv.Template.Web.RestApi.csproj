@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="8.0.24" />
-<PackageReference Include="Atomiv.Web.AspNetCore" Version="8.0.24" />
+<PackageReference Include="Atomiv.DependencyInjection.Web.AspNetCore" Version="8.0.25" />
+<PackageReference Include="Atomiv.Web.AspNetCore" Version="8.0.25" />
     <ProjectReference Include="..\..\DependencyInjection\Atomiv.Template.DependencyInjection\Atomiv.Template.DependencyInjection.csproj" />
   </ItemGroup>
 
