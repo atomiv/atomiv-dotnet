@@ -99,7 +99,7 @@ jobs:
       with:
         version: ${{ steps.version.outputs.VERSION }}
         packages: 'Atomiv.Core.Domain,Atomiv.Core.Application,Atomiv.Infrastructure.EntityFrameworkCore'
-        max-wait-seconds: '1800'
+        max-wait-seconds: '3600'
         interval-seconds: '30'
 
     # Build Template
