@@ -2,8 +2,9 @@
 
 param (
     [Parameter(Mandatory=$true)]
-    [string]$version,
-    [string]$message = ""
+    [string]$Version,
+    [string]$Message = "",
+    [switch]$DryRun
 )
 
 # Validate version format
@@ -14,6 +15,9 @@ if ($version -notmatch '^\d+\.\d+\.\d+$') {
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  Atomiv Release Process - v$version" -ForegroundColor Cyan
+if ($DryRun) {
+    Write-Host "  (DRY RUN - No commits or tags will be created)" -ForegroundColor Yellow
+}
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -128,6 +132,15 @@ Write-Host "  - Create tag v$version" -ForegroundColor White
 Write-Host "  - Push to origin/master" -ForegroundColor White
 Write-Host "  - Push tag (triggers GitHub Actions publish)" -ForegroundColor White
 Write-Host ""
+
+if ($DryRun) {
+    Write-Host "DRY RUN MODE: No changes will be committed or tagged." -ForegroundColor Yellow
+    Write-Host "Changes preview:" -ForegroundColor Yellow
+    git status --short
+    Write-Host ""
+    Write-Host "✓ Dry run completed successfully. To proceed, run without -DryRun flag." -ForegroundColor Green
+    exit 0
+}
 
 $confirmation = Read-Host "Continue? (yes/no)"
 if ($confirmation -ne "yes") {

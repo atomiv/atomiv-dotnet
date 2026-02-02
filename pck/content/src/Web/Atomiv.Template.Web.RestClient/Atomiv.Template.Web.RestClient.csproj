@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\AspNetCore\Atomiv.Infrastructure.AspNetCore.csproj" />
+<PackageReference Include="Atomiv.Infrastructure.AspNetCore" Version="8.0.17" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.Application.Commands\Atomiv.Template.Core.Application.Commands.csproj" />
     <ProjectReference Include="..\Atomiv.Template.Web.RestClient.Interface\Atomiv.Template.Web.RestClient.Interface.csproj" />
   </ItemGroup>

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\SequentialGuid\Atomiv.Infrastructure.SequentialGuid.csproj" />
+<PackageReference Include="Atomiv.Infrastructure.SequentialGuid" Version="8.0.17" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 

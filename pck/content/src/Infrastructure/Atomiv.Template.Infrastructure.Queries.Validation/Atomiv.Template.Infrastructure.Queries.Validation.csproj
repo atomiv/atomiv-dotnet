@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\src\Infrastructure\FluentValidation\Atomiv.Infrastructure.FluentValidation.csproj" />
+<PackageReference Include="Atomiv.Infrastructure.FluentValidation" Version="8.0.17" />
     <ProjectReference Include="..\..\Core\Atomiv.Template.Core.All\Atomiv.Template.Core.All.csproj" />
   </ItemGroup>
 
