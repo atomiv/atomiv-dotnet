@@ -53,6 +53,8 @@ jobs:
         echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
         echo "Publishing version: $VERSION"
 
+    # Building Framework
+
     - name: Restore dependencies
       run: dotnet restore Atomiv.sln
 
@@ -80,6 +82,8 @@ jobs:
         # Run template tests before conversion to PackageReferences
         dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-test-results.trx" --filter "FullyQualifiedName!~Selenium"
 
+    # Packing and Publishing Framework
+
     - name: Pack all projects
       run: dotnet pack Atomiv.sln --configuration Release --no-build --output ./nupkg
 
@@ -99,7 +103,9 @@ jobs:
             --skip-duplicate
         done
 
-    - name: Wait for NuGet packages to be available
+    # Wait for Framework Packages
+
+    - name: Wait for Framework NuGet packages to be available
       uses: ./.github/actions/wait-for-nuget-packages
       with:
         version: ${{ steps.version.outputs.VERSION }}
@@ -107,19 +113,21 @@ jobs:
         max-wait-seconds: '1800'
         interval-seconds: '30'
 
-    - name: Build and Test Template Package (After Framework Published)
-      run: |
-        # Clear local NuGet cache to force download from nuget.org
-        dotnet nuget locals all --clear
-        
-        # Restore template with published framework packages
-        dotnet restore pck/content/Atomiv.Template.sln
-        
-        # Build template to validate PackageReferences work
-        dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
-        
-        # Run template tests
-        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-package-test-results.trx" --filter "FullyQualifiedName!~Selenium"
+    # Build Template
+
+    - name: Clear NuGet cache
+      run: dotnet nuget locals all --clear
+
+    - name: Restore Template with Published Packages
+      run: dotnet restore pck/content/Atomiv.Template.sln
+
+    - name: Build Template Package
+      run: dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
+
+    - name: Test Template Package
+      run: dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-package-test-results.trx" --filter "FullyQualifiedName!~Selenium"
+
+    # Publish Template
 
     - name: Pack Template Package
       run: |
@@ -138,6 +146,8 @@ jobs:
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
         done
+
+    # Cleanup
 
     - name: Stop databases
       if: always()
