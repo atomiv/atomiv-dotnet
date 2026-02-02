@@ -128,7 +128,7 @@ jobs:
         mkdir -p ./pck/nupkg
         
         # Pack the template using nuspec
-        nuget pack pck/Atomiv.Templates.nuspec -OutputDirectory ./pck/nupkg
+        dotnet pack pck/Atomiv.Templates.nuspec -p:NuspecFile=pck/Atomiv.Templates.nuspec -o ./pck/nupkg
 
     - name: Publish Template Package to NuGet
       run: |
