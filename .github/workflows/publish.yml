@@ -99,6 +99,80 @@ jobs:
             --skip-duplicate
         done
 
+    - name: Wait for NuGet packages to be available
+      shell: pwsh
+      run: |
+        $VERSION = "${{ steps.version.outputs.VERSION }}"
+        $MAX_WAIT = 900  # 15 minutes
+        $INTERVAL = 30   # 30 seconds
+        $ELAPSED = 0
+        
+        Write-Host "Polling NuGet every ${INTERVAL}s (max ${MAX_WAIT}s) for packages version ${VERSION}..."
+        
+        # Check a few key packages
+        $PACKAGES = @("Atomiv.Core.Domain", "Atomiv.Core.Application", "Atomiv.Infrastructure.EntityFrameworkCore")
+        
+        while ($ELAPSED -lt $MAX_WAIT) {
+          $ALL_AVAILABLE = $true
+          
+          foreach ($PACKAGE in $PACKAGES) {
+            Write-Host "Checking ${PACKAGE} ${VERSION}..."
+            $PACKAGE_LOWER = $PACKAGE.ToLower()
+            $URL = "https://api.nuget.org/v3-flatcontainer/${PACKAGE_LOWER}/index.json"
+            
+            try {
+              $RESPONSE = Invoke-RestMethod -Uri $URL -ErrorAction Stop
+              
+              if ($RESPONSE.versions -contains $VERSION) {
+                Write-Host "✓ ${PACKAGE} ${VERSION} is available" -ForegroundColor Green
+              } else {
+                Write-Host "✗ ${PACKAGE} ${VERSION} not yet available" -ForegroundColor Yellow
+                $ALL_AVAILABLE = $false
+                break
+              }
+            } catch {
+              Write-Host "✗ ${PACKAGE} ${VERSION} not yet available (API error)" -ForegroundColor Yellow
+              $ALL_AVAILABLE = $false
+              break
+            }
+          }
+          
+          if ($ALL_AVAILABLE) {
+            Write-Host "All packages are available on NuGet!" -ForegroundColor Green
+            exit 0
+          }
+          
+          Write-Host "Waiting ${INTERVAL} seconds before next check..."
+          Start-Sleep -Seconds $INTERVAL
+          $ELAPSED += $INTERVAL
+          Write-Host "Elapsed time: ${ELAPSED}s / ${MAX_WAIT}s"
+        }
+        
+        Write-Host "ERROR: Timeout reached after ${MAX_WAIT}s. Packages not available on NuGet." -ForegroundColor Red
+        exit 1
+
+    - name: Build and Test Template Package (After Framework Published)
+      run: |
+        # Clear local NuGet cache to force download from nuget.org
+        dotnet nuget locals all --clear
+        
+        # Restore template with published framework packages
+        dotnet restore pck/content/Atomiv.Template.sln
+        
+        # Build template to validate PackageReferences work
+        dotnet build pck/content/Atomiv.Template.sln --configuration Release --no-restore
+        
+        # Run template tests
+        dotnet test pck/content/Atomiv.Template.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=template-package-test-results.trx" --filter "FullyQualifiedName!~Selenium"
+
+    - name: Pack Template Package
+      run: |
+        # Create nupkg directory if it doesn't exist
+        mkdir -p ./pck/nupkg
+        
+        # Pack the template using nuspec
+        nuget pack pck/Atomiv.Templates.nuspec -OutputDirectory ./pck/nupkg
+
     - name: Publish Template Package to NuGet
       run: |
         for package in ./pck/nupkg/*.nupkg; do
