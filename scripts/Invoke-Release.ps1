@@ -124,8 +124,8 @@ if ($firstChanged) {
 }
 Write-Host ""
 
-# Step 8: Confirm
-Write-Host "[8/10] Ready to commit and tag?" -ForegroundColor Yellow
+# Step 8: Proceed to commit
+Write-Host "[8/10] Proceeding to commit and tag..." -ForegroundColor Yellow
 Write-Host "This will:" -ForegroundColor White
 Write-Host "  - Commit all changes" -ForegroundColor White
 Write-Host "  - Create tag v$version" -ForegroundColor White
@@ -142,12 +142,7 @@ if ($DryRun) {
     exit 0
 }
 
-$confirmation = Read-Host "Continue? (yes/no)"
-if ($confirmation -ne "yes") {
-    Write-Host "Release cancelled. Changes preserved but not committed." -ForegroundColor Yellow
-    Write-Host "Run 'git checkout .' to revert changes if needed." -ForegroundColor Gray
-    exit 0
-}
+
 
 # Step 9: Commit
 Write-Host ""
