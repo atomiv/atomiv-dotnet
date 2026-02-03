@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I see the card number \'SauceCard #31337\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
- testRunner.And("I see the shipping information \'FREE PONY EXPRESS DELIVERY!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the shipping information \'Free Pony Express Delivery!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
  testRunner.And("I see the subtotal $7.99", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -153,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I am on the order confirmation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
- testRunner.And("I see the confirmation header \'THANK YOU FOR YOUR ORDER\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the confirmation header \'Thank you for your order!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
  testRunner.And("I see the confirmation text \'Your order has been dispatched, and will arrive just" +
@@ -236,7 +236,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I see the card number \'SauceCard #31337\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 39
- testRunner.And("I see the shipping information \'FREE PONY EXPRESS DELIVERY!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the shipping information \'Free Pony Express Delivery!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 40
  testRunner.And("I see the subtotal $87.97", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -248,7 +248,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I am on the order confirmation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 43
- testRunner.And("I see the confirmation header \'THANK YOU FOR YOUR ORDER\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I see the confirmation header \'Thank you for your order!\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
  testRunner.And("I see the confirmation text \'Your order has been dispatched, and will arrive just" +

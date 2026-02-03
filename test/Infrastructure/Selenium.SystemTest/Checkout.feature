@@ -13,11 +13,11 @@ Scenario: Successfully purchasing a single product
 	And I have entered the zip code '2000'
 	And I have clicked on continue on the information
 	And I see the card number 'SauceCard #31337'
-	And I see the shipping information 'FREE PONY EXPRESS DELIVERY!'
+	And I see the shipping information 'Free Pony Express Delivery!'
 	And I see the subtotal $7.99
 	When I click on the Finish button on the overview
 	Then I am on the order confirmation page
-	And I see the confirmation header 'THANK YOU FOR YOUR ORDER'
+	And I see the confirmation header 'Thank you for your order!'
 	And I see the confirmation text 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'
 
 @positive
@@ -36,11 +36,11 @@ Scenario: Successfully purchasing multiple products
 	And I have entered the zip code '2000'
 	And I have clicked on continue on the information
 	And I see the card number 'SauceCard #31337'
-	And I see the shipping information 'FREE PONY EXPRESS DELIVERY!'
+	And I see the shipping information 'Free Pony Express Delivery!'
 	And I see the subtotal $87.97
 	When I click on the Finish button on the overview
 	Then I am on the order confirmation page
-	And I see the confirmation header 'THANK YOU FOR YOUR ORDER'
+	And I see the confirmation header 'Thank you for your order!'
 	And I see the confirmation text 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'
 
 @negative
